@@ -1,4 +1,4 @@
-{{name="minecraft:acacia_boat"},
+return {{name="minecraft:acacia_boat"},
 {name="minecraft:acacia_door"},
 {name="minecraft:acacia_fence"},
 {name="minecraft:acacia_fence_gate"},
