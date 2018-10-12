@@ -1,18 +1,16 @@
 local init = {}
 local shell = require("shell")
 local prog = "/home/crafting/"
-function init.getfiles()
-  print("initializing files...")
-  local Files
-  for line in io.lines("/home/crafting/files") do
-    if version == nil then
-      version = tonumber(line)
-    else
-      print("getting " .. line)
-      os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. line .."' '" .. prog .. line .. "'")
-    end
-  end
-  print("done")
+
+function init.getfiles(files)
+	print("initializing files...")
+	local Files
+	for i,file in pairs(files) do
+	  file = file .. ".lua"
+      print("getting file " .. file)
+      os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+	end
+	print("Get new Files: done")
 end
 
 function init.clone(repo, gotFilesList)
@@ -26,9 +24,19 @@ function init.clone(repo, gotFilesList)
 		filesystem.makeDirectory(prog)
 	end
 	os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
-	nFiles = GetFiles(io.lines(prog .. "newfiles"))
-	filesystem.remove("/home/crafting/newfiles")
-	init.getfiles()
+	nFiles = GetFiles(io.lines(prog .. "files"))
+	local files = {}
+	local counter = 0
+	for i,j in pairs(nFiles) do
+		if(pFiles[i] == nil)then
+			files[counter] = i
+		elseif(nFiles[i] > pFiles[i])then
+			files[counter] = i
+		else
+			print(i .. ".lua is uptodate")
+		end
+	end
+	init.getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
 local function GetFiles(lines)
@@ -36,7 +44,7 @@ local function GetFiles(lines)
 	for i, line in pairs(lines) do
 		local fcounter = 0
 		local filename
-		local f = {version=0}
+		local version = 0
 		for w in (line .. " "):gmatch("([^ ]*) ") do 
 			if(fcounter == 0)then
 				local c = 0
@@ -46,11 +54,11 @@ local function GetFiles(lines)
 				end
 			end
 			if(fcounter == 1)then
-				f.version = tonumber(w)
+				version = tonumber(w)
 			end
 			fcounter = fcounter +1
 		end
-		files[filename] = f
+		files[filename] = version
 	end
 	return files
 end
@@ -67,11 +75,11 @@ local function file_exist(path)
   return true
 end
 
-local args = shell.parse( ... )
-if args[1] ~= nil then
-  init.clone()
-else
-  init.getfiles()
-end
+--local args = shell.parse( ... )
+--if args[1] ~= nil then
+--  init.clone()
+--else
+--  init.getfiles()
+--end
 
 return init
