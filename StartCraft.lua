@@ -3,6 +3,7 @@ local shell = require("shell")
 local prog = "/home/crafting/"
 
 local function getfiles(files)
+    print("")
     if(files.n > 0)then
         print("Downloading files...")
         for name,props in pairs(files) do
@@ -24,15 +25,20 @@ local function clone()
     local nFiles = {}
     if(filesystem.exists(prog))then
         if(filesystem.exists(prog .. "files"))then
+            print("Getting old file attributes")
             pFiles = get(io.lines(prog .. "files"))
         end
     else
+        print("Directory: " .. prog .. "not existing... Creating!")
         filesystem.makeDirectory(prog)
     end
+    print("")
+    print("Getting new file attributes")
     os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
     nFiles = get(io.lines(prog .. "files"))
     local files = {n=0}
     local counter = 0
+    print("")
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
             files[i] = j
@@ -79,8 +85,7 @@ function get(lines)
             fcounter = fcounter +1
         end
         files[filename] = f
-        print(filename .. ": " .. f.version)
-        print(filename .. ": " .. f.folder)
+        print(filename .. ": Version" .. f.version .. " Folder: " .. f.folder)
     end
     return files
 end
@@ -89,6 +94,10 @@ end
 local args = shell.parse( ... )
 if args[1] ~= nil then
     if args[1] == "GetFiles" then
+        clone()
+    elseif args[1] == "GetNewFiles" then
+        print("Removing: " .. prog .. "files")
+        filesystem.remove(prog .. "files")
         clone()
     end
 end
