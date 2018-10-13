@@ -3,11 +3,11 @@ local shell = require("shell")
 local prog = "/home/crafting/"
 
 local function getfiles(files)
-    print("initializing files...")
     if(files.n > 0)then
+        print("Downloading files...")
         for name,props in pairs(files) do
           file = props.folder .. i .. ".lua"
-          print("getting file " .. props.folder .. i .. ".lua" .. props.version)
+          print("Getting file " .. props.folder .. i .. ".lua   (Version: " .. props.version .. ")")
           os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
         end
         print("Get new Files: done")
