@@ -34,11 +34,11 @@ local function clone()
     local counter = 0
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
-            files[counter] = i
+            files[i] = j
         elseif(nFiles[i].version > pFiles[i].version)then
-            files[counter] = i
+            files[i] = j
         else
-            print(i .. ".lua is uptodate, Version: " .. j.version)
+            print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
         end
     end
     getfiles(files)
