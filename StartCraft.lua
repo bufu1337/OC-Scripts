@@ -4,11 +4,10 @@ local prog = "/home/crafting/"
 
 local function getfiles(files)
     print("initializing files...")
-    local Files
-    if(#files ~= 0)then
-        for i,file in pairs(files) do
-          file = file .. ".lua"
-          print("getting file " .. file)
+    if(files.n > 0)then
+        for name,props in pairs(files) do
+          file = props.folder .. i .. ".lua"
+          print("getting file " .. props.folder .. i .. ".lua" .. props.version)
           os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
         end
         print("Get new Files: done")
@@ -35,8 +34,10 @@ local function clone()
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
             files[i] = j
+            files.n = files.n + 1
         elseif(nFiles[i].version > pFiles[i].version)then
             files[i] = j
+            files.n = files.n + 1
         else
             print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
         end
@@ -55,10 +56,10 @@ function get(lines)
                 if(w:match("/") ~= nil)then
                     local b = 0
                     for y in w:gmatch("([^/]*)/") do
-                        if(w:match("/") ~= nil)then
-                             f.folder = y
-                        else
+                        if(y:match("lua") ~= nil)then
                             w = y
+                        else
+                            f.folder = y
                         end
                     end
                 end
