@@ -38,7 +38,7 @@ local function clone()
         elseif(nFiles[i].version > pFiles[i].version)then
             files[counter] = i
         else
-            print(i .. ".lua is uptodate")
+            print(i .. ".lua is uptodate, Version: " .. j.version)
         end
     end
     getfiles(files)
@@ -78,16 +78,6 @@ function get(lines)
     return files
 end
 
-
-function file_exist(path)
-    local file = io.open(path)
-    if (not file) then
-        print("[ERROR]: No such file: " .. path .. ".")
-        return false
-    end
-    io.close(file)
-    return true
-end
 
 local args = shell.parse( ... )
 if args[1] ~= nil then
