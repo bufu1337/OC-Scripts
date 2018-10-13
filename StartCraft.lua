@@ -29,15 +29,17 @@ local function clone()
     end
     os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
     nFiles = get(io.lines(prog .. "files"))
-    local files = {}
+    local files = {n=0}
     local counter = 0
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
             files[i] = j
             files.n = files.n + 1
+            print(j.folder .. i .. ".lua updating, Version: " .. j.version)
         elseif(nFiles[i].version > pFiles[i].version)then
             files[i] = j
             files.n = files.n + 1
+            print(j.folder .. i .. ".lua updating, Version: " .. j.version)
         else
             print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
         end
@@ -75,6 +77,8 @@ function get(lines)
             fcounter = fcounter +1
         end
         files[filename] = f
+        print(filename .. ": " .. f.version)
+        print(filename .. ": " .. f.folder)
     end
     return files
 end
