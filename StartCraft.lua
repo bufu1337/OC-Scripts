@@ -16,15 +16,15 @@ end
 local function clone()
     local pFiles = {}
     local nFiles = {}
-    if(exists(prog))then
+    if(filesystem.exists(prog))then
         if(file_exist(prog .. "files"))then
-            pFiles = getversion(io.lines(prog .. "files"))
+            pFiles = get(io.lines(prog .. "files"))
         end
     else
         filesystem.makeDirectory(prog)
     end
     os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
-    nFiles = getversion(io.lines(prog .. "files"))
+    nFiles = get(io.lines(prog .. "files"))
     local files = {}
     local counter = 0
     for i,j in pairs(nFiles) do
@@ -39,14 +39,24 @@ local function clone()
     init.getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
-local function getversion(lines)
+local function get(lines)
     local files = {}
     for i, line in pairs(lines) do
         local fcounter = 0
         local filename
-        local version = 0
+        local f = {version = 0; folder = ""}
         for w in (line .. " "):gmatch("([^ ]*) ") do 
             if(fcounter == 0)then
+                if(w:match("/") ~= nil)then
+                    local b = 0
+                    for y in w:gmatch("([^/]*)/") do
+                        if(w:match("/") ~= nil)then
+                             f.folder = y
+                        else
+                            w = y
+                        end
+                    end
+                end
                 local c = 0
                 for x in w:gmatch("([^.]*).") do
                     if(c == 0)then filename = x end
@@ -54,11 +64,11 @@ local function getversion(lines)
                 end
             end
             if(fcounter == 1)then
-                version = tonumber(w)
+                f.version = tonumber(w)
             end
             fcounter = fcounter +1
         end
-        files[filename] = version
+        files[filename] = f
     end
     return files
 end
@@ -74,12 +84,12 @@ local function file_exist(path)
     return true
 end
 
---local args = shell.parse( ... )
---if args[1] ~= nil then
---  init.clone()
---else
---  init.getfiles()
---end
+local args = shell.parse( ... )
+if args[1] ~= nil then
+    if args[1] == "GetFiles" then
+        start.clone()
+    end
+end
 
 
 init.clone = clone
