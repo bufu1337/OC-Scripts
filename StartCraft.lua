@@ -6,9 +6,11 @@ local function getfiles(files)
     if(files.n > 0)then
         print("Downloading files...")
         for name,props in pairs(files) do
-          file = props.folder .. i .. ".lua"
-          print("Getting file " .. props.folder .. i .. ".lua   (Version: " .. props.version .. ")")
-          os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+            if name ~= "n" then
+                file = props.folder .. name .. ".lua"
+                print("Getting file: " .. file .. "  (Version: " .. props.version .. ")")
+                os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+            end
         end
         print("Get new Files: done")
     else
