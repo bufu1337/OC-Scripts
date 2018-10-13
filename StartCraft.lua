@@ -1,4 +1,4 @@
-local init = {}
+local start = {}
 local shell = require("shell")
 local prog = "/home/crafting/"
 
@@ -87,10 +87,10 @@ end
 local args = shell.parse( ... )
 if args[1] ~= nil then
     if args[1] == "GetFiles" then
-        start.clone()
+        clone()
     end
 end
 
 
-init.clone = clone
-return init
+start.clone = clone
+return start
