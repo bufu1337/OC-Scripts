@@ -152,20 +152,20 @@ end
 
 -- The main loop ("Ctrl + C" to interrup the program)
 while (true) do
-	local items_path
-	local crafts = load_file(paths[1])
-	local tasks = rs.getTasks()
-	local bin = nil
+    local items_path
+    local crafts = load_file(paths[1])
+    local tasks = rs.getTasks()
+    local bin = nil
 
-	-- Craft needed items
-	for i, craft in ipairs(crafts) do
-		craft_item(craft, tasks)
-	end
+    -- Craft needed items
+    for i, craft in ipairs(crafts) do
+        craft_item(craft, tasks)
+    end
 
-	-- Event handler
-	local id = event.pull(5, "interrupted")
-	if (id == "interrupted") then
-		print("Program stopped.")
-		break
-	end
+    -- Event handler
+    local id = event.pull(5, "interrupted")
+    if (id == "interrupted") then
+        print("Program stopped.")
+        break
+    end
 end
