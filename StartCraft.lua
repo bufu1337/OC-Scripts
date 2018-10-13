@@ -2,7 +2,7 @@ local init = {}
 local shell = require("shell")
 local prog = "/home/crafting/"
 
-function init.getfiles(files)
+function getfiles(files)
 	print("initializing files...")
 	local Files
 	for i,file in pairs(files) do
@@ -13,18 +13,18 @@ function init.getfiles(files)
 	print("Get new Files: done")
 end
 
-function init.clone(repo, gotFilesList)
+function clone()
 	local pFiles = {}
 	local nFiles = {}
 	if(exists(prog))then
 		if(file_exist(prog .. "files"))then
-			pFiles = GetFiles(io.lines(prog .. "files"))
+			pFiles = getversion(io.lines(prog .. "files"))
 		end
 	else
 		filesystem.makeDirectory(prog)
 	end
 	os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
-	nFiles = GetFiles(io.lines(prog .. "files"))
+	nFiles = getversion(io.lines(prog .. "files"))
 	local files = {}
 	local counter = 0
 	for i,j in pairs(nFiles) do
@@ -39,7 +39,7 @@ function init.clone(repo, gotFilesList)
 	init.getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
-local function GetFiles(lines)
+local function getversion(lines)
 	local files = {}
 	for i, line in pairs(lines) do
 		local fcounter = 0
@@ -82,4 +82,5 @@ end
 --  init.getfiles()
 --end
 
+init.clone = clone
 return init
