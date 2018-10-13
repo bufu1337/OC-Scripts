@@ -6,15 +6,15 @@ local function getfiles(files)
     print("initializing files...")
     local Files
     if(#files ~= 0)then
-		for i,file in pairs(files) do
-    	  file = file .. ".lua"
-    	  print("getting file " .. file)
-    	  os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
-    	end
-    	print("Get new Files: done")
-	else
-		print("All files are uptodate")
-	end
+        for i,file in pairs(files) do
+          file = file .. ".lua"
+          print("getting file " .. file)
+          os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+        end
+        print("Get new Files: done")
+    else
+        print("All files are uptodate")
+    end
 
 end
 
