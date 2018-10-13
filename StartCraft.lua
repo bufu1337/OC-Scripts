@@ -5,12 +5,17 @@ local prog = "/home/crafting/"
 local function getfiles(files)
     print("initializing files...")
     local Files
-    for i,file in pairs(files) do
-      file = file .. ".lua"
-      print("getting file " .. file)
-      os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
-    end
-    print("Get new Files: done")
+    if(#files ~= 0)then
+		for i,file in pairs(files) do
+    	  file = file .. ".lua"
+    	  print("getting file " .. file)
+    	  os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+    	end
+    	print("Get new Files: done")
+	else
+		print("All files are uptodate")
+	end
+
 end
 
 local function clone()
@@ -36,7 +41,7 @@ local function clone()
             print(i .. ".lua is uptodate")
         end
     end
-    init.getfiles(files)
+    getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
 function get(lines)
