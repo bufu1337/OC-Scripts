@@ -4,7 +4,7 @@
 -- Crafts file (a craft per line): [item_name] [count]
 -- File example: https://pastebin.com/zDrXzfSM
 --
--- Created by Nyhillius 
+-- Created by Nyhillius  
 
 
 local event = require("event")
