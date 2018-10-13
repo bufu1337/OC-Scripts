@@ -30,7 +30,7 @@ local function clone()
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
             files[counter] = i
-        elseif(nFiles[i] > pFiles[i])then
+        elseif(nFiles[i].version > pFiles[i].version)then
             files[counter] = i
         else
             print(i .. ".lua is uptodate")
@@ -39,9 +39,9 @@ local function clone()
     init.getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
-local function get(lines)
+function get(lines)
     local files = {}
-    for i, line in pairs(lines) do
+    for line in lines do
         local fcounter = 0
         local filename
         local f = {version = 0; folder = ""}
@@ -74,7 +74,7 @@ local function get(lines)
 end
 
 
-local function file_exist(path)
+function file_exist(path)
     local file = io.open(path)
     if (not file) then
         print("[ERROR]: No such file: " .. path .. ".")
