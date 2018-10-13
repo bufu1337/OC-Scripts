@@ -17,7 +17,7 @@ local function clone()
     local pFiles = {}
     local nFiles = {}
     if(filesystem.exists(prog))then
-        if(file_exist(prog .. "files"))then
+        if(filesystem.exists(prog .. "files"))then
             pFiles = get(io.lines(prog .. "files"))
         end
     else
