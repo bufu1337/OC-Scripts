@@ -8,6 +8,11 @@ local function getfiles(files)
         print("Downloading files...")
         for name,props in pairs(files) do
             if name ~= "n" then
+                local temp = prog
+                for i in props.folder:gmatch("([^ ]*) ") do
+                    temp = temp .. i .. "/"
+                    filesystem.makeDirectory(temp)
+                end
                 file = props.folder .. name .. ".lua"
                 print("Getting file: " .. file .. "  (Version: " .. props.version .. ")")
                 os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
@@ -63,18 +68,15 @@ function get(lines)
         local f = {version = 0; folder = ""}
         for w in (line .. " "):gmatch("([^ ]*) ") do 
             if(fcounter == 0)then
-                if(w:match("/") ~= nil)then
+                if(w:find("/") ~= nil)then
                     local b = 0
                     for y in w:gmatch("([^/]*)/") do
-                        if(y:match("lua") ~= nil)then
-                            w = y
-                        else
-                            f.folder = y
-                        end
+                        f.folder = f.folder .. y .. "/"
                     end
                 end
+                local n = string.sub(w, #f.folder + 1)
                 local c = 0
-                for x in w:gmatch("([^.]*).") do
+                for x in n:gmatch("([^.]*).") do
                     if(c == 0)then filename = x end
                     c = c + 1
                 end
