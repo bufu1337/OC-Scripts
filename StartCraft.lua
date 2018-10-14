@@ -15,7 +15,7 @@ local function getfiles(files)
                 end
                 file = props.folder .. name .. ".lua"
                 print("Getting file: " .. file .. "  (Version: " .. props.version .. ")")
-                os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."' '" .. prog .. file .. "'")
+                os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."?" .. math.random() .. "' '" .. prog .. file .. "'")
             end
         end
         print("Get new Files: done")
@@ -39,7 +39,7 @@ local function clone()
     end
     print("")
     print("Getting new file attributes")
-    os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files' '" .. prog .. "files'")
+    os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files?" .. math.random() .. "' '" .. prog .. "files'")
     nFiles = get(io.lines(prog .. "files"))
     local files = {n=0}
     local counter = 0
