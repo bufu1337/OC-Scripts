@@ -9,7 +9,7 @@ local function getfiles(files)
         for name,props in pairs(files) do
             if name ~= "n" then
                 local temp = prog
-                for i in props.folder:gmatch("([^ ]*) ") do
+                for i in props.folder:gmatch("([^/]*)/") do
                     temp = temp .. i .. "/"
                     filesystem.makeDirectory(temp)
                 end
