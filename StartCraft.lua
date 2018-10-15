@@ -25,13 +25,13 @@ local function getfiles(files)
 
 end
 
-local function clone()
+local function clone(filelist, specificfile)
     local pFiles = {}
     local nFiles = {}
     if(filesystem.exists(prog))then
-        if(filesystem.exists(prog .. "files"))then
+        if(filesystem.exists(prog .. filelist))then
             print("Getting old file attributes")
-            pFiles = get(io.lines(prog .. "files"))
+            pFiles = get(io.lines(prog .. filelist))
         end
     else
         print("Directory: " .. prog .. "not existing... Creating!")
@@ -39,11 +39,18 @@ local function clone()
     end
     print("")
     print("Getting new file attributes")
-    os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/files?" .. math.random() .. "' '" .. prog .. "files'")
-    nFiles = get(io.lines(prog .. "files"))
+    os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
+    nFiles = get(io.lines(prog .. filelist))
     local files = {n=0}
     local counter = 0
     print("")
+	if(specificfile ~= nil) then
+		for i,j in pairs(nFiles) do
+			if((j.folder .. i .. ".lua") ~= specificfile) then
+				nFiles[i] = nil
+			end
+		end
+	end
     for i,j in pairs(nFiles) do
         if(pFiles[i] == nil)then
             files[i] = j
@@ -96,11 +103,15 @@ end
 local args = shell.parse( ... )
 if args[1] ~= nil then
     if args[1] == "GetFiles" then
-        clone()
+        clone("files")
     elseif args[1] == "GetNewFiles" then
         print("Removing: " .. prog .. "files")
         filesystem.remove(prog .. "files")
-        clone()
+        clone("files")
+	else
+		clone("itemfiles", args[1])
+		local ac = require("Autocraft")
+		ac.do_crafting(args[1])
     end
 end
 

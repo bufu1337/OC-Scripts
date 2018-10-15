@@ -11,8 +11,11 @@ local event = require("event")
 local io = require("io")
 local sides = require("sides")
 local component = require("component")
+local convert = require("Convert")
+local prox = require("Proxies")
 local rs = component.block_refinedstorage_interface
- 
+
+local items = {}
 local args = { ... }
 local paths = {}
 
@@ -60,6 +63,44 @@ local function load_file(path)
     end
   end
   return crafts
+end
+
+local function get_items(file)
+	items = require("Items/" .. file)
+	for i,j in pairs(items) do
+		items[i]["recipeCounts"] = {}
+		for g,h in pairs(items[i].recipe) do
+			if(h ~= nil)then
+				local he = h:gsub(":", "_")
+				if (items[i].recipeCounts[he] == nil) then
+					items[i].recipeCounts[he] = 1
+				else
+					items[i].recipeCounts[he] = items[i].recipeCounts[he] + 1
+				end
+				if(items[he] == nil)then
+					items[he] = {}
+				end
+			end
+		end
+		local converted = convert.TextToItem(i:gsub("_", ":"))
+		for x,y in pairs(converted) do
+			items[i][x] = y
+		end
+		local rs_item = component.proxy(prox.GetProxy(items[i][mod], "home")).getItem(items[i])
+		if(rs_item == nil) then
+			rs_item = {hasTag=false; size=0.0}
+		end
+		for a,b in pairs(rs_item) do
+			items[i][a] = b
+		end
+		for c,d in pairs(items) do
+			print("")
+			print(c)
+			for e,f in pairs(d) do
+				print(e .. " = " .. f)
+			end
+		end
+	end
 end
 
 -- Check if a task have missing items.
@@ -139,33 +180,37 @@ function destroy_item(item)
   end
 end
 
--- Check the args
-if (#args > 0) then
-  paths[1] = os.getenv("PWD") .. "/" .. args[1]
-  if not file_exist(paths[1]) then
-    return
-  end
-else
-  print("[ERROR]: Filename is needed.")
-  return
+local function do_crafting(file)
+	get_items(file)
 end
+
+-- Check the args
+-- if (#args > 0) then
+  -- paths[1] = os.getenv("PWD") .. "/" .. args[1]
+  -- if not file_exist(paths[1]) then
+    -- return
+  -- end
+-- else
+  -- print("[ERROR]: Filename is needed.")
+  -- return
+-- end
 
 -- The main loop ("Ctrl + C" to interrup the program)
-while (true) do
-    local items_path
-    local crafts = load_file(paths[1])
-    local tasks = rs.getTasks()
-    local bin = nil
+-- while (true) do
+    -- local items_path
+    -- local crafts = load_file(paths[1])
+    -- local tasks = rs.getTasks()
+    -- local bin = nil
 
-    -- Craft needed items
-    for i, craft in ipairs(crafts) do
-        craft_item(craft, tasks)
-    end
+    -- -- Craft needed items
+    -- for i, craft in ipairs(crafts) do
+        -- craft_item(craft, tasks)
+    -- end
 
-    -- Event handler
-    local id = event.pull(5, "interrupted")
-    if (id == "interrupted") then
-        print("Program stopped.")
-        break
-    end
-end
+    -- -- Event handler
+    -- local id = event.pull(5, "interrupted")
+    -- if (id == "interrupted") then
+        -- print("Program stopped.")
+        -- break
+    -- end
+-- end
