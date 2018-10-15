@@ -6,7 +6,7 @@ c.modem.open(111)
 print("screenchange init")
 thread.create(function()
     while true do
-        local _, _, _, _, _, message = event.pull("modem_message")
+        local _, _, _, _, _, _, message = event.pull("modem_message")
 		local rs_item = rs.getItem({name="minecraft:stick"}, true)
 		local dropped = rs.extractItem(rs_item, 32, sides.down)
 		print(dropped)
