@@ -156,21 +156,87 @@ local function GetStorageItems()
   end
 end
 local function SetCanCraft(item)
-  local can = 0
-  if(items[item].recipeCounts ~= nil)then
-    for a,b in pairs(items[item].recipeCounts) do
-      local h = ((items[a].newsize + CanCraft(a)) / b) * items[item].craftCount
-      if((can == 0) or (can > h))then
-        can = h
+  local can = nil
+  if(item ~= nil)then
+    if(items[item].recipeCounts ~= nil)then
+      local tempsizes = {}    
+      for a,b in pairs(items[item].recipeCounts) do
+        SetCanCraft(a)
+        local h = math.floor(((items[a].newsize + items[a].canCraft) / b) * items[item].craftCount)
+        if((can == nil) or (can > h))then
+          can = h
+        end
       end
     end
+    if(can == nil)then
+      can = 0
+    end
+    items[item].canCraft = can
+    print(item .. ": CanCraft = " .. items[item].canCraft)
   end
-  items[item].canCraft = can
 end
 local function SetCanCraftALL()
   for ic,jc in pairs(items) do
     SetCanCraft(ic)
-    print(ic .. ": CanCraft = " .. items[ic].canCraft)
+  end
+end
+local function SetCrafts(item)
+  if(items[item].recipeCounts ~= nil)then
+    local rawcraft = (items[item].maxCount - items[item].newsize) / items[item].craftCount
+    local tocraft = math.floor(rawcraft)
+    if((rawcraft - tocraft) > 0)then
+      tocraft = tocraft + 1
+    end
+    SetCanCraft(item)
+    if(items[item].canCraft < tocraft)then
+      tocraft = items[item].canCraft
+    end
+    if(tocraft > 0)then
+      print(item .. " tocraft: " .. tocraft)
+      items[item].crafts = items[item].crafts + tocraft
+      for a,b in pairs(items[item].recipeCounts) do
+        print("setting size: " .. a .. " = " .. items[a].newsize)
+        items[a].newsize = items[a].newsize - (tocraft * b)
+        print("new size: " .. a .. " = " .. items[a].newsize)
+      end
+      print("")
+      print("setting size: " .. item .. " = " .. items[item].newsize)
+      items[item].newsize = items[item].newsize + (tocraft * items[item].craftCount)
+      print("new size: " .. item .. " = " .. items[item].newsize)
+      print(item .. " craftstotal: " .. items[item].crafts)
+      print("")
+      print("")
+    end
+  end
+end
+local function SetCraftsALL()
+  for i,j in pairs(items) do
+    SetCrafts(i)
+  end
+end
+local function RollBackCrafts()
+  for is,js in pairs(items) do
+    if(items[is].newsize < 0)then
+      for i,j in pairs(items) do
+        if(items[i].recipeCounts ~= nil)then
+          if(items[i].recipeCounts[is] ~= nil)then
+            local temp = (math.floor(items[is].newsize / items[i].recipeCounts[is]) * -1)
+            if(items[i].crafts > temp)then
+              items[i].crafts = items[i].crafts - temp
+              items[i].newsize = items[i].newsize - temp
+              break
+            else
+              temp = items[i].crafts
+              items[i].crafts = 0
+              items[i].newsize = 0
+            end
+            for a,b in pairs(items[i].recipeCounts) do
+              items[a].newsize = items[a].newsize + (temp * b)
+            end
+          end
+        end
+      end
+    end
   end
 end
 local function CalculateCrafts()
@@ -181,33 +247,9 @@ local function CalculateCrafts()
     end
   end
   SetCanCraftALL()
-  for i,j in pairs(items) do
-    if(j.recipeCounts ~= nil)then
-      local temp = (j.maxCount - j.newsize) / j.craftCount
-      local temp2 = math.floor(temp)
-      if((temp - temp2) > 0)then
-        temp2 = temp2 + 1
-      end
-      if(items[i].canCraft > temp2)then
-        items[i].crafts = items[i].crafts + temp2
-        for a,b in pairs(j.recipeCounts) do
-          items[a].newsize = items[a].newsize - (j.crafts * j.craftCount)
-          if(items[a].newsize < 0)then
-            
-            --if(items[a].canCraft > )
-            --items[i].crafts = math.floor(items[a].size / b)
-          end
-        end
-      end
-      -- = items[i].canCraft - items[i].crafts
-      print(i .. " crafts: " .. items[i].crafts)
-    end
-  end
-  for i,j in pairs(items) do
-    if(j.recipeCounts ~= nil)then
-      
-    end
-  end
+  SetCraftsALL()
+  SetCraftsALL()
+  RollBackCrafts()
 end
 local function PrintItems()
   for i,j in pairs(items) do
@@ -241,6 +283,7 @@ local function GetItems()
   GetRecipeCounts()
   ConvertItems()
   GetStorageItems()
+  PrintItems()
   CalculateCrafts()
   PrintItems()
 end

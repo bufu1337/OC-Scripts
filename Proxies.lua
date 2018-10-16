@@ -90,7 +90,7 @@ local function Proxies()
         forgeendertech = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Endertech 1.12.1-4.3.0.0 
         forgelin = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Shadowfacts' Forgelin 01.06.2000
         fp = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Futurepack 26.3.210
-        fp.api = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Futurepack API 01.01.2000
+        fpapi = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Futurepack API 01.01.2000
         fpfa = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Futurepack Forestry Addon 01.01.2002
         freshwatermobs = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Lycanites Freshwater Mobs 1.20.3.0
         fresource = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Your World Resource / Core 01.03.2001
@@ -155,7 +155,7 @@ local function Proxies()
         ocsensors = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OpenComputers Sensors 1.0.4 
         ocxnetdriver = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OpenComputers Xnet Driver 1.0 
         opencomputers = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OpenComputers 1.7.2.104 
-        opencomputers    core = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OpenComputers (Core) 1.7.2.104 
+        opencomputerscore = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OpenComputers (Core) 1.7.2.104 
         openglider = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Open Glider @VERSION@ 
         openterraingenerator = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Open Terrain Generator v6 
         orespawn = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--OreSpawn 03.02.2000 
@@ -344,7 +344,7 @@ local function RouteSystem()
         forgeendertech = {proxy="", home=sides.up, craft=sides.up},
         forgelin = {proxy="", home=sides.up, craft=sides.up},
         fp = {proxy="", home=sides.up, craft=sides.up},
-        fp.api = {proxy="", home=sides.up, craft=sides.up},
+        fpapi = {proxy="", home=sides.up, craft=sides.up},
         fpfa = {proxy="", home=sides.up, craft=sides.up},
         freshwatermobs = {proxy="", home=sides.up, craft=sides.up},
         fresource = {proxy="", home=sides.up, craft=sides.up},
@@ -409,7 +409,7 @@ local function RouteSystem()
         ocsensors = {proxy="", home=sides.up, craft=sides.up},
         ocxnetdriver = {proxy="", home=sides.up, craft=sides.up},
         opencomputers = {proxy="", home=sides.up, craft=sides.up},
-        opencomputers    core = {proxy="", home=sides.up, craft=sides.up},
+        opencomputerscore = {proxy="", home=sides.up, craft=sides.up},
         openglider = {proxy="", home=sides.up, craft=sides.up},
         openterraingenerator = {proxy="", home=sides.up, craft=sides.up},
         orespawn = {proxy="", home=sides.up, craft=sides.up},
