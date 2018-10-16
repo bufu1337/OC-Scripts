@@ -65,13 +65,12 @@ local function load_file(path)
   return crafts
 end
 
-local function get_items(file)
-	items = require("Items/" .. file)
+local function GetRecipeCounts()
 	for i,j in pairs(items) do
 		items[i]["recipeCounts"] = {}
 		for g,h in pairs(items[i].recipe) do
 			if(h ~= nil)then
-				local he = h:gsub(":", "_")
+				local he = convert.TextToOName(h)
 				if (items[i].recipeCounts[he] == nil) then
 					items[i].recipeCounts[he] = 1
 				else
@@ -82,25 +81,58 @@ local function get_items(file)
 				end
 			end
 		end
-		local converted = convert.TextToItem(i:gsub("_", ":"))
+	end
+end
+local function ConvertItems()
+	for i,j in pairs(items) do
+		local converted = convert.TextToItem(i)
 		for x,y in pairs(converted) do
 			items[i][x] = y
 		end
-		local rs_item = component.proxy(prox.GetProxy(items[i][mod], "home")).getItem(items[i])
+	end
+end
+local function GetStorageItems()
+	for i,j in pairs(items) do
+		local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
 		if(rs_item == nil) then
-			rs_item = {hasTag=false; size=0.0}
+			rs_item = {size=0.0}
 		end
 		for a,b in pairs(rs_item) do
 			items[i][a] = b
 		end
-		for c,d in pairs(items) do
-			print("")
-			print(c)
-			for e,f in pairs(d) do
-				print(e .. " = " .. f)
+	end
+end
+local function PrintItems()
+	for i,j in pairs(items) do
+		local output = i .. "={"
+		for c,d in pairs(items[i]) do
+			if((c ~= "recipe") or (c ~= "recipeCounts")) then
+			output = output .. c .. " = " .. tostring(d) .. "; "
+			elseif c == "recipe" then
+				output = output .. c .. " = {"
+				for e,f in pairs(d) do
+					output = output .. f .. ", "
+				end
+				output = output .. "}; "
+			elseif c == "recipeCounts" then
+				output = output .. c .. " = {"
+				for e,f in pairs(d) do
+					output = output .. e .. " = " .. f .. ", "
+				end
+				output = output .. "}; "
 			end
 		end
+		output = output .. "}"
+		print(output)
 	end
+end
+
+local function GetItems(file)
+	items = require("Items/" .. file)
+	GetRecipeCounts()
+	ConvertItems()
+	GetStorageItems()
+	PrintItems()
 end
 
 -- Check if a task have missing items.
@@ -181,7 +213,7 @@ function destroy_item(item)
 end
 
 local function do_crafting(file)
-	get_items(file)
+	GetItems(file)
 end
 
 -- Check the args
