@@ -22,6 +22,13 @@ local crafter = ""
 local ac = {}
 local args = shell.parse( ... )
 
+local function MathUp(num)
+	local result = math.floor(num)
+	if((num - result) > 0)then
+      result = result + 1
+    end
+	return result
+end
 local function GetRecipeCounts()
   local temp = {}
   for i,j in pairs(items) do
@@ -68,6 +75,25 @@ local function GetStorageItems()
     end
   end
 end
+local function GetItemsCount()
+	local count = 0
+	for i,j in pairs(items) do
+		count = count + 1
+	end
+	return count
+end
+local function GetStorageItemsThread()
+	local rawtimes = 
+  for i,j in pairs(items) do
+    local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
+    if(rs_item == nil) then
+      rs_item = {size=0.0}
+    end
+    for a,b in pairs(rs_item) do
+      items[i][a] = b
+    end
+  end
+end
 local function SetCanCraft(item)
   local can = nil
   if(item ~= nil)then
@@ -95,11 +121,7 @@ local function SetCanCraftALL()
 end
 local function SetCrafts(item)
   if(items[item].recipeCounts ~= nil)then
-    local rawcraft = (items[item].maxCount - items[item].newsize) / items[item].craftCount
-    local tocraft = math.floor(rawcraft)
-    if((rawcraft - tocraft) > 0)then
-      tocraft = tocraft + 1
-    end
+    local tocraft = MathUp((items[item].maxCount - items[item].newsize) / items[item].craftCount)
     SetCanCraft(item)
     if(items[item].canCraft < tocraft)then
       tocraft = items[item].canCraft
@@ -297,19 +319,20 @@ local function GetItems()
 end
 local function Craft(itemrepo)
   items = require("Items/" .. itemrepo)
+  crafter = itemrepo
   GetItems()
-  GetStorageInfo("home")
-  GetStorageInfo("craft")
+  --GetStorageInfo("home")
+  --GetStorageInfo("craft")
   MoveItems("craft")
-  GetStorageInfo("home")
-  GetStorageInfo("craft")
+  --GetStorageInfo("home")
+  --GetStorageInfo("craft")
   CraftItems()
-  GetStorageInfo("home")
-  GetStorageInfo("craft")
+  --GetStorageInfo("home")
+  --GetStorageInfo("craft")
   PrintItems()
   MoveItems("home")
-  GetStorageInfo("home")
-  GetStorageInfo("craft")
+  --GetStorageInfo("home")
+  --GetStorageInfo("craft")
 end
 
 if args[1] ~= nil then
