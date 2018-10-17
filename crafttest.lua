@@ -224,14 +224,23 @@ local function RollBackCrafts()
             if(items[i].crafts > temp)then
               items[i].crafts = items[i].crafts - temp
               items[i].newsize = items[i].newsize - temp
+              print("safgsdgdf size: ")
+              for a,b in pairs(items[i].recipeCounts) do
+                print("setting size: " .. a .. " = " .. items[a].newsize)
+                items[a].newsize = items[a].newsize + (temp * b)
+                print("new size: " .. a .. " = " .. items[a].newsize)
+              end
               break
             else
               temp = items[i].crafts
               items[i].crafts = 0
               items[i].newsize = 0
-            end
-            for a,b in pairs(items[i].recipeCounts) do
-              items[a].newsize = items[a].newsize + (temp * b)
+              print("safgsdgdf size: ")
+              for a,b in pairs(items[i].recipeCounts) do
+                print("setting size: " .. a .. " = " .. items[a].newsize)
+                items[a].newsize = items[a].newsize + (temp * b)
+                print("new size: " .. a .. " = " .. items[a].newsize)
+              end
             end
           end
         end
