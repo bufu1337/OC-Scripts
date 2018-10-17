@@ -82,17 +82,41 @@ local function GetItemsCount()
 	end
 	return count
 end
-local function GetStorageItemsThread()
-	local rawtimes = 
-  for i,j in pairs(items) do
-    local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
-    if(rs_item == nil) then
-      rs_item = {size=0.0}
-    end
-    for a,b in pairs(rs_item) do
-      items[i][a] = b
-    end
+local function GetStorageItemsThreads()
+  local itemcount = GetItemsCount
+  local itemcounter = 0
+  local co = 1
+	local times = MathUp(itemcount / 50)
+	local iarr = {}
+	local th = {}
+	for v = 1, times, 1 do
+    iarr[v] = {}
   end
+  for i,j in pairs(items) do
+    itemcounter = itemcounter + 1
+    if (itemcounter > 50) then
+      itemcounter = 1
+      co = co + 1
+    end
+    iarr[co][itemcounter] = i
+  end
+  for v = 1, times, 1 do
+    th[v] = thread.create(function(o, u)
+      for v = 1, u, 1 do
+        os.sleep()
+      end
+      for i,j in pairs(o) do
+        local rs_item = component.proxy(prox.GetProxy(items[j]["mod"], "home")).getItem(items[j])
+        if(rs_item == nil) then
+          rs_item = {size=0.0}
+        end
+        for a,b in pairs(rs_item) do
+          items[j][a] = b
+        end
+      end
+    end, iarr[v], v)
+  end
+  thread.waitForAll(th)
 end
 local function SetCanCraft(item)
   local can = nil
@@ -312,7 +336,7 @@ end
 local function GetItems()
   GetRecipeCounts()
   ConvertItems()
-  GetStorageItems()
+  GetStorageItemsThreads()
   CalculateCrafts()
   GetPrios()
   PrintItems()
