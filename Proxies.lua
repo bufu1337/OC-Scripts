@@ -1,5 +1,5 @@
 local sides = require("sides")
-local p = {}
+local prox = {}
 local function Proxies()
     return {
         actuallycomputers = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--ActuallyComputers 02.01.2000
@@ -515,21 +515,24 @@ local function GetRoute(mod, typ, destinationmod)
     else
         typ2 = "craft"
     end 
-    local proxies = Proxies()
-    local routesystem = RouteSystem
+    local proxy = Proxies()
+    local routesystem = RouteSystem()
     if((mod == destinationmod) or (destinationmod == nil))then
-        return {{proxy = proxies[mod][typ2].proxy, side=proxies[mod][typ2][("to" .. typ)]}}
+        return {{proxy = proxy[mod][typ2].proxy, side=proxy[mod][typ2][("to" .. typ)]}}
     else
-        return {{proxy = proxies[mod][typ2].proxy, side=proxies[mod][typ2].toroute}, {proxy = routesystem[destinationmod].proxy, side=routesystem[destinationmod][typ]}}
+        return {{proxy = proxy[mod][typ2].proxy, side=proxy[mod][typ2].toroute}; {proxy = routesystem[destinationmod].proxy, side=routesystem[destinationmod][typ]}}
     end
 end
 local function GetProxy(mod, typ)
     if(mod == "routing")then
         return ""
     else
-        return Proxies()[mod][typ].proxy
+        local proxy = Proxies()
+        return proxy[mod][typ].proxy
     end
 end
+prox.GetRoute = GetRoute
+prox.GetProxy = GetProxy
 
 p.GetRoute = GetRoute
 p.GetProxy = GetProxy

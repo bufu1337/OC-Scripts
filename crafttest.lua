@@ -1,21 +1,39 @@
+local function sleep(s)
+  local ntime = os.time() + s
+  repeat until os.time() > ntime
+end
+local os = {sleep=sleep}
 local sides = {up=1;down=2;right=3;left=4}
+local component = {}
 local convert = {}
 local prox = {}
-local component = {}
-local rs ={}
+local rs = {a={};b={};c={}}
+local activprox = ""
+local priocount = 0
+local crafter = "minecraft"
 local rsi = {
-  minecraftjjactivator_rail={size=50.0};
-  minecraftjjanvil={size=50.0};
-  minecraftjjarmor_stand={size=10.0};
-  minecraftjjarrow={size=50.0};
-  minecraftjjiron_block={size=100.0};
-  minecraftjjstick={size=100.0};
-  minecraftjjiron_ingot={size=10000.0};
-  minecraftjjplanks={size=10000.0};
-  minecraftjjflint={size=10000.0};
-  minecraftjjredstone_torch={size=10000.0};
-  minecraftjjfeather={size=10000.0};
-  minecraftjjstone_slab={size=10000.0}
+  a_sides={"b", nil, "c", nil};
+  b_sides={nil, "a", nil, "c"};
+  c_sides={"a", "b"};
+  a={
+    minecraftjjactivator_rail={size=50.0};
+    minecraftjjanvil={size=50.0};
+    minecraftjjarmor_stand={size=10.0};
+    minecraftjjarrow={size=50.0};
+    minecraftjjiron_block={size=100.0};
+    minecraftjjstick={size=100.0};
+    minecraftjjiron_ingot={size=10000.0};
+    minecraftjjplanks={size=10000.0};
+    minecraftjjflint={size=10000.0};
+    minecraftjjredstone_torch={size=10000.0};
+    minecraftjjfeather={size=10000.0};
+    minecraftjjstone_slab={size=10000.0}
+  };
+  b={};
+  c={};
+  a_tasks={};
+  b_tasks={};
+  c_tasks={};
 }
 local items = {
   minecraftjjactivator_rail={maxCount=512.0; craftCount=6.0; recipe={"minecraft:iron_ingot", "minecraft:stick", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:redstone_torch", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:stick", "minecraft:iron_ingot"}};
@@ -25,14 +43,16 @@ local items = {
   minecraftjjiron_block={maxCount=640.0; craftCount=1.0; recipe={"minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot"}};
   minecraftjjstick={maxCount=1280.0; craftCount=4.0; recipe={"minecraft:planks", "minecraft:planks", nil, nil, nil, nil, nil, nil, nil}}
 }
-function AProxies()
+
+-- # Proxies.lua
+function Proxies()
     return {
         minecraft = {home={proxy="a", tocraft=sides.up, toroute=sides.right}; craft={proxy="b", tohome=sides.down, toroute=sides.left}}--Minecraft 01.12.2002
     }
 end
 function RouteSystem()
     return {
-        minecraft = {proxy="c", home=sides.up, craft=sides.up}
+        minecraft = {proxy="c", home=sides.up, craft=sides.down}
     }
 end
 local function GetRoute(mod, typ, destinationmod)
@@ -42,12 +62,12 @@ local function GetRoute(mod, typ, destinationmod)
     else
         typ2 = "craft"
     end 
-    local proxies = AProxies()
+    local proxy = Proxies()
     local routesystem = RouteSystem()
     if((mod == destinationmod) or (destinationmod == nil))then
-        return {{proxy = proxies[mod][typ2].proxy, side=proxies[mod][typ2][("to" .. typ)]}}
+        return {{proxy = proxy[mod][typ2].proxy, side=proxy[mod][typ2][("to" .. typ)]}}
     else
-        return {{proxy = proxies[mod][typ2].proxy, side=proxies[mod][typ2].toroute}; {proxy = routesystem[destinationmod].proxy, side=routesystem[destinationmod][typ]}}
+        return {{proxy = proxy[mod][typ2].proxy, side=proxy[mod][typ2].toroute}; {proxy = routesystem[destinationmod].proxy, side=routesystem[destinationmod][typ]}}
     end
 end
 local function GetProxy(mod, typ)
@@ -55,13 +75,14 @@ local function GetProxy(mod, typ)
     if(mod == "routing")then
         return ""
     else
-        local proxies = AProxies()
-        return proxies[mod][typ].proxy
+        local proxy = Proxies()
+        return proxy[mod][typ].proxy
     end
 end
 prox.GetRoute = GetRoute
 prox.GetProxy = GetProxy
 
+-- # Convert.lua
 local function TextToItem(text)
     local result = {name="";damage=0;mod=""}
     local counter = 0
@@ -100,15 +121,66 @@ convert.TextToItem = TextToItem
 convert.ItemToText = ItemToText
 convert.ItemToOName = ItemToOName
 convert.TextToOName = TextToOName
-local function proxy(test)
-  return rs
-end
+
+-- # OC-System
 local function getItem(item)
   --print("getItem: " .. tostring(item.name) .. " " .. tostring(item.damage) .. " " .. convert.ItemToOName(item) .. " " .. tostring(rsi[convert.ItemToOName(item)]))
-  return rsi[convert.ItemToOName(item)]
+  return rsi[activprox][convert.ItemToOName(item)]
+end
+local function getSItems()
+  --print("getItem: " .. tostring(item.name) .. " " .. tostring(item.damage) .. " " .. convert.ItemToOName(item) .. " " .. tostring(rsi[convert.ItemToOName(item)]))
+  return rsi[activprox]
+end
+local function extractItem(item, count, side)
+  if(count > 64)then
+    count = 64
+  end
+  rsi[activprox][convert.ItemToOName(item)].size = rsi[activprox][convert.ItemToOName(item)].size - count
+  side = rsi[(activprox .. "_sides")][side]
+  item = convert.ItemToOName(item)
+  if (rsi[side][item] == nil) then
+    rsi[side][item] = {size=0.0}
+  end
+  rsi[side][item].size = rsi[side][item].size + count
+  return count
+end
+local function scheduleTask(item, count)
+  rsi[(activprox .. "_tasks")][1] = convert.ItemToOName(item)
+  rsi[(activprox .. "_tasks")][2] = count
+end
+local function getTasks()
+  local item = rsi[(activprox .. "_tasks")][1]
+  local count = rsi[(activprox .. "_tasks")][2]
+  if (rsi[activprox][item] == nil) then
+    rsi[activprox][item] = {size=0.0}
+  end
+  local crafting = 50
+  if (items[item].crafts < crafting) then
+    crafting = items[item].crafts
+  end
+  local c = crafting * items[item].craftCount
+  for a,b in pairs(items[item].recipeCounts) do
+    rsi[activprox][a].size = rsi[activprox][a].size - (crafting * b)
+  end
+  rsi[activprox][item].size = rsi[activprox][item].size + c
+  rsi[(activprox .. "_tasks")][2] = rsi[(activprox .. "_tasks")][2] - c
+  items[item].crafts = items[item].crafts - crafting
+  if (rsi[(activprox .. "_tasks")][2] == 0) then
+    rsi[(activprox .. "_tasks")] = {}
+  end
+  return rsi[(activprox .. "_tasks")]
+end
+local function proxy(test)
+  activprox = test
+  rs[test].getItem = getItem
+  rs[test].getItems = getSItems
+  rs[test].extractItem = extractItem
+  rs[test].scheduleTask = scheduleTask
+  rs[test].getTasks = getTasks
+  return rs[test]
 end
 component.proxy = proxy
-rs.getItem = getItem
+
 local function GetRecipeCounts()
   local temp = {}
   for i,j in pairs(items) do
@@ -258,9 +330,35 @@ local function CalculateCrafts()
   SetCanCraftALL()
   SetCraftsALL()
   SetCraftsALL()
+  SetCraftsALL()
+  SetCraftsALL()
+  SetCraftsALL()
+  SetCraftsALL()
   RollBackCrafts()
 end
+local function GetPrio(item)
+  local prio = 0;
+  if(items[item].recipeCounts ~= nil)then
+    for a,b in pairs(items[item].recipeCounts) do
+      if(items[a].recipeCounts ~= nil)then
+        GetPrio(a)
+        prio = items[a].prio + 1
+      end
+    end
+  end
+  if(prio > priocount)then
+    priocount = prio
+  end
+  items[item].prio = prio
+end
+local function GetPrios()
+  for i,j in pairs(items) do
+    GetPrio(i)
+  end
+end
 local function PrintItems()
+  print("")
+  print("Items:")
   for i,j in pairs(items) do
     local output = i .. "={"
     for c,d in pairs(items[i]) do
@@ -286,14 +384,125 @@ local function PrintItems()
     output = output:gsub("; }", "}")
     print(output)
   end
+  print("")
 end
-
+local function MoveItemsToCraft()
+  for i,j in pairs(items) do
+    if (j.newsize < j.size) then
+      local route = prox.GetRoute(items[i]["mod"], "craft", crafter)
+      local r = 1
+      while r <= #route do
+        local count = j.size - j.newsize
+        local storage = component.proxy(route[r].proxy)
+        while count > 0 do
+          local dropped = storage.extractItem(items[i], count, route[r].side)
+          count = count - dropped
+        end
+        r = r + 1
+      end
+    end
+  end
+  --os.sleep(1)
+end
+local function MoveItemsFromCraft()
+  for i,j in pairs(items) do
+    if (j.newsize > j.size) then
+      local route = prox.GetRoute(crafter, "home", items[i]["mod"])
+      local r = 1
+      while r <= #route do
+        local count = j.newsize - j.size 
+        local storage = component.proxy(route[r].proxy)
+        while count > 0 do
+          local dropped = storage.extractItem(items[i], count, route[r].side)
+          count = count - dropped
+        end
+        r = r + 1
+      end
+    end
+  end
+  --os.sleep(1)
+end
+local function MoveItems(destination)
+  for i,j in pairs(items) do
+    local check = (j.newsize > j.size)
+    if (destination == "craft") then
+      check = (j.newsize < j.size)
+    end
+    if (check) then
+      local mod = crafter
+      local dest = items[i]["mod"]
+      if (destination == "craft") then
+        mod = items[i]["mod"]
+        dest = crafter
+      end
+      local route = prox.GetRoute(mod, destination, dest)
+      local r = 1
+      while r <= #route do
+        local count = j.newsize - j.size 
+        if (destination == "craft") then
+          count = j.size - j.newsize
+        end
+        local storage = component.proxy(route[r].proxy)
+        while count > 0 do
+          local dropped = storage.extractItem(items[i], count, route[r].side)
+          count = count - dropped
+        end
+        r = r + 1
+      end
+    end
+  end
+  --os.sleep(1)
+end
+local function CraftItems()
+  local prio = 0
+  local cr = component.proxy(prox.GetProxy(crafter,"craft"))
+  while prio <= priocount do
+    for i,j in pairs(items) do
+      if ((j.prio == prio) and (j.crafts ~= nil)) then
+        cr.scheduleTask(j, (j.crafts * j.craftCount))
+        local tasks = cr.getTasks()
+        while #tasks > 0 do
+          --os.sleep(1)
+          tasks = cr.getTasks()
+          if (tasks == nil) then
+            tasks = {}
+          end
+        end
+      end 
+    end
+    prio = prio + 1
+  end
+end
+local function GetStorageInfo(store)
+  local cr = component.proxy(prox.GetProxy(crafter,store))
+  print("")
+  print("Items in " .. store .. ": " .. crafter)
+  for a,b in pairs(cr.getItems()) do
+    print(a .. " = " .. b.size)
+  end
+  print("")
+end
 local function GetItems()
   GetRecipeCounts()
   ConvertItems()
   GetStorageItems()
-  PrintItems()
   CalculateCrafts()
+  GetPrios()
   PrintItems()
 end
-GetItems()
+local function Craft()
+  GetItems()
+  GetStorageInfo("home")
+  GetStorageInfo("craft")
+  MoveItems("craft")
+  GetStorageInfo("home")
+  GetStorageInfo("craft")
+  CraftItems()
+  GetStorageInfo("home")
+  GetStorageInfo("craft")
+  PrintItems()
+  MoveItems("home")
+  GetStorageInfo("home")
+  GetStorageInfo("craft")
+end
+Craft()

@@ -1,8 +1,8 @@
-local start = {}
+local startcraft = {}
 local shell = require("shell")
 local prog = "/home/crafting/"
 
-local function getfiles(files)
+function getfiles(files)
     print("")
     if(files.n > 0)then
         print("Downloading files...")
@@ -25,7 +25,7 @@ local function getfiles(files)
 
 end
 
-local function clone(filelist, specificfile)
+function clone(filelist, specificfile)
     local pFiles = {}
     local nFiles = {}
     if(filesystem.exists(prog))then
@@ -99,22 +99,25 @@ function get(lines)
     return files
 end
 
-
-local args = shell.parse( ... )
-if args[1] ~= nil then
-    if args[1] == "GetFiles" then
+local function Start(param)
+	if param == "GetFiles" then
         clone("files")
-    elseif args[1] == "GetNewFiles" then
+    elseif param == "GetNewFiles" then
         print("Removing: " .. prog .. "files")
         filesystem.remove(prog .. "files")
         clone("files")
 	else
-		clone("itemfiles", args[1])
+		clone("files")
+		clone("itemfiles", param)
 		local ac = require("Autocraft")
-		ac.do_crafting(args[1])
+		ac.Craft(param)
     end
+end
+local args = shell.parse( ... )
+if args[1] ~= nil then
+    Start(args[1])
 end
 
 
-start.clone = clone
-return start
+startcraft.Start = Start
+return startcraft

@@ -1,4 +1,4 @@
-local C = {}
+local convert = {}
 
 local function TextToItem(text)
     local result = {name="";damage=0;mod=""}
@@ -32,13 +32,8 @@ local function TextToOName(text)
     return text:gsub(":", "jj")
 end
 
-local items = {{item="minecraft:stone:1"; maxCount=256; recipes={"minecraft:cobblestone:2", "minecraft:cobblestone:2", nil, "minecraft:cobblestone:2", "minecraft:cobblestone:2", nil, nil, nil, nil}},
-            {item="minecraft:stone:2"; maxCount=256; recipes={"minecraft:cobblestone:3", "minecraft:cobblestone:3", nil, "minecraft:cobblestone:3", "minecraft:cobblestone:3", nil, nil, nil, nil}}}
-
-
-table.remove(items, 1)
-C.TextToItem = TextToItem
-C.ItemToText = ItemToText
-C.ItemToOName = ItemToOName
-C.TextToOName = TextToOName
-return C
+convert.TextToItem = TextToItem
+convert.ItemToText = ItemToText
+convert.ItemToOName = ItemToOName
+convert.TextToOName = TextToOName
+return convert
