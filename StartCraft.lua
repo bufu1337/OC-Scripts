@@ -1,8 +1,9 @@
 local startcraft = {}
 local shell = require("shell")
+local thread = require("thread")
 local prog = "/home/crafting/"
 
-function getfiles(files)
+local function getfiles(files)
     print("")
     if(files.n > 0)then
         print("Downloading files...")
@@ -25,25 +26,25 @@ function getfiles(files)
 
 end
 
-function clone(filelist, specificfile)
-    local pFiles = {}
-    local nFiles = {}
-    if(filesystem.exists(prog))then
-        if(filesystem.exists(prog .. filelist))then
-            print("Getting old file attributes")
-            pFiles = get(io.lines(prog .. filelist))
-        end
-    else
-        print("Directory: " .. prog .. "not existing... Creating!")
-        filesystem.makeDirectory(prog)
-    end
-    print("")
-    print("Getting new file attributes")
-    os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
-    nFiles = get(io.lines(prog .. filelist))
-    local files = {n=0}
-    local counter = 0
-    print("")
+local function clone(filelist, specificfile)
+  local pFiles = {}
+  local nFiles = {}
+  if(filesystem.exists(prog))then
+      if(filesystem.exists(prog .. filelist))then
+          print("Getting old file attributes")
+          pFiles = get(io.lines(prog .. filelist))
+      end
+  else
+      print("Directory: " .. prog .. "not existing... Creating!")
+      filesystem.makeDirectory(prog)
+  end
+  print("")
+  print("Getting new file attributes")
+  os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
+  nFiles = get(io.lines(prog .. filelist))
+  local files = {n=0}
+  local counter = 0
+  print("")
 	if(specificfile ~= nil) then
 		for i,j in pairs(nFiles) do
 			if((j.folder .. i .. ".lua") ~= specificfile) then
@@ -51,23 +52,23 @@ function clone(filelist, specificfile)
 			end
 		end
 	end
-    for i,j in pairs(nFiles) do
-        if(pFiles[i] == nil)then
-            files[i] = j
-            files.n = files.n + 1
-            print(j.folder .. i .. ".lua updating, Version: " .. j.version)
-        elseif(nFiles[i].version > pFiles[i].version)then
-            files[i] = j
-            files.n = files.n + 1
-            print(j.folder .. i .. ".lua updating, Version: " .. j.version)
-        else
-            print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
-        end
+  for i,j in pairs(nFiles) do
+    if(pFiles[i] == nil)then
+      files[i] = j
+      files.n = files.n + 1
+      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
+    elseif(nFiles[i].version > pFiles[i].version)then
+      files[i] = j
+      files.n = files.n + 1
+      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
+    else
+      print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
     end
-    getfiles(files)
+  end
+  getfiles(files)
 end
 --local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
-function get(lines)
+local function get(lines)
     local files = {}
     for line in lines do
         local fcounter = 0
@@ -101,23 +102,25 @@ end
 
 local function Start(param)
 	if param == "GetFiles" then
-        clone("files")
-    elseif param == "GetNewFiles" then
-        print("Removing: " .. prog .. "files")
-        filesystem.remove(prog .. "files")
-        clone("files")
+    clone("files")
+  elseif param == "GetNewFiles" then
+    print("Removing: " .. prog .. "files")
+    filesystem.remove(prog .. "files")
+    clone("files")
 	else
-		clone("files")
-		clone("itemfiles", param)
-		local ac = require("Autocraft")
-		ac.Craft(param)
-    end
+	  thread.create(function(itemrepo)
+  		clone("files")
+  		clone("itemfiles", itemrepo)
+  		local ac = require("Autocraft")
+  		ac.Craft(itemrepo)
+		end, param)
+  end
 end
+
 local args = shell.parse( ... )
 if args[1] ~= nil then
     Start(args[1])
 end
-
 
 startcraft.Start = Start
 return startcraft
