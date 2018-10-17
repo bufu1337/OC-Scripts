@@ -1,15 +1,35 @@
 local thread = require("thread")
 local c = require("component")
-local rs = c.block_refinedstorage_grid_2
+local os = require("os")
+local event = require("event")
+local m = c.modem
+local gpu = c.gpu
 local sides = require("sides")
-c.modem.open(111)
+local screen = {
+    Temp="912e8944-1357-42cd-8dbf-e8140f7627e4";
+    Main="9a85f463-04f0-45e6-a803-b1dafa230b47"
+}
+m.close()
+m.open(123)
 print("screenchange init")
-thread.create(function()
+local t = thread.create(function()
     while true do
-        local _, _, _, _, _, message = event.pull("modem_message")
-		local rs_item = rs.getItem({name="minecraft:stick"}, true)
-		local dropped = rs.extractItem(rs_item, 32, sides.down)
-		print(dropped)
-	end
+        os.sleep()
+        local _, _, from, _, _, where = event.pull("modem_message")
+        gpu.bind(screen[where], true)
+        if where == "Main" then
+            m.send(from, 123, "Temp")
+        end
+    end
 end)
 print("screenchange - thread started")
+
+while true do
+  local command = io.read()
+  if command == "quit sc" then
+    break
+  else
+    os.execute(command)
+  end
+end
+t:kill()
