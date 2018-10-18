@@ -68,10 +68,13 @@ local function getServers()
 	end
 end
 local t = thread.create(function()
+	print("1")
 	getServers()
 	m.close()
 	m.open(123)
+	print("2")
 	gpu.bind(screen.Main, true)
+	print("3")
 	for i,j in servers do
 		if m.address ~= j then
 			m.send(j, 123, "Temp")
@@ -79,6 +82,7 @@ local t = thread.create(function()
 			print("Server: " .. i .. " is now on the main screen")
 		end
 	end
+	print("4")
 	if (table.contains(servers, m.address)) == false then
 		print("New Server started. Please define a name:")
 		local command = io.read()
