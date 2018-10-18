@@ -88,7 +88,7 @@ if (contains(servers, m.address)) == false then
     fs.remove(serversfile)
     local file = io.open(serversfile, "w")
     for i,j in pairs(servers) do
-        file:write(i .. "=" .. j)
+        file:write(i .. "=" .. j .. "\n")
     end
     file:close()
     m.broadcast(123, "getServers")
@@ -133,7 +133,7 @@ while true do
                     fs.remove(serversfile)
                     local file = io.open(serversfile, "w")
                     for i,j in pairs(servers) do
-                        file:write(i .. "=" .. j)
+                        file:write(i .. "=" .. j .. "\n")
                     end
                     file:close()
                     m.broadcast(123, "getServers")
