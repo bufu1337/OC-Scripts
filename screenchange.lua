@@ -69,40 +69,38 @@ local function getServers()
         file:close()
     end
 end
-local t = thread.create(function()
-    print("1")
-    getServers()
-    m.close()
-    m.open(123)
-    print("2")
-    gpu.bind(screen.Main, true)
-    print("3")
-    for i,j in pairs(servers) do
-        if m.address ~= j then
-            m.send(j, 123, "Temp")
-        else
-            print("Server: " .. i .. " is now on the main screen")
-        end
-    end
-    print("4")
-    if (contains(servers, m.address)) == false then
-        print("New Server started. Please define a name:")
-        local command = io.read()
-        servers[command] = m.address
-        fs.remove(serversfile)
-        local file = io.open(serversfile, "w")
-        for i,j in servers do
-            file:write(i .. "=" .. j)
-        end
-        file:close()
-        m.broadcast(123, "getServers")
-        print("Server: " .. command .. " is now on the main screen")
+
+getServers()
+m.close()
+m.open(123)
+gpu.bind(screen.Main, true)
+for i,j in pairs(servers) do
+    if m.address ~= j then
+        m.send(j, 123, "Temp")
     else
-        print("Server is in list")
+        print("Server: " .. i .. " is now on the main screen")
     end
-    print("Type \"sc\" for help")
-    print("Type \"quit sc\" to quit the screen-changing")
-    print("Any other commands will be put in os.execute")
+end
+if (contains(servers, m.address)) == false then
+    print("New Server started. Please define a name:")
+    local command = io.read()
+    servers[command] = m.address
+    fs.remove(serversfile)
+    local file = io.open(serversfile, "w")
+    for i,j in servers do
+        file:write(i .. "=" .. j)
+    end
+    file:close()
+    m.broadcast(123, "getServers")
+    print("Server: " .. command .. " is now on the main screen")
+else
+    print("Server is in list")
+end
+print("Type \"sc\" for help")
+print("Type \"quit sc\" to quit the screen-changing")
+print("Any other commands will be put in os.execute")
+
+local t = thread.create(function()
     while true do
         os.sleep()
         local _, _, from, _, _, where = event.pull("modem_message")
