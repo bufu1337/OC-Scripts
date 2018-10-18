@@ -155,7 +155,7 @@ while true do
             print("")
             print("ScreenChanger: Write \"sc $mod$\"")
             print("---- MODS ----")
-            for i,j in servers do
+            for i,j in pairs(servers) do
                 print(i)
             end
             print("")
