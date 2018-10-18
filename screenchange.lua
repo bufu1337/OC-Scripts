@@ -56,7 +56,7 @@ local function split(inputstr, sep)
 end
 print("screenchange init")
 local function getServers()
-    if (filesystem.exists(serversfile)) then
+    if (fs.exists(serversfile)) then
         for line in io.lines(serversfile) do
           if (#line > 0) then
             local l = split(line, "=")
