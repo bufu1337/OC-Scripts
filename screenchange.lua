@@ -16,32 +16,32 @@ local servers = {
   --minecraft="e6c5887f-5058-4067-a2aa-d33a24c4541e";
   --chimneys="2583b808-0f6e-4ab4-b3f6-efd1b30a6520"
 }
-local function contains(self, element)
-  for key, value in pairs(self) do
+local function contains(ab, element)
+  for key, value in pairs(ab) do
     if value == element then
       return true
     end
   end
   return false
 end
-local function containsKey(self, element)
-  for key, value in pairs(self) do
+local function containsKey(ab, element)
+  for key, value in pairs(ab) do
     if key == element then
       return true
     end
   end
   return false
 end
-local function getIndex(self, element)
-  for key, value in pairs(self) do
+local function getIndex(ab, element)
+  for key, value in pairs(ab) do
     if value == element then
       return key
     end
   end
   return -1
 end
-local function startswith(self, str) 
-    return self:find('^' .. str) ~= nil
+local function startswith(ab, str) 
+    return ab:find('^' .. str) ~= nil
 end
 local function split(inputstr, sep)
     if sep == nil then
