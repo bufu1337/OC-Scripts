@@ -87,7 +87,7 @@ if (contains(servers, m.address)) == false then
     servers[command] = m.address
     fs.remove(serversfile)
     local file = io.open(serversfile, "w")
-    for i,j in servers do
+    for i,j in pairs(servers) do
         file:write(i .. "=" .. j)
     end
     file:close()
@@ -132,7 +132,7 @@ while true do
                     servers[snew[3]] = snew[4]
                     fs.remove(serversfile)
                     local file = io.open(serversfile, "w")
-                    for i,j in servers do
+                    for i,j in pairs(servers) do
                         file:write(i .. "=" .. j)
                     end
                     file:close()
