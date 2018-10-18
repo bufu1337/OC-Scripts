@@ -16,6 +16,7 @@ local t = thread.create(function()
     while true do
         os.sleep()
         local _, _, from, _, _, where = event.pull("modem_message")
+        print(where)
         gpu.bind(screen[where], true)
         if where == "Main" then
             if m.address ~= from then
