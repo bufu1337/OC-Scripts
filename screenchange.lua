@@ -123,7 +123,7 @@ while true do
     if (command ~= nil and #command > 0) then
       if command == "quit sc" then
         break
-      elseif startswith(commmand,"sc") then
+      elseif startswith(command,"sc") then
         local ser = split(command, " ")[2]
         if ser ~= nil then
             if ser == "addServer" then
