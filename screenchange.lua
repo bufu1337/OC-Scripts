@@ -92,7 +92,7 @@ if (contains(servers, m.address)) == false then
     end
     file:close()
     m.broadcast(123, "getServers")
-    print("Server: " .. command .. " is now on the main screen")
+    print("Server: " .. command .. " is now on the main screen!")
 else
     print("Server is in list")
 end
