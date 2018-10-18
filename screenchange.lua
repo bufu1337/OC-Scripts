@@ -137,10 +137,10 @@ while true do
 			if servers[ser] ~= m.address then
 				m.send(servers[ser], 123, "Main")
 			else
-				print("Server: " .. ser .. " is already on screen"))
+				print("Server: " .. ser .. " is already on screen")
 			end
 		else
-			print("Unknown Server: " .. ser))
+			print("Unknown Server: " .. ser)
 		end
 	else
 		print("")
