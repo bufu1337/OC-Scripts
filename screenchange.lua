@@ -91,6 +91,8 @@ local t = thread.create(function()
 		file:close()
 		m.broadcast(123, "getServers")
 		print("Server: " .. command .. " is now on the main screen")
+	else
+		print("Server is in list")
 	end
 	print("Type \"sc\" for help")
 	print("Type \"quit sc\" to quit the screen-changing")
