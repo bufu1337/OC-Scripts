@@ -13,6 +13,12 @@ if args[1] ~= nil then
   if m.address ~= servers[args[1]] then
     m.send(servers[args[1]], 123, "Main")
   else
+    m.send(servers[args[1]], 123, "Main")
+    for i,j in servers do
+        if i ~= args[1] then
+	  m.send(j, 123, "Temp")
+        end
+    end
     print("Server: " .. args[1] .. " already on screen")
   end
 end

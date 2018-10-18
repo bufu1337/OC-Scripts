@@ -18,7 +18,9 @@ local t = thread.create(function()
         local _, _, from, _, _, where = event.pull("modem_message")
         gpu.bind(screen[where], true)
         if where == "Main" then
-            m.send(from, 123, "Temp")
+            if m.address ~= from then
+                m.send(from, 123, "Temp")
+            end
         end
     end
 end)
