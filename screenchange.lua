@@ -16,7 +16,7 @@ local servers = {
   --minecraft="e6c5887f-5058-4067-a2aa-d33a24c4541e";
   --chimneys="2583b808-0f6e-4ab4-b3f6-efd1b30a6520"
 }
-local table.contains = function(self, element)
+local function contains(self, element)
   for key, value in pairs(self) do
     if value == element then
       return true
@@ -24,7 +24,7 @@ local table.contains = function(self, element)
   end
   return false
 end
-local table.containsKey = function(self, element)
+local function containsKey(self, element)
   for key, value in pairs(self) do
     if key == element then
       return true
@@ -32,7 +32,7 @@ local table.containsKey = function(self, element)
   end
   return false
 end
-local table.getIndex = function(self, element)
+local function getIndex(self, element)
   for key, value in pairs(self) do
     if value == element then
       return key
@@ -40,10 +40,10 @@ local table.getIndex = function(self, element)
   end
   return -1
 end
-local string.startswith = function(self, str) 
+local function startswith(self, str) 
     return self:find('^' .. str) ~= nil
 end
-string.split = function(inputstr, sep)
+local function split(inputstr, sep)
     if sep == nil then
         sep = "%s"
     end
@@ -58,9 +58,11 @@ print("screenchange init")
 local function getServers()
     if (filesystem.exists(serversfile)) then
         for line in io.lines(serversfile) do
-            local l = line:split("=")
+          if (#line > 0) then
+            local l = split(line, "=")
             print("Adding server: " .. l[1] .. " IP: " .. l[2])
             servers[l[1]] = l[2]
+          end
         end
     else
         local file = io.open(serversfile, "w")
@@ -83,7 +85,7 @@ local t = thread.create(function()
         end
     end
     print("4")
-    if (table.contains(servers, m.address)) == false then
+    if (contains(servers, m.address)) == false then
         print("New Server started. Please define a name:")
         local command = io.read()
         servers[command] = m.address
@@ -123,11 +125,11 @@ while true do
     if command ~= nil then
       if command == "quit sc" then
         break
-      elseif commmand:startswith("sc") then
-        local ser = command:split(" ")[2]
+      elseif startswith(commmand,"sc") then
+        local ser = split(command, " ")[2]
         if ser ~= nil then
             if ser == "addServer" then
-                local snew = command:split(" ")
+                local snew = split(command, " ")
                 if ((snew[3] ~= nil) and (snew[4] ~= nil)) then
                     servers[snew[3]] = snew[4]
                     fs.remove(serversfile)
