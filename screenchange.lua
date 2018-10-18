@@ -77,7 +77,7 @@ local t = thread.create(function()
     print("2")
     gpu.bind(screen.Main, true)
     print("3")
-    for i,j in servers do
+    for i,j in pairs(servers) do
         if m.address ~= j then
             m.send(j, 123, "Temp")
         else
@@ -122,7 +122,7 @@ end)
 
 while true do
     local command = io.read()
-    if command ~= nil then
+    if (command ~= nil and #command > 0) then
       if command == "quit sc" then
         break
       elseif startswith(commmand,"sc") then
