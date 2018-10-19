@@ -18,7 +18,7 @@ local screens = {
 }
 local servers = {}
 
-mf.writex("ScreenChanger init")
+mf.writex("ScreenChanger Init")
 local function getScreens()
     if (fs.exists(screensfile)) then
         for line in io.lines(screensfile) do
