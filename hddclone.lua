@@ -15,5 +15,5 @@ for times = 2, #args, 1 do
     local to = { path = "/mnt/" .. args[times] } 
     io.write("Copying files from " .. from.path .. " to " .. to.path .. ".\n")
     shell.execute("cp -v -r " .. from.path .. "* " .. to.path)
-    io.write("\27[32mDone!")
+    io.write("Done!\n")
 end

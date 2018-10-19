@@ -1,19 +1,10 @@
--- Refined Storage autocraft
---
--- Run the program with the pathname of the crafts' listing file 
--- Crafts file (a craft per line): [item_name] [count]
--- File example: https://pastebin.com/zDrXzfSM
---
--- Created by Nyhillius  
-
-
 local event = require("event")
 local io = require("io")
 local sides = require("sides")
 local os = require("os")
 local component = require("component")
-local convert = require("Convert")
-local prox = require("Proxies")
+local convert = require("crafting/Convert")
+local prox = require("crafting/Proxies")
 local thread = require("thread")
 local shell = require("shell")
 local items = {}
@@ -23,11 +14,11 @@ local ac = {}
 local args = shell.parse( ... )
 
 local function MathUp(num)
-	local result = math.floor(num)
-	if((num - result) > 0)then
+    local result = math.floor(num)
+    if((num - result) > 0)then
       result = result + 1
     end
-	return result
+    return result
 end
 local function GetRecipeCounts()
   local temp = {}
@@ -76,20 +67,20 @@ local function GetStorageItems()
   end
 end
 local function GetItemsCount()
-	local count = 0
-	for i,j in pairs(items) do
-		count = count + 1
-	end
-	return count
+    local count = 0
+    for i,j in pairs(items) do
+        count = count + 1
+    end
+    return count
 end
 local function GetStorageItemsThreads()
   local itemcount = GetItemsCount
   local itemcounter = 0
   local co = 1
-	local times = MathUp(itemcount / 50)
-	local iarr = {}
-	local th = {}
-	for v = 1, times, 1 do
+    local times = MathUp(itemcount / 50)
+    local iarr = {}
+    local th = {}
+    for v = 1, times, 1 do
     iarr[v] = {}
   end
   for i,j in pairs(items) do
@@ -342,7 +333,7 @@ local function GetItems()
   PrintItems()
 end
 local function Craft(itemrepo)
-  items = require("Items/" .. itemrepo)
+  items = require("crafting/Items/" .. itemrepo)
   crafter = itemrepo
   GetItems()
   --GetStorageInfo("home")
@@ -492,7 +483,7 @@ return ac
 -- end
 
 -- local function do_crafting(file)
-	-- GetItems(file)
+    -- GetItems(file)
 -- end
 
 -- Check the args

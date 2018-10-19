@@ -45,13 +45,13 @@ local function clone(filelist, specificfile)
   local files = {n=0}
   local counter = 0
   print("")
-	if(specificfile ~= nil) then
-		for i,j in pairs(nFiles) do
-			if((j.folder .. i .. ".lua") ~= specificfile) then
-				nFiles[i] = nil
-			end
-		end
-	end
+    if(specificfile ~= nil) then
+        for i,j in pairs(nFiles) do
+            if((j.folder .. i .. ".lua") ~= specificfile) then
+                nFiles[i] = nil
+            end
+        end
+    end
   for i,j in pairs(nFiles) do
     if(pFiles[i] == nil)then
       files[i] = j
@@ -101,19 +101,19 @@ local function get(lines)
 end
 
 local function Start(param)
-	if param == "GetFiles" then
+    if param == "GetFiles" then
     clone("files")
   elseif param == "GetNewFiles" then
     print("Removing: " .. prog .. "files")
     filesystem.remove(prog .. "files")
     clone("files")
-	else
-	  thread.create(function(itemrepo)
-  		clone("files")
-  		clone("itemfiles", itemrepo)
-  		local ac = require("Autocraft")
-  		ac.Craft(itemrepo)
-		end, param)
+    else
+      thread.create(function(itemrepo)
+          clone("files")
+          clone("itemfiles", itemrepo)
+          local ac = require("crafting/Autocraft")
+          ac.Craft(itemrepo)
+        end, param)
   end
 end
 

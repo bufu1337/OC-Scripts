@@ -1,66 +1,43 @@
 local thread = require("thread")
 local c = require("component")
 local os = require("os")
+local shell = require("shell")
 local io = require("io")
 local fs = require("filesystem")
 local event = require("event")
+local mf = require("MainFunctions")
 local m = c.modem
 local gpu = c.gpu
 local sides = require("sides")
 local serversfile = "/bufu/servers.lua"
-local screen = {
+local screensfile = "/bufu/screens.lua"
+local screens = {
     Temp="912e8944-1357-42cd-8dbf-e8140f7627e4";
     Main="9a85f463-04f0-45e6-a803-b1dafa230b47"
 }
-local servers = {
-  --minecraft="e6c5887f-5058-4067-a2aa-d33a24c4541e";
-  --chimneys="2583b808-0f6e-4ab4-b3f6-efd1b30a6520"
-}
-local function contains(ab, element)
-  for key, value in pairs(ab) do
-    if value == element then
-      return true
+local servers = {}
+
+mf.writex("ScreenChanger init")
+local function getScreens()
+    if (fs.exists(screensfile)) then
+        for line in io.lines(screensfile) do
+          if (#line > 0) then
+            local l = mf.split(line, " = ")
+            --mf.writex("Adding screen: " .. l[1] .. " IP: " .. l[2] .. "")
+            screens[l[1]] = l[2]
+          end
+        end
+    else
+        local file = io.open(screensfile, "w")
+        file:close()
     end
-  end
-  return false
 end
-local function containsKey(ab, element)
-  for key, value in pairs(ab) do
-    if key == element then
-      return true
-    end
-  end
-  return false
-end
-local function getIndex(ab, element)
-  for key, value in pairs(ab) do
-    if value == element then
-      return key
-    end
-  end
-  return -1
-end
-local function startswith(ab, str) 
-    return ab:find('^' .. str) ~= nil
-end
-local function split(inputstr, sep)
-    if sep == nil then
-        sep = "%s"
-    end
-    local t={} ; i=1
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-        t[i] = str
-        i = i + 1
-    end
-    return t
-end
-print("screenchange init")
 local function getServers()
     if (fs.exists(serversfile)) then
         for line in io.lines(serversfile) do
           if (#line > 0) then
-            local l = split(line, "=")
-            print("Adding server: " .. l[1] .. " IP: " .. l[2])
+            local l = mf.split(line, " = ")
+            --mf.writex("Adding server: " .. l[1] .. " IP: " .. l[2])
             servers[l[1]] = l[2]
           end
         end
@@ -69,36 +46,39 @@ local function getServers()
         file:close()
     end
 end
+local function WriteServersFile()
+    fs.remove(serversfile)
+    local file = io.open(serversfile, "w")
+    mf.filewx(servers, file)
+    file:close()
+end
+local function WriteScreensFile()
+    fs.remove(screensfile)
+    local file = io.open(screensfile, "w")
+    mf.filewx(screens, file)
+    file:close()
+end
 
 getServers()
 m.close()
 m.open(123)
-gpu.bind(screen.Main, true)
-for i,j in pairs(servers) do
-    if m.address ~= j then
-        m.send(j, 123, "Temp")
-    else
-        print("Server: " .. i .. " is now on the main screen")
-    end
-end
-if (contains(servers, m.address)) == false then
-    print("New Server started. Please define a name:")
+m.broadcast(123, "Temp")
+gpu.bind(screens.Main, true)
+c.setPrimary("screen", screens.Main)
+c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
+if (mf.contains(servers, m.address)) == false then
+    mf.writex("New Server started. Please define a name:")
     local command = io.read()
     servers[command] = m.address
-    fs.remove(serversfile)
-    local file = io.open(serversfile, "w")
-    for i,j in pairs(servers) do
-        file:write(i .. "=" .. j .. "\n")
-    end
-    file:close()
+    WriteServersFile()
     m.broadcast(123, "getServers")
-    print("Server: " .. command .. " is now on the main screen!")
+    mf.writex("Server: " .. command .. " is now on the main screen!")
 else
-    print("Server is in list")
+    mf.writex("Server: " .. mf.getIndex(servers, m.address) .. " is now on the main screen!")
 end
-print("Type \"sc\" for help")
-print("Type \"quit sc\" to quit the screen-changing")
-print("Any other commands will be put in os.execute")
+mf.writex("Type \"sc\" for help")
+mf.writex("Type \"quit sc\" to quit the ScreenChanger")
+mf.writex("Any other commands will be put in shell.execute")
 
 local t = thread.create(function()
     while true do
@@ -107,8 +87,10 @@ local t = thread.create(function()
         if where == "getServers" then
             getServers()
         else
-            print(where)
-            gpu.bind(screen[where], true)
+            mf.writex(where)
+            gpu.bind(screens[where], true)
+            c.setPrimary("screen", screens[where])
+            c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
             if where == "Main" then
                 if m.address ~= from then
                     m.send(from, 123, "Temp")
@@ -121,48 +103,42 @@ end)
 while true do
     local command = io.read()
     if (command ~= nil and #command > 0) then
-      if command == "quit sc" then
-        break
-      elseif startswith(command,"sc") then
-        local ser = split(command, " ")[2]
-        if ser ~= nil then
-            if ser == "addServer" then
-                local snew = split(command, " ")
-                if ((snew[3] ~= nil) and (snew[4] ~= nil)) then
-                    servers[snew[3]] = snew[4]
-                    fs.remove(serversfile)
-                    local file = io.open(serversfile, "w")
-                    for i,j in pairs(servers) do
-                        file:write(i .. "=" .. j .. "\n")
+        if command == "quit sc" then
+            break
+        elseif mf.startswith(command,"sc") then
+            local ser = mf.split(command, " ")[2]
+            if ser ~= nil then
+                if ser == "renameServer" then
+                    local newname = mf.split(command, " ")[3]
+                    if (newname ~= nil) then
+                        local oldname = mf.getIndex(servers, m.address)
+                        servers[newname] = m.address
+                        servers[oldname] = nil
+                        WriteServersFile()
+                        m.broadcast(123, "getServers")
+                        mf.writex("ScreenChanger: Server: \"" .. oldname .. "\" renamed to: \"" .. newname .. "\"")
+                    else
+                        mf.writex("ScreenChanger: Write \"sc renameServer $mod$\" to rename the current server")
                     end
-                    file:close()
-                    m.broadcast(123, "getServers")
+                elseif servers[ser] ~= nil then
+                    if servers[ser] ~= m.address then
+                        m.send(servers[ser], 123, "Main")
+                    else
+                        mf.writex("Server: " .. ser .. " is already on screen")
+                    end
                 else
-                    print("ScreenChanger: Write \"sc addServer $mod$ $modem.address$\" to add a new server to server list")
-                end
-            elseif servers[ser] ~= nil then
-                if servers[ser] ~= m.address then
-                    m.send(servers[ser], 123, "Main")
-                else
-                    print("Server: " .. ser .. " is already on screen")
+                    mf.writex("Unknown Server: " .. ser)
                 end
             else
-                print("Unknown Server: " .. ser)
+                mf.writex("\nScreenChanger: Write \"sc renameServer $mod$\" to rename the current server\n")
+                mf.writex("ScreenChanger: Write \"sc $mod$\"")
+                mf.writex("---- MODS ----")
+                mf.writex(servers)
+                mf.writex("")
             end
         else
-            print("")
-            print("ScreenChanger: Write \"sc addServer $mod$ $modem.address$\" to add a new server to server list")
-            print("")
-            print("ScreenChanger: Write \"sc $mod$\"")
-            print("---- MODS ----")
-            for i,j in pairs(servers) do
-                print(i)
-            end
-            print("")
+            shell.execute(command)
         end
-      else
-        os.execute(command)
-      end
     end
 end
 t:kill()

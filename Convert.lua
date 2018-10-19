@@ -3,10 +3,10 @@ local convert = {}
 local function TextToItem(text)
     local result = {name="";damage=0;mod=""}
     local counter = 0
-	local search = {"jj", "([^jj]*)jj"}
-	if(text:find(":") ~= nil) then
-		search = {":", "([^:]*):"}
-	end
+    local search = {"jj", "([^jj]*)jj"}
+    if(text:find(":") ~= nil) then
+        search = {":", "([^:]*):"}
+    end
     for w in (text .. search[1]):gmatch(search[2]) do 
         if(counter == 0)then
             result.name = w
