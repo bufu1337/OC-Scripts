@@ -68,37 +68,40 @@ local function log(text)
     file:write(text .. "\n")
     file:close()
 end
-
+local sname = tostring(mf.getIndex(servers, m.address))
 getServers()
 m.close()
 m.open(123)
-m.broadcast(123, mf.getIndex(servers, m.address))
+m.broadcast(123, sname)
 gpu.bind(screens.Main, true)
 c.setPrimary("screen", screens.Main)
 c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
 shell.execute("clear")
-log(mf.getIndex(servers, m.address) .. " Server bound to Main Screen")
-if (mf.contains(servers, m.address)) == false then
+--log(sname .. " Server bound to Main Screen")
+if (sname == "-1") then
     mf.writex("New Server started. Please define a name:")
     local command = io.read()
     servers[command] = m.address
     WriteServersFile()
     m.broadcast(123, "getServers")
     mf.writex("Server: " .. command .. " is now on the main screen!")
+    sname = command
 else
-    mf.writex("Server: " .. mf.getIndex(servers, m.address) .. " is now on the main screen!")
+    mf.writex("Server: " .. sname .. " is now on the main screen!")
 end
 mf.writex("Type \"sc\" for help")
 mf.writex("Type \"quit sc\" to quit the ScreenChanger")
 mf.writex("Any other commands will be put in shell.execute\n")
 
 local t = thread.create(function()
-    local sname = mf.getIndex(servers, m.address)
     while true do
         os.sleep()
         local _, _, _, _, _, name = event.pull("modem_message")
-        if where == "getServers" then
+        local ex = mf.split(name, " ")
+        if name == "getServers" then
             getServers()
+        elseif ((ex[2] ~= nil) and (ex[1] == "exec")) then
+            shell.execute(ex[2])
         else
             local where = ""
             if (sname == name) then
@@ -135,17 +138,27 @@ while true do
                     else
                         mf.writex("ScreenChanger: Write \"sc renameServer $mod$\" to rename the current server")
                     end
+                elseif ser == "exec" then
+                    local exs = mf.split(command, " ")
+                    if (exs[3] ~= nil and exs[4] ~= nil) then
+                        if (servers[exs[3]] ~= nil) then
+                            m.send(servers[exs[3]], 123, "exec " .. exs[4])
+                        end
+                    else
+                        mf.writex("ScreenChanger: Write \"sc exec $mod$ $execution$\" to execute something remotely on the specified server")
+                    end
                 elseif servers[ser] ~= nil then
                     if servers[ser] ~= m.address then
-                        m.broadcast(123, mf.getIndex(servers, m.address))
+                        m.broadcast(123, ser)
                     else
                         mf.writex("Server: " .. ser .. " is already on screen")
                     end
                 else
-                    mf.writex("Unknown Server: " .. ser)
+                    mf.writex("Unknown Server/Command: " .. ser)
                 end
             else
-                mf.writex("\nScreenChanger: Write \"sc renameServer $mod$\" to rename the current server\n")
+                mf.writex("\nScreenChanger: Write \"sc renameServer $mod$\" to rename the current server")
+                mf.writex("ScreenChanger: Write \"sc exec $mod$ $execution$\" to execute something remotely on the specified server\n")
                 mf.writex("ScreenChanger: Write \"sc $mod$\"")
                 mf.writex("---- MODS ----")
                 mf.writex(servers)
