@@ -1,3 +1,4 @@
+local filesystem = require("filesystem")
 if filesystem.exists("/home/crafting/") == false then
   filesystem.makeDirectory("/home/crafting/")
 end
