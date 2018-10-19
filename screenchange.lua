@@ -65,14 +65,14 @@ local function WriteScreensFile()
 end
 local function log(text)
     local file = io.open(logfile, "a")
-    file:write(text)
+    file:write(text .. "\n")
     file:close()
 end
 
 getServers()
 m.close()
 m.open(123)
-m.broadcast(123, "Temp")
+m.broadcast(123, mf.getIndex(servers, m.address))
 gpu.bind(screens.Main, true)
 c.setPrimary("screen", screens.Main)
 c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
@@ -93,22 +93,24 @@ mf.writex("Type \"quit sc\" to quit the ScreenChanger")
 mf.writex("Any other commands will be put in shell.execute\n")
 
 local t = thread.create(function()
+    local sname = mf.getIndex(servers, m.address)
     while true do
         os.sleep()
-        local _, _, from, _, _, where = event.pull("modem_message")
+        local _, _, _, _, _, name = event.pull("modem_message")
         if where == "getServers" then
             getServers()
         else
-            mf.writex(where)
+            local where = ""
+            if (sname == name) then
+              where = "Main"
+            else
+              where = "Temp"
+            end
             gpu.bind(screens[where], true)
             c.setPrimary("screen", screens[where])
             c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
-            log(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen")
-            if where == "Main" then
-                if m.address ~= from then
-                    m.send(from, 123, "Temp")
-                end
-            end
+            log(sname .. " Server bound to " .. where .. " Screen")
+            mf.writex(sname .. " Server bound to " .. where .. " Screen")
         end
     end
 end)
@@ -135,7 +137,7 @@ while true do
                     end
                 elseif servers[ser] ~= nil then
                     if servers[ser] ~= m.address then
-                        m.send(servers[ser], 123, "Main")
+                        m.broadcast(123, mf.getIndex(servers, m.address))
                     else
                         mf.writex("Server: " .. ser .. " is already on screen")
                     end
