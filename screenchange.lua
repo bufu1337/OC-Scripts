@@ -11,6 +11,7 @@ local gpu = c.gpu
 local sides = require("sides")
 local serversfile = "/bufu/servers.lua"
 local screensfile = "/bufu/screens.lua"
+local logfile = "/bufu/sclog.lua"
 local screens = {
     Temp="912e8944-1357-42cd-8dbf-e8140f7627e4";
     Main="9a85f463-04f0-45e6-a803-b1dafa230b47"
@@ -66,6 +67,10 @@ m.broadcast(123, "Temp")
 gpu.bind(screens.Main, true)
 c.setPrimary("screen", screens.Main)
 c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
+shell.execute("clear")
+local file = io.open(logfile, "w")
+mf.filewx(mf.getIndex(servers, m.address) .. " Server bound to Main Screen", file)
+file:close()
 if (mf.contains(servers, m.address)) == false then
     mf.writex("New Server started. Please define a name:")
     local command = io.read()
@@ -78,7 +83,7 @@ else
 end
 mf.writex("Type \"sc\" for help")
 mf.writex("Type \"quit sc\" to quit the ScreenChanger")
-mf.writex("Any other commands will be put in shell.execute")
+mf.writex("Any other commands will be put in shell.execute\n")
 
 local t = thread.create(function()
     while true do
@@ -91,6 +96,9 @@ local t = thread.create(function()
             gpu.bind(screens[where], true)
             c.setPrimary("screen", screens[where])
             c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
+            local file = io.open(logfile, "w")
+            mf.filewx(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen", file)
+            file:close()
             if where == "Main" then
                 if m.address ~= from then
                     m.send(from, 123, "Temp")
