@@ -68,8 +68,9 @@ local function log(text)
     file:write(text .. "\n")
     file:close()
 end
-local sname = tostring(mf.getIndex(servers, m.address))
+
 getServers()
+local sname = tostring(mf.getIndex(servers, m.address))
 m.close()
 m.open(123)
 m.broadcast(123, sname)
