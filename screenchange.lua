@@ -50,13 +50,17 @@ end
 local function WriteServersFile()
     fs.remove(serversfile)
     local file = io.open(serversfile, "w")
-    mf.filewx(servers, file)
+    for i,j in pairs(servers) do
+        file:write(i .. "=" .. j .. "\n")
+    end
     file:close()
 end
 local function WriteScreensFile()
     fs.remove(screensfile)
     local file = io.open(screensfile, "w")
-    mf.filewx(screens, file)
+    for i,j in pairs(screens) do
+        file:write(i .. "=" .. j .. "\n")
+    end
     file:close()
 end
 
@@ -69,7 +73,7 @@ c.setPrimary("screen", screens.Main)
 c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
 shell.execute("clear")
 local file = io.open(logfile, "w")
-mf.filewx(mf.getIndex(servers, m.address) .. " Server bound to Main Screen", file)
+file:write(mf.getIndex(servers, m.address) .. " Server bound to Main Screen")
 file:close()
 if (mf.contains(servers, m.address)) == false then
     mf.writex("New Server started. Please define a name:")
@@ -97,7 +101,7 @@ local t = thread.create(function()
             c.setPrimary("screen", screens[where])
             c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
             local file = io.open(logfile, "w")
-            mf.filewx(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen", file)
+            file:write(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen")
             file:close()
             if where == "Main" then
                 if m.address ~= from then
