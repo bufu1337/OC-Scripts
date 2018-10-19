@@ -100,7 +100,7 @@ local function clone(filelist, specificfile)
   end
   getfiles(files)
 end
---local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
+--local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"} 
 
 
 local function Start(param)
