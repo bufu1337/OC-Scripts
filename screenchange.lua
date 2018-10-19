@@ -49,7 +49,7 @@ local function getServers()
 end
 local function WriteServersFile()
     fs.remove(serversfile)
-    local file = io.open(serversfile, "a")
+    local file = io.open(serversfile, "w")
     for i,j in pairs(servers) do
         file:write(i .. "=" .. j .. "\n")
     end
@@ -64,7 +64,7 @@ local function WriteScreensFile()
     file:close()
 end
 local function log(text)
-    local file = io.open(logfile, "w")
+    local file = io.open(logfile, "a")
     file:write(text)
     file:close()
 end
