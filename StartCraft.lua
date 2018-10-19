@@ -1,74 +1,10 @@
 local startcraft = {}
 local shell = require("shell")
 local thread = require("thread")
+local filesystem = require("filesystem")
 local prog = "/home/crafting/"
 
-local function getfiles(files)
-    print("")
-    if(files.n > 0)then
-        print("Downloading files...")
-        for name,props in pairs(files) do
-            if name ~= "n" then
-                local temp = prog
-                for i in props.folder:gmatch("([^/]*)/") do
-                    temp = temp .. i .. "/"
-                    filesystem.makeDirectory(temp)
-                end
-                file = props.folder .. name .. ".lua"
-                print("Getting file: " .. file .. "  (Version: " .. props.version .. ")")
-                os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."?" .. math.random() .. "' '" .. prog .. file .. "'")
-            end
-        end
-        print("Get new Files: done")
-    else
-        print("All files are uptodate")
-    end
-
-end
-
-local function clone(filelist, specificfile)
-  local pFiles = {}
-  local nFiles = {}
-  if(filesystem.exists(prog))then
-      if(filesystem.exists(prog .. filelist))then
-          print("Getting old file attributes")
-          pFiles = get(io.lines(prog .. filelist))
-      end
-  else
-      print("Directory: " .. prog .. "not existing... Creating!")
-      filesystem.makeDirectory(prog)
-  end
-  print("")
-  print("Getting new file attributes")
-  os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
-  nFiles = get(io.lines(prog .. filelist))
-  local files = {n=0}
-  local counter = 0
-  print("")
-    if(specificfile ~= nil) then
-        for i,j in pairs(nFiles) do
-            if((j.folder .. i .. ".lua") ~= specificfile) then
-                nFiles[i] = nil
-            end
-        end
-    end
-  for i,j in pairs(nFiles) do
-    if(pFiles[i] == nil)then
-      files[i] = j
-      files.n = files.n + 1
-      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
-    elseif(nFiles[i].version > pFiles[i].version)then
-      files[i] = j
-      files.n = files.n + 1
-      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
-    else
-      print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
-    end
-  end
-  getfiles(files)
-end
---local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
-local function get(lines)
+local function getDefs(lines)
     local files = {}
     for line in lines do
         local fcounter = 0
@@ -99,6 +35,73 @@ local function get(lines)
     end
     return files
 end
+
+local function getfiles(files)
+    print("")
+    if(files.n > 0)then
+        print("Downloading files...")
+        for name,props in pairs(files) do
+            if name ~= "n" then
+                local temp = prog
+                for i in props.folder:gmatch("([^/]*)/") do
+                    temp = temp .. i .. "/"
+                    filesystem.makeDirectory(temp)
+                end
+                local file = props.folder .. name .. ".lua"
+                print("Getting file: " .. file .. "  (Version: " .. props.version .. ")")
+                os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. file .."?" .. math.random() .. "' '" .. prog .. file .. "'")
+            end
+        end
+        print("Get new Files: done")
+    else
+        print("All files are uptodate")
+    end
+
+end
+
+local function clone(filelist, specificfile)
+  local pFiles = {}
+  local nFiles = {}
+  if(filesystem.exists(prog))then
+      if(filesystem.exists(prog .. filelist))then
+          print("Getting old file attributes")
+          pFiles = getDefs(io.lines(prog .. filelist))
+      end
+  else
+      print("Directory: " .. prog .. "not existing... Creating!")
+      filesystem.makeDirectory(prog)
+  end
+  print("")
+  print("ting new file attributes")
+  os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
+  nFiles = getDefs(io.lines(prog .. filelist))
+  local files = {n=0}
+  local counter = 0
+  print("")
+    if(specificfile ~= nil) then
+        for i,j in pairs(nFiles) do
+            if((j.folder .. i .. ".lua") ~= specificfile) then
+                nFiles[i] = nil
+            end
+        end
+    end
+  for i,j in pairs(nFiles) do
+    if(pFiles[i] == nil)then
+      files[i] = j
+      files.n = files.n + 1
+      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
+    elseif(nFiles[i].version > pFiles[i].version)then
+      files[i] = j
+      files.n = files.n + 1
+      print(j.folder .. i .. ".lua updating, Version: " .. j.version)
+    else
+      print(j.folder .. i .. ".lua is uptodate, Version: " .. j.version)
+    end
+  end
+  getfiles(files)
+end
+--local linestest = {"Proxies.lua 0.001", "Convert.lua 0.001", "MoveItem.lua 0.001", "AutoCraft.lua 0.001"}
+
 
 local function Start(param)
     if param == "GetFiles" then
