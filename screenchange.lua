@@ -113,8 +113,9 @@ local t = thread.create(function()
             gpu.bind(screens[where], true)
             c.setPrimary("screen", screens[where])
             c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
-            log(sname .. " Server bound to " .. where .. " Screen")
-            mf.writex(sname .. " Server bound to " .. where .. " Screen")
+            --log(sname .. " Server bound to " .. where .. " Screen")
+            shell.execute("clear")
+            mf.writex("Server: " .. sname .. " bound to " .. where .. " Screen")
         end
     end
 end)
