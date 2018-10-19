@@ -251,12 +251,12 @@ local function Proxies()
         extratrees = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Extra Trees 2.5.0.110 
         genetics = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Genetics 2.5.0.110
         libvulpes = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Vulpes library 0.2.8.-31
-        minecraft = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}}--Minecraft 01.12.2002
+        minecraft = {home={proxy="f4ade540-d023-47e0-9c72-f4ce397e6f0f", tocraft=sides.east, toroute=sides.west}, craft={proxy="e20cea58-f7ae-43f8-b531-b1b21c3765da", tohome=sides.north, toroute=sides.west}}--Minecraft 01.12.2002
     }
 end
 local function RouteSystem()
     return {
-        actuallycomputers = {proxy="", home=sides.up, craft=sides.up},
+        actuallycomputers = {proxy="8b560e01-5b40-49e4-8e86-312f0514dade", home=sides.west, craft=sides.east},
         adchimneys = {proxy="", home=sides.up, craft=sides.up},
         aperture = {proxy="", home=sides.up, craft=sides.up},
         arcticmobs = {proxy="", home=sides.up, craft=sides.up},
@@ -531,7 +531,16 @@ local function GetProxy(mod, typ)
         return proxy[mod][typ].proxy
     end
 end
+local function GetProx(mod, typ)
+    if(mod == "routing")then
+        return ""
+    else
+        local proxy = Proxies()
+        return proxy[mod][typ]
+    end
+end
 prox.GetRoute = GetRoute
+prox.GetProxy = GetProxy
 prox.GetProxy = GetProxy
 
 p.GetRoute = GetRoute
