@@ -63,6 +63,11 @@ local function WriteScreensFile()
     end
     file:close()
 end
+local function log(text)
+    local file = io.open(logfile, "w")
+    file:write(text)
+    file:close()
+end
 
 getServers()
 m.close()
@@ -72,9 +77,7 @@ gpu.bind(screens.Main, true)
 c.setPrimary("screen", screens.Main)
 c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
 shell.execute("clear")
-local file = io.open(logfile, "w")
-file:write(mf.getIndex(servers, m.address) .. " Server bound to Main Screen")
-file:close()
+log(mf.getIndex(servers, m.address) .. " Server bound to Main Screen")
 if (mf.contains(servers, m.address)) == false then
     mf.writex("New Server started. Please define a name:")
     local command = io.read()
@@ -100,9 +103,7 @@ local t = thread.create(function()
             gpu.bind(screens[where], true)
             c.setPrimary("screen", screens[where])
             c.setPrimary("keyboard", c.invoke(gpu.getScreen(), "getKeyboards")[1])
-            local file = io.open(logfile, "w")
-            file:write(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen")
-            file:close()
+            log(mf.getIndex(servers, m.address) .. " Server bound to " .. where .. " Screen")
             if where == "Main" then
                 if m.address ~= from then
                     m.send(from, 123, "Temp")
