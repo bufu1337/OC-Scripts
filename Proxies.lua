@@ -251,7 +251,7 @@ local function Proxies()
         extratrees = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Extra Trees 2.5.0.110 
         genetics = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Genetics 2.5.0.110
         libvulpes = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Vulpes library 0.2.8.-31
-        minecraft = {home={proxy="f4ade540-d023-47e0-9c72-f4ce397e6f0f", tocraft=sides.east, toroute=sides.west}, craft={proxy="e20cea58-f7ae-43f8-b531-b1b21c3765da", tohome=sides.north, toroute=sides.west}}--Minecraft 01.12.2002
+        minecraft = {home={proxy="064e979d-0a25-4324-bc61-dfa764487718", tocraft=sides.east, toroute=sides.west}, craft={proxy="e20cea58-f7ae-43f8-b531-b1b21c3765da", tohome=sides.north, toroute=sides.west}}--Minecraft 01.12.2002
     }
 end
 local function RouteSystem()
@@ -541,8 +541,6 @@ local function GetProx(mod, typ)
 end
 prox.GetRoute = GetRoute
 prox.GetProxy = GetProxy
-prox.GetProxy = GetProxy
+prox.GetProx = GetProx
 
-p.GetRoute = GetRoute
-p.GetProxy = GetProxy
-return p
+return prox
