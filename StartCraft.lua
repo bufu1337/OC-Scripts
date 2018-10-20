@@ -2,6 +2,7 @@ local startcraft = {}
 local shell = require("shell")
 local thread = require("thread")
 local filesystem = require("filesystem")
+local mf = require("MainFunctions")
 local prog = "/home/crafting/"
 
 local function getDefs(lines)
@@ -72,7 +73,7 @@ local function clone(filelist, specificfile)
       filesystem.makeDirectory(prog)
   end
   print("")
-  print("ting new file attributes")
+  print("Getting new file attributes")
   os.execute("wget -f 'https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. filelist .. "?" .. math.random() .. "' '" .. prog .. filelist .. "'")
   nFiles = getDefs(io.lines(prog .. filelist))
   local files = {n=0}
@@ -85,6 +86,7 @@ local function clone(filelist, specificfile)
             end
         end
     end
+  mf.printx(nFiles)
   for i,j in pairs(nFiles) do
     if(pFiles[i] == nil)then
       files[i] = j
@@ -115,6 +117,8 @@ local function Start(param)
           clone("files")
           clone("itemfiles", itemrepo)
           local ac = require("crafting/Autocraft")
+          mf.printx("autocraft ok")
+          mf.printx(ac)
           ac.Craft(itemrepo)
         end, param)
   end
