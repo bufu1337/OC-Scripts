@@ -32,7 +32,7 @@ local function getDefs(lines)
             fcounter = fcounter +1
         end
         files[filename] = f
-        print(filename .. ": Version" .. f.version .. " Folder: " .. f.folder)
+        print(filename .. ": Version: " .. f.version .. " Folder: " .. f.folder)
     end
     return files
 end
@@ -115,7 +115,7 @@ local function Start(param)
     else
       thread.create(function(itemrepo)
           clone("files")
-          clone("itemfiles", itemrepo)
+          clone("itemfiles", "Items/" .. itemrepo .. ".lua")
           local ac = require("crafting/Autocraft")
           mf.printx("autocraft ok")
           mf.printx(ac)
