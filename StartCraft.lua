@@ -117,15 +117,13 @@ local function Start(param)
           clone("files")
           clone("itemfiles", "Items/" .. itemrepo .. ".lua")
           local ac = require("crafting/Autocraft")
-          mf.printx("autocraft ok")
-          mf.printx(ac)
           ac.Craft(itemrepo)
         end, param)
   end
 end
 
 local args = shell.parse( ... )
-if args[1] ~= nil then
+if args[1] ~= nil and args[1]:find("StartCraft") == nil then
     Start(args[1])
 end
 

@@ -350,7 +350,7 @@ local function Craft(itemrepo)
   --GetStorageInfo("craft")
 end
 
-if args[1] ~= nil then
+if args[1] ~= nil and args[1]:find("Autocraft") == nil then
     Craft(args[1])
 end
 
