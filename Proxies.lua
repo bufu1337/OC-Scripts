@@ -523,24 +523,30 @@ local function GetRoute(mod, typ, destinationmod)
         return {{proxy = proxy[mod][typ2].proxy, side=proxy[mod][typ2].toroute}; {proxy = routesystem[destinationmod].proxy, side=routesystem[destinationmod][typ]}}
     end
 end
-local function GetProxy(mod, typ)
-    if(mod == "routing")then
-        return ""
-    else
-        local proxy = Proxies()
-        return proxy[mod][typ].proxy
-    end
-end
 local function GetProx(mod, typ)
     if(mod == "routing")then
         return ""
     else
         local proxy = Proxies()
-        return proxy[mod][typ]
+        if (proxy[mod] == nil) then
+            return ""
+        elseif (proxy[mod][typ] == nil) then
+            return ""
+        else
+            return proxy[mod][typ]
+        end
+    end
+end
+local function GetProxy(mod, typ)
+    local p = GetProx(mod, typ)
+    if (p ~= "") then
+        return p.proxy
+    else
+        return ""
     end
 end
 prox.GetRoute = GetRoute
-prox.GetProxy = GetProxy
 prox.GetProx = GetProx
+prox.GetProxy = GetProxy
 
 return prox

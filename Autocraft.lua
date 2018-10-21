@@ -97,9 +97,16 @@ local function GetStorageItemsThreads()
         os.sleep()
       end
       for i,j in pairs(o) do
-        local rs_item = component.proxy(prox.GetProxy(items[j]["mod"], "home")).getItem(items[j])
-        if(rs_item == nil) then
-          rs_item = {size=0.0}
+        local rs_item = {size=0.0}
+        local rs_proxy = prox.GetProxy(items[j]["mod"], "home")
+        if(rs_proxy ~= "") then
+          local rs_comp = component.proxy(rs_proxy)
+          if(rs_comp ~= nil) then
+            rs_item = rs_comp.getItem(items[j])
+            if(rs_item == nil) then
+              rs_item = {size=0.0}
+            end
+          end
         end
         for a,b in pairs(rs_item) do
           items[j][a] = b
