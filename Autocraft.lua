@@ -21,6 +21,7 @@ local function MathUp(num)
     return result
 end
 local function GetRecipeCounts()
+  print("GetRecipeCounts")
   local temp = {}
   for i,j in pairs(items) do
     --print("Getting RecipeCounts: " .. i)
@@ -48,6 +49,7 @@ local function GetRecipeCounts()
   end
 end
 local function ConvertItems()
+  print("ConvertItems")
   for i,j in pairs(items) do
     local converted = convert.TextToItem(i)
     for x,y in pairs(converted) do
@@ -74,6 +76,7 @@ local function GetItemsCount()
     return count
 end
 local function GetStorageItemsThreads()
+  print("GetStorageItemsThreads")
   local itemcount = GetItemsCount
   local itemcounter = 0
   local co = 1
@@ -108,6 +111,7 @@ local function GetStorageItemsThreads()
     end, iarr[v], v)
   end
   thread.waitForAll(th)
+  print("GetStorageItemsThreads end")
 end
 local function SetCanCraft(item)
   local can = nil
@@ -199,6 +203,7 @@ local function RollBackCrafts()
   end
 end
 local function CalculateCrafts()
+  print("CalculateCrafts")
   for is,js in pairs(items) do
     items[is]["newsize"] = js.size
     if(js.recipeCounts ~= nil)then
@@ -230,6 +235,7 @@ local function GetPrio(item)
   items[item].prio = prio
 end
 local function GetPrios()
+  print("CalculateCrafts")
   for i,j in pairs(items) do
     GetPrio(i)
   end
@@ -325,6 +331,7 @@ local function GetStorageInfo(store)
   print("")
 end
 local function GetItems()
+  print("GetItems")
   GetRecipeCounts()
   ConvertItems()
   GetStorageItemsThreads()
