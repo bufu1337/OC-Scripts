@@ -5,6 +5,7 @@ local os = require("os")
 local component = require("component")
 local convert = require("crafting/Convert")
 local prox = require("crafting/Proxies")
+local mf = require("MainFunctions")
 local thread = require("thread")
 local shell = require("shell")
 local items = {}
@@ -12,14 +13,8 @@ local priocount = 0
 local crafter = ""
 local ac = {}
 local args = shell.parse( ... )
+local logfile = "/home/crafting/AC-Log.lua"
 
-local function MathUp(num)
-    local result = math.floor(num)
-    if((num - result) > 0)then
-      result = result + 1
-    end
-    return result
-end
 local function GetRecipeCounts()
   print("GetRecipeCounts")
   local temp = {}
@@ -59,7 +54,7 @@ local function ConvertItems()
 end
 local function GetStorageItems()
   for i,j in pairs(items) do
-    print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
+    --print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
     local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
     if(rs_item == nil) then
       rs_item = {size=0.0}
@@ -81,7 +76,7 @@ local function GetStorageItemsThreads()
   local itemcount = GetItemsCount()
   local itemcounter = 0
   local co = 1
-    local times = MathUp(itemcount / 50)
+    local times = mf.MathUp(itemcount / 50)
     local iarr = {}
     local th = {}
     for v = 1, times, 1 do
@@ -137,41 +132,44 @@ local function SetCanCraft(item)
   end
 end
 local function SetCanCraftALL()
+  print("SetCanCraftALL")
   for ic,jc in pairs(items) do
     SetCanCraft(ic)
   end
 end
 local function SetCrafts(item)
   if(items[item].recipeCounts ~= nil)then
-    local tocraft = MathUp((items[item].maxCount - items[item].newsize) / items[item].craftCount)
+    local tocraft = mf.MathUp((items[item].maxCount - items[item].newsize) / items[item].craftCount)
     SetCanCraft(item)
     if(items[item].canCraft < tocraft)then
       tocraft = items[item].canCraft
     end
     if(tocraft > 0)then
-      print(item .. " tocraft: " .. tocraft)
+      --print(item .. " tocraft: " .. tocraft)
       items[item].crafts = items[item].crafts + tocraft
       for a,b in pairs(items[item].recipeCounts) do
-        print("setting size: " .. a .. " = " .. items[a].newsize)
+        --print("setting size: " .. a .. " = " .. items[a].newsize)
         items[a].newsize = items[a].newsize - (tocraft * b)
-        print("new size: " .. a .. " = " .. items[a].newsize)
+        --print("new size: " .. a .. " = " .. items[a].newsize)
       end
       print("")
-      print("setting size: " .. item .. " = " .. items[item].newsize)
+      --print("setting size: " .. item .. " = " .. items[item].newsize)
       items[item].newsize = items[item].newsize + (tocraft * items[item].craftCount)
-      print("new size: " .. item .. " = " .. items[item].newsize)
+      --print("new size: " .. item .. " = " .. items[item].newsize)
       print(item .. " craftstotal: " .. items[item].crafts)
-      print("")
-      print("")
+      --print("")
+      --print("")
     end
   end
 end
 local function SetCraftsALL()
+  print("SetCraftsALL")
   for i,j in pairs(items) do
     SetCrafts(i)
   end
 end
 local function RollBackCrafts()
+  print("RollBackCrafts")
   for is,js in pairs(items) do
     if(items[is].newsize < 0)then
       for i,j in pairs(items) do
@@ -181,22 +179,22 @@ local function RollBackCrafts()
             if(items[i].crafts > temp)then
               items[i].crafts = items[i].crafts - temp
               items[i].newsize = items[i].newsize - temp
-              print("safgsdgdf size: ")
+              --print("safgsdgdf size: ")
               for a,b in pairs(items[i].recipeCounts) do
-                print("setting size: " .. a .. " = " .. items[a].newsize)
+                --print("setting size: " .. a .. " = " .. items[a].newsize)
                 items[a].newsize = items[a].newsize + (temp * b)
-                print("new size: " .. a .. " = " .. items[a].newsize)
+                --print("new size: " .. a .. " = " .. items[a].newsize)
               end
               break
             else
               temp = items[i].crafts
               items[i].crafts = 0
               items[i].newsize = 0
-              print("safgsdgdf size: ")
+              --print("safgsdgdf size: ")
               for a,b in pairs(items[i].recipeCounts) do
-                print("setting size: " .. a .. " = " .. items[a].newsize)
+                --print("setting size: " .. a .. " = " .. items[a].newsize)
                 items[a].newsize = items[a].newsize + (temp * b)
-                print("new size: " .. a .. " = " .. items[a].newsize)
+                --print("new size: " .. a .. " = " .. items[a].newsize)
               end
             end
           end
@@ -296,7 +294,9 @@ local function MoveItems(destination)
         local storage = component.proxy(route[r].proxy)
         while count > 0 do
           local dropped = storage.extractItem(items[i], count, route[r].side)
-          count = count - dropped
+          if dropped ~= nil then
+            count = count - dropped
+          end
         end
         r = r + 1
       end
@@ -340,7 +340,7 @@ local function GetItems()
   GetStorageItemsThreads()
   CalculateCrafts()
   GetPrios()
-  PrintItems()
+  --PrintItems()
 end
 local function Craft(itemrepo)
   items = require("crafting/Items/" .. itemrepo)
@@ -354,7 +354,7 @@ local function Craft(itemrepo)
   CraftItems()
   --GetStorageInfo("home")
   --GetStorageInfo("craft")
-  PrintItems()
+  --PrintItems()
   MoveItems("home")
   --GetStorageInfo("home")
   --GetStorageInfo("craft")

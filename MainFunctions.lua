@@ -1,5 +1,12 @@
 local io = require("io")
 local mf = {}
+local function MathUp(num)
+    local result = math.floor(num)
+    if((num - result) > 0)then
+      result = result + 1
+    end
+    return result
+end
 local function contains(ab, element)
   for key, value in pairs(ab) do
     if value == element then
@@ -89,7 +96,7 @@ end
 local function filewx(var, file)
 	out.x("f", var, file)
 end
-mf.requireRel = requireRel
+mf.MathUp = MathUp
 mf.contains = contains
 mf.containsKey = containsKey
 mf.getIndex = getIndex
