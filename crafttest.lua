@@ -212,7 +212,9 @@ local function ConvertItems()
   for i,j in pairs(items) do
     local converted = convert.TextToItem(i)
     for x,y in pairs(converted) do
+      print("Setting: items[" .. i .. "][" .. x .. "] = " .. y)
       items[i][x] = y
+      print(items[i][x])
     end
   end
 end

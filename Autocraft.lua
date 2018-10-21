@@ -59,6 +59,7 @@ local function ConvertItems()
 end
 local function GetStorageItems()
   for i,j in pairs(items) do
+    print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
     local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
     if(rs_item == nil) then
       rs_item = {size=0.0}
@@ -77,7 +78,7 @@ local function GetItemsCount()
 end
 local function GetStorageItemsThreads()
   print("GetStorageItemsThreads")
-  local itemcount = GetItemsCount
+  local itemcount = GetItemsCount()
   local itemcounter = 0
   local co = 1
     local times = MathUp(itemcount / 50)
@@ -94,6 +95,7 @@ local function GetStorageItemsThreads()
     end
     iarr[co][itemcounter] = i
   end
+  local ttable = {}
   for v = 1, times, 1 do
     th[v] = thread.create(function(o, u)
       for v = 1, u, 1 do
@@ -109,8 +111,9 @@ local function GetStorageItemsThreads()
         end
       end
     end, iarr[v], v)
+    table.insert(ttable, th[v])
   end
-  thread.waitForAll(th)
+  thread.waitForAll(ttable)
   print("GetStorageItemsThreads end")
 end
 local function SetCanCraft(item)
