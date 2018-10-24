@@ -80,7 +80,7 @@ local function Proxies()
         fdecostuff = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Your World Decoration And Stuff 01.03.2001 
         ffactory = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Your World Factory 01.03.2001 
         ffoods = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Your World Foods 01.03.2001 
-        flatcoloredblocks = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Flat Colored Blocks mc1.12-6.6 
+        flatcoloredblocks = {home={proxy="219c377c-58ff-45c5-aa4a-a61c6a1dca7f", tocraft=sides.east, toroute=sides.west}, craft={proxy="469e7dc4-5a30-4774-acc5-5cee47f152f8", tohome=sides.south, toroute=sides.west}},--Flat Colored Blocks mc1.12-6.6 
         floricraft = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Floricraft 04.04.2001 
         fmagic = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Your World Mystical 01.03.2001 
         FML = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Forge Mod Loader 8.0.99.99 
@@ -251,7 +251,7 @@ local function Proxies()
         extratrees = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Extra Trees 2.5.0.110 
         genetics = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Binnie's Genetics 2.5.0.110
         libvulpes = {home={proxy="", tocraft=sides.up, toroute=sides.up}, craft={proxy="", tohome=sides.up, toroute=sides.up}},--Vulpes library 0.2.8.-31
-        minecraft = {home={proxy="064e979d-0a25-4324-bc61-dfa764487718", tocraft=sides.east, toroute=sides.west}, craft={proxy="e20cea58-f7ae-43f8-b531-b1b21c3765da", tohome=sides.north, toroute=sides.west}}--Minecraft 01.12.2002
+        minecraft = {home={proxy="bb705998-ea01-43da-a771-df74cd53cadf", tocraft=sides.west, toroute=sides.east}, craft={proxy="59c6cb63-3294-43b9-a36d-eb65669477ee", tohome=sides.south, toroute=sides.east}}--Minecraft 01.12.2002
     }
 end
 local function RouteSystem()
@@ -334,7 +334,7 @@ local function RouteSystem()
         fdecostuff = {proxy="", home=sides.up, craft=sides.up},
         ffactory = {proxy="", home=sides.up, craft=sides.up},
         ffoods = {proxy="", home=sides.up, craft=sides.up},
-        flatcoloredblocks = {proxy="", home=sides.up, craft=sides.up},
+        flatcoloredblocks = {proxy="92daa3ee-da9d-4b9d-bad8-d54391389a0b", home=sides.west, craft=sides.east},
         floricraft = {proxy="", home=sides.up, craft=sides.up},
         fmagic = {proxy="", home=sides.up, craft=sides.up},
         FML = {proxy="", home=sides.up, craft=sides.up},
@@ -505,7 +505,7 @@ local function RouteSystem()
         extratrees = {proxy="", home=sides.up, craft=sides.up},
         genetics = {proxy="", home=sides.up, craft=sides.up},
         libvulpes = {proxy="", home=sides.up, craft=sides.up},
-        minecraft = {proxy="", home=sides.up, craft=sides.up}
+        minecraft = {proxy="b6f438be-9e4e-43f9-840e-bbec27971a09", home=sides.east, craft=sides.west}
     }
 end
 local function GetRoute(mod, typ, destinationmod)
@@ -550,3 +550,227 @@ prox.GetProx = GetProx
 prox.GetProxy = GetProxy
 
 return prox
+
+
+b6f438be-9e4e-43f9-840e-bbec27971a09
+
+59c6cb63-3294-43b9-a36d-eb65669477ee
+
+bb705998-ea01-43da-a771-df74cd53cadf
+
+
+3c20d393-1595-4324-aabf-1bdc141bbcb5
+
+f520f06f-2ca5-4443-bf59-4198a4499520
+
+88f3f731-d4cc-468a-9bde-efe17fb89f33
+
+
+4aef5bec-42d5-44a9-bd92-068bfcb00511
+
+e2275cb7-5417-40fd-8b6d-fd201f6dd7d5
+
+8ba270f8-408d-49dc-b50a-e6354d5235ee
+
+
+e333b629-221a-4575-ad8b-1ed72fad8943
+
+1fe6244f-d827-454c-8b55-04f0bbeb479b
+
+544ad8b1-ee26-4b34-b832-45ffa193a615
+
+
+3b9a461b-5fa1-49a0-8f78-c1da0b615d30
+
+edc2605c-75fa-4575-92cc-eb1e47d74765
+
+283f524e-21d8-417a-b58a-c6fe2affeb95
+
+
+15a1cec9-bd70-45e3-9c5e-8764805b5194
+
+2e465f86-5da6-4b53-8b0a-154cd92828d3
+
+85db3f15-d705-4329-b71c-cba80ebc02f5
+
+
+7849e03e-8029-4215-bee3-ef75fe8a1cb4
+
+7adafc97-4380-4994-801d-942fc3a1784f
+
+fa2fb100-e43c-4bfb-b116-53e0b764f0f0
+
+
+fa216edb-38d4-4bdf-93ac-4e3809af8f38
+
+490da3ac-e650-41bd-9697-250dbdf25309
+
+77d5666f-733c-4c41-8a82-1e73af1186cd
+
+
+92daa3ee-da9d-4b9d-bad8-d54391389a0b
+
+469e7dc4-5a30-4774-acc5-5cee47f152f8
+
+219c377c-58ff-45c5-aa4a-a61c6a1dca7f
+
+
+adf0f536-2c04-4378-b6bf-b915ee167fa5
+
+21446d84-62e0-432d-b2f4-3dd06626155f
+
+7595f7c0-b1ad-48b7-ba14-c0d0e022daa6
+
+
+10e5b513-d84e-400b-b149-ea54d0a832f8
+
+3de55085-01cd-4b8d-8a14-51bbfa6a168f
+
+792c250c-4626-47b9-a884-1f6885cc95e2
+
+
+0ec2e8d3-cf5e-472f-9302-7407565ea7b3
+
+b6df51db-8219-4b7c-9a6d-c33083290ed7
+
+af0d3d9c-2557-48b0-824a-f3253129328a
+
+
+1a64b305-ed4a-4fa8-9d5b-2c9dad9e2657
+
+9f9368ac-7a54-47e0-88dc-a3e4892bba1b
+
+50575962-3565-4365-8c0c-8e520efa2970
+
+
+a4b3febc-e30c-4710-941e-f2522a847854
+
+65ff3831-68a9-4012-a32e-faaac07f7a7d
+
+95db9eec-3ade-4c06-8c71-1478c3d7e3de
+
+
+e55640ae-7d70-4160-9039-9766ef49267a
+
+36e15dab-c9f1-4621-b8b2-cbc2c4218f4c
+
+3a309850-e908-4919-a639-63ebfd84174f
+
+
+7cd74f03-06e0-4731-aebe-943e7f3a05bf
+
+995eaa09-68bb-4e0e-8b31-8b8e9a3a2ef4
+
+5df25b59-cf9b-409a-8644-e59fb7521947
+
+
+fd750485-8eb6-4f34-8fdd-9d57b9cba002
+
+3cde4183-f0b0-4eb7-a879-f06082d151d9
+
+c0726f3a-3661-4d2e-a67e-4b9398cf38a8
+
+
+266a26bd-f121-4f66-84e6-498684a67083
+
+e844d25f-037b-4d9f-a6f5-758f848e11b3
+
+65e660e4-fe07-4b2f-96a2-530cda054e4e
+
+
+bb86e549-295e-4c80-938e-022eae961a2c
+
+abf79c82-b00b-4cee-829c-ad6d36dab51e
+
+4ea11d9e-3ea5-4f58-9fea-49ff8464092e
+
+
+97c75567-0587-484a-a913-5d8c5bd5b673
+
+c249bcf1-946f-43c4-bfce-f30e5c1640b2
+
+3e6052fe-8363-4ba6-aa3c-bd9427cda488
+
+
+8d1a00a7-1de1-4eb0-aca7-21bb173c8b92
+
+d4f7b874-ccb7-4e7f-9996-dca91b9b36ef
+
+9ba9f521-5355-44f6-86d0-b69a3ffe458b
+
+
+25c51d88-501e-4bf1-8761-0a5334b38029
+
+65049d55-13c8-4039-81b5-7238fb3edb4a
+
+dbdd4e24-1123-49b1-ac17-fb802379bd6e
+
+
+45925852-26f5-4a51-9195-e05da2f0e4d3
+
+79b21d3b-8899-469a-b9c7-ef4be8803ee7
+
+dc099cb8-99a4-4389-8f6e-651836e989c6
+
+
+971975a3-0581-4edf-b260-6a17aeb2cdee
+
+6767c3c9-efdc-48b1-b57b-814c9ed0cceb
+
+c8a11d9a-72d7-4be9-9116-5b39d4c61e1c
+
+
+2da61edf-e8c9-401f-8937-b5cd14efb538
+
+0a4a7858-7ff2-4c67-aac0-9a744e2827e2
+
+7067ba9c-a046-4639-ad78-5446ccff3bc3
+
+
+7f41bc23-af37-4f81-b967-30925ec6c88f
+
+fb268d86-34ec-42ce-906f-770bcc24cc95
+
+d9191998-b161-4273-b366-607171df1135
+
+
+462756b6-62bb-4858-87f5-e17a9b638476
+
+31e5e559-b686-4b28-9e94-27d37739cac1
+
+27736f6c-c19c-4152-ae68-b28282b7efea
+
+
+7e483a5e-d03c-4768-8c3d-68a809499a49
+
+0ac405b1-8ada-4451-80ba-e2fbfca962f5
+
+d475544f-84e2-4cb5-998c-98cd165ff08a
+
+
+d89c9188-652b-45ae-9f03-29e743872f43
+
+4a67d33e-56d1-4ba0-8757-85ad455cd551
+
+ac1c60cc-0d7e-4a68-8560-bcf456aa5c83
+
+
+4f5e4ffb-8654-4f21-9007-46032725d0d1
+
+5d1dc33e-8a41-4b9d-adaf-c7f2c7674ba1
+
+6eb97680-f6fb-431b-8da7-b346cbc494f4
+
+
+9b31f0f2-e523-4f48-aec0-4c2445e86b2d
+
+ff27a073-4312-4211-8bd7-0e718184ca8d
+
+f389cc63-0760-480c-9cec-06e2e86279c8
+
+
+dce29bd7-9246-42d2-b76b-2d4556bb1b53
+
+997da8b5-0332-4277-98c6-6561326a4baa
+
+968b99b3-c4f6-4ed0-b8bd-51e2700441aa
