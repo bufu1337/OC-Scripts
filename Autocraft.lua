@@ -248,12 +248,12 @@ local function GetPrios()
     GetPrio(i)
   end
 end
-local function PrintItems()
-  print("")
-  print("Items:")
-  for i,j in pairs(items) do
-    local output = i .. "={"
-    for c,d in pairs(items[i]) do
+local function PrintItem(item, prefix)
+    local output = item .. "={"
+    if prefix ~= nil then
+      output = prefix .. output
+    end
+    for c,d in pairs(items[item]) do
       if((c ~= "recipe") and (c ~= "recipeCounts")) then
       output = output .. c .. " = " .. tostring(d) .. "; "
       elseif c == "recipe" then
@@ -275,6 +275,12 @@ local function PrintItems()
     output = output .. "}"
     output = output:gsub("; }", "}")
     print(output)
+end
+local function PrintItems()
+  print("")
+  print("Items:")
+  for i,j in pairs(items) do
+    PrintItem(i)
   end
   print("")
 end
@@ -319,6 +325,7 @@ local function CraftItems()
   while prio <= priocount do
     for i,j in pairs(items) do
       if ((j.prio == prio) and (j.crafts ~= nil)) then
+        PrintItem(i)
         cr.scheduleTask(j, (j.crafts * j.craftCount))
         local tasks = cr.getTasks()
         while #tasks > 0 do
