@@ -285,11 +285,13 @@ local function MoveItems(destination)
       check = (j.newsize < j.size)
     end
     if (check) then
+      local schalter = 1
       local mod = crafter
       local dest = items[i]["mod"]
       if (destination == "craft") then
         mod = items[i]["mod"]
         dest = crafter
+        schalter = 2
       end
       local route = prox.GetRoute(mod, destination, dest)
       local r = 1
@@ -313,7 +315,7 @@ local function MoveItems(destination)
 end
 local function CraftItems()
   local prio = 0
-  local cr = component.proxy(prox.GetProxy(crafter,"craft"))
+  local cr = component.proxy(prox.GetProxByName(crafter,"craft"))
   while prio <= priocount do
     for i,j in pairs(items) do
       if ((j.prio == prio) and (j.crafts ~= nil)) then
@@ -332,7 +334,7 @@ local function CraftItems()
   end
 end
 local function GetStorageInfo(store)
-  local cr = component.proxy(prox.GetProxy(crafter,store))
+  local cr = component.proxy(prox.GetProxByName(crafter,store))
   print("")
   print("Items in " .. store .. ": " .. crafter)
   for a,b in pairs(cr.getItems()) do
