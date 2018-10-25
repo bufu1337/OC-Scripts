@@ -303,31 +303,6 @@ local function ModToPName(mod)
     }
     return mtpn[mod]
 end
-local function GetRoute(mod, typ, destinationmod, schalter)
-    local typ2 = ""
-    if(typ == "craft")then
-        typ2 = "home"
-    else
-        typ2 = "craft"
-    end
-    local pro = {}
-    local ro = {}
-    if schalter == 1 then
-        pro = GetProxByName(mod, typ2)
-        ro = GetProx(destinationmod, "route")
-    elseif schalter == 2 then
-        pro = GetProx(mod, typ2)
-        ro = GetProxByName(destinationmod, "route")
-    else
-        pro = GetProx(mod, typ2)
-        ro = GetProx(destinationmod, "route")
-    end
-    if((mod == destinationmod) or (destinationmod == nil))then
-        return {{proxy = pro.proxy, side=pro[("to" .. typ)]}}
-    else
-        return {{proxy = pro.proxy, side=pro.toroute}; {proxy = ro.proxy, side=ro[typ]}}
-    end
-end
 local function GetProx(mod, typ)
     local pname = ModToPName(mod)
     --print("Mod: " .. mod .. " pname: " .. pname)
@@ -360,12 +335,37 @@ local function GetProxy(mod, typ)
         return ""
     end
 end
-local function GetProxByName(name, typ)
+local function GetProxyByName(name, typ)
     local p = GetProxByName(name, typ)
     if (p ~= nil) then
         return p.proxy
     else
         return ""
+    end
+end
+local function GetRoute(mod, typ, destinationmod, schalter)
+    local typ2 = ""
+    if(typ == "craft")then
+        typ2 = "home"
+    else
+        typ2 = "craft"
+    end
+    local pro = {}
+    local ro = {}
+    if schalter == 1 then
+        pro = GetProxByName(mod, typ2)
+        ro = GetProx(destinationmod, "route")
+    elseif schalter == 2 then
+        pro = GetProx(mod, typ2)
+        ro = GetProxByName(destinationmod, "route")
+    else
+        pro = GetProx(mod, typ2)
+        ro = GetProx(destinationmod, "route")
+    end
+    if((mod == destinationmod) or (destinationmod == nil))then
+        return {{proxy = pro.proxy, side=pro[("to" .. typ)]}}
+    else
+        return {{proxy = pro.proxy, side=pro.toroute}; {proxy = ro.proxy, side=ro[typ]}}
     end
 end
 prox.GetRoute = GetRoute

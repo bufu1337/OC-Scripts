@@ -55,7 +55,7 @@ end
 local function GetStorageItems()
   print("GetStorageItems")
   for i,j in pairs(items) do
-    --print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
+    print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
     local rs_p = prox.GetProxy(j.mod, "home")
     if rs_p == "" then
       print("Cant find proxy for: " .. j.name .. " Damage: " .. j.damage)

@@ -227,7 +227,7 @@ return {
     minecraftjjmelon={maxCount=1280.0, craftCount=9.0, recipe={nil, nil, nil, nil, "minecraft:melon_block", nil, nil, nil, nil}},
     minecraftjjmelon_seeds={maxCount=1280.0, craftCount=1.0, recipe={nil, nil, nil, nil, "minecraft:melon", nil, nil, nil, nil}},
     minecraftjjminecart={maxCount=256.0, craftCount=1.0, recipe={nil, nil, nil, "minecraft:iron_ingot", nil, "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot", "minecraft:iron_ingot"}},
-    minecraftjjmushroom_stew={maxCount=128.0, craftCount=1.0, recipe={"harvestcraft:toolPot", "minecraft:brown_mushroom", nil, "minecraft:brown_mushroom", nil, nil, nil, nil, nil}},
+    minecraftjjmushroom_stew={maxCount=128.0, craftCount=1.0, recipe={"harvestcraft:potitem", "minecraft:brown_mushroom", nil, "minecraft:brown_mushroom", nil, nil, nil, nil, nil}},
     minecraftjjname_tag={maxCount=256.0, craftCount=1.0, recipe={"minecraft:string", "minecraft:gold_nugget", nil, nil, nil, nil, nil, nil, nil}},
     minecraftjjnether_brick={maxCount=1280.0, craftCount=1.0, recipe={"minecraft:netherbrick", "minecraft:netherbrick", "minecraft:netherbrick", "minecraft:netherbrick", nil, nil, nil, nil, nil}},
     minecraftjjnether_brick_fence={maxCount=640.0, craftCount=10.0, recipe={nil, nil, nil, "minecraft:nether_brick", "minecraft:nether_brick", "minecraft:nether_brick", "minecraft:nether_brick", nil, "minecraft:nether_brick"}},
