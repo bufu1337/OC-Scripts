@@ -53,16 +53,29 @@ local function ConvertItems()
   end
 end
 local function GetStorageItems()
+  print("GetStorageItems")
   for i,j in pairs(items) do
     --print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
-    local rs_item = component.proxy(prox.GetProxy(items[i]["mod"], "home")).getItem(items[i])
-    if(rs_item == nil) then
-      rs_item = {size=0.0}
-    end
-    for a,b in pairs(rs_item) do
-      items[i][a] = b
+    local rs_p = prox.GetProxy(j.mod, "home")
+    if rs_p == "" then
+      print("Cant find proxy for: " .. j.name .. " Damage: " .. j.damage)
+    else
+        local rs_nr = component.proxy(rs_p)
+        if rs_nr == nil then
+          print("Cant find component for proxy: " rs_p .. " Item:" .. j.name .. " Damage: " .. j.damage)
+        else
+            local rs_item.getItem(items[i])
+            if(rs_item == nil) then
+              print("Cant find item in system: " .. j.name .. " Damage: " .. j.damage)
+              rs_item = {size=0.0}
+            end
+            for a,b in pairs(rs_item) do
+              items[i][a] = b
+            end
+        end
     end
   end
+  print("GetStorageItems End")
 end
 local function GetItemsCount()
     local count = 0
