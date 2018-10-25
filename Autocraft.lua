@@ -134,11 +134,14 @@ end
 local function SetCanCraft(item)
   local can = nil
   if(item ~= nil)then
+    print("SetCanCraft for Item: " .. item)
     if(items[item].recipeCounts ~= nil)then
-      local tempsizes = {}    
+      print("Item has recipe")
       for a,b in pairs(items[item].recipeCounts) do
+        print("recipeItem: " .. a)
         SetCanCraft(a)
         local h = math.floor(((items[a].newsize + items[a].canCraft) / b) * items[item].craftCount)
+        print("recipeItem: " .. a .. " canh:" .. h)
         if((can == nil) or (can > h))then
           can = h
         end
@@ -366,7 +369,7 @@ local function GetItems()
   print("GetItems")
   GetRecipeCounts()
   ConvertItems()
-  GetStorageItems()--Threads
+  GetStorageItemsThreads() --
   CalculateCrafts()
   GetPrios()
   --PrintItems()
