@@ -217,7 +217,7 @@ local function ModToPName(mod)
         minecraft = "minecraft",
         minewatch = "minewatch",
         moarfood = "food",
-        moartinkers = "",
+        moartinkers = "tinkers",
         mobends = "",
         modcurrency = "others",
         modernmetals = "modern",
