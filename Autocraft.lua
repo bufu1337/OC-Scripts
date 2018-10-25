@@ -366,7 +366,7 @@ local function GetItems()
   print("GetItems")
   GetRecipeCounts()
   ConvertItems()
-  GetStorageItemsThreads()
+  GetStorageItems()--Threads
   CalculateCrafts()
   GetPrios()
   --PrintItems()
