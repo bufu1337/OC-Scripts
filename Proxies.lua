@@ -49,7 +49,7 @@ local function Proxies(name)
         bits={home={proxy="07d15bf4-11af-4dc8-9f7f-9239c14d56ac", tocraft=sides.east, toroute=sides.west}, craft={proxy="c8d71eda-e38e-44c6-be5b-339488e664b3", tohome=sides.south, toroute=sides.west}, route={proxy="cdbe9f2c-005a-4783-a4e2-b72b69052fa7", home=sides.west, route=sides.east}},
         cyclic={home={proxy="b07569c8-597b-4a19-acd0-91650f8bcb1d", tocraft=sides.east, toroute=sides.west}, craft={proxy="3a6ede2a-ee15-4b2e-991b-36b0e7903c12", tohome=sides.south, toroute=sides.west}, route={proxy="524b9600-1d8d-485b-af10-54427c11c2b1", home=sides.west, route=sides.east}},
         diy={home={proxy="7540d1a6-9197-46dd-a5a0-730a458d7f4f", tocraft=sides.east, toroute=sides.west}, craft={proxy="58dfc65f-01f1-4f36-b17e-bf6b96b35947", tohome=sides.south, toroute=sides.west}, route={proxy="19c2f913-f8f4-4be3-b3ce-a748a8f8a9d3", home=sides.west, route=sides.east}},
-        extra{home={proxy="deeecb32-1d42-4bd3-8a80-53f6a442cef1", tocraft=sides.east, toroute=sides.west}, craft={proxy="52f4efa4-e178-4775-971e-cdfbd29ad9de", tohome=sides.south, toroute=sides.west}, route={proxy="1d59159c-08cd-4a7a-b022-24a6402e9ff2", home=sides.west, route=sides.east}}
+        extra={home={proxy="deeecb32-1d42-4bd3-8a80-53f6a442cef1", tocraft=sides.east, toroute=sides.west}, craft={proxy="52f4efa4-e178-4775-971e-cdfbd29ad9de", tohome=sides.south, toroute=sides.west}, route={proxy="1d59159c-08cd-4a7a-b022-24a6402e9ff2", home=sides.west, route=sides.east}}
     }
     return pr[name]
 end
@@ -330,13 +330,13 @@ local function GetRoute(mod, typ, destinationmod, schalter)
 end
 local function GetProx(mod, typ)
     local pname = ModToPName(mod)
-    print("Mod: " .. mod .. " pname: " .. pname)
+    --print("Mod: " .. mod .. " pname: " .. pname)
     local proxy = Proxies(pname)
     if (proxy[typ] == nil) then
-        print("proxy not found for typ: " .. typ)
+        --print("proxy not found for typ: " .. typ)
         return nil
     else
-        print("proxy not for typ: " .. typ)
+        --print("proxy not for typ: " .. typ)
         return proxy[typ]
     end
 end
