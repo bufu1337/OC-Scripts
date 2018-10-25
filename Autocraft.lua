@@ -325,7 +325,7 @@ local function CraftItems()
   while prio <= priocount do
     for i,j in pairs(items) do
       if ((j.prio == prio) and (j.crafts ~= nil)) then
-        PrintItem(i)
+        PrintItem(i, "Crafting Item: ")
         cr.scheduleTask(j, (j.crafts * j.craftCount))
         local tasks = cr.getTasks()
         while #tasks > 0 do
