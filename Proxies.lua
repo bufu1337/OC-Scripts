@@ -329,10 +329,14 @@ local function GetRoute(mod, typ, destinationmod, schalter)
     end
 end
 local function GetProx(mod, typ)
-    local proxy = Proxies(ModToPName(mod))
+    local pname = ModToPName(mod)
+    print("Mod: " .. mod .. " pname: " .. pname)
+    local proxy = Proxies(pname)
     if (proxy[typ] == nil) then
+        print("proxy not found for typ: " .. typ)
         return nil
     else
+        print("proxy not for typ: " .. typ)
         return proxy[typ]
     end
 end
