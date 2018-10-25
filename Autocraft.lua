@@ -62,9 +62,9 @@ local function GetStorageItems()
     else
         local rs_nr = component.proxy(rs_p)
         if rs_nr == nil then
-          print("Cant find component for proxy: " rs_p .. " Item:" .. j.name .. " Damage: " .. j.damage)
+          print("Cant find component for proxy: " .. rs_p .. " Item:" .. j.name .. " Damage: " .. j.damage)
         else
-            local rs_item.getItem(items[i])
+            local rs_item = rs_nr.getItem(items[i])
             if(rs_item == nil) then
               print("Cant find item in system: " .. j.name .. " Damage: " .. j.damage)
               rs_item = {size=0.0}
