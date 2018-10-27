@@ -23,6 +23,13 @@ local function containsKey(ab, element)
   end
   return false
 end
+local function getCount(ab)
+	local count = 0
+	for i,j in pairs(ab) do
+		count = count + 1
+	end
+	return count
+end
 local function getIndex(ab, element)
   for key, value in pairs(ab) do
     if value == element then
@@ -100,6 +107,7 @@ mf.MathUp = MathUp
 mf.contains = contains
 mf.containsKey = containsKey
 mf.getIndex = getIndex
+mf.getCount = getCount
 mf.startswith = startswith
 mf.split = split
 mf.writex = writex

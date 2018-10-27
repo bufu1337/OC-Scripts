@@ -345,7 +345,10 @@ local function GetProxyByName(name, typ)
 end
 local function GetRoute(mod, typ, destinationmod, schalter)
     local typ2 = ""
-    if(typ == "craft")then
+    if typ == "craft" then
+        typ2 = "home"
+    elseif typ == "hometohome" then
+        typ = "home"
         typ2 = "home"
     else
         typ2 = "craft"

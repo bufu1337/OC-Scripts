@@ -15,96 +15,95 @@ local ac = {}
 local args = shell.parse( ... )
 local logfile = "/home/crafting/AC-Log.lua"
 
-local function GetRecipeCounts()
-  print("GetRecipeCounts")
-  local temp = {}
-  for i,j in pairs(items) do
-    --print("Getting RecipeCounts: " .. i)
-    if(items[i].recipe ~= nil)then
-      items[i]["recipeCounts"] = {}
-      for g,h in pairs(items[i].recipe) do
-        if(h ~= nil)then
-          local he = convert.TextToOName(h)
-          if (items[i].recipeCounts[he] == nil) then
-            items[i].recipeCounts[he] = 1
-          else
-            items[i].recipeCounts[he] = items[i].recipeCounts[he] + 1
-          end
-          if(items[he] == nil)then
-            table.insert(temp, he)
-          end
-        end
-      end
-    else
-      print("Has no Recipe: " .. i)
-    end
-  end
-  for ie,je in pairs(temp) do
-    items[je] = {}
-  end
-end
 local function ConvertItems()
   print("ConvertItems")
   for i,j in pairs(items) do
-    local converted = convert.TextToItem(i)
-    for x,y in pairs(converted) do
-      items[i][x] = y
-    end
-  end
-end
-local function GetStorageItems()
-  print("GetStorageItems")
-  for i,j in pairs(items) do
-    print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
-    local rs_p = prox.GetProxy(j.mod, "home")
-    if rs_p == "" then
-      print("Cant find proxy for: " .. j.name .. " Damage: " .. j.damage)
-    else
-        local rs_nr = component.proxy(rs_p)
-        if rs_nr == nil then
-          print("Cant find component for proxy: " .. rs_p .. " Item:" .. j.name .. " Damage: " .. j.damage)
-        else
-            local rs_item = rs_nr.getItem(items[i])
-            if(rs_item == nil) then
-              print("Cant find item in system: " .. j.name .. " Damage: " .. j.damage)
-              rs_item = {size=0.0}
-            end
-            for a,b in pairs(rs_item) do
-              items[i][a] = b
-            end
+    if j.name == nil then
+        local converted = convert.TextToItem(i)
+        for x,y in pairs(converted) do
+          items[i][x] = y
         end
     end
   end
-  print("GetStorageItems End")
 end
-local function GetItemsCount()
-    local count = 0
+local function GetRecipeItems()
+    print("GetRecipeItems")
     for i,j in pairs(items) do
-        count = count + 1
+        if j.recipe ~= nil then
+            for x,y in pairs(j.recipe) do
+                if x ~= "n" then
+                    local converted = convert.ItemToOName(y)
+                    if items[converted] == nil then
+                        items[converted] = {}
+                    end
+                end
+            end
+        end
     end
-    return count
+    ConvertItems()
+    GetStorageItems()
 end
-local function GetStorageItemsThreads()
-  print("GetStorageItemsThreads")
-  local itemcount = GetItemsCount()
-  local itemcounter = 0
-  local co = 1
-    local times = mf.MathUp(itemcount / 50)
+local function GetRecipes()
+    print("GetRecipes")
+    local itemcounter = 0
+    local co = 1
     local iarr = {}
     local th = {}
-    for v = 1, times, 1 do
-    iarr[v] = {}
-  end
-  for i,j in pairs(items) do
-    itemcounter = itemcounter + 1
-    if (itemcounter > 50) then
-      itemcounter = 1
-      co = co + 1
+    for i,j in pairs(items) do
+        if j.recipe == nil and j.size < j.maxCount then
+            itemcounter = itemcounter + 1
+            if (itemcounter > 50) then
+                itemcounter = 1
+                co = co + 1
+            end
+            if iarr[co] == nil then
+                iarr[co] = {}
+            end
+            iarr[co][itemcounter] = i
+        end
     end
-    iarr[co][itemcounter] = i
+    local ttable = {}
+    for v = 1, co, 1 do
+        th[v] = thread.create(function(o, u)
+            for v = 1, u, 1 do
+                os.sleep()
+            end
+            for i,j in pairs(o) do
+                local rs_proxy = prox.GetProxyByName(crafter, "craft")
+                if(rs_proxy ~= "") then
+                    local rs_comp = component.proxy(rs_proxy)
+                    if(rs_comp ~= nil) then
+                        items[j].recipe = rs_comp.getMissingItems(items[j], (mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount))
+                    end
+                end
+            end
+        end, iarr[v], v)
+        table.insert(ttable, th[v])
+    end
+    thread.waitForAll(ttable)
+    print("GetRecipes end")
+end
+local function GetStorageItems()
+  print("GetStorageItems")
+  local itemcounter = 0
+  local co = 1
+  local iarr = {}
+  local th = {}
+  for i,j in pairs(items) do
+    if j.size == nil then
+        itemcounter = itemcounter + 1
+        if (itemcounter > 50) then
+          itemcounter = 1
+          co = co + 1
+        end
+        if iarr[co] == nil then
+            iarr[co] = {}
+        end
+        iarr[co][itemcounter] = i
+    end
   end
   local ttable = {}
-  for v = 1, times, 1 do
+  for v = 1, co, 1 do
     th[v] = thread.create(function(o, u)
       for v = 1, u, 1 do
         os.sleep()
@@ -129,61 +128,33 @@ local function GetStorageItemsThreads()
     table.insert(ttable, th[v])
   end
   thread.waitForAll(ttable)
-  print("GetStorageItemsThreads end")
-end
-local function SetCanCraft(item)
-  local can = nil
-  if(item ~= nil)then
-    print("SetCanCraft for Item: " .. item)
-    if(items[item].recipeCounts ~= nil)then
-      print("Item has recipe")
-      for a,b in pairs(items[item].recipeCounts) do
-        print("recipeItem: " .. a)
-        SetCanCraft(a)
-        local h = math.floor(((items[a].newsize + items[a].canCraft) / b) * items[item].craftCount)
-        print("recipeItem: " .. a .. " canh:" .. h)
-        if((can == nil) or (can > h))then
-          can = h
-        end
-      end
-    end
-    if(can == nil)then
-      can = 0
-    end
-    items[item].canCraft = can
-    print(item .. ": CanCraft = " .. items[item].canCraft)
-  end
-end
-local function SetCanCraftALL()
-  print("SetCanCraftALL")
-  for ic,jc in pairs(items) do
-    SetCanCraft(ic)
-  end
+  print("GetStorageItems end")
 end
 local function SetCrafts(item)
-  if(items[item].recipeCounts ~= nil)then
-    local tocraft = mf.MathUp((items[item].maxCount - items[item].newsize) / items[item].craftCount)
-    SetCanCraft(item)
-    if(items[item].canCraft < tocraft)then
-      tocraft = items[item].canCraft
+    local can = nil
+    if(item ~= nil)then
+        if items[item].recipe ~= nil then
+            local crafts_wanted = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
+            items[item]["crafts"] = crafts_wanted
+            for a,b in pairs(items[item].recipe) do
+                if a ~= "n" then
+                    local tempsize = items[convert.ItemToOName(b)].newsize
+                    local tempcrafts = math.floor(tempsize / (b.size / crafts_wanted))
+                    if tempsize < b.size and tempcrafts < items[item].crafts then
+                        items[item].crafts = tempcrafts
+                    end
+                end
+            end
+            for a,b in pairs(items[item].recipe) do
+                if a ~= "n" then
+                    rc_name = convert.ItemToOName(b)
+                    items[item].recipe[a].size = items[item].crafts * (b.size / crafts_wanted)
+                    items[rc_name].newsize = items[rc_name].newsize - items[item].recipe[a].size
+                end
+            end
+            print(item .. ": SetCraft = " .. items[item].crafts)
+        end
     end
-    if(tocraft > 0)then
-      --print(item .. " tocraft: " .. tocraft)
-      items[item].crafts = items[item].crafts + tocraft
-      for a,b in pairs(items[item].recipeCounts) do
-        --print("setting size: " .. a .. " = " .. items[a].newsize)
-        items[a].newsize = items[a].newsize - (tocraft * b)
-        --print("new size: " .. a .. " = " .. items[a].newsize)
-      end
-      print("")
-      --print("setting size: " .. item .. " = " .. items[item].newsize)
-      items[item].newsize = items[item].newsize + (tocraft * items[item].craftCount)
-      --print("new size: " .. item .. " = " .. items[item].newsize)
-      print(item .. " craftstotal: " .. items[item].crafts)
-      --print("")
-      --print("")
-    end
-  end
 end
 local function SetCraftsALL()
   print("SetCraftsALL")
@@ -191,78 +162,12 @@ local function SetCraftsALL()
     SetCrafts(i)
   end
 end
-local function RollBackCrafts()
-  print("RollBackCrafts")
-  for is,js in pairs(items) do
-    if(items[is].newsize < 0)then
-      for i,j in pairs(items) do
-        if(items[i].recipeCounts ~= nil)then
-          if(items[i].recipeCounts[is] ~= nil)then
-            local temp = (math.floor(items[is].newsize / items[i].recipeCounts[is]) * -1)
-            if(items[i].crafts > temp)then
-              items[i].crafts = items[i].crafts - temp
-              items[i].newsize = items[i].newsize - temp
-              --print("safgsdgdf size: ")
-              for a,b in pairs(items[i].recipeCounts) do
-                --print("setting size: " .. a .. " = " .. items[a].newsize)
-                items[a].newsize = items[a].newsize + (temp * b)
-                --print("new size: " .. a .. " = " .. items[a].newsize)
-              end
-              break
-            else
-              temp = items[i].crafts
-              items[i].crafts = 0
-              items[i].newsize = 0
-              --print("safgsdgdf size: ")
-              for a,b in pairs(items[i].recipeCounts) do
-                --print("setting size: " .. a .. " = " .. items[a].newsize)
-                items[a].newsize = items[a].newsize + (temp * b)
-                --print("new size: " .. a .. " = " .. items[a].newsize)
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-end
 local function CalculateCrafts()
-  print("CalculateCrafts")
-  for is,js in pairs(items) do
-    items[is]["newsize"] = js.size
-    if(js.recipeCounts ~= nil)then
-      items[is]["crafts"] = 0
+    print("CalculateCrafts")
+    for is,js in pairs(items) do
+      items[is]["newsize"] = js.size
     end
-  end
-  SetCanCraftALL()
-  SetCraftsALL()
-  SetCraftsALL()
-  SetCraftsALL()
-  SetCraftsALL()
-  SetCraftsALL()
-  SetCraftsALL()
-  RollBackCrafts()
-end
-local function GetPrio(item)
-  local prio = 0;
-  if(items[item].recipeCounts ~= nil)then
-    for a,b in pairs(items[item].recipeCounts) do
-      if(items[a].recipeCounts ~= nil)then
-        GetPrio(a)
-        prio = items[a].prio + 1
-      end
-    end
-  end
-  if(prio > priocount)then
-    priocount = prio
-  end
-  items[item].prio = prio
-end
-local function GetPrios()
-  print("CalculateCrafts")
-  for i,j in pairs(items) do
-    GetPrio(i)
-  end
+    SetCraftsALL()
 end
 local function PrintItem(item, prefix)
     local output = item .. "={"
@@ -300,61 +205,47 @@ local function PrintItems()
   end
   print("")
 end
-local function MoveItems(destination)
-  for i,j in pairs(items) do
-    local check = (j.newsize > j.size)
-    if (destination == "craft") then
-      check = (j.newsize < j.size)
-    end
-    if (check) then
-      local schalter = 1
-      local mod = crafter
-      local dest = items[i]["mod"]
-      if (destination == "craft") then
-        mod = items[i]["mod"]
-        dest = crafter
-        schalter = 2
-      end
-      local route = prox.GetRoute(mod, destination, dest)
-      local r = 1
-      while r <= #route do
-        local count = j.newsize - j.size 
-        if (destination == "craft") then
-          count = j.size - j.newsize
-        end
+local function MoveItems(item, count, route)
+    local r = 1
+    while r <= #route do
         local storage = component.proxy(route[r].proxy)
         while count > 0 do
-          local dropped = storage.extractItem(items[i], count, route[r].side)
-          if dropped ~= nil then
-            count = count - dropped
-          end
+            local dropped = storage.extractItem(items[i], count, route[r].side)
+            if dropped ~= nil then
+                count = count - dropped
+            end
         end
         r = r + 1
-      end
     end
-  end
-  --os.sleep(1)
+end
+local function MoveRecipeItems(item)
+    for i,j in pairs(items[item].recipe) do
+        if i ~= "n" then
+            MoveItems(j , j.size, (prox.GetRoute((convert.ItemMod(j)), "craft", crafter, 2)))
+        end
+    end
+end
+local function MoveCraftedItem(item)
+    MoveItems(item, (items[item].crafts * items[item].craftCount), (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
 local function CraftItems()
-  local prio = 0
-  local cr = component.proxy(prox.GetProxByName(crafter,"craft"))
-  while prio <= priocount do
+    local cr = component.proxy(prox.GetProxByName(crafter,"craft"))
     for i,j in pairs(items) do
-      if ((j.prio == prio) and (j.crafts ~= nil)) then
-        PrintItem(i, "Crafting Item: ")
-        cr.scheduleTask(j, (j.crafts * j.craftCount))
-        local tasks = cr.getTasks()
-        while #tasks > 0 do
-          --os.sleep(1)
-          tasks = cr.getTasks()
-          if (tasks == nil) then
-            tasks = {}
-          end
-        end
-      end 
+        if j.crafts ~= nil and j.crafts ~= 0 then
+            PrintItem(i, "Crafting Item: ")
+            MoveRecipeItems(j)
+            cr.scheduleTask(j, (j.crafts * j.craftCount))
+            local tasks = cr.getTasks()
+            while #tasks > 0 do
+                os.sleep(1)
+                tasks = cr.getTasks()
+                if (tasks == nil) then
+                    tasks = {}
+                end
+            end
+            MoveCraftedItem(j)
+        end 
     end
-    prio = prio + 1
-  end
 end
 local function GetStorageInfo(store)
   local cr = component.proxy(prox.GetProxByName(crafter,store))
@@ -366,30 +257,25 @@ local function GetStorageInfo(store)
   print("")
 end
 local function GetItems()
-  print("GetItems")
-  GetRecipeCounts()
-  ConvertItems()
-  GetStorageItemsThreads() --
-  CalculateCrafts()
-  GetPrios()
-  --PrintItems()
+    print("GetItems")
+    --GetRecipeCounts()
+    for i,j in pairs(items) do
+        if j.craftCount == nil then
+            items[i].craftCount = 1.0
+        end
+    end
+    ConvertItems()
+    GetStorageItems()
+    GetRecipes()
+    GetRecipeItems()
+    CalculateCrafts()
+    --PrintItems()
 end
 local function Craft(itemrepo)
   items = require("crafting/Items/" .. itemrepo)
   crafter = itemrepo
   GetItems()
-  --GetStorageInfo("home")
-  --GetStorageInfo("craft")
-  MoveItems("craft")
-  --GetStorageInfo("home")
-  --GetStorageInfo("craft")
   CraftItems()
-  --GetStorageInfo("home")
-  --GetStorageInfo("craft")
-  --PrintItems()
-  MoveItems("home")
-  --GetStorageInfo("home")
-  --GetStorageInfo("craft")
 end
 
 if args[1] ~= nil and args[1]:find("Autocraft") == nil then
@@ -399,6 +285,168 @@ end
 ac.Craft = Craft
 return ac
 
+--local function GetRecipeCounts()
+--  print("GetRecipeCounts")
+--  local temp = {}
+--  for i,j in pairs(items) do
+--    --print("Getting RecipeCounts: " .. i)
+--    if(items[i].recipe ~= nil)then
+--      items[i]["recipeCounts"] = {}
+--      for g,h in pairs(items[i].recipe) do
+--        if(h ~= nil)then
+--          local he = convert.TextToOName(h)
+--          if (items[i].recipeCounts[he] == nil) then
+--            items[i].recipeCounts[he] = 1
+--          else
+--            items[i].recipeCounts[he] = items[i].recipeCounts[he] + 1
+--          end
+--          if(items[he] == nil)then
+--            table.insert(temp, he)
+--          end
+--        end
+--      end
+--    else
+--      print("Has no Recipe: " .. i)
+--    end
+--  end
+--  for ie,je in pairs(temp) do
+--    items[je] = {}
+--  end
+--end
+--local function GetStorageItems_old()
+--  print("GetStorageItems")
+--  for i,j in pairs(items) do
+--    print("RS-GetItem: " .. j.name .. " Damage: " .. j.damage)
+--    local rs_p = prox.GetProxy(j.mod, "home")
+--    if rs_p == "" then
+--      print("Cant find proxy for: " .. j.name .. " Damage: " .. j.damage)
+--    else
+--        local rs_nr = component.proxy(rs_p)
+--        if rs_nr == nil then
+--          print("Cant find component for proxy: " .. rs_p .. " Item:" .. j.name .. " Damage: " .. j.damage)
+--        else
+--            local rs_item = rs_nr.getItem(items[i])
+--            if(rs_item == nil) then
+--              print("Cant find item in system: " .. j.name .. " Damage: " .. j.damage)
+--              rs_item = {size=0.0}
+--            end
+--            for a,b in pairs(rs_item) do
+--              items[i][a] = b
+--            end
+--        end
+--    end
+--  end
+--  print("GetStorageItems End")
+--end
+--local function SetCanCraft_old(item)
+--  local can = nil
+--  if item ~= nil then
+--    if items[item].recipe ~= nil then
+--        print("Item has recipe")
+--        for a,b in pairs(items[item].recipeCounts) do
+--            print("recipeItem: " .. a)
+--            SetCanCraft(a)
+--            local h = math.floor(((items[a].newsize + items[a].canCraft) / b) * items[item].craftCount)
+--            print("recipeItem: " .. a .. " canh:" .. h)
+--            if((can == nil) or (can > h))then
+--               can = h
+--            end
+--        end
+--    end
+--    if(can == nil)then
+--      can = 0
+--    end
+--    items[item].canCraft = can
+--    print(item .. ": CanCraft = " .. items[item].canCraft)
+--  end
+--end
+--local function SetCanCraftALL_old()
+--  print("SetCanCraftALL")
+--  for ic,jc in pairs(items) do
+--    SetCanCraft(ic)
+--  end
+--end
+--local function SetCrafts_old(item)
+--  if(items[item].recipeCounts ~= nil)then
+--    local tocraft = mf.MathUp((items[item].maxCount - items[item].newsize) / items[item].craftCount)
+--    SetCanCraft(item)
+--    if(items[item].canCraft < tocraft)then
+--      tocraft = items[item].canCraft
+--    end
+--    if(tocraft > 0)then
+--      --print(item .. " tocraft: " .. tocraft)
+--      items[item].crafts = items[item].crafts + tocraft
+--      for a,b in pairs(items[item].recipeCounts) do
+--        --print("setting size: " .. a .. " = " .. items[a].newsize)
+--        items[a].newsize = items[a].newsize - (tocraft * b)
+--        --print("new size: " .. a .. " = " .. items[a].newsize)
+--      end
+--      print("")
+--      --print("setting size: " .. item .. " = " .. items[item].newsize)
+--      items[item].newsize = items[item].newsize + (tocraft * items[item].craftCount)
+--      --print("new size: " .. item .. " = " .. items[item].newsize)
+--      print(item .. " craftstotal: " .. items[item].crafts)
+--      --print("")
+--      --print("")
+--    end
+--  end
+--end
+--local function RollBackCrafts_old()
+--  print("RollBackCrafts")
+--  for is,js in pairs(items) do
+--    if(items[is].newsize < 0)then
+--      for i,j in pairs(items) do
+--        if(items[i].recipeCounts ~= nil)then
+--          if(items[i].recipeCounts[is] ~= nil)then
+--            local temp = (math.floor(items[is].newsize / items[i].recipeCounts[is]) * -1)
+--            if(items[i].crafts > temp)then
+--              items[i].crafts = items[i].crafts - temp
+--              items[i].newsize = items[i].newsize - temp
+--              --print("safgsdgdf size: ")
+--              for a,b in pairs(items[i].recipeCounts) do
+--                --print("setting size: " .. a .. " = " .. items[a].newsize)
+--                items[a].newsize = items[a].newsize + (temp * b)
+--                --print("new size: " .. a .. " = " .. items[a].newsize)
+--              end
+--              break
+--            else
+--              temp = items[i].crafts
+--              items[i].crafts = 0
+--              items[i].newsize = 0
+--              --print("safgsdgdf size: ")
+--              for a,b in pairs(items[i].recipeCounts) do
+--                --print("setting size: " .. a .. " = " .. items[a].newsize)
+--                items[a].newsize = items[a].newsize + (temp * b)
+--                --print("new size: " .. a .. " = " .. items[a].newsize)
+--              end
+--            end
+--          end
+--        end
+--      end
+--    end
+--  end
+--end
+--local function GetPrio(item)
+--  local prio = 0;
+--  if(items[item].recipeCounts ~= nil)then
+--    for a,b in pairs(items[item].recipeCounts) do
+--      if(items[a].recipeCounts ~= nil)then
+--        GetPrio(a)
+--        prio = items[a].prio + 1
+--      end
+--    end
+--  end
+--  if(prio > priocount)then
+--    priocount = prio
+--  end
+--  items[item].prio = prio
+--end
+--local function GetPrios()
+--  print("CalculateCrafts")
+--  for i,j in pairs(items) do
+--    GetPrio(i)
+--  end
+--end
 -- local paths = {}
 -- local rs = component.block_refinedstorage_interface
 -- -- Print contents of `tbl`, with indentation.
