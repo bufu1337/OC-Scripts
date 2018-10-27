@@ -27,7 +27,7 @@ local function TextToOName(text)
     return text:gsub(":", "jj")
 end
 local function ItemToOName(item)
-    if item.damage ~= nil or item.damage ~= 0 then
+    if item.damage ~= nil and item.damage ~= 0 then
       return TextToOName(item.name) .. "jj" .. item.damage
     else
       return TextToOName(item.name)

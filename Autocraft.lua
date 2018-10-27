@@ -77,7 +77,11 @@ local function GetRecipes()
                         local recipe = rs_comp.getMissingItems(items[j], (mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount) * items[j].craftCount))
                         for g,h in pairs(recipe) do
                             if g ~= "n" then
-                                recipe[g].damage = h.maxDamage  
+                                if h.maxDamage ~= nil then
+                                    recipe[g].damage = h.maxDamage
+                                else
+                                    recipe[g].damage = 0.0
+                                end
                             end
                         end
                         items[j].recipe = recipe
