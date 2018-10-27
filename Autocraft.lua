@@ -34,6 +34,7 @@ local function GetRecipeItems()
                 if x ~= "n" then
                     local converted = convert.ItemToOName(y)
                     if items[converted] == nil then
+                        print("Adding item: " .. converted)
                         items[converted] = {}
                     end
                 end
@@ -73,7 +74,7 @@ local function GetRecipes()
                 if(rs_proxy ~= "") then
                     local rs_comp = component.proxy(rs_proxy)
                     if(rs_comp ~= nil) then
-                        local recipe = rs_comp.getMissingItems(items[j], (mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount))
+                        local recipe = rs_comp.getMissingItems(items[j], (mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount) * items[j].craftCount))
                         for g,h in pairs(recipe) do
                             if g ~= "n" then
                                 recipe[g].damage = h.maxDamage  
