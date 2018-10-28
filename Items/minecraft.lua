@@ -223,7 +223,7 @@ return {
     minecraftjjmagma_cream={maxCount=1280.0},
     minecraftjjmap={maxCount=256.0},
     minecraftjjmelon={maxCount=1280.0, craftCount=9.0},
-    minecraftjjmelon_seeds={maxCount=1280.0},
+    minecraftjjmelon_seeds={maxCount=1280.0, craftCount=9.0},
     minecraftjjminecart={maxCount=256.0},
     minecraftjjmushroom_stew={maxCount=128.0},
     minecraftjjname_tag={maxCount=256.0},

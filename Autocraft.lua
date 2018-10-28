@@ -132,9 +132,9 @@ local function GetRecipes()
                     if(rs_proxy ~= "") then
                         local rs_comp = component.proxy(rs_proxy)
                         if(rs_comp ~= nil) then
-                            local wcrafts = mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount)
+                            --local wcrafts = mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount)
                             local cr_recipe = {}
-                            local rs_recipe = rs_comp.getMissingItems(items[j], (wcrafts * items[j].craftCount))
+                            local rs_recipe = rs_comp.getMissingItems(items[j], items[j].craftCount)
                             rs_recipe.n = nil
                             for g,h in pairs(rs_recipe) do
                                 cr_recipe[g] = {}
@@ -144,7 +144,7 @@ local function GetRecipes()
                                     rs_recipe[g].damage = 0.0
                                 end
                                 cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
-                                cr_recipe[g].need = rs_recipe[g].size / wcrafts
+                                cr_recipe[g].need = rs_recipe[g].size
                                 cr_recipe[g].label = rs_recipe[g].label
                                 if items[cr_recipe[g].oname] == nil then
                                     items[cr_recipe[g].oname] = {label = rs_recipe[g].label, crafter=""}
@@ -175,7 +175,7 @@ local function SetCrafts(item)
                 end
             end
             for a,b in pairs(items[item].recipe) do
-                items[item].recipe[a].size = items[item].crafts / b.need
+                items[item].recipe[a].size = items[item].crafts * b.need
                 items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
             end
             print(item .. ": SetCraft = " .. items[item].crafts)
@@ -190,8 +190,8 @@ local function SetCraftsALL()
 end
 local function CalculateCrafts()
     print("CalculateCrafts")
-    for is,js in pairs(items) do
-      items[is]["newsize"] = js.size
+    for i,j in pairs(items) do
+      items[i]["newsize"] = j.size
     end
     SetCraftsALL()
 end
