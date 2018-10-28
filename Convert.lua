@@ -18,6 +18,9 @@ local function TextToItem(text)
         end
         counter = counter +1
     end
+    if result.damage == nil then
+        result.damage = 0.0
+    end
     return result
 end
 local function ItemToText(item)

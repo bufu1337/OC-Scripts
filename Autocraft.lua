@@ -105,7 +105,7 @@ local function GetRecipes()
     local iarr = {}
     local th = {}
     for i,j in pairs(items) do
-        if j.maxCount ~= nil
+        if j.maxCount ~= nil then
             if j.recipe == nil and j.size < j.maxCount then
                 itemcounter = itemcounter + 1
                 if (itemcounter > 50) then
@@ -182,18 +182,14 @@ local function SetCrafts(item)
         end
     end
 end
-local function SetCraftsALL()
-  print("SetCraftsALL")
-  for i,j in pairs(items) do
-    SetCrafts(i)
-  end
-end
 local function CalculateCrafts()
     print("CalculateCrafts")
     for i,j in pairs(items) do
       items[i]["newsize"] = j.size
     end
-    SetCraftsALL()
+    for i,j in pairs(items) do
+        SetCrafts(i)
+    end
 end
 local function PrintItem(item, prefix)
     local output = item .. "={"
@@ -286,7 +282,6 @@ local function GetItems()
     ConvertItems()
     GetStorageItems()
     GetRecipes()
-    GetRecipeItems()
     CalculateCrafts()
     --PrintItems()
 end
