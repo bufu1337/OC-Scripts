@@ -117,7 +117,7 @@ local function GetRecipes()
             iarr[co][itemcounter] = i
         end
     end
-    if itemcounter ~= and co ~= 1 then
+    if itemcounter ~= 0 and co ~= 1 then
         itemschange = true
         local ttable = {}
         for v = 1, co, 1 do
