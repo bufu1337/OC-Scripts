@@ -13,86 +13,24 @@ local priocount = 0
 local crafter = ""
 local ac = {}
 local args = shell.parse( ... )
+local itemschange = false
 local logfile = "/home/crafting/AC-Log.lua"
 
 local function ConvertItems()
   print("ConvertItems")
   for i,j in pairs(items) do
+    print("Convert: " .. i)
+    if j ~= nil then
     if j.name == nil then
         local converted = convert.TextToItem(i)
         for x,y in pairs(converted) do
           items[i][x] = y
         end
     end
+    else
+      print("is null")
+    end
   end
-end
-local function GetRecipeItems()
-    print("GetRecipeItems")
-    for i,j in pairs(items) do
-        if j.recipe ~= nil then
-            for x,y in pairs(j.recipe) do
-                if x ~= "n" then
-                    local converted = convert.ItemToOName(y)
-                    if items[converted] == nil then
-                        print("Adding item: " .. converted)
-                        items[converted] = {}
-                    end
-                end
-            end
-        end
-    end
-    ConvertItems()
-    GetStorageItems()
-end
-local function GetRecipes()
-    print("GetRecipes")
-    local itemcounter = 0
-    local co = 1
-    local iarr = {}
-    local th = {}
-    for i,j in pairs(items) do
-        if j.recipe == nil and j.size < j.maxCount then
-            itemcounter = itemcounter + 1
-            if (itemcounter > 50) then
-                itemcounter = 1
-                co = co + 1
-            end
-            if iarr[co] == nil then
-                iarr[co] = {}
-            end
-            iarr[co][itemcounter] = i
-        end
-    end
-    local ttable = {}
-    for v = 1, co, 1 do
-        th[v] = thread.create(function(o, u)
-            for v = 1, u, 1 do
-                os.sleep()
-            end
-            for i,j in pairs(o) do
-                local rs_proxy = prox.GetProxyByName(crafter, "craft")
-                if(rs_proxy ~= "") then
-                    local rs_comp = component.proxy(rs_proxy)
-                    if(rs_comp ~= nil) then
-                        local recipe = rs_comp.getMissingItems(items[j], (mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount) * items[j].craftCount))
-                        for g,h in pairs(recipe) do
-                            if g ~= "n" then
-                                if h.maxDamage ~= nil then
-                                    recipe[g].damage = h.maxDamage
-                                else
-                                    recipe[g].damage = 0.0
-                                end
-                            end
-                        end
-                        items[j].recipe = recipe
-                    end
-                end
-            end
-        end, iarr[v], v)
-        table.insert(ttable, th[v])
-    end
-    thread.waitForAll(ttable)
-    print("GetRecipes end")
 end
 local function GetStorageItems()
   print("GetStorageItems")
@@ -141,27 +79,102 @@ local function GetStorageItems()
   thread.waitForAll(ttable)
   print("GetStorageItems end")
 end
+local function WriteNewRepo()
+    local serial = require("serialization")
+    local newRepoFile = io.open("crafting/Items/" .. crafter .. ".lua", "w")
+    local ikeys = mf.getSortedKeys(items)
+    local itemsep = ","
+    newRepoFile:write("return {\n")
+    for ik = 1, #ikeys, 1 do
+        if ik == #ikeys then itemsep = "" end
+        local tempsize = items[ikeys[ik]].size
+        items[ikeys[ik]].name = nil
+        items[ikeys[ik]].mod = nil
+        items[ikeys[ik]].damage = nil
+        items[ikeys[ik]].size = nil
+        newRepoFile:write("    " .. serial.serialize(items[ikeys[ik]]) .. itemsep .. "\n")
+        items[ikeys[ik]].size = tempsize
+    end
+    newRepoFile:write("}")
+    newRepoFile:close()
+end
+local function GetRecipes()
+    print("GetRecipes")
+    local itemcounter = 0
+    local co = 1
+    local iarr = {}
+    local th = {}
+    for i,j in pairs(items) do
+        if j.recipe == nil and j.size < j.maxCount then
+            itemcounter = itemcounter + 1
+            if (itemcounter > 50) then
+                itemcounter = 1
+                co = co + 1
+            end
+            if iarr[co] == nil then
+                iarr[co] = {}
+            end
+            iarr[co][itemcounter] = i
+        end
+    end
+    if itemcounter ~= and co ~= 1 then
+        itemschange = true
+        local ttable = {}
+        for v = 1, co, 1 do
+            th[v] = thread.create(function(o, u)
+                for v = 1, u, 1 do
+                    os.sleep()
+                end
+                for i,j in pairs(o) do
+                    local rs_proxy = prox.GetProxyByName(crafter, "craft")
+                    if(rs_proxy ~= "") then
+                        local rs_comp = component.proxy(rs_proxy)
+                        if(rs_comp ~= nil) then
+                            local wcrafts = mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount)
+                            local cr_recipe = {}
+                            local rs_recipe = rs_comp.getMissingItems(items[j], (wcrafts * items[j].craftCount))
+                            rs_recipe.n = nil
+                            for g,h in pairs(rs_recipe) do
+                                cr_recipe[g] = {}
+                                if h.maxDamage ~= nil then
+                                    rs_recipe[g].damage = h.maxDamage
+                                else
+                                    rs_recipe[g].damage = 0.0
+                                end
+                                cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
+                                cr_recipe[g].need = rs_recipe[g].size / wcrafts
+                                cr_recipe[g].label = rs_recipe[g].label
+                                if items[cr_recipe[g].oname] == nil then
+                                    items[cr_recipe[g].oname] = {label = rs_recipe[g].label, crafter=""}
+                                end
+                            end
+                            items[j].recipe = cr_recipe
+                        end
+                    end
+                end
+            end, iarr[v], v)
+            table.insert(ttable, th[v])
+        end
+        thread.waitForAll(ttable)
+        WriteNewRepo()
+        ConvertItems()
+        GetStorageItems()
+    end
+    print("GetRecipes end")
+end
 local function SetCrafts(item)
-    local can = nil
     if(item ~= nil)then
         if items[item].recipe ~= nil then
-            local crafts_wanted = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
-            items[item]["crafts"] = crafts_wanted
+            items[item].crafts = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
             for a,b in pairs(items[item].recipe) do
-                if a ~= "n" then
-                    local tempsize = items[convert.ItemToOName(b)].newsize
-                    local tempcrafts = math.floor(tempsize / (b.size / crafts_wanted))
-                    if tempsize < b.size and tempcrafts < items[item].crafts then
-                        items[item].crafts = tempcrafts
-                    end
+                local tempcrafts = items[b.oname].newsize * b.need
+                if tempcrafts < items[item].crafts then
+                    items[item].crafts = tempcrafts
                 end
             end
             for a,b in pairs(items[item].recipe) do
-                if a ~= "n" then
-                    rc_name = convert.ItemToOName(b)
-                    items[item].recipe[a].size = items[item].crafts * (b.size / crafts_wanted)
-                    items[rc_name].newsize = items[rc_name].newsize - items[item].recipe[a].size
-                end
+                items[item].recipe[a].size = items[item].crafts / b.need
+                items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
             end
             print(item .. ": SetCraft = " .. items[item].crafts)
         end
@@ -231,9 +244,7 @@ local function MoveItems(item, count, route)
 end
 local function MoveRecipeItems(item)
     for i,j in pairs(items[item].recipe) do
-        if i ~= "n" then
-            MoveItems(j , j.size, (prox.GetRoute((convert.ItemMod(j)), "craft", crafter, 2)))
-        end
+        MoveItems(j , j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
     end
 end
 local function MoveCraftedItem(item)
@@ -270,11 +281,6 @@ end
 local function GetItems()
     print("GetItems")
     --GetRecipeCounts()
-    for i,j in pairs(items) do
-        if j.craftCount == nil then
-            items[i].craftCount = 1.0
-        end
-    end
     ConvertItems()
     GetStorageItems()
     GetRecipes()
@@ -282,9 +288,17 @@ local function GetItems()
     CalculateCrafts()
     --PrintItems()
 end
-local function Craft(itemrepo)
+local function Define(itemrepo)
   items = require("crafting/Items/" .. itemrepo)
   crafter = itemrepo
+  for i,j in pairs(items) do
+    if j.craftCount == nil then
+      items[i].craftCount = 1.0
+    end
+  end
+end
+local function Craft(itemrepo)
+  Define(itemrepo)
   GetItems()
   CraftItems()
 end
@@ -294,6 +308,15 @@ if args[1] ~= nil and args[1]:find("Autocraft") == nil then
 end
 
 ac.Craft = Craft
+ac.Define = Define
+ac.ConvertItems = ConvertItems
+ac.GetStorageItems = GetStorageItems
+ac.GetRecipes = GetRecipes
+ac.GetRecipeItems = GetRecipeItems
+ac.CalculateCrafts = CalculateCrafts
+ac.CraftItems = CraftItems
+ac.PrintItems = PrintItems
+ac.items = items
 return ac
 
 --local function GetRecipeCounts()

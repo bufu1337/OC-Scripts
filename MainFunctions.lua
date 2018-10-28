@@ -30,6 +30,18 @@ local function getCount(ab)
 	end
 	return count
 end
+local function getKeys(ab)
+	local keys = {}
+	for k in pairs(ab) do
+		table.insert(keys, k)
+	end
+	return keys
+end
+local function getSortedKeys(ab)
+	local keys = getKeys(ab)
+	table.sort(keys)
+	return keys
+end
 local function getIndex(ab, element)
   for key, value in pairs(ab) do
     if value == element then
