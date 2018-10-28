@@ -105,16 +105,18 @@ local function GetRecipes()
     local iarr = {}
     local th = {}
     for i,j in pairs(items) do
-        if j.recipe == nil and j.size < j.maxCount then
-            itemcounter = itemcounter + 1
-            if (itemcounter > 50) then
-                itemcounter = 1
-                co = co + 1
+        if j.maxCount ~= nil
+            if j.recipe == nil and j.size < j.maxCount then
+                itemcounter = itemcounter + 1
+                if (itemcounter > 50) then
+                    itemcounter = 1
+                    co = co + 1
+                end
+                if iarr[co] == nil then
+                    iarr[co] = {}
+                end
+                iarr[co][itemcounter] = i
             end
-            if iarr[co] == nil then
-                iarr[co] = {}
-            end
-            iarr[co][itemcounter] = i
         end
     end
     if itemcounter ~= 0 and co ~= 1 then
