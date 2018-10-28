@@ -118,6 +118,8 @@ end
 mf.MathUp = MathUp
 mf.contains = contains
 mf.containsKey = containsKey
+mf.getKeys = getKeys
+mf.getSortedKeys = getSortedKeys
 mf.getIndex = getIndex
 mf.getCount = getCount
 mf.startswith = startswith

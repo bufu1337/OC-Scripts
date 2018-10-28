@@ -92,7 +92,7 @@ local function WriteNewRepo()
         items[ikeys[ik]].mod = nil
         items[ikeys[ik]].damage = nil
         items[ikeys[ik]].size = nil
-        newRepoFile:write("    " .. serial.serialize(items[ikeys[ik]]) .. itemsep .. "\n")
+        newRepoFile:write("    " .. ikeys[ik].. "=" .. serial.serialize(items[ikeys[ik]]) .. itemsep .. "\n")
         items[ikeys[ik]].size = tempsize
     end
     newRepoFile:write("}")
