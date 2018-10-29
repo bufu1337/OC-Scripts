@@ -1,5 +1,5 @@
 Proxies.lua 0.007
-Convert.lua 0.004
+Convert.lua 0.005
 Autocraft.lua 0.011
 StartCraft.lua 0.003
 getMaxDamage.lua 0.001
@@ -26,7 +26,7 @@ Items/max/chisel.lua 0.001
 Items/max/compactmachines3.lua 0.001
 Items/max/conquest.lua 0.001
 Items/max/cookingforblockheads.lua 0.001
-Items/max/corail_pillar.lua 0.001
+Items/max/corail_pillar.lua 0.002
 Items/max/corail_pillar_extension_biomesoplenty.lua 0.001
 Items/max/corail_pillar_extension_chisel.lua 0.001
 Items/max/corail_pillar_extension_forestry.lua 0.001
@@ -57,7 +57,7 @@ Items/max/industrialforegoing.lua 0.001
 Items/max/libvulpes.lua 0.001
 Items/max/magicbees.lua 0.001
 Items/max/malisisblocks.lua 0.001
-Items/max/mekanism.lua 0.001
+Items/max/mekanism.lua 0.002
 Items/max/mekanismgenerators.lua 0.001
 Items/max/minecraft.lua 0.001
 Items/max/mxtune.lua 0.001
@@ -75,7 +75,7 @@ Items/max/rafradek_tf2_weapons.lua 0.001
 Items/max/rebornstorage.lua 0.001
 Items/max/redstonearsenal.lua 0.001
 Items/max/refinedstorage.lua 0.001
-Items/max/rftools.lua 0.001
+Items/max/rftools.lua 0.002
 Items/max/rftoolsdim.lua 0.001
 Items/max/saltmod.lua 0.001
 Items/max/tconstruct.lua 0.001

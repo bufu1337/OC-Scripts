@@ -5,7 +5,7 @@ local function TextToItem(text)
 	text = text:gsub("_jj_", ":")
 	text = text:gsub("_xx_", "/")
 	text = text:gsub("_qq_", "-")
-    text = text:gsub("_vv_", "\.")
+    text = text:gsub("_vv_", ".")
     for w in (text .. ":"):gmatch("([^:]*):") do 
         if(counter == 0)then
             result.name = w

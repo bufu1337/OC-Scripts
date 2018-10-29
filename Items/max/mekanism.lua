@@ -24,7 +24,7 @@ mekanism_jj_reinforcedplasticblock=15,
 mekanism_jj_polyethene=3,
 mekanism_jj_nugget=6,
 mekanism_jj_clump=6,
-mekanism_jj_balloon=15
+mekanism_jj_balloon=15,
 mekanism_jj_controlcircuit=3,
-mekanismgenerators_jj_generator=13,
+mekanismgenerators_jj_generator=13
 }

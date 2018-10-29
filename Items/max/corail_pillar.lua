@@ -6,7 +6,7 @@ corail_pillar_extension_chisel_jj_plate_iron_1=14,
 corail_pillar_extension_chisel_jj_marble_0=15,
 corail_pillar_extension_biomesoplenty_jj_biomesoplenty_plank_1=15,
 corail_pillar_extension_chisel_jj_prismarine_0=15,
-corail_pillar_extension_chisel_jj_diorite_1=15
+corail_pillar_extension_chisel_jj_diorite_1=15,
 corail_pillar_extension_chisel_jj_bricks_2=15,
 corail_pillar_extension_chisel_jj_bricks_4=14,
 corail_pillar_extension_chisel_jj_andesite_3=15,
@@ -137,5 +137,5 @@ corail_pillar_extension_forestry_jj_forestry_log_0=15,
 corail_pillar_extension_chisel_jj_planks_qq_acacia_0=15,
 corail_pillar_extension_chisel_jj_diorite_2=15,
 corail_pillar_extension_chisel_jj_endstone_3=9,
-corail_pillar_extension_chisel_jj_basalt_0=15,
+corail_pillar_extension_chisel_jj_basalt_0=15
 }
