@@ -282,7 +282,7 @@ local function MoveCraftedItem(item)
     MoveItems(item, (items[item].crafts * items[item].craftCount), (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
 local function CraftItems()
-    local cr = component.proxy(prox.GetProxByName(crafter,"craft"))
+    local cr = component.proxy(prox.GetProxyByName(crafter,"craft"))
     for i,j in pairs(items) do
         if j.crafts ~= nil and j.crafts ~= 0 then
             PrintItem(i, "Crafting Item: ")
