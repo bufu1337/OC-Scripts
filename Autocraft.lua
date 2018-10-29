@@ -175,7 +175,7 @@ local function SetCrafts(item)
                 end
             end
             for a,b in pairs(items[item].recipe) do
-                items[item].recipe[a].size = items[item].crafts * b.need
+                items[item].recipe[a].size = items[item].crafts / b.need
                 items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
             end
             print(item .. ": SetCraft = " .. items[item].crafts)
@@ -313,6 +313,7 @@ ac.GetRecipeItems = GetRecipeItems
 ac.CalculateCrafts = CalculateCrafts
 ac.CraftItems = CraftItems
 ac.PrintItems = PrintItems
+ac.PrintItem = PrintItem
 ac.items = items
 return ac
 
