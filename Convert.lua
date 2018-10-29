@@ -36,7 +36,7 @@ local function TextToOName(text)
 end
 local function ItemToOName(item)
     if item.damage ~= nil and item.damage ~= 0 then
-      return TextToOName(item.name) .. "jj" .. item.damage
+      return TextToOName(item.name) .. "_jj_" .. item.damage
     else
       return TextToOName(item.name)
     end
