@@ -191,18 +191,27 @@ end
 local function SetCrafts(item)
     if(item ~= nil)then
         if items[item].recipe ~= nil then
+			local proceed = true
             items[item].crafts = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
             for a,b in pairs(items[item].recipe) do
-                local tempcrafts = math.floor(items[b.oname].newsize / b.need)
-                if tempcrafts < items[item].crafts then
-                    items[item].crafts = tempcrafts
-                end
+				if items[b.oname] ~= nil then
+	                local tempcrafts = math.floor(items[b.oname].newsize / b.need)
+	                if tempcrafts < items[item].crafts then
+	                    items[item].crafts = tempcrafts
+	                end
+				else
+					print("Cant find in itemsrepo: " .. b.oname)
+					proceed = false
+					items[item].crafts = nil
+				end
             end
-            for a,b in pairs(items[item].recipe) do
-                items[item].recipe[a].size = items[item].crafts * b.need
-                items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
-            end
-            print(item .. ": SetCraft = " .. items[item].crafts)
+			if proceed then
+	            for a,b in pairs(items[item].recipe) do
+	                items[item].recipe[a].size = items[item].crafts * b.need
+	                items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
+	            end
+	            print(item .. ": SetCraft = " .. items[item].crafts)
+			end
         end
     end
 end
