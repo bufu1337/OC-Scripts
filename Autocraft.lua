@@ -265,7 +265,7 @@ local function MoveItems(item, count, route)
     while r <= #route do
         local storage = component.proxy(route[r].proxy)
         while count > 0 do
-            local dropped = storage.extractItem(items[i], count, route[r].side)
+            local dropped = storage.extractItem(items[item], count, route[r].side)
             if dropped ~= nil then
                 count = count - dropped
             end
@@ -275,19 +275,19 @@ local function MoveItems(item, count, route)
 end
 local function MoveRecipeItems(item)
     for i,j in pairs(items[item].recipe) do
-        MoveItems(j , j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
+        MoveItems(j.oname, j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
     end
 end
 local function MoveCraftedItem(item)
-    MoveItems(item, (items[item].crafts * items[item].craftCount), (prox.GetRoute(crafter, "home", items[item].mod, 1)))
+    MoveItems(item, items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
 local function CraftItems()
     local cr = component.proxy(prox.GetProxyByName(crafter,"craft"))
     for i,j in pairs(items) do
         if j.crafts ~= nil and j.crafts ~= 0 then
-            PrintItem(i, "Crafting Item: ")
-            MoveRecipeItems(j)
-            cr.scheduleTask(j, (j.crafts * j.craftCount))
+            print("Crafting Item: " .. i .. " Crafts: " .. j.crafts)
+            MoveRecipeItems(i)
+            cr.scheduleTask(j, j.crafts)
             local tasks = cr.getTasks()
             while #tasks > 0 do
                 os.sleep(1)
@@ -296,7 +296,7 @@ local function CraftItems()
                     tasks = {}
                 end
             end
-            MoveCraftedItem(j)
+            MoveCraftedItem(i)
         end 
     end
 end
