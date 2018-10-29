@@ -2,9 +2,10 @@ local convert = {}
 local function TextToItem(text)
     local result = {name="";damage=0;mod=""}
     local counter = 0
-  if(text:find("jj") ~= nil) then
-    text = text:gsub("jj", ":")
-  end
+	text = text:gsub("_jj_", ":")
+	text = text:gsub("_xx_", "/")
+	text = text:gsub("_qq_", "-")
+    text = text:gsub("_vv_", ".")
     for w in (text .. ":"):gmatch("([^:]*):") do 
         if(counter == 0)then
             result.name = w
@@ -27,7 +28,11 @@ local function ItemToText(item)
     return item.name .. ":" .. item.damage
 end
 local function TextToOName(text)
-    return text:gsub(":", "jj")
+	text = text:gsub(":", "_jj_")
+	text = text:gsub("/", "_xx_")
+	text = text:gsub("-", "_qq_")
+	text = text:gsub(".", "_vv_")
+    return text
 end
 local function ItemToOName(item)
     if item.damage ~= nil and item.damage ~= 0 then

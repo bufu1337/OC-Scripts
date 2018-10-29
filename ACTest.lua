@@ -6,7 +6,7 @@ ac.GetRecipes()
 local items = ac.items()
 local serial = require("serialization")
 local mf = require("MainFunctions")
-local newRepoFile = io.open("crafting/Items/" ..  .. "mcall.lua", "w")
+local newRepoFile = io.open("crafting/Items/mcall.lua", "w")
 local ikeys = mf.getSortedKeys(items)
 local itemsep = ","
 newRepoFile:write("return {\n")

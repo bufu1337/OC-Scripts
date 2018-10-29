@@ -5,6 +5,7 @@ local os = require("os")
 local component = require("component")
 local convert = require("crafting/Convert")
 local prox = require("crafting/Proxies")
+local mD = require("crafting/getMaxDamage")
 local mf = require("MainFunctions")
 local thread = require("thread")
 local shell = require("shell")
@@ -131,26 +132,49 @@ local function GetRecipes()
                     local rs_proxy = prox.GetProxyByName(crafter, "craft")
                     if(rs_proxy ~= "") then
                         local rs_comp = component.proxy(rs_proxy)
-                        if(rs_comp ~= nil) then
+                        if rs_comp ~= nil then
                             --local wcrafts = mf.MathUp((items[j].maxCount - items[j].size) / items[j].craftCount)
                             local cr_recipe = {}
+                            local recipe_complete = true
                             local rs_recipe = rs_comp.getMissingItems(items[j], items[j].craftCount)
                             rs_recipe.n = nil
                             for g,h in pairs(rs_recipe) do
+								local item_found = false
                                 cr_recipe[g] = {}
-                                if h.maxDamage ~= nil then
-                                    rs_recipe[g].damage = h.maxDamage
-                                else
-                                    rs_recipe[g].damage = 0.0
-                                end
                                 cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
                                 cr_recipe[g].need = rs_recipe[g].size
                                 cr_recipe[g].label = rs_recipe[g].label
-                                if items[cr_recipe[g].oname] == nil then
-                                    items[cr_recipe[g].oname] = {label = rs_recipe[g].label, crafter=""}
+                                local maxDamage = mD.getMax(cr_recipe[g].oname)
+                                if maxDamage > 0 then
+									local recipe_item_storage = component.proxy(prox.GetProxy(convert.TextToItem(rs_recipe[g].name).mod, "home"))
+									if recipe_item_storage ~= nil then
+										for hh = 0, maxDamage, 1 do
+											rs_recipe[g].damage = hh
+											local recipe_item = recipe_item_storage.getItem(rs_recipe[g])
+											if recipe_item ~= nil then
+												if recipe_item.label == cr_recipe[g].label then
+													cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
+													item_found = true
+													break
+												end
+											end
+										end
+									end
+                                else
+									item_found = true
                                 end
+								if item_found then
+									if items[cr_recipe[g].oname] == nil then
+										items[cr_recipe[g].oname] = {label = rs_recipe[g].label, crafter=""}
+									end
+								else
+									print("Item " .. cr_recipe[g].oname .. " has more then 1 damage, place " .. cr_recipe[g].label .. " into your storage to get the correct recipe")
+									recipe_complete = false
+								end
                             end
-                            items[j].recipe = cr_recipe
+							if recipe_complete then
+								items[j].recipe = cr_recipe
+							end
                         end
                     end
                 end
@@ -169,13 +193,13 @@ local function SetCrafts(item)
         if items[item].recipe ~= nil then
             items[item].crafts = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
             for a,b in pairs(items[item].recipe) do
-                local tempcrafts = items[b.oname].newsize * b.need
+                local tempcrafts = math.floor(items[b.oname].newsize / b.need)
                 if tempcrafts < items[item].crafts then
                     items[item].crafts = tempcrafts
                 end
             end
             for a,b in pairs(items[item].recipe) do
-                items[item].recipe[a].size = items[item].crafts / b.need
+                items[item].recipe[a].size = items[item].crafts * b.need
                 items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
             end
             print(item .. ": SetCraft = " .. items[item].crafts)
@@ -313,8 +337,7 @@ ac.GetRecipeItems = GetRecipeItems
 ac.CalculateCrafts = CalculateCrafts
 ac.CraftItems = CraftItems
 ac.PrintItems = PrintItems
-ac.PrintItem = PrintItem
-ac.items = items
+ac.items = function() return items end
 return ac
 
 --local function GetRecipeCounts()
