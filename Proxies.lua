@@ -2,7 +2,7 @@ local sides = require("sides")
 local prox = {}
 local function Proxies(name)
     local pr = {
-        minecraft={home={proxy="bb705998-ea01-43da-a771-df74cd53cadf", tocraft=sides.west, toroute=sides.east}, craft={proxy="59c6cb63-3294-43b9-a36d-eb65669477ee", tohome=sides.south, toroute=sides.east}, route={proxy="b6f438be-9e4e-43f9-840e-bbec27971a09", home=sides.east, route=sides.west}},
+        minecraft={home={proxy="97f620a4-9695-48f3-8ffb-08becd7a1ebd", tocraft=sides.west, toroute=sides.east}, craft={proxy="187ec7d2-0dc1-4ef1-b17e-bdef72caefc3", tohome=sides.south, toroute=sides.east}, route={proxy="f85d4491-60c7-4176-ba0f-fceb9944c7c4", home=sides.east, route=sides.west}},
         chimneys={home={proxy="88f3f731-d4cc-468a-9bde-efe17fb89f33", tocraft=sides.west, toroute=sides.east}, craft={proxy="f520f06f-2ca5-4443-bf59-4198a4499520", tohome=sides.south, toroute=sides.east}, route={proxy="3c20d393-1595-4324-aabf-1bdc141bbcb5", home=sides.east, route=sides.west}},
         others={home={proxy="8ba270f8-408d-49dc-b50a-e6354d5235ee", tocraft=sides.west, toroute=sides.east}, craft={proxy="e2275cb7-5417-40fd-8b6d-fd201f6dd7d5", tohome=sides.south, toroute=sides.east}, route={proxy="4aef5bec-42d5-44a9-bd92-068bfcb00511", home=sides.east, route=sides.west}},
         draconic={home={proxy="544ad8b1-ee26-4b34-b832-45ffa193a615", tocraft=sides.west, toroute=sides.east}, craft={proxy="1fe6244f-d827-454c-8b55-04f0bbeb479b", tohome=sides.south, toroute=sides.east}, route={proxy="e333b629-221a-4575-ad8b-1ed72fad8943", home=sides.east, route=sides.west}},
