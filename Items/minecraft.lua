@@ -1,4 +1,4 @@
-﻿return {
+return {
     conquest_jj_iron_chain={crafter="",label="Iron Chain"},
     conquest_jj_stone_verticalslab_2_jj_2={crafter="",label="Old Cobblestone Vertical Slab"},
     darkutils_jj_shulker_pearl={crafter="",label="Shulker Pearl"},
