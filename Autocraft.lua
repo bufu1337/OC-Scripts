@@ -281,6 +281,35 @@ end
 local function MoveCraftedItem(item)
     MoveItems(item, items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
+local function MoveRestBack()
+    local rest_items = component.proxy(prox.GetProxByName(crafter, "craft").proxy).getItems()
+    local num_ritems = #rest_items
+    for i = 1, num_ritems, 1 do
+        local converted = convert.ItemToOName(rest_items[i])
+        rest_items[converted] = convert.TextToItem(converted)
+        rest_items[converted].size = rest_items[i].size
+        for x,y in pairs(converted) do
+          rest_items[i][x] = y
+        end
+    end
+    for i = 1, num_ritems, 1 do
+        rest_items[i] == nil
+    end
+    for i,j in pairs(rest_items) do
+        local route = prox.GetRoute(crafter, "home", items[item].mod, 1)
+        local r = 1
+        while r <= #route do
+            local storage = component.proxy(route[r].proxy)
+            while count > 0 do
+                local dropped = storage.extractItem(j, j.size, route[r].side)
+                if dropped ~= nil then
+                    count = count - dropped
+                end
+            end
+            r = r + 1
+        end
+    end
+end
 local function CraftItems()
     local cr = component.proxy(prox.GetProxyByName(crafter,"craft"))
     for i,j in pairs(items) do
@@ -299,6 +328,7 @@ local function CraftItems()
             MoveCraftedItem(i)
         end 
     end
+    MoveRestBack()
 end
 local function GetStorageInfo(store)
   local cr = component.proxy(prox.GetProxByName(crafter,store))
