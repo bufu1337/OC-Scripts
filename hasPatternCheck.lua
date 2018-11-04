@@ -1,3 +1,4 @@
+local shell = require("shell")
 local function CheckPattern(param)
     local items = require("home/crafting/Items/" .. param)
     local prox = require("home/crafting/Proxies")
@@ -6,11 +7,13 @@ local function CheckPattern(param)
     local rs = c.proxy(prox.GetProxyByName(param, "craft"))
     local checkFile = io.open("home/crafting/Items/" .. param .. "_check.lua", "w")
     for i,j in pairs(items) do
-        checkFile:write(i .. " = " .. tostring(rs.hasPattern(convert.TextToItem(i))) .. "\n")
+        local h = tostring(rs.hasPattern(convert.TextToItem(i)))
+        print(i .. " = " .. h)
+        checkFile:write(i .. " = " .. h .. "\n")
     end
     checkFile:close()
 end
 local args = shell.parse( ... )
 if args[1] ~= nil and args[1]:find("hasPatternCheck") == nil then
-    Start(args[1])
+    CheckPattern(args[1])
 end
