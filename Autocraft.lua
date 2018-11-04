@@ -265,7 +265,7 @@ local function MoveItems(item, count, route)
     while r <= #route do
         local storage = component.proxy(route[r].proxy)
         while count > 0 do
-            local dropped = storage.extractItem(items[item], count, route[r].side)
+            local dropped = storage.extractItem(item, count, route[r].side)
             if dropped ~= nil then
                 count = count - dropped
             end
@@ -275,11 +275,11 @@ local function MoveItems(item, count, route)
 end
 local function MoveRecipeItems(item)
     for i,j in pairs(items[item].recipe) do
-        MoveItems(j.oname, j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
+        MoveItems(items[j.oname], j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
     end
 end
 local function MoveCraftedItem(item)
-    MoveItems(item, items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
+    MoveItems(items[item], items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
 local function MoveRestBack()
     local rest_items = component.proxy(prox.GetProxByName(crafter, "craft").proxy).getItems()
@@ -288,26 +288,12 @@ local function MoveRestBack()
         local converted = convert.ItemToOName(rest_items[i])
         rest_items[converted] = convert.TextToItem(converted)
         rest_items[converted].size = rest_items[i].size
-        for x,y in pairs(converted) do
-          rest_items[i][x] = y
-        end
     end
     for i = 1, num_ritems, 1 do
-        rest_items[i] == nil
+        rest_items[i] = nil
     end
     for i,j in pairs(rest_items) do
-        local route = prox.GetRoute(crafter, "home", items[item].mod, 1)
-        local r = 1
-        while r <= #route do
-            local storage = component.proxy(route[r].proxy)
-            while count > 0 do
-                local dropped = storage.extractItem(j, j.size, route[r].side)
-                if dropped ~= nil then
-                    count = count - dropped
-                end
-            end
-            r = r + 1
-        end
+        MoveItems(j, j.crafts, (prox.GetRoute(crafter, "home", j.mod, 1)))
     end
 end
 local function CraftItems()
@@ -376,6 +362,7 @@ ac.GetRecipeItems = GetRecipeItems
 ac.CalculateCrafts = CalculateCrafts
 ac.CraftItems = CraftItems
 ac.PrintItems = PrintItems
+ac.MoveRestBack = MoveRestBack
 ac.items = function() return items end
 return ac
 
