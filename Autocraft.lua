@@ -224,42 +224,6 @@ local function CalculateCrafts()
         SetCrafts(i)
     end
 end
-local function PrintItem(item, prefix)
-    local output = item .. "={"
-    if prefix ~= nil then
-      output = prefix .. output
-    end
-    for c,d in pairs(items[item]) do
-      if((c ~= "recipe") and (c ~= "recipeCounts")) then
-      output = output .. c .. " = " .. tostring(d) .. "; "
-      elseif c == "recipe" then
-        output = output .. c .. " = {"
-        for e,f in pairs(d) do
-          output = output .. f .. ", "
-        end
-        output = output .. "}; "
-        output = output:gsub(", }; ", "}; ")
-      elseif c == "recipeCounts" then
-        output = output .. c .. " = {"
-        for e,f in pairs(d) do
-          output = output .. e .. " = " .. f .. "; "
-        end
-        output = output .. "}; "
-        output = output:gsub("; }; ", "}; ")
-      end
-    end
-    output = output .. "}"
-    output = output:gsub("; }", "}")
-    print(output)
-end
-local function PrintItems()
-  print("")
-  print("Items:")
-  for i,j in pairs(items) do
-    PrintItem(i)
-  end
-  print("")
-end
 local function MoveItems(item, count, route)
     local r = 1
     while r <= #route do
@@ -292,8 +256,9 @@ local function MoveRestBack()
     for i = 1, num_ritems, 1 do
         rest_items[i] = nil
     end
+    rest_items.n = nil
     for i,j in pairs(rest_items) do
-        MoveItems(j, j.crafts, (prox.GetRoute(crafter, "home", j.mod, 1)))
+        MoveItems(j, j.size, (prox.GetRoute(crafter, "home", j.mod, 1)))
     end
 end
 local function CraftItems()
@@ -316,23 +281,12 @@ local function CraftItems()
     end
     MoveRestBack()
 end
-local function GetStorageInfo(store)
-  local cr = component.proxy(prox.GetProxByName(crafter,store))
-  print("")
-  print("Items in " .. store .. ": " .. crafter)
-  for a,b in pairs(cr.getItems()) do
-    print(a .. " = " .. b.size)
-  end
-  print("")
-end
 local function GetItems()
     print("GetItems")
-    --GetRecipeCounts()
     ConvertItems()
     GetStorageItems()
     GetRecipes()
     CalculateCrafts()
-    --PrintItems()
 end
 local function Define(itemrepo)
   items = require("crafting/Items/" .. itemrepo)
