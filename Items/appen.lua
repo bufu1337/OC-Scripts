@@ -260,5 +260,4 @@ return {
     appliedenergistics2_jj_vibration_chamber={maxCount=8.0, craftCount=1.0},
     appliedenergistics2_jj_view_cell={maxCount=8.0, craftCount=1.0},
     appliedenergistics2_jj_wireless_access_point={maxCount=8.0, craftCount=1.0}
-
 }
