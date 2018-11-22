@@ -1,8 +1,151 @@
 local model = require("builder/model")
 local serializer = require("serializer")
 local mf = require("MainFunctions")
-local rotation = 0
-local obj, err = serializer.deserializeFile("C:/Users/alexandersk/workspace/oclib-master/builder/models/worldtree.model")
+local wp = "C:/Users/alexandersk/workspace/oclib-master/builder/models/"
+--require 'paths'
+local rotation = 3
+local function mirrorLevel(level, vertical)
+  local new_level = {}
+  local ccount = string.len(level[1])
+  local rcount = 0
+  for _ in pairs(level) do rcount = rcount + 1 end
+  if vertical then
+    local newcount = 1
+    for j = rcount, 1, -1 do
+      new_level[newcount] = level[j]
+      newcount = newcount + 1
+    end
+  else
+    for i = 1, rcount, 1 do
+      local new_line = ""
+      for j = ccount, 1, -1 do
+        new_line = new_line .. level[i]:sub(j,j)
+      end
+      new_level[i] = new_line
+    end
+  end
+  return new_level
+end
+local function rotateLevel(level, rotation)
+  local new_level = {}
+  local ccount = string.len(level[1])
+  local rcount = 0
+  for _ in pairs(level) do rcount = rcount + 1 end
+  if rotation == 0 then
+    local h = 1
+    for i = 1, rcount, 1 do
+      new_level[h] = ""
+      local row = ""
+      for j = 1, ccount, 1 do
+        if string.len(level[i]) >= j then
+          local temp = level[i]:sub(j,j)
+          if temp == "^" then
+            temp = "-"
+          end
+          new_level[h] = new_level[h] .. temp
+        else
+          new_level[h] = new_level[h] .. "-"
+        end
+      end
+      h = h + 1
+    end
+    obj.size = {x=ccount, y=rcount}
+  end
+  if rotation == 1 then
+    local h = 1
+    for i = ccount, 1, -1 do
+      new_level[h] = ""
+      local row = ""
+      for j = 1, rcount, 1 do
+        if string.len(level[j]) >= i then
+          local temp = level[j]:sub(i,i)
+          if temp == "^" then
+            temp = "-"
+          end
+          new_level[h] = new_level[h] .. temp
+        else
+          new_level[h] = new_level[h] .. "-"
+        end
+      end
+      h = h + 1
+    end
+    obj.size = {x=rcount, y=ccount}
+  end
+  if rotation == 2 then
+    local h = 1
+    for i = rcount, 1, -1 do
+      new_level[h] = ""
+      local row = ""
+      for j = ccount, 1, -1 do
+        if string.len(level[i]) >= j then
+          local temp = level[i]:sub(j,j)
+          if temp == "^" then
+            temp = "-"
+          end
+          new_level[h] = new_level[h] .. temp
+        else
+          new_level[h] = new_level[h] .. "-"
+        end
+      end
+      h = h + 1
+    end
+    obj.size = {x=ccount, y=rcount}
+  end
+  if rotation == 3 then
+    local h = 1
+    for i = 1, ccount, 1 do
+      new_level[h] = ""
+      local row = ""
+      for j = rcount, 1, -1 do
+        if string.len(level[j]) >= i then
+          local temp = level[j]:sub(i,i)
+          if temp == "^" then
+            temp = "-"
+          end
+          new_level[h] = new_level[h] .. temp
+        else
+          new_level[h] = new_level[h] .. "-"
+        end
+      end
+      h = h + 1
+    end
+    obj.size = {x=rcount, y=ccount}
+  end
+  return new_level
+end
+local function listSubDirsInDir(directory)
+    local i, t = 0, {}
+    local pfile = io.popen('dir "'..directory..'" /b /ad')
+    for filename in pfile:lines() do
+        i = i + 1
+        t[i] = filename
+    end
+    pfile:close()
+    return t
+end
+local function listFilesInDir(directory)
+    local i, t, subdirs = 0, {}, listSubDirsInDir(directory)
+    local pfile = io.popen('dir "'..directory..'" /b')
+    for filename in pfile:lines() do
+        if not mf.contains(subdirs, filename) then
+          i = i + 1
+          t[i] = filename
+        end
+    end
+    pfile:close()
+    return t
+end
+local function listNewModels(directory)
+  local subs, files, newModels, counter = listSubDirsInDir(directory), listFilesInDir(directory), {}, 1
+  for _,sub in pairs(subs) do
+    if mf.contains(files, (sub .. ".model")) and not mf.contains(files, sub .. ".model.lua") then 
+      newModels[counter] = files[mf.getIndex(files, sub .. ".model")]
+      counter = counter + 1
+    end
+  end
+  return newModels
+end
+local obj, err = serializer.deserializeFile(wp .. "worldtree.model")
 if obj then
   obj.matCountsAll = {}
   for g,l in pairs(obj.levels) do
@@ -22,95 +165,35 @@ if obj then
     mod[i] = line
     i = i + 1
   end
-  local newmod = {}
-  local g = ""
-  local ccount = string.len(mod[1])
-  local rcount = 0
-  for _ in pairs(mod) do rcount = rcount + 1 end
-  if rotation == 0 then
-    local h = 1
-    for i = 1, rcount, 1 do
-      newmod[h] = ""
-      local row = ""
-      for j = 1, ccount, 1 do
-        if string.len(mod[i]) >= j then
-          local temp = mod[i]:sub(j,j)
-          if temp == "^" then
-            temp = "-"
-          end
-          newmod[h] = newmod[h] .. temp
-        else
-          newmod[h] = newmod[h] .. "-"
-        end
-      end
-      h = h + 1
-    end
-    obj.size = {x=ccount, y=rcount}
-  end
-  if rotation == 1 then
-    local h = 1
-    for i = ccount, 1, -1 do
-      newmod[h] = ""
-      local row = ""
-      for j = 1, rcount, 1 do
-        if string.len(mod[j]) >= i then
-          local temp = mod[j]:sub(i,i)
-          if temp == "^" then
-            temp = "-"
-          end
-          newmod[h] = newmod[h] .. temp
-        else
-          newmod[h] = newmod[h] .. "-"
-        end
-      end
-      h = h + 1
-    end
-    obj.size = {x=rcount, y=ccount}
-  end
-  if rotation == 2 then
-    local h = 1
-    for i = rcount, 1, -1 do
-      newmod[h] = ""
-      local row = ""
-      for j = ccount, 1, -1 do
-        if string.len(mod[i]) >= j then
-          local temp = mod[i]:sub(j,j)
-          if temp == "^" then
-            temp = "-"
-          end
-          newmod[h] = newmod[h] .. temp
-        else
-          newmod[h] = newmod[h] .. "-"
-        end
-      end
-      h = h + 1
-    end
-    obj.size = {x=ccount, y=rcount}
-  end
-  if rotation == 3 then
-    local h = 1
-    for i = 1, ccount, 1 do
-      newmod[h] = ""
-      local row = ""
-      for j = rcount, 1, -1 do
-        if string.len(mod[j]) >= i then
-          local temp = mod[j]:sub(i,i)
-          if temp == "^" then
-            temp = "-"
-          end
-          newmod[h] = newmod[h] .. temp
-        else
-          newmod[h] = newmod[h] .. "-"
-        end
-      end
-      h = h + 1
-    end
-    obj.size = {x=rcount, y=ccount}
-  end
-  obj.levels[lev].mod = newmod
-  mf.printx(obj)
+
+  obj.levels[lev].level = newmod
+  --mf.printx(obj)
 end
+
+mf.printx(listSubDirsInDir(wp))
 print("")
+mf.printx(listFilesInDir(wp))
+print("")
+mf.printx(listNewModels(wp))
+
+--local currentPath = paths.cwd() -- Current working directory
+--local folderNames = {}
+--for folderName in paths.files(currentPath) do
+--    if folderName:find('$') then
+--        table.insert(folderNames, paths.concat(currentPath, folderName))
+--    end
+--end
+
+--print (folderNames)
+--for file in lfs.dir[[C:\Program Files]] do
+--    if lfs.attributes(file,"mode") == "file" then print("found file, "..file)
+--    elseif lfs.attributes(file,"mode")== "directory" then print("found dir, "..file," containing:")
+--        for l in lfs.dir("C:\\Program Files\\"..file) do
+--             print("",l)
+--        end
+--    end
+--end
+
 
 --local eventDispatcher = {} --require("eventDispatcher")
 --local shell = {} --require("shell")
