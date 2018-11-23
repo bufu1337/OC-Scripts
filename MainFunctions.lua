@@ -1,5 +1,54 @@
 local io = require("io")
+local serial = require("serialization")
 local mf = {}
+
+local function WriteObjectFile(object, path)
+    local newLuaFile = io.open(path, "w")
+    local ikeys = mf.getSortedKeys(object)
+    local itemsep = ","
+    newLuaFile:write("return {\n")
+    for ik = 1, #ikeys, 1 do
+        if ik == #ikeys then itemsep = "" end
+        local tempsize = object[ikeys[ik]].size
+        newLuaFile:write("    " .. ikeys[ik].. "=" .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
+    end
+    newLuaFile:write("}")
+    newLuaFile:close()
+end
+local function WriteArrayFile(object, path)
+    local newLuaFile = io.open(path, "w")
+    local ikeys = mf.getSortedKeys(object)
+    local itemsep = ","
+    newLuaFile:write("return {\n")
+    for ik = 1, #ikeys, 1 do
+        if ik == #ikeys then itemsep = "" end
+        newLuaFile:write("    " .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
+    end
+    newLuaFile:write("}")
+    newLuaFile:close()
+end
+local function listSubDirsInDir(directory)
+    local i, t = 0, {}
+    local pfile = io.popen('dir "'..directory..'" /b /ad')
+    for filename in pfile:lines() do
+        i = i + 1
+        t[i] = filename
+    end
+    pfile:close()
+    return t
+end
+local function listFilesInDir(directory)
+    local i, t, subdirs = 0, {}, listSubDirsInDir(directory)
+    local pfile = io.popen('dir "'..directory..'" /b')
+    for filename in pfile:lines() do
+        if not mf.contains(subdirs, filename) then
+          i = i + 1
+          t[i] = filename
+        end
+    end
+    pfile:close()
+    return t
+end
 local function MathUp(num)
     local result = math.floor(num)
     if((num - result) > 0)then
@@ -127,4 +176,8 @@ mf.split = split
 mf.writex = writex
 mf.printx = printx
 mf.filewx = filewx
+mf.WriteObjectFile = WriteObjectFile
+mf.WriteArrayFile = WriteArrayFile
+mf.listSubDirsInDir = listSubDirsInDir
+mf.listFilesInDir = listFilesInDir
 return mf
