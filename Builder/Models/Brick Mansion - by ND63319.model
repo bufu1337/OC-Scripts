@@ -1,0 +1,334 @@
+title:string=Brick Mansion - by ND63319
+author:string=nbt2ascii
+mats:table={
+  a:string=minecraft:anvil
+  b:string=minecraft:brick_block
+  r:string=minecraft:brick_stairs
+  c:string=minecraft:coal_block
+  d:string=minecraft:double_stone_slab
+  g:string=minecraft:glass_pane
+  i:string=minecraft:iron_block
+  l:string=minecraft:leaves
+  o:string=minecraft:oak_stairs
+  p:string=minecraft:planks
+  s:string=minecraft:stained_hardened_clay
+  t:string=minecraft:stone_brick_stairs
+  n:string=minecraft:stone_button
+  e:string=minecraft:stone_slab
+  w:string=minecraft:wooden_door
+}
+startPoint:list=[
+  number=78
+  number=67
+  number=1
+  string=^
+]
+defaultDropPoint:list=[
+  number=38
+  number=33
+]
+levels:list=[
+  table={
+    name:string=level 1
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=58
+      minecraft:oak_stairs:number=15
+      minecraft:leaves:number=49
+      minecraft:iron_block:number=14
+      minecraft:planks:number=106
+      minecraft:brick_stairs:number=125
+      minecraft:coal_block:number=2
+      minecraft:stone_slab:number=62
+    }
+  }
+  table={
+    name:string=level 2
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=156
+      minecraft:double_stone_slab:number=6
+      minecraft:wooden_door:number=4
+      minecraft:leaves:number=10
+      minecraft:iron_block:number=14
+      minecraft:coal_block:number=14
+      minecraft:stone_slab:number=18
+    }
+  }
+  table={
+    name:string=level 3
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=91
+      minecraft:stained_hardened_clay:number=28
+      minecraft:glass_pane:number=48
+      minecraft:wooden_door:number=4
+      minecraft:leaves:number=1
+      minecraft:iron_block:number=6
+      minecraft:coal_block:number=14
+      minecraft:stone_slab:number=2
+    }
+  }
+  table={
+    name:string=level 4
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=95
+      minecraft:stained_hardened_clay:number=28
+      minecraft:glass_pane:number=40
+      minecraft:iron_block:number=14
+      minecraft:coal_block:number=6
+    }
+  }
+  table={
+    name:string=level 5
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=91
+      minecraft:stained_hardened_clay:number=28
+      minecraft:glass_pane:number=44
+      minecraft:iron_block:number=14
+      minecraft:brick_stairs:number=2
+      minecraft:coal_block:number=6
+      minecraft:stone_slab:number=11
+    }
+  }
+  table={
+    name:string=level 6
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_stairs:number=2
+      minecraft:stone_slab:number=18
+      minecraft:brick_block:number=190
+    }
+  }
+  table={
+    name:string=level 7
+    blocks:string=@github
+    matCounts:table={
+      minecraft:coal_block:number=30
+      minecraft:brick_stairs:number=189
+      minecraft:brick_block:number=36
+    }
+  }
+  table={
+    name:string=level 8
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=85
+      minecraft:stone_button:number=2
+      minecraft:stone_brick_stairs:number=115
+      minecraft:double_stone_slab:number=2
+      minecraft:coal_block:number=2
+      minecraft:stone_slab:number=288
+    }
+  }
+  table={
+    name:string=level 9
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=105
+      minecraft:stained_hardened_clay:number=4
+      minecraft:stone_button:number=9
+      minecraft:glass_pane:number=10
+      minecraft:stone_brick_stairs:number=96
+      minecraft:coal_block:number=7
+      minecraft:stone_slab:number=47
+    }
+  }
+  table={
+    name:string=level 10
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=82
+      minecraft:stained_hardened_clay:number=12
+      minecraft:stone_button:number=9
+      minecraft:glass_pane:number=12
+      minecraft:stone_brick_stairs:number=100
+      minecraft:coal_block:number=6
+      minecraft:stone_slab:number=48
+    }
+  }
+  table={
+    name:string=level 11
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=76
+      minecraft:stained_hardened_clay:number=12
+      minecraft:stone_button:number=18
+      minecraft:glass_pane:number=12
+      minecraft:stone_brick_stairs:number=110
+      minecraft:coal_block:number=6
+      minecraft:stone_slab:number=48
+    }
+  }
+  table={
+    name:string=level 12
+    blocks:string=@github
+    matCounts:table={
+      minecraft:stone_slab:number=63
+      minecraft:stone_brick_stairs:number=114
+      minecraft:brick_block:number=60
+      minecraft:stone_button:number=14
+    }
+  }
+  table={
+    name:string=level 13
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=38
+      minecraft:stained_hardened_clay:number=2
+      minecraft:stone_button:number=14
+      minecraft:glass_pane:number=2
+      minecraft:stone_brick_stairs:number=140
+      minecraft:stone_slab:number=12
+    }
+  }
+  table={
+    name:string=level 14
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=20
+      minecraft:stained_hardened_clay:number=2
+      minecraft:stone_button:number=4
+      minecraft:glass_pane:number=2
+      minecraft:stone_brick_stairs:number=150
+      minecraft:brick_stairs:number=2
+      minecraft:stone_slab:number=14
+    }
+  }
+  table={
+    name:string=level 15
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=12
+      minecraft:stained_hardened_clay:number=2
+      minecraft:anvil:number=2
+      minecraft:stone_button:number=4
+      minecraft:glass_pane:number=4
+      minecraft:stone_brick_stairs:number=48
+    }
+  }
+  table={
+    name:string=level 16
+    blocks:string=@github
+    matCounts:table={
+      minecraft:stone_brick_stairs:number=48
+      minecraft:brick_block:number=14
+      minecraft:stone_button:number=4
+    }
+  }
+  table={
+    name:string=level 17
+    blocks:string=@github
+    matCounts:table={
+      minecraft:stone_brick_stairs:number=48
+      minecraft:brick_block:number=10
+      minecraft:stone_button:number=4
+    }
+  }
+  table={
+    name:string=level 18
+    blocks:string=@github
+    matCounts:table={
+      minecraft:stone_brick_stairs:number=48
+      minecraft:brick_block:number=6
+      minecraft:stone_button:number=2
+    }
+  }
+  table={
+    name:string=level 19
+    blocks:string=@github
+    matCounts:table={
+      minecraft:stone_brick_stairs:number=46
+      minecraft:brick_block:number=2
+    }
+  }
+  table={
+    name:string=level 20
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=2
+    }
+  }
+  table={
+    name:string=level 21
+    blocks:string=@github
+    matCounts:table={
+      minecraft:brick_block:number=2
+    }
+  }
+  table={
+    name:string=level 22
+    blocks:string=@github
+    matCounts:table={
+      minecraft:anvil:number=2
+    }
+  }
+  table={
+    name:string=level 23
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 24
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 25
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 26
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 27
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 28
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 29
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 30
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 31
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 32
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+  table={
+    name:string=level 33
+    blocks:string=@github
+    matCounts:table={
+    }
+  }
+]
