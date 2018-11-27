@@ -57,10 +57,79 @@ local function ConvertModel(modelname)
     for lev, level in pairs(model.levels) do
       model.levels[lev].name = nil
       model.levels[lev].blocks = nil
+--      if mf.getCount(model.levels[lev].matCounts) ~= 0 then
+--      print("array is filled")
+--      else
+--      print("array is empty")
+--      end
+      model.levels[lev].pattern = {}
+      local levstr = string.sub(tostring(lev + 1000), 2)
+      local i = 1
+      local levelpath = model.loadedModel.name:sub(1,#model.loadedModel.name - 6) .. "/" .. levstr
+      for line in io.lines(wp .. levelpath) do
+        model.levels[lev].pattern[i] = line
+        i = i + 1
+      end
+    end
+    
+    --trim columns
+    for i = 1, #model.levels[1].pattern[1], 1 do
+      local linetemp = ""
+      for lev, level in pairs(model.levels) do
+        linetemp = linetemp .. model.levels[lev].pattern[i]
+      end
+      if linetemp:gsub("-", ""):gsub(" ", "") == "" then
+        for lev, level in pairs(model.levels) do
+          model.levels[lev].pattern[i] = ""
+        end
+      else
+        break
+      end
+    end
+    for i = #model.levels[1].pattern[1], 1, -1 do
+      local linetemp = ""
+      for lev, level in pairs(model.levels) do
+        linetemp = linetemp .. model.levels[lev].pattern[i]
+      end
+      if linetemp:gsub("-", ""):gsub(" ", "") == "" then
+        for lev, level in pairs(model.levels) do
+          model.levels[lev].pattern[i] = ""
+        end
+      else
+        break
+      end
+    end
+    
+    --trim rows
+    for i = 1, #model.levels[1].pattern, 1 do
+      local linetemp = ""
+      for lev, level in pairs(model.levels) do
+        linetemp = linetemp .. model.levels[lev].pattern[i]
+      end
+      if linetemp:gsub("-", ""):gsub(" ", "") == "" then
+        for lev, level in pairs(model.levels) do
+          model.levels[lev].pattern[i] = ""
+        end
+      else
+        break
+      end
+    end
+    for i = #model.levels[1].pattern, 1, -1 do
+      local linetemp = ""
+      for lev, level in pairs(model.levels) do
+        linetemp = linetemp .. model.levels[lev].pattern[i]
+      end
+      if linetemp:gsub("-", ""):gsub(" ", "") == "" then
+        for lev, level in pairs(model.levels) do
+          model.levels[lev].pattern[i] = ""
+        end
+      else
+        break
+      end
     end
     mf.printx(model)
     mf.WriteObjectFile(model, wp .. modelname .. ".lua")
-  end
+  end 
 end
 local function ConvertModels()
   for i, modelname in pairs(listModels(wp)) do
