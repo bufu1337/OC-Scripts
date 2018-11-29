@@ -3,9 +3,9 @@ local io = require("io")
 local sides = require("sides")
 local os = require("os")
 local component = require("component")
-local convert = require("crafting/Convert")
-local prox = require("crafting/Proxies")
-local mD = require("crafting/getMaxDamage")
+local convert = require("Convert")
+local prox = require("Proxies")
+local mD = require("Crafter/getMaxDamage")
 local mf = require("MainFunctions")
 local thread = require("thread")
 local shell = require("shell")
@@ -15,7 +15,7 @@ local crafter = ""
 local ac = {}
 local args = shell.parse( ... )
 local itemschange = false
-local logfile = "/home/crafting/AC-Log.lua"
+local logfile = "/home/Crafter/AC-Log.lua"
 
 local function ConvertItems()
   print("ConvertItems")
@@ -224,7 +224,7 @@ local function CalculateCrafts()
         SetCrafts(i)
     end
 end
-local function MoveItems(item, count, route)
+local function MoveItem(item, count, route)
     local r = 1
     while r <= #route do
         local storage = component.proxy(route[r].proxy)
@@ -239,11 +239,11 @@ local function MoveItems(item, count, route)
 end
 local function MoveRecipeItems(item)
     for i,j in pairs(items[item].recipe) do
-        MoveItems(items[j.oname], j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
+        MoveItem(items[j.oname], j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
     end
 end
 local function MoveCraftedItem(item)
-    MoveItems(items[item], items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
+    MoveItem(items[item], items[item].crafts, (prox.GetRoute(crafter, "home", items[item].mod, 1)))
 end
 local function MoveRestBack()
     local rest_items = component.proxy(prox.GetProxByName(crafter, "craft").proxy).getItems()
@@ -258,7 +258,7 @@ local function MoveRestBack()
     end
     rest_items.n = nil
     for i,j in pairs(rest_items) do
-        MoveItems(j, j.size, (prox.GetRoute(crafter, "home", j.mod, 1)))
+        MoveItem(j, j.size, (prox.GetRoute(crafter, "home", j.mod, 1)))
     end
 end
 local function CraftItems()
@@ -312,10 +312,8 @@ ac.Define = Define
 ac.ConvertItems = ConvertItems
 ac.GetStorageItems = GetStorageItems
 ac.GetRecipes = GetRecipes
-ac.GetRecipeItems = GetRecipeItems
 ac.CalculateCrafts = CalculateCrafts
 ac.CraftItems = CraftItems
-ac.PrintItems = PrintItems
 ac.MoveRestBack = MoveRestBack
 ac.items = function() return items end
 return ac
