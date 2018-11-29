@@ -27,6 +27,7 @@ local function listModels()
     print("List of models in builder")
     mf.printx(model_list)
   --end
+  return model_list
 end
 local function getNewModel(modelname)
   --os.execute("wget -f " .. gitrepo .. "Models/" .. modelname .. ".model.lua" .. "?" .. math.random() .. " " .. wp .. modelname .. ".model.lua")
@@ -146,12 +147,14 @@ local function rotateLevel(level, rotation)
   end
   return {new_level, size}
 end
+local function getLevelPath(level)
+  return model.loadedModel.name .. "/" .. string.sub(tostring(level + 1000), 2)
+end
 local function getLevel(level)
   local lev = {}
   if checkLoadedModel() then
-    local levstr = string.sub(tostring(level + 1000), 2)
     local i = 1
-    local levelpath = model.loadedModel.name .. "/" .. levstr
+    local levelpath = getLevelPath(level)
     --if filesystem.exists(wp .. levelpath) == false then
       --os.execute("wget -f " .. gitrepo .. "Models/" .. levelpath .. "?" .. math.random() .. " " .. wp .. levelpath)
     --end
@@ -159,13 +162,25 @@ local function getLevel(level)
       lev[i] = line
       i = i + 1
     end
-    --os.remove(wp .. levelpath)
   end
   return lev
 end
-local function loadModelEx(modelname, rotation, startpoint)
+local function saveModel()
+  mf.WriteObjectFile(model.loadedModel, wp .. model.loadedModel.name .. ".lua")
+end
+local function loadModelEx(modelname, rotation, startpoint, newload)
   --getModel(modelname)
   model.loadedModel = require("Builder/Models/" .. modelname)
+  if newload then
+    model.loadedModel.rotation = nil
+    model.loadedModel.startpoint = nil
+    model.loadedModel.size = nil
+    model.loadedModel.levelsCount = nil
+    for i = 1, #model.loadedModel.levels, 1 do
+      model.loadedModel.levels[i].completed = nil
+      model.loadedModel.levels[i].rowComplete = nil
+    end
+  end
   if model.loadedModel.rotation == nil then model.loadedModel.rotation = rotation end
   if model.loadedModel.startpoint == nil then model.loadedModel.startpoint = startpoint end
   if model.loadedModel.size == nil then model.loadedModel.size = rotateLevel(rotateLevel(mirrorLevel(getLevel(1), false), 3)[1], model.loadedModel.rotation)[2] end
@@ -181,46 +196,73 @@ local function loadModelEx(modelname, rotation, startpoint)
       end
     end
   end
+  saveModel()
 end
 local function loadModel(modelname, rotation, startpoint)
   listModels()
   if mf.contains(model_list, modelname .. ".lua") then
-    loadModelEx(modelname, rotation, startpoint)
+    loadModelEx(modelname, rotation, startpoint, false)
     return true
   else
     listNewModels()
     if mf.contains(model_list, modelname .. ".lua") then
-      loadModelEx(modelname, rotation, startpoint)
+      loadModelEx(modelname, rotation, startpoint, false)
       return true
     else
       return false
     end
   end
 end
-local function loadModelbyIndex(modelindex, rotation, startpoint)
+local function loadModelNew(modelname, rotation, startpoint)
+  listModels()
+  if mf.contains(model_list, modelname .. ".lua") then
+    loadModelEx(modelname, rotation, startpoint, true)
+    return true
+  else
+    return false
+  end
+end
+local function loadModelbyIndex(modelindex, rotation, startpoint, newload)
   listModels()
   if model_list[modelindex] ~= nil then
-    loadModelEx(model_list[modelindex]:sub(1, #model_list[modelindex] - 10), rotation, startpoint)
+    loadModelEx(model_list[modelindex]:sub(1, #model_list[modelindex] - 4), rotation, startpoint, newload)
     return true
   else
     return false
   end
 end
 local function unloadModel()
+  saveModel()
   model.loadedModel = nil
 end
 local function setLevelComplete(level)
-
+  local lcom = true
+  for a,b in pairs(model.loadedModel.levels[level].rowComplete) do
+    if b == false then
+      lcom = false
+    end
+  end
+  if lcom then
+    model.loadedModel.levels[level].rowComplete = nil
+    model.loadedModel.levels[level].completed = true
+    os.remove(wp .. getLevelPath(level))
+  end
+  saveModel()
 end
 local function setLevelRowComplete(level, row)
-
+  if checkLoadedModel() then
+    model.loadedModel.levels[level].rowComplete[row] = true
+    setLevelComplete(level)
+  end
 end
 local function getModelLevelEx(level, starting, ending)
   local newlevel = rotateLevel(rotateLevel(mirrorLevel(getLevel(level), false), 3)[1], model.loadedModel.rotation)[1]
-  print("---------------------------------------------- newlevel ----------------------------------------------")
-  mf.printx(newlevel)
-  print("")
+  --print("---------------------------------------------- newlevel ----------------------------------------------")
+  --mf.printx(newlevel)
+  --print("")
   local lev = {}
+  local rows = {}
+  local matCount = {}
   if checkLoadedModel() then
     local c = 1
     for j, l in pairs(newlevel) do
@@ -230,6 +272,12 @@ local function getModelLevelEx(level, starting, ending)
         for b = 1, #l, 1 do
           local letter = l:sub(b,b)
           if letter ~= "-" and letter ~= " " then
+            rows[c] = j
+            if matCount[model.loadedModel.mats[letter]] == nil then
+              matCount[model.loadedModel.mats[letter]] = 1
+            else
+              matCount[model.loadedModel.mats[letter]] = matCount[model.loadedModel.mats[letter]] + 1
+            end
             lev[c][h] = {name=model.loadedModel.mats[letter], pos={x=(model.loadedModel.startpoint.x + b - 1),y=(model.loadedModel.startpoint.y + j - 1),z=(model.loadedModel.startpoint.z + level - 1)}}
             h = h + 1
           end
@@ -238,7 +286,14 @@ local function getModelLevelEx(level, starting, ending)
       end
     end
   end
-  return lev
+  return {matCount = matCount, levelnum = level, row = lev, rownum = rows, start = model.loadedModel.startpoint, size = model.loadedModel.size}
+end
+local function getModelMaterials()
+  if checkLoadedModel() then
+    return model.loadedModel.matCountsAll
+  else
+    return {}
+  end
 end
 local function getModelLevel(level)
   return getModelLevelEx(level, 1, model.loadedModel.startpoint.y)
@@ -254,4 +309,16 @@ if model_loaded then
 else
   print("Cant load model: " .. "Brick Mansion - by ND63319")
 end
+--local serial = require("serialization")
+--mf.printx(serial.unserialize('{x=0,y=0,z=0}'))
+model.loadModel = loadModel
+model.loadModelNew = loadModelNew
+model.loadModelbyIndex = loadModelbyIndex
+model.unloadModel = unloadModel
+model.saveModel = saveModel
+model.getModelLevel = getModelLevel
+model.getModelLevelEx = getModelLevelEx
+model.listModels = listModels
+model.listNewModels = listNewModels
+model.setLevelRowComplete = setLevelRowComplete
 return model
