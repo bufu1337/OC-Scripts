@@ -2,19 +2,30 @@ local io = require("io")
 local serial = require("serialization")
 local mf = {}
 
+local function getObjectAsString(object)
+  local returning = {}
+
+end
 local function WriteObjectFile(object, path)
     local newLuaFile = io.open(path, "w")
     local ikeys = mf.getSortedKeys(object)
     local itemsep = ","
-    newLuaFile:write("return {\n")
-    for ik = 1, #ikeys, 1 do
-        if ik == #ikeys then itemsep = "" end
-        local tempsize = object[ikeys[ik]].size
-        newLuaFile:write("    " .. ikeys[ik].. "=" .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
-    end
-    newLuaFile:write("}")
+    if type(object) == "table" then
+      newLuaFile:write("return {\n")
+      for ik = 1, #ikeys, 1 do
+          if ik == #ikeys then itemsep = "" end
+          --local tempsize = object[ikeys[ik]].size
+          newLuaFile:write("  " .. ikeys[ik] .. "=" .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
+      end
+      newLuaFile:write("}")
+    elseif type(object) == "string" then
+      newLuaFile:write("return " .. serial.serialize(object))
+    else
+      newLuaFile:write("return " .. toString(object))
+    end    
     newLuaFile:close()
 end
+
 local function WriteArrayFile(object, path)
     local newLuaFile = io.open(path, "w")
     local ikeys = mf.getSortedKeys(object)
@@ -180,4 +191,8 @@ mf.WriteObjectFile = WriteObjectFile
 mf.WriteArrayFile = WriteArrayFile
 mf.listSubDirsInDir = listSubDirsInDir
 mf.listFilesInDir = listFilesInDir
+
+local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
+    newLuaFile:write("return " .. serial.serialize("haha"))
+    newLuaFile:close()
 return mf
