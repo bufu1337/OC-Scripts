@@ -402,7 +402,7 @@ return {
     mountainmobs_jj_boulderblastscepter={maxCount=8, craftCount=1},
     mountainmobs_jj_mountainspawn={maxCount=8, craftCount=1},--.withTag({EntityTag: {id: mountainmobs:barghest}})
     mountainmobs_jj_mountainspawn={maxCount=8, craftCount=1},--.withTag({EntityTag: {id: 
-    mountainmobs:jabberwock}})={maxCount=8, craftCount=1},
+    mountainmobs_jj_jabberwock={maxCount=8, craftCount=1},
     mountainmobs_jj_mountainspawn={maxCount=8, craftCount=1},--.withTag({EntityTag: {id: mountainmobs:beholder}})
     mountainmobs_jj_mountainspawn={maxCount=8, craftCount=1},--.withTag({EntityTag: {id: mountainmobs:troll}})
     mountainmobs_jj_mountainspawn={maxCount=8, craftCount=1},--.withTag({EntityTag: {id: mountainmobs:wildkin}})
