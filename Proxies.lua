@@ -50,7 +50,7 @@ local function Proxies(name)
             bits={home={proxy="1e8f0efc-caf0-4416-bd1f-51a988afcb94", tocraft=sides.east, toroute=sides.west}, craft={proxy="6f1239ce-9ea8-40f8-9ac7-e71349bbbff0", tohome=sides.south, toroute=sides.west}, route={proxy="7a605723-513f-4538-b074-af48bd053380", home=sides.west, route=sides.east}},
             cyclic={home={proxy="0986efb2-16e1-43fa-8e3d-88bb0638cbb9", tocraft=sides.east, toroute=sides.west}, craft={proxy="fefb470d-f3e9-4c16-984d-364598a6a65c", tohome=sides.south, toroute=sides.west}, route={proxy="e5208326-0b26-4016-8fe0-911177372a7e", home=sides.west, route=sides.east}},
             diy={home={proxy="b1021b1c-01d8-4168-a75e-24b0fcfe7e0b", tocraft=sides.east, toroute=sides.west}, craft={proxy="c5cadbfb-ceae-4156-9c04-56a7d2db928d", tohome=sides.south, toroute=sides.west}, route={proxy="3a0fe893-80d5-46ea-b161-20d21a7cff28", home=sides.west, route=sides.east}}
-                }
+    }
     return pr[name]
 end
 local function ModToPName(mod)
