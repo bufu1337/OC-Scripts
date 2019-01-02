@@ -2,42 +2,20 @@ local io = require("io")
 local serial = require("serialization")
 local mf = {}
 
---local function getObjectAsString(object)
---  local returning = {}
---
---end
---local function WriteObjectFile(object, path)
---    local newLuaFile = io.open(path, "w")
---    local ikeys = mf.getSortedKeys(object)
---    local itemsep = ","
---    if type(object) == "table" then
---      newLuaFile:write("return {\n")
---      for ik = 1, #ikeys, 1 do
---          if ik == #ikeys then itemsep = "" end
---          --local tempsize = object[ikeys[ik]].size
---          newLuaFile:write("  " .. ikeys[ik] .. "=" .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
---      end
---      newLuaFile:write("}")
---    elseif type(object) == "string" then
---      newLuaFile:write("return " .. serial.serialize(object))
---    else
---      newLuaFile:write("return " .. toString(object))
---    end    
---    newLuaFile:close()
---end
---
---local function WriteArrayFile(object, path)
---    local newLuaFile = io.open(path, "w")
---    local ikeys = mf.getSortedKeys(object)
---    local itemsep = ","
---    newLuaFile:write("return {\n")
---    for ik = 1, #ikeys, 1 do
---        if ik == #ikeys then itemsep = "" end
---        newLuaFile:write("    " .. serial.serialize(object[ikeys[ik]]) .. itemsep .. "\n")
---    end
---    newLuaFile:write("}")
---    newLuaFile:close()
---end
+local function WriteObjectFile(object, path)
+    local newLuaFile = io.open(path, "w")
+    if type(object) == "table" then
+      newLuaFile:write("return ")
+      for i, k in pairs(serial.serializedtable(object)) do
+        newLuaFile:write(k)
+      end
+    elseif type(object) == "string" then
+      newLuaFile:write("return " .. serial.serialize(object))
+    else
+      newLuaFile:write("return " .. toString(object))
+    end    
+    newLuaFile:close()
+end
 local function listSubDirsInDir(directory)
     local i, t = 0, {}
     local pfile = io.popen('dir "'..directory..'" /b /ad')
@@ -124,6 +102,9 @@ local function split(inputstr, sep)
     end
     return t
 end
+local function copyTable(ab)
+  return serial.unserialize(serial.serialize(ab))
+end
 local out = {}
 local function w(var, file)
     io.write(var .. "\n")
@@ -192,11 +173,17 @@ mf.WriteArrayFile = WriteArrayFile
 mf.listSubDirsInDir = listSubDirsInDir
 mf.listFilesInDir = listFilesInDir
 
-local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
-  newLuaFile:write(serial.serialize({a="dsf",["b:c"]=3,d=true, {1,2,3,4}},true))
-  --for i,j in pairs(serial.serialize({a="dsf",["b:c"]=3,d=true})) do
-    --newLuaFile:write(j .. "\n")
-  --end
-    newLuaFile:close()
-    print(serial.serialize({a="dsf",["b:c"]=3,d=true, {1,2,3,4}},true))
+--local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
+--  local t = serial.serializedtable({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)
+--  local b = serial.serialize({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)
+--  for i,j in pairs(t) do
+--    newLuaFile:write(j)
+--    print(j)
+--  end
+--  local x = serial.unserialize(b)
+--  print(x.a)
+--  --for i,j in pairs(serial.serialize({a="dsf",["b:c"]=3,d=true})) do
+--    --newLuaFile:write(j .. "\n")
+--  --end
+--    newLuaFile:close()
 return mf

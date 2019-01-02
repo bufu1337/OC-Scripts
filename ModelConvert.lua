@@ -209,7 +209,7 @@ local function ConvertModels()
 end
 local function WriteModelList()  
   os.remove(we .. "model_list.lua")
-  mf.WriteArrayFile(listLuaModels(wp), we .. "model_list.lua")
+  mf.WriteObjectFile(listLuaModels(wp), we .. "model_list.lua")
 end
 
 ConvertModels()

@@ -350,6 +350,9 @@ local function GetRoute(mod, typ, destinationmod, schalter)
     elseif typ == "hometohome" then
         typ = "home"
         typ2 = "home"
+    elseif typ == "crafttocraft" then
+        typ = "craft"
+        typ2 = "craft"
     else
         typ2 = "craft"
     end
@@ -376,7 +379,7 @@ prox.GetProx = GetProx
 prox.GetProxy = GetProxy
 prox.GetProxByName = GetProxByName
 prox.GetProxyByName = GetProxyByName
-
+prox.ModToPName = ModToPName
 return prox
 
 
