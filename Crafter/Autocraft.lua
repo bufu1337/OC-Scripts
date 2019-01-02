@@ -2,36 +2,93 @@ local event = require("event")
 local io = require("io")
 local sides = require("sides")
 local os = require("os")
+local filesystem = require("filesystem")
 local component = require("component")
+local serial = require("serialization")
 local convert = require("Convert")
 local prox = require("Proxies")
-local mD = require("Crafter/getMaxDamage")
+local mD = require("bufu/Crafter/getMaxDamage")
 local mf = require("MainFunctions")
 local thread = require("thread")
 local shell = require("shell")
 local items = {}
+local recipeitems = {}
 local priocount = 0
 local crafter = ""
 local ac = {}
 local args = shell.parse( ... )
 local itemschange = false
-local logfile = "/home/Crafter/AC-Log.lua"
+local logfile = "/home/bufu/Crafter/AC-Log.lua"
 
+
+local function searchforRepo(itemrepo)
+  for b = 1, 30, 1 do
+    local s = ""
+    if b ~= 1 then
+      s = tostring(b)
+    end
+    if filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. ".lua") == true then
+      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo
+    end
+  end
+  return ""
+end
+local function Define(itemrepo)
+  local repo = searchforRepo(itemrepo)
+  crafter = itemrepo
+  if repo ~= "" then
+    items = require(repo)
+    if filesystem.exists("/home/" .. repo .. " - RecipeItems" .. ".lua") == true then
+      recipeitems = require(repo .. " - RecipeItems")
+    end
+    logfile = "/home/bufu/Crafter/AC-Log  - " .. itemrepo .. ".lua"
+    for i,j in pairs(items) do
+      if j.craftCount == nil then
+        items[i].craftCount = 1
+      end
+    end
+  end
+end
+local function DefineEx(itemsToCraft, recipeitemsForCraft, craftmech)
+  crafter = craftmech
+  items = itemsToCraft
+  recipeitems = recipeitemsForCraft
+  logfile = "/home/bufu/Crafter/AC-Log  - " .. craftmech .. ".lua"
+  for i,j in pairs(items) do
+    if j.craftCount == nil then
+      items[i].craftCount = 1
+    end
+  end
+end
 local function ConvertItems()
   print("ConvertItems")
   for i,j in pairs(items) do
     print("Convert: " .. i)
     if j ~= nil then
-    if j.name == nil then
-        local converted = convert.TextToItem(i)
-        for x,y in pairs(converted) do
-          items[i][x] = y
-        end
-    end
+      if j.name == nil then
+          local converted = convert.TextToItem(i)
+          for x,y in pairs(converted) do
+            items[i][x] = y
+          end
+      end
     else
       print("is null")
     end
   end
+  for i,j in pairs(recipeitems) do
+    print("Convert: " .. i)
+    if j ~= nil then
+      if j.name == nil then
+          local converted = convert.TextToItem(i)
+          for x,y in pairs(converted) do
+            items[i][x] = y
+          end
+      end
+    else
+      print("is null")
+    end
+  end
+  print("ConvertItems End")
 end
 local function GetStorageItems()
   print("GetStorageItems")
@@ -59,7 +116,7 @@ local function GetStorageItems()
         os.sleep()
       end
       for i,j in pairs(o) do
-        local rs_item = {size=0.0}
+        local rs_item = {}
         local rs_proxy = prox.GetProxy(items[j]["mod"], "home")
         if(rs_proxy ~= "") then
           local rs_comp = component.proxy(rs_proxy)
@@ -78,26 +135,73 @@ local function GetStorageItems()
     table.insert(ttable, th[v])
   end
   thread.waitForAll(ttable)
+  
+  itemcounter = 0
+  co = 1
+  iarr = {}
+  th = {}
+  for i,j in pairs(recipeitems) do
+    if j.size == nil then
+        itemcounter = itemcounter + 1
+        if (itemcounter > 50) then
+          itemcounter = 1
+          co = co + 1
+        end
+        if iarr[co] == nil then
+            iarr[co] = {}
+        end
+        iarr[co][itemcounter] = i
+    end
+  end
+  local ttable = {}
+  for v = 1, co, 1 do
+    th[v] = thread.create(function(o, u)
+      for v = 1, u, 1 do
+        os.sleep()
+      end
+      for i,j in pairs(o) do
+        local rs_item = {}
+        local rs_proxy = prox.GetProxy(recipeitems[j]["mod"], "home")
+        if(rs_proxy ~= "") then
+          local rs_comp = component.proxy(rs_proxy)
+          if(rs_comp ~= nil) then
+            rs_item = rs_comp.getItem(recipeitems[j])
+            if(rs_item == nil) then
+              rs_item = {size=0.0}
+            end
+          end
+        end
+        for a,b in pairs(rs_item) do
+          recipeitems[j][a] = b
+        end
+      end
+    end, iarr[v], v)
+    table.insert(ttable, th[v])
+  end
+  thread.waitForAll(ttable)
   print("GetStorageItems end")
 end
 local function WriteNewRepo()
     local serial = require("serialization")
-    local newRepoFile = io.open("crafting/Items/" .. crafter .. ".lua", "w")
+    local rep = searchforRepo(crafter)
+    local newRepoFile = io.open("/home/bufu/Crafter/Items/" .. crafter .. ".lua", "w")
     local ikeys = mf.getSortedKeys(items)
-    local itemsep = ","
-    newRepoFile:write("return {\n")
+    local tempitems = {}
     for ik = 1, #ikeys, 1 do
-        if ik == #ikeys then itemsep = "" end
-        local tempsize = items[ikeys[ik]].size
+        tempitems[ikeys[ik]] = items[ikeys[ik]].size
         items[ikeys[ik]].name = nil
         items[ikeys[ik]].mod = nil
         items[ikeys[ik]].damage = nil
         items[ikeys[ik]].size = nil
-        newRepoFile:write("    " .. ikeys[ik].. "=" .. serial.serialize(items[ikeys[ik]]) .. itemsep .. "\n")
-        items[ikeys[ik]].size = tempsize
     end
-    newRepoFile:write("}")
-    newRepoFile:close()
+    if rep ~= "" then
+      mf.WriteObjectFile(serial.serializedtable(items), "/home/".. rep .. ".lua")
+      mf.WriteObjectFile(serial.serializedtable(recipeitems), "/home/".. rep .. " - RecipeItems" .. ".lua")
+    end
+    for ik = 1, #ikeys, 1 do
+        items[ikeys[ik]].size = tempitems[ikeys[ik]]
+    end
+    tempitems = {}
 end
 local function GetRecipes()
     print("GetRecipes")
@@ -107,7 +211,7 @@ local function GetRecipes()
     local th = {}
     for i,j in pairs(items) do
         if j.maxCount ~= nil then
-            if j.recipe == nil and j.size < j.maxCount then
+            if j.recipe == nil then
                 itemcounter = itemcounter + 1
                 if (itemcounter > 50) then
                     itemcounter = 1
@@ -140,11 +244,11 @@ local function GetRecipes()
                             rs_recipe.n = nil
                             for g,h in pairs(rs_recipe) do
                                 local item_found = false
+                                local oname = convert.ItemToOName(rs_recipe[g])
                                 cr_recipe[g] = {}
-                                cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
-                                cr_recipe[g].need = rs_recipe[g].size
-                                cr_recipe[g].label = rs_recipe[g].label
-                                local maxDamage = mD.getMax(cr_recipe[g].oname)
+                                cr_recipe[oname].need = rs_recipe[g].size
+                                cr_recipe[oname].label = rs_recipe[g].label
+                                local maxDamage = mD.getMax(oname)
                                 if maxDamage > 0 then
                                     local recipe_item_storage = component.proxy(prox.GetProxy(convert.TextToItem(rs_recipe[g].name).mod, "home"))
                                     if recipe_item_storage ~= nil then
@@ -152,8 +256,11 @@ local function GetRecipes()
                                             rs_recipe[g].damage = hh
                                             local recipe_item = recipe_item_storage.getItem(rs_recipe[g])
                                             if recipe_item ~= nil then
-                                                if recipe_item.label == cr_recipe[g].label then
-                                                    cr_recipe[g].oname = convert.ItemToOName(rs_recipe[g])
+                                                if recipe_item.label == cr_recipe[oname].label then
+                                                    cr_recipe[oname] = nil
+                                                    oname = convert.ItemToOName(rs_recipe[g])
+                                                    cr_recipe[oname].need = rs_recipe[g].size 
+                                                    cr_recipe[oname].label = rs_recipe[g].label                                                   
                                                     item_found = true
                                                     break
                                                 end
@@ -164,16 +271,67 @@ local function GetRecipes()
                                     item_found = true
                                 end
                                 if item_found then
-                                    if items[cr_recipe[g].oname] == nil then
-                                        items[cr_recipe[g].oname] = {label = rs_recipe[g].label, crafter=""}
+                                    if recipeitems[oname] == nil then
+                                      local temp = {}
+                                      local c = prox.ModToPName(convert.TextToItem(rs_recipe[g].name).mod)
+                                      local repo = searchforRepo(c)
+                                      if repo ~= "" then
+                                        temp = require(repo)
+                                      end
+                                      if temp[oname] == nil then
+                                        c = nil
+                                      end
+                                      temp = {}
+                                      recipeitems[oname] = {crafter = c}
                                     end
                                 else
-                                    print("Item " .. cr_recipe[g].oname .. " has more then 1 damage, place " .. cr_recipe[g].label .. " into your storage to get the correct recipe")
+                                    print("Item " .. oname .. " has more then 1 damage, place " .. cr_recipe[oname].label .. " into your storage to get the correct recipe")
                                     recipe_complete = false
                                 end
                             end
                             if recipe_complete then
-                                items[j].recipe = cr_recipe
+                                items[j].recipe = {}
+                                for k,h in pairs(mf.getKeys(cr_recipe)) do
+                                  items[j].recipe[h] = {}
+                                  for l,m in pairs(mf.getKeys(cr_recipe[h])) do
+                                    items[j].recipe[h][m] = cr_recipe[h][m]
+                                  end 
+                                end
+                            end
+                            
+                            --get CraftCount
+                            for cc = 2, 64, 1 do
+                              local rs_recipe = rs_comp.getMissingItems(items[j], cc)
+                              local more = true
+                              rs_recipe.n = nil
+                              for g,h in pairs(rs_recipe) do
+                                local oname = convert.ItemToOName(rs_recipe[g])
+                                local maxDamage = mD.getMax(oname)
+                                if maxDamage > 0 then
+                                    local recipe_item_storage = component.proxy(prox.GetProxy(convert.TextToItem(rs_recipe[g].name).mod, "home"))
+                                    if recipe_item_storage ~= nil then
+                                        for hh = 0, maxDamage, 1 do
+                                            rs_recipe[g].damage = hh
+                                            local recipe_item = recipe_item_storage.getItem(rs_recipe[g])
+                                            if recipe_item ~= nil then
+                                                if recipe_item.label == rs_recipe[g].label then
+                                                    oname = convert.ItemToOName(rs_recipe[g])
+                                                    break
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                                if rs_recipe[g].size ~= items[j].recipe[oname].need then
+                                  more = false
+                                  break
+                                end
+                              end
+                              if more then
+                                items[j].craftCount = items[j].craftCount + 1
+                              else
+                                break
+                              end
                             end
                         end
                     end
@@ -193,14 +351,26 @@ local function SetCrafts(item)
         if items[item].recipe ~= nil then
             local proceed = true
             items[item].crafts = mf.MathUp((items[item].maxCount - items[item].size) / items[item].craftCount) * items[item].craftCount
+            if items[item].need ~= nil then
+              items[item].crafts = items[item].crafts + (mf.MathUp(items[item].need / items[item].craftCount) * items[item].craftCount)
+            end
             for a,b in pairs(items[item].recipe) do
-                if items[b.oname] ~= nil then
-                    local tempcrafts = math.floor(items[b.oname].newsize / b.need)
+                if recipeitems[a] ~= nil then
+                  if recipeitems[a].need ~= nil then
+                    recipeitems[a].need = recipeitems[a].need + (items[item].crafts * b.need)
+                  else
+                    recipeitems[a].need = items[item].crafts * b.need
+                  end
+                end
+            end
+            for a,b in pairs(items[item].recipe) do
+                if recipeitems[a] ~= nil then
+                    local tempcrafts = math.floor(recipeitems[a].newsize / b.need)
                     if tempcrafts < items[item].crafts then
                         items[item].crafts = tempcrafts
                     end
                 else
-                    print("Cant find in itemsrepo: " .. b.oname)
+                    print("Cant find in itemsrepo: " .. a)
                     proceed = false
                     items[item].crafts = nil
                 end
@@ -208,7 +378,7 @@ local function SetCrafts(item)
             if proceed then
                 for a,b in pairs(items[item].recipe) do
                     items[item].recipe[a].size = items[item].crafts * b.need
-                    items[b.oname].newsize = items[b.oname].newsize - items[item].recipe[a].size
+                    recipeitems[a].newsize = recipeitems[a].newsize - items[item].recipe[a].size
                 end
                 print(item .. ": SetCraft = " .. items[item].crafts)
             end
@@ -219,6 +389,9 @@ local function CalculateCrafts()
     print("CalculateCrafts")
     for i,j in pairs(items) do
       items[i]["newsize"] = j.size
+    end
+    for i,j in pairs(recipeitems) do
+      recipeitems[i]["newsize"] = j.size
     end
     for i,j in pairs(items) do
         SetCrafts(i)
@@ -276,6 +449,8 @@ local function CraftItems()
                     tasks = {}
                 end
             end
+            items[i].newsize = items[i].newsize + j.crafts
+            items[i].size = items[i].newsize
             MoveCraftedItem(i)
         end 
     end
@@ -288,18 +463,66 @@ local function GetItems()
     GetRecipes()
     CalculateCrafts()
 end
-local function Define(itemrepo)
-  items = require("crafting/Items/" .. itemrepo)
-  crafter = itemrepo
-  for i,j in pairs(items) do
-    if j.craftCount == nil then
-      items[i].craftCount = 1.0
+local function GetRecipeCraftings()
+  local recipecrafting = {}
+  for i,j in pairs(recipeitems) do
+    if j.crafter ~= nil then
+      if recipecrafting[j.crafter] == nil then
+        recipecrafting[j.crafter] = {items={}, recipeitems={}}
+      end
+      recipecrafting[j.crafter].items[i] = j
     end
   end
+  for i,j in pairs(recipecrafting) do
+    local temp = {}
+    local temp2 = {}
+    local repo = searchforRepo(i)
+    if repo ~= "" then
+      temp = require(repo)
+    end
+    if filesystem.exists("/home/" .. repo .. " - RecipeItems" .. ".lua") == true then
+      temp2 = require(repo .. " - RecipeItems")
+    end
+    for a,b in pairs(j.items) do
+      recipecrafting[i].items[a].maxCount = temp[a].maxCount
+      recipecrafting[i].items[a].craftCount = temp[a].craftCount
+      recipecrafting[i].items[a].recipe = mf.copyTable(temp[a].recipe)
+      for c,d in pairs(b.recipe) do
+        recipecrafting[i].recipeitems[c] = mf.copyTable(temp2[c])
+      end
+    end
+    temp = {}
+    temp2 = {}
+  end
+  local tempitems = mf.copyTable(items)
+  local temprecipeitems = mf.copyTable(recipeitems)
+  local temppriocount = priocount
+  local tempcrafter = crafter
+  local tempitemschange = itemschange
+  
+  for i,j in pairs(recipecrafting) do
+    DefineEx(j.items, j.recipeitems, i)
+    GetItems()
+    CraftItems()
+  end
+  for i,j in pairs(items) do
+    temprecipeitems[i].newsize = items[i].newsize
+    temprecipeitems[i].size = items[i].size
+  end
+  
+  items = mf.copyTable(tempitems)
+  tempitems = {}
+  recipeitems = mf.copyTable(temprecipeitems)
+  temprecipeitems = {}
+  priocount = temppriocount
+  crafter = tempcrafter
+  itemschange = tempitemschange
 end
 local function Craft(itemrepo)
   Define(itemrepo)
   GetItems()
+  GetRecipeCraftings()
+  CalculateCrafts()
   CraftItems()
 end
 
