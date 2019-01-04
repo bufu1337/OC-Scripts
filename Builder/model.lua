@@ -312,6 +312,7 @@ end
 --local serial = require("serialization")
 --mf.printx(serial.unserialize('{x=0,y=0,z=0}'))
 model.loadModel = loadModel
+--model.loadedModel = function() return model.loadedModel end
 model.loadModelNew = loadModelNew
 model.loadModelbyIndex = loadModelbyIndex
 model.unloadModel = unloadModel

@@ -1,4 +1,1 @@
-return {
-    "ochill.model.lua",
-    "WorldTree.model.lua"
-}
+return {"Brick Mansion - by ND63319.lua","ochill.lua","WorldTree.lua"}
