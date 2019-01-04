@@ -6,7 +6,7 @@ local function WriteObjectFile(object, path)
     local newLuaFile = io.open(path, "w")
     if type(object) == "table" then
       newLuaFile:write("return ")
-      for i, k in pairs(serial.serializedtable(object)) do
+      for i, k in pairs(serial.serializedtable(object, true)) do
         newLuaFile:write(k)
       end
     elseif type(object) == "string" then
@@ -91,6 +91,9 @@ end
 local function startswith(ab, str) 
     return ab:find('^' .. str) ~= nil
 end
+local function endswith(ab, str) 
+    return (ab:sub(#ab - #str + 1) == str)
+end
 local function split(inputstr, sep)
     if sep == nil then
         sep = "%s"
@@ -104,6 +107,20 @@ local function split(inputstr, sep)
 end
 local function copyTable(ab)
   return serial.unserialize(serial.serialize(ab))
+end
+local function combineTables(table1, table2)
+  for i,j in pairs(table2) do
+    if table1[i] ~= nil then
+      if type(table1[i]) == "table" and type(j) == "table" then
+        table1[i] = combineTables(table1[i], j)
+      else
+        table1[i] = j
+      end
+    else
+      table1[i] = j
+    end
+  end
+  return table1
 end
 local out = {}
 local function w(var, file)
@@ -169,10 +186,10 @@ mf.writex = writex
 mf.printx = printx
 mf.filewx = filewx
 mf.WriteObjectFile = WriteObjectFile
-mf.WriteArrayFile = WriteArrayFile
 mf.listSubDirsInDir = listSubDirsInDir
 mf.listFilesInDir = listFilesInDir
-
+mf.copyTable = copyTable
+mf.combineTables = combineTables
 --local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
 --  local t = serial.serializedtable({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)
 --  local b = serial.serialize({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)

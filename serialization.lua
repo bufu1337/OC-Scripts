@@ -5,6 +5,9 @@ local local_pairs = function(tbl)
   local mt = getmetatable(tbl)
   return (mt and mt.__pairs or pairs)(tbl)
 end
+local function endswith(ab, str) 
+    return (ab:sub(#ab - #str + 1) == str)
+end
 
 -- Important: pretty formatting will allow presenting non-serializable values
 -- but may generate output that cannot be unserialized back.
@@ -27,23 +30,18 @@ function serialization.serializedtable(value, pretty)
         --table.insert(result_pack, "0/0")
       elseif current_value == math.huge then
         current_str = current_str .. "math.huge"
-        --table.insert(result_pack, "math.huge")
       elseif current_value == -math.huge then
         current_str = current_str .. "-math.huge"
-        --table.insert(result_pack, "-math.huge")
       else
         current_str = current_str .. tostring(current_value)
-        --table.insert(result_pack, tostring(current_value))
       end
     elseif t == "string" then
       current_str = current_str .. (string.format("%q", current_value):gsub("\\\n","\\n"))
-      --table.insert(result_pack, (string.format("%q", current_value):gsub("\\\n","\\n")))
     elseif
       t == "nil" or
       t == "boolean" or
       pretty and (t ~= "table" or (getmetatable(current_value) or {}).__tostring) then
       current_str = current_str .. tostring(current_value)
-      --table.insert(result_pack, tostring(current_value))
     elseif t == "table" then
       if ts[current_value] then
         if pretty then
@@ -89,18 +87,17 @@ function serialization.serializedtable(value, pretty)
       end
       local i = 1
       local first = true
---      table.insert(result_pack, "{")
---      if pretty then
---        table.insert(result_pack, "\n" .. string.rep(" ", depth))
---      end
       
       for k, v in table.unpack(f) do
         if first then
+          if endswith(current_str, "{") or endswith(current_str, "},") then
+            current_str = current_str .. "\n"
+            table.insert(result_pack, current_str)
+            current_str = string.rep(" ", depth)
+          end
           current_str = current_str .. "{"
-          --table.insert(result_pack, "{")
         else
           current_str = current_str .. ","
-          --table.insert(result_pack, ",")
         end
         if pretty and type(k) == "string" then
           current_str = current_str .. "\n"
@@ -115,25 +112,22 @@ function serialization.serializedtable(value, pretty)
         else
           if tk == "string" and not kw[k] and string.match(k, id) then
             current_str = current_str .. k
-            --table.insert(result_pack, k)
           else
             current_str = current_str .. "["
-            --table.insert(result_pack, "[")
             recurse(k, depth + 1)
             current_str = current_str .. "]"
-            --table.insert(result_pack, "]")
           end
           current_str = current_str .. "="
-          --table.insert(result_pack, "=")
           recurse(v, depth + 1)
         end
       end
       ts[current_value] = nil -- allow writing same table more than once
-      if pretty then
-        --table.insert(result_pack, "\n " .. string.rep(" ", depth))
+      if endswith(current_str, "}") then
+        current_str = current_str .. "\n"
+        table.insert(result_pack, current_str)
+        current_str = string.rep(" ", depth)
       end
       current_str = current_str .. "}"
-      --table.insert(result_pack, "}")
     else
       error("unsupported type: " .. t)
     end
