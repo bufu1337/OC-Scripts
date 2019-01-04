@@ -15,6 +15,8 @@ local items = {}
 local recipeitems = {}
 local priocount = 0
 local crafter = ""
+local itemcrafters = {}
+local completeRepo = true
 local ac = {}
 local args = shell.parse( ... )
 local itemschange = false
@@ -33,13 +35,39 @@ local function searchforRepo(itemrepo)
   end
   return ""
 end
+local function searchforRepoRecipe(itemrepo)
+  for b = 1, 30, 1 do
+    local s = ""
+    if b ~= 1 then
+      s = tostring(b)
+    end
+    if filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. " - RecipeItems" .. ".lua") == true then
+      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo .. " - RecipeItems"
+    end
+  end
+  return ""
+end
+local function getCrafter(oname)
+  local temp = {}
+  local c = prox.ModToPName(convert.TextToItem(oname).mod)
+  local repo = searchforRepo(c)
+  if repo ~= "" then
+    temp = require(repo)
+  end
+  if temp[oname] == nil then
+    c = nil
+  end
+  temp = {}
+  return c
+end
 local function Define(itemrepo)
   local repo = searchforRepo(itemrepo)
-  crafter = itemrepo
   if repo ~= "" then
     items = require(repo)
-    if filesystem.exists("/home/" .. repo .. " - RecipeItems" .. ".lua") == true then
-      recipeitems = require(repo .. " - RecipeItems")
+    crafter = prox.ModToPName(convert.TextToItem(mf.getKeys(items)[1]).mod)
+    local reporecipe = searchforRepoRecipe(itemrepo)
+    if reporecipe ~= "" then
+      recipeitems = require(reporecipe)
     end
     logfile = "/home/bufu/Crafter/AC-Log  - " .. itemrepo .. ".lua"
     for i,j in pairs(items) do
@@ -49,16 +77,68 @@ local function Define(itemrepo)
     end
   end
 end
-local function DefineEx(itemsToCraft, recipeitemsForCraft, craftmech)
-  crafter = craftmech
+local function DefineEx(itemsToCraft, recipeitemsForCraft)
+  completeRepo = false
+  crafter = prox.ModToPName(convert.TextToItem(mf.getKeys(items)[1]).mod)
   items = itemsToCraft
   recipeitems = recipeitemsForCraft
-  logfile = "/home/bufu/Crafter/AC-Log  - " .. craftmech .. ".lua"
+  logfile = "/home/bufu/Crafter/AC-Log  - " .. crafter .. ".lua"
   for i,j in pairs(items) do
     if j.craftCount == nil then
       items[i].craftCount = 1
     end
   end
+end
+local function DefineItems(itemsToCraft)
+  for i,j in pairs(mf.getKeys(itemsToCraft)) do
+    local temp_item_crafter = prox.ModToPName(convert.TextToItem(j).mod)
+    if mf.containsKey(itemcrafters, temp_item_crafter) then
+      itemcrafters[temp_item_crafter] = {items={}, recipeitems{}}
+    end
+    itemcrafters[temp_item_crafter].items[j] = itemsToCraft[j]
+  end
+  for i,j in pairs(itemcrafters) do
+    local repo = searchforRepo(i)
+    if repo ~= "" then
+      local tempitems = require(repo)
+      for a,b in pairs(tempitems) do
+        if j.items[a] == nil then
+          tempitems[a] = nil
+        end
+      end
+      itemcrafters[i].items = mf.combineTables(itemcrafters[i].items, tempitems)
+      tempitems = {}
+      
+      if filesystem.exists("/home/" .. repo .. " - RecipeItems" .. ".lua") == true then
+        local temprecipeitemKeys = {}
+        for a,b in pairs(itemcrafters[i].items) do
+          if b.recipe ~= nil then
+            for c,d in pairs(b.recipe) do
+              if mf.contains(temprecipeitemKeys, c) == false then
+                table.insert(temprecipeitemKeys, c)
+              end
+            end
+          end
+        end
+        
+        itemcrafters[i].recipeitems = require(repo .. " - RecipeItems")
+        for a,b in pairs(itemcrafters[i].recipeitems) do
+          if mf.contains(temprecipeitemKeys, a) == false then
+            itemcrafters[i].recipeitems[a] = nil
+          end
+        end
+      end
+      logfile = "/home/bufu/Crafter/AC-Log  - " .. itemrepo .. ".lua"
+      for i,j in pairs(items) do
+        if j.craftCount == nil then
+          items[i].craftCount = 1
+        end
+      end
+    end
+  end
+end
+local function SetItems(itemstoset)
+  items = itemstoset
 end
 local function ConvertItems()
   print("ConvertItems")
@@ -117,7 +197,7 @@ local function GetStorageItems()
       end
       for i,j in pairs(o) do
         local rs_item = {}
-        local rs_proxy = prox.GetProxy(items[j]["mod"], "home")
+        local rs_proxy = prox.GetProxy(items[j].mod, "home")
         if(rs_proxy ~= "") then
           local rs_comp = component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
@@ -161,7 +241,7 @@ local function GetStorageItems()
       end
       for i,j in pairs(o) do
         local rs_item = {}
-        local rs_proxy = prox.GetProxy(recipeitems[j]["mod"], "home")
+        local rs_proxy = prox.GetProxy(recipeitems[j].mod, "home")
         if(rs_proxy ~= "") then
           local rs_comp = component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
@@ -182,26 +262,68 @@ local function GetStorageItems()
   print("GetStorageItems end")
 end
 local function WriteNewRepo()
-    local serial = require("serialization")
-    local rep = searchforRepo(crafter)
-    local newRepoFile = io.open("/home/bufu/Crafter/Items/" .. crafter .. ".lua", "w")
-    local ikeys = mf.getSortedKeys(items)
-    local tempitems = {}
-    for ik = 1, #ikeys, 1 do
-        tempitems[ikeys[ik]] = items[ikeys[ik]].size
-        items[ikeys[ik]].name = nil
-        items[ikeys[ik]].mod = nil
-        items[ikeys[ik]].damage = nil
-        items[ikeys[ik]].size = nil
+  local rep = searchforRepo(crafter)
+  local reprec = searchforRepoRecipe(crafter)
+  if rep ~= "" then
+    if completeRepo then
+        local tempitemssize = {}
+        local ikeys = mf.getSortedKeys(items)
+        for ik = 1, #ikeys, 1 do
+            tempitemssize[ikeys[ik]] = items[ikeys[ik]].size
+            items[ikeys[ik]].name = nil
+            items[ikeys[ik]].mod = nil
+            items[ikeys[ik]].damage = nil
+            items[ikeys[ik]].size = nil
+        end
+        mf.WriteObjectFile(serial.serializedtable(items), "/home/".. rep .. ".lua")
+        for ik = 1, #ikeys, 1 do
+            items[ikeys[ik]].size = tempitemssize[ikeys[ik]]
+        end
+        tempitemssize = {}
+    else
+        local tempitems = require(rep)
+        tempitems = mf.combineTables(tempitems, items)
+        local ikeys = mf.getSortedKeys(tempitems)
+        for ik = 1, #ikeys, 1 do
+            tempitems[ikeys[ik]].name = nil
+            tempitems[ikeys[ik]].mod = nil
+            tempitems[ikeys[ik]].damage = nil
+            tempitems[ikeys[ik]].size = nil
+        end
+        mf.WriteObjectFile(serial.serializedtable(tempitems), "/home/".. rep .. ".lua")
+        tempitems = {}
     end
-    if rep ~= "" then
-      mf.WriteObjectFile(serial.serializedtable(items), "/home/".. rep .. ".lua")
-      mf.WriteObjectFile(serial.serializedtable(recipeitems), "/home/".. rep .. " - RecipeItems" .. ".lua")
+  end
+  if reprec ~= "" then
+    if completeRepo then
+        local temprecipeitemssize = {}
+        local rikeys = mf.getSortedKeys(recipeitems)
+        for ik = 1, #rikeys, 1 do
+            temprecipeitemssize[rikeys[ik]] = recipeitems[rikeys[ik]].size
+            recipeitems[rikeys[ik]].name = nil
+            recipeitems[rikeys[ik]].mod = nil
+            recipeitems[rikeys[ik]].damage = nil
+            recipeitems[rikeys[ik]].size = nil
+        end
+        mf.WriteObjectFile(serial.serializedtable(recipeitems), "/home/".. reprec .. " - RecipeItems" .. ".lua")
+        for ik = 1, #rikeys, 1 do
+            recipeitems[rikeys[ik]].size = temprecipeitemssize[rikeys[ik]]
+        end
+        temprecipeitemssize = {}
+    else
+      local temprecipeitems = require(rep)
+        temprecipeitems = mf.combineTables(temprecipeitems, recipeitems)
+        local ikeys = mf.getSortedKeys(temprecipeitems)
+        for ik = 1, #ikeys, 1 do
+            temprecipeitems[ikeys[ik]].name = nil
+            temprecipeitems[ikeys[ik]].mod = nil
+            temprecipeitems[ikeys[ik]].damage = nil
+            temprecipeitems[ikeys[ik]].size = nil
+        end
+        mf.WriteObjectFile(serial.serializedtable(temprecipeitems), "/home/".. reprec .. ".lua")
+        temprecipeitems = {}
     end
-    for ik = 1, #ikeys, 1 do
-        items[ikeys[ik]].size = tempitems[ikeys[ik]]
-    end
-    tempitems = {}
+  end
 end
 local function GetRecipes()
     print("GetRecipes")
@@ -272,17 +394,7 @@ local function GetRecipes()
                                 end
                                 if item_found then
                                     if recipeitems[oname] == nil then
-                                      local temp = {}
-                                      local c = prox.ModToPName(convert.TextToItem(rs_recipe[g].name).mod)
-                                      local repo = searchforRepo(c)
-                                      if repo ~= "" then
-                                        temp = require(repo)
-                                      end
-                                      if temp[oname] == nil then
-                                        c = nil
-                                      end
-                                      temp = {}
-                                      recipeitems[oname] = {crafter = c}
+                                      recipeitems[oname] = {crafter = getCrafter(oname)}
                                     end
                                 else
                                     print("Item " .. oname .. " has more then 1 damage, place " .. cr_recipe[oname].label .. " into your storage to get the correct recipe")
@@ -290,13 +402,7 @@ local function GetRecipes()
                                 end
                             end
                             if recipe_complete then
-                                items[j].recipe = {}
-                                for k,h in pairs(mf.getKeys(cr_recipe)) do
-                                  items[j].recipe[h] = {}
-                                  for l,m in pairs(mf.getKeys(cr_recipe[h])) do
-                                    items[j].recipe[h][m] = cr_recipe[h][m]
-                                  end 
-                                end
+                                items[j].recipe = mf.copyTable(cr_recipe)
                             end
                             
                             --get CraftCount
@@ -412,7 +518,7 @@ local function MoveItem(item, count, route)
 end
 local function MoveRecipeItems(item)
     for i,j in pairs(items[item].recipe) do
-        MoveItem(items[j.oname], j.size, (prox.GetRoute((convert.TextToItem(j.oname).mod), "craft", crafter, 2)))
+        MoveItem(recipeitems[i], j.size, (prox.GetRoute(recipeitems[i].mod, "craft", crafter, 2)))
     end
 end
 local function MoveCraftedItem(item)
@@ -494,36 +600,37 @@ local function GetRecipeCraftings()
     temp = {}
     temp2 = {}
   end
-  local tempitems = mf.copyTable(items)
-  local temprecipeitems = mf.copyTable(recipeitems)
-  local temppriocount = priocount
-  local tempcrafter = crafter
-  local tempitemschange = itemschange
-  
   for i,j in pairs(recipecrafting) do
-    DefineEx(j.items, j.recipeitems, i)
-    GetItems()
-    CraftItems()
+    local tempac = require("bufu/Crafter/Autocraft")
+    tempac.DefineEx(j.items, j.recipeitems)
+    tempac.GetItems()
+    tempac.CalculateCrafts()
+    tempac.GetRecipeCraftings()
+    tempac.CraftItems()
+    for a,b in pairs(tempac.items) do
+      recipeitems[a].newsize = b.newsize
+      recipeitems[a].size = b.newsize
+    end
+    tempac = {}
   end
-  for i,j in pairs(items) do
-    temprecipeitems[i].newsize = items[i].newsize
-    temprecipeitems[i].size = items[i].size
-  end
-  
-  items = mf.copyTable(tempitems)
-  tempitems = {}
-  recipeitems = mf.copyTable(temprecipeitems)
-  temprecipeitems = {}
-  priocount = temppriocount
-  crafter = tempcrafter
-  itemschange = tempitemschange
 end
 local function Craft(itemrepo)
   Define(itemrepo)
   GetItems()
-  GetRecipeCraftings()
   CalculateCrafts()
+  GetRecipeCraftings()
   CraftItems()
+end
+local function CraftExItems(itemsToCraft)
+  DefineItems(itemsToCraft)
+  for i,crafter in pairs(itemcrafters) do
+    local tempac = require("bufu/Crafter/Autocraft")
+    tempac.DefineEx(crafter.items, crafter.recipeitems)
+    tempac.GetItems()
+    tempac.CalculateCrafts()
+    tempac.GetRecipeCraftings()
+    tempac.CraftItems()
+  end
 end
 
 if args[1] ~= nil and args[1]:find("Autocraft") == nil then
@@ -531,14 +638,20 @@ if args[1] ~= nil and args[1]:find("Autocraft") == nil then
 end
 
 ac.Craft = Craft
+ac.CraftExItems = CraftExItems
 ac.Define = Define
+ac.DefineEx = DefineEx
+ac.DefineItems = DefineItems
 ac.ConvertItems = ConvertItems
 ac.GetStorageItems = GetStorageItems
+ac.GetItems = GetItems
 ac.GetRecipes = GetRecipes
+ac.GetRecipeCraftings = GetRecipeCraftings
 ac.CalculateCrafts = CalculateCrafts
 ac.CraftItems = CraftItems
 ac.MoveRestBack = MoveRestBack
-ac.items = function() return items end
+ac.GetItems = function() return items end
+ac.SetItems = SetItems
 return ac
 
 --local function GetRecipeCounts()
