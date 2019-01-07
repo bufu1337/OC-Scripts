@@ -1,0 +1,27 @@
+return {
+  mainRedstone="",
+  storageRedstone="",
+  slotRedstone={
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  },
+  refstorageRedstone={
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  },
+  refstorages={},
+  netcards={}
+}
