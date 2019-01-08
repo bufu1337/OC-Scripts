@@ -1,27 +1,11 @@
 return {
-  mainRedstone="",
-  storageRedstone="",
-  slotRedstone={
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  },
-  refstorageRedstone={
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  },
-  refstorages={},
+  transposer_netcards="",
+  transposer_destination="",
+  redstone="east",
+  netsides_order = {"up", "west", "south", "east"},
+  netsides = {up={size=-1, next=0}, west={size=-1, next=0}, south={size=-1, next=0}, east={size=-1, next=0}},
+  storingside = "north",
+  rstorages={minecraft={up=-1, down=-1, east=-1, west=-1}, chimneys={up=-1, down=-1, east=-1, west=-1}, others={up=-1, down=-1, east=-1, west=-1}, draconic={up=-1, down=-1, east=-1, west=-1}, conquest={up=-1, down=-1, east=-1, west=-1}, pillar={up=-1, down=-1, east=-1, west=-1}, utilities={up=-1, down=-1, east=-1, west=-1}, environ={up=-1, down=-1, east=-1, west=-1}, fairy={up=-1, down=-1, east=-1, west=-1}, flat={up=-1, down=-1, east=-1, west=-1}, fiifex={up=-1, down=-1, east=-1, west=-1}, forestry={up=-1, down=-1, east=-1, west=-1}, future={up=-1, down=-1, east=-1, west=-1}, food={up=-1, down=-1, east=-1, west=-1}, industrial={up=-1, down=-1, east=-1, west=-1}, immersive={up=-1, down=-1, east=-1, west=-1}, railroad={up=-1, down=-1, east=-1, west=-1}, mekanism={up=-1, down=-1, east=-1, west=-1}, minewatch={up=-1, down=-1, east=-1, west=-1}, more={up=-1, down=-1, east=-1, west=-1}, mystical={up=-1, down=-1, east=-1, west=-1}, modern={up=-1, down=-1, east=-1, west=-1}, nuclear={up=-1, down=-1, east=-1, west=-1}, storage={up=-1, down=-1, east=-1, west=-1}, deco={up=-1, down=-1, east=-1, west=-1}, rftools={up=-1, down=-1, east=-1, west=-1}, plants={up=-1, down=-1, east=-1, west=-1}, tinkers={up=-1, down=-1, east=-1, west=-1}, treborn={up=-1, down=-1, east=-1, west=-1}, terra={up=-1, down=-1, east=-1, west=-1}, thermal={up=-1, down=-1, east=-1, west=-1}, reliq={up=-1, down=-1, east=-1, west=-1}, appen={up=-1, down=-1, east=-1, west=-1}, atl={up=-1, down=-1, east=-1, west=-1}, actadd={up=-1, down=-1, east=-1, west=-1}, rocketry={up=-1, down=-1, east=-1, west=-1}, aether={up=-1, down=-1, east=-1, west=-1}, metals={up=-1, down=-1, east=-1, west=-1}, biblio={up=-1, down=-1, east=-1, west=-1}, btrees={up=-1, down=-1, east=-1, west=-1}, binnie={up=-1, down=-1, east=-1, west=-1}, biomes={up=-1, down=-1, east=-1, west=-1}, botania={up=-1, down=-1, east=-1, west=-1}, ceramics={up=-1, down=-1, east=-1, west=-1}, chisel={up=-1, down=-1, east=-1, west=-1}, bits={up=-1, down=-1, east=-1, west=-1}, cyclic={up=-1, down=-1, east=-1, west=-1}, diy={up=-1, down=-1, east=-1, west=-1}, storing={up=-1, down=-1, east=-1, west=-1}},
+  rstorages_order={"minecraft", "chimneys", "others", "draconic", "conquest", "pillar", "utilities", "environ", "fairy", "flat", "fiifex", "forestry", "future", "food", "industrial", "immersive", "railroad", "mekanism", "minewatch", "more", "mystical", "modern", "nuclear", "storage", "deco", "rftools", "plants", "tinkers", "treborn", "terra", "thermal", "reliq", "appen", "atl", "actadd", "rocketry", "aether", "metals", "biblio", "btrees", "binnie", "biomes", "botania", "ceramics", "chisel", "bits", "cyclic", "diy", "storing"},
   netcards={}
 }
