@@ -25,14 +25,14 @@ end
 --  if args[2] == nil or args[2] == 'help' or args[3] == nil or args[4] == nil then
 --    print("usage: builder start $modelname $rotation $start{x=0,y=0,z=0}")
 --  else
---    model.loadNewModel(args[2], tonumber(args[3]), serial.unserialize(args[4]))
+--    builder.model.loadNewModel(args[2], tonumber(args[3]), serial.unserialize(args[4]))
 --    start()
 --  end
 --elseif args[1] == 'resume' then
 --  if args[2] == nil or args[2] == 'help' then
 --    print("usage: builder resume $modelname")
 --  else
---    model.loadModel(args[2], 0, serial.unserialize({x=0,y=0,z=0}))
+--    builder.model.loadModel(args[2], 0, serial.unserialize({x=0,y=0,z=0}))
 --    start()
 --  end
 --else
