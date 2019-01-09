@@ -203,4 +203,5 @@ mf.combineTables = combineTables
 --    --newLuaFile:write(j .. "\n")
 --  --end
 --    newLuaFile:close()
+WriteObjectFile({lol="", netcards={}}, "C:/Users/alexandersk/workspace/OC-Scripts/haha.txt")
 return mf

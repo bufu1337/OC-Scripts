@@ -150,7 +150,7 @@ local function DistributeNetCard(remoteAddress, data)
       --set variables
       rstorages[data.storage][rs.rorder[freenetslot]] = id
       save()
-      modem.send(remoteAddress, 478, serial.serialize(rs))
+      --m.send(remoteAddress, 478, serial.serialize(rs))
 
     elseif data.method == "pull" then
                     
@@ -161,7 +161,7 @@ local function DistributeNetCard(remoteAddress, data)
             freenetslot = i
           end
         end
-      
+        if freenetslot ~= -1 then
         --Push items for rftools-processor 
         --items to indicate in which slot the Network-Card is located 
         local times = mf.MathUp(tempslot/64)
@@ -206,8 +206,10 @@ local function DistributeNetCard(remoteAddress, data)
         --set variables
         rs.rstorages[data.storage][rs.rorder[freenetslot]] = -1
         save()
-        modem.send(remoteAddress, 478, serial.serialize(rs))
-
+        --m.send(remoteAddress, 478, serial.serialize(rs))
+        else
+          print("Cant pull Network-Card. No Network-Card found.")
+        end
     end
   else
     print("Not a valid storage to put the linked Network-Card to.")
@@ -227,7 +229,14 @@ local listener = thread.create(function()
   print("From: " .. remoteAddress .. " Port: " .. port)
   print("Distance: " .. distance)
   print("Data: " .. data)
-  DistributeNetCard(remoteAddress, serial.unserialize(data))
+  data = serial.unserialize(data)
+  if mf.containsKey(data, "register") then
+    registerNetworkCard(remoteAddress)
+  elseif mf.containsKey(data, "check") then
+    m.send(remoteAddress, 478, "ok")
+  else
+    DistributeNetCard(remoteAddress, data)
+  end
 end)
 distributer.registerNetworkCard = registerNetworkCard
 distributer.DistributeNetCard = DistributeNetCard

@@ -92,6 +92,7 @@ function serialization.serializedtable(value, pretty)
         if first then
           if endswith(current_str, "{") or endswith(current_str, "},") then
             current_str = current_str .. "\n"
+            current_str = string.gsub(current_str, "=}", "={}")
             table.insert(result_pack, current_str)
             current_str = string.rep(" ", depth)
           end
@@ -124,6 +125,7 @@ function serialization.serializedtable(value, pretty)
       ts[current_value] = nil -- allow writing same table more than once
       if endswith(current_str, "}") then
         current_str = current_str .. "\n"
+        current_str = string.gsub(current_str, "=}", "={}")
         table.insert(result_pack, current_str)
         current_str = string.rep(" ", depth)
       end
@@ -134,6 +136,7 @@ function serialization.serializedtable(value, pretty)
   end
   recurse(value, 1)
   if current_str ~= "" then
+    current_str = string.gsub(current_str, "=}", "={}")
     table.insert(result_pack, current_str)
   end
   return result_pack
