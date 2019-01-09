@@ -192,7 +192,7 @@ local function DistributeNetCard(remoteAddress, data)
         red.setOutput(sides[rs.redstone], 7)
         os.sleep(1)
         --wait until the Network-Card is no longer in the Network-storage-chest
-        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil and timeout < distime do
+        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) == nil and timeout < distime do
           os.sleep(1)
           timeout = timeout + 1
         end
