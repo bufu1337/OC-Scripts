@@ -1,0 +1,4 @@
+wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/MainFunctions.lua /home/MainFunctions.lua
+wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetDistributer.lua /home/RSNetDistributer.lua
+wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetComponents.lua /home/RSNetComponents.lua
+wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/serialization.lua /lib/serialization.lua
