@@ -11,6 +11,7 @@ local tp_net = c.proxy(rs.transposer_netcards)
 local tp_dest = c.proxy(rs.transposer_destination)
 local red = c.redstone
 local m = c.modem
+local distime = 50
 local distributer = {}
 
 local function save()
@@ -62,7 +63,7 @@ local function DistributeNetCard(remoteAddress, data)
     for i,j in pairs(rs.netcards) do
       if j.net == remoteAddress and data.rsmonitor == j.rsmonitor then
         id = i
-        tempslot = j.slot + 1
+        tempslot = j.slot
         tempslotreverse = tempslot
         break
       end
@@ -127,10 +128,11 @@ local function DistributeNetCard(remoteAddress, data)
       tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 26, 26)
       
       --signal rftools-processor to distribute the Network-Card
+      red.setOutput(sides[rs.redstone], 0)
       red.setOutput(sides[rs.redstone], 15)
       os.sleep(1)
       --wait until the Network-Card is no longer in the Network-storage-chest
-      while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < 100 do
+      while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < distime do
         os.sleep(1)
       end
       --turn off signal
@@ -150,7 +152,7 @@ local function DistributeNetCard(remoteAddress, data)
       tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 26, 26)
 
       --set variables
-      if timeout ~= 100 then
+      if timeout ~= distime then
         rstorages[data.storage][rs.rorder[freenetslot]] = id
         save()
       end
@@ -186,10 +188,11 @@ local function DistributeNetCard(remoteAddress, data)
         tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 25, 25)
             
         --signal rftools-processor to distribute the Network-Card
+        red.setOutput(sides[rs.redstone], 0)
         red.setOutput(sides[rs.redstone], 7)
         os.sleep(1)
         --wait until the Network-Card is no longer in the Network-storage-chest
-        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < 100 do
+        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < distime do
           os.sleep(1)
           timeout = timeout + 1
         end
@@ -210,7 +213,7 @@ local function DistributeNetCard(remoteAddress, data)
         tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 25, 25)
       
         --set variables
-        if timeout ~= 100 then
+        if timeout ~= distime then
             rs.rstorages[data.storage][rs.rorder[freenetslot]] = -1
             save()
         end
