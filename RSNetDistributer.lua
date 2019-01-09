@@ -153,7 +153,7 @@ local function DistributeNetCard(remoteAddress, data)
 
       --set variables
       if timeout ~= distime then
-        rstorages[data.storage][rs.rorder[freenetslot]] = id
+        rs.rstorages[data.storage][rs.rorder[freenetslot]] = id
         save()
       end
       --m.send(remoteAddress, 478, serial.serialize(rs))
