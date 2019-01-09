@@ -8,7 +8,7 @@ local serial = require("serialization")
 local filesystem = require("filesystem")
 local mf = require("MainFunctions")
 if filesystem.exists("/home/RSNetSationVars") == false then
-  mf.WriteObjectFile({distributer="", monitor={}}, "/home/RSNetSationVars")
+  mf.WriteObjectFile({distributer="", monitor={}}, "/home/RSNetSationVars.lua")
 end
 local rs = require("RSNetSationVars")
 local m = c.modem

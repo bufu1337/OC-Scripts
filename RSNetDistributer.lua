@@ -55,6 +55,7 @@ local function DistributeNetCard(remoteAddress, data)
   local id = -1
   local tempslot = -1
   local tempslotreverse = -1
+  local timeout = 0
   if mf.contains(rs.rstorages_order, data.storage) then
     
     --get network-card-id
@@ -75,7 +76,7 @@ local function DistributeNetCard(remoteAddress, data)
       for a,b in pairs(rs.rstorages) do
         local found = false
         for i,j in pairs(rs.rorder) do
-          if rs.rstorages[b][j] == id then
+          if b[j] == id then
             DistributeNetCard(rs.netcards[id].net, {method="pull", storage=b, rsmonitor=rs.netcards[id].rsmonitor})
             found = true
             break
@@ -91,6 +92,7 @@ local function DistributeNetCard(remoteAddress, data)
       for i,j in pairs(rs.rorder) do
         if rs.rstorages[data.storage][j] == -1 then
           freenetslot = i
+          break
         end
       end
       --Pull out a Network-Card if all slots are occupied
@@ -120,15 +122,15 @@ local function DistributeNetCard(remoteAddress, data)
       --items to indicate at which node the Refined Storage is located
       tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], mf.getIndex(rs.rstorages_order, data.storage), 27, 27)
       --items to indicate at which side of node the Network-Card should go
-      tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], freenetslot, 26, 26)
+      tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], freenetslot, 25, 25)
       --items to indicate in which chest the Network-Card is located 
-      tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 25, 25)
+      tp_dest.transferItem(sides[rs.destination[1]], sides[rs.destination[2]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 26, 26)
       
       --signal rftools-processor to distribute the Network-Card
       red.setOutput(sides[rs.redstone], 15)
       os.sleep(1)
       --wait until the Network-Card is no longer in the Network-storage-chest
-      while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil do
+      while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < 100 do
         os.sleep(1)
       end
       --turn off signal
@@ -144,12 +146,14 @@ local function DistributeNetCard(remoteAddress, data)
         end
       end
       tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.rstorages_order, data.storage), 27, 27)
-      tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], freenetslot, 26, 26)
-      tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 25, 25)
+      tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], freenetslot, 25, 25)
+      tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 26, 26)
 
       --set variables
-      rstorages[data.storage][rs.rorder[freenetslot]] = id
-      save()
+      if timeout ~= 100 then
+        rstorages[data.storage][rs.rorder[freenetslot]] = id
+        save()
+      end
       --m.send(remoteAddress, 478, serial.serialize(rs))
 
     elseif data.method == "pull" then
@@ -159,6 +163,7 @@ local function DistributeNetCard(remoteAddress, data)
         for i,j in pairs(rs.rorder) do
           if rs.rstorages[data.storage][j] == id then
             freenetslot = i
+            break
           end
         end
         if freenetslot ~= -1 then
@@ -184,8 +189,9 @@ local function DistributeNetCard(remoteAddress, data)
         red.setOutput(sides[rs.redstone], 7)
         os.sleep(1)
         --wait until the Network-Card is no longer in the Network-storage-chest
-        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil do
+        while tp_net.getStackInSlot(sides[rs.netcards[id].side], rs.netcards[id].slot) ~= nil or timeout < 100 do
           os.sleep(1)
+          timeout = timeout + 1
         end
         --turn off signal
         red.setOutput(sides[rs.redstone], 0)
@@ -204,8 +210,10 @@ local function DistributeNetCard(remoteAddress, data)
         tp_dest.transferItem(sides[rs.destination[2]], sides[rs.destination[1]], mf.getIndex(rs.netsides_order, rs.netcards[id].side), 25, 25)
       
         --set variables
-        rs.rstorages[data.storage][rs.rorder[freenetslot]] = -1
-        save()
+        if timeout ~= 100 then
+            rs.rstorages[data.storage][rs.rorder[freenetslot]] = -1
+            save()
+        end
         --m.send(remoteAddress, 478, serial.serialize(rs))
         else
           print("Cant pull Network-Card. No Network-Card found.")
