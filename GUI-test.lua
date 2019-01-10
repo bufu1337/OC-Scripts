@@ -6,7 +6,7 @@ t.rs = require("rstorages")
 t.app = t.gui.application(0,0,640,480)
 t.app:addChild(t.gui.panel(1, 1, t.app.width, t.app.height, 0x2D2D2D))
 
-local verticalList = application:addChild(GUI.list(3, 2, 25, 50, 1, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+local verticalList = t.app:addChild(t.gui.list(3, 2, 25, 50, 1, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
 for i,j in pairs(t.rs) do
   verticalList:addItem(i)
   --table.insert(textBox.lines, i)
