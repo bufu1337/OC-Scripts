@@ -38,7 +38,7 @@ local function RSMonitorON(mod, monitor)
   if #rs.monitor[monitor] ~= nil then
     m.send(rs.distributer, 478, serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
     rs.monitor[monitor] = mod
-    mf.WriteObjectFile(rs, "/home/RSNetSationVars")
+    mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
