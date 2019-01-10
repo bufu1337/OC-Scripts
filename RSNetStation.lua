@@ -1,17 +1,9 @@
 local s = {}
-s.c = require("component")
-s.event = require("event")
-s.io = require("io")
-s.sides = require("sides")
-s.os = require("os")
-s.thread = require("thread")
-s.serial = require("serialization")
-s.filesystem = require("filesystem")
 s.mf = require("MainFunctions")
 s.gui = require("GUI")
 s.saving = false
 s.rs = {}
-s.m = c.modem
+s.m = s.mf.component.modem
 
 local varpath = "/home/RSNetSationVars.lua"
 
@@ -37,17 +29,17 @@ function s.setDistributor(dis)
 end
 
 function s.start()
-  if s.filesystem.exists(varpath) == false then
+  if s.mf.filesystem.exists(varpath) == false then
     s.mf.WriteObjectFile({distributor="", monitor={}}, varpath)
   end
   s.rs = require("RSNetSationVars")
   if s.rs.distributor == "" then
     print("Please type in the uid of the distributors modem")
-    s.setDistributor(s.io.read())
+    s.setDistributor(s.mf.io.read())
   end
   if #rs.monitor then
     print("How many monitors do you have")
-    s.addRSMonitors(s.io.read())
+    s.addRSMonitors(s.mf.io.read())
   end
   s.m.close(478)
   s.m.open(478)
@@ -57,7 +49,7 @@ end
 
 function s.RSMonitorON(mod, monitor)
   if #s.rs.monitor[monitor] ~= nil then
-    s.m.send(s.rs.distributor, 478, s.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
+    s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
     s.rs.monitor[monitor] = mod
     s.save()
   else
@@ -66,7 +58,7 @@ function s.RSMonitorON(mod, monitor)
 end
 function s.RSMonitorOFF(mod, monitor)
   if #s.rs.monitor[monitor] ~= nil then
-    s.m.send(s.rs.distributor, 478, s.serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
+    s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
     s.rs.monitor[monitor] = ""
     s.save()
   else
@@ -74,10 +66,10 @@ function s.RSMonitorOFF(mod, monitor)
   end
 end
 function s.registerNetworkCard()
-  s.m.send(s.rs.distributor, 478, s.serial.serialize({"register"},true))
+  s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"register"},true))
 end
 function s.checkConnection()
-  s.m.send(s.rs.distributor, 478, s.serial.serialize({"check"},true))
+  s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"check"},true))
   local _, localAddress, remoteAddress, port, distance, data = s.event.pull(10, "modem_message")
   if data ~= nil then
     data = serial.unserialize(data)

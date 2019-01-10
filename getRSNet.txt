@@ -1,13 +1,13 @@
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/MainFunctions.lua /home/MainFunctions.lua
-wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetDistributer.lua /home/RSNetDistributer.lua
+wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetDistributor.lua /home/RSNetDistributor.lua
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetComponents.lua /home/RSNetComponents.lua
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/serialization.lua /lib/serialization.lua
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetStation.lua /home/RSNetStation.lua
 
 e0f52e96-33e8-4ddc-b22f-220a17f5c30b
 
-dist = require("RSNetDistributer")
-dist.DistributeNetCard("4a48e5d9-d4e9-463d-8dd5-ae9d9574baa8", {method="pull", storage="minecraft", rsmonitor=1})
+dis = require("RSNetDistributor")
+dis.DistributeNetCard("4a48e5d9-d4e9-463d-8dd5-ae9d9574baa8", {method="pull", storage="minecraft", rsmonitor=1})
 
 s = require("RSNetStation")
 s.RSMonitorOFF("minecraft", 1)

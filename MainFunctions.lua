@@ -6,6 +6,7 @@ mf.sides = require("sides")
 mf.os = require("os")
 mf.thread = require("thread")
 mf.serial = require("serialization")
+mf.filesystem = require("filesystem")
 
 function mf.WriteObjectFile(object, path)
     local newLuaFile = mf.io.open(path, "w")
