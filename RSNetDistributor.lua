@@ -46,6 +46,29 @@ function dis.RegisterNetCard(netid)
     end
   end
 end
+
+function dis.StationCheck(remoteAddress)
+  local station_message = {rstorages={}, monitor={}}
+  --{net=netid, rsmonitor=h, side=netside, slot=rs.netsides[netside].next}
+  local cards = {}
+  for i,j in pairs(dis.rs.netcards) do
+    if j.net == remoteAddress then
+      table.insert(cards,i)
+    end
+  end
+  for a,b in pairs(dis.rs.rstorages) do
+    station_message.rstorages[a] = {desc=b.desc}
+    for i,j in pairs(dis.rs.rorder) do
+      if b[j] ~=-1 then
+        if dis.mf.contains(cards, b[j]) then
+          station_message.monitor[dis.rs.netcards[b[j]].rsmonitor] = a
+        end
+      end
+    end
+  end
+  m.send(remoteAddress, 478, dis.mf.serial.serialize(station_message))
+end
+
 function dis.DistributeNetCard(remoteAddress, data)
   local id = -1
   local tempslot = -1
@@ -72,7 +95,7 @@ function dis.DistributeNetCard(remoteAddress, data)
         local found = false
         for i,j in pairs(dis.rs.rorder) do
           if b[j] == id then
-            print("Network-Card found at: " .. a .. "(" .. j .. ") --- Pulling")
+            print("Network-Card found at: " .. a .. " (" .. j .. ") --- Pulling")
             dis.DistributeNetCard(dis.rs.netcards[id].net, {method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor})
             found = true
             break
@@ -151,7 +174,7 @@ function dis.DistributeNetCard(remoteAddress, data)
         dis.rs.rstorages[data.storage][dis.rs.rorder[freenetslot]] = id
         dis.save()
       end
-      --m.send(remoteAddress, 478, serial.serialize(rs))
+      dis.StationCheck(remoteAddress)
 
     elseif data.method == "pull" then
                     
@@ -212,7 +235,7 @@ function dis.DistributeNetCard(remoteAddress, data)
             dis.rs.rstorages[data.storage][dis.rs.rorder[freenetslot]] = -1
             dis.save()
         end
-        --m.send(remoteAddress, 478, serial.serialize(rs))
+        dis.StationCheck(remoteAddress)
         else
           print("Cant pull Network-Card. No Network-Card found.")
         end
@@ -220,28 +243,6 @@ function dis.DistributeNetCard(remoteAddress, data)
   else
     print("Not a valid storage to put the linked Network-Card to.")
   end
-end
-
-function dis.StationCheck(remoteAddress)
-  local station_message = {rstorages={}, monitor={}}
-  --{net=netid, rsmonitor=h, side=netside, slot=rs.netsides[netside].next}
-  local cards = {}
-  for i,j in pairs(dis.rs.netcards) do
-    if j.net == remoteAddress then
-      table.insert(cards,i)
-    end
-  end
-  for a,b in pairs(dis.rs.rstorages) do
-    station_message.rstorages[a] = {desc=b.desc}
-    for i,j in pairs(dis.rs.rorder) do
-      if b[j] ~=-1 then
-        if dis.mf.contains(cards, b[j]) then
-          station_message.monitor[dis.rs.netcards[b[j]].rsmonitor] = a
-        end
-      end
-    end
-  end
-  m.send(remoteAddress, 478, dis.mf.serial.serialize(station_message))
 end
 
 local listener = ""

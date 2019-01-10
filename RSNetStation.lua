@@ -46,23 +46,29 @@ function s.start()
   s.m.close(478)
   s.m.open(478)
   s.saving = true
-  s.checkConnection()
+  s.checkConnection(true)
 end
 
 function s.RSMonitorON(mod, monitor)
-  if #s.rs.monitor[monitor] ~= nil then
-    s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
-    s.rs.monitor[monitor] = mod
-    s.save()
+  if s.rs.monitor[monitor] ~= nil and s.rs.monitor[monitor] ~= mod then
+    if s.rs.monitor[monitor] ~= mod then
+        s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
+        s.checkConnection(false)
+    else
+      print("Monitor already showing Refined Storage: " .. mod)
+    end
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
 end
 function s.RSMonitorOFF(mod, monitor)
-  if #s.rs.monitor[monitor] ~= nil then
-    s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
-    s.rs.monitor[monitor] = ""
-    s.save()
+  if s.rs.monitor[monitor] ~= nil then
+    if s.rs.monitor[monitor] ~= "" then
+        s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="pull", storage=s.rs.monitor[monitor], rsmonitor=monitor},true))
+        s.checkConnection(false)
+    else
+      print("Monitor already OFF")
+    end
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
@@ -70,8 +76,10 @@ end
 function s.registerNetworkCard()
   s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"register"},true))
 end
-function s.checkConnection()
-  s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"check"},true))
+function s.checkConnection(askfor)
+  if askfor == nil or askfor == true then
+    s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"check"},true))
+  end
   local _, localAddress, remoteAddress, port, distance, data = s.mf.event.pull(10, "modem_message")
   if data ~= nil then
     data = s.mf.serial.unserialize(data)
