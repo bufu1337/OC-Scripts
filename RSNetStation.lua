@@ -70,11 +70,13 @@ function s.registerNetworkCard()
 end
 function s.checkConnection()
   s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"check"},true))
-  local _, localAddress, remoteAddress, port, distance, data = s.event.pull(10, "modem_message")
+  local _, localAddress, remoteAddress, port, distance, data = s.mf.event.pull(10, "modem_message")
   if data ~= nil then
-    data = serial.unserialize(data)
+    data = s.mf.serial.unserialize(data)
     s.rs.rstorages = s.mf.copyTable(data.rstorages)
-    s.rs.monitor = s.mf.copyTable(data.monitor)
+    if data.monitor ~= nil then
+      s.rs.monitor = s.mf.combineTables(s.rs.monitor, data.monitor)
+    end
     s.save()
   else
     print("No connection to distributor")
