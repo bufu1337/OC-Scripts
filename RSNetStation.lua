@@ -16,7 +16,9 @@ function s.save()
   end
 end
 function s.addRSMonitors(count)
-  table.insert(s.rs.monitor,"")
+  for i = 1, count, 1 do
+    table.insert(s.rs.monitor,"")
+  end
   s.save()
 end
 function s.removeRSMonitor(num)
