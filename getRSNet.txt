@@ -8,3 +8,6 @@ e0f52e96-33e8-4ddc-b22f-220a17f5c30b
 
 dist = require("RSNetDistributer")
 dist.DistributeNetCard("4a48e5d9-d4e9-463d-8dd5-ae9d9574baa8", {method="pull", storage="minecraft", rsmonitor=1})
+
+s = require("RSNetStation")
+s.RSMonitorOFF("minecraft", 1)
