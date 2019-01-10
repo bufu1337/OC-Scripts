@@ -31,7 +31,7 @@ if rs.distributer == "" then
   print("How many monitors do you have")
   local mc = io.read()
   addRSMonitors(mc)
-  mf.WriteObjectFile(rs, "/home/RSNetSationVars")
+  mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
 end
 
 local function RSMonitorON(mod, monitor)
@@ -47,7 +47,7 @@ local function RSMonitorOFF(mod, monitor)
   if #rs.monitor[monitor] ~= nil then
     m.send(rs.distributer, 478, serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
     rs.monitor[monitor] = ""
-    mf.WriteObjectFile(rs, "/home/RSNetSationVars")
+    mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
