@@ -1,24 +1,29 @@
-local io = require("io")
-local serial = require("serialization")
 local mf = {}
+mf.component = require("component")
+mf.event = require("event")
+mf.io = require("io")
+mf.sides = require("sides")
+mf.os = require("os")
+mf.thread = require("thread")
+mf.serial = require("serialization")
 
-local function WriteObjectFile(object, path)
-    local newLuaFile = io.open(path, "w")
+function mf.WriteObjectFile(object, path)
+    local newLuaFile = mf.io.open(path, "w")
     if type(object) == "table" then
       newLuaFile:write("return ")
-      for i, k in pairs(serial.serializedtable(object, true)) do
+      for i, k in pairs(mf.serial.serializedtable(object, true)) do
         newLuaFile:write(k)
       end
     elseif type(object) == "string" then
-      newLuaFile:write("return " .. serial.serialize(object))
+      newLuaFile:write("return " .. mf.serial.serialize(object))
     else
       newLuaFile:write("return " .. toString(object))
     end    
     newLuaFile:close()
 end
-local function listSubDirsInDir(directory)
+function mf.listSubDirsInDir(directory)
     local i, t = 0, {}
-    local pfile = io.popen('dir "'..directory..'" /b /ad')
+    local pfile = mf.io.popen('dir "'..directory..'" /b /ad')
     for filename in pfile:lines() do
         i = i + 1
         t[i] = filename
@@ -26,9 +31,9 @@ local function listSubDirsInDir(directory)
     pfile:close()
     return t
 end
-local function listFilesInDir(directory)
+function mf.listFilesInDir(directory)
     local i, t, subdirs = 0, {}, listSubDirsInDir(directory)
-    local pfile = io.popen('dir "'..directory..'" /b')
+    local pfile = mf.io.popen('dir "'..directory..'" /b')
     for filename in pfile:lines() do
         if not mf.contains(subdirs, filename) then
           i = i + 1
@@ -38,14 +43,14 @@ local function listFilesInDir(directory)
     pfile:close()
     return t
 end
-local function MathUp(num)
+function mf.MathUp(num)
     local result = math.floor(num)
     if((num - result) > 0)then
       result = result + 1
     end
     return result
 end
-local function contains(ab, element)
+function mf.contains(ab, element)
   for key, value in pairs(ab) do
     if value == element then
       return true
@@ -53,7 +58,7 @@ local function contains(ab, element)
   end
   return false
 end
-local function containsKey(ab, element)
+function mf.containsKey(ab, element)
   for key, value in pairs(ab) do
     if key == element then
       return true
@@ -61,26 +66,26 @@ local function containsKey(ab, element)
   end
   return false
 end
-local function getCount(ab)
+function mf.getCount(ab)
 	local count = 0
 	for i,j in pairs(ab) do
 		count = count + 1
 	end
 	return count
 end
-local function getKeys(ab)
+function mf.getKeys(ab)
 	local keys = {}
 	for k in pairs(ab) do
 		table.insert(keys, k)
 	end
 	return keys
 end
-local function getSortedKeys(ab)
-	local keys = getKeys(ab)
+function mf.getSortedKeys(ab)
+	local keys = mf.getKeys(ab)
 	table.sort(keys)
 	return keys
 end
-local function getIndex(ab, element)
+function mf.getIndex(ab, element)
   for key, value in pairs(ab) do
     if value == element then
       return key
@@ -88,13 +93,13 @@ local function getIndex(ab, element)
   end
   return -1
 end
-local function startswith(ab, str) 
+function mf.startswith(ab, str) 
     return ab:find('^' .. str) ~= nil
 end
-local function endswith(ab, str) 
+function mf.endswith(ab, str) 
     return (ab:sub(#ab - #str + 1) == str)
 end
-local function split(inputstr, sep)
+function mf.split(inputstr, sep)
     if sep == nil then
         sep = "%s"
     end
@@ -105,14 +110,14 @@ local function split(inputstr, sep)
     end
     return t
 end
-local function copyTable(ab)
-  return serial.unserialize(serial.serialize(ab))
+function mf.copyTable(ab)
+  return mf.serial.unserialize(mf.serial.serialize(ab))
 end
-local function combineTables(table1, table2)
+function mf.combineTables(table1, table2)
   for i,j in pairs(table2) do
     if table1[i] ~= nil then
       if type(table1[i]) == "table" and type(j) == "table" then
-        table1[i] = combineTables(table1[i], j)
+        table1[i] = mf.combineTables(table1[i], j)
       else
         table1[i] = j
       end
@@ -124,7 +129,7 @@ local function combineTables(table1, table2)
 end
 local out = {}
 local function w(var, file)
-    io.write(var .. "\n")
+    mf.io.write(var .. "\n")
 end
 local function p(var, file)
     print(var)
@@ -164,32 +169,15 @@ local function x(where, var, file, outline)
     end
 end
 out.x = x
-local function writex(var)
+function mf.writex(var)
 	out.x("w", var)
 end
-local function printx(var)
+function mf.printx(var)
 	out.x("p", var)
 end
-local function filewx(var, file)
+function mf.filewx(var, file)
 	out.x("f", var, file)
 end
-mf.MathUp = MathUp
-mf.contains = contains
-mf.containsKey = containsKey
-mf.getKeys = getKeys
-mf.getSortedKeys = getSortedKeys
-mf.getIndex = getIndex
-mf.getCount = getCount
-mf.startswith = startswith
-mf.split = split
-mf.writex = writex
-mf.printx = printx
-mf.filewx = filewx
-mf.WriteObjectFile = WriteObjectFile
-mf.listSubDirsInDir = listSubDirsInDir
-mf.listFilesInDir = listFilesInDir
-mf.copyTable = copyTable
-mf.combineTables = combineTables
 --local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
 --  local t = serial.serializedtable({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)
 --  local b = serial.serialize({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)

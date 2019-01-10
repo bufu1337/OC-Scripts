@@ -1,78 +1,92 @@
-local c = require("component")
-local event = require("event")
-local io = require("io")
-local sides = require("sides")
-local os = require("os")
-local thread = require("thread")
-local serial = require("serialization")
-local filesystem = require("filesystem")
-local mf = require("MainFunctions")
-if filesystem.exists("/home/RSNetSationVars.lua") == false then
-  mf.WriteObjectFile({distributer="", monitor={}}, "/home/RSNetSationVars.lua")
-end
-local rs = require("RSNetSationVars")
-local m = c.modem
-local station = {}
+local s = {}
+s.c = require("component")
+s.event = require("event")
+s.io = require("io")
+s.sides = require("sides")
+s.os = require("os")
+s.thread = require("thread")
+s.serial = require("serialization")
+s.filesystem = require("filesystem")
+s.mf = require("MainFunctions")
+s.gui = require("GUI")
+s.saving = false
+s.rs = {}
+s.m = c.modem
 
+local varpath = "/home/RSNetSationVars.lua"
 
-local function addRSMonitors(count)
-  local mcount = #rs.monitor
-  for i = (mcount + 1), (count + mcount), 1 do
-    rs.monitor[i] = ""
+function s.save()
+  if s.saving then
+    local rstorages = s.mf.copyTable(s.rs.rstorages)
+    s.rs.rstorages = nil
+    s.mf.WriteObjectFile(s.rs, varpath)
+    s.rs.rstorages = s.mf.copyTable(rstorages)
   end
 end
-local function removeRSMonitor(num)
-  rs.monitor[num] = nil
+function s.addRSMonitors(count)
+  table.insert(s.rs.monitor,"")
+  s.save()
+end
+function s.removeRSMonitor(num)
+  s.rs.monitor[num] = nil
+  s.save()
+end
+function s.setDistributor(dis)
+  s.rs.distributor = dis
+  s.save()
 end
 
-if rs.distributer == "" then
-  print("Please type in the uid of the distributers modem")
-  rs.distributer = io.read()
-  print("How many monitors do you have")
-  local mc = io.read()
-  addRSMonitors(mc)
-  mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
+function s.start()
+  if s.filesystem.exists(varpath) == false then
+    s.mf.WriteObjectFile({distributor="", monitor={}}, varpath)
+  end
+  s.rs = require("RSNetSationVars")
+  if s.rs.distributor == "" then
+    print("Please type in the uid of the distributors modem")
+    s.setDistributor(s.io.read())
+  end
+  if #rs.monitor then
+    print("How many monitors do you have")
+    s.addRSMonitors(s.io.read())
+  end
+  s.m.close(478)
+  s.m.open(478)
+  s.saving = true
+  s.checkConnection()
 end
 
-local function RSMonitorON(mod, monitor)
-  if #rs.monitor[monitor] ~= nil then
-    m.send(rs.distributer, 478, serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
-    rs.monitor[monitor] = mod
-    mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
+function s.RSMonitorON(mod, monitor)
+  if #s.rs.monitor[monitor] ~= nil then
+    s.m.send(s.rs.distributor, 478, s.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
+    s.rs.monitor[monitor] = mod
+    s.save()
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
 end
-local function RSMonitorOFF(mod, monitor)
-  if #rs.monitor[monitor] ~= nil then
-    m.send(rs.distributer, 478, serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
-    rs.monitor[monitor] = ""
-    mf.WriteObjectFile(rs, "/home/RSNetSationVars.lua")
+function s.RSMonitorOFF(mod, monitor)
+  if #s.rs.monitor[monitor] ~= nil then
+    s.m.send(s.rs.distributor, 478, s.serial.serialize({method="pull", storage=mod, rsmonitor=monitor},true))
+    s.rs.monitor[monitor] = ""
+    s.save()
   else
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
 end
-local function registerNetworkCard()
-  m.send(rs.distributer, 478, serial.serialize({register=""},true))
+function s.registerNetworkCard()
+  s.m.send(s.rs.distributor, 478, s.serial.serialize({"register"},true))
 end
-local function checkConnection()
-  m.send(rs.distributer, 478, serial.serialize({check=""},true))
-  local _, localAddress, remoteAddress, port, distance, data = event.pull(10, "modem_message")
+function s.checkConnection()
+  s.m.send(s.rs.distributor, 478, s.serial.serialize({"check"},true))
+  local _, localAddress, remoteAddress, port, distance, data = s.event.pull(10, "modem_message")
   if data ~= nil then
-    if data ~= "ok" then
-      print("Connection to distributer ok")
-    end
+    data = serial.unserialize(data)
+    s.rs.rstorages = s.mf.copyTable(data.rstorages)
+    s.rs.monitor = s.mf.copyTable(data.monitor)
+    s.save()
   else
-    print("No connection to distributer")
+    print("No connection to distributor")
   end
 end
-
-m.close(478)
-m.open(478)
-station.addRSMonitors = addRSMonitors
-station.removeRSMonitor = removeRSMonitor
-station.RSMonitorON = RSMonitorON
-station.RSMonitorOFF = RSMonitorOFF
-station.registerNetworkCard = registerNetworkCard
-station.checkConnection = checkConnection
-return station
+s.start()
+return s
