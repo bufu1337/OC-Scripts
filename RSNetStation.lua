@@ -5,7 +5,7 @@ s.saving = false
 s.rs = {}
 s.m = s.mf.component.modem
 
-local varpath = "/home/RSNetSationVars.lua"
+local varpath = "/home/RSNetStationVars.lua"
 
 function s.save()
   if s.saving then
@@ -32,12 +32,12 @@ function s.start()
   if s.mf.filesystem.exists(varpath) == false then
     s.mf.WriteObjectFile({distributor="", monitor={}}, varpath)
   end
-  s.rs = require("RSNetSationVars")
+  s.rs = require("RSNetStationVars")
   if s.rs.distributor == "" then
     print("Please type in the uid of the distributors modem")
     s.setDistributor(s.mf.io.read())
   end
-  if #rs.monitor then
+  if #s.rs.monitor == 0 then
     print("How many monitors do you have")
     s.addRSMonitors(s.mf.io.read())
   end
