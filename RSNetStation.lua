@@ -7,7 +7,7 @@ local thread = require("thread")
 local serial = require("serialization")
 local filesystem = require("filesystem")
 local mf = require("MainFunctions")
-if filesystem.exists("/home/RSNetSationVars") == false then
+if filesystem.exists("/home/RSNetSationVars.lua") == false then
   mf.WriteObjectFile({distributer="", monitor={}}, "/home/RSNetSationVars.lua")
 end
 local rs = require("RSNetSationVars")
