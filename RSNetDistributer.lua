@@ -234,20 +234,22 @@ save()
 m.close(478)
 m.open(478)
 local listener = thread.create(function()
-  local _, localAddress, remoteAddress, port, distance, data = event.pull("modem_message")
-  print("")
-  print("Received message:")
-  print("From: " .. remoteAddress .. " Port: " .. port)
-  print("Distance: " .. distance)
-  print("Data: " .. data)
-  data = serial.unserialize(data)
-  if mf.containsKey(data, "register") then
-    registerNetworkCard(remoteAddress)
-  elseif mf.containsKey(data, "check") then
-    m.send(remoteAddress, 478, "ok")
-  else
-    DistributeNetCard(remoteAddress, data)
-  end
+    while true do
+      local _, localAddress, remoteAddress, port, distance, data = event.pull("modem_message")
+      print("")
+      print("Received message:")
+      print("From: " .. remoteAddress .. " Port: " .. port)
+      print("Distance: " .. distance)
+      print("Data: " .. data)
+      data = serial.unserialize(data)
+      if mf.containsKey(data, "register") then
+        registerNetworkCard(remoteAddress)
+      elseif mf.containsKey(data, "check") then
+        m.send(remoteAddress, 478, "ok")
+      else
+        DistributeNetCard(remoteAddress, data)
+      end
+    end
 end)
 distributer.registerNetworkCard = registerNetworkCard
 distributer.DistributeNetCard = DistributeNetCard
