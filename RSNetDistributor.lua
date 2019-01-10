@@ -73,7 +73,7 @@ function dis.DistributeNetCard(remoteAddress, data)
         for i,j in pairs(dis.rs.rorder) do
           if b[j] == id then
             print("Network-Card found at: " .. a .. "(" .. j .. ") --- Pulling")
-            dis.DistributeNetCard(dis.rs.netcards[id].net, {method="pull", storage=b, rsmonitor=dis.rs.netcards[id].rsmonitor})
+            dis.DistributeNetCard(dis.rs.netcards[id].net, {method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor})
             found = true
             break
           end
