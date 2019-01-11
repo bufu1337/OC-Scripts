@@ -1,93 +1,120 @@
-local t = {}
-t.gui = require("GUI")
-t.mf = require("MainFunctions")
-t.rs = require("rstorages")
+local s = {}
+s.gui = require("GUI")
+s.mf = require("MainFunctions")
+s.rs = require("rstorages")
+s.status = ""
+s.app = s.gui.application()
 
-t.app = t.gui.application()
-t.app:addChild(t.gui.panel(1, 1, t.app.width, t.app.height, 0x2D2D2D))
-
-t.buttons = {}
-t.buttons.confirm = t.app:addChild(t.gui.roundedButton(70, 31, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
-t.buttons.confirm.disabled = true
-t.buttons.confirm.onTouch = function()
+function s.Draw_GUI() 
+  s.app:removeChildren()
+  s.app:addChild(s.gui.panel(1, 1, s.app.width, s.app.height, 0x2D2D2D))
   
-end
-t.buttons.off = t.app:addChild(t.gui.roundedButton(70, 35, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Turn off monitor"))
-t.buttons.off.disabled = true
-t.buttons.off.onTouch = function()
+  s.text.rs = s.app:addChild(s.gui.text(88, 26, 0xFFFFFF, "Selected Storage:"))
+  s.text.desc = s.app:addChild(s.gui.text(88, 27, 0xFFFFFF, "")) --Description:
+  s.text.desc2 = s.app:addChild(s.gui.text(88, 28, 0xFFFFFF, ""))
+  s.text.m = s.app:addChild(s.gui.text(121, 32, 0xFFFFFF, "Selected Monitor"))
+  s.text.m2 = s.app:addChild(s.gui.text(121, 33, 0xFFFFFF, ""))
+  s.text.act = s.app:addChild(s.gui.text(121, 37, 0xFFFFFF, "Action:"))
+  s.text.act2 = s.app:addChild(s.gui.text(121, 38, 0xFFFFFF, "No action possible"))
+  s.text.add = s.app:addChild(s.gui.text(88, 3, 0xFFFFFF, "Add Monitors:"))
+  s.text.remove = s.app:addChild(s.gui.text(126, 3, 0xFFFFFF, "Remove Monitors:"))
+  s.text.dis = s.app:addChild(s.gui.text(88, 10, 0xFFFFFF, "Distributor:"))
   
-end
-t.buttons.register = t.app:addChild(t.gui.roundedButton(70, 39, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Register NetCard"))
-t.buttons.register.onTouch = function()
+  s.buttons = {}
+  s.buttons.restoredis = s.app:addChild(s.gui.roundedButton(88, 10, 15, 1, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
+  s.buttons.restoredis.onTouch = function()
+    
+  end
+  s.buttons.off = s.app:addChild(s.gui.roundedButton(88, 32, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Turn off monitor"))
+  s.buttons.off.onTouch = function()
+    
+  end
+  s.buttons.confirm = s.app:addChild(s.gui.roundedButton(88, 37, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
+  s.buttons.confirm.onTouch = function()
+    
+  end
+  s.buttons.register = s.app:addChild(s.gui.roundedButton(120, 42, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Register NetCard"))
+  s.buttons.register.onTouch = function()
+    
+  end
+  s.buttons.check = s.app:addChild(s.gui.roundedButton(98, 42, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
+  s.buttons.check.onTouch = function()
+    
+  end
+  s.buttons.exit = s.app:addChild(s.gui.roundedButton(112, 47, 23, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
+  s.buttons.exit.onTouch = function()
+    s.app:draw(false)
+    s.app:stop()
+    s.mf.os.execute("clear")
+  end
+  s.buttons.addplus = s.app:addChild(s.gui.roundedButton(116, 2, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
+  s.buttons.addplus.onTouch = function()
+    
+  end
+  s.buttons.addminus = s.app:addChild(s.gui.roundedButton(116, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
+  s.buttons.addminus.onTouch = function()
+    
+  end
+  s.buttons.removeplus = s.app:addChild(s.gui.roundedButton(154, 2, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
+  s.buttons.removeplus.onTouch = function()
+    
+  end
+  s.buttons.removeminus = s.app:addChild(s.gui.roundedButton(154, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
+  s.buttons.removeminus.onTouch = function()
+    
+  end
   
-end
-t.buttons.check = t.app:addChild(t.gui.roundedButton(70, 43, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
-t.buttons.check.onTouch = function()
+  s.inputs = {}
+  s.inputs.add = s.app:addChild(s.gui.input(110, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
+  s.inputs.add .onInputFinished = function()
   
-end
-t.buttons.exit = t.app:addChild(t.gui.roundedButton(70, 47, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
-t.buttons.exit.onTouch = function()
-  t.app:draw(false)
-  t.app:stop()
-  t.mf.os.execute("clear")
-end
-t.buttons.addplus = t.app:addChild(t.gui.roundedButton(96, 2, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
-t.buttons.addplus.onTouch = function()
+  end
+  s.inputs.remove = s.app:addChild(s.gui.input(148, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
+  s.inputs.remove .onInputFinished = function()
   
-end
-t.buttons.addminus = t.app:addChild(t.gui.roundedButton(96, 4, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
-t.buttons.addminus.onTouch = function()
+  end
+  s.inputs.dis = s.app:addChild(s.gui.input(88, 13, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "", "Distributor UID"))
+  s.inputs.dis .onInputFinished = function()
   
+  end
+  
+  local bc = s.mf.getCount(s.rs.rstorages)
+  local bb = math.floor(50 / bc)
+  local by = math.floor(50 - (bb * bc)) + 1
+  s.list.rs = s.app:addChild(s.gui.list(3, by, 40, (bb * bc), bb, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  for i,j in pairs(s.mf.getSortedKeys(s.rs.rstorages)) do
+    s.list.rs:addItem(j).onTouch = function()
+      s.text.rs.text = "Selected Storage: " .. tostring(s.list.rs:getItem(s.list.rs.selectedItem).text)
+    end
+  end
+  
+  bc = s.mf.getCount(s.rs.monitor)
+  bb = math.floor(50 / bc)
+  by = math.floor(50 - (bb * bc)) + 1
+  s.list.m = s.app:addChild(s.gui.list(45, by, 40, (bb * bc), bb, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  for i,j in pairs(s.rs.monitor) do
+    local txt= "RS Monitor " .. i
+    if j ~= "" then
+      txt = txt .. " (" .. j .. ")"
+    end
+    s.list.m:addItem(txt).onTouch = function()
+      s.text.m2.text = tostring(s.list.m:getItem(s.list.m.selectedItem).text)
+    end
+  end
 end
-
-t.inputs = {}
-t.inputs.add = t.app:addChild(t.gui.input(85, 3, 10, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
-t.inputs.add .onInputFinished = function()
-
-end
-t.inputs.remove = t.app:addChild(t.gui.input(85, 8, 10, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
-t.inputs.remove .onInputFinished = function()
-
-end
-t.inputs.dis = t.app:addChild(t.gui.input(120, 12, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "", "Distributor UID"))
-t.inputs.dis .onInputFinished = function()
-
-end
-
-t.rstxt = t.app:addChild(t.gui.text(70, 17, 0xFFFFFF, "Selected Storage:"))
-t.rstxt2 = t.app:addChild(t.gui.text(70, 18, 0xFFFFFF, ""))
-t.mtxt = t.app:addChild(t.gui.text(70, 23, 0xFFFFFF, "Selected Monitor"))
-t.mtxt2 = t.app:addChild(t.gui.text(70, 24, 0xFFFFFF, ""))
-t.desctxt = t.app:addChild(t.gui.text(70, 20, 0xFFFFFF, "Description:"))
-t.desctxt2 = t.app:addChild(t.gui.text(70, 21, 0xFFFFFF, ""))
-t.acttxt = t.app:addChild(t.gui.text(70, 26, 0xFFFFFF, "Action:"))
-t.acttxt2 = t.app:addChild(t.gui.text(70, 27, 0xFFFFFF, "No action possible"))
-
-local bc = t.mf.getCount(t.rs.rstorages)
-local bb = math.floor(50 / bc)
-local by = math.floor(50 - (bb * bc)) + 1
-t.rsList = t.app:addChild(t.gui.list(3, by, 20, (bb * bc), bb, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
-for i,j in pairs(t.mf.getSortedKeys(t.rs.rstorages)) do
-  t.rsList:addItem(j).onTouch = function()
-    t.rstxt2.text = tostring(t.rsList:getItem(t.rsList.selectedItem).text)
+function s.check(set)
+  if s.status == "check" then
+    for a,b in pairs({"buttons", "inputs", "list", "text"}) do
+      for c,d in pairs(s[b]) do
+        s.buttons.confirm.disabled = true
+      end
+    end
+  elseif s.status == "check" then
+    s.buttons.confirm.disabled = false
   end
 end
 
-bc = t.mf.getCount(t.rs.monitor)
-bb = math.floor(50 / bc)
-by = math.floor(50 - (bb * bc)) + 1
-t.mList = t.app:addChild(t.gui.list(25, by, 40, (bb * bc), bb, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
-for i = 1, #t.rs.monitor, 1 do
-  local mtxt = "RS Monitor " .. i
-  if t.rs.monitor[i] ~= "" then
-    mtxt = mtxt .. " (" .. t.rs.monitor[i] .. ")"
-  end
-  t.mList:addItem(mtxt).onTouch = function()
-    t.mtxt2.text = tostring(t.mList:getItem(t.mList.selectedItem).text)
-  end
-end
+s.app:draw(true)
+s.app:start()
 
-t.app:draw(true)
-t.app:start()
-
-return t
+return s
