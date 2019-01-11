@@ -61,7 +61,7 @@ function s.RSMonitorON(mod, monitor)
     print("Monitor not found. Try the method addRSMonitors(count).")
   end
 end
-function s.RSMonitorOFF(mod, monitor)
+function s.RSMonitorOFF(monitor)
   if s.rs.monitor[monitor] ~= nil then
     if s.rs.monitor[monitor] ~= "" then
         s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="pull", storage=s.rs.monitor[monitor], rsmonitor=monitor},true))
