@@ -22,7 +22,7 @@ function s.Draw_GUI()
   s.text.m2 = s.app:addChild(s.gui.text(121, 32, 0xFFFFFF, ""))
   s.text.act = s.app:addChild(s.gui.text(88, 37, 0xFFFFFF, "Action:"))
   s.text.act2 = s.app:addChild(s.gui.text(88, 38, 0xFFFFFF, "No action possible"))
-  s.text.act2 = s.app:addChild(s.gui.text(88, 38, 0xFFFFFF, "No action possible"))
+  s.text.status = s.app:addChild(s.gui.text(88, 46, 0xFFFFFF, "Status: "))
   s.text.add = s.app:addChild(s.gui.text(88, 5, 0xFFFFFF, "Add Monitors:"))
   s.text.dis = s.app:addChild(s.gui.text(88, 13, 0xFFFFFF, "Distributor UID:"))
   
@@ -133,7 +133,7 @@ function s.check()
     s.buttons.check.disabled = false
     s.text.act.disabled = false
     s.text.act2.disabled = false
-    s.text.status.text = "No connection to distributor. Please Check!"
+    s.text.status.text = "Status: No connection to distributor. Please Check!"
   else
     for a,b in pairs({"buttons", "inputs", "list", "text"}) do
       for c,d in pairs(s[b]) do
