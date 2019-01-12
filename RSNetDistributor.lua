@@ -17,34 +17,51 @@ local function storeNetworkCard(side, sourceslot, slot)
 end
 function dis.RegisterNetCard(netid)
   local cards = {}
+  local returning = {}
   for i = 1, 27, 1 do
     if tp_net.getStackInSlot(dis.mf.sides[dis.rs.storingside], i) ~= nil then
-      cards[(#cards + 1)] = i
+      local temp = 1
+      for a,b in pairs(dis.rs.netcards) do
+        if b.net == netid and b.rsmonitor >= temp then
+          temp = b.rsmonitor + 1
+        end
+      end
+      cards[(#cards + 1)] = temp
     end
   end
   if #cards == 0 then
-    print("Put a linked Network-Card into the chest for storing.")
+    --"Put a linked Network-Card into the chest for storing."
   else
     if netid ~= "" then
+      returning = "Network-Cards registered: "
       for g,h in pairs(cards) do
         local id = -1
         local netside = ""
+        local b = 1
         for i = 1, #dis.rs.netsides_order, 1 do
           if dis.rs.netsides[dis.rs.netsides_order[i]].size ~= -1 and dis.rs.netsides[dis.rs.netsides_order[i]].next <= dis.rs.netsides[dis.rs.netsides_order[i]].size then
             id = dis.rs.netsides[dis.rs.netsides_order[i]].next + ((i - 1) * dis.rs.netsides[dis.rs.netsides_order[i]].size)
             netside = dis.rs.netsides_order[i]
+            b = i
             break
           end
         end
         if id ~= -1 then
           dis.rs.netcards[id] = {net=netid, rsmonitor=h, side=netside, slot=dis.rs.netsides[netside].next}
-          dis.rs.netsides[netside].next = dis.rs.netsides[netside].next + 1
+          for i = 1, dis.rs.netsides[netside].size, 1 do
+            if dis.rs.netcards[i + ((b - 1) * dis.rs.netsides[netside].size)] == nil then
+              dis.rs.netsides[netside].next = i
+              break
+            end
+          end
+          table.insert(returning, h)
           storeNetworkCard(dis.rs.netcards[id].side, h, dis.rs.netcards[id].slot)
           dis.save()
         end
       end
     end
   end
+  m.send(remoteAddress, 478, dis.mf.serial.serialize(returning))
 end
 
 function dis.StationCheck(remoteAddress)
@@ -54,6 +71,7 @@ function dis.StationCheck(remoteAddress)
   for i,j in pairs(dis.rs.netcards) do
     if j.net == remoteAddress then
       table.insert(cards,i)
+      station_message.monitor[dis.rs.netcards[i].rsmonitor] = ""
     end
   end
   for a,b in pairs(dis.rs.rstorages) do
@@ -147,7 +165,11 @@ function dis.DistributeNetCard(remoteAddress, data)
       
       --signal rftools-processor to distribute the Network-Card
       red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
-      red.setOutput(dis.mf.sides[dis.rs.redstone], 15)
+      if data.removing ~= nil then
+        red.setOutput(dis.mf.sides[dis.rs.redstone], 1)
+      else
+        red.setOutput(dis.mf.sides[dis.rs.redstone], 15)
+      end
       dis.mf.os.sleep(1)
       --wait until the Network-Card is no longer in the Network-storage-chest
       while tp_net.getStackInSlot(dis.mf.sides[dis.rs.netcards[id].side], dis.rs.netcards[id].slot) ~= nil and timeout < dis.distime do
@@ -171,7 +193,11 @@ function dis.DistributeNetCard(remoteAddress, data)
 
       --set variables
       if timeout ~= dis.distime then
-        dis.rs.rstorages[data.storage][dis.rs.rorder[freenetslot]] = id
+        if data.removing ~= nil then
+          dis.rs.netcards[id] = nil
+        else
+          dis.rs.rstorages[data.storage][dis.rs.rorder[freenetslot]] = id
+        end
         dis.save()
       end
       dis.StationCheck(remoteAddress)

@@ -48,22 +48,39 @@ function s.Draw_GUI()
   s.buttons.confirm = s.app:addChild(s.gui.roundedButton(88, 40, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
   s.buttons.confirm.onTouch = function()
     if s.status == "add" then
-      s.addRSMonitors(tonumber(s.inputs.add.text))
       if s.itemselect.reg then
+        s.text.status.text = "Status: Registering Network-Cards and adding monitors"
+        s.text.act2.text = "No action possible"
+        s.buttons.confirm.disabled = true
         s.registerNetworkCards()
+        s.checkConnection()
+      else
+        s.text.status.text = "Status: Adding monitors"
+        s.addRSMonitors(tonumber(s.inputs.add.text))
       end
     elseif s.status == "remove" then
-      s.removeRSMonitor(s.inputs.remove.text)
+      s.text.status.text = "Status: Removing Monitor " .. s.text.m2.text:sub(12,12) .. "."
+      s.text.act2.text = "No action possible"
+      s.buttons.confirm.disabled = true
+      s.removeRSMonitor(tonumber(s.inputs.remove.text))
     elseif s.status == "dis" then
       s.setDistributor(s.inputs.dis.text)
+      s.checkConnection()
     elseif s.status == "turnON" then
-      s.RSMonitorON(s.text.rs.text:sub(19), s.text.m2.text:sub(12,12))
+      s.text.status.text = "Status: Turning ON Monitor " .. s.text.m2.text:sub(12,12) .. " with " .. s.text.rs.text:sub(19) .."."
+      s.text.act2.text = "No action possible"
+      s.buttons.confirm.disabled = true
+      s.RSMonitorON(s.text.rs.text:sub(19), tonumber(s.text.m2.text:sub(12,12)))
     elseif s.status == "turnOFF" then
-      s.RSMonitorOFF(s.text.m2.text:sub(12,12))
+      s.text.status.text = "Status: Turning ON Monitor " .. s.text.m2.text:sub(12,12) .. " with " .. s.text.rs.text:sub(19) .."."
+      s.text.act2.text = "No action possible"
+      s.buttons.confirm.disabled = true
+      s.RSMonitorOFF(tonumber(s.text.m2.text:sub(12,12)))
     end
   end
   s.buttons.check = s.app:addChild(s.gui.roundedButton(95, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
   s.buttons.check.onTouch = function()
+    s.text.status.text = "Status: Checking Connection"
     s.checkConnection(true)
   end
   s.buttons.exit = s.app:addChild(s.gui.roundedButton(124, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
@@ -173,7 +190,7 @@ function s.check()
       s.text.act2.text = "Change distributor UID. Please confirm!"
       s.buttons.confirm.disabled = false
     else
-      s.text.act2.text = "No action available!"
+      s.text.act2.text = "No action possible"
     end
   else
     for a,b in pairs({"buttons", "inputs", "list", "text"}) do
@@ -249,9 +266,9 @@ function s.addRSMonitors(count)
   end
   s.save()
 end
-function s.removeRSMonitor(num)
-  s.rs.monitor[num] = nil
-  s.save()
+function s.removeRSMonitor(monitor)
+  s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="push", storage=mod, rsmonitor=monitor, removing=true},true))
+  s.checkConnection(false)
 end
 function s.setDistributor(dis)
   s.rs.distributor = dis
@@ -285,10 +302,10 @@ function s.RSMonitorON(mod, monitor)
         s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="push", storage=mod, rsmonitor=monitor},true))
         s.checkConnection(false)
     else
-      print("Monitor already showing Refined Storage: " .. mod)
+      s.text.status.text = "Monitor already showing Refined Storage: " .. mod
     end
   else
-    print("Monitor not found. Try the method addRSMonitors(count).")
+    s.text.status.text = "Monitor not found. Try the method addRSMonitors(count)."
   end
 end
 function s.RSMonitorOFF(monitor)
@@ -297,14 +314,19 @@ function s.RSMonitorOFF(monitor)
         s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({method="pull", storage=s.rs.monitor[monitor], rsmonitor=monitor},true))
         s.checkConnection(false)
     else
-      print("Monitor already OFF")
+      s.text.status.text = "Monitor already OFF"
     end
   else
-    print("Monitor not found. Try the method addRSMonitors(count).")
+    s.text.status.text = "Monitor not found. Try the method addRSMonitors(count)."
   end
 end
 function s.registerNetworkCards()
   s.m.send(s.rs.distributor, 478, s.mf.serial.serialize({"register"},true))
+  local _, localAddress, remoteAddress, port, distance, data = s.mf.event.pull(10, "modem_message")
+  if data ~= nil then
+    data = s.mf.serial.unserialize(data)
+    s.addRSMonitors(#data)
+  end
 end
 function s.checkConnection(askfor)
   if s.timer ~= nil then
@@ -322,6 +344,7 @@ function s.checkConnection(askfor)
     end
     s.save()
     s.statusc = ""
+    s.timercount = 30
     s.timer = s.mf.event.timer(1, function()
       s.timercount = s.timercount - 1
       if s.text ~= nil then
@@ -331,14 +354,14 @@ function s.checkConnection(askfor)
       end
       if s.timercount == 0 then
         s.statusc = "check"
-        s.timercount = 30
         s.check()
       end
     end, 30)
   else
     s.statusc = "check"
   end
-    s.Draw_GUI()
+  s.Draw_GUI()
+  s.text.status.text = "Status: Idle"
 end
 s.start()
 return s
