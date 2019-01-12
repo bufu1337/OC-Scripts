@@ -5,8 +5,9 @@ s.saving = false
 s.rs = {}
 s.m = s.mf.component.modem
 s.status = ""
-s.itemselect = {r=1, m=1}
-s.focus = ""
+s.statusc = ""
+s.timercount = 30
+s.itemselect = {r=1, m=1, reg=true}
 s.app = s.gui.application()
 local varpath = "/home/RSNetStationVars.lua"
 
@@ -15,45 +16,52 @@ function s.Draw_GUI()
   s.app:addChild(s.gui.panel(1, 1, s.app.width, s.app.height, 0x2D2D2D))
   
   s.text = {}
-  s.text.rs = s.app:addChild(s.gui.text(88, 26, 0xFFFFFF, "Selected Storage:"))
-  s.text.desc = s.app:addChild(s.gui.text(88, 27, 0xFFFFFF, "")) --Description:
-  s.text.desc2 = s.app:addChild(s.gui.text(88, 28, 0xFFFFFF, ""))
-  s.text.m = s.app:addChild(s.gui.text(121, 31, 0xFFFFFF, "Selected Monitor"))
-  s.text.m2 = s.app:addChild(s.gui.text(121, 32, 0xFFFFFF, ""))
+  s.text.rs = s.app:addChild(s.gui.text(88, 24, 0xFFFFFF, "Selected Storage:"))
+  s.text.desc = s.app:addChild(s.gui.text(88, 25, 0xFFFFFF, "")) --Description:
+  s.text.desc2 = s.app:addChild(s.gui.text(88, 26, 0xFFFFFF, ""))
+  s.text.m = s.app:addChild(s.gui.text(121, 30, 0xFFFFFF, "Selected Monitor"))
+  s.text.m2 = s.app:addChild(s.gui.text(121, 31, 0xFFFFFF, ""))
   s.text.act = s.app:addChild(s.gui.text(88, 37, 0xFFFFFF, "Action:"))
   s.text.act2 = s.app:addChild(s.gui.text(88, 38, 0xFFFFFF, "No action possible"))
   s.text.status = s.app:addChild(s.gui.text(88, 46, 0xFFFFFF, "Status: "))
+  s.text.times = s.app:addChild(s.gui.text(90, 48, 0xFFFFFF, tostring(s.timercount)))
   s.text.add = s.app:addChild(s.gui.text(88, 5, 0xFFFFFF, "Add Monitors:"))
   s.text.dis = s.app:addChild(s.gui.text(88, 14, 0xFFFFFF, "Distributor UID:"))
   
+  
+
   s.buttons = {}
   s.buttons.restoredis = s.app:addChild(s.gui.roundedButton(147, 13, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
   s.buttons.restoredis.onTouch = function()
-    s.focus = "turnON"
+    s.status = "turnON"
     s.inputs.dis = s.rs.distributor
     s.check()
   end
   s.buttons.off = s.app:addChild(s.gui.roundedButton(88, 28, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Turn off monitor"))
   s.buttons.off.onTouch = function()
-    s.RSMonitorOFF(s.text.m2.text:sub(12,12))
+    s.status = "turnOFF"
+    s.check()
   end
   s.buttons.removeplus = s.app:addChild(s.gui.roundedButton(88, 32, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Remove Monitor"))
   s.buttons.removeplus.onTouch = function()
-    s.focus = "remove"
+    s.status = "remove"
     s.check()
   end
-  s.buttons.confirm = s.app:addChild(s.gui.roundedButton(888, 40, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
+  s.buttons.confirm = s.app:addChild(s.gui.roundedButton(88, 40, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
   s.buttons.confirm.onTouch = function()
-    if s.focus == "add" then
-      
-    elseif s.focus == "remove" then
+    if s.status == "add" then
+      s.addRSMonitors(tonumber(s.inputs.add.text))
+      if s.itemselect.reg then
+        s.registerNetworkCards()
+      end
+    elseif s.status == "remove" then
       s.removeRSMonitor(s.inputs.remove.text)
-    elseif s.focus == "dis" then
-    
-    elseif s.focus == "turnON" then
-    
-    elseif s.focus == "turnOFF" then
-        
+    elseif s.status == "dis" then
+      s.setDistributor(s.inputs.dis.text)
+    elseif s.status == "turnON" then
+      s.RSMonitorON(s.text.rs.text:sub(19), s.text.m2.text:sub(12,12))
+    elseif s.status == "turnOFF" then
+      s.RSMonitorOFF(s.text.m2.text:sub(12,12))
     end
   end
   s.buttons.check = s.app:addChild(s.gui.roundedButton(95, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
@@ -64,28 +72,49 @@ function s.Draw_GUI()
   s.buttons.exit.onTouch = function()
     s.app:draw(false)
     s.app:stop()
-    s.mf.os.execute("reboot")
+    s.mf.os.execute("clear")
+    s.mf.os.execute("clear")
   end
-  s.buttons.addplus = s.app:addChild(s.gui.roundedButton(111, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
+  s.buttons.addplus = s.app:addChild(s.gui.roundedButton(111, 4, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
   s.buttons.addplus.onTouch = function()
-    s.focus = "add"
+    local temp = tonumber(s.inputs.add.text)
+    if temp == nil or ((27 - #s.rs.monitor) == temp) then
+      s.inputs.add.text = "1"
+    else
+      s.inputs.add.text = tostring(temp + 1)
+    end
+    s.status = "add"
     s.check()
   end
-  s.buttons.addminus = s.app:addChild(s.gui.roundedButton(115, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
+  s.buttons.addminus = s.app:addChild(s.gui.roundedButton(115, 4, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
   s.buttons.addminus.onTouch = function()
-    s.focus = "add"
+    local temp = tonumber(s.inputs.add.text)
+    if temp == nil then
+      s.inputs.add.text = "1"
+    elseif temp == 1 then
+      s.inputs.add.text = "27"
+    else
+      s.inputs.add.text = tostring(temp - 1)
+    end
+    s.status = "add"
     s.check()
   end
   
   s.inputs = {}
   s.inputs.add = s.app:addChild(s.gui.input(105, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
   s.inputs.add.onInputFinished = function()
-    s.focus = "add"
+    s.status = "add"
     s.check()
   end
+  s.inputs.addreg = s.app:addChild(s.gui.switchAndLabel(120, 5, 28, 6, 0x66DB80, 0x1D1D1D, 0xFFFFFF, "Register:", s.itemselect.reg))
+  s.inputs.addreg.switch.onStateChanged = function(state)
+      s.itemselect.reg = state
+      s.status = "add"
+      s.check()
+    end
   s.inputs.dis = s.app:addChild(s.gui.input(105, 13, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, s.rs.distributor, "Distributor UID"))
   s.inputs.dis.onInputFinished = function()
-    s.focus = "dis"
+    s.status = "dis"
     s.check()
   end
   
@@ -119,11 +148,11 @@ function s.Draw_GUI()
   end
   s.list.m.selectedItem = s.itemselect.m
   s.text.m2.text = tostring(s.list.m:getItem(s.list.m.selectedItem).text)
-  s.focus = "turnON"
+  s.status = "turnON"
   s.check()
 end
 function s.check()
-  if s.status == "check" then
+  if s.statusc == "check" then
     for a,b in pairs({"buttons", "inputs", "list", "text"}) do
       for c,d in pairs(s[b]) do
         s[b][c].disabled = true
@@ -134,6 +163,12 @@ function s.check()
     s.text.act.disabled = false
     s.text.act2.disabled = false
     s.text.status.text = "Status: No connection to distributor. Please Check!"
+    if s.status == dis and s.inputs.dis.text ~= s.rs.distributor then
+      s.text.act2.text = "Change distributor UID. Please confirm!"
+      s.buttons.confirm.disabled = false
+    else
+      s.text.act2.text = "No action available!"
+    end
   else
     for a,b in pairs({"buttons", "inputs", "list", "text"}) do
       for c,d in pairs(s[b]) do
@@ -141,24 +176,28 @@ function s.check()
       end
     end
     s.text.act2.text = "No action available!"
-    s.text.status.text = ""
+    s.text.status.text = "Status: Idle"
     
-    if s.inputs.dis == s.rs.distributor then
+    if s.inputs.dis.text == s.rs.distributor then
       s.buttons.restore.disabled = true
     end
     if #s.text.m2.text == 12 then
       s.buttons.off.disabled = true
     end
     
-    if s.focus == "add" then
+    if s.status == "add" then
       local temp = tonumber(s.inputs.add.text)
       if temp == nil then
         s.text.act2.text = "Cant add monitors! Give in a number!"
         s.buttons.confirm.disabled = true
       else
-        s.text.act2.text = "Add " .. temp .. " monitors. Please transfer Network-Cards\ninto Distributors chest and press confirm!"
+        if s.itemselect.reg then
+          s.text.act2.text = "Add " .. temp .. " monitors. Please transfer Network-Cards and press confirm!"
+        else
+          s.text.act2.text = "Add " .. temp .. " monitors. Please confirm! Please register Network-Cards at Dis."
+        end
       end
-    elseif s.focus == "remove" then
+    elseif s.status == "remove" then
       local temp = tonumber(s.inputs.add.text)
       if temp == nil then
         s.text.act2.text = "Cant remove monitor! Give in a number!"
@@ -169,11 +208,17 @@ function s.check()
       else
         s.text.act2.text = "Remove monitor " .. temp .. ". Please confirm!"
       end
-    elseif s.focus == "dis" then
+    elseif s.status == "dis" then
       if s.inputs.dis.text == s.rs.distributor then
         s.buttons.confirm.disabled = true  
+      else
+        s.text.act2.text = "Change distributor UID. Please confirm!"
       end
-    elseif s.focus == "turnON" then
+    elseif s.status == "turnON" then
+      if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)] then
+        s.buttons.confirm.disabled = true
+      end
+    elseif s.status == "turnOFF" then
       if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)] then
         s.buttons.confirm.disabled = true
       end
@@ -269,14 +314,15 @@ function s.checkConnection(askfor)
       s.rs.monitor = s.mf.combineTables(s.rs.monitor, data.monitor)
     end
     s.save()
-    s.status = ""
+    s.statusc = ""
     s.Draw_GUI()
-    s.timer = s.mf.event.timer(30, function()
-      s.status = "check"
+    s.timer = s.mf.event.timer(1, function()
+      s.timercount = s.timercount + 1
+      s.statusc = "check"
       s.check()
-    end, 1)
+    end, 30)
   else
-    s.status = "check"
+    s.statusc = "check"
   end
 end
 s.start()
