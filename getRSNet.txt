@@ -2,8 +2,8 @@ wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/MainFunctio
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetDistributor.lua /home/RSNetDistributor.lua
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetComponents.lua /home/RSNetComponents.lua
 wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/serialization.lua /lib/serialization.lua
-wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetStation.lua /home/RSNetStation.lua
-wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/GUI-test.lua /home/GUI-test.lua
+wget -f "https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/RSNetStation.lua?1" /home/RSNetStation.lua
+wget -f "https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/GUI-test.lua?1" /home/GUI-test.lua
 
 e0f52e96-33e8-4ddc-b22f-220a17f5c30b
 

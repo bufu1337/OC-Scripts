@@ -161,23 +161,27 @@ function s.check()
         s.text.act2.text = "Cant add monitors! Give in a number!"
         s.buttons.confirm.disabled = true
       else
-        s.text.act2.text = "Add " .. temp .. " monitors. Please confirm!"
+        s.text.act2.text = "Add " .. temp .. " monitors. Please transfer Network-Cards\ninto Distributors chest and press confirm!"
       end
     elseif s.focus == "remove" then
       local temp = tonumber(s.inputs.add.text)
       if temp == nil then
         s.text.act2.text = "Cant remove monitor! Give in a number!"
         s.buttons.confirm.disabled = true
-      elseif temp == nil then
+      elseif s.rs.monitor[temp] == nil then
         s.text.act2.text = "Cant remove monitor! Monitor does not exist!"
         s.buttons.confirm.disabled = true
       else
         s.text.act2.text = "Remove monitor " .. temp .. ". Please confirm!"
       end
     elseif s.focus == "dis" then
-    
+      if s.inputs.dis.text == s.rs.distributor then
+        s.buttons.confirm.disabled = true  
+      end
     elseif s.focus == "turnON" then
-    
+      if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)]
+        s.buttons.confirm.disabled = true
+      end
     else
       s.buttons.confirm.disabled = true
     end
