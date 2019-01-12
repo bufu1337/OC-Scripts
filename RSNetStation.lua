@@ -104,7 +104,7 @@ function s.Draw_GUI()
     s.status = "add"
     s.check()
   end
-  s.inputs.addreg = s.app:addChild(s.gui.switchAndLabel(120, 5, 28, 6, 0x66DB80, 0x1D1D1D, 0xFFFFFF, "Register:", s.itemselect.reg))
+  s.inputs.addreg = s.app:addChild(s.gui.switchAndLabel(120, 5, 18, 6, 0x66DB80, 0x1D1D1D, 0xFFFFFF, 0xFFFFFF, "Register:", s.itemselect.reg))
   s.inputs.addreg.switch.onStateChanged = function(state)
       s.itemselect.reg = state
       s.status = "add"
@@ -125,6 +125,8 @@ function s.Draw_GUI()
     s.list.rs:addItem(j).onTouch = function()
       s.itemselect.r = s.list.rs.selectedItem
       s.text.rs.text = "Selected Storage: " .. tostring(s.list.rs:getItem(s.list.rs.selectedItem).text)
+      s.status = "turnON"
+      s.check()
     end
   end
   s.list.rs.selectedItem = s.itemselect.r
@@ -142,6 +144,8 @@ function s.Draw_GUI()
     s.list.m:addItem(txt).onTouch = function()
       s.itemselect.m = s.list.m.selectedItem
       s.text.m2.text = tostring(s.list.m:getItem(s.list.m.selectedItem).text)
+      s.status = "turnON"
+      s.check()
     end
   end
   s.list.m.selectedItem = s.itemselect.m
@@ -158,9 +162,13 @@ function s.check()
     end
     s.buttons.exit.disabled = false
     s.buttons.check.disabled = false
+    s.inputs.dis.disabled = false
     s.text.act.disabled = false
     s.text.act2.disabled = false
     s.text.status.text = "Status: No connection to distributor. Please Check!"
+    if s.inputs.dis.text ~= s.rs.distributor then
+      s.buttons.restore.disabled = false
+    end
     if s.status == dis and s.inputs.dis.text ~= s.rs.distributor then
       s.text.act2.text = "Change distributor UID. Please confirm!"
       s.buttons.confirm.disabled = false
@@ -215,10 +223,14 @@ function s.check()
     elseif s.status == "turnON" then
       if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)] then
         s.buttons.confirm.disabled = true
+      else
+        s.text.act2.text = "Turn ON Monitor " .. s.text.m2.text:sub(12,12) .. " with " .. s.text.rs.text:sub(19) ..". Please confirm!"
       end
     elseif s.status == "turnOFF" then
       if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)] then
         s.buttons.confirm.disabled = true
+      else
+        s.text.act2.text = "Turn OFF Monitor " .. s.text.m2.text:sub(12,12) ..". Please confirm!"
       end
     else
       s.buttons.confirm.disabled = true
