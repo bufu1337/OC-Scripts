@@ -24,10 +24,10 @@ function s.Draw_GUI()
   s.text.act2 = s.app:addChild(s.gui.text(88, 38, 0xFFFFFF, "No action possible"))
   s.text.status = s.app:addChild(s.gui.text(88, 46, 0xFFFFFF, "Status: "))
   s.text.add = s.app:addChild(s.gui.text(88, 5, 0xFFFFFF, "Add Monitors:"))
-  s.text.dis = s.app:addChild(s.gui.text(88, 13, 0xFFFFFF, "Distributor UID:"))
+  s.text.dis = s.app:addChild(s.gui.text(88, 14, 0xFFFFFF, "Distributor UID:"))
   
   s.buttons = {}
-  s.buttons.restoredis = s.app:addChild(s.gui.roundedButton(150, 13, 15, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
+  s.buttons.restoredis = s.app:addChild(s.gui.roundedButton(147, 13, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
   s.buttons.restoredis.onTouch = function()
     s.focus = "turnON"
     s.inputs.dis = s.rs.distributor
@@ -42,7 +42,7 @@ function s.Draw_GUI()
     s.focus = "remove"
     s.check()
   end
-  s.buttons.confirm = s.app:addChild(s.gui.roundedButton(118, 39, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
+  s.buttons.confirm = s.app:addChild(s.gui.roundedButton(888, 40, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
   s.buttons.confirm.onTouch = function()
     if s.focus == "add" then
       
@@ -56,34 +56,34 @@ function s.Draw_GUI()
         
     end
   end
-  s.buttons.check = s.app:addChild(s.gui.roundedButton(97, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
+  s.buttons.check = s.app:addChild(s.gui.roundedButton(95, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
   s.buttons.check.onTouch = function()
     s.checkConnection(true)
   end
-  s.buttons.exit = s.app:addChild(s.gui.roundedButton(122, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
+  s.buttons.exit = s.app:addChild(s.gui.roundedButton(124, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
   s.buttons.exit.onTouch = function()
     s.app:draw(false)
     s.app:stop()
     s.mf.os.execute("reboot")
   end
-  s.buttons.addplus = s.app:addChild(s.gui.roundedButton(116, 3, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
+  s.buttons.addplus = s.app:addChild(s.gui.roundedButton(111, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
   s.buttons.addplus.onTouch = function()
     s.focus = "add"
     s.check()
   end
-  s.buttons.addminus = s.app:addChild(s.gui.roundedButton(120, 3, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
+  s.buttons.addminus = s.app:addChild(s.gui.roundedButton(115, 5, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
   s.buttons.addminus.onTouch = function()
     s.focus = "add"
     s.check()
   end
   
   s.inputs = {}
-  s.inputs.add = s.app:addChild(s.gui.input(100, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
+  s.inputs.add = s.app:addChild(s.gui.input(105, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
   s.inputs.add.onInputFinished = function()
     s.focus = "add"
     s.check()
   end
-  s.inputs.dis = s.app:addChild(s.gui.input(108, 13, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, s.rs.distributor, "Distributor UID"))
+  s.inputs.dis = s.app:addChild(s.gui.input(105, 13, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, s.rs.distributor, "Distributor UID"))
   s.inputs.dis.onInputFinished = function()
     s.focus = "dis"
     s.check()
