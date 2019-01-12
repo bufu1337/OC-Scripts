@@ -28,11 +28,9 @@ function s.Draw_GUI()
   s.text.add = s.app:addChild(s.gui.text(88, 5, 0xFFFFFF, "Add Monitors:"))
   s.text.dis = s.app:addChild(s.gui.text(88, 14, 0xFFFFFF, "Distributor UID:"))
   
-  
-
   s.buttons = {}
-  s.buttons.restoredis = s.app:addChild(s.gui.roundedButton(147, 13, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
-  s.buttons.restoredis.onTouch = function()
+  s.buttons.restore = s.app:addChild(s.gui.roundedButton(147, 13, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
+  s.buttons.restore.onTouch = function()
     s.status = "turnON"
     s.inputs.dis = s.rs.distributor
     s.check()
@@ -315,15 +313,23 @@ function s.checkConnection(askfor)
     end
     s.save()
     s.statusc = ""
-    s.Draw_GUI()
     s.timer = s.mf.event.timer(1, function()
-      s.timercount = s.timercount + 1
-      s.statusc = "check"
-      s.check()
+      s.timercount = s.timercount - 1
+      if s.text ~= nil then
+        if s.text.times ~= nil then
+          s.text.times.text = tostring(s.timercount)
+        end
+      end
+      if s.timercount == 0 then
+        s.statusc = "check"
+        s.timercount = 30
+        s.check()
+      end
     end, 30)
   else
     s.statusc = "check"
   end
+    s.Draw_GUI()
 end
 s.start()
 return s
