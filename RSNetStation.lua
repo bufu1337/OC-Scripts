@@ -16,7 +16,7 @@ function s.Draw_GUI()
   s.app:addChild(s.gui.panel(1, 1, s.app.width, s.app.height, 0x2D2D2D))
   
   s.text = {}
-  s.text.rs = s.app:addChild(s.gui.text(88, 24, 0xFFFFFF, "Selected Storage:"))
+  s.text.rs = s.app:addChild(s.gui.text(88, 24, 0xFFFFFF, "Selected Storage: "))
   s.text.desc = s.app:addChild(s.gui.text(88, 25, 0xFFFFFF, "")) --Description:
   s.text.desc2 = s.app:addChild(s.gui.text(88, 26, 0xFFFFFF, ""))
   s.text.m = s.app:addChild(s.gui.text(121, 30, 0xFFFFFF, "Selected Monitor"))
@@ -106,7 +106,7 @@ function s.Draw_GUI()
   end
   s.inputs.addreg = s.app:addChild(s.gui.switchAndLabel(120, 5, 18, 6, 0x66DB80, 0x1D1D1D, 0xFFFFFF, 0xFFFFFF, "Register:", s.itemselect.reg))
   s.inputs.addreg.switch.onStateChanged = function(state)
-      s.itemselect.reg = state
+      s.itemselect.reg = s.inputs.addreg.switch.state
       s.status = "add"
       s.check()
     end
@@ -204,12 +204,9 @@ function s.check()
         end
       end
     elseif s.status == "remove" then
-      local temp = tonumber(s.inputs.add.text)
-      if temp == nil then
-        s.text.act2.text = "Cant remove monitor! Give in a number!"
-        s.buttons.confirm.disabled = true
-      elseif s.rs.monitor[temp] == nil then
-        s.text.act2.text = "Cant remove monitor! Monitor does not exist!"
+      local temp = tonumber(s.text.m2.text:sub(12,12))
+      if s.rs.monitor[temp] == nil then
+        s.text.act2.text = "Cant remove monitor!"
         s.buttons.confirm.disabled = true
       else
         s.text.act2.text = "Remove monitor " .. temp .. ". Please confirm!"
@@ -221,7 +218,7 @@ function s.check()
         s.text.act2.text = "Change distributor UID. Please confirm!"
       end
     elseif s.status == "turnON" then
-      if s.text.rs.text == "" or s.text.rs.text:sub(19) == s.rs.monitor[s.text.m2.text:sub(12,12)] then
+      if s.text.rs.text == "Selected Storage: " or s.text.rs.text:sub(19) == s.rs.monitor[tonumber(s.text.m2.text:sub(12,12))] then
         s.buttons.confirm.disabled = true
       else
         s.text.act2.text = "Turn ON Monitor " .. s.text.m2.text:sub(12,12) .. " with " .. s.text.rs.text:sub(19) ..". Please confirm!"
