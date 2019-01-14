@@ -1,20 +1,24 @@
---local shell = require("shell")
-local objectStore = require("Builder/objectStore")
-local mf = require("MainFunctions")
---local component = require("component")
---local sides = require("sides")
-local serial = require("serialization")
---local thread = require("thread")
+local builder = {}
+builder.mf = require("MainFunctions")
+builder.model = require("Builder/model")
+builder.buildrobots = {}
+if builder.mf.filesystem.exists("/home/Builder/buildrobots.lua") then
+  builder.buildrobots = require("Builder/buildrobots")
+end
 --local buildrobots = require("Builder/buildrobots")
 --local modem = component.modem
-local builder = {}
-builder.model = require("Builder/model")
 --local pathing = require("Builder/pathing")
 --local smartmove = require("smartmove")
 --local inventory = require("inventory")
 --local util = require("util")
 
-local function start()
+function builder.saveRobots()
+  builder.mf.WriteObjectFile(builder.buildrobots,"/home/Builder/buildrobots.lua")
+end
+function builder.registerRobot(uid, rschest)
+  table.insert(builder.buildrobots, {robot=uid, rschest=rschest})
+end
+function builder.start()
 
 end
 
@@ -43,11 +47,11 @@ local model_loaded = builder.model.loadModel("Brick Mansion - by ND63319", 2, {x
 if model_loaded then
   print("")
   print("---------------------------------------------- loadedModel ----------------------------------------------")
-  mf.printx(builder.model.loadedModel)
+  builder.mf.printx(builder.model.loadedModel)
   print("")
   print("---------------------------------------------- getModelLevel 1 ----------------------------------------------")
-  mf.printx(builder.model.getModelLevelEx(1, 5, 6))
-  mf.WriteObjectFile(builder.model.getModelLevelEx(1, 5, 6), "C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/tt.lua")
+  builder.mf.printx(builder.model.getModelLevelEx(1, 5, 6))
+  builder.mf.WriteObjectFile(builder.model.getModelLevelEx(1, 5, 6), "C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/tt.lua")
 else
   print("Cant load model: " .. "Brick Mansion - by ND63319")
 end
