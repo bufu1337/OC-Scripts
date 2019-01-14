@@ -1,25 +1,20 @@
-local dis = {}
-dis.gui = require("GUI")
-dis.mf = require("MainFunctions")
-dis.rs = require("RSNetComponents")
-local tp_net = dis.mf.component.proxy(dis.rs.transposer_netcards)
-local tp_dest = dis.mf.component.proxy(dis.rs.transposer_destination)
-local red = dis.mf.component.redstone
-local m = dis.mf.component.modem
-dis.distime = 50
+local dis = {gui = require("GUI"), mf = require("MainFunctions"), rs = {}, tp_net = "", tp_dest = "", listener = "", distime = 50}
+dis.red = dis.mf.component.redstone
+dis.modem = dis.mf.component.modem
 
 function dis.save()
   dis.mf.WriteObjectFile(dis.rs, "/home/RSNetComponents.lua")
   dis.rs = require("RSNetComponents")
 end
 local function storeNetworkCard(side, sourceslot, slot)
-  tp_net.transferItem(dis.mf.sides[dis.rs.storingside], dis.mf.sides[side], 1, sourceslot, slot)
+  dis.tp_net.transferItem(dis.mf.sides[dis.rs.storingside], dis.mf.sides[side], 1, sourceslot, slot)
 end
+
 function dis.RegisterNetCard(netid)
   local cards = {}
   local returning = {}
   for i = 1, 27, 1 do
-    if tp_net.getStackInSlot(dis.mf.sides[dis.rs.storingside], i) ~= nil then
+    if dis.tp_net.getStackInSlot(dis.mf.sides[dis.rs.storingside], i) ~= nil then
       local temp = 1
       for a,b in pairs(dis.rs.netcards) do
         if b.net == netid and b.rsmonitor >= temp then
@@ -61,7 +56,7 @@ function dis.RegisterNetCard(netid)
       end
     end
   end
-  m.send(remoteAddress, 478, dis.mf.serial.serialize(returning))
+  dis.modem.send(remoteAddress, 478, dis.mf.serial.serialize(returning))
 end
 
 function dis.StationCheck(remoteAddress)
@@ -84,7 +79,7 @@ function dis.StationCheck(remoteAddress)
       end
     end
   end
-  m.send(remoteAddress, 478, dis.mf.serial.serialize(station_message))
+  dis.modem.send(remoteAddress, 478, dis.mf.serial.serialize(station_message))
 end
 
 function dis.DistributeNetCard(remoteAddress, data)
@@ -150,46 +145,46 @@ function dis.DistributeNetCard(remoteAddress, data)
       local times = dis.mf.MathUp(tempslot/64)
       for i = 1, times, 1 do
         if tempslot <= 64 then
-          tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], tempslot, i, i)
+          dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], tempslot, i, i)
         else
-          tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], 64, i, i)
+          dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], 64, i, i)
           tempslot = tempslot - 64
         end
       end
       --items to indicate at which node the Refined Storage is located
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
       --items to indicate at which side of node the Network-Card should go
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], freenetslot, 25, 25)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], freenetslot, 25, 25)
       --items to indicate in which chest the Network-Card is located 
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 26, 26)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 26, 26)
       
       --signal rftools-processor to distribute the Network-Card
-      red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
+      dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
       if data.removing ~= nil then
-        red.setOutput(dis.mf.sides[dis.rs.redstone], 1)
+        dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 1)
       else
-        red.setOutput(dis.mf.sides[dis.rs.redstone], 15)
+        dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 15)
       end
       dis.mf.os.sleep(1)
       --wait until the Network-Card is no longer in the Network-storage-chest
-      while tp_net.getStackInSlot(dis.mf.sides[dis.rs.netcards[id].side], dis.rs.netcards[id].slot) ~= nil and timeout < dis.distime do
+      while dis.tp_net.getStackInSlot(dis.mf.sides[dis.rs.netcards[id].side], dis.rs.netcards[id].slot) ~= nil and timeout < dis.distime do
         dis.mf.os.sleep(1)
       end
       --turn off signal
-      red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
+      dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
       
       --Push items back
       for i = 1, times, 1 do
         if tempslotreverse <= 64 then
-          tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], tempslotreverse, i, i)
+          dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], tempslotreverse, i, i)
         else
-          tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], 64, i, i)
+          dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], 64, i, i)
           tempslotreverse = tempslotreverse - 64
         end
       end
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], freenetslot, 25, 25)
-      tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 26, 26)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], freenetslot, 25, 25)
+      dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 26, 26)
 
       --set variables
       if timeout ~= dis.distime then
@@ -218,43 +213,43 @@ function dis.DistributeNetCard(remoteAddress, data)
         local times = dis.mf.MathUp(tempslot/64)
         for i = 1, times, 1 do
           if tempslot <= 64 then
-            tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], tempslot, i, i)
+            dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], tempslot, i, i)
           else
-            tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], 64, i, i)
+            dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], 64, i, i)
             tempslot = tempslot - 64
           end
         end
         --items to indicate at which node the Refined Storage is located
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
         --items to indicate at which side of node the Network-Card should go
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], freenetslot, 26, 26)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], freenetslot, 26, 26)
         --items to indicate in which chest the Network-Card is located 
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 25, 25)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[1]], dis.mf.sides[dis.rs.destination[2]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 25, 25)
             
         --signal rftools-processor to distribute the Network-Card
-        red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
-        red.setOutput(dis.mf.sides[dis.rs.redstone], 7)
+        dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
+        dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 7)
         dis.mf.os.sleep(1)
         --wait until the Network-Card is no longer in the Network-storage-chest
-        while tp_net.getStackInSlot(dis.mf.sides[dis.rs.netcards[id].side], dis.rs.netcards[id].slot) == nil and timeout < dis.distime do
+        while dis.tp_net.getStackInSlot(dis.mf.sides[dis.rs.netcards[id].side], dis.rs.netcards[id].slot) == nil and timeout < dis.distime do
           dis.mf.os.sleep(1)
           timeout = timeout + 1
         end
         --turn off signal
-        red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
+        dis.red.setOutput(dis.mf.sides[dis.rs.redstone], 0)
             
         --Push items back
         for i = 1, times, 1 do
           if tempslotreverse <= 64 then
-            tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], tempslotreverse, i, i)
+            dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], tempslotreverse, i, i)
           else
-            tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], 64, i, i)
+            dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], 64, i, i)
             tempslotreverse = tempslotreverse - 64
           end
         end
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], freenetslot, 26, 26)
-        tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 25, 25)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.rstorages_order, data.storage), 27, 27)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], freenetslot, 26, 26)
+        dis.tp_dest.transferItem(dis.mf.sides[dis.rs.destination[2]], dis.mf.sides[dis.rs.destination[1]], dis.mf.getIndex(dis.rs.netsides_order, dis.rs.netcards[id].side), 25, 25)
       
         --set variables
         if timeout ~= dis.distime then
@@ -270,16 +265,59 @@ function dis.DistributeNetCard(remoteAddress, data)
     print("Not a valid storage to put the linked Network-Card to.")
   end
 end
+function dis.addRStorage(name, description, save)
+  table.insert(dis.rs.rstorages,1)
+end
+local function setup()
+  print("Welcome to Refined Stoarge Net.")
+--  print("This is the setup for the distribution of Network-Cards over OpenComputers-Network.")
+--  print("It is only useful if you have more then one Refined Storage System.")
+--  print("")
+--  print("The Refined Storage Systems must be at one location in your world.")
+--  print("Please build them as close as possible with the following build-pattern.")
+--  print("   ( Letters '< ^ v >' mean that the block front facing this direction")
+--  print("   Ground:    (powersupply)()()()")
+--  print("   1st Level: (refinedstorage:controlblock)()()()")
+--  print("")
+--  print("Please build this Distributor-Computer near your Refined Storage Systems.")
+--  
+--  print("Goal of this script:")
+--  
+--  print("   You can have RSNet-Stations somewhere in the world with ")
+--  print("")
+--  print("Other Mods needed: RFTools, Refined Storage, Mekanism")
+--  print("Optional Mod: Actually Additions (or other mod containing large chests)")
+--  print("")
+--  
+--  print("")
+--  print("Please put in the distribution chest:")
+--  print("  First slots: (SlotCount of largest Network-Cards-Chest)x Cobblestone")
+--  print("  Slot 25: 4x Diorit")
+--  print("  Slot 26: 4x Dirt")
+--  print("  Slot 27: 64x Stone")
+  print("Please give in the Transposer UID for storing the Network-Cards.")
+  dis.rs.transposer_netcards = dis.mf.getComponentProxyInput()
+  print("Please give in the Transposer UID for the storage of items for distribution.")
+  dis.rs.transposer_destination = dis.mf.getComponentProxyInput()
+  print("Please give in the storing side. (Side from transposer where you put in the Network-Cards)")
+  dis.rs.storingside = mf.getSidesInput(1)
+  dis.tp_net = dis.mf.component.proxy(dis.rs.transposer_netcards)
+  dis.tp_dest = dis.mf.component.proxy(dis.rs.transposer_destination)
+end
 
-local listener = ""
 function dis.start()
+  if dis.mf.filesystem.exists("/home/RSNetComponents.lua") then
+    dis.rs = require("RSNetComponents")
+  else
+    setup()
+  end  
   for i = 1, #dis.rs.netsides_order, 1 do
-    dis.rs.netsides[dis.rs.netsides_order[i]].size = tp_net.getInventorySize(dis.mf.sides[dis.rs.netsides_order[i]])
+    dis.rs.netsides[dis.rs.netsides_order[i]].size = dis.tp_net.getInventorySize(dis.mf.sides[dis.rs.netsides_order[i]])
   end
   dis.save()
-  m.close(478)
-  m.open(478)
-  listener = dis.mf.thread.create(function()
+  dis.modem.close(478)
+  dis.modem.open(478)
+  dis.listener = dis.mf.thread.create(function()
     while true do
       local _, localAddress, remoteAddress, port, distance, data = dis.mf.event.pull("modem_message")
       print("")
@@ -299,7 +337,7 @@ function dis.start()
   end)
 end
 function dis.StopListening()
-  listener:kill()
+  dis.listener:kill()
 end
 dis.start()
 return dis

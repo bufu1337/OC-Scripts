@@ -7,7 +7,35 @@ mf.os = require("os")
 mf.thread = require("thread")
 mf.serial = require("serialization")
 mf.filesystem = require("filesystem")
+mf.shell = require("shell")
+mf.logFile = ""
 
+--mf.io = io
+--mf.os = os
+--mf.serial = require("serialization")
+--mf.filesystem = filesystem
+
+function mf.OpenLogFile(path)
+  if mf.logFile == "" then
+    mf.logFile = mf.io.open(path, "a")
+  end
+end
+function mf.CloseLogFile()
+  if mf.logFile ~= "" then
+    mf.logFile:close()
+    mf.logFile = ""
+  end
+end
+function mf.Log(logtext)
+  if mf.logFile ~= "" then
+    mf.logFile:write(logtext)
+  end
+end
+function mf.LogEx(path, logtext)
+  mf.OpenLogFile(path)
+  mf.logFile:write(logtext)
+  mf.CloseLogFile()
+end
 function mf.WriteObjectFile(object, path)
     local newLuaFile = mf.io.open(path, "w")
     if type(object) == "table" then
@@ -43,6 +71,55 @@ function mf.listFilesInDir(directory)
     end
     pfile:close()
     return t
+end
+function mf.isSide(text)
+  if mf.contains({"up", "down", "east", "west", "north", "south"}, text) then
+    return true
+  else
+    return false
+  end
+end
+function mf.getSidesInput(count)
+  local invalid = true
+  while invalid do
+    local temp = mf.split(io.read())
+    local tempvalid = {}
+    for i,j in pairs(temp) do
+      tempvalid[i] = mf.isSide(j)
+    end
+    if #temp ~= count or mf.contains(tempvalid, false) then
+      if count == 1 then
+        print("Invalid input. Please give in " .. count .. " side.")
+      else
+        print("Invalid input. Please give in " .. count .. " sides separated with ', '.")
+      end
+    else
+      invalid = false
+      if #temp == 1 then
+        return temp[1]
+      else
+        return temp
+      end
+    end
+  end
+end
+function mf.checkComponent(proxy)
+  if mf.component.proxy(proxy) == nil then
+    return false
+  end
+  return true
+end
+function mf.getComponentProxyInput()
+  local invalid = true
+  while invalid do
+    local temp = io.read()
+    if mf.checkComponent(temp) then
+      invalid = false
+      return temp
+    else
+      print("Invalid component. Please give in a correct UID.")
+    end
+  end
 end
 function mf.MathUp(num)
     local result = math.floor(num)
@@ -102,7 +179,7 @@ function mf.endswith(ab, str)
 end
 function mf.split(inputstr, sep)
     if sep == nil then
-        sep = "%s"
+        sep = ", "
     end
     local t={} ; i=1
     for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
