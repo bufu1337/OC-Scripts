@@ -1,19 +1,19 @@
 local mf = {}
-mf.component = require("component")
-mf.event = require("event")
-mf.io = require("io")
-mf.sides = require("sides")
-mf.os = require("os")
-mf.thread = require("thread")
-mf.serial = require("serialization")
-mf.filesystem = require("filesystem")
-mf.shell = require("shell")
+--mf.component = require("component")
+--mf.event = require("event")
+--mf.io = require("io")
+--mf.sides = require("sides")
+--mf.os = require("os")
+--mf.thread = require("thread")
+--mf.serial = require("serialization")
+--mf.filesystem = require("filesystem")
+--mf.shell = require("shell")
 mf.logFile = ""
 
---mf.io = io
---mf.os = os
---mf.serial = require("serialization")
---mf.filesystem = filesystem
+mf.io = io
+mf.os = os
+mf.serial = require("serialization")
+mf.filesystem = filesystem
 
 function mf.OpenLogFile(path)
   if mf.logFile == "" then
@@ -72,27 +72,47 @@ function mf.listFilesInDir(directory)
     pfile:close()
     return t
 end
-function mf.isSide(text)
-  if mf.contains({"up", "down", "east", "west", "north", "south"}, text) then
+function mf.isSide(text, validsides)
+  if validsides == nil then
+    validsides = {"up", "down", "east", "west", "north", "south"}
+  end
+  if mf.contains(validsides, text) then
     return true
   else
     return false
   end
 end
-function mf.getSidesInput(count)
+function mf.getSidesInput(count, validsides, opposite)
   local invalid = true
   while invalid do
-    local temp = mf.split(io.read())
+    local temp = mf.split(mf.io.read())
     local tempvalid = {}
+    local tempswitch = {up="down", down="up", east="west", west="east", south="north", north="south"}
     for i,j in pairs(temp) do
-      tempvalid[i] = mf.isSide(j)
+      tempvalid[i] = mf.isSide(j, validsides)
     end
     if #temp ~= count or mf.contains(tempvalid, false) then
+      local txt = "Invalid input. Please enter " .. count .. " side"
+      
       if count == 1 then
-        print("Invalid input. Please give in " .. count .. " side.")
+        txt = txt .. ". Possible: "
       else
-        print("Invalid input. Please give in " .. count .. " sides separated with ', '.")
+        txt = txt .. "s separated with ', '. Possible: "
       end
+      if validsides == nil then
+        for i,j in pairs(validsides) do
+          if i == #validsides then
+            txt = txt .. j
+          else
+            txt = txt .. j .. ", "
+          end
+        end
+      else
+        txt = txt .. "up, down, east, west, north, south"
+      end
+      print(txt)
+    elseif count == 2 and opposite and temp[2] ~= tempswitch[temp[1]] then
+      print("Please enter 2 opposite sides separated with ', '.")
     else
       invalid = false
       if #temp == 1 then
@@ -103,21 +123,57 @@ function mf.getSidesInput(count)
     end
   end
 end
-function mf.checkComponent(proxy)
-  if mf.component.proxy(proxy) == nil then
-    return false
+function mf.getNumericInput(min, max)
+  local invalid = true
+  local min_y = (min ~= nil)
+  local max_y = (max ~= nil)
+  while invalid do
+    local min_x = true
+    local max_x = true
+    local temp = tonumber(mf.io.read())
+    if temp ~= nil then
+      if min_y then
+        if temp < min then
+          min_x = false
+        end
+      end
+      if max_y then
+        if temp > max then
+          max_x = false
+        end
+      end
+      if min_x and max_x then
+        invalid = false
+        return temp
+      else
+        if min_y and max_y == false then
+          print("Numeric value out of range. Please enter a number from " .. tostring(min) ..  " (including).")
+        elseif min_y == false and max_y then
+          print("Numeric value out of range. Please enter a number up to " .. tostring(max) .. "(including).")
+        else
+          print("Numeric value out of range. Please enter a number between " .. tostring(min) .. " (including) and " .. tostring(max) .. " (including).")
+        end
+      end
+    else
+      print("Invalid numeric value. Please enter a numeric value.")
+    end
   end
+end
+function mf.checkComponent(proxy)
+  --if mf.component.proxy(proxy) == nil then
+    --return false
+  --end
   return true
 end
 function mf.getComponentProxyInput()
   local invalid = true
   while invalid do
-    local temp = io.read()
+    local temp = mf.io.read()
     if mf.checkComponent(temp) then
       invalid = false
       return temp
     else
-      print("Invalid component. Please give in a correct UID.")
+      print("Invalid component. Please enter a correct UID.")
     end
   end
 end
@@ -128,21 +184,54 @@ function mf.MathUp(num)
     end
     return result
 end
-function mf.contains(ab, element)
+function mf.contains(ab, element, only_keytype)
   for key, value in pairs(ab) do
-    if value == element then
+    local t = true
+    if only_keytype ~= nil then
+      if only_keytype == "string" or only_keytype == "number" then
+        if type(key) ~= only_keytype then
+          t = false
+        end
+      end
+    end
+    if value == element and t then
       return true
     end
   end
   return false
 end
 function mf.containsKey(ab, element)
-  for key, value in pairs(ab) do
-    if key == element then
-      return true
-    end
+  if ab[element] ~= nil then
+    return true
   end
   return false
+end
+function mf.getAutoSizeForGuiList(list)
+  local count = mf.getCount(list)
+  local r = {y=0, height=0, width=0, itemheight= 0}
+  r.itemheight = math.floor(50 / count)
+  if r.itemheight == 0 then r.itemheight = 1 end
+  r.height = r.itemheight * count
+  if r.height > 50 then r.height = 50 end
+  r.y = math.floor(50 - r.height) + 1
+  for i,j in pairs(list) do
+    if type(j) == "string" then
+      if r.width <= #j then
+        r.width = #j
+      end
+    end
+  end
+  r.width = r.width + 4
+  return r
+end
+function mf.containsKeys(ab, elements)
+  local temp = true
+  for key, element in pairs(elements) do
+    if ab[element] == nil then
+      temp = false
+    end
+  end
+  return temp
 end
 function mf.getCount(ab)
 	local count = 0
