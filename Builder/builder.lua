@@ -1,7 +1,10 @@
 local builder = {}
 builder.mf = require("MainFunctions")
 builder.model = require("Builder/model")
+builder.gui = require("GUI")
+builder.gui_obj = {}
 builder.buildrobots = {}
+builder.gui_obj.app = builder.gui_obj.gui.application()
 if builder.mf.filesystem.exists("/home/Builder/buildrobots.lua") then
   builder.buildrobots = require("Builder/buildrobots")
 end
@@ -17,6 +20,24 @@ function builder.saveRobots()
 end
 function builder.registerRobot(uid, rschest)
   table.insert(builder.buildrobots, {robot=uid, rschest=rschest})
+end
+function builder.Draw_GUI() 
+  builder.gui_obj.app:removeChildren()
+  builder.gui_obj.app:addChild(builder.gui_obj.gui.panel(1, 1, builder.gui_obj.app.width, builder.gui_obj.app.height, 0x2D2D2D))
+  builder.gui_obj.list = {}
+  local c = builder.mf.getCount(builder.model.model_list)
+  local ih = math.floor(50 / c)
+  if ih == 0 then ih = 1 end
+  local h = ih * c
+  if h > 50 then h = 50 end
+  local y = math.floor(50 - h) + 1
+  builder.gui_obj.list.rs = builder.gui_obj.app:addChild(builder.gui_obj.gui.list(3, y, 40, h, ih, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  for i,j in pairs(builder.mf.getSortedKeys(builder.model.model_list)) do
+    builder.gui_obj.list.rs:addItem(j).onTouch = function()
+      
+    end
+  end
+  
 end
 function builder.start()
 

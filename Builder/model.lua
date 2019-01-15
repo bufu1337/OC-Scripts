@@ -12,21 +12,29 @@ function model.checkLoadedModel()
     return true
   end
 end
+local function removeListLuaExtension()
+  for i,j in pairs(model.model_list) do
+    if model.mf.endswith(j,".lua") then
+      model.model_list[i] = model.model_list[i]:sub(0, #j - 4)
+    end
+  end
+end
 function model.listNewModels()
   --model.mf.os.execute("wget -f " .. gitrepo .. "model_list.lua" .. "?" .. math.random() .. " /home/Builder/model_list.lua")
   model.model_list = require("Builder/model_list")
-  print("List of models in builder")
-  model.mf.printx(model.model_list)
+  removeListLuaExtension()
+  --print("List of models in builder")
+  --model.mf.printx(model.model_list)
 end
 function model.listModels()
   --if model.mf.filesystem.exists("/home/Builder/model_list.lua") == false then
     --listNewModels()
   --else
       model.model_list = require("Builder/model_list")
-      print("List of models in builder")
-      model.mf.printx(model.model_list)
+      removeListLuaExtension()
+      --print("List of models in builder")
+      --model.mf.printx(model.model_list)
   --end
-  return model.model_list
 end
 local function createModelDir(modelname)
   if model.mf.filesystem.exists(wp .. modelname) == false then
@@ -288,5 +296,5 @@ end
 function model.getModelLevel(level)
   return model.getModelLevelEx(level, 1, model.loadedModel.startpoint.y)
 end
-
+model.listModels()
 return model
