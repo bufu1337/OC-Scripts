@@ -9,10 +9,9 @@ ac.priocount = 0
 ac.crafter = ""
 ac.itemcrafters = {}
 ac.completeRepo = true
-ac.args = ac.mf.shell.parse( ... )
 ac.itemschange = false
 ac.logfile = "/home/bufu/Crafter/AC-Log.lua"
-
+ac.args = ac.mf.shell.parse( ... )
 
 function ac.searchforRepo(itemrepo)
   for b = 1, 30, 1 do
