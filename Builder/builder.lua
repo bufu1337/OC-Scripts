@@ -25,13 +25,8 @@ function builder.Draw_GUI()
   builder.gui_obj.app:removeChildren()
   builder.gui_obj.app:addChild(builder.gui_obj.gui.panel(1, 1, builder.gui_obj.app.width, builder.gui_obj.app.height, 0x2D2D2D))
   builder.gui_obj.list = {}
-  local c = builder.mf.getCount(builder.model.model_list)
-  local ih = math.floor(50 / c)
-  if ih == 0 then ih = 1 end
-  local h = ih * c
-  if h > 50 then h = 50 end
-  local y = math.floor(50 - h) + 1
-  builder.gui_obj.list.rs = builder.gui_obj.app:addChild(builder.gui_obj.gui.list(3, y, 40, h, ih, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  local as = builder.mf.getAutoSizeForGuiList(builder.model.model_list)
+  builder.gui_obj.list.rs = builder.gui_obj.app:addChild(builder.gui_obj.gui.list(3, as.y, 40, as.height, as.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
   for i,j in pairs(builder.mf.getSortedKeys(builder.model.model_list)) do
     builder.gui_obj.list.rs:addItem(j).onTouch = function()
       
