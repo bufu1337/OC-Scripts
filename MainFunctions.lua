@@ -36,6 +36,34 @@ function mf.LogEx(path, logtext)
   mf.logFile:write(logtext)
   mf.CloseLogFile()
 end
+function mf.SetComputerName(system)
+  local name = {}
+  if mf.filesystem.exists("/home/ComputerName.lua") then  
+    name = require("ComputerName")
+  end
+  if name[system] == nil then
+    print("Please enter a Computername for the System: " .. system .. ".")
+    name[system] = mf.io.read()
+    mf.WriteObjectFile(name,"/home/ComputerName.lua")
+  end
+  local message = mf.serial.serialize({OCNet={toSystem="OCNet", register={System=system, pc=name[system]}}})
+  if mf.components.tunnel ~= nil then
+    mf.components.tunnel.send(message)
+  elseif mf.components.modem ~= nil then
+    mf.components.modem.broadcast(478, message)
+  else
+    print("No Network-Card or Linked-Card installed to connect to OCNet.")
+    return false
+  end
+  local _, _, remoteAddress, _, _, _ = mf.event.pull(10, "modem_message")
+  if remoteAddress == nil then
+    print("No OCNet found. Please build OCNet-Server and restart this Computer.")
+    return false
+  else
+    print("OCNet found.")
+    return true
+  end
+end
 function mf.WriteObjectFile(object, path)
     local newLuaFile = mf.io.open(path, "w")
     if type(object) == "table" then
@@ -206,6 +234,15 @@ function mf.containsKey(ab, element)
   end
   return false
 end
+function mf.containsKeys(ab, elements)
+  local temp = true
+  for key, element in pairs(elements) do
+    if ab[element] == nil then
+      temp = false
+    end
+  end
+  return temp
+end
 function mf.getAutoSizeForGuiList(list)
   local count = mf.getCount(list)
   local r = {y=0, height=0, width=0, itemheight= 0}
@@ -223,15 +260,6 @@ function mf.getAutoSizeForGuiList(list)
   end
   r.width = r.width + 4
   return r
-end
-function mf.containsKeys(ab, elements)
-  local temp = true
-  for key, element in pairs(elements) do
-    if ab[element] == nil then
-      temp = false
-    end
-  end
-  return temp
 end
 function mf.getCount(ab)
 	local count = 0
