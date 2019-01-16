@@ -140,8 +140,8 @@ function s.Draw_GUI()
   end
   
   s.list = {}
-  local autosize = s.mf.getAutoSizeForGuiList(s.rs.rstorages_order)
-  s.list.rs = s.app:addChild(s.gui.list(3, autosize.y, 40, autosize.height, autosize.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  local as = s.mf.getAutoSizeForGuiList(s.rs.rstorages_order)
+  s.list.rs = s.app:addChild(s.gui.list(3, as.y, 40, as.height, as.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
   for i,j in pairs(s.mf.getSortedKeys(s.rs.rstorages)) do
     s.list.rs:addItem(j).onTouch = function()
       s.itemselect.r = s.list.rs.selectedItem
@@ -153,8 +153,8 @@ function s.Draw_GUI()
   s.list.rs.selectedItem = s.itemselect.r
   s.text.rs.text = "Selected Storage: " .. tostring(s.list.rs:getItem(s.list.rs.selectedItem).text)
   
-  autosize = s.mf.getAutoSizeForGuiList(s.rs.monitor)
-  s.list.m = s.app:addChild(s.gui.list(45, autosize.y, 40, autosize.height, autosize.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
+  as = s.mf.getAutoSizeForGuiList(s.rs.monitor)
+  s.list.m = s.app:addChild(s.gui.list(45, as.y, 40, as.height, as.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
   for i,j in pairs(s.rs.monitor) do
     local txt= "RS Monitor " .. i
     if j ~= "" then
