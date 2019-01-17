@@ -1,4 +1,4 @@
-local oc = {mf=require("MainFunctions"), main_oc=false, tunnels={}, receivers={}}
+local oc = {mf=require("MainFunctions"), servers={}, main_server={isMain=false, address=""}, tunnels={}, receivers={}}
 
 for i,j in pairs(oc.mf.filesystem.findNode("mnt").children.mnt.children) do
   if (j.fs.spaceTotal() == 524288 and oc.mf.filesystem.findNode("mnt").children.mnt.children[i].fs.getLabel() == nil) then
@@ -31,7 +31,11 @@ while true do
      data = oc.mf.serial.unserialize(data)
      if oc.mf.containsKey(data, "OCNet") then
         if data.OCNet.toSystem == "OCNet" then
-        
+          if oc.mf.containsKey(ab,element) and then
+          
+          else
+          
+          end
         end
      end
    end, localAddress, remoteAddress, data)
