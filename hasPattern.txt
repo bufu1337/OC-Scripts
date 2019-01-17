@@ -1,0 +1,1 @@
+rs.hasPattern({name="mysticalagriculture:soulstone_brick_slab", damage=0})

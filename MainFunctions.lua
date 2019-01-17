@@ -36,7 +36,7 @@ function mf.LogEx(path, logtext)
   mf.logFile:write(logtext)
   mf.CloseLogFile()
 end
-function mf.SetComputerName(system)
+function mf.SetComputerName(system, typ)
   local name = {}
   if mf.filesystem.exists("/home/ComputerName.lua") then  
     name = require("ComputerName")
@@ -46,7 +46,7 @@ function mf.SetComputerName(system)
     name[system] = mf.io.read()
     mf.WriteObjectFile(name,"/home/ComputerName.lua")
   end
-  local message = mf.serial.serialize({OCNet={toSystem="OCNet", register={System=system, pc=name[system]}}})
+  local message = mf.serial.serialize({OCNet={toSystem="OCNet", register={system=system, name=name[system], typ=typ}}})
   if mf.components.tunnel ~= nil then
     mf.components.tunnel.send(message)
   elseif mf.components.modem ~= nil then
