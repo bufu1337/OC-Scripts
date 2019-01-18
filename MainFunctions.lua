@@ -8,6 +8,15 @@ local mf = {}
 --mf.serial = require("serialization")
 --mf.filesystem = require("filesystem")
 --mf.shell = require("shell")
+mf.system = ""
+if mf.component.modem ~= nil then
+  mf.component.modem.close(478)
+  mf.component.modem.open(478)
+end
+mf.ComputerName = {}
+if mf.filesystem.exists("/home/ComputerName.lua") then  
+  mf.ComputerName = require("ComputerName")
+end
 mf.logFile = ""
 
 mf.io = io
@@ -36,32 +45,60 @@ function mf.LogEx(path, logtext)
   mf.logFile:write(logtext)
   mf.CloseLogFile()
 end
+function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
+  if system == nil then
+    if mf.system == "" then
+      return false
+    else
+      system = mf.system
+    end
+  end
+  local ocnet_obj = {OCnet={toSystem=system, to=computer, from=mf.ComputerName[system]}}
+  
+  local message = mf.serial.serialize()
+  if modem_destination ~= nil and mf.component.modem ~= nil then
+  
+  elseif mf.component.tunnel ~= nil then
+    if tunnel ~= nil then
+      mf.component.proxy(tunnel).send()
+    else
+    
+    end
+  else
+    print("Cant send message over OCNet. ")
+  end
+end
+function mf.GetNamesFromOCNet(typ, system)
+
+end
 function mf.SetComputerName(system, typ)
-  local name = {}
-  if mf.filesystem.exists("/home/ComputerName.lua") then  
-    name = require("ComputerName")
-  end
-  if name[system] == nil then
+  if mf.ComputerName[system] == nil then
     print("Please enter a Computername for the System: " .. system .. ".")
-    name[system] = mf.io.read()
-    mf.WriteObjectFile(name,"/home/ComputerName.lua")
+    print("(No blank spaces allowed, will be replaced with underline)")
+    mf.ComputerName[system] = mf.io.read()
+    mf.ComputerName[system] = mf.ComputerName[system]:gsub(" ", "_")
+    mf.WriteObjectFile(mf.ComputerName,"/home/ComputerName.lua")
   end
-  local message = mf.serial.serialize({OCNet={toSystem="OCNet", register={system=system, name=name[system], typ=typ}}})
-  if mf.components.tunnel ~= nil then
-    mf.components.tunnel.send(message)
-  elseif mf.components.modem ~= nil then
+  local message = mf.serial.serialize({OCNet={toSystem="OCNet", register={system=system, name=mf.ComputerName[system], typ=typ}}})
+  if mf.components.modem ~= nil then
     mf.components.modem.broadcast(478, message)
+  elseif mf.components.tunnel ~= nil then
+    mf.components.tunnel.send(message)
   else
     print("No Network-Card or Linked-Card installed to connect to OCNet.")
     return false
   end
-  local _, _, remoteAddress, _, _, _ = mf.event.pull(10, "modem_message")
+  local _, _, remoteAddress, _, _, data = mf.event.pull(10, "modem_message")
   if remoteAddress == nil then
-    print("No OCNet found. Please build OCNet-Server and restart this Computer.")
+    if system == "OCNet" and typ == "server" then
+      print("Setting Main OCNet-Server")
+    else
+      print("No OCNet found. Please build OCNet-Server and restart this Computer.")
+    end
     return false
   else
     print("OCNet found.")
-    return true
+    return true, remoteAddress, data
   end
 end
 function mf.WriteObjectFile(object, path)
@@ -213,17 +250,26 @@ function mf.MathUp(num)
     return result
 end
 function mf.contains(ab, element, only_keytype)
-  for key, value in pairs(ab) do
-    local t = true
-    if only_keytype ~= nil then
-      if only_keytype == "string" or only_keytype == "number" then
-        if type(key) ~= only_keytype then
-          t = false
+  if type(ab) == "string" then
+    local abnew = ab:gsub(element, "")
+    if #abnew < #ab then
+      return true
+    else
+      return false
+    end
+  elseif type(ab) == "table" then
+    for key, value in pairs(ab) do
+      local t = true
+      if only_keytype ~= nil then
+        if only_keytype == "string" or only_keytype == "number" then
+          if type(key) ~= only_keytype then
+            t = false
+          end
         end
       end
-    end
-    if value == element and t then
-      return true
+      if value == element and t then
+        return true
+      end
     end
   end
   return false
