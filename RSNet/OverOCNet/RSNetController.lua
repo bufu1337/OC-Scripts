@@ -9,6 +9,7 @@ cn.statusc = ""
 cn.timercount = 30
 cn.itemselect = {r=1, m=1, reg=true}
 cn.app = cn.gui.application()
+cn.mf.system = "RSNet"
 local varpath = "/home/RSNetStationVars.lua"
 
 function cn.Draw_GUI() 
