@@ -8,7 +8,7 @@ mf.thread = require("thread")
 mf.serial = require("serialization")
 mf.filesystem = require("filesystem")
 mf.shell = require("shell")
-mf.OCNet = {system = "", to = "", from = "", tunnel = false, tunnels ={}}
+mf.OCNet = {system = "", to = "", from = "", tunnel = false, loc = "", remote = "", tunnels ={}}
 
 for address, componentType in oc.mf.component.list() do 
   if componentType == "tunnel" then
@@ -55,7 +55,7 @@ function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
     end
   end
   local ocnet_obj = {OCnet={toSystem=system, to=computer, from=mf.ComputerName[system]}}
-  ocnet_obj.OCnet = mf.combineTables(ocnet_obj.OCnet, data)
+  ocnet_obj = mf.combineTables(ocnet_obj, data)
   local message = mf.serial.serialize(ocnet_obj)
   if modem_destination ~= nil and mf.component.modem ~= nil then
   	if modem_destination == "" then
@@ -80,11 +80,33 @@ function mf.ReceiveFromOCNet(timeout)
   else
 	_, localAddress, remoteAddress, _, _, data = mf.event.pull("modem_message")
   end
+  data = oc.mf.serial.unserialize(data)
+  if oc.mf.containsKey(data, "OCNet") then
+	mf.OCNet.to = data.OCNet.to
+	mf.OCNet.from = data.OCNet.from
+	if mf.contains(mf.OCNet.tunnels, localAddress) then
+	  mf.OCNet.tunnel = true
+	  mf.OCNet.loc = localAddress
+	else
+	  mf.OCNet.tunnel = false
+	  mf.OCNet.loc = ""
+	end
+	mf.OCNet.remote = remoteAddress
+	data.OCNet = nil
+	return data
+  else
+	print("Received data is not for OCNet.")
+	return nil, nil
+  end
+end
+
+function mf.SendBack(data)
   
 end
 function mf.GetNamesFromOCNet(typ, system)
 
 end
+
 function mf.SetComputerName(system, typ)
   if mf.ComputerName[system] == nil then
     print("Please enter a Computername for the System: " .. system .. ".")
