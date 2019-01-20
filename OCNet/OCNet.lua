@@ -2,11 +2,7 @@ local oc = {mf=require("MainFunctions"), servers={}, main_server={isMain=false, 
 if oc.mf.filesystem.exists("/home/OCNetConfig.lua") then  
   oc = oc.mf.combineTables(oc, require("OCNetConfig"))
 end
-for address, componentType in oc.mf.component.list() do 
-  if componentType == "tunnel" then
-    table.insert(oc.tunnels, address)
-  end
-end
+
 oc.modem = oc.mf.component.modem
 
 function oc.setOC(toServer)

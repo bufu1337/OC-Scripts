@@ -1,14 +1,20 @@
 local mf = {}
---mf.component = require("component")
---mf.event = require("event")
---mf.io = require("io")
---mf.sides = require("sides")
---mf.os = require("os")
---mf.thread = require("thread")
---mf.serial = require("serialization")
---mf.filesystem = require("filesystem")
---mf.shell = require("shell")
-mf.system = ""
+mf.component = require("component")
+mf.event = require("event")
+mf.io = require("io")
+mf.sides = require("sides")
+mf.os = require("os")
+mf.thread = require("thread")
+mf.serial = require("serialization")
+mf.filesystem = require("filesystem")
+mf.shell = require("shell")
+mf.OCNet = {system = "", to = "", from = "", tunnel = false, tunnels ={}}
+
+for address, componentType in oc.mf.component.list() do 
+  if componentType == "tunnel" then
+    table.insert(mf.OCNet.tunnels, address)
+  end
+end
 if mf.component.modem ~= nil then
   mf.component.modem.close(478)
   mf.component.modem.open(478)
@@ -18,11 +24,6 @@ if mf.filesystem.exists("/home/ComputerName.lua") then
   mf.ComputerName = require("ComputerName")
 end
 mf.logFile = ""
-
-mf.io = io
-mf.os = os
-mf.serial = require("serialization")
-mf.filesystem = filesystem
 
 function mf.OpenLogFile(path)
   if mf.logFile == "" then
@@ -47,26 +48,39 @@ function mf.LogEx(path, logtext)
 end
 function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
   if system == nil then
-    if mf.system == "" then
+    if mf.OCNet.system == "" then
       return false
     else
-      system = mf.system
+      system = mf.OCNet.system
     end
   end
   local ocnet_obj = {OCnet={toSystem=system, to=computer, from=mf.ComputerName[system]}}
-  
-  local message = mf.serial.serialize()
+  ocnet_obj.OCnet = mf.combineTables(ocnet_obj.OCnet, data)
+  local message = mf.serial.serialize(ocnet_obj)
   if modem_destination ~= nil and mf.component.modem ~= nil then
-  
+  	if modem_destination == "" then
+	  mf.components.modem.broadcast(478, message)
+	else
+	  mf.components.modem.send(modem_destination, 478, message)
+	end
   elseif mf.component.tunnel ~= nil then
     if tunnel ~= nil then
-      mf.component.proxy(tunnel).send()
+      mf.component.proxy(tunnel).send(message)
     else
-    
+      mf.component.tunnel.send(message)
     end
   else
     print("Cant send message over OCNet. ")
   end
+end
+function mf.ReceiveFromOCNet(timeout)
+  local _, localAddress, remoteAddress, data = ""
+  if timeout ~= nil and tonumber(timeout) ~= nil then
+    _, localAddress, remoteAddress, _, _, data = mf.event.pull(timeout, "modem_message")
+  else
+	_, localAddress, remoteAddress, _, _, data = mf.event.pull("modem_message")
+  end
+  
 end
 function mf.GetNamesFromOCNet(typ, system)
 
