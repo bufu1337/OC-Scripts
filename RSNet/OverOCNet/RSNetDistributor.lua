@@ -17,7 +17,7 @@ function dis.RegisterNetCard(data)
     if dis.tp_net.getStackInSlot(dis.mf.sides[dis.rs.storingside], i) ~= nil then
       local temp = 1
       for a,b in pairs(dis.rs.netcards) do
-        if b.net == data.station and b.rsmonitor >= temp then
+        if b.station == data.station and b.rsmonitor >= temp then
           temp = b.rsmonitor + 1
         end
       end
@@ -28,7 +28,6 @@ function dis.RegisterNetCard(data)
     --"Put a linked Network-Card into the chest for storing."
   else
     if data.station ~= "" then
-      returning = "Network-Cards registered: "
       for g,h in pairs(cards) do
         local id = -1
         local netside = ""
@@ -42,7 +41,7 @@ function dis.RegisterNetCard(data)
           end
         end
         if id ~= -1 then
-          dis.rs.netcards[id] = {net=data.station, rsmonitor=h, side=netside, slot=dis.rs.netsides[netside].next}
+          dis.rs.netcards[id] = {station=data.station, rsmonitor=h, side=netside, slot=dis.rs.netsides[netside].next}
           for i = 1, dis.rs.netsides[netside].size, 1 do
             if dis.rs.netcards[i + ((b - 1) * dis.rs.netsides[netside].size)] == nil then
               dis.rs.netsides[netside].next = i
@@ -59,13 +58,16 @@ function dis.RegisterNetCard(data)
 end
 
 function dis.StationCheck(data)
-  local station_message = {"RSNet", ocnet=data.ocnet, station=data.station, rstorages={}, monitor={}}
+  local station_message = {"RSNet", ocnet=data.ocnet, rstorages={}, stations={}}
   --{net=netid, rsmonitor=h, side=netside, slot=rs.netsides[netside].next}
   local cards = {}
   for i,j in pairs(dis.rs.netcards) do
-    if j.net == data.station then
+    if j.station == data.station then
       table.insert(cards,i)
-      station_message.monitor[dis.rs.netcards[i].rsmonitor] = ""
+      if station_message[j.station] == nil then
+        station_message[j.station] = {monitor={}}
+      end
+      station_message[j.station].monitor[dis.rs.netcards[i].rsmonitor] = ""
     end
   end
   for a,b in pairs(dis.rs.rstorages) do
@@ -90,7 +92,7 @@ function dis.DistributeNetCard(data)
     
     --get network-card-id
     for i,j in pairs(dis.rs.netcards) do
-      if j.net == data.station and data.rsmonitor == j.rsmonitor then
+      if j.station == data.station and j.rsmonitor == data.rsmonitor then
         id = i
         tempslot = j.slot
         tempslotreverse = tempslot
@@ -108,7 +110,7 @@ function dis.DistributeNetCard(data)
         for i,j in pairs(dis.rs.rorder) do
           if b[j] == id then
             print("Network-Card found at: " .. a .. " (" .. j .. ") --- Pulling")
-            dis.DistributeNetCard(dis.rs.netcards[id].net, {method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor})
+            dis.DistributeNetCard({method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor, station=dis.rs.netcards[id].station})
             found = true
             break
           end
@@ -130,7 +132,7 @@ function dis.DistributeNetCard(data)
       if freenetslot == -1 then
         local templast = dis.rs.rstorages[data.storage]["last"]
         local tempid = dis.rs.rstorages[data.storage][dis.rs.rorder[templast]]
-        dis.DistributeNetCard(dis.rs.netcards[tempid].net, {method="pull", storage=data.storage, rsmonitor=dis.rs.netcards[tempid].rsmonitor})
+        dis.DistributeNetCard({method="pull", storage=data.storage, rsmonitor=dis.rs.netcards[tempid].rsmonitor, station=dis.rs.netcards[tempid].station})
         freenetslot = templast
         if (templast + 1) == 5 then
           dis.rs.rstorages[data.storage]["last"] = 1
