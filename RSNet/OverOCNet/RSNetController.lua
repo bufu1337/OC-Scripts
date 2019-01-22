@@ -1,12 +1,11 @@
 local RSC = {}
 RSC.mf = require("MainFunctions")
 RSC.gui = require("GUI")
-RSC.saving = false
 RSC.rs = {}
 RSC.status = ""
 RSC.statusc = ""
 RSC.timercount = 30
-RSC.itemselect = {r=1, m=1, reg=true}
+RSC.itemselect = {dis=1, s=1, r=1, m=1}
 RSC.app = RSC.gui.application()
 RSC.mf.system = "RSNet"
 local varpath = "/home/RSNetStationVars.lua"
@@ -16,6 +15,59 @@ function RSC.Draw_GUI()
   RSC.app:addChild(RSC.gui.panel(1, 1, RSC.app.width, RSC.app.height, 0x2D2D2D))
   
   RSC.text = {}
+  RSC.combo = {}
+  RSC.buttons = {}
+  RSC.inputs = {}
+  RSC.list = {}
+    
+  RSC.text.dis = RSC.app:addChild(RSC.gui.text(88, 3, 0xFFFFFF, "Distributor:"))
+  RSC.combo.dis = RSC.app:addChild(RSC.gui.comboBox(88, 5, 25, 3, 0xEEEEEE, 0x2D2D2D, 0xCCCCCC, 0x888888))
+  for i,j in pairs(RSC.mf.getSortedKeys(RSC.rs.Distributors)) do
+    RSC.combo.dis:addItem(j).onTouch = function()
+      if RSC.combo.dis.selectedItem ~= RSC.itemselect.dis then
+        RSC.itemselect.dis = RSC.combo.dis.selectedItem
+        RSC.itemselect.s = 1
+        RSC.status = ""
+        RSC.statusc = "check"
+        RSC.check()
+      end
+    end
+  end
+  RSC.combo.dis.selectedItem = RSC.itemselect.dis
+  
+  RSC.text.station = RSC.app:addChild(RSC.gui.text(116, 3, 0xFFFFFF, "Station:"))
+  RSC.combo.station = RSC.app:addChild(RSC.gui.comboBox(116, 5, 25, 3, 0xEEEEEE, 0x2D2D2D, 0xCCCCCC, 0x888888))
+  for i,j in pairs(RSC.mf.getSortedKeys(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations)) do
+    RSC.combo.dis:addItem(j).onTouch = function()
+      RSC.itemselect.s = RSC.combo.station.selectedItem
+      RSC.check()
+    end
+  end
+  RSC.combo.station.selectedItem = RSC.itemselect.s
+  RSC.buttons.removeStation = RSC.app:addChild(RSC.gui.roundedButton(143, 5, 17, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Remove Station"))
+  RSC.buttons.removeStation.onTouch = function()
+    RSC.status = "removeStation"
+    RSC.check()
+  end
+  
+  RSC.text.newstation = RSC.app:addChild(RSC.gui.text(88, 19, 0xFFFFFF, "New Station:"))
+  RSC.inputs.newstation = RSC.app:addChild(RSC.gui.input(105, 18, 20, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "", "New Station (Name) ..."))
+  RSC.inputs.newstation.onInputFinished = function()
+    RSC.status = "register"
+    RSC.check()
+  end
+  RSC.buttons.clear = RSC.app:addChild(RSC.gui.roundedButton(125, 18, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Clear"))
+  RSC.buttons.clear.onTouch = function()
+    RSC.status = "register"
+    RSC.inputs.newstation = ""
+    RSC.check()
+  end
+  RSC.buttons.addreg = RSC.app:addChild(RSC.gui.roundedButton(140, 18, 20, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Register Network-Cards"))
+  RSC.buttons.addreg.onTouch = function()
+    RSC.status = "register"
+    RSC.check()
+  end
+  
   RSC.text.rs = RSC.app:addChild(RSC.gui.text(88, 24, 0xFFFFFF, "Selected Storage: "))
   RSC.text.desc = RSC.app:addChild(RSC.gui.text(88, 25, 0xFFFFFF, ""))
   RSC.text.desc2 = RSC.app:addChild(RSC.gui.textBox(88, 26, 72, 3, 0x000000, 0xFFFFFF, {}, 1, 1, 0, true))
@@ -25,69 +77,49 @@ function RSC.Draw_GUI()
   RSC.text.act2 = RSC.app:addChild(RSC.gui.text(88, 38, 0xFFFFFF, "No action possible"))
   RSC.text.status = RSC.app:addChild(RSC.gui.text(88, 46, 0xFFFFFF, "Status: "))
   RSC.text.times = RSC.app:addChild(RSC.gui.text(90, 48, 0xFFFFFF, tostring(RSC.timercount)))
-  RSC.text.add = RSC.app:addChild(RSC.gui.text(88, 5, 0xFFFFFF, "Add Monitors:"))
-  RSC.text.dis = RSC.app:addChild(RSC.gui.text(88, 14, 0xFFFFFF, "Distributor UID:"))
   
-  RSC.buttons = {}
-  RSC.buttons.restore = RSC.app:addChild(RSC.gui.roundedButton(147, 13, 13, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Restore"))
-  RSC.buttons.restore.onTouch = function()
-    RSC.status = "turnON"
-    RSC.inputs.dis = RSC.rs.distributor
-    RSC.check()
-  end
+  
   RSC.buttons.off = RSC.app:addChild(RSC.gui.roundedButton(88, 28, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Turn off monitor"))
   RSC.buttons.off.onTouch = function()
     RSC.status = "turnOFF"
     RSC.check()
   end
-  RSC.buttons.removeplus = RSC.app:addChild(RSC.gui.roundedButton(88, 32, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Remove Monitor"))
-  RSC.buttons.removeplus.onTouch = function()
+  RSC.buttons.removeMonitor = RSC.app:addChild(RSC.gui.roundedButton(88, 32, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Remove Monitor"))
+  RSC.buttons.removeMonitor.onTouch = function()
     RSC.status = "remove"
     RSC.check()
   end
   RSC.buttons.confirm = RSC.app:addChild(RSC.gui.roundedButton(88, 40, 30, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Confirm"))
   RSC.buttons.confirm.onTouch = function()
-    if RSC.status == "add" then
-      if RSC.itemselect.reg then
-        RSC.text.status.text = "Status: Registering Network-Cards and adding monitors"
-        RSC.text.act2.text = "No action possible"
-        RSC.buttons.confirm.disabled = true
-        RSC.registerNetworkCards()
-        RSC.checkConnection()
-      else
-        RSC.text.status.text = "Status: Adding monitors"
-        RSC.addRSMonitors(tonumber(RSC.inputs.add.text))
-      end
+    if RSC.mf.contains({"register", "remove", "removeStation", "turnON", "turnOFF"}, RSC.status) then
+      RSC.text.act2.text = "No action possible"
+      RSC.buttons.confirm.disabled = true
+    end
+    if RSC.status == "register" then
+      RSC.text.status.text = "Status: Registering Network-Cards"
+      RSC.registerNetworkCards(RSC.combo.dis:getItem(RSC.itemselect.dis).text)
     elseif RSC.status == "remove" then
       if #RSC.text.m2.text > 12  then
-        RSC.text.status.text = "Status: Turning ON Monitor " .. RSC.text.m2.text:sub(12,12) .. " with " .. RSC.text.rs.text:sub(19) .."."
-        RSC.text.act2.text = "No action possible"
-        RSC.buttons.confirm.disabled = true
-        RSC.RSMonitorOFF(tonumber(RSC.text.m2.text:sub(12,12)))
+        RSC.text.status.text = "Status: Turning OFF and Removing Monitor " .. RSC.text.m2.text:sub(12,12) .. "."        
+      else
+        RSC.text.status.text = "Status: Removing Monitor " .. RSC.text.m2.text:sub(12,12) .. "."
       end
-      RSC.text.status.text = "Status: Removing Monitor " .. RSC.text.m2.text:sub(12,12) .. "."
-      RSC.text.act2.text = "No action possible"
-      RSC.buttons.confirm.disabled = true
-      RSC.removeRSMonitor(tonumber(RSC.inputs.remove.text))
-    elseif RSC.status == "dis" then
-      RSC.setDistributor(RSC.inputs.dis.text)
-      RSC.checkConnection()
+      RSC.removeRSMonitor(RSC.combo.dis:getItem(RSC.itemselect.dis).text, tonumber(RSC.inputs.remove.text))
+    elseif RSC.status == "removeStation" then
+      RSC.text.status.text = "Status: Turning OFF all Monitors and Removing Station " .. RSC.text.m2.text:sub(12,12) .. " with " .. RSC.text.rs.text:sub(19) .."." 
+      RSC.removeStation(RSC.combo.dis:getItem(RSC.itemselect.dis).text, RSC.inputs.dis.text)
     elseif RSC.status == "turnON" then
       RSC.text.status.text = "Status: Turning ON Monitor " .. RSC.text.m2.text:sub(12,12) .. " with " .. RSC.text.rs.text:sub(19) .."."
-      RSC.text.act2.text = "No action possible"
-      RSC.buttons.confirm.disabled = true
-      RSC.RSMonitorON(RSC.text.rs.text:sub(19), tonumber(RSC.text.m2.text:sub(12,12)))
+      RSC.RSMonitorON(RSC.combo.dis:getItem(RSC.itemselect.dis).text, RSC.text.rs.text:sub(19), tonumber(RSC.text.m2.text:sub(12,12)))
     elseif RSC.status == "turnOFF" then
-      RSC.text.status.text = "Status: Turning ON Monitor " .. RSC.text.m2.text:sub(12,12) .. " with " .. RSC.text.rs.text:sub(19) .."."
-      RSC.text.act2.text = "No action possible"
-      RSC.buttons.confirm.disabled = true
-      RSC.RSMonitorOFF(tonumber(RSC.text.m2.text:sub(12,12)))
+      RSC.text.status.text = "Status: Turning OFF Monitor " .. RSC.text.m2.text:sub(12,12) .. "."
+      RSC.RSMonitorOFF(RSC.combo.dis:getItem(RSC.itemselect.dis).text, tonumber(RSC.text.m2.text:sub(12,12)))
     end
   end
   RSC.buttons.check = RSC.app:addChild(RSC.gui.roundedButton(95, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Check Connection"))
   RSC.buttons.check.onTouch = function()
     RSC.text.status.text = "Status: Checking Connection"
-    RSC.checkConnection(true)
+    RSC.checkConnection(RSC.combo.dis:getItem(RSC.itemselect.dis).text, true)
   end
   RSC.buttons.exit = RSC.app:addChild(RSC.gui.roundedButton(124, 47, 25, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "Exit"))
   RSC.buttons.exit.onTouch = function()
@@ -95,70 +127,27 @@ function RSC.Draw_GUI()
     RSC.app:stop()
     RSC.mf.os.execute("clear")
     RSC.mf.os.execute("clear")
-  end
-  RSC.buttons.addplus = RSC.app:addChild(RSC.gui.roundedButton(111, 4, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "^"))
-  RSC.buttons.addplus.onTouch = function()
-    local temp = tonumber(RSC.inputs.add.text)
-    if temp == nil or ((27 - #RSC.rs.monitor) == temp) then
-      RSC.inputs.add.text = "1"
-    else
-      RSC.inputs.add.text = tostring(temp + 1)
-    end
-    RSC.status = "add"
-    RSC.check()
-  end
-  RSC.buttons.addminus = RSC.app:addChild(RSC.gui.roundedButton(115, 4, 3, 3, 0xFFFFFF, 0x555555, 0x880000, 0xFFFFFF, "v"))
-  RSC.buttons.addminus.onTouch = function()
-    local temp = tonumber(RSC.inputs.add.text)
-    if temp == nil then
-      RSC.inputs.add.text = "1"
-    elseif temp == 1 then
-      RSC.inputs.add.text = "27"
-    else
-      RSC.inputs.add.text = tostring(temp - 1)
-    end
-    RSC.status = "add"
-    RSC.check()
-  end
+  end  
   
-  RSC.inputs = {}
-  RSC.inputs.add = RSC.app:addChild(RSC.gui.input(105, 4, 5, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, "1", ""))
-  RSC.inputs.add.onInputFinished = function()
-    RSC.status = "add"
-    RSC.check()
-  end
-  RSC.inputs.addreg = RSC.app:addChild(RSC.gui.switchAndLabel(120, 5, 18, 6, 0x66DB80, 0x1D1D1D, 0xFFFFFF, 0xFFFFFF, "Register:", RSC.itemselect.reg))
-  RSC.inputs.addreg.switch.onStateChanged = function(state)
-      RSC.itemselect.reg = RSC.inputs.addreg.switch.state
-      RSC.status = "add"
-      RSC.check()
-    end
-  RSC.inputs.dis = RSC.app:addChild(RSC.gui.input(105, 13, 40, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, RSC.rs.distributor, "Distributor UID"))
-  RSC.inputs.dis.onInputFinished = function()
-    RSC.status = "dis"
-    RSC.check()
-  end
-  
-  RSC.list = {}
-  local as = RSC.mf.getAutoSizeForGuiList(RSC.rs.rstorages_order)
+  local as = RSC.mf.getAutoSizeForGuiList(RSC.mf.getSortedKeys(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].rstorages))
   RSC.list.rs = RSC.app:addChild(RSC.gui.list(3, as.y, 40, as.height, as.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
-  for i,j in pairs(RSC.mf.getSortedKeys(RSC.rs.rstorages)) do
+  for i,j in pairs(RSC.mf.getSortedKeys(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].rstorages)) do
     RSC.list.rs:addItem(j).onTouch = function()
       RSC.itemselect.r = RSC.list.rs.selectedItem
       RSC.text.rs.text = "Selected Storage: " .. tostring(RSC.list.rs:getItem(RSC.list.rs.selectedItem).text)
       RSC.text.desc.text = "Description:"
-      RSC.text.desc.lines = RSC.mf.split(RSC.rs.rstorages[RSC.text.rs.text:sub(19)].desc, "\n")
+      RSC.text.desc.lines = RSC.mf.split(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].rstorages[RSC.text.rs.text:sub(19)].desc, "\n")
       RSC.status = "turnON"
       RSC.check()
     end
   end
   RSC.list.rs.selectedItem = RSC.itemselect.r
   RSC.text.rs.text = "Selected Storage: " .. tostring(RSC.list.rs:getItem(RSC.list.rs.selectedItem).text)
-  RSC.text.desc.text = RSC.mf.split(RSC.rs.rstorages[RSC.text.rs.text:sub(19)].desc, "\n")
+  RSC.text.desc.text = RSC.mf.split(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].rstorages[RSC.text.rs.text:sub(19)].desc, "\n")
   
-  as = RSC.mf.getAutoSizeForGuiList(RSC.rs.monitor)
+  as = RSC.mf.getAutoSizeForGuiList(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations[RSC.combo.station:getItem(RSC.itemselect.s).text].monitor)
   RSC.list.m = RSC.app:addChild(RSC.gui.list(45, as.y, 40, as.height, as.itemheight, 0, 0xE1E1E1, 0x4B4B4B, 0xD2D2D2, 0x4B4B4B, 0x3366CC, 0xFFFFFF, false))
-  for i,j in pairs(RSC.rs.monitor) do
+  for i,j in pairs(RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations[RSC.combo.station:getItem(RSC.itemselect.s).text].monitor) do
     local txt= "RS Monitor " .. i
     if j ~= "" then
       txt = txt .. " (" .. j .. ")"
@@ -177,28 +166,20 @@ function RSC.Draw_GUI()
 end
 function RSC.check()
   if RSC.statusc == "check" then
-    for a,b in pairs({"buttons", "inputs", "list", "text"}) do
+    for a,b in pairs({"buttons", "inputs", "list", "text", "combo"}) do
       for c,d in pairs(RSC[b]) do
         RSC[b][c].disabled = true
       end
     end
     RSC.buttons.exit.disabled = false
     RSC.buttons.check.disabled = false
-    RSC.inputs.dis.disabled = false
+    RSC.combo.dis.disabled = false
     RSC.text.act.disabled = false
     RSC.text.act2.disabled = false
     RSC.text.status.text = "Status: No connection to distributor. Please Check!"
-    if RSC.inputs.dis.text ~= RSC.rs.distributor then
-      RSC.buttons.restore.disabled = false
-    end
-    if RSC.status == dis and RSC.inputs.dis.text ~= RSC.rs.distributor then
-      RSC.text.act2.text = "Change distributor UID. Please confirm!"
-      RSC.buttons.confirm.disabled = false
-    else
-      RSC.text.act2.text = "No action possible"
-    end
+    RSC.text.act2.text = "No action possible"
   else
-    for a,b in pairs({"buttons", "inputs", "list", "text"}) do
+    for a,b in pairs({"buttons", "inputs", "list", "text", "combo"}) do
       for c,d in pairs(RSC[b]) do
         RSC[b][c].disabled = false
       end
@@ -206,47 +187,41 @@ function RSC.check()
     RSC.text.act2.text = "No action available!"
     RSC.text.status.text = "Status: Idle"
     
-    if RSC.inputs.dis.text == RSC.rs.distributor then
-      RSC.buttons.restore.disabled = true
+    if RSC.inputs.newstation.text == "" then
+      RSC.buttons.clear.disabled = true
     end
     if #RSC.text.m2.text == 12 then
       RSC.buttons.off.disabled = true
     end
     
-    if RSC.status == "add" then
-      local temp = tonumber(RSC.inputs.add.text)
-      if temp == nil then
-        RSC.text.act2.text = "Cant add monitors! Give in a number!"
-        RSC.buttons.confirm.disabled = true
-      else
-        if RSC.itemselect.reg then
-          RSC.text.act2.text = "Add " .. temp .. " monitors. Please transfer Network-Cards and press confirm!"
-        else
-          RSC.text.act2.text = "Add " .. temp .. " monitors. Please confirm! Please register Network-Cards at Dis."
-        end
+    if RSC.status == "register" then
+      local st = RSC.combo.station:getItem(RSC.itemselect.s).text
+      if RSC.inputs.newstation.text ~= "" then
+        st = RSC.inputs.newstation.text
       end
+      RSC.text.act2.text = "Register monitors to station " .. st .. ". Please confirm!"
     elseif RSC.status == "remove" then
       local temp = tonumber(RSC.text.m2.text:sub(12,12))
-      if RSC.rs.monitor[temp] == nil then
+      if RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations[RSC.combo.station:getItem(RSC.itemselect.s).text].monitor[temp] == nil then
         RSC.text.act2.text = "Cant remove monitor!"
         RSC.buttons.confirm.disabled = true
       else
-        RSC.text.act2.text = "Remove monitor " .. temp .. ". Please confirm!"
+        RSC.text.act2.text = "Remove monitor " .. temp .. " from station " .. RSC.combo.station:getItem(RSC.itemselect.s).text .. ". Please confirm!"
       end
-    elseif RSC.status == "dis" then
-      if RSC.inputs.dis.text == RSC.rs.distributor then
+    elseif RSC.status == "removeStation" then
+      if RSC.combo.station:getItem(RSC.itemselect.s).text == "" then
         RSC.buttons.confirm.disabled = true  
       else
-        RSC.text.act2.text = "Change distributor UID. Please confirm!"
+        RSC.text.act2.text = "Remove station " .. RSC.combo.station:getItem(RSC.itemselect.s).text .. " and all its monitors... Please confirm!"
       end
     elseif RSC.status == "turnON" then
-      if RSC.text.rs.text == "Selected Storage: " or RSC.text.rs.text:sub(19) == RSC.rs.monitor[tonumber(RSC.text.m2.text:sub(12,12))] then
+      if RSC.text.rs.text == "Selected Storage: " or RSC.text.rs.text:sub(19) == RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations[RSC.combo.station:getItem(RSC.itemselect.s).text].monitor[tonumber(RSC.text.m2.text:sub(12,12))] then
         RSC.buttons.confirm.disabled = true
       else
         RSC.text.act2.text = "Turn ON Monitor " .. RSC.text.m2.text:sub(12,12) .. " with " .. RSC.text.rs.text:sub(19) ..". Please confirm!"
       end
     elseif RSC.status == "turnOFF" then
-      if RSC.text.rs.text == "" or RSC.text.rs.text:sub(19) == RSC.rs.monitor[RSC.text.m2.text:sub(12,12)] then
+      if RSC.text.rs.text == "" or RSC.text.rs.text:sub(19) == RSC.rs.Distributors[RSC.combo.dis:getItem(RSC.itemselect.dis).text].stations[RSC.combo.station:getItem(RSC.itemselect.s).text].monitor[RSC.text.m2.text:sub(12,12)] then
         RSC.buttons.confirm.disabled = true
       else
         RSC.text.act2.text = "Turn OFF Monitor " .. RSC.text.m2.text:sub(12,12) ..". Please confirm!"
@@ -258,26 +233,7 @@ function RSC.check()
 end
 
 function RSC.save()
-  if RSC.saving then
-    local rstorages = RSC.mf.copyTable(RSC.rs.rstorages)
-    RSC.rs.rstorages = nil
-    RSC.mf.WriteObjectFile(RSC.rs, varpath)
-    RSC.rs.rstorages = RSC.mf.copyTable(rstorages)
-  end
-end
-function RSC.addRSMonitors(count)
-  for i = 1, count, 1 do
-    table.insert(RSC.rs.monitor,"")
-  end
-  RSC.save()
-end
-function RSC.removeRSMonitor(monitor)
-  RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", method="push", storage=mod, rsmonitor=monitor, removing=true},true))
-  RSC.checkConnection(false)
-end
-function RSC.setDistributor(dis)
-  RSC.rs.distributor = dis
-  RSC.save()
+  RSC.mf.WriteObjectFile(RSC.rs, varpath)
 end
 
 function RSC.start()
@@ -300,7 +256,6 @@ function RSC.start()
             RSC.rs.Distributors[i] = nil
           end
         end
-        RSC.saving = true
         RSC.save()
         local distri = RSC.mf.getSortedKeys(RSC.rs.Distributors)
         if #distri == 0 then
@@ -317,11 +272,11 @@ function RSC.start()
   end
 end
 
-function RSC.RSMonitorON(mod, monitor)
+function RSC.RSMonitorON(distributor, station, mod, monitor)
   if RSC.rs.monitor[monitor] ~= nil and RSC.rs.monitor[monitor] ~= mod then
     if RSC.rs.monitor[monitor] ~= mod then
         RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", method="push", storage=mod, rsmonitor=monitor},true))
-        RSC.checkConnection(false)
+        RSC.checkConnection(RSC.combo.dis:getItem(RSC.itemselect.dis).text, false)
     else
       RSC.text.status.text = "Monitor already showing Refined Storage: " .. mod
     end
@@ -329,11 +284,11 @@ function RSC.RSMonitorON(mod, monitor)
     RSC.text.status.text = "Monitor not found. Try the method addRSMonitors(count)."
   end
 end
-function RSC.RSMonitorOFF(monitor)
+function RSC.RSMonitorOFF(distributor, station, monitor)
   if RSC.rs.monitor[monitor] ~= nil then
     if RSC.rs.monitor[monitor] ~= "" then
         RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", method="pull", storage=RSC.rs.monitor[monitor], rsmonitor=monitor},true))
-        RSC.checkConnection(false)
+        RSC.checkConnection(RSC.combo.dis:getItem(RSC.itemselect.dis).text, false)
     else
       RSC.text.status.text = "Monitor already OFF"
     end
@@ -341,13 +296,17 @@ function RSC.RSMonitorOFF(monitor)
     RSC.text.status.text = "Monitor not found. Try the method addRSMonitors(count)."
   end
 end
-function RSC.registerNetworkCards()
+function RSC.registerNetworkCards(distributor, station)
   RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", "register"},true))
-  RSC.checkConnection(false)
+  RSC.checkConnection(RSC.combo.dis:getItem(RSC.itemselect.dis).text, false)
 end
-function RSC.registerStation()
+function RSC.removeRSMonitor(distributor, station, monitor)
+  RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", method="push", storage="", rsmonitor=monitor, removing=true},true))
+  RSC.checkConnection(RSC.combo.dis:getItem(RSC.itemselect.dis).text, false)
+end
+function RSC.removeStation(distributor, station)
   RSC.ocnet.send(RSC.mf.serial.serialize({"RSNet", "register"},true))
-  RSC.checkConnection(false)
+  RSC.checkConnection(distributor, false)
 end
 function RSC.checkConnection(distributor, askfor)
   if RSC.timer ~= nil then
@@ -359,9 +318,7 @@ function RSC.checkConnection(distributor, askfor)
   local data = RSC.mf.ReceiveFromOCNet(10)
   if data ~= nil then
     RSC.rs.Distributors[distributor].rstorages = RSC.mf.copyTable(data.rstorages)
-    if data.stations ~= nil then
-      RSC.rs.Distributors[distributor].stations = RSC.mf.combineTables(RSC.rs.Distributors[distributor].stations, data.stations)
-    end
+    RSC.rs.Distributors[distributor].stations = RSC.mf.copyTable(data.stations)
     RSC.save()
     RSC.statusc = ""
     RSC.timercount = 30

@@ -54,33 +54,31 @@ function dis.RegisterNetCard(data)
       end
     end
   end
-  dis.StationCheck(data)
+  dis.StationCheck()
 end
 
-function dis.StationCheck(data)
-  local station_message = {"RSNet", ocnet=data.ocnet, rstorages={}, stations={}}
+function dis.StationCheck()
+  local station_message = {rstorages={}, stations={}}
   --{net=netid, rsmonitor=h, side=netside, slot=rs.netsides[netside].next}
   local cards = {}
   for i,j in pairs(dis.rs.netcards) do
-    if j.station == data.station then
-      table.insert(cards,i)
-      if station_message[j.station] == nil then
-        station_message[j.station] = {monitor={}}
-      end
-      station_message[j.station].monitor[dis.rs.netcards[i].rsmonitor] = ""
+    table.insert(cards,i)
+    if station_message.stations[j.station] == nil then
+      station_message.stations[j.station] = {monitor={}}
     end
+    station_message.stations[j.station].monitor[dis.rs.netcards[i].rsmonitor] = ""
   end
   for a,b in pairs(dis.rs.rstorages) do
     station_message.rstorages[a] = {desc=b.desc}
     for i,j in pairs(dis.rs.rorder) do
       if b[j] ~=-1 then
         if dis.mf.contains(cards, b[j]) then
-          station_message.monitor[dis.rs.netcards[b[j]].rsmonitor] = a
+          station_message.stations[dis.rs.netcards[b[j]].station].monitor[dis.rs.netcards[b[j]].rsmonitor] = a
         end
       end
     end
   end
-  dis.modem.send(data.remoteAddress, 478, dis.mf.serial.serialize(station_message))
+  dis.mf.SendBack(station_message)
 end
 
 function dis.DistributeNetCard(data)
@@ -88,7 +86,7 @@ function dis.DistributeNetCard(data)
   local tempslot = -1
   local tempslotreverse = -1
   local timeout = 0
-  if dis.mf.contains(dis.rs.rstorages_order, data.storage) then
+  if dis.mf.contains(dis.rs.rstorages_order, data.storage) or (data.removing ~= nil and data.storage == "") then
     
     --get network-card-id
     for i,j in pairs(dis.rs.netcards) do
@@ -101,7 +99,7 @@ function dis.DistributeNetCard(data)
     end
 
     if id == -1 then
-      print("Cant find a registered Network-Card for this address.")
+      print("Cant find a registered Network-Card for this station.")
     elseif data.method == "push" then
       
       --Get Network-Card if it is in another storage
@@ -110,7 +108,7 @@ function dis.DistributeNetCard(data)
         for i,j in pairs(dis.rs.rorder) do
           if b[j] == id then
             print("Network-Card found at: " .. a .. " (" .. j .. ") --- Pulling")
-            dis.DistributeNetCard({method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor, station=dis.rs.netcards[id].station})
+            dis.DistributeNetCard({method="pull", storage=a, rsmonitor=dis.rs.netcards[id].rsmonitor, station=dis.rs.netcards[id].station, "nostationcheck"})
             found = true
             break
           end
@@ -122,25 +120,28 @@ function dis.DistributeNetCard(data)
       
       --Get free slot at the destination storage
       local freenetslot = -1
-      for i,j in pairs(dis.rs.rorder) do
-        if dis.rs.rstorages[data.storage][j] == -1 then
-          freenetslot = i
-          break
+      if data.removing ~= nil then
+        freenetslot = 1
+      else
+        for i,j in pairs(dis.rs.rorder) do
+          if dis.rs.rstorages[data.storage][j] == -1 then
+            freenetslot = i
+            break
+          end
+        end
+        --Pull out a Network-Card if all slots are occupied
+        if freenetslot == -1 then
+          local templast = dis.rs.rstorages[data.storage]["last"]
+          local tempid = dis.rs.rstorages[data.storage][dis.rs.rorder[templast]]
+          dis.DistributeNetCard({method="pull", storage=data.storage, rsmonitor=dis.rs.netcards[tempid].rsmonitor, station=dis.rs.netcards[tempid].station, "nostationcheck"})
+          freenetslot = templast
+          if (templast + 1) == 5 then
+            dis.rs.rstorages[data.storage]["last"] = 1
+          else
+            dis.rs.rstorages[data.storage]["last"] = templast + 1
+          end
         end
       end
-      --Pull out a Network-Card if all slots are occupied
-      if freenetslot == -1 then
-        local templast = dis.rs.rstorages[data.storage]["last"]
-        local tempid = dis.rs.rstorages[data.storage][dis.rs.rorder[templast]]
-        dis.DistributeNetCard({method="pull", storage=data.storage, rsmonitor=dis.rs.netcards[tempid].rsmonitor, station=dis.rs.netcards[tempid].station})
-        freenetslot = templast
-        if (templast + 1) == 5 then
-          dis.rs.rstorages[data.storage]["last"] = 1
-        else
-          dis.rs.rstorages[data.storage]["last"] = templast + 1
-        end
-      end
-
       --Push items for rftools-processor 
       --items to indicate in which slot the Network-Card is located 
       local times = dis.mf.MathUp(tempslot/64)
@@ -196,7 +197,7 @@ function dis.DistributeNetCard(data)
         end
         dis.save()
       end
-      dis.StationCheck(data.station)
+      dis.StationCheck()
 
     elseif data.method == "pull" then
                     
@@ -257,7 +258,9 @@ function dis.DistributeNetCard(data)
             dis.rs.rstorages[data.storage][dis.rs.rorder[freenetslot]] = -1
             dis.save()
         end
-        dis.StationCheck(data)
+        if dis.mf.contains(data, "nostationcheck", "number") == false then
+          dis.StationCheck()
+        end
         else
           print("Cant pull Network-Card. No Network-Card found.")
         end
@@ -353,11 +356,9 @@ function dis.start()
     dis.rs.netsides[dis.rs.netsides_order[i]].size = dis.tp_net.getInventorySize(dis.mf.sides[dis.rs.netsides_order[i]])
   end
   dis.save()
-  dis.modem.close(478)
-  dis.modem.open(478)
   dis.listener = dis.mf.thread.create(function()
     while true do
-      local _, localAddress, remoteAddress, port, distance, data = dis.mf.event.pull("modem_message")
+      local data = dis.mf.ReceiveFromOCNet()
       data = dis.mf.serial.unserialize(data)
       if dis.mf.containsKey(data, "OCNet") then
         if data.OCNet.toSystem == "RSNet" then
@@ -365,8 +366,7 @@ function dis.start()
             print("")
             print("Received message:")
             print("Data: " .. data)
-            data.remoteAddress = remoteAddress
-            if dis.mf.contains(data, "register", "number") then
+            if dis.mf.containsKey(data, "register") then
               dis.RegisterNetCard(data)
             elseif dis.mf.contains(data, "check", "number") then
               dis.StationCheck(data)
