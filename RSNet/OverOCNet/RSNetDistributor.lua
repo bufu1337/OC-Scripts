@@ -58,27 +58,27 @@ function dis.RegisterNetCard(data)
 end
 
 function dis.StationCheck()
-  local station_message = {rstorages={}, stations={}}
+  local message_back = {rstorages={}, stations={}}
   --{net=netid, rsmonitor=h, side=netside, slot=rs.netsides[netside].next}
   local cards = {}
   for i,j in pairs(dis.rs.netcards) do
     table.insert(cards,i)
-    if station_message.stations[j.station] == nil then
-      station_message.stations[j.station] = {monitor={}}
+    if message_back.stations[j.station] == nil then
+      message_back.stations[j.station] = {monitor={}}
     end
-    station_message.stations[j.station].monitor[dis.rs.netcards[i].rsmonitor] = ""
+    message_back.stations[j.station].monitor[dis.rs.netcards[i].rsmonitor] = ""
   end
   for a,b in pairs(dis.rs.rstorages) do
-    station_message.rstorages[a] = {desc=b.desc}
+    message_back.rstorages[a] = {desc=b.desc}
     for i,j in pairs(dis.rs.rorder) do
       if b[j] ~=-1 then
         if dis.mf.contains(cards, b[j]) then
-          station_message.stations[dis.rs.netcards[b[j]].station].monitor[dis.rs.netcards[b[j]].rsmonitor] = a
+          message_back.stations[dis.rs.netcards[b[j]].station].monitor[dis.rs.netcards[b[j]].rsmonitor] = a
         end
       end
     end
   end
-  dis.mf.SendBack(station_message)
+  dis.mf.SendBack(message_back)
 end
 
 function dis.DistributeNetCard(data)
@@ -197,7 +197,9 @@ function dis.DistributeNetCard(data)
         end
         dis.save()
       end
-      dis.StationCheck()
+      if dis.mf.contains(data, "nostationcheck", "number") == false then
+        dis.StationCheck()
+      end
 
     elseif data.method == "pull" then
                     
@@ -269,8 +271,29 @@ function dis.DistributeNetCard(data)
     print("Not a valid storage to put the linked Network-Card to.")
   end
 end
+function dis.RemoveStation(data)
+  for i,j in pairs(dis.rs.netcards) do
+    if j.station == data.station then
+      dis.DistributeNetCard({station=data.station, method="push", storage="", rsmonitor=j.rsmonitor, removing=true, "nostationcheck"})
+    end
+  end
+  dis.StationCheck()
+end
 function dis.addRStorage(name, description, save)
-  table.insert(dis.rs.rstorages,1)
+  dis.rs.rstorages[name] = {up=-1, down=-1, [dis.rs.rorder[3]]=-1, [dis.rs.rorder[4]]=-1, last=1, desc=description}
+  if save ~= nil then
+    if save then
+      dis.save()
+    end
+  end
+end
+function dis.removeRStorage(name)
+  if dis.mf.containsKey(dis.rs.rstorages, name) then
+    dis.rs.rstorages[name] = nil
+    dis.save()
+  else
+    print("No Refined Storage found with this name. Cant remove Storage.")
+  end
 end
 local function setup()  
   print("Welcome to Refined Stoarge Net.")
@@ -328,9 +351,9 @@ local function setup()
     local temp = dis.mf.io.read()
     temp = tostring(temp:gsub(" ", "_"))
     table.insert(dis.rs.rstorages_order, temp)
-    print(i .. ". Descriptions:")
+    print(i .. ". Description:")
     local temp2 = dis.mf.io.read()
-    dis.rs.rstorages[temp] = {up=-1, down=-1, [dis.rs.rorder[3]]=-1, [dis.rs.rorder[4]]=-1, last=1, desc=temp2}
+    dis.addRStorage(temp, temp2, false)
   end
   dis.rs.netcards = {}
   dis.save()
@@ -359,27 +382,17 @@ function dis.start()
   dis.listener = dis.mf.thread.create(function()
     while true do
       local data = dis.mf.ReceiveFromOCNet()
-      data = dis.mf.serial.unserialize(data)
-      if dis.mf.containsKey(data, "OCNet") then
-        if data.OCNet.toSystem == "RSNet" then
-          if data.OCNet.to == dis.name then
-            print("")
-            print("Received message:")
-            print("Data: " .. data)
-            if dis.mf.containsKey(data, "register") then
-              dis.RegisterNetCard(data)
-            elseif dis.mf.contains(data, "check", "number") then
-              dis.StationCheck(data)
-            elseif dis.mf.containsKeys(data, {"method", "storage", "rsmonitor"}) then
-              dis.DistributeNetCard(data)
-            else
-              print("Cant handle received data.")
-            end
-          else
-            print("Received message not for me.")
-          end
+      if dis.mf.OCNet.toSystem == "RSNet" and dis.mf.OCNet.to == dis.mf.ComputerName[dis.mf.OCNet.system].name then
+        if dis.mf.contains(data, "check", "number") then
+          dis.StationCheck(data)
+        elseif dis.mf.contains(data, "register", "number") and dis.mf.containsKey(data, "station") then
+          dis.RegisterNetCard(data)
+        elseif dis.mf.contains(data, "remove", "number") and dis.mf.containsKey(data, "station") then
+          dis.RemoveStation(data)
+        elseif dis.mf.containsKeys(data, {"method", "storage", "rsmonitor", "station"}) then
+          dis.DistributeNetCard(data)
         else
-          print("Received message not for me.")
+          print("Cant handle received data.")
         end
       else
         print("Received message not for me.")
