@@ -1,5 +1,5 @@
-local serializer = require("Builder\\serializer")
-local mf = require("MainFunctions")
+local serializer = require("Builder/serializer")
+local mf = require("MainFunctionsEclipse")
 local os = require("os")
 
 --local wp = "Y:/Minecraft/OC-Scripts/Builder/Models/"

@@ -1,32 +1,36 @@
 local mf = {}
-mf.component = require("component")
-mf.event = require("event")
-mf.io = require("io")
-mf.sides = require("sides")
-mf.thread = require("thread")
-mf.shell = require("shell")
-mf.filesystem = require("filesystem")
-mf.os = require("os")
+--mf.component = require("component")
+--mf.event = require("event")
+--mf.io = require("io")
+--mf.sides = require("sides")
+--mf.thread = require("thread")
+--mf.shell = require("shell")
+--mf.filesystem = require("filesystem")
+--mf.os = require("os")
 mf.serial = require("serialization")
 mf.OCNet = {toSystem = "", system = "", to = "", from = "", tunnel = false, loc = "", remote = "", tunnels = {}, main_server = {}}
 
-for address, componentType in mf.component.list() do 
-  if componentType == "tunnel" then
-    table.insert(mf.OCNet.tunnels, address)
-  end
-end
-if mf.component.modem ~= nil then
-  mf.component.modem.close(478)
-  mf.component.modem.open(478)
-end
-mf.ComputerName = {}
-if mf.filesystem.exists("/home/ComputerName.lua") then  
-  mf.ComputerName = require("ComputerName")
-end
-if mf.filesystem.exists("/home/OCNetServer.lua") then  
-  mf.OCNet.main_server = require("OCNetServer")
-end
-mf.logFile = ""
+mf.filesystem = filesystem
+mf.io = io
+mf.os = os
+
+--for address, componentType in mf.component.list() do 
+--  if componentType == "tunnel" then
+--    table.insert(mf.OCNet.tunnels, address)
+--  end
+--end
+--if mf.component.modem ~= nil then
+--  mf.component.modem.close(478)
+--  mf.component.modem.open(478)
+--end
+--mf.ComputerName = {}
+--if mf.filesystem.exists("/home/ComputerName.lua") then  
+--  mf.ComputerName = require("ComputerName")
+--end
+--if mf.filesystem.exists("/home/OCNetServer.lua") then  
+--  mf.OCNet.main_server = require("OCNetServer")
+--end
+--mf.logFile = ""
 
 function mf.OpenLogFile(path)
   if mf.logFile == "" then
