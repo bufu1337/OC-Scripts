@@ -198,7 +198,7 @@ function mf.listSubDirsInDir(directory)
     return t
 end
 function mf.listFilesInDir(directory)
-    local i, t, subdirs = 0, {}, listSubDirsInDir(directory)
+    local i, t, subdirs = 0, {}, mf.listSubDirsInDir(directory)
     local pfile = mf.io.popen('dir "'..directory..'" /b')
     for filename in pfile:lines() do
         if not mf.contains(subdirs, filename) then
@@ -407,7 +407,10 @@ function mf.getIndex(ab, element)
   return -1
 end
 function mf.startswith(ab, str) 
+  if type(ab) == "string" then
     return ab:find('^' .. str) ~= nil
+  end
+  return false
 end
 function mf.endswith(ab, str) 
     return (ab:sub(#ab - #str + 1) == str)

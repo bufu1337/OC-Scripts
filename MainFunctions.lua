@@ -194,7 +194,7 @@ function mf.listSubDirsInDir(directory)
     return t
 end
 function mf.listFilesInDir(directory)
-    local i, t, subdirs = 0, {}, listSubDirsInDir(directory)
+    local i, t, subdirs = 0, {}, mf.listSubDirsInDir(directory)
     local pfile = mf.io.popen('dir "'..directory..'" /b')
     for filename in pfile:lines() do
         if not mf.contains(subdirs, filename) then
