@@ -3,6 +3,7 @@ local res = {}
 
 local function convertCT()
   for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/crafttweaker.txt") do
+    print(line)
     line = line:gsub("recipes.addShaped%(\"","{__oo__"):gsub("recipes.addShapeless%(\"","{__oo__"):gsub("\", <","__oo__, <"):gsub("\"",""):gsub("__oo__","\""):gsub("%);","}"):gsub("%)",")\""):gsub("%.withTag%(",", \"withTag("):gsub("<","\""):gsub(">","\""):gsub("%[","{"):gsub("%]","}"):gsub(" %*",", "):gsub(" %| ", ", "):gsub("%)\"_",")_")
     print(line)
     local b = mf.serial.unserialize(line)
@@ -25,7 +26,6 @@ local function convertCT()
         for i = 3, 5, 1 do
           if type(b[i]) == "table" then
             local recipe = {}
-            local tagcounter = 1
             local name = ""
             if type(b[i][1]) ~= "table" then
               b[i] = {b[i]}
@@ -40,18 +40,13 @@ local function convertCT()
                   if e[c + 1] ~= nil then
                     if tonumber(e[c + 1]) ~= nil then
                       need = tonumber(e[c + 1])
-                      temptag = nil
                     elseif mf.startswith(e[c + 1],"withTag") then
                       temptag = e[c + 1]
                       name = name .. temptag:gsub("withTag", "__wt"):gsub(" ", "_"):gsub(":", "_jj_"):gsub("{", "_so_"):gsub("}", "_sc_"):gsub("%(", "_ro_"):gsub("%)", "_rc_")
-                    else
-                      temptag = nil
                     end
-                  else
-                    temptag = nil
                   end
                   if recipe[name] == nil then
-                    recipe[name] = {need=need, tag=temptag}
+                    recipe[name] = {need=need, tag=temptag:gsub("withTag", "")}
                   else
                     recipe[name].need = recipe[name].need + need
                   end
@@ -68,5 +63,5 @@ local function convertCT()
   mf.WriteObjectFile(res,"C:/Users/alexandersk/workspace/OC-Scripts/src/ct.txt")
   print("DONE CONVERTING")
 end
-
-mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
+convertCT()
+--mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
