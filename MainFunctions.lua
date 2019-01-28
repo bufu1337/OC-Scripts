@@ -169,11 +169,11 @@ function mf.SetComputerName(typ, system)
   end
   return false
 end
-function mf.WriteObjectFile(object, path)
+function mf.WriteObjectFile(object, path, dep)
     local newLuaFile = mf.io.open(path, "w")
     if type(object) == "table" then
       newLuaFile:write("return ")
-      for i, k in pairs(mf.serial.serializedtable(object, true)) do
+      for i, k in pairs(mf.serial.serializedtable(object, true, dep)) do
         newLuaFile:write(k)
       end
     elseif type(object) == "string" then

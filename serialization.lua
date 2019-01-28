@@ -11,7 +11,7 @@ end
 
 -- Important: pretty formatting will allow presenting non-serializable values
 -- but may generate output that cannot be unserialized back.
-function serialization.serializedtable(value, pretty)
+function serialization.serializedtable(value, pretty, dep)
   local kw =  {["and"]=true, ["break"]=true, ["do"]=true, ["else"]=true,
                ["elseif"]=true, ["end"]=true, ["false"]=true, ["for"]=true,
                ["function"]=true, ["goto"]=true, ["if"]=true, ["in"]=true,
@@ -22,6 +22,9 @@ function serialization.serializedtable(value, pretty)
   local ts = {}
   local result_pack = {}
   local current_str = ""
+  if dep == nil then
+    dep = 100000
+  end
   local function recurse(current_value, depth)
     local t = type(current_value)
     if t == "number" then
@@ -91,16 +94,18 @@ function serialization.serializedtable(value, pretty)
       for k, v in table.unpack(f) do
         if first then
           if endswith(current_str, "{") or endswith(current_str, "},") then
-            current_str = current_str .. "\n"
             current_str = string.gsub(current_str, "=}", "={}")
-            table.insert(result_pack, current_str)
-            current_str = string.rep(" ", depth)
+            if depth < dep then
+              current_str = current_str .. "\n"
+              table.insert(result_pack, current_str)
+              current_str = string.rep(" ", depth)
+            end
           end
           current_str = current_str .. "{"
         else
           current_str = current_str .. ","
         end
-        if pretty and type(k) == "string" then
+        if pretty and type(k) == "string" and depth < dep then
           current_str = current_str .. "\n"
           table.insert(result_pack, current_str)
           current_str = string.rep(" ", depth)
@@ -123,11 +128,13 @@ function serialization.serializedtable(value, pretty)
         end
       end
       ts[current_value] = nil -- allow writing same table more than once
-      if endswith(current_str, "}") then
-        current_str = current_str .. "\n"
+      if endswith(current_str, "}") or endswith(current_str, "},") then
         current_str = string.gsub(current_str, "=}", "={}")
-        table.insert(result_pack, current_str)
-        current_str = string.rep(" ", depth)
+        if depth < dep then
+          current_str = current_str .. "\n"
+          table.insert(result_pack, current_str)
+          current_str = string.rep(" ", depth)
+        end
       end
       current_str = current_str .. "}"
     else
