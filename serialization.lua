@@ -106,6 +106,7 @@ function serialization.serializedtable(value, pretty, dep)
           current_str = current_str .. ","
         end
         if pretty and type(k) == "string" and depth < dep then
+          current_str = string.gsub(current_str, "=}", "={}")
           current_str = current_str .. "\n"
           table.insert(result_pack, current_str)
           current_str = string.rep(" ", depth)

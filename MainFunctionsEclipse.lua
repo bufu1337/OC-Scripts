@@ -347,8 +347,10 @@ function mf.contains(ab, element, only_keytype)
   return false
 end
 function mf.containsKey(ab, element)
-  if ab[element] ~= nil then
-    return true
+  if ab ~= nil then
+    if ab[element] ~= nil then
+      return true
+    end
   end
   return false
 end
