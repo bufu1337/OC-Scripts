@@ -16,7 +16,7 @@ if filesystem.exists("/home/bufu/Crafter/Items/max") == false then
   filesystem.makeDirectory("/home/bufu/Crafter/Items/max")
 end
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/GetCrafter.lua" .. "?" .. math.random() .. " /home/bufu/GetCrafter.lua")
-os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/MainFunctions.lua" .. "?" .. math.random() .. " /home/bufu/MainFunctions.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/MainFunctions.lua" .. "?" .. math.random() .. " /home/MainFunctions.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/screenchange.lua" .. "?" .. math.random() .. " /home/bufu/screenchange.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/.shrc" .. "?" .. math.random() .. " /home/bufu/.shrc")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/start.lua" .. "?" .. math.random() .. " /home/bufu/start.lua")
