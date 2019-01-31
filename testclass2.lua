@@ -46,7 +46,7 @@ end
 local function convertCT()
   local invalid_recipes = {}
   local additional_recipes = {}
-  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/recipes.log") do
+  for line in io.lines("Y:/Minecraft/OC-Scripts/recipes.log") do
     --print(line)
     line = line:gsub("recipes.addShaped%(\"","{__oo__"):gsub("recipes.addShapeless%(\"","{__oo__"):gsub("\", <","__oo__, <"):gsub("\"",""):gsub("__oo__","\""):gsub("%);","}"):gsub("%)",")\""):gsub("%.withTag%(",", \"withTag("):gsub("<","\""):gsub(">","\""):gsub("%[","{"):gsub("%]","}"):gsub(" %*",", "):gsub(" %| ", ", "):gsub("%)\"_",")_"):gsub("null","\"null\"")
     print(line)
@@ -261,14 +261,17 @@ local function WriteItemFiles()
   end
   newLuaFile:close()
   templines = nil
-  
---  for i,j in pairs(items) do
---    local temp={}
---    for a,b in pairs(j) do
---      temp[a] = {hasPattern=b.hasPattern, maxCount=b.maxCount}
---    end
---    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/ItemsNew/" .. i .. ".lua", 2)
---  end
+end
+local function WriteItemsSC()
+  for i,j in pairs(items) do
+    local temp={}
+    for a,b in pairs(j) do
+      if mf.contains(a, "_b_") == false then
+        temp[a] = b
+      end
+    end
+    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/ItemsNew/" .. i .. ".lua", 2)
+  end
 end
 --local mod_sc = {}
 --for a,b in pairs(sc) do
@@ -280,6 +283,7 @@ end
 --mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 --print(findSC("thermalfoundation"))
 --getAllItems()
---WriteItemFiles()
+WriteItemsSC()
 convertCT()
+WriteItemFiles()
 --mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
