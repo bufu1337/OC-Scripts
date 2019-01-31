@@ -12,7 +12,9 @@ local function CheckPattern(param)
     local newItems = {}
     for i,j in pairs(items) do
         newItems[i] = rs.hasPattern(convert.TextToItem(i))
+        print(i .. " = " .. tostring(newItems[i]))
     end
+    mf.WriteObjectFile(newItems, "/home/" .. param .. "_check.lua")
     filesystem.remove("/home/" .. param .. ".lua")
 end
 local args = shell.parse( ... )
