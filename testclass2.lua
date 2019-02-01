@@ -262,6 +262,26 @@ local function WriteItemFiles()
   newLuaFile:close()
   templines = nil
 end
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+local function combinePatternCheck()
+  for a,b in pairs(items) do
+    if file_exists("Y:/Minecraft/OC-Scripts/Crafter/PatternCheck/" .. a .. "_check.lua") then
+      local checkeditems = require("Crafter/PatternCheck/" .. a .. "_check")
+      for c,d in pairs(b) do
+        if items[a][c].hasPattern == true and checkeditems[c] == false then
+          print("                  ITEM: " .. c .. "       LOST PATTERN")
+        end
+        if items[a][c].hasPattern == false and checkeditems[c] == true then
+          print("ITEM: " .. c .. "    gets a Pattern")
+        end
+        items[a][c].hasPattern = checkeditems[c]
+      end
+    end
+  end
+end
 local function WriteItemsSC()
   for i,j in pairs(items) do
     local temp={}
@@ -283,7 +303,8 @@ end
 --mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 --print(findSC("thermalfoundation"))
 --getAllItems()
-WriteItemsSC()
-convertCT()
+--WriteItemsSC()
+--convertCT()
+combinePatternCheck()
 WriteItemFiles()
 --mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
