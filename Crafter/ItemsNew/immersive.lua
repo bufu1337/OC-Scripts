@@ -365,7 +365,7 @@ return {
  immersivehempcraft_jj_seed_base={c1="x",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivehempcraft_jj_soil={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
  immersivetech_jj_connectors={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
- immersivetech_jj_destilled_water={c1="cheaten",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
+ --immersivetech_jj_destilled_water={c1="cheaten",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivetech_jj_material={c1="xx",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivetech_jj_metal_multiblock={c1="x",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivetech_jj_stone_decoration={c1="bb",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
