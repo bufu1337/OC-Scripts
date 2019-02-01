@@ -21,7 +21,6 @@ return {
  aquamunda_jj_dough={c1="bb",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  aquamunda_jj_dough_roller={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
  aquamunda_jj_evaporator={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
- aquamunda_jj_farmland={c1="x",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  aquamunda_jj_flour={c1="bb",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  aquamunda_jj_fresh_water={c1="auto",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  aquamunda_jj_grindstone={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
