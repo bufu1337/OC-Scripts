@@ -361,7 +361,7 @@ return {
  immersivehempcraft_jj_oil={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
  immersivehempcraft_jj_perlite={c1="Mekanism Schmelzer",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivehempcraft_jj_phosphate={c1="Pulverisierer",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
- immersivehempcraft_jj_potion={c1="cheaten",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
+ --immersivehempcraft_jj_potion={c1="cheaten",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivehempcraft_jj_seed_base={c1="x",c2="",c3="",hasPattern=false,maxCount=8,tag=""},
  immersivehempcraft_jj_soil={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
  immersivetech_jj_connectors={c1="",c2="",c3="",hasPattern=true,maxCount=8,tag=""},
