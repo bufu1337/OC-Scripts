@@ -31,14 +31,15 @@ end
 getSCMods()
 getNamesWT()
 local function findSC(mod)
+  local returning = "new"
   for a,b in pairs(sc) do
     for i,j in pairs(b) do
       if j == mod then
-        return a
+        returning = a
       end
     end
   end
-  return "new"
+  return returning
 end
 local function getItem(arr)
 
@@ -46,7 +47,8 @@ end
 local function convertCT()
   local invalid_recipes = {}
   local additional_recipes = {}
-  for line in io.lines("Y:/Minecraft/OC-Scripts/recipes.log") do
+  local irnames = mf.combineTables(require("InvalidRecipeNames"), require("IRNames"))
+  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/recipes.log") do
     --print(line)
     line = line:gsub("recipes.addShaped%(\"","{__oo__"):gsub("recipes.addShapeless%(\"","{__oo__"):gsub("\", <","__oo__, <"):gsub("\"",""):gsub("__oo__","\""):gsub("%);","}"):gsub("%)",")\""):gsub("%.withTag%(",", \"withTag("):gsub("<","\""):gsub(">","\""):gsub("%[","{"):gsub("%]","}"):gsub(" %*",", "):gsub(" %| ", ", "):gsub("%)\"_",")_"):gsub("null","\"null\"")
     print(line)
@@ -146,8 +148,13 @@ local function convertCT()
                         end
                       end
                       if rfound == false then
-                        print("Recipe-Item not found: " .. rname .. "    TAG: " .. temptag)
-                        recipe_full = false
+                        if irnames[rname] ~= nil and irnames[rname] ~= "" then
+                          rname = irnames[rname]
+                          print("Recipe-Item found IN IR: " .. rname)
+                        else
+                          print("Recipe-Item not found: " .. rname .. "    TAG: " .. temptag)
+                          recipe_full = false
+                        end
                       end
                       if additional_recipe then
                         if additional_recipes[item_sc][name][addcount].recipe[rname] == nil then
@@ -171,6 +178,7 @@ local function convertCT()
                   invalid_recipes[item_sc] = {}
                 end
                 invalid_recipes[item_sc][name] = mf.copyTable(items[item_sc][name])
+                items[item_sc][name].craftCount = 0
                 items[item_sc][name].recipe = {}
               end
             end
@@ -179,20 +187,36 @@ local function convertCT()
       end
     end
   end
+  for a,b in pairs(items) do
+    for e,f in pairs(b) do
+      if mf.containsKeys(f, {"craftCount", "recipe"}) == false then
+        items[a][e].craftCount = 0
+        items[a][e].recipe = {}
+      end
+    end
+  end
   mf.WriteObjectFile(items,"C:/Users/alexandersk/workspace/OC-Scripts/src/ItemsWithRecipes.lua", 3)
   mf.WriteObjectFile(invalid_recipes,"C:/Users/alexandersk/workspace/OC-Scripts/src/InvalidRecipes.lua", 3)
   mf.WriteObjectFile(additional_recipes,"C:/Users/alexandersk/workspace/OC-Scripts/src/AdditionalRecipes.lua", 4)
-  local irnames = {}
   for a,b in pairs(invalid_recipes) do
     for e,f in pairs(b) do
       for c,d in pairs(f.recipe) do
-        if mf.containsKey(items[findSC(mf.split(c:gsub("_jj_", ":"), ":")[1])], c) == false then
+        if mf.containsKey(items[findSC(mf.split(c:gsub("_jj_", ":"), ":")[1])], c) == false and mf.containsKey(irnames, c) == false then
           irnames[c] = ""
         end
       end
     end
   end
+  local tempir = {}
   mf.WriteObjectFile(irnames,"C:/Users/alexandersk/workspace/OC-Scripts/src/InvalidRecipeNames.lua", 2)
+  for a,b in pairs(irnames) do
+    if b ~= "" then
+      tempir[a] = irnames[a]
+      irnames[a] = nil
+    end
+  end
+  mf.WriteObjectFile(irnames,"C:/Users/alexandersk/workspace/OC-Scripts/src/IRNames.lua", 2)
+  mf.WriteObjectFile(tempir,"C:/Users/alexandersk/workspace/OC-Scripts/src/TempIRNames.lua", 2)
   print("DONE CONVERTING")
 end
 
@@ -248,11 +272,26 @@ local function getAllItems()
 --  end
   --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 end
+local function WriteItemFiles2()
+  mf.WriteObjectFile(items, "C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua", 3)
+  local templines = {}
+  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua") do
+    local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
+    l = l:gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
+    table.insert(templines, l)
+  end
+  local newLuaFile = mf.io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua", "w")
+  for i,j in pairs(templines) do
+    newLuaFile:write(j)
+  end
+  newLuaFile:close()
+  templines = nil
+end
 local function WriteItemFiles()
   mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
   local templines = {}
   for line in io.lines("Y:/Minecraft/OC-Scripts/ConvertedItems.lua") do
-    local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\"}", "    '\"}    ")
+    local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
     table.insert(templines, l)
   end
   local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
@@ -306,7 +345,7 @@ end
 --print(findSC("thermalfoundation"))
 --getAllItems()
 --WriteItemsSC()
---convertCT()
-combinePatternCheck()
-WriteItemFiles()
+convertCT()
+--combinePatternCheck()
+WriteItemFiles2()
 --mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
