@@ -47,8 +47,8 @@ end
 local function convertCT()
   local invalid_recipes = {}
   local additional_recipes = {}
-  local irnames = mf.combineTables(require("InvalidRecipeNames"), require("IRNames"))
-  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/recipes.log") do
+  local irnames = {}--mf.combineTables(require("InvalidRecipeNames"), require("IRNames"))
+  for line in io.lines("Y:/Minecraft/OC-Scripts/recipes.log") do
     --print(line)
     line = line:gsub("recipes.addShaped%(\"","{__oo__"):gsub("recipes.addShapeless%(\"","{__oo__"):gsub("\", <","__oo__, <"):gsub("\"",""):gsub("__oo__","\""):gsub("%);","}"):gsub("%)",")\""):gsub("%.withTag%(",", \"withTag("):gsub("<","\""):gsub(">","\""):gsub("%[","{"):gsub("%]","}"):gsub(" %*",", "):gsub(" %| ", ", "):gsub("%)\"_",")_"):gsub("null","\"null\"")
     print(line)
@@ -178,8 +178,8 @@ local function convertCT()
                   invalid_recipes[item_sc] = {}
                 end
                 invalid_recipes[item_sc][name] = mf.copyTable(items[item_sc][name])
-                items[item_sc][name].craftCount = 0
-                items[item_sc][name].recipe = {}
+                --items[item_sc][name].craftCount = 0
+                --items[item_sc][name].recipe = {}
               end
             end
           end
@@ -195,9 +195,9 @@ local function convertCT()
       end
     end
   end
-  mf.WriteObjectFile(items,"C:/Users/alexandersk/workspace/OC-Scripts/src/ItemsWithRecipes.lua", 3)
-  mf.WriteObjectFile(invalid_recipes,"C:/Users/alexandersk/workspace/OC-Scripts/src/InvalidRecipes.lua", 3)
-  mf.WriteObjectFile(additional_recipes,"C:/Users/alexandersk/workspace/OC-Scripts/src/AdditionalRecipes.lua", 4)
+  mf.WriteObjectFile(items,"Y:/Minecraft/OC-Scripts/ItemsWithRecipes.lua", 3)
+  mf.WriteObjectFile(invalid_recipes,"Y:/Minecraft/OC-Scripts/InvalidRecipes.lua", 3)
+  mf.WriteObjectFile(additional_recipes,"Y:/Minecraft/OC-Scripts/AdditionalRecipes.lua", 4)
   for a,b in pairs(invalid_recipes) do
     for e,f in pairs(b) do
       for c,d in pairs(f.recipe) do
@@ -208,15 +208,15 @@ local function convertCT()
     end
   end
   local tempir = {}
-  mf.WriteObjectFile(irnames,"C:/Users/alexandersk/workspace/OC-Scripts/src/InvalidRecipeNames.lua", 2)
+  mf.WriteObjectFile(irnames,"Y:/Minecraft/OC-Scripts/InvalidRecipeNames.lua", 2)
   for a,b in pairs(irnames) do
     if b ~= "" then
       tempir[a] = irnames[a]
       irnames[a] = nil
     end
   end
-  mf.WriteObjectFile(irnames,"C:/Users/alexandersk/workspace/OC-Scripts/src/IRNames.lua", 2)
-  mf.WriteObjectFile(tempir,"C:/Users/alexandersk/workspace/OC-Scripts/src/TempIRNames.lua", 2)
+  mf.WriteObjectFile(irnames,"Y:/Minecraft/OC-Scripts/IRNames.lua", 2)
+  mf.WriteObjectFile(tempir,"Y:/Minecraft/OC-Scripts/TempIRNames.lua", 2)
   print("DONE CONVERTING")
 end
 
@@ -273,14 +273,14 @@ local function getAllItems()
   --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 end
 local function WriteItemFiles2()
-  mf.WriteObjectFile(items, "C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua", 3)
+  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
   local templines = {}
-  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua") do
+  for line in io.lines("Y:/Minecraft/OC-Scripts/ConvertedItems.lua") do
     local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
     l = l:gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
     table.insert(templines, l)
   end
-  local newLuaFile = mf.io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/ConvertedItems.lua", "w")
+  local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
   for i,j in pairs(templines) do
     newLuaFile:write(j)
   end
