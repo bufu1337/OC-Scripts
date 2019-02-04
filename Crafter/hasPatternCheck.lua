@@ -9,9 +9,12 @@ function hpc.CheckPattern(param)
     local rs = mf.component.proxy(prox.GetProxyByName(param, "craft"))
     local newItems = {}
     for i,j in pairs(items) do 
-        print(i)
-        newItems[i] = rs.hasPattern(convert.TextToItem(i))
-        print(i .. " = " .. tostring(newItems[i]))
+        local st = pcall(function(v) newItems[v] = rs.hasPattern(convert.TextToItem(v)) end, i)
+        if st then
+            print(i .. " = " .. tostring(newItems[i]))
+        else
+            print(i .. "     INVALID STACK")
+        end
     end
     mf.WriteObjectFile(newItems, "/home/patternCheck/" .. param .. "_check.lua")
     mf.filesystem.remove("/home/" .. param .. ".lua")

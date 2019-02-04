@@ -171,7 +171,7 @@ local function convertCT()
                   invalid_recipes[item_sc] = {}
                 end
                 invalid_recipes[item_sc][name] = mf.copyTable(items[item_sc][name])
-                items[item_sc][name].recipe = nil
+                items[item_sc][name].recipe = {}
               end
             end
           end
@@ -271,13 +271,15 @@ local function combinePatternCheck()
     if file_exists("Y:/Minecraft/OC-Scripts/Crafter/PatternCheck/" .. a .. "_check.lua") then
       local checkeditems = require("Crafter/PatternCheck/" .. a .. "_check")
       for c,d in pairs(b) do
-        if items[a][c].hasPattern == true and checkeditems[c] == false then
-          print("                  ITEM: " .. c .. "       LOST PATTERN")
+        if checkeditems[c] ~= nil then
+          if items[a][c].hasPattern == true and checkeditems[c] == false then
+            print("                  ITEM: " .. c .. "       LOST PATTERN")
+          end
+          if items[a][c].hasPattern == false and checkeditems[c] == true then
+            --print("ITEM: " .. c .. "    gets a Pattern")
+          end
+          items[a][c].hasPattern = checkeditems[c]
         end
-        if items[a][c].hasPattern == false and checkeditems[c] == true then
-          print("ITEM: " .. c .. "    gets a Pattern")
-        end
-        items[a][c].hasPattern = checkeditems[c]
       end
     end
   end
