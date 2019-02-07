@@ -334,6 +334,47 @@ local function WriteItemsSC()
     mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/ItemsNew/" .. i .. ".lua", 2)
   end
 end
+local function WriteItemsSC2()
+  for i,j in pairs(items) do
+    local temp={}
+    local tempr={}
+    for a,b in pairs(j) do
+      if b.hasPattern then
+        temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
+        for g,h in pairs(b.recipe) do
+          tempr[g] = {need=0}
+        end
+      end
+    end
+    mf.WriteObjectFile(temp, "C:/Users/alexandersk/workspace/OC-Scripts/src/Crafter/ItemsNew2/" .. i .. ".lua", 2)
+    mf.WriteObjectFile(tempr, "C:/Users/alexandersk/workspace/OC-Scripts/src/Crafter/ItemsNew2/" .. i .. " - RecipeItems.lua", 2)
+  end
+end
+local function irnamesCorrect()
+  local templines = {}
+  local counter = 0
+  local counter2 = 0
+  local irn = require("IRNames2")
+  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/newItems.txt") do
+    counter2 = counter2 + 1
+    print("Line: " .. tostring(counter2))
+    for i,j in pairs(irn) do
+      if mf.contains(line,"%[\"" .. i:sub(0,#i - 1) .. "%*\"%]") then
+        line = line:gsub("%[\"" .. i:sub(0,#i - 1) .. "%*\"%]", i:sub(0,#i - 5))
+        counter = counter + 1
+      end
+    end
+    table.insert(templines, line)
+  end
+  print("Replaced: " .. tostring(counter))
+  local newLuaFile = mf.io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/newItems2.txt", "w")
+  for i,j in pairs(templines) do
+    newLuaFile:write(j .. "\n")
+  end
+  newLuaFile:close()
+  templines = nil
+end
+WriteItemsSC2()
 --local mod_sc = {}
 --for a,b in pairs(sc) do
 --  for c,d in pairs(b) do
@@ -345,7 +386,7 @@ end
 --print(findSC("thermalfoundation"))
 --getAllItems()
 --WriteItemsSC()
-convertCT()
+--convertCT()
 --combinePatternCheck()
-WriteItemFiles2()
+--WriteItemFiles2()
 --mf.printx(mf.listFilesInDir("C:/Users/alexandersk/workspace/OC-Scripts/src/"))
