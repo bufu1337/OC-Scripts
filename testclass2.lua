@@ -342,7 +342,9 @@ local function WriteItemsSC2()
       if b.hasPattern then
         temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
         for g,h in pairs(b.recipe) do
-          tempr[g] = {need=0}
+          if mf.containsKey(j,g) == false then
+            tempr[g] = {need=0}
+          end
         end
       end
     end
