@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="C:\Users\alexandersk\workspace\OC-Scripts\src\ALL_Items.js"></script>
+</head>
+<body>
+<script>
+function myFunction(){
+	var select2 = document.getElementById("selectItem"); 
+	var mckeys2 = Object.keys(mc[document.getElementById("selectCrafter").value]); 
+
+	for(var i = 0; i < mckeys2.length; i++) {
+	    var opt = mckeys2[i];
+	    var el = document.createElement("option");
+	    el.text = opt;
+	    el.value = opt;
+	    select2.appendChild(el);
+	}
+}
+</script>
+<form id="myForm">
+  <select id="selectCrafter" onchange="myFunction()">
+  </select>
+</form>
+<form id="myForm">
+  <select id="selectItem">
+  </select>
+</form>
+<script>
+var select = document.getElementById("selectCrafter"); 
+var mckeys = Object.keys(mc); 
+
+for(var i = 0; i < mckeys.length; i++) {
+    var opt = mckeys[i];
+    var el = document.createElement("option");
+    el.text = opt;
+    el.value = opt;
+    select.appendChild(el);
+}
+myFunction()
+</script>
+</body>
+</html>
