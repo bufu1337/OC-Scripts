@@ -549,6 +549,28 @@ function ac.CraftItems()
     end
     ac.MoveRestBack()
 end
+function ac.CheckRecipe()
+    local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
+    for i,j in pairs(ac.items) do
+      ac.items[i].crafts = 1
+    end
+    local cr_items = {}
+    for i,j in pairs(ac.items) do
+        if j.crafts ~= nil and j.crafts ~= 0 then
+            print("Checking Recipe for Items: " .. i .. " Crafts: " .. j.crafts)
+            ac.MoveRecipeItems(i)
+            local r = cr.getMissingItems(j, j.crafts)
+            if r.n > 1 then
+              cr_items[i] = "Wrong"
+            else
+              cr_items[i] = "OK"
+            end
+            ac.MoveRestBack()
+        end 
+    end
+    ac.MoveRestBack()
+    mf.WriteObjectFile(cr_items, "/home/" .. crafter .. " - RecipeChecked.lua")
+end
 function ac.GetItems()
     print("GetItems")
     ac.ConvertItems()
