@@ -493,9 +493,9 @@ function ac.SetCrafts(item)
             if proceed then
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
-                      ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - (ac.items[item].crafts * j.ac.items[item].recipe[a].need)
+                      ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - (ac.items[item].crafts * ac.items[item].recipe[a].need)
                     elseif ac.items[a] ~= nil then
-                      ac.items[a].newsize = ac.items[a].newsize - (ac.items[item].crafts * j.ac.items[item].recipe[a].need)
+                      ac.items[a].newsize = ac.items[a].newsize - (ac.items[item].crafts * ac.items[item].recipe[a].need)
                     end
                 end
                 print(item .. ": SetCraft = " .. ac.items[item].crafts)

@@ -1,6 +1,6 @@
 <XMLConfigSettings>
-	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720239"/>
-	<Document position="(90,495)" top="476">
+	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720241"/>
+	<Document position="(19,499)" top="458">
 		<Collapsed count="239">
 			<Scope idx="4"/>
 			<Scope idx="5"/>
@@ -96,11 +96,9 @@
 			<Scope idx="178"/>
 			<Scope idx="179"/>
 			<Scope idx="180"/>
+			<Scope idx="181"/>
 			<Scope idx="187"/>
 			<Scope idx="188"/>
-			<Scope idx="190"/>
-			<Scope idx="191"/>
-			<Scope idx="192"/>
 			<Scope idx="194"/>
 			<Scope idx="196"/>
 			<Scope idx="197"/>
