@@ -462,6 +462,12 @@ function ac.SetCrafts(item)
                   else
                     ac.recipeitems[a].need = ac.items[item].crafts * b.need
                   end
+                elseif ac.items[a] ~= nil then
+                  if ac.items[a].need ~= nil then
+                    ac.items[a].need = ac.items[a].need + (ac.items[item].crafts * b.need)
+                  else
+                    ac.items[a].need = ac.items[item].crafts * b.need
+                  end
                 end
             end
             for a,b in pairs(ac.items[item].recipe) do
