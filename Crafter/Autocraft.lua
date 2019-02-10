@@ -612,7 +612,7 @@ function ac.CheckItemRecipe(item)
     ac.items[item].crafts = 1
     print("Checking Item Recipe: " .. item)
     for g,h in pairs(ac.items[item].recipe) do
-        local tempsize
+        local tempsize = 0
         if ac.recipeitems[g] ~= nil then
             tempsize = ac.recipeitems[g].size
         elseif ac.items[g] ~= nil then
@@ -628,12 +628,9 @@ function ac.CheckItemRecipe(item)
     end
     if returning == "" then
         ac.MoveRecipeItems(item)
+        ac.mf.os.sleep(0.1)
         local r = ac.rs_cr.getMissingItems(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount)
-        if r.n > 1 then
-          returning = "Wrong"
-        else
-          returning = "OK"
-        end
+        if r.n > 1 then returning = "Wrong " .. ac.mf.serial.serialize(r) else returning = "OK" end
         ac.MoveRestBack()
     end
     print(returning)
