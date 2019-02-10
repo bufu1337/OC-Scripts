@@ -484,7 +484,9 @@ function ac.SetCrafts(item, newneed)
                         ac.items[a].need = ThisTempCrafts * b.need
                       end
                       print(a .. ": New recipe item Need (in items) = " .. ac.items[a].need)
-                      ac.SetCrafts(a, (ThisTempCrafts * b.need))
+                      if a ~= item then
+                        ac.SetCrafts(a, (ThisTempCrafts * b.need))
+                      end
                     end
                 end
                 if newneed ~= nil then
