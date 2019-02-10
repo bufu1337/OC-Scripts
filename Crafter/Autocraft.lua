@@ -584,6 +584,7 @@ function ac.MoveRestBack()
     for i,j in pairs(rest_items) do
         ac.MoveItem(j, j.size, (ac.prox.GetRoute(ac.crafter, "home", j.mod, 1)))
     end
+    ac.mf.os.sleep(0.1)
 end
 function ac.CraftItems()
     local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
@@ -591,6 +592,7 @@ function ac.CraftItems()
         if j.crafts ~= nil and j.crafts ~= 0 then
             print("Crafting Item: " .. i .. " Crafts: " .. j.crafts)
             ac.MoveRecipeItems(i)
+            ac.mf.os.sleep(0.1)
             cr.scheduleTask(j, j.crafts * j.craftCount)
             local tasks = cr.getTasks()
             while #tasks > 0 do
@@ -662,7 +664,7 @@ function ac.GetItems()
     print("GetItems")
     ac.ConvertItems()
     ac.GetStorageItems()
-    ac.GetRecipes()
+    --ac.GetRecipes()
     ac.CalculateCrafts()
 end
 function ac.GetRecipeCraftings()
@@ -714,7 +716,6 @@ end
 function ac.Craft(itemrepo)
   ac.Define(itemrepo)
   ac.GetItems()
-  --ac.GetRecipeCraftings()
   ac.CraftItems()
 end
 function ac.CraftExItems(itemsToCraft)
