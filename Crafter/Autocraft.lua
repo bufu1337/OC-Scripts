@@ -462,8 +462,10 @@ function ac.SetCrafts(item, newneed)
                   ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount))
                 end
                 ThisTempCrafts = ac.items[item].crafts
+                print(item .. ": CraftsFirst = " .. ThisTempCrafts)
             elseif newneed ~= nil then
                 ThisTempCrafts = ac.mf.MathUp(newneed / ac.items[item].craftCount)
+                print(item .. ": CraftsNeed = " .. ThisTempCrafts)
             end
             if ThisTempCrafts ~= 0 then
                 for a,b in pairs(ac.items[item].recipe) do
@@ -473,19 +475,21 @@ function ac.SetCrafts(item, newneed)
                       else
                         ac.recipeitems[a].need = ThisTempCrafts * b.need
                       end
+                      print(a .. ": New recipe item Need = " .. ac.recipeitems[a].need)
                     elseif ac.items[a] ~= nil then
                       if ac.items[a].need ~= nil then
                         ac.items[a].need = ac.items[a].need + (ThisTempCrafts * b.need)
-                        ac.SetCrafts(a, (ThisTempCrafts * b.need))
                       else
                         ac.items[a].need = ThisTempCrafts * b.need
-                        ac.SetCrafts(a, (ThisTempCrafts * b.need))
                       end
+                      print(a .. ": New recipe item Need (in items) = " .. ac.items[a].need)
+                      ac.SetCrafts(a, (ThisTempCrafts * b.need))
                     end
                 end
                 if newneed ~= nil then
                     ac.items[item].crafts = ac.items[item].crafts + ThisTempCrafts
                     ThisTempCrafts2 = ac.items[item].crafts
+                    print(item .. ": CraftsOverall = " .. ThisTempCrafts2)
                 end
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
@@ -508,13 +512,18 @@ function ac.SetCrafts(item, newneed)
                     else
                       ThisTempCrafts = ac.items[item].crafts
                     end
+                    print(item .. ": ChangedCrafts = " .. ThisTempCrafts)
                 end
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
+                      print(a .. ": recipeitems Size = " .. ac.recipeitems[a].newsize)
                       ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - (ThisTempCrafts * ac.items[item].recipe[a].need)
+                      print(a .. ": recipeitems Size changed = " .. ac.recipeitems[a].newsize)
                     end
                 end
+                print(item .. ": Size = " .. ac.items[item].newsize)
                 ac.items[item].newsize = ac.items[item].newsize + (ThisTempCrafts * ac.items[item].craftCount)
+                print(item .. ": Size Changed = " .. ac.items[item].newsize)
                 if newneed ~= nil then
                     print(item .. ": SetNewCraft = " .. ac.items[item].crafts)
                 else
@@ -526,12 +535,8 @@ function ac.SetCrafts(item, newneed)
 end
 function ac.CalculateCrafts()
     print("CalculateCrafts")
-    for i,j in pairs(ac.items) do
-      ac.items[i]["newsize"] = j.size
-    end
-    for i,j in pairs(ac.recipeitems) do
-      ac.recipeitems[i]["newsize"] = j.size
-    end
+    for i,j in pairs(ac.items) do ac.items[i]["newsize"] = j.size end
+    for i,j in pairs(ac.recipeitems) do ac.recipeitems[i]["newsize"] = j.size end
     for i,j in pairs(ac.mf.getSortedKeys(ac.items)) do
         ac.SetCrafts(j)
     end
