@@ -470,6 +470,11 @@ function ac.SetCrafts(item)
                     if tempcrafts < ac.items[item].crafts then
                         ac.items[item].crafts = tempcrafts
                     end
+                elseif ac.items[a] ~= nil then
+                    local tempcrafts = math.floor(ac.items[a].newsize / b.need)
+                    if tempcrafts < ac.items[item].crafts then
+                        ac.items[item].crafts = tempcrafts
+                    end
                 else
                     print("Cant find in itemsrepo: " .. a)
                     proceed = false
@@ -479,7 +484,11 @@ function ac.SetCrafts(item)
             if proceed then
                 for a,b in pairs(ac.items[item].recipe) do
                     ac.items[item].recipe[a].size = ac.items[item].crafts * b.need
-                    ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - ac.items[item].recipe[a].size
+                    if ac.recipeitems[a] ~= nil then
+                      ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - ac.items[item].recipe[a].size
+                    elseif ac.items[a] ~= nil then
+                      ac.items[a].newsize = ac.items[a].newsize - ac.items[item].recipe[a].size
+                    end
                 end
                 print(item .. ": SetCraft = " .. ac.items[item].crafts)
             end

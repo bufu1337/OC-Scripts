@@ -87,7 +87,7 @@ return {
  minecraft_jj_stone_jj_3={need=0},
  minecraft_jj_stone_jj_5={need=0},
  minecraft_jj_string={need=0},
- minecraft_jj_sugar_cane={need=0},
+ minecraft_jj_reeds={need=0},
  minecraft_jj_wheat={need=0},
  morebeautifulbuttons_jj_button_press={need=0},
  mysticalagriculture_jj_crafting_jj_14={need=0},
