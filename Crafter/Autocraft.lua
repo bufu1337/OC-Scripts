@@ -451,12 +451,12 @@ function ac.SetCrafts(item)
     if(item ~= nil)then
         if ac.items[item].recipe ~= nil then
             local proceed = true
-            ac.items[item].crafts = ac.mf.MathUp((ac.items[item].maxCount - ac.items[item].size) / ac.items[item].craftCount) * ac.items[item].craftCount
+            ac.items[item].crafts = ac.mf.MathUp((ac.items[item].maxCount - ac.items[item].size) / ac.items[item].craftCount)
             if ac.items[item].crafts < 0 then
               ac.items[item].crafts = 0
             end
             if ac.items[item].need ~= nil then
-              ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount) * ac.items[item].craftCount)
+              ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount))
             end
             for a,b in pairs(ac.items[item].recipe) do
                 if ac.recipeitems[a] ~= nil then
@@ -562,7 +562,7 @@ function ac.CraftItems()
         if j.crafts ~= nil and j.crafts ~= 0 then
             print("Crafting Item: " .. i .. " Crafts: " .. j.crafts)
             ac.MoveRecipeItems(i)
-            cr.scheduleTask(j, j.crafts)
+            cr.scheduleTask(j, j.crafts * j.craftCount)
             local tasks = cr.getTasks()
             while #tasks > 0 do
                 ac.mf.os.sleep(1)
@@ -599,6 +599,15 @@ function ac.CheckRecipe()
     end
     ac.MoveRestBack()
     ac.mf.WriteObjectFile(cr_items, "/home/" .. crafter .. " - RecipeChecked.lua")
+end
+function ac.test()
+  ac = require("bufu/Crafter/Autocraft")
+  ac.Define("minecraft")
+  ac.ConvertItems()
+  ac.GetStorageItems()
+  ac.CalculateCrafts()
+  ac.mf.WriteObjectFile(ac.items, "/home/tempitems2.lua", 2)
+  ac.mf.WriteObjectFile(ac.recipeitems, "/home/temprecipeitems2.lua", 2)
 end
 function ac.GetItems()
     print("GetItems")
