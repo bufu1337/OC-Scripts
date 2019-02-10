@@ -452,6 +452,9 @@ function ac.SetCrafts(item)
         if ac.items[item].recipe ~= nil then
             local proceed = true
             ac.items[item].crafts = ac.mf.MathUp((ac.items[item].maxCount - ac.items[item].size) / ac.items[item].craftCount) * ac.items[item].craftCount
+            if ac.items[item].crafts < 0 then
+              ac.items[item].crafts = 0
+            end
             if ac.items[item].need ~= nil then
               ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount) * ac.items[item].craftCount)
             end
@@ -489,11 +492,10 @@ function ac.SetCrafts(item)
             end
             if proceed then
                 for a,b in pairs(ac.items[item].recipe) do
-                    ac.items[item].recipe[a].size = ac.items[item].crafts * b.need
                     if ac.recipeitems[a] ~= nil then
-                      ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - ac.items[item].recipe[a].size
+                      ac.recipeitems[a].newsize = ac.recipeitems[a].newsize - (ac.items[item].crafts * j.ac.items[item].recipe[a].need)
                     elseif ac.items[a] ~= nil then
-                      ac.items[a].newsize = ac.items[a].newsize - ac.items[item].recipe[a].size
+                      ac.items[a].newsize = ac.items[a].newsize - (ac.items[item].crafts * j.ac.items[item].recipe[a].need)
                     end
                 end
                 print(item .. ": SetCraft = " .. ac.items[item].crafts)
@@ -528,7 +530,11 @@ function ac.MoveItem(item, count, route)
 end
 function ac.MoveRecipeItems(item)
     for i,j in pairs(ac.items[item].recipe) do
-        ac.MoveItem(ac.recipeitems[i], j.size, (ac.prox.GetRoute(ac.recipeitems[i].mod, "craft", ac.crafter, 2)))
+        if ac.recipeitems[i] ~= nil then
+            ac.MoveItem(ac.recipeitems[i], ac.items[item].crafts * j.need, (ac.prox.GetRoute(ac.recipeitems[i].mod, "craft", ac.crafter, 2)))
+        elseif ac.items[i] ~= nil then
+            ac.MoveItem(ac.items[i], ac.items[item].crafts * j.need, (ac.prox.GetRoute(ac.items[i].mod, "craft", ac.crafter, 2)))
+        end
     end
 end
 function ac.MoveCraftedItem(item)
