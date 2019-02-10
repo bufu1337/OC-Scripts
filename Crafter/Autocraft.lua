@@ -607,27 +607,46 @@ function ac.CraftItems()
     end
     ac.MoveRestBack()
 end
-function ac.CheckRecipe()
-    local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
-    for i,j in pairs(ac.items) do
-      ac.items[i].crafts = 1
-    end
-    local cr_items = {}
-    for i,j in pairs(ac.items) do
-        if j.crafts ~= nil and j.crafts ~= 0 then
-            print("Checking Recipe for Items: " .. i .. " Crafts: " .. j.crafts)
-            ac.MoveRecipeItems(i)
-            local r = cr.getMissingItems(j, j.crafts)
-            if r.n > 1 then
-              cr_items[i] = "Wrong"
+function ac.CheckItemRecipe(item)
+    local returning = ""
+    ac.items[item].crafts = 1
+    print("Checking Item Recipe: " .. item)
+    for g,h in pairs(ac.items[item].recipe) do
+        local tempsize
+        if ac.recipeitems[g] ~= nil then
+            tempsize = ac.recipeitems[g].size
+        elseif ac.items[g] ~= nil then
+            tempsize = ac.items[g].size
+        end
+        if tempsize < ac.items[item].crafts * ac.items[item].recipe[g].need then
+            if returning == "" then
+              returning = "Cant check, missing: " .. g
             else
-              cr_items[i] = "OK"
+              returning = returning .. ", " .. g
             end
-            ac.MoveRestBack()
-        end 
+        end
+    end
+    if returning == "" then
+        ac.MoveRecipeItems(item)
+        local r = ac.rs_cr.getMissingItems(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount)
+        if r.n > 1 then
+          returning = "Wrong"
+        else
+          returning = "OK"
+        end
+        ac.MoveRestBack()
+    end
+    print(returning)
+    return returning
+end
+function ac.CheckRecipes()
+    ac.rs_cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
+    local cr_items = {}
+    for i,j in pairs(ac.mf.getSortedKeys(ac.items)) do
+        cr_items[j] = ac.CheckItemRecipe(j)
     end
     ac.MoveRestBack()
-    ac.mf.WriteObjectFile(cr_items, "/home/" .. crafter .. " - RecipeChecked.lua")
+    ac.mf.WriteObjectFile(cr_items, "/home/" .. ac.crafter .. " - RecipeChecked.lua")
 end
 function ac.test()
   ac = require("bufu/Crafter/Autocraft")
@@ -698,8 +717,7 @@ end
 function ac.Craft(itemrepo)
   ac.Define(itemrepo)
   ac.GetItems()
-  ac.CalculateCrafts()
-  ac.GetRecipeCraftings()
+  --ac.GetRecipeCraftings()
   ac.CraftItems()
 end
 function ac.CraftExItems(itemsToCraft)
