@@ -6,7 +6,7 @@ if filesystem.exists("/home/bufu/Crafter/Items/max/") == false then filesystem.m
 --os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. "start" .. ".lua?" .. math.random() .. " /home/" .. "start" .. ".lua")
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Items/" .. "minecraft" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/Items/" .. "minecraft" .. ".lua")
-os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Items/" .. "minecraft - RecipeItems" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/Items/" .. "minecraft - RecipeItems" .. ".lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Items/" .. "minecraft-RecipeItems" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/Items/" .. "minecraft-RecipeItems" .. ".lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/" .. "Autocraft" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/" .. "Autocraft" .. ".lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/" .. "hasPatternCheck" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/" .. "hasPatternCheck" .. ".lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/" .. "getMaxDamage" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/" .. "getMaxDamage" .. ".lua")

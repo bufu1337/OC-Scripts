@@ -156,7 +156,7 @@ function ac.ConvertItems()
       if j.name == nil then
           local converted = ac.convert.TextToItem(i)
           for x,y in pairs(converted) do
-            ac.items[i][x] = y
+            ac.recipeitems[i][x] = y
           end
       end
     else
