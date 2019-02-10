@@ -462,6 +462,7 @@ function ac.SetCrafts(item, newneed)
                   ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount))
                 end
                 ThisTempCrafts = ac.items[item].crafts
+                newneed = nil
                 print(item .. ": CraftsFirst = " .. ThisTempCrafts)
             elseif newneed ~= nil then
                 ThisTempCrafts = ac.mf.MathUp(newneed / ac.items[item].craftCount)
@@ -631,6 +632,10 @@ function ac.test()
   ac.Define("minecraft")
   ac.ConvertItems()
   ac.GetStorageItems()
+  
+  ac.sorted = ac.mf.getSortedKeys(ac.items)
+  ac.SetCrafts(ac.sorted[1])
+
   ac.CalculateCrafts()
   ac.mf.WriteObjectFile(ac.items, "/home/tempitems2.lua", 2)
   ac.mf.WriteObjectFile(ac.recipeitems, "/home/temprecipeitems2.lua", 2)
