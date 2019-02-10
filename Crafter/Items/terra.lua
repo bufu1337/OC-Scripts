@@ -1,580 +1,212 @@
 return {
-	terraqueous_jj_border={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_border_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_border_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_border_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_border_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_cloud_staff={maxCount=8, craftCount=1},--.withTag({mode: light})
-	terraqueous_jj_cloud_staff={maxCount=8, craftCount=1},--.withTag({mode: light, Fluid: {FluidName: water, Amount: 1024000}})
-	terraqueous_jj_cloud_talisman={maxCount=8, craftCount=1},
-	terraqueous_jj_cloudfancy_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_cloudfancy_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_cloudfancy_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_cloudfancy_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_clouds_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_colorizer={maxCount=8, craftCount=1},
-	terraqueous_jj_colorizer_jj_512={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_crafting_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_doodads_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_earth_ore_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_ender_monocle={maxCount=8, craftCount=1},
-	terraqueous_jj_ender_table={maxCount=8, craftCount=1},
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_flowerpot={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_flowerpot_jj_1={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_flowers_cluster={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_14={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_cluster_jj_15={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_14={maxCount=8, craftCount=1},
-	terraqueous_jj_flowers_single_jj_15={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage1_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage2_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage3_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage4_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_foliage5_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_hammer={maxCount=8, craftCount=1},
-	terraqueous_jj_hay={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_14={maxCount=8, craftCount=1},
-	terraqueous_jj_hay_jj_15={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_50={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_51={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_100={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_101={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_102={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_103={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_104={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_105={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_106={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_107={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_108={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_109={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_200={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_201={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_202={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_203={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_204={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_205={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_206={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_207={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_208={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_209={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_210={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_211={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_212={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_213={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_214={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_215={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_216={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_250={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_251={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_252={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_253={maxCount=8, craftCount=1},
-	terraqueous_jj_item_main_jj_1002={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_multifood_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_multitool={maxCount=8, craftCount=1},--.withTag({tool: pickaxe})
-	terraqueous_jj_multitool={maxCount=8, craftCount=1},--.withTag({tool: shovel})
-	terraqueous_jj_multitool={maxCount=8, craftCount=1},--.withTag({tool: hoe})
-	terraqueous_jj_multitool={maxCount=8, craftCount=1},--.withTag({tool: weapon})
-	terraqueous_jj_multitool_jj_1561={maxCount=8, craftCount=1},--.withTag({tool: broken})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_pergola={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_pergola_jj_7={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_pergola_jj_8={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_pergola_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_pergola_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_pergola_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_pergola_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_pergola_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_pergola_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_pitchfork={maxCount=8, craftCount=1},
-	terraqueous_jj_planks={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_planks_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_plants={maxCount=8, craftCount=1},
-	terraqueous_jj_plants_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_plants_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_plants_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_plants_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_plants_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_sapling_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_scythe={maxCount=8, craftCount=1},--.withTag({sickle: 1 as byte})
-	terraqueous_jj_scythe={maxCount=8, craftCount=1},--.withTag({sickle: 0 as byte})
-	terraqueous_jj_trunk1={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk1_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk1_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk1_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk1_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk2={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk2_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk2_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk2_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_trunk2_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_20={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_21={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_22={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_30={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_31={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_32={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_40={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_41={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_42={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_50={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_51={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_52={maxCount=8, craftCount=1},
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_type_cloud_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_type_cloud_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_type_earth={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_1={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_2={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_3={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_4={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_5={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_6={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_7={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_8={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_9={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_10={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_11={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_12={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_13={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_14={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_15={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_16={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_17={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_18={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_19={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_20={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_21={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_22={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_23={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_24={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_25={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_26={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_27={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_28={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_29={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_30={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_31={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_32={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_33={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_34={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_35={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_36={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_37={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_38={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_39={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_40={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_41={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_42={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_43={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_44={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_45={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_46={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_47={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_48={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_49={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_50={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_51={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_52={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_53={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_54={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_55={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_56={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_57={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_58={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_59={maxCount=8, craftCount=1},
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_type_earth_jj_110={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 0 as byte, rgb16: 4095 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 1 as byte, rgb16: 3441 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 2 as byte, rgb16: 2618 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 3 as byte, rgb16: 1678 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 4 as byte, rgb16: 3250 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 5 as byte, rgb16: 980 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 6 as byte, rgb16: 3722 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 7 as byte, rgb16: 1365 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 8 as byte, rgb16: 2457 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 9 as byte, rgb16: 923 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 10 as byte, rgb16: 2124 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 11 as byte, rgb16: 330 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 12 as byte, rgb16: 1858 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 13 as byte, rgb16: 1378 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 14 as byte, rgb16: 2867 as short})
-	terraqueous_jj_type_earth_jj_120={maxCount=8, craftCount=1},--.withTag({rgbsimple: 15 as byte, rgb16: 546 as short})
-	teslacorelib_jj_base_addon={maxCount=8, craftCount=1},
-	teslacorelib_jj_battery={maxCount=8, craftCount=1},
-	teslacorelib_jj_battery={maxCount=8, craftCount=1},
-	teslacorelib_jj_energy_tier1={maxCount=8, craftCount=1},
-	teslacorelib_jj_energy_tier2={maxCount=8, craftCount=1},
-	teslacorelib_jj_gear_diamond={maxCount=8, craftCount=1},
-	teslacorelib_jj_gear_stone={maxCount=8, craftCount=1},
-	teslacorelib_jj_gear_wood={maxCount=8, craftCount=1},
-	teslacorelib_jj_machine_case={maxCount=8, craftCount=1},
-	teslacorelib_jj_speed_tier1={maxCount=8, craftCount=1},
-	teslacorelib_jj_speed_tier2={maxCount=8, craftCount=1},
-	teslacorelib_jj_wrench={maxCount=8, craftCount=1},
-	teslathingies_jj_addon_range_tier1={maxCount=8, craftCount=1},
-	teslathingies_jj_addon_range_tier2={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_age_filter_adult={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_age_filter_baby={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_farm={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_filter={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_gym={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_package={maxCount=8, craftCount=1},
-	teslathingies_jj_animal_releaser={maxCount=8, craftCount=1},
-	teslathingies_jj_ash={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_adamantine={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_aluminum={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_antimony={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_bismuth={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_cadmium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_chromium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_coal={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_coldiron={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_copper={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_diamond={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_emerald={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_gold={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_iridium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_iron={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_lapis={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_lead={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_magnesium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_manganese={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_mercury={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_mithril={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_nickel={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_osmium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_platinum={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_plutonium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_redstone={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_rutile={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_silver={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_starsteel={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_steel={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_tantalum={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_tin={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_titanium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_tungsten={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_uranium={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_zinc={maxCount=8, craftCount=1},
-	teslathingies_jj_augmented_zirconium={maxCount=8, craftCount=1},
-	teslathingies_jj_bush_master_addon={maxCount=8, craftCount=1},
-	teslathingies_jj_compound_maker={maxCount=8, craftCount=1},
-	teslathingies_jj_crop_cloner={maxCount=8, craftCount=1},
-	teslathingies_jj_crop_farm={maxCount=8, craftCount=1},
-	teslathingies_jj_dung_block={maxCount=8, craftCount=1},
-	teslathingies_jj_dung_bricks={maxCount=8, craftCount=1},
-	teslathingies_jj_electric_butcher={maxCount=8, craftCount=1},
-	teslathingies_jj_fluid_burner={maxCount=8, craftCount=1},
-	teslathingies_jj_fluid_compound_producer={maxCount=8, craftCount=1},
-	teslathingies_jj_fluid_solidifier={maxCount=8, craftCount=1},
-	teslathingies_jj_fruit_picker_addon={maxCount=8, craftCount=1},
-	teslathingies_jj_incinerator={maxCount=8, craftCount=1},
-	teslathingies_jj_item_compound_producer={maxCount=8, craftCount=1},
-	teslathingies_jj_item_liquefier={maxCount=8, craftCount=1},
-	teslathingies_jj_liquidxp_collector={maxCount=8, craftCount=1},
-	teslathingies_jj_liquidxp_storage={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_adamantine={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_aluminum={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_antimony={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_bismuth={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_cadmium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_chromium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_coal={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_coldiron={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_copper={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_diamond={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_emerald={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_gold={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_iridium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_iron={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_lapis={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_lead={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_magnesium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_manganese={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_mercury={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_mithril={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_nickel={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_osmium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_platinum={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_plutonium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_redstone={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_rutile={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_silver={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_starsteel={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_steel={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_tantalum={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_tin={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_titanium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_tungsten={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_uranium={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_zinc={maxCount=8, craftCount=1},
-	teslathingies_jj_lump_zirconium={maxCount=8, craftCount=1},
-	teslathingies_jj_misc_farmer={maxCount=8, craftCount=1},
-	teslathingies_jj_multi_tank={maxCount=8, craftCount=1},
-	teslathingies_jj_powder_maker={maxCount=8, craftCount=1},
-	teslathingies_jj_powered_kiln={maxCount=8, craftCount=1},
-	teslathingies_jj_pump={maxCount=8, craftCount=1},
-	teslathingies_jj_sewer={maxCount=8, craftCount=1},
-	teslathingies_jj_simple_tank={maxCount=8, craftCount=1},
-	teslathingies_jj_tesla_plant_seeds={maxCount=8, craftCount=1},
-	teslathingies_jj_teslified_obsidian={maxCount=8, craftCount=1},
-	teslathingies_jj_tf_qq_liquidxp_block={maxCount=8, craftCount=1},
-	teslathingies_jj_tf_qq_molten_tesla_block={maxCount=8, craftCount=1},
-	teslathingies_jj_tf_qq_sewage_block={maxCount=8, craftCount=1},
-	teslathingies_jj_tree_farm={maxCount=8, craftCount=1},
-	teslathingies_jj_void_storage_addon={maxCount=8, craftCount=1},
-	teslathingies_jj_xp_tank_addon={maxCount=8, craftCount=1}
-}
+ terraqueous_jj_border_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_Iron_nugget={need=3},minecraft_jj_dye={need=1}}},
+ terraqueous_jj_border_jj_2={craftCount=3,maxCount=8,recipe={minecraft_jj_iron_ingot={need=1},terraqueous_jj_flowers_single_jj_4={need=3}}},
+ terraqueous_jj_border_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_Iron_nugget={need=3},minecraft_jj_rotten_flesh={need=1},terraqueous_jj_flowers_single_jj_4={need=1}}},
+ terraqueous_jj_border_jj_4={craftCount=3,maxCount=8,recipe={minecraft_jj_gold_ingot={need=1},minecraft_jj_redstone={need=3}}},
+ terraqueous_jj_cloudfancy_jj_1={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds={need=3}}},
+ terraqueous_jj_cloudfancy_jj_3={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds={need=4}}},
+ terraqueous_jj_cloudfancy_jj_4={craftCount=2,maxCount=8,recipe={terraqueous_jj_clouds={need=6}}},
+ terraqueous_jj_cloudfancy_jj_5={craftCount=4,maxCount=8,recipe={terraqueous_jj_clouds={need=2},terraqueous_jj_clouds_jj_1={need=2}}},
+ terraqueous_jj_clouds={craftCount=2,maxCount=8,recipe={terraqueous_jj_type_cloud_jj_51={need=1}}},
+ terraqueous_jj_clouds_jj_1={craftCount=4,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=1}}},
+ terraqueous_jj_clouds_jj_2={craftCount=23,maxCount=8,recipe={terraqueous_jj_crafting_jj_3={need=1}}},
+ terraqueous_jj_crafting={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=4}}},
+ terraqueous_jj_crafting_jj_1={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=8}}},
+ terraqueous_jj_crafting_jj_2={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=8},terraqueous_jj_crafting={need=1}}},
+ terraqueous_jj_crafting_jj_3={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=8},terraqueous_jj_crafting_jj_1={need=1}}},
+ terraqueous_jj_crafting_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_stone={need=8},ore_jj_workbench={need=1}}},
+ terraqueous_jj_crafting_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_furnace={need=1},minecraft_jj_stone={need=8}}},
+ terraqueous_jj_doodads_jj_6={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_108={need=4}}},
+ terraqueous_jj_earth_ore_jj_10={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_earth_ore_jj_12={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_earth_ore_jj_13={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_earth_ore_jj_3={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_51={need=9}}},
+ terraqueous_jj_earth_ore_jj_4={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_50={need=9}}},
+ terraqueous_jj_earth_ore_jj_6={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_earth_ore_jj_7={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_earth_ore_jj_9={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_ender_table={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=2},minecraft_jj_obsidian={need=4},terraqueous_jj_item_main_jj_109={need=1}}},
+ terraqueous_jj_flowerpot={craftCount=0,maxCount=8,recipe={}},
+ terraqueous_jj_flowers_cluster={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_1={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_1={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_10={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_10={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_11={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_11={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_12={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_12={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_13={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_13={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_14={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_14={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_15={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_15={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_2={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_2={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_3={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_3={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_4={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_4={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_5={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_5={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_6={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_6={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_7={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_7={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_8={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_8={need=3}}},
+ terraqueous_jj_flowers_cluster_jj_9={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_9={need=3}}},
+ terraqueous_jj_flowers_single={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster={need=1}}},
+ terraqueous_jj_flowers_single_jj_1={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_1={need=1}}},
+ terraqueous_jj_flowers_single_jj_10={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_10={need=1}}},
+ terraqueous_jj_flowers_single_jj_11={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_11={need=1}}},
+ terraqueous_jj_flowers_single_jj_12={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_12={need=1}}},
+ terraqueous_jj_flowers_single_jj_13={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_13={need=1}}},
+ terraqueous_jj_flowers_single_jj_14={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_14={need=1}}},
+ terraqueous_jj_flowers_single_jj_15={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_15={need=1}}},
+ terraqueous_jj_flowers_single_jj_2={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_2={need=1}}},
+ terraqueous_jj_flowers_single_jj_3={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_3={need=1}}},
+ terraqueous_jj_flowers_single_jj_4={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_4={need=1}}},
+ terraqueous_jj_flowers_single_jj_5={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_5={need=1}}},
+ terraqueous_jj_flowers_single_jj_6={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_6={need=1}}},
+ terraqueous_jj_flowers_single_jj_7={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_7={need=1}}},
+ terraqueous_jj_flowers_single_jj_8={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_8={need=1}}},
+ terraqueous_jj_flowers_single_jj_9={craftCount=3,maxCount=8,recipe={terraqueous_jj_flowers_cluster_jj_9={need=1}}},
+ terraqueous_jj_hammer={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_block={need=1},minecraft_jj_log={need=1}}},
+ terraqueous_jj_hay={craftCount=1,maxCount=8,recipe={terraqueous_jj_hay_jj_3={need=4}}},
+ terraqueous_jj_hay_jj_1={craftCount=1,maxCount=8,recipe={terraqueous_jj_hay_jj_2={need=1},terraqueous_jj_hay_jj_3={need=1}}},
+ terraqueous_jj_hay_jj_2={craftCount=1,maxCount=8,recipe={terraqueous_jj_hay_jj_3={need=2}}},
+ terraqueous_jj_hay_jj_3={craftCount=4,maxCount=8,recipe={terraqueous_jj_hay={need=1}}},
+ terraqueous_jj_hay_jj_4={craftCount=1,maxCount=8,recipe={terraqueous_jj_hay_jj_5={need=2}}},
+ terraqueous_jj_item_main={craftCount=1,maxCount=8,recipe={minecraft_jj_dye={need=1},minecraft_jj_dye_jj_1={need=1},minecraft_jj_dye_jj_11={need=1},minecraft_jj_dye_jj_15={need=1},minecraft_jj_dye_jj_4={need=1},minecraft_jj_stick={need=2},minecraft_jj_string={need=1}}},
+ terraqueous_jj_item_main_jj_1={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds={need=1},terraqueous_jj_clouds_jj_1={need=8}}},
+ terraqueous_jj_item_main_jj_104={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single={need=2}}},
+ terraqueous_jj_item_main_jj_105={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_3={need=2}}},
+ terraqueous_jj_item_main_jj_106={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_4={need=2}}},
+ terraqueous_jj_item_main_jj_107={craftCount=1,maxCount=8,recipe={terraqueous_jj_flowers_single_jj_15={need=2}}},
+ terraqueous_jj_item_main_jj_109={craftCount=1,maxCount=8,recipe={minecraft_jj_book={need=1},minecraft_jj_ender_eye={need=1}}},
+ terraqueous_jj_item_main_jj_2={craftCount=1,maxCount=8,recipe={minecraft_jj_paper={need=1},minecraft_jj_stick={need=8}}},
+ terraqueous_jj_item_main_jj_201={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=1},terraqueous_jj_hammer={need=1}}},
+ terraqueous_jj_item_main_jj_203={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_202={need=4}}},
+ terraqueous_jj_item_main_jj_205={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_204={need=4}}},
+ terraqueous_jj_item_main_jj_207={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_206={need=4}}},
+ terraqueous_jj_item_main_jj_209={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=1},terraqueous_jj_hammer={need=1}}},
+ terraqueous_jj_item_main_jj_211={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_210={need=4}}},
+ terraqueous_jj_item_main_jj_251={craftCount=1,maxCount=8,recipe={terraqueous_jj_item_main_jj_250={need=4}}},
+ terraqueous_jj_item_main_jj_253={craftCount=1,maxCount=8,recipe={ore_jj_dustDiamond={need=1},ore_jj_dustEnder={need=1}}},
+ terraqueous_jj_item_main_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_clay={need=3},minecraft_jj_feather={need=2},ore_jj_gemEndimium={need=1}}},
+ terraqueous_jj_item_main_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_feather={need=2},ore_jj_gemEndimium={need=1},terraqueous_jj_item_main_jj_4={need=1}}},
+ terraqueous_jj_item_main_jj_50={craftCount=9,maxCount=8,recipe={terraqueous_jj_earth_ore_jj_4={need=1}}},
+ terraqueous_jj_item_main_jj_51={craftCount=9,maxCount=8,recipe={terraqueous_jj_earth_ore_jj_3={need=1}}},
+ terraqueous_jj_pitchfork={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=2},minecraft_jj_stick={need=2}}},
+ terraqueous_jj_type_cloud={craftCount=2,maxCount=8,recipe={terraqueous_jj_clouds={need=6}}},
+ terraqueous_jj_type_cloud_jj_1={craftCount=2,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=6}}},
+ terraqueous_jj_type_cloud_jj_10={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds={need=6}}},
+ terraqueous_jj_type_cloud_jj_11={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=6}}},
+ terraqueous_jj_type_cloud_jj_12={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=6}}},
+ terraqueous_jj_type_cloud_jj_2={craftCount=2,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=6}}},
+ terraqueous_jj_type_cloud_jj_20={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds={need=2},terraqueous_jj_type_cloud_jj_110={need=4}}},
+ terraqueous_jj_type_cloud_jj_21={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds={need=4},terraqueous_jj_clouds_jj_1={need=2}}},
+ terraqueous_jj_type_cloud_jj_22={craftCount=1,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=4},terraqueous_jj_clouds_jj_2={need=2}}},
+ terraqueous_jj_type_cloud_jj_30={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds={need=4},terraqueous_jj_type_cloud_jj_110={need=2}}},
+ terraqueous_jj_type_cloud_jj_31={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds={need=2},terraqueous_jj_clouds_jj_1={need=4}}},
+ terraqueous_jj_type_cloud_jj_32={craftCount=3,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=2},terraqueous_jj_clouds_jj_2={need=4}}},
+ terraqueous_jj_type_cloud_jj_40={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds={need=6}}},
+ terraqueous_jj_type_cloud_jj_41={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=6}}},
+ terraqueous_jj_type_cloud_jj_42={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=6}}},
+ terraqueous_jj_type_cloud_jj_50={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds={need=3}}},
+ terraqueous_jj_type_cloud_jj_51={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds_jj_1={need=3}}},
+ terraqueous_jj_type_cloud_jj_52={craftCount=6,maxCount=8,recipe={terraqueous_jj_clouds_jj_2={need=3}}},
+ terraqueous_jj_type_earth={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks={need=6}}},
+ terraqueous_jj_type_earth_jj_1={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_1={need=6}}},
+ terraqueous_jj_type_earth_jj_10={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks={need=6}}},
+ terraqueous_jj_type_earth_jj_11={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_1={need=6}}},
+ terraqueous_jj_type_earth_jj_12={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_2={need=6}}},
+ terraqueous_jj_type_earth_jj_13={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_3={need=6}}},
+ terraqueous_jj_type_earth_jj_14={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_4={need=6}}},
+ terraqueous_jj_type_earth_jj_15={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_5={need=6}}},
+ terraqueous_jj_type_earth_jj_16={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_6={need=6}}},
+ terraqueous_jj_type_earth_jj_17={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_7={need=6}}},
+ terraqueous_jj_type_earth_jj_18={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_8={need=6}}},
+ terraqueous_jj_type_earth_jj_19={craftCount=4,maxCount=8,recipe={terraqueous_jj_planks_jj_9={need=6}}},
+ terraqueous_jj_type_earth_jj_2={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_2={need=6}}},
+ terraqueous_jj_type_earth_jj_20={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks={need=2}}},
+ terraqueous_jj_type_earth_jj_21={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_1={need=2}}},
+ terraqueous_jj_type_earth_jj_22={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_2={need=2}}},
+ terraqueous_jj_type_earth_jj_23={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_3={need=2}}},
+ terraqueous_jj_type_earth_jj_24={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_4={need=2}}},
+ terraqueous_jj_type_earth_jj_25={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_5={need=2}}},
+ terraqueous_jj_type_earth_jj_26={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_6={need=2}}},
+ terraqueous_jj_type_earth_jj_27={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_7={need=2}}},
+ terraqueous_jj_type_earth_jj_28={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_8={need=2}}},
+ terraqueous_jj_type_earth_jj_29={craftCount=1,maxCount=8,recipe={minecraft_jj_stick={need=4},terraqueous_jj_planks_jj_9={need=2}}},
+ terraqueous_jj_type_earth_jj_3={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_3={need=6}}},
+ terraqueous_jj_type_earth_jj_30={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks={need=4}}},
+ terraqueous_jj_type_earth_jj_31={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_1={need=4}}},
+ terraqueous_jj_type_earth_jj_32={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_2={need=4}}},
+ terraqueous_jj_type_earth_jj_33={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_3={need=4}}},
+ terraqueous_jj_type_earth_jj_34={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_4={need=4}}},
+ terraqueous_jj_type_earth_jj_35={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_5={need=4}}},
+ terraqueous_jj_type_earth_jj_36={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_6={need=4}}},
+ terraqueous_jj_type_earth_jj_37={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_7={need=4}}},
+ terraqueous_jj_type_earth_jj_38={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_8={need=4}}},
+ terraqueous_jj_type_earth_jj_39={craftCount=3,maxCount=8,recipe={minecraft_jj_stick={need=2},terraqueous_jj_planks_jj_9={need=4}}},
+ terraqueous_jj_type_earth_jj_4={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_4={need=6}}},
+ terraqueous_jj_type_earth_jj_40={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks={need=6}}},
+ terraqueous_jj_type_earth_jj_41={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_1={need=6}}},
+ terraqueous_jj_type_earth_jj_42={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_2={need=6}}},
+ terraqueous_jj_type_earth_jj_43={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_3={need=6}}},
+ terraqueous_jj_type_earth_jj_44={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_4={need=6}}},
+ terraqueous_jj_type_earth_jj_45={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_5={need=6}}},
+ terraqueous_jj_type_earth_jj_46={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_6={need=6}}},
+ terraqueous_jj_type_earth_jj_47={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_7={need=6}}},
+ terraqueous_jj_type_earth_jj_48={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_8={need=6}}},
+ terraqueous_jj_type_earth_jj_49={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_9={need=6}}},
+ terraqueous_jj_type_earth_jj_5={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_5={need=6}}},
+ terraqueous_jj_type_earth_jj_50={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks={need=3}}},
+ terraqueous_jj_type_earth_jj_51={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_1={need=3}}},
+ terraqueous_jj_type_earth_jj_52={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_2={need=3}}},
+ terraqueous_jj_type_earth_jj_53={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_3={need=3}}},
+ terraqueous_jj_type_earth_jj_54={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_4={need=3}}},
+ terraqueous_jj_type_earth_jj_55={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_5={need=3}}},
+ terraqueous_jj_type_earth_jj_56={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_6={need=3}}},
+ terraqueous_jj_type_earth_jj_57={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_7={need=3}}},
+ terraqueous_jj_type_earth_jj_58={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_8={need=3}}},
+ terraqueous_jj_type_earth_jj_59={craftCount=6,maxCount=8,recipe={terraqueous_jj_planks_jj_9={need=3}}},
+ terraqueous_jj_type_earth_jj_6={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_6={need=6}}},
+ terraqueous_jj_type_earth_jj_7={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_7={need=6}}},
+ terraqueous_jj_type_earth_jj_8={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_8={need=6}}},
+ terraqueous_jj_type_earth_jj_9={craftCount=2,maxCount=8,recipe={terraqueous_jj_planks_jj_9={need=6}}},
+ teslacorelib_jj_base_addon={craftCount=1,maxCount=8,recipe={minecraft_jj_paper={need=7},minecraft_jj_redstone={need=2}}},
+ teslacorelib_jj_battery={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=4},minecraft_jj_redstone={need=4},minecraft_jj_redstone_block={need=1}}},
+ teslacorelib_jj_battery_b_1={craftCount=0,maxCount=8,recipe={}},
+ teslacorelib_jj_energy_tier1={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=5},ore_jj_gearGold={need=1},teslacorelib_jj_base_addon={need=1}}},
+ teslacorelib_jj_energy_tier2={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},teslacorelib_jj_energy_tier1={need=1}}},
+ teslacorelib_jj_gear_stone={craftCount=1,maxCount=8,recipe={biomesoplenty_jj_white_sandstone={need=4},chisel_jj_andesite={need=8},chisel_jj_andesite1={need=8},chisel_jj_andesite1_jj_1={need=8},chisel_jj_andesite1_jj_10={need=8},chisel_jj_andesite1_jj_11={need=8},chisel_jj_andesite1_jj_12={need=8},chisel_jj_andesite1_jj_13={need=8},chisel_jj_andesite1_jj_14={need=8},chisel_jj_andesite1_jj_15={need=8},chisel_jj_andesite1_jj_2={need=8},chisel_jj_andesite1_jj_3={need=8},chisel_jj_andesite1_jj_4={need=8},chisel_jj_andesite1_jj_5={need=8},chisel_jj_andesite1_jj_6={need=8},chisel_jj_andesite1_jj_7={need=8},chisel_jj_andesite1_jj_8={need=8},chisel_jj_andesite1_jj_9={need=8},chisel_jj_andesite2={need=8},chisel_jj_andesite_jj_1={need=8},chisel_jj_andesite_jj_10={need=8},chisel_jj_andesite_jj_11={need=8},chisel_jj_andesite_jj_12={need=8},chisel_jj_andesite_jj_13={need=8},chisel_jj_andesite_jj_14={need=8},chisel_jj_andesite_jj_15={need=8},chisel_jj_andesite_jj_2={need=8},chisel_jj_andesite_jj_3={need=8},chisel_jj_andesite_jj_4={need=8},chisel_jj_andesite_jj_5={need=8},chisel_jj_andesite_jj_6={need=8},chisel_jj_andesite_jj_7={need=8},chisel_jj_andesite_jj_8={need=8},chisel_jj_andesite_jj_9={need=8},chisel_jj_cobblestone={need=4},chisel_jj_cobblestone1={need=4},chisel_jj_cobblestone1_jj_1={need=4},chisel_jj_cobblestone1_jj_2={need=4},chisel_jj_cobblestone1_jj_3={need=4},chisel_jj_cobblestone1_jj_4={need=4},chisel_jj_cobblestone1_jj_5={need=4},chisel_jj_cobblestone1_jj_6={need=4},chisel_jj_cobblestone1_jj_7={need=4},chisel_jj_cobblestone1_jj_8={need=4},chisel_jj_cobblestone1_jj_9={need=4},chisel_jj_cobblestone2={need=4},chisel_jj_cobblestone2_jj_1={need=4},chisel_jj_cobblestone2_jj_2={need=4},chisel_jj_cobblestone2_jj_3={need=4},chisel_jj_cobblestone2_jj_4={need=4},chisel_jj_cobblestone2_jj_5={need=4},chisel_jj_cobblestone2_jj_6={need=4},chisel_jj_cobblestone2_jj_7={need=4},chisel_jj_cobblestone2_jj_8={need=4},chisel_jj_cobblestone2_jj_9={need=4},chisel_jj_cobblestone_jj_1={need=4},chisel_jj_cobblestone_jj_10={need=4},chisel_jj_cobblestone_jj_11={need=4},chisel_jj_cobblestone_jj_12={need=4},chisel_jj_cobblestone_jj_13={need=4},chisel_jj_cobblestone_jj_14={need=4},chisel_jj_cobblestone_jj_15={need=4},chisel_jj_cobblestone_jj_2={need=4},chisel_jj_cobblestone_jj_3={need=4},chisel_jj_cobblestone_jj_4={need=4},chisel_jj_cobblestone_jj_5={need=4},chisel_jj_cobblestone_jj_6={need=4},chisel_jj_cobblestone_jj_7={need=4},chisel_jj_cobblestone_jj_8={need=4},chisel_jj_cobblestone_jj_9={need=4},chisel_jj_diorite={need=8},chisel_jj_diorite1={need=8},chisel_jj_diorite1_jj_1={need=8},chisel_jj_diorite1_jj_10={need=8},chisel_jj_diorite1_jj_11={need=8},chisel_jj_diorite1_jj_12={need=8},chisel_jj_diorite1_jj_13={need=8},chisel_jj_diorite1_jj_14={need=8},chisel_jj_diorite1_jj_15={need=8},chisel_jj_diorite1_jj_2={need=8},chisel_jj_diorite1_jj_3={need=8},chisel_jj_diorite1_jj_4={need=8},chisel_jj_diorite1_jj_5={need=8},chisel_jj_diorite1_jj_6={need=8},chisel_jj_diorite1_jj_7={need=8},chisel_jj_diorite1_jj_8={need=8},chisel_jj_diorite1_jj_9={need=8},chisel_jj_diorite2={need=8},chisel_jj_diorite_jj_1={need=8},chisel_jj_diorite_jj_10={need=8},chisel_jj_diorite_jj_11={need=8},chisel_jj_diorite_jj_12={need=8},chisel_jj_diorite_jj_13={need=8},chisel_jj_diorite_jj_14={need=8},chisel_jj_diorite_jj_15={need=8},chisel_jj_diorite_jj_2={need=8},chisel_jj_diorite_jj_3={need=8},chisel_jj_diorite_jj_4={need=8},chisel_jj_diorite_jj_5={need=8},chisel_jj_diorite_jj_6={need=8},chisel_jj_diorite_jj_7={need=8},chisel_jj_diorite_jj_8={need=8},chisel_jj_diorite_jj_9={need=8},chisel_jj_endstone={need=4},chisel_jj_endstone1={need=4},chisel_jj_endstone1_jj_1={need=4},chisel_jj_endstone1_jj_2={need=4},chisel_jj_endstone1_jj_3={need=4},chisel_jj_endstone1_jj_4={need=4},chisel_jj_endstone1_jj_5={need=4},chisel_jj_endstone1_jj_6={need=4},chisel_jj_endstone1_jj_7={need=4},chisel_jj_endstone1_jj_8={need=4},chisel_jj_endstone1_jj_9={need=4},chisel_jj_endstone2={need=4},chisel_jj_endstone2_jj_1={need=4},chisel_jj_endstone2_jj_2={need=4},chisel_jj_endstone2_jj_3={need=4},chisel_jj_endstone2_jj_4={need=4},chisel_jj_endstone2_jj_5={need=4},chisel_jj_endstone2_jj_6={need=4},chisel_jj_endstone_jj_1={need=4},chisel_jj_endstone_jj_10={need=4},chisel_jj_endstone_jj_11={need=4},chisel_jj_endstone_jj_12={need=4},chisel_jj_endstone_jj_13={need=4},chisel_jj_endstone_jj_14={need=4},chisel_jj_endstone_jj_15={need=4},chisel_jj_endstone_jj_2={need=4},chisel_jj_endstone_jj_3={need=4},chisel_jj_endstone_jj_4={need=4},chisel_jj_endstone_jj_5={need=4},chisel_jj_endstone_jj_6={need=4},chisel_jj_endstone_jj_7={need=4},chisel_jj_endstone_jj_8={need=4},chisel_jj_endstone_jj_9={need=4},chisel_jj_granite={need=8},chisel_jj_granite1={need=8},chisel_jj_granite1_jj_1={need=8},chisel_jj_granite1_jj_10={need=8},chisel_jj_granite1_jj_11={need=8},chisel_jj_granite1_jj_12={need=8},chisel_jj_granite1_jj_13={need=8},chisel_jj_granite1_jj_14={need=8},chisel_jj_granite1_jj_15={need=8},chisel_jj_granite1_jj_2={need=8},chisel_jj_granite1_jj_3={need=8},chisel_jj_granite1_jj_4={need=8},chisel_jj_granite1_jj_5={need=8},chisel_jj_granite1_jj_6={need=8},chisel_jj_granite1_jj_7={need=8},chisel_jj_granite1_jj_8={need=8},chisel_jj_granite1_jj_9={need=8},chisel_jj_granite2={need=8},chisel_jj_granite_jj_1={need=8},chisel_jj_granite_jj_10={need=8},chisel_jj_granite_jj_11={need=8},chisel_jj_granite_jj_12={need=8},chisel_jj_granite_jj_13={need=8},chisel_jj_granite_jj_14={need=8},chisel_jj_granite_jj_15={need=8},chisel_jj_granite_jj_2={need=8},chisel_jj_granite_jj_3={need=8},chisel_jj_granite_jj_4={need=8},chisel_jj_granite_jj_5={need=8},chisel_jj_granite_jj_6={need=8},chisel_jj_granite_jj_7={need=8},chisel_jj_granite_jj_8={need=8},chisel_jj_granite_jj_9={need=8},chisel_jj_netherrack={need=4},chisel_jj_netherrack_jj_1={need=4},chisel_jj_netherrack_jj_10={need=4},chisel_jj_netherrack_jj_11={need=4},chisel_jj_netherrack_jj_12={need=4},chisel_jj_netherrack_jj_13={need=4},chisel_jj_netherrack_jj_2={need=4},chisel_jj_netherrack_jj_3={need=4},chisel_jj_netherrack_jj_4={need=4},chisel_jj_netherrack_jj_5={need=4},chisel_jj_netherrack_jj_6={need=4},chisel_jj_netherrack_jj_7={need=4},chisel_jj_netherrack_jj_8={need=4},chisel_jj_netherrack_jj_9={need=4},chisel_jj_sandstone_qq_scribbles={need=4},chisel_jj_sandstone_qq_scribbles_jj_1={need=4},chisel_jj_sandstone_qq_scribbles_jj_10={need=4},chisel_jj_sandstone_qq_scribbles_jj_11={need=4},chisel_jj_sandstone_qq_scribbles_jj_12={need=4},chisel_jj_sandstone_qq_scribbles_jj_13={need=4},chisel_jj_sandstone_qq_scribbles_jj_14={need=4},chisel_jj_sandstone_qq_scribbles_jj_15={need=4},chisel_jj_sandstone_qq_scribbles_jj_2={need=4},chisel_jj_sandstone_qq_scribbles_jj_3={need=4},chisel_jj_sandstone_qq_scribbles_jj_4={need=4},chisel_jj_sandstone_qq_scribbles_jj_5={need=4},chisel_jj_sandstone_qq_scribbles_jj_6={need=4},chisel_jj_sandstone_qq_scribbles_jj_7={need=4},chisel_jj_sandstone_qq_scribbles_jj_8={need=4},chisel_jj_sandstone_qq_scribbles_jj_9={need=4},chisel_jj_sandstonered={need=4},chisel_jj_sandstonered1={need=4},chisel_jj_sandstonered1_jj_1={need=4},chisel_jj_sandstonered1_jj_2={need=4},chisel_jj_sandstonered1_jj_3={need=4},chisel_jj_sandstonered1_jj_4={need=4},chisel_jj_sandstonered1_jj_5={need=4},chisel_jj_sandstonered1_jj_6={need=4},chisel_jj_sandstonered1_jj_7={need=4},chisel_jj_sandstonered1_jj_8={need=4},chisel_jj_sandstonered1_jj_9={need=4},chisel_jj_sandstonered2={need=4},chisel_jj_sandstonered2_jj_1={need=4},chisel_jj_sandstonered2_jj_2={need=4},chisel_jj_sandstonered2_jj_3={need=4},chisel_jj_sandstonered2_jj_4={need=4},chisel_jj_sandstonered2_jj_5={need=4},chisel_jj_sandstonered2_jj_6={need=4},chisel_jj_sandstonered_jj_1={need=4},chisel_jj_sandstonered_jj_10={need=4},chisel_jj_sandstonered_jj_11={need=4},chisel_jj_sandstonered_jj_12={need=4},chisel_jj_sandstonered_jj_13={need=4},chisel_jj_sandstonered_jj_14={need=4},chisel_jj_sandstonered_jj_15={need=4},chisel_jj_sandstonered_jj_2={need=4},chisel_jj_sandstonered_jj_3={need=4},chisel_jj_sandstonered_jj_4={need=4},chisel_jj_sandstonered_jj_5={need=4},chisel_jj_sandstonered_jj_6={need=4},chisel_jj_sandstonered_jj_7={need=4},chisel_jj_sandstonered_jj_8={need=4},chisel_jj_sandstonered_jj_9={need=4},chisel_jj_sandstoneyellow={need=4},chisel_jj_sandstoneyellow1={need=4},chisel_jj_sandstoneyellow1_jj_1={need=4},chisel_jj_sandstoneyellow1_jj_2={need=4},chisel_jj_sandstoneyellow1_jj_3={need=4},chisel_jj_sandstoneyellow1_jj_4={need=4},chisel_jj_sandstoneyellow1_jj_5={need=4},chisel_jj_sandstoneyellow1_jj_6={need=4},chisel_jj_sandstoneyellow1_jj_7={need=4},chisel_jj_sandstoneyellow1_jj_8={need=4},chisel_jj_sandstoneyellow1_jj_9={need=4},chisel_jj_sandstoneyellow2={need=4},chisel_jj_sandstoneyellow2_jj_1={need=4},chisel_jj_sandstoneyellow2_jj_2={need=4},chisel_jj_sandstoneyellow2_jj_3={need=4},chisel_jj_sandstoneyellow2_jj_4={need=4},chisel_jj_sandstoneyellow2_jj_5={need=4},chisel_jj_sandstoneyellow2_jj_6={need=4},chisel_jj_sandstoneyellow_jj_1={need=4},chisel_jj_sandstoneyellow_jj_10={need=4},chisel_jj_sandstoneyellow_jj_11={need=4},chisel_jj_sandstoneyellow_jj_12={need=4},chisel_jj_sandstoneyellow_jj_13={need=4},chisel_jj_sandstoneyellow_jj_14={need=4},chisel_jj_sandstoneyellow_jj_15={need=4},chisel_jj_sandstoneyellow_jj_2={need=4},chisel_jj_sandstoneyellow_jj_3={need=4},chisel_jj_sandstoneyellow_jj_4={need=4},chisel_jj_sandstoneyellow_jj_5={need=4},chisel_jj_sandstoneyellow_jj_6={need=4},chisel_jj_sandstoneyellow_jj_7={need=4},chisel_jj_sandstoneyellow_jj_8={need=4},chisel_jj_sandstoneyellow_jj_9={need=4},chisel_jj_stonebrick={need=4},chisel_jj_stonebrick1={need=4},chisel_jj_stonebrick1_jj_1={need=4},chisel_jj_stonebrick1_jj_2={need=4},chisel_jj_stonebrick1_jj_3={need=4},chisel_jj_stonebrick1_jj_4={need=4},chisel_jj_stonebrick1_jj_5={need=4},chisel_jj_stonebrick1_jj_6={need=4},chisel_jj_stonebrick1_jj_7={need=4},chisel_jj_stonebrick1_jj_8={need=4},chisel_jj_stonebrick1_jj_9={need=4},chisel_jj_stonebrick2={need=4},chisel_jj_stonebrick2_jj_1={need=4},chisel_jj_stonebrick2_jj_2={need=4},chisel_jj_stonebrick2_jj_3={need=4},chisel_jj_stonebrick2_jj_4={need=4},chisel_jj_stonebrick2_jj_5={need=4},chisel_jj_stonebrick2_jj_6={need=4},chisel_jj_stonebrick2_jj_7={need=4},chisel_jj_stonebrick_jj_1={need=4},chisel_jj_stonebrick_jj_10={need=4},chisel_jj_stonebrick_jj_11={need=4},chisel_jj_stonebrick_jj_12={need=4},chisel_jj_stonebrick_jj_13={need=4},chisel_jj_stonebrick_jj_14={need=4},chisel_jj_stonebrick_jj_15={need=4},chisel_jj_stonebrick_jj_2={need=4},chisel_jj_stonebrick_jj_3={need=4},chisel_jj_stonebrick_jj_4={need=4},chisel_jj_stonebrick_jj_5={need=4},chisel_jj_stonebrick_jj_6={need=4},chisel_jj_stonebrick_jj_7={need=4},chisel_jj_stonebrick_jj_8={need=4},chisel_jj_stonebrick_jj_9={need=4},fp_jj_stone={need=4},fp_jj_stone_jj_1={need=4},fp_jj_stone_jj_4={need=4},immersivehempcraft_jj_hempstone_cobble={need=4},immersivehempcraft_jj_hempstone_hardened={need=4},minecraft_jj_cobblestone={need=4},minecraft_jj_end_stone={need=4},minecraft_jj_netherrack={need=4},minecraft_jj_red_sandstone={need=4},minecraft_jj_sandstone={need=4},minecraft_jj_stone={need=4},minecraft_jj_stone_jj_1={need=4},minecraft_jj_stone_jj_2={need=4},minecraft_jj_stone_jj_3={need=4},minecraft_jj_stone_jj_4={need=4},minecraft_jj_stone_jj_5={need=4},minecraft_jj_stone_jj_6={need=4},ore_jj_gearWood={need=1}}},
+ teslacorelib_jj_gear_wood={craftCount=1,maxCount=8,recipe={minecraft_jj_planks={need=4},minecraft_jj_stick={need=1}}},
+ teslacorelib_jj_machine_case={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=4},minecraft_jj_planks={need=4},minecraft_jj_redstone_block={need=1}}},
+ teslacorelib_jj_speed_tier1={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=6},ore_jj_gearGold={need=2},teslacorelib_jj_base_addon={need=1}}},
+ teslacorelib_jj_speed_tier2={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},teslacorelib_jj_speed_tier1={need=1}}},
+ teslacorelib_jj_wrench={craftCount=1,maxCount=8,recipe={minecraft_jj_dye_jj_4={need=1},minecraft_jj_iron_ingot={need=3},minecraft_jj_redstone={need=1}}},
+ teslathingies_jj_addon_range_tier1={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=3},ore_jj_gearGold={need=1},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_addon_range_tier2={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=3},ore_jj_gearDiamond={need=1},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_animal_age_filter_adult={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=3},teslathingies_jj_animal_filter={need=1}}},
+ teslathingies_jj_animal_age_filter_baby={craftCount=1,maxCount=8,recipe={minecraft_jj_redstone={need=3},teslathingies_jj_animal_filter={need=1}}},
+ teslathingies_jj_animal_farm={craftCount=1,maxCount=8,recipe={minecraft_jj_carrot={need=1},minecraft_jj_planks={need=4},minecraft_jj_wheat={need=2},ore_jj_gearStone={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_animal_filter={craftCount=1,maxCount=8,recipe={minecraft_jj_wheat={need=4},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_animal_gym={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_bars={need=2},minecraft_jj_planks={need=4},ore_jj_gearIron={need=2},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_animal_package={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_bars={need=4},minecraft_jj_planks={need=4},minecraft_jj_redstone={need=1}}},
+ teslathingies_jj_animal_releaser={craftCount=1,maxCount=8,recipe={minecraft_jj_dispenser={need=1},minecraft_jj_planks={need=6},ore_jj_gearStone={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_bush_master_addon={craftCount=1,maxCount=8,recipe={biomesoplenty_jj_berries={need=3},minecraft_jj_hopper={need=1},minecraft_jj_stick={need=2},plants2_jj_blueberry={need=3},plants2_jj_huckleberry={need=3},rustic_jj_chili_pepper={need=3},rustic_jj_grapes={need=3},rustic_jj_ironberries={need=3},rustic_jj_tomato={need=3},rustic_jj_wildberries={need=3},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_compound_maker={craftCount=1,maxCount=8,recipe={minecraft_jj_glass={need=2},minecraft_jj_stone={need=3},ore_jj_gearGold={need=1},ore_jj_gearIron={need=2},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_crop_cloner={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond_hoe={need=1},minecraft_jj_planks={need=2},minecraft_jj_redstone_block={need=2},ore_jj_dirt={need=2},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_crop_farm={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond_hoe={need=1},minecraft_jj_planks={need=2},ore_jj_gearStone={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_dung_block={craftCount=1,maxCount=8,recipe={minecraft_jj_clay={need=1},minecraft_jj_hay_block={need=1}}},
+ teslathingies_jj_dung_bricks={craftCount=1,maxCount=8,recipe={teslathingies_jj_dung_block={need=4}}},
+ teslathingies_jj_electric_butcher={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond_sword={need=1},minecraft_jj_planks={need=6},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_fluid_burner={craftCount=1,maxCount=8,recipe={minecraft_jj_bucket={need=2},minecraft_jj_stone={need=5},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_fluid_compound_producer={craftCount=1,maxCount=8,recipe={minecraft_jj_glass={need=2},minecraft_jj_stone={need=5},ore_jj_gearGold={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_fluid_solidifier={craftCount=1,maxCount=8,recipe={minecraft_jj_bucket={need=2},minecraft_jj_obsidian={need=5},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_fruit_picker_addon={craftCount=1,maxCount=8,recipe={minecraft_jj_hopper={need=1},minecraft_jj_sapling={need=3},minecraft_jj_stick={need=2},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_incinerator={craftCount=1,maxCount=8,recipe={minecraft_jj_flint_and_steel={need=1},minecraft_jj_furnace={need=1},minecraft_jj_stone={need=6},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_item_compound_producer={craftCount=1,maxCount=8,recipe={minecraft_jj_glass={need=2},minecraft_jj_planks={need=2},minecraft_jj_stone={need=3},ore_jj_gearGold={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_item_liquefier={craftCount=1,maxCount=8,recipe={minecraft_jj_lava_bucket={need=2},minecraft_jj_obsidian={need=5},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_liquidxp_collector={craftCount=1,maxCount=8,recipe={minecraft_jj_experience_bottle={need=1},minecraft_jj_glass_bottle={need=3},ore_jj_gearIron={need=2},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_liquidxp_storage={craftCount=1,maxCount=8,recipe={minecraft_jj_experience_bottle={need=1},minecraft_jj_planks={need=4},ore_jj_gearIron={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_misc_farmer={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond_hoe={need=1},minecraft_jj_planks={need=2},ore_jj_gearIron={need=3},teslacorelib_jj_base_addon={need=2},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_multi_tank={craftCount=1,maxCount=8,recipe={minecraft_jj_bucket={need=4},minecraft_jj_glass={need=4},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_powder_maker={craftCount=1,maxCount=8,recipe={minecraft_jj_piston={need=2},minecraft_jj_stone={need=6},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_powered_kiln={craftCount=1,maxCount=8,recipe={minecraft_jj_flint_and_steel={need=1},minecraft_jj_furnace={need=3},minecraft_jj_stone={need=4},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_sewer={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_bars={need=3},minecraft_jj_planks={need=4},ore_jj_gearStone={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_simple_tank={craftCount=1,maxCount=8,recipe={minecraft_jj_bucket={need=1},minecraft_jj_glass={need=7},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_tree_farm={craftCount=1,maxCount=8,recipe={minecraft_jj_planks={need=4},minecraft_jj_sapling={need=3},ore_jj_gearStone={need=1},teslacorelib_jj_machine_case={need=1}}},
+ teslathingies_jj_void_storage_addon={craftCount=1,maxCount=8,recipe={minecraft_jj_obsidian={need=6},ore_jj_gearIron={need=1},teslacorelib_jj_base_addon={need=1}}},
+ teslathingies_jj_xp_tank_addon={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=1},minecraft_jj_experience_bottle={need=2},ore_jj_gearGold={need=1},teslacorelib_jj_base_addon={need=1}}}
+ }

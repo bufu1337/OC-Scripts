@@ -1,483 +1,117 @@
 return {
-    xreliquary_jj_alkahestry_tome_jj_1001={maxCount=8, craftCount=1},
-    xreliquary_jj_altar={maxCount=8, craftCount=1},
-    xreliquary_jj_angelheart_vial={maxCount=8, craftCount=1},
-    xreliquary_jj_angelic_feather={maxCount=8, craftCount=1},
-    xreliquary_jj_apothecary_cauldron={maxCount=8, craftCount=1},
-    xreliquary_jj_apothecary_mortar={maxCount=8, craftCount=1},
-    xreliquary_jj_attraction_potion={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 0, name: minecraft:absorption}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:absorption}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 2, name: minecraft:absorption}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:blindness}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:nausea}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:strength}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 1, name: minecraft:strength}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 600, potency: 2, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:haste}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 1, name: minecraft:haste}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:fire_resistance}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 0, name: minecraft:health_boost}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:health_boost}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 2, name: minecraft:health_boost}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:hunger}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:invisibility}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:jump_boost}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1350, potency: 1, name: minecraft:jump_boost}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:slowness}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 200, potency: 1, name: minecraft:slowness}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:speed}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:speed}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 600, potency: 2, name: minecraft:speed}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:night_vision}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:poison}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 50, potency: 0, name: minecraft:regeneration}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 1, name: minecraft:regeneration}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:resistance}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:resistance}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:water_breathing}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:weakness}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 200, potency: 1, name: minecraft:weakness}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 50, potency: 0, name: minecraft:wither}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 1, name: minecraft:wither}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: xreliquary:cure_potion}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 1, name: xreliquary:cure_potion}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 2, name: xreliquary:cure_potion}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 3, name: xreliquary:cure_potion}]})
-    xreliquary_jj_bullet_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 4, name: xreliquary:cure_potion}]})
-    xreliquary_jj_destruction_catalyst={maxCount=8, craftCount=1},
-    xreliquary_jj_emperor_chalice={maxCount=8, craftCount=1},
-    xreliquary_jj_ender_staff={maxCount=8, craftCount=1},
-    xreliquary_jj_fertile_lilypad={maxCount=8, craftCount=1},
-    xreliquary_jj_fertile_potion={maxCount=8, craftCount=1},
-    xreliquary_jj_fortune_coin={maxCount=8, craftCount=1},
-    xreliquary_jj_glacial_staff={maxCount=8, craftCount=1},
-    xreliquary_jj_glowing_bread={maxCount=8, craftCount=1},
-    xreliquary_jj_glowing_water={maxCount=8, craftCount=1},
-    xreliquary_jj_gun_part={maxCount=8, craftCount=1},
-    xreliquary_jj_gun_part_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_gun_part_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_handgun={maxCount=8, craftCount=1},
-    xreliquary_jj_harvest_rod={maxCount=8, craftCount=1},
-    xreliquary_jj_hero_medallion={maxCount=8, craftCount=1},
-    xreliquary_jj_holy_hand_grenade={maxCount=8, craftCount=1},
-    xreliquary_jj_ice_magus_rod={maxCount=8, craftCount=1},
-    xreliquary_jj_infernal_chalice={maxCount=8, craftCount=1},
-    xreliquary_jj_infernal_claws={maxCount=8, craftCount=1},
-    xreliquary_jj_infernal_tear={maxCount=8, craftCount=1},
-    xreliquary_jj_interdiction_torch={maxCount=8, craftCount=1},
-    xreliquary_jj_kraken_shell={maxCount=8, craftCount=1},
-    xreliquary_jj_lantern_of_paranoia={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 0, name: minecraft:absorption}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:absorption}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 2, name: minecraft:absorption}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:blindness}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:nausea}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:strength}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 1, name: minecraft:strength}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 600, potency: 2, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:haste}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 1, name: minecraft:haste}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:fire_resistance}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 300, potency: 0, name: minecraft:health_boost}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:health_boost}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 2, name: minecraft:health_boost}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:hunger}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:invisibility}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:jump_boost}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1350, potency: 1, name: minecraft:jump_boost}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:slowness}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 200, potency: 1, name: minecraft:slowness}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:speed}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:speed}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 600, potency: 2, name: minecraft:speed}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:night_vision}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:poison}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 50, potency: 0, name: minecraft:regeneration}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 1, name: minecraft:regeneration}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 350, potency: 0, name: minecraft:resistance}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 450, potency: 1, name: minecraft:resistance}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 150, potency: 0, name: minecraft:water_breathing}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: minecraft:weakness}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 200, potency: 1, name: minecraft:weakness}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 50, potency: 0, name: minecraft:wither}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 1, name: minecraft:wither}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 0, name: xreliquary:cure_potion}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 1, name: xreliquary:cure_potion}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 2, name: xreliquary:cure_potion}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 3, name: xreliquary:cure_potion}]})
-    xreliquary_jj_magazine_jj_1={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 100, potency: 4, name: xreliquary:cure_potion}]})
-    xreliquary_jj_magicbane={maxCount=8, craftCount=1},
-    xreliquary_jj_mercy_cross={maxCount=8, craftCount=1},
-    xreliquary_jj_midas_touchstone={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 0 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 1 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 2 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 3 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 4 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 5 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 6 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 7 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 8 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 9 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 10 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 11 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 12 as byte})
-    xreliquary_jj_mob_charm={maxCount=8, craftCount=1},--.withTag({type: 13 as byte})
-    xreliquary_jj_mob_charm_belt={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_10={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_11={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_12={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_charm_fragment_jj_13={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_10={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_11={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_12={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_13={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_14={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_15={maxCount=8, craftCount=1},
-    xreliquary_jj_mob_ingredient_jj_16={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_10={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_11={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_12={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_13={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_14={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_jj_15={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_1={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_2={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_3={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_4={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_5={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_6={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_7={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_8={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_9={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_10={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_11={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_12={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_13={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_14={maxCount=8, craftCount=1},
-    xreliquary_jj_pedestal_passive_jj_15={maxCount=8, craftCount=1},
-    xreliquary_jj_phoenix_down={maxCount=8, craftCount=1},
-    xreliquary_jj_potion={maxCount=8, craftCount=1},
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:blindness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:nausea}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:strength}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:strength}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2500, potency: 1, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:haste}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:haste}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:fire_resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:hunger}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:invisibility}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:jump_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 6750, potency: 1, name: minecraft:jump_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:slowness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:slowness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:night_vision}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:poison}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:regeneration}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 1, name: minecraft:regeneration}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:water_breathing}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:weakness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:weakness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:wither}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: minecraft:wither}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 2, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 3, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 4, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:absorption}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:absorption}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:absorption}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:blindness}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:nausea}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:strength}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:strength}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:mining_fatigue}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2500, potency: 1, name: minecraft:mining_fatigue}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:mining_fatigue}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:haste}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:haste}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:fire_resistance}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:health_boost}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:health_boost}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:health_boost}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:hunger}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:invisibility}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:jump_boost}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 6750, potency: 1, name: minecraft:jump_boost}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:slowness}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:slowness}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:speed}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:speed}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:speed}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:night_vision}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:poison}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:regeneration}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 1, name: minecraft:regeneration}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:resistance}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:resistance}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:water_breathing}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:weakness}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:weakness}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:wither}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: minecraft:wither}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: xreliquary:cure_potion}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: xreliquary:cure_potion}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 2, name: xreliquary:cure_potion}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 3, name: xreliquary:cure_potion}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 4, name: xreliquary:cure_potion}], hasPotion: 1 as byte, splash: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1500, potency: 0, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 2250, potency: 1, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 7500, potency: 2, name: minecraft:absorption}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:blindness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: minecraft:nausea}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:strength}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1500, potency: 1, name: minecraft:strength}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 2500, potency: 1, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 3000, potency: 2, name: minecraft:mining_fatigue}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:haste}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1500, potency: 1, name: minecraft:haste}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:fire_resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 0, name: minecraft:instant_health}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 1, name: minecraft:instant_health}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1500, potency: 0, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 2250, potency: 1, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 7500, potency: 2, name: minecraft:health_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:hunger}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: minecraft:invisibility}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1750, potency: 0, name: minecraft:jump_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 6750, potency: 1, name: minecraft:jump_boost}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: minecraft:slowness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1000, potency: 1, name: minecraft:slowness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1750, potency: 0, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 2250, potency: 1, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 3000, potency: 2, name: minecraft:speed}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1750, potency: 0, name: minecraft:night_vision}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:poison}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 250, potency: 0, name: minecraft:regeneration}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 1, name: minecraft:regeneration}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1750, potency: 0, name: minecraft:resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 2250, potency: 1, name: minecraft:resistance}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 0, name: minecraft:saturation}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1, potency: 1, name: minecraft:saturation}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 750, potency: 0, name: minecraft:water_breathing}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: minecraft:weakness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 1000, potency: 1, name: minecraft:weakness}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 250, potency: 0, name: minecraft:wither}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 1, name: minecraft:wither}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 0, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 1, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 2, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 3, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion={maxCount=8, craftCount=1},--.withTag({lingering: 1 as byte, effects: [{duration: 500, potency: 4, name: xreliquary:cure_potion}], hasPotion: 1 as byte})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:absorption}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:absorption}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:absorption}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:blindness}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:nausea}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:strength}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:strength}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2500, potency: 1, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:haste}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 1, name: minecraft:haste}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:fire_resistance}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1500, potency: 0, name: minecraft:health_boost}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:health_boost}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 7500, potency: 2, name: minecraft:health_boost}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:hunger}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:invisibility}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:jump_boost}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 6750, potency: 1, name: minecraft:jump_boost}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:slowness}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:slowness}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:speed}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:speed}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 3000, potency: 2, name: minecraft:speed}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:night_vision}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:poison}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:regeneration}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 1, name: minecraft:regeneration}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1750, potency: 0, name: minecraft:resistance}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 2250, potency: 1, name: minecraft:resistance}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 750, potency: 0, name: minecraft:water_breathing}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: minecraft:weakness}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1000, potency: 1, name: minecraft:weakness}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 250, potency: 0, name: minecraft:wither}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: minecraft:wither}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 0, name: xreliquary:cure_potion}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 1, name: xreliquary:cure_potion}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 2, name: xreliquary:cure_potion}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 3, name: xreliquary:cure_potion}]})
-    xreliquary_jj_potion_essence={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 500, potency: 4, name: xreliquary:cure_potion}]})
-    xreliquary_jj_pyromancer_staff={maxCount=8, craftCount=1},
-    xreliquary_jj_rending_gale={maxCount=8, craftCount=1},
-    xreliquary_jj_rod_of_lyssa={maxCount=8, craftCount=1},
-    xreliquary_jj_salamander_eye={maxCount=8, craftCount=1},
-    xreliquary_jj_serpent_staff={maxCount=8, craftCount=1},
-    xreliquary_jj_shears_of_winter={maxCount=8, craftCount=1},
-    xreliquary_jj_sojourner_staff={maxCount=8, craftCount=1},
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 187, potency: 0, name: minecraft:absorption}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 281, potency: 1, name: minecraft:absorption}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 937, potency: 2, name: minecraft:absorption}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:blindness}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: minecraft:nausea}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:strength}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 187, potency: 1, name: minecraft:strength}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 312, potency: 1, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 375, potency: 2, name: minecraft:mining_fatigue}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:haste}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 187, potency: 1, name: minecraft:haste}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:fire_resistance}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_damage}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_damage}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 2, name: minecraft:instant_damage}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:instant_health}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:instant_health}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 187, potency: 0, name: minecraft:health_boost}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 281, potency: 1, name: minecraft:health_boost}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 937, potency: 2, name: minecraft:health_boost}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:hunger}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: minecraft:invisibility}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 218, potency: 0, name: minecraft:jump_boost}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 843, potency: 1, name: minecraft:jump_boost}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: minecraft:slowness}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 125, potency: 1, name: minecraft:slowness}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 218, potency: 0, name: minecraft:speed}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 281, potency: 1, name: minecraft:speed}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 375, potency: 2, name: minecraft:speed}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 218, potency: 0, name: minecraft:night_vision}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:poison}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 31, potency: 0, name: minecraft:regeneration}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 1, name: minecraft:regeneration}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 218, potency: 0, name: minecraft:resistance}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 281, potency: 1, name: minecraft:resistance}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 0, name: minecraft:saturation}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 1, potency: 1, name: minecraft:saturation}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 93, potency: 0, name: minecraft:water_breathing}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: minecraft:weakness}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 125, potency: 1, name: minecraft:weakness}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 31, potency: 0, name: minecraft:wither}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 1, name: minecraft:wither}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 0, name: xreliquary:cure_potion}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 1, name: xreliquary:cure_potion}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 2, name: xreliquary:cure_potion}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 3, name: xreliquary:cure_potion}]})
-    xreliquary_jj_tipped_arrow={maxCount=8, craftCount=1},--.withTag({effects: [{duration: 62, potency: 4, name: xreliquary:cure_potion}]})
-    xreliquary_jj_twilight_cloak={maxCount=8, craftCount=1},
-    xreliquary_jj_void_tear={maxCount=8, craftCount=1},
-    xreliquary_jj_witch_hat={maxCount=8, craftCount=1},
-    xreliquary_jj_witherless_rose={maxCount=8, craftCount=1},
-    xreliquary_jj_wraith_node={maxCount=8, craftCount=1}
-}
+ xreliquary_jj_altar={craftCount=1,maxCount=8,recipe={minecraft_jj_obsidian={need=1},minecraft_jj_redstone_lamp={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_3={need=1}}},
+ xreliquary_jj_angelheart_vial={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_pane={need=5},minecraft_jj_milk_bucket={need=1},xreliquary_jj_mob_ingredient_jj_13={need=1},xreliquary_jj_mob_ingredient_jj_9={need=2}}},
+ xreliquary_jj_angelic_feather={craftCount=1,maxCount=8,recipe={minecraft_jj_feather={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_5={need=1},xreliquary_jj_mob_ingredient_jj_9={need=1}}},
+ xreliquary_jj_apothecary_cauldron={craftCount=1,maxCount=8,recipe={minecraft_jj_cauldron={need=1},xreliquary_jj_mob_ingredient_jj_11={need=3},xreliquary_jj_mob_ingredient_jj_13={need=2},xreliquary_jj_mob_ingredient_jj_3={need=2},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_apothecary_mortar={craftCount=1,maxCount=8,recipe={minecraft_jj_quartz_block={need=6},minecraft_jj_quartz_block_jj_1={need=6},minecraft_jj_quartz_block_jj_2={need=6},xreliquary_jj_mob_ingredient_jj_3={need=3}}},
+ xreliquary_jj_attraction_potion={craftCount=1,maxCount=8,recipe={minecraft_jj_dye_jj_1={need=1},minecraft_jj_dye_jj_3={need=1},minecraft_jj_glass_pane={need=5},minecraft_jj_water_bucket={need=1},xreliquary_jj_mob_ingredient_jj_9={need=1}}},
+ xreliquary_jj_bullet_jj_1={craftCount=8,maxCount=8,recipe={minecraft_jj_flint={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_gunpowder={need=1}}},
+ xreliquary_jj_bullet_jj_2={craftCount=8,maxCount=8,recipe={xreliquary_jj_bullet_jj_1={need=8},xreliquary_jj_mob_ingredient_jj_6={need=1}}},
+ xreliquary_jj_bullet_jj_3={craftCount=8,maxCount=8,recipe={minecraft_jj_blaze_powder={need=1},minecraft_jj_blaze_rod={need=1},minecraft_jj_gold_nugget={need=2}}},
+ xreliquary_jj_bullet_jj_4={craftCount=8,maxCount=8,recipe={xreliquary_jj_bullet_jj_7={need=8},xreliquary_jj_mob_ingredient_jj_11={need=1}}},
+ xreliquary_jj_bullet_jj_5={craftCount=8,maxCount=8,recipe={minecraft_jj_gold_nugget={need=2},minecraft_jj_gunpowder={need=1},minecraft_jj_slime_ball={need=1}}},
+ xreliquary_jj_bullet_jj_6={craftCount=8,maxCount=8,recipe={xreliquary_jj_bullet_jj_5={need=8},xreliquary_jj_mob_ingredient_jj_3={need=1}}},
+ xreliquary_jj_bullet_jj_7={craftCount=8,maxCount=8,recipe={minecraft_jj_dye_jj_4={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_gunpowder={need=1}}},
+ xreliquary_jj_bullet_jj_8={craftCount=8,maxCount=8,recipe={minecraft_jj_gold_nugget={need=1},minecraft_jj_gunpowder={need=1},minecraft_jj_sandstone={need=1},minecraft_jj_slime_ball={need=1}}},
+ xreliquary_jj_bullet_jj_9={craftCount=8,maxCount=8,recipe={minecraft_jj_gold_nugget={need=2},minecraft_jj_gunpowder={need=1},xreliquary_jj_mob_ingredient_jj_3={need=2}}},
+ xreliquary_jj_destruction_catalyst={craftCount=1,maxCount=8,recipe={minecraft_jj_flint_and_steel={need=1},xreliquary_jj_infernal_tear={need=1},xreliquary_jj_mob_ingredient_jj_3={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_emperor_chalice={craftCount=1,maxCount=8,recipe={minecraft_jj_bucket={need=1},minecraft_jj_emerald={need=1},minecraft_jj_gold_ingot={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_ender_staff={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_eye={need=1},minecraft_jj_stick={need=1},xreliquary_jj_mob_ingredient_jj_11={need=2},xreliquary_jj_mob_ingredient_jj_5={need=2},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_fertile_lilypad={craftCount=1,maxCount=8,recipe={minecraft_jj_waterlily={need=1},xreliquary_jj_mob_ingredient_jj_9={need=3}}},
+ xreliquary_jj_fertile_potion={craftCount=1,maxCount=8,recipe={minecraft_jj_dye_jj_11={need=1},minecraft_jj_dye_jj_2={need=1},minecraft_jj_glass_pane={need=5},minecraft_jj_water_bucket={need=1},xreliquary_jj_mob_ingredient_jj_9={need=1}}},
+ xreliquary_jj_fortune_coin={craftCount=1,maxCount=8,recipe={minecraft_jj_gold_nugget={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_4={need=1},xreliquary_jj_mob_ingredient_jj_5={need=1}}},
+ xreliquary_jj_glacial_staff={craftCount=1,maxCount=8,recipe={xreliquary_jj_ice_magus_rod={need=1},xreliquary_jj_mob_ingredient_jj_10={need=1},xreliquary_jj_shears_of_winter={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_glowing_bread={craftCount=3,maxCount=8,recipe={minecraft_jj_bread={need=3},xreliquary_jj_glowing_water={need=1}}},
+ xreliquary_jj_glowing_water={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_pane={need=5},minecraft_jj_glowstone_dust={need=1},minecraft_jj_gunpowder={need=1},minecraft_jj_nether_wart={need=1},minecraft_jj_water_bucket={need=1}}},
+ xreliquary_jj_gun_part={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=7},minecraft_jj_magma_cream={need=1},xreliquary_jj_magazine={need=1}}},
+ xreliquary_jj_gun_part_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=6},minecraft_jj_magma_cream={need=1},xreliquary_jj_mob_ingredient_jj_11={need=2}}},
+ xreliquary_jj_gun_part_jj_2={craftCount=1,maxCount=8,recipe={minecraft_jj_blaze_rod={need=1},minecraft_jj_iron_ingot={need=6},minecraft_jj_stone_button={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_handgun={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=5},xreliquary_jj_gun_part={need=1},xreliquary_jj_gun_part_jj_1={need=1},xreliquary_jj_gun_part_jj_2={need=1},xreliquary_jj_mob_ingredient_jj_4={need=1}}},
+ xreliquary_jj_harvest_rod={craftCount=1,maxCount=8,recipe={minecraft_jj_double_plant_jj_4={need=2},minecraft_jj_stick={need=1},minecraft_jj_vine={need=2},xreliquary_jj_mob_ingredient_jj_9={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_hero_medallion={craftCount=1,maxCount=8,recipe={xreliquary_jj_fortune_coin={need=1},xreliquary_jj_infernal_tear={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_witch_hat={need=1}}},
+ xreliquary_jj_holy_hand_grenade={craftCount=4,maxCount=8,recipe={minecraft_jj_gold_nugget={need=1},minecraft_jj_tnt={need=1},xreliquary_jj_glowing_water={need=1},xreliquary_jj_mob_ingredient_jj_3={need=1}}},
+ xreliquary_jj_ice_magus_rod={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=2},minecraft_jj_iron_ingot={need=1},xreliquary_jj_mob_ingredient_jj_10={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_infernal_chalice={craftCount=1,maxCount=8,recipe={xreliquary_jj_emperor_chalice={need=1},xreliquary_jj_infernal_claws={need=1},xreliquary_jj_infernal_tear={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_infernal_claws={craftCount=1,maxCount=8,recipe={xreliquary_jj_mob_ingredient_jj_13={need=3},xreliquary_jj_mob_ingredient_jj_4={need=1}}},
+ xreliquary_jj_infernal_tear={craftCount=1,maxCount=8,recipe={xreliquary_jj_mob_ingredient_jj_13={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1},xreliquary_jj_void_tear={need=1},xreliquary_jj_witch_hat={need=1}}},
+ xreliquary_jj_interdiction_torch={craftCount=4,maxCount=8,recipe={minecraft_jj_blaze_rod={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_5={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_kraken_shell={craftCount=1,maxCount=8,recipe={xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_14={need=3}}},
+ xreliquary_jj_lantern_of_paranoia={craftCount=1,maxCount=8,recipe={minecraft_jj_glass={need=2},minecraft_jj_iron_ingot={need=3},xreliquary_jj_mob_ingredient_jj_4={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_magazine={craftCount=1,maxCount=8,recipe={xreliquary_jj_bullet={need=8},xreliquary_jj_magazine={need=1}}},
+ xreliquary_jj_magazine_jj_1={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_2={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_3={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_4={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_5={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_6={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_7={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_8={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magazine_jj_9={craftCount=0,maxCount=8,recipe={}},
+ xreliquary_jj_magicbane={craftCount=1,maxCount=8,recipe={minecraft_jj_gold_ingot={need=1},minecraft_jj_iron_ingot={need=1},xreliquary_jj_mob_ingredient_jj_11={need=2}}},
+ xreliquary_jj_mercy_cross={craftCount=1,maxCount=8,recipe={minecraft_jj_gold_ingot={need=4},minecraft_jj_leather={need=1},minecraft_jj_skull_jj_1={need=1},xreliquary_jj_mob_ingredient={need=1},xreliquary_jj_mob_ingredient_jj_1={need=1},xreliquary_jj_mob_ingredient_jj_6={need=1}}},
+ xreliquary_jj_midas_touchstone={craftCount=1,maxCount=8,recipe={minecraft_jj_anvil={need=1},minecraft_jj_gold_block={need=2},xreliquary_jj_mob_ingredient_jj_3={need=2},xreliquary_jj_mob_ingredient_jj_7={need=3},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_mob_charm_belt={craftCount=1,maxCount=8,recipe={minecraft_jj_leather={need=3},xreliquary_jj_mob_charm_fragment={need=5}}},
+ xreliquary_jj_mob_charm_fragment={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=1},minecraft_jj_rotten_flesh={need=2},xreliquary_jj_mob_ingredient_jj_6={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=2},minecraft_jj_flint={need=1},xreliquary_jj_mob_ingredient={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_10={craftCount=1,maxCount=8,recipe={minecraft_jj_slime_ball={need=3},xreliquary_jj_mob_ingredient_jj_4={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_11={craftCount=1,maxCount=8,recipe={minecraft_jj_magma_cream={need=3},xreliquary_jj_mob_ingredient_jj_7={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_12={craftCount=1,maxCount=8,recipe={minecraft_jj_blaze_powder={need=1},minecraft_jj_blaze_rod={need=2},xreliquary_jj_mob_ingredient_jj_7={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_13={craftCount=1,maxCount=8,recipe={minecraft_jj_fish={need=1},minecraft_jj_prismarine_shard={need=2},xreliquary_jj_mob_ingredient_jj_16={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_2={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=2},minecraft_jj_skull_jj_1={need=1},xreliquary_jj_mob_ingredient_jj_1={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=1},minecraft_jj_gunpowder={need=2},xreliquary_jj_mob_ingredient_jj_3={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_4={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_bottle={need=2},minecraft_jj_spider_eye={need=1},xreliquary_jj_witch_hat={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_golden_sword={need=1},minecraft_jj_rotten_flesh={need=2},xreliquary_jj_mob_ingredient_jj_6={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_potion={need=1,tag="({Potion: minecraft:poison})"},minecraft_jj_string={need=2},xreliquary_jj_mob_ingredient_jj_2={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_7={craftCount=1,maxCount=8,recipe={minecraft_jj_spider_eye={need=1},minecraft_jj_string={need=2},xreliquary_jj_mob_ingredient_jj_2={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_8={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=2},xreliquary_jj_mob_ingredient_jj_11={need=7}}},
+ xreliquary_jj_mob_charm_fragment_jj_9={craftCount=1,maxCount=8,recipe={minecraft_jj_ghast_tear={need=6},minecraft_jj_gunpowder={need=2},xreliquary_jj_mob_ingredient_jj_3={need=1}}},
+ xreliquary_jj_mob_ingredient_jj_13={craftCount=1,maxCount=8,recipe={minecraft_jj_leather={need=1},xreliquary_jj_mob_ingredient={need=1},xreliquary_jj_mob_ingredient_jj_4={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_mob_ingredient_jj_14={craftCount=1,maxCount=8,recipe={xreliquary_jj_mob_ingredient_jj_12={need=3},xreliquary_jj_mob_ingredient_jj_4={need=1}}},
+ xreliquary_jj_mob_ingredient_jj_15={craftCount=1,maxCount=8,recipe={minecraft_jj_wool_jj_14={need=1},minecraft_jj_wool_jj_15={need=1},xreliquary_jj_mob_ingredient_jj_11={need=2}}},
+ xreliquary_jj_mob_ingredient_jj_9={craftCount=1,maxCount=8,recipe={minecraft_jj_dye_jj_2={need=1},xreliquary_jj_mob_ingredient={need=1},xreliquary_jj_mob_ingredient_jj_3={need=1},xreliquary_jj_mob_ingredient_jj_4={need=1}}},
+ xreliquary_jj_pedestal={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive={need=1}}},
+ xreliquary_jj_pedestal_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_1={need=1}}},
+ xreliquary_jj_pedestal_jj_10={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_10={need=1}}},
+ xreliquary_jj_pedestal_jj_11={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_11={need=1}}},
+ xreliquary_jj_pedestal_jj_12={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_12={need=1}}},
+ xreliquary_jj_pedestal_jj_13={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_13={need=1}}},
+ xreliquary_jj_pedestal_jj_14={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_14={need=1}}},
+ xreliquary_jj_pedestal_jj_15={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_15={need=1}}},
+ xreliquary_jj_pedestal_jj_2={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_2={need=1}}},
+ xreliquary_jj_pedestal_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_3={need=1}}},
+ xreliquary_jj_pedestal_jj_4={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_4={need=1}}},
+ xreliquary_jj_pedestal_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_5={need=1}}},
+ xreliquary_jj_pedestal_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_6={need=1}}},
+ xreliquary_jj_pedestal_jj_7={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_7={need=1}}},
+ xreliquary_jj_pedestal_jj_8={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_8={need=1}}},
+ xreliquary_jj_pedestal_jj_9={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=4},xreliquary_jj_pedestal_passive_jj_9={need=1}}},
+ xreliquary_jj_pedestal_passive={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_1={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_10={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_10={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_11={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_11={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_12={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_12={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_13={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_13={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_14={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_14={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_15={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_15={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_2={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_2={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_3={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_4={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_4={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_5={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_6={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_7={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_7={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_8={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_8={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_pedestal_passive_jj_9={craftCount=1,maxCount=8,recipe={minecraft_jj_carpet_jj_9={need=1},minecraft_jj_gold_nugget={need=2},minecraft_jj_quartz_block={need=1},minecraft_jj_quartz_block_jj_1={need=1},minecraft_jj_quartz_block_jj_2={need=1},minecraft_jj_stone_slab_jj_7={need=3}}},
+ xreliquary_jj_phoenix_down={craftCount=1,maxCount=8,recipe={xreliquary_jj_angelheart_vial={need=3},xreliquary_jj_angelic_feather={need=1}}},
+ xreliquary_jj_potion={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_pane={need=5}}},
+ xreliquary_jj_pyromancer_staff={craftCount=1,maxCount=8,recipe={minecraft_jj_blaze_rod={need=1},xreliquary_jj_infernal_claws={need=1},xreliquary_jj_infernal_tear={need=1},xreliquary_jj_salamander_eye={need=1}}},
+ xreliquary_jj_rending_gale={craftCount=1,maxCount=8,recipe={minecraft_jj_gold_ingot={need=2},minecraft_jj_stick={need=1},xreliquary_jj_mob_ingredient_jj_5={need=2},xreliquary_jj_mob_ingredient_jj_8={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_rod_of_lyssa={craftCount=1,maxCount=8,recipe={minecraft_jj_fishing_rod={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_13={need=1},xreliquary_jj_mob_ingredient_jj_5={need=1}}},
+ xreliquary_jj_salamander_eye={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_eye={need=1},xreliquary_jj_mob_ingredient_jj_10={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1}}},
+ xreliquary_jj_serpent_staff={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_eye={need=1},minecraft_jj_stick={need=1},xreliquary_jj_mob_ingredient_jj_14={need=1},xreliquary_jj_mob_ingredient_jj_2={need=2}}},
+ xreliquary_jj_shears_of_winter={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=2},minecraft_jj_shears={need=1},xreliquary_jj_mob_ingredient_jj_10={need=1}}},
+ xreliquary_jj_sojourner_staff={craftCount=1,maxCount=8,recipe={minecraft_jj_blaze_rod={need=1},minecraft_jj_gold_ingot={need=1},xreliquary_jj_mob_ingredient_jj_7={need=1},xreliquary_jj_void_tear={need=1}}},
+ xreliquary_jj_twilight_cloak={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=2},minecraft_jj_wool_jj_15={need=4},xreliquary_jj_mob_ingredient_jj_15={need=3}}},
+ xreliquary_jj_void_tear={craftCount=1,maxCount=8,recipe={minecraft_jj_dye_jj_4={need=1},minecraft_jj_ghast_tear={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1},xreliquary_jj_mob_ingredient_jj_4={need=1}}},
+ xreliquary_jj_witherless_rose={craftCount=1,maxCount=8,recipe={minecraft_jj_double_plant_jj_4={need=1},minecraft_jj_nether_star={need=4},xreliquary_jj_mob_ingredient_jj_9={need=4}}},
+ xreliquary_jj_wraith_node={craftCount=1,maxCount=8,recipe={minecraft_jj_emerald={need=1},xreliquary_jj_mob_ingredient_jj_11={need=1}}}
+ }

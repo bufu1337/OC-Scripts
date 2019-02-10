@@ -54,6 +54,10 @@ function ac.Define(itemrepo)
   local repo = ac.searchforRepo(itemrepo)
   if repo ~= "" then
     ac.items = require(repo)
+    if itemrepo == "conquest" then
+      local repo2 = ac.searchforRepo(itemrepo .. "2")
+      ac.items = ac.mf.combineTables(ac.items, require(repo2))
+    end
     ac.crafter = ac.prox.ModToPName(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
     local reporecipe = ac.searchforRepoRecipe(itemrepo)
     if reporecipe ~= "" then
@@ -91,6 +95,10 @@ function ac.DefineItems(itemsToCraft)
     local repo = ac.searchforRepo(i)
     if repo ~= "" then
       local tempitems = require(repo)
+      if i == "conquest" then
+        local repo2 = ac.searchforRepo(i .. "2")
+        tempitems = ac.mf.combineTables(tempitems, require(repo2))
+      end
       for a,b in pairs(tempitems) do
         if j.items[a] == nil then
           tempitems[a] = nil
@@ -569,7 +577,7 @@ function ac.CheckRecipe()
         end 
     end
     ac.MoveRestBack()
-    mf.WriteObjectFile(cr_items, "/home/" .. crafter .. " - RecipeChecked.lua")
+    ac.mf.WriteObjectFile(cr_items, "/home/" .. crafter .. " - RecipeChecked.lua")
 end
 function ac.GetItems()
     print("GetItems")
