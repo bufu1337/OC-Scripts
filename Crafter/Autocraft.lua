@@ -31,8 +31,8 @@ function ac.searchforRepoRecipe(itemrepo)
     if b ~= 1 then
       s = tostring(b)
     end
-    if ac.mf.filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. " - RecipeItems" .. ".lua") == true then
-      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo .. " - RecipeItems"
+    if ac.mf.filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. "-RecipeItems" .. ".lua") == true then
+      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo .. "-RecipeItems"
     end
   end
   return ""
@@ -107,7 +107,7 @@ function ac.DefineItems(itemsToCraft)
       ac.itemcrafters[i].items = ac.mf.combineTables(ac.itemcrafters[i].items, tempitems)
       tempitems = {}
       
-      if ac.mf.filesystem.exists("/home/" .. repo .. " - RecipeItems" .. ".lua") == true then
+      if ac.mf.filesystem.exists("/home/" .. repo .. "-RecipeItems" .. ".lua") == true then
         local temprecipeitemKeys = {}
         for a,b in pairs(ac.itemcrafters[i].items) do
           if b.recipe ~= nil then
@@ -119,7 +119,7 @@ function ac.DefineItems(itemsToCraft)
           end
         end
         
-        ac.itemcrafters[i].recipeitems = require(repo .. " - RecipeItems")
+        ac.itemcrafters[i].recipeitems = require(repo .. "-RecipeItems")
         for a,b in pairs(ac.itemcrafters[i].recipeitems) do
           if ac.mf.contains(temprecipeitemKeys, a) == false then
             ac.itemcrafters[i].recipeitems[a] = nil
@@ -300,7 +300,7 @@ function ac.WriteNewRepo()
             ac.recipeitems[rikeys[ik]].damage = nil
             ac.recipeitems[rikeys[ik]].size = nil
         end
-        ac.mf.WriteObjectFile(ac.mf.serial.serializedtable(ac.recipeitems), "/home/".. reprec .. " - RecipeItems" .. ".lua")
+        ac.mf.WriteObjectFile(ac.mf.serial.serializedtable(ac.recipeitems), "/home/".. reprec .. "-RecipeItems" .. ".lua")
         for ik = 1, #rikeys, 1 do
             ac.recipeitems[rikeys[ik]].size = temprecipeitemssize[rikeys[ik]]
         end
@@ -315,7 +315,7 @@ function ac.WriteNewRepo()
             temprecipeitems[ikeys[ik]].damage = nil
             temprecipeitems[ikeys[ik]].size = nil
         end
-        ac.mf.WriteObjectFile(ac.mf.serial.serializedtable(temprecipeitems), "/home/".. reprec .. " - RecipeItems" .. ".lua")
+        ac.mf.WriteObjectFile(ac.mf.serial.serializedtable(temprecipeitems), "/home/".. reprec .. "-RecipeItems" .. ".lua")
         temprecipeitems = {}
     end
   end
