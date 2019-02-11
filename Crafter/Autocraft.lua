@@ -456,9 +456,6 @@ function ac.SetCrafts(item, newneed)
             local ThisTempCrafts2 = 0
             if ac.items[item].crafts == nil then
                 ac.items[item].crafts = ac.mf.MathUp((ac.items[item].maxCount - ac.items[item].size) / ac.items[item].craftCount)
-                if ac.items[item].crafts < 0 then
-                  ac.items[item].crafts = 0
-                end
                 if ac.items[item].need ~= nil then
                   ac.items[item].crafts = ac.items[item].crafts + (ac.mf.MathUp(ac.items[item].need / ac.items[item].craftCount))
                 end
@@ -469,7 +466,7 @@ function ac.SetCrafts(item, newneed)
                 ThisTempCrafts = ac.mf.MathUp(newneed / ac.items[item].craftCount)
                 print(item .. ": CraftsNeed = " .. ThisTempCrafts)
             end
-            if ThisTempCrafts ~= 0 then
+            if ThisTempCrafts > 0 then
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
                       if ac.recipeitems[a].need ~= nil then
