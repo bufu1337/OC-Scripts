@@ -6,6 +6,7 @@ ac.mf = require("bufu/MainFunctions")
 ac.items = {}
 ac.recipeitems = {}
 ac.priocount = 0
+ac.priolist = {}
 ac.crafter = ""
 ac.itemcrafters = {}
 ac.completeRepo = true
@@ -570,7 +571,7 @@ function ac.MoveRecipeItems(item)
     end
 end
 function ac.MoveCraftedItem(item)
-    ac.MoveItem(ac.items[item], ac.items[item].crafts, (ac.prox.GetRoute(ac.crafter, "home", ac.items[item].mod, 1)))
+    ac.MoveItem(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount, (ac.prox.GetRoute(ac.crafter, "home", ac.items[item].mod, 1)))
 end
 function ac.MoveRestBack()
     local rest_items = ac.mf.component.proxy(ac.prox.GetProxByName(ac.crafter, "craft").proxy).getItems()
@@ -591,12 +592,12 @@ function ac.MoveRestBack()
 end
 function ac.CraftItems()
     local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
-    for i,j in pairs(ac.items) do
-        if j.crafts ~= nil and j.crafts ~= 0 then
-            print("Crafting Item: " .. i .. " Crafts: " .. j.crafts)
+    for j,i in pairs(ac.priolist) do
+        if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
+            print("Crafting Item: " .. i .. " Crafts: " .. ac.items[i].crafts)
             ac.MoveRecipeItems(i)
             ac.mf.os.sleep(0.1)
-            cr.scheduleTask(j, j.crafts * j.craftCount)
+            cr.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
             local tasks = cr.getTasks()
             while #tasks > 0 do
                 ac.mf.os.sleep(1)
@@ -605,7 +606,6 @@ function ac.CraftItems()
                     tasks = {}
                 end
             end
-            ac.items[i].newsize = ac.items[i].newsize + j.crafts
             ac.items[i].size = ac.items[i].newsize
             ac.MoveCraftedItem(i)
         end 
@@ -663,12 +663,38 @@ function ac.test()
   ac.mf.WriteObjectFile(ac.items, "/home/tempitems2.lua", 2)
   ac.mf.WriteObjectFile(ac.recipeitems, "/home/temprecipeitems2.lua", 2)
 end
+function ac.SetPrio(item)
+  if ac.recipeitems[item] == nil then
+    ac.items[item].prio = ac.items[item].prio - 1
+    if ac.priocount > ac.items[item].prio then
+        ac.priocount = ac.items[item].prio
+    end
+    for i,j in pairs(ac.items[item].recipe) do ac.SetPrio(i) end
+  end
+end
+function ac.SetPrios()
+  for i,j in pairs(ac.items) do if j.crafts > 0 then ac.items[i].prio = 0 end end
+  for i,j in pairs(ac.items) do if j.crafts > 0 then ac.SetPrio(i) end end
+  ac.priocount = ac.priocount * -1
+  for i,j in pairs(ac.items) do if j.crafts > 0 then ac.items[i].prio = ac.items[i].prio + ac.priocount end end
+  ac.priolist = {}
+  for g = 0, ac.priocount - 1, 1 do
+    for i,j in pairs(ac.items) do
+        if j.crafts > 0 then
+          if ac.items[i].prio == g then
+            table.insert(ac.priolist, i)
+          end
+        end
+    end
+  end
+end
 function ac.GetItems()
     print("GetItems")
     ac.ConvertItems()
     ac.GetStorageItems()
     --ac.GetRecipes()
     ac.CalculateCrafts()
+    ac.SetPrios()
 end
 function ac.GetRecipeCraftings()
   local recipecrafting = {}
