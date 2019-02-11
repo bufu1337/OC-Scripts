@@ -1,10 +1,10 @@
 <XMLConfigSettings>
-	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720579"/>
-	<Document position="(39,683)" top="632">
-		<Collapsed count="270">
+	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720582"/>
+	<Document position="(9,676)" top="653">
+		<Collapsed count="269">
 			<Scope idx="112"/>
 			<Scope idx="150"/>
-			<Scope idx="225"/>
+			<Scope idx="224"/>
 		</Collapsed>
 	</Document>
 </XMLConfigSettings>

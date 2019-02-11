@@ -673,20 +673,13 @@ function ac.SetPrio(item)
   end
 end
 function ac.SetPrios()
-  for i,j in pairs(ac.items) do if j.crafts > 0 then ac.items[i].prio = 0 end end
+  ac.priocount = 0
+  for i,j in pairs(ac.items) do ac.items[i].prio = 0 end
   for i,j in pairs(ac.items) do if j.crafts > 0 then ac.SetPrio(i) end end
   ac.priocount = ac.priocount * -1
   for i,j in pairs(ac.items) do if j.crafts > 0 then ac.items[i].prio = ac.items[i].prio + ac.priocount end end
   ac.priolist = {}
-  for g = 0, ac.priocount - 1, 1 do
-    for i,j in pairs(ac.items) do
-        if j.crafts > 0 then
-          if ac.items[i].prio == g then
-            table.insert(ac.priolist, i)
-          end
-        end
-    end
-  end
+  for g = 0, ac.priocount - 1, 1 do for i,j in pairs(ac.items) do if j.crafts > 0 then if ac.items[i].prio == g then table.insert(ac.priolist, i) end end end end
 end
 function ac.GetItems()
     print("GetItems")
