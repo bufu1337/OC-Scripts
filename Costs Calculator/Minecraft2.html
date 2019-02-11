@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="JS-Prototypes.js?v=1.0"></script>
+    <script src="jquery-1.11.1.js?v=1.0"></script>
+
+    <!-- JQX Framework -->
+    <!-- JQX Base -->
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.base.css'type="text/css" />
+    <script src='jqwidgets/jqxcore.js'> </script>
+    
+    <!-- JQX Styles -->
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.android.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.arctic.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.black.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.blackberry.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.bootstrap.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.classic.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.dark.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.darkblue.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.energyblue.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.flat.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.fresh.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.glacier.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.highcontrast.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.light.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.metro.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.metrodark.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.mobile.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.office.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.orange.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.shinyblack.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.summer.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-darkness.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-le-frog.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-lightness.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-overcast.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-redmond.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-smoothness.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-start.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.ui-sunny.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.web.css'type="text/css" />
+    <link rel="stylesheet" href='jqwidgets/styles/jqx.windowsphone.css'type="text/css" />
+    
+    <!-- JQX Widgets -->
+    <script src='jqwidgets/jqxangular.js'> </script>
+    <script src='jqwidgets/jqxbargauge.js'> </script>
+    <script src='jqwidgets/jqxbulletchart.js'> </script>
+    <script src='jqwidgets/jqxbuttongroup.js'> </script>
+    <script src='jqwidgets/jqxbuttons.js'> </script>
+    <script src='jqwidgets/jqxcalendar.js'> </script>
+    <script src='jqwidgets/jqxchart.js'> </script>
+    <script src='jqwidgets/jqxchart.annotations.js'> </script>
+    <script src='jqwidgets/jqxchart.api.js'> </script>
+    <script src='jqwidgets/jqxchart.core.js'> </script>
+    <script src='jqwidgets/jqxchart.rangeselector.js'> </script>
+    <script src='jqwidgets/jqxchart.waterfall.js'> </script>
+    <script src='jqwidgets/jqxcheckbox.js'> </script>
+    <script src='jqwidgets/jqxcolorpicker.js'> </script>
+    <script src='jqwidgets/jqxcombobox.js'> </script>
+    <script src='jqwidgets/jqxcomplexinput.js'> </script>
+    <script src='jqwidgets/jqxcore.elements.js'> </script>
+    <script src='jqwidgets/jqxdata.js'> </script>
+    <script src='jqwidgets/jqxdata.export.js'> </script>
+    <script src='jqwidgets/jqxdatatable.js'> </script>
+    <script src='jqwidgets/jqxdate.js'> </script>
+    <script src='jqwidgets/jqxdatetimeinput.js'> </script>
+    <script src='jqwidgets/jqxdocking.js'> </script>
+    <script src='jqwidgets/jqxdockinglayout.js'> </script>
+    <script src='jqwidgets/jqxdockpanel.js'> </script>
+    <script src='jqwidgets/jqxdragdrop.js'> </script>
+    <script src='jqwidgets/jqxdraw.js'> </script>
+    <script src='jqwidgets/jqxdropdownbutton.js'> </script>
+    <script src='jqwidgets/jqxdropdownlist.js'> </script>
+    <script src='jqwidgets/jqxeditor.js'> </script>
+    <script src='jqwidgets/jqxexpander.js'> </script>
+    <script src='jqwidgets/jqxfileupload.js'> </script>
+    <script src='jqwidgets/jqxformattedinput.js'> </script>
+    <script src='jqwidgets/jqxgauge.js'> </script>
+    <script src='jqwidgets/jqxgrid.js'> </script>
+    <script src='jqwidgets/jqxgrid.aggregates.js'> </script>
+    <script src='jqwidgets/jqxgrid.columnsreorder.js'> </script>
+    <script src='jqwidgets/jqxgrid.columnsresize.js'> </script>
+    <script src='jqwidgets/jqxgrid.edit.js'> </script>
+    <script src='jqwidgets/jqxgrid.export.js'> </script>
+    <script src='jqwidgets/jqxgrid.filter.js'> </script>
+    <script src='jqwidgets/jqxgrid.grouping.js'> </script>
+    <script src='jqwidgets/jqxgrid.pager.js'> </script>
+    <script src='jqwidgets/jqxgrid.selection.js'> </script>
+    <script src='jqwidgets/jqxgrid.sort.js'> </script>
+    <script src='jqwidgets/jqxgrid.storage.js'> </script>
+    <script src='jqwidgets/jqxinput.js'> </script>
+    <script src='jqwidgets/jqxkanban.js'> </script>
+    <script src='jqwidgets/jqxknob.js'> </script>
+    <script src='jqwidgets/jqxknockout.js'> </script>
+    <script src='jqwidgets/jqxlayout.js'> </script>
+    <script src='jqwidgets/jqxlistbox.js'> </script>
+    <script src='jqwidgets/jqxlistmenu.js'> </script>
+    <script src='jqwidgets/jqxloader.js'> </script>
+    <script src='jqwidgets/jqxmaskedinput.js'> </script>
+    <script src='jqwidgets/jqxmath.js'> </script>
+    <script src='jqwidgets/jqxmenu.js'> </script>
+    <script src='jqwidgets/jqxnavbar.js'> </script>
+    <script src='jqwidgets/jqxnavigationbar.js'> </script>
+    <script src='jqwidgets/jqxnotification.js'> </script>
+    <script src='jqwidgets/jqxnumberinput.js'> </script>
+    <script src='jqwidgets/jqxpanel.js'> </script>
+    <script src='jqwidgets/jqxpasswordinput.js'> </script>
+    <script src='jqwidgets/jqxpathcontrol.js'> </script>
+    <script src='jqwidgets/jqxpopover.js'> </script>
+    <script src='jqwidgets/jqxprogressbar.js'> </script>
+    <script src='jqwidgets/jqxradiobutton.js'> </script>
+    <script src='jqwidgets/jqxrangeselector.js'> </script>
+    <script src='jqwidgets/jqxrating.js'> </script>
+    <script src='jqwidgets/jqxresponse.js'> </script>
+    <script src='jqwidgets/jqxresponsivepanel.js'> </script>
+    <script src='jqwidgets/jqxribbon.js'> </script>
+    <script src='jqwidgets/jqxscheduler.js'> </script>
+    <script src='jqwidgets/jqxscheduler.api.js'> </script>
+    <script src='jqwidgets/jqxscrollbar.js'> </script>
+    <script src='jqwidgets/jqxscrollview.js'> </script>
+    <script src='jqwidgets/jqxslider.js'> </script>
+    <script src='jqwidgets/jqxsortable.js'> </script>
+    <script src='jqwidgets/jqxsplitter.js'> </script>
+    <script src='jqwidgets/jqxswitchbutton.js'> </script>
+    <script src='jqwidgets/jqxtabs.js'> </script>
+    <script src='jqwidgets/jqxtagcloud.js'> </script>
+    <script src='jqwidgets/jqxtextarea.js'> </script>
+    <script src='jqwidgets/jqxtoolbar.js'> </script>
+    <script src='jqwidgets/jqxtooltip.js'> </script>
+    <script src='jqwidgets/jqxtouch.js'> </script>
+    <script src='jqwidgets/jqxtree.js'> </script>
+    <script src='jqwidgets/jqxtreegrid.js'> </script>
+    <script src='jqwidgets/jqxtreemap.js'> </script>
+    <script src='jqwidgets/jqxvalidator.js'> </script>
+    <script src='jqwidgets/jqxwindow.js'> </script>
+
+    <script src="Minecraft2.js?v=0.11"></script>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        font-family: Arial;
+    }
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .navbar a:hover {
+        background-color: red;
+    }
+    .headerstyle {
+        color: #3340ce;
+        font-weight: 900;
+    }
+    .itemstyle {
+        color: #2e911d;
+        font-weight: 600;
+    }
+    .itemstyle2 {
+        color: #edab42;
+        font-weight: 600;
+    }
+    #modlist a:hover {
+        background-color: blue;
+    }
+    .itemlisting a:hover {
+        background-color: green;
+        color: white;
+    }
+    #exampleInputFile { display: none; }
+    </style> 
+</head>
+<body class='default'>
+    <div class="navbar">
+        <button type="button" style="color: grey; float: right; margin-right: 10px; opacity:1.0;" id="btnSave"></button>
+        <a onclick="MC.go.Add.Mod()" id="addmodlink">Add Mod</a>
+        <a onclick="MC.go.Add.Item()" style="visibility: hidden; display: none;" id="additem_button">Add Item</a>
+        <a onclick="MC.go.Add.Receipt()" style="visibility: hidden; display: none;" id="addreceipt_button">Add Receipt</a>
+    </div>
+    <div id='jqxWidget'>
+        <div id='modwindow'>
+            <div id='modwindowHeader'>
+                <span id="captureContainer" style="float: left">Add Minecraft Mod</span>
+            </div>
+            <div id="modwindowContent" style="overflow: hidden">
+                <div style="display: block">
+                    <form id="modValidator">
+                        <table>
+                            <tr style="margin-top: 10px">
+                                <td>Name: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="modname_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>ISO: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="modiso_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>Description: </td>
+                                <td><textarea style="margin-top: 5px; margin-left: 10px" id="moddescription_area"></textarea></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div style="height: 65px; align-items: center; display: flex;">
+                    <div style="text-align: center; width: 100%;">
+                        <input type="button" value="Cancel" id="modwindow_cancelButton" />
+                        <input type="button" value="Confirm" style="margin-left: 5px;" id="modwindow_okButton" /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='itemwindow'>
+            <div id='itemwindowHeader'>
+                <span id="captureContainer" style="float: left">Add Item to Mod: </span>
+            </div>
+            <div id="itemwindowContent" style="overflow: hidden">
+                <div style="display: block">
+                    <form id="itemValidator">
+                        <table>
+                            <tr style="margin-top: 10px">
+                                <td>Name: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="itemname_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>Group: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="itemgroup_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>Resource Group: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="itemresourcegroup_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>Description: </td>
+                                <td><textarea style="margin-top: 5px; margin-left: 10px" id="itemdescription_area"></textarea></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td>Trader: </td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="itemtrader_input"/></td>
+                            </tr>
+                            <tr style="margin-top: 10px">
+                                <td><div id='itemfixedprice_check' style='margin-left: 10px; margin-top: 5px; float: left;'>Fixed Price</div></td>
+                                <td><input style="margin-top: 5px; margin-left: 10px" type="text" id="itemprice_input"/></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr style="margin-top: 10px">
+                                <td><div id='itemselling_check' style='margin-left: 10px;float: left;'>Sell</div></td>
+                                <td><div id='itembuying_check' style='margin-left: 10px;float: left;'>Buy</div></td>
+                                <td><div id='itemchisel_check' style='margin-left: 10px; float: left;'>Chisel</div></td>
+                                <td><div id='itembit_check' style='margin-left: 10px;float: left;'>Chisels &amp; Bits</div></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div style="text-align: center; width: 100%;">
+                        <div style="margin-top: 10px;margin-bottom: 5px;" id="itemreceiptcount">Receipts: </div>
+                        <button type="button" id="itemaddreceipt_button">Add Receipt</button>
+                    </div>
+                <div style="height: 65px; align-items: center; display: flex;">
+                    
+                    <div style="text-align: center; width: 100%;">
+                        <input type="button" value="Cancel" id="itemwindow_cancelButton" />
+                        <input type="button" value="Confirm" style="margin-left: 5px;" id="itemwindow_okButton" /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='receiptwindow'>
+            <div id='receiptwindowHeader'>
+                <span id="captureContainer" style="float: left">Add Item to Mod: </span>
+            </div>
+            <div id="receiptwindowContent" style="overflow: hidden">
+                <div style="float: right; position: relative; display: block; padding: 0px 10px">
+                                        
+                </div>
+                <div style="display: block">
+                    <div style="margin-top: 8px; text-align: center; margin-right: 170px; font-weight: 800; font-size: 16px; margin-bottom: 10px;">Input:</div><div style='float: left; margin:-34px 0px 10px 494px;' id='crafting_item'></div>
+                    <table border="2">
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div id='rc0_group'>
+                                    <div><input type='textbox' id='rc0_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc0_div0">
+                                        <input type='textbox' id='rc0_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc0_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc1_group'>
+                                    <div><input type='textbox' id='rc1_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc1_div0">
+                                        <input type='textbox' id='rc1_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc1_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc2_group'>
+                                    <div><input type='textbox' id='rc2_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc2_div0">
+                                        <input type='textbox' id='rc2_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc2_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton0' style="float: left"></button>
+                                    <button type='button' id='removeButton0'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton1' style="float: left"></button>
+                                    <button type='button' id='removeButton1'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton2' style="float: left"></button>
+                                    <button type='button' id='removeButton2'/></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div id='rc3_group'>
+                                    <div><input type='textbox' id='rc3_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc3_div0">
+                                        <input type='textbox' id='rc3_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc3_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc4_group'>
+                                    <div><input type='textbox' id='rc4_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc4_div0">
+                                        <input type='textbox' id='rc4_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc4_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc5_group'>
+                                    <div><input type='textbox' id='rc5_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc5_div0">
+                                        <input type='textbox' id='rc5_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc5_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton3' style="float: left"></button>
+                                    <button type='button' id='removeButton3'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton4' style="float: left"></button>
+                                    <button type='button' id='removeButton4'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton5' style="float: left"></button>
+                                    <button type='button' id='removeButton5'/></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div id='rc6_group'>
+                                    <div><input type='textbox' id='rc6_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc6_div0">
+                                        <input type='textbox' id='rc6_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc6_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc7_group'>
+                                    <div><input type='textbox' id='rc7_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc7_div0">
+                                        <input type='textbox' id='rc7_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc7_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc8_group'>
+                                    <div><input type='textbox' id='rc8_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc8_div0">
+                                        <input type='textbox' id='rc8_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc8_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton6' style="float: left;"></button>
+                                    <button type='button' id='removeButton6'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton7' style="float: left;"></button>
+                                    <button type='button' id='removeButton7'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton8' style="float: left;"></button>
+                                    <button type='button' id='removeButton8'/></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 20px; text-align: center; font-weight: 800; font-size: 16px; margin-bottom: 10px;">Output:</div>
+                    <table border="2">
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div id='rc9_group'>
+                                    <div><input type='textbox' id='rc9_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc9_div0">
+                                        <input type='textbox' id='rc9_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc9_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc10_group'>
+                                    <div><input type='textbox' id='rc10_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc9_div0">
+                                        <input type='textbox' id='rc10_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc10_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id='rc11_group'>
+                                    <div><input type='textbox' id='rc11_count' autocomplete='off' style='float:center; margin: 3px 110px;'/></div>
+                                    <div id="rc11_div0">
+                                        <input type='textbox' id='rc11_modbox0' autocomplete='off' style='float:left; margin: 3px 5px;'/><input type='textbox' id='rc11_itembox0' style='margin: 3px 5px;' autocomplete='off'/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="margin-top: 10px">
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton9' style="float: left"></button>
+                                    <button type='button' id='removeButton9'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton10' style="float: left"></button>
+                                    <button type='button' id='removeButton10'/></button>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 3px 10px 3px 150px">
+                                    <button type='button' id='addButton11' style="float: left"></button>
+                                    <button type='button' id='removeButton11'/></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="height: 65px; align-items: center; display: flex;">
+                    <div style="text-align: center; width: 100%;">
+                        <input type="button" value="Cancel" id="receiptwindow_cancelButton" />
+                        <input type="button" value="Confirm" style="margin-left: 5px;" id="receiptwindow_okButton" /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainSplitter">
+            <div>
+                <div style="border: none;" id="modExpander">
+                    <div class="jqx-hideborder">Mods</div>
+                    <div style="overflow: hidden;">
+                        <div class="jqx-hideborder" id='modListBox'></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="contentSplitter">
+                    <div class="feed-item-list-container" id="itemUpperPanel">
+                        <div class="jqx-hideborder" id="itemListExpander">
+                            <div class="jqx-hideborder" id="itemHeader">Items:</div>
+                            <div class="jqx-hideborder jqx-hidescrollbars">
+                                <div class="jqx-hideborder" id="nomod">No mod selected! Please select a mod first!</div>
+                                <div class="jqx-hideborder" id="noitems">No items in this mod! Please add items to this mod!</div>
+                                <button type="button" style="color: grey; float: left; margin: 10px; opacity:1.0;" id="btnEditMod">Edit Mod</button>
+                                <button type="button" style="color: grey; float: left; margin: 10px; opacity:1.0;" id="btnEditItem">Edit Item</button>
+                                <div class="jqx-hideborder" id="itemListBox"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="feedContentArea">
+                        <div class="jqx-hideborder" id="itemDetailExpander">
+                            <div class="jqx-hideborder" id="detailHeader"></div>
+                            <div class="jqx-hideborder jqx-hidescrollbars">
+                                <div class="jqx-hideborder" id="itemDetailTabs">
+                                    <ul id="DetailTabs">
+                                        <li>Werkbank</li>
+                                    </ul>
+                                    <div id="WerkbankTabContent">
+                                        <img style="left: 30px; top: 70px; position: absolute" height="113" width="113" src="workbench.png" id="workbench"></img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
