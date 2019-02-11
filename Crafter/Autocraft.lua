@@ -546,8 +546,11 @@ function ac.CalculateCrafts()
 end
 function ac.MoveItem(item, count, route)
     local r = 1
+    local tempcount = count
     while r <= #route do
+        count = tempcount
         local storage = ac.mf.component.proxy(route[r].proxy)
+        if r == 2 then ac.mf.os.sleep(0.05) end
         while count > 0 do
             local dropped = storage.extractItem(item, count, route[r].side)
             if dropped ~= nil then
@@ -655,7 +658,7 @@ function ac.test()
   
   ac.sorted = ac.mf.getSortedKeys(ac.items)
   ac.SetCrafts(ac.sorted[1])
-
+  for i,j in pairs(cr_items) do if j == "OK" then cr_items[i] = nil end end
   ac.CalculateCrafts()
   ac.mf.WriteObjectFile(ac.items, "/home/tempitems2.lua", 2)
   ac.mf.WriteObjectFile(ac.recipeitems, "/home/temprecipeitems2.lua", 2)

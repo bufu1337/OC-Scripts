@@ -1,7 +1,7 @@
 <XMLConfigSettings>
-	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720408"/>
-	<Document position="(7,585)" top="15">
-		<Collapsed count="250">
+	<FILEINFO type="SourceInfo" descr="Editor information for file Autocraft.lua" ts="30720418"/>
+	<Document position="(75,660)" top="582">
+		<Collapsed count="253">
 			<Scope idx="4"/>
 			<Scope idx="5"/>
 			<Scope idx="6"/>
@@ -131,35 +131,29 @@
 			<Scope idx="170"/>
 			<Scope idx="171"/>
 			<Scope idx="174"/>
-			<Scope idx="175"/>
-			<Scope idx="176"/>
-			<Scope idx="177"/>
-			<Scope idx="178"/>
-			<Scope idx="179"/>
-			<Scope idx="180"/>
-			<Scope idx="181"/>
-			<Scope idx="182"/>
-			<Scope idx="184"/>
+			<Scope idx="183"/>
 			<Scope idx="185"/>
-			<Scope idx="187"/>
+			<Scope idx="186"/>
+			<Scope idx="188"/>
 			<Scope idx="194"/>
 			<Scope idx="195"/>
 			<Scope idx="196"/>
 			<Scope idx="197"/>
-			<Scope idx="205"/>
-			<Scope idx="207"/>
+			<Scope idx="198"/>
 			<Scope idx="208"/>
-			<Scope idx="209"/>
-			<Scope idx="213"/>
+			<Scope idx="210"/>
+			<Scope idx="211"/>
+			<Scope idx="212"/>
 			<Scope idx="216"/>
-			<Scope idx="217"/>
-			<Scope idx="218"/>
 			<Scope idx="219"/>
+			<Scope idx="220"/>
+			<Scope idx="221"/>
 			<Scope idx="222"/>
-			<Scope idx="223"/>
+			<Scope idx="225"/>
 			<Scope idx="226"/>
-			<Scope idx="227"/>
-			<Scope idx="228"/>
+			<Scope idx="229"/>
+			<Scope idx="230"/>
+			<Scope idx="231"/>
 		</Collapsed>
 	</Document>
 </XMLConfigSettings>
