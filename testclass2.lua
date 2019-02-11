@@ -358,7 +358,7 @@ local function WriteItemsSC2()
       end
     end
     mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. ".lua", 2)
-    mf.WriteObjectFile(tempr, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. " - RecipeItems.lua", 2)
+    mf.WriteObjectFile(tempr, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. "-RecipeItems.lua", 2)
   end
 end
 local function irnamesCorrect()
