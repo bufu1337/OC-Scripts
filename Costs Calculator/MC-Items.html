@@ -138,7 +138,7 @@
     <script src='jqwidgets/jqxwindow.js'> </script>
 
     <script src="MC-Items.js?v=0.11"></script>
-	<script src="MC-ItemsTW.js"></script>
+	<script src="MC-ItemsTO.js"></script>
 	<script src="MC-ModsTO.js"></script>
     <style>
     * {
@@ -187,13 +187,14 @@
 </head>
 <body class='default'>
     <div class="navbar">
-        <button type="button" style="color: grey; float: right; margin-right: 10px; opacity:1.0;" id="btnSave"></button>
+        <button type="button" style="color: grey; float: right; margin-right: 10px; opacity:1.0;" id="btnSave" title="Save to JS"></button>
+		<button type="button" style="color: grey; float: right; margin-right: 10px; opacity:1.0;" id="btnSaveLUA" title="Save to LUA"></button>
         <!-- <a onclick="MC.go.Add.Mod()" id="addmodlink">Add Mod</a>
         <a onclick="MC.go.Add.Item()" style="visibility: hidden; display: none;" id="additem_button">Add Item</a>
-        <a onclick="MC.go.Add.Receipt()" style="visibility: hidden; display: none;" id="addreceipt_button">Add Receipt</a> -->
+        <a onclick="MC."src/Costs Calculator/Minecraft2.html"go.Add.Receipt()" style="visibility: hidden; display: none;" id="addreceipt_button">Add Receipt</a> -->
     </div>
-    <!-- <div id='jqxWidget'>
-        <div id='modwindow'>
+    <div id='jqxWidget'>
+        <!-- <div id='modwindow'>
             <div id='modwindowHeader'>
                 <span id="captureContainer" style="float: left">Add Minecraft Mod</span>
             </div>
@@ -223,8 +224,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id='itemwindow'>
+        </div>-->
+        <!-- <div id='itemwindow'>
             <div id='itemwindowHeader'>
                 <span id="captureContainer" style="float: left">Add Item to Mod: </span>
             </div>
@@ -272,15 +273,14 @@
                         <button type="button" id="itemaddreceipt_button">Add Receipt</button>
                     </div>
                 <div style="height: 65px; align-items: center; display: flex;">
-                    
                     <div style="text-align: center; width: 100%;">
                         <input type="button" value="Cancel" id="itemwindow_cancelButton" />
                         <input type="button" value="Confirm" style="margin-left: 5px;" id="itemwindow_okButton" /><br />
                     </div>
                 </div>
             </div>
-        </div>
-        <div id='receiptwindow'>
+        </div> -->
+        <!-- <div id='receiptwindow'>
             <div id='receiptwindowHeader'>
                 <span id="captureContainer" style="float: left">Add Item to Mod: </span>
             </div>
@@ -487,7 +487,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="mainSplitter">
             <div>
                 <div style="border: none;" id="modExpander">
@@ -529,6 +529,6 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 </body>
 </html>
