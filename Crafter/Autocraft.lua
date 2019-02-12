@@ -466,7 +466,12 @@ function ac.SetCrafts(item, newneed)
                 ThisTempCrafts = ac.mf.MathUp(newneed / ac.items[item].craftCount)
                 print(item .. ": CraftsNeed = " .. ThisTempCrafts)
             end
-            if ThisTempCrafts > 0 then
+            if newneed ~= nil then
+                ac.items[item].crafts = ac.items[item].crafts + ThisTempCrafts
+                ThisTempCrafts2 = ac.items[item].crafts
+                print(item .. ": CraftsOverall = " .. ThisTempCrafts2)
+            end
+            if ac.items[item].crafts > 0 then
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
                       if ac.recipeitems[a].need ~= nil then
@@ -486,11 +491,6 @@ function ac.SetCrafts(item, newneed)
                         ac.SetCrafts(a, (ThisTempCrafts * b.need))
                       end
                     end
-                end
-                if newneed ~= nil then
-                    ac.items[item].crafts = ac.items[item].crafts + ThisTempCrafts
-                    ThisTempCrafts2 = ac.items[item].crafts
-                    print(item .. ": CraftsOverall = " .. ThisTempCrafts2)
                 end
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
@@ -522,14 +522,14 @@ function ac.SetCrafts(item, newneed)
                       print(a .. ": recipeitems Size changed = " .. ac.recipeitems[a].newsize)
                     end
                 end
-                print(item .. ": Size = " .. ac.items[item].newsize)
-                ac.items[item].newsize = ac.items[item].newsize + (ThisTempCrafts * ac.items[item].craftCount)
-                print(item .. ": Size Changed = " .. ac.items[item].newsize)
-                if newneed ~= nil then
-                    print(item .. ": SetNewCraft = " .. ac.items[item].crafts)
-                else
-                    print(item .. ": SetCraft = " .. ac.items[item].crafts)
-                end
+            end
+            print(item .. ": Size = " .. ac.items[item].newsize)
+            ac.items[item].newsize = ac.items[item].newsize + (ThisTempCrafts * ac.items[item].craftCount)
+            print(item .. ": Size Changed = " .. ac.items[item].newsize)
+            if newneed ~= nil then
+                print(item .. ": SetNewCraft = " .. ac.items[item].crafts)
+            else
+                print(item .. ": SetCraft = " .. ac.items[item].crafts)
             end
         end
     end
@@ -676,7 +676,13 @@ function ac.SetPrios()
   ac.priocount = ac.priocount * -1
   for i,j in pairs(ac.items) do if j.crafts > 0 then ac.items[i].prio = ac.items[i].prio + ac.priocount end end
   ac.priolist = {}
-  for g = 0, ac.priocount - 1, 1 do for i,j in pairs(ac.items) do if j.crafts > 0 then if ac.items[i].prio == g then table.insert(ac.priolist, i) end end end end
+  local newprios = {}
+  local newpriocount = 0
+  for i,j in pairs(ac.items) do newprios[j.prio] = 1 end
+  for i,j in pairs(ac.mf.getSortedKeys(newprios)) do if newprios[j] == 1 then newprios[j] = newpriocount + 1; newpriocount = newpriocount + 1 end end
+  for i,j in pairs(ac.items) do ac.items[i].prio = newprios[ac.items[i].prio] end
+  ac.priocount = newpriocount
+  for g = 1, ac.priocount, 1 do for i,j in pairs(ac.items) do if j.crafts > 0 then if ac.items[i].prio == g then table.insert(ac.priolist, i) end end end end
 end
 function ac.GetItems()
     print("GetItems")
