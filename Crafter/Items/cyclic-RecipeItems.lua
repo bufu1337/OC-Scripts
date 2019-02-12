@@ -183,7 +183,6 @@ return {
  mountainmobs_jj_boulderblastcharge={need=0},
  mountainmobs_jj_yalemeatcooked={need=0},
  ore_jj_blockCoal={need=0},
- ore_jj_bone={need=0},
  ore_jj_chestEnder={need=0},
  ore_jj_chestTrapped={need=0},
  ore_jj_cropNetherWart={need=0},

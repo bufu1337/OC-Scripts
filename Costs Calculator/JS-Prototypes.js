@@ -153,3 +153,10 @@ Object.defineProperty(Object.prototype, "equals", {
 		return false;
 	}
 });
+Object.defineProperty(Object.prototype, "count", {
+	enumerable: false,
+	writable: true,
+	value: function() {
+    	return Object.keys(this).length
+	}
+});

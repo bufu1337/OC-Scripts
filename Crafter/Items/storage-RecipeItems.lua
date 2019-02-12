@@ -1,6 +1,7 @@
 return {
  minecraft_jj_Iron_nugget={need=0},
  minecraft_jj_blaze_powder={need=0},
+ minecraft_jj_bone={need=0},
  minecraft_jj_book={need=0},
  minecraft_jj_bucket={need=0},
  minecraft_jj_carpet={need=0},
@@ -62,7 +63,6 @@ return {
  opencomputers_jj_cable_jj_11250603={need=0},
  opencomputers_jj_component_jj_2={need=0},
  opencomputers_jj_material_jj_4={need=0},
- ore_jj_bone={need=0},
  ore_jj_chest={need=0},
  ore_jj_chipDiamond={need=0},
  ore_jj_craftingPiston={need=0},

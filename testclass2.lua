@@ -272,34 +272,98 @@ local function getAllItems()
 --  end
   --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 end
+local function addcostcalc()
+  local temp = {label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
+  for i,j in pairs(items) do
+    for a,b in pairs(j) do
+      items[i][a] = mf.combineTables(items[i][a], temp)
+    end
+  end
+end
+local function WriteItemsSC2()
+  for i,j in pairs(items) do
+    local temp={}
+    local tempr={}
+    for a,b in pairs(j) do
+      if b.hasPattern then
+        temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
+        for g,h in pairs(b.recipe) do
+          if h.tag == "" then
+            temp[a].recipe[g].tag = nil
+          end
+          local ck = mf.containsKey(j,g)
+          if ck then
+            if j[g].hasPattern == false then
+              ck = false
+            end
+          end
+          if ck == false then
+            tempr[g] = {need=0}
+          end
+        end
+      end
+    end
+    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. ".lua", 2)
+    mf.WriteObjectFile(tempr, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. "-RecipeItems.lua", 2)
+  end
+end
 local function WriteItemFiles2()
-  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
+  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ALL_Items.lua", 3)
   local templines = {}
-  for line in io.lines("Y:/Minecraft/OC-Scripts/ConvertedItems.lua") do
-    local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
-    l = l:gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
+  local tempjslines = {}
+  local boolfirst = true
+  for line in io.lines("Y:/Minecraft/OC-Scripts/ALL_Items.lua") do
+    if boolfirst then
+      table.insert(tempjslines, (line:gsub("return", "MC.Items = ")))
+      boolfirst = false
+    else
+      table.insert(tempjslines, (line:gsub("=", ":")))
+    end
+    --{label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
+    local l = line:gsub("={buying=", "    ={buying=    "):gsub(",c1=\"", "    ,c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",fixedprice=", "    ,fixedprice=    "):gsub(",group=\"", "    ,group=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",label=\"", "    ,label=\"    "):gsub("\",maxCount=", "    '\",maxCount=    "):gsub(",price=", "    ,price=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},selling=", "}    ,selling=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\",trader=", "    '\",trader=    ") .. "\n"
+    --local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
+    l = l:gsub("},\n", "    },\n"):gsub("}\n", "    }\n")
     table.insert(templines, l)
   end
   local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
+  local newJSFile = mf.io.open("Y:/Minecraft/OC-Scripts/Costs Calculator/MC-ItemsTO.js", "w")
   for i,j in pairs(templines) do
     newLuaFile:write(j)
+    newJSFile:write(tempjslines[i] .. "\n")
   end
   newLuaFile:close()
+  newJSFile:close()
   templines = nil
+  tempjslines = nil
+  WriteItemsSC2()
 end
 local function WriteItemFiles()
-  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
+  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ALL_Items.lua", 3)
   local templines = {}
-  for line in io.lines("Y:/Minecraft/OC-Scripts/ConvertedItems.lua") do
+  local tempjslines = {}
+  local boolfirst = true
+  for line in io.lines("Y:/Minecraft/OC-Scripts/ALL_Items.lua") do
+    if boolfirst then
+      table.insert(tempjslines, line:gsub("return", "MC.Items = "))
+      boolfirst = false
+    else
+      table.insert(tempjslines, line:gsub("=", ":"))
+    end
+    
     local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
     table.insert(templines, l)
   end
   local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
+  local newJSFile = mf.io.open("Y:/Minecraft/OC-Scripts/Costs Calculator/MC-ItemsTO.js", "w")
   for i,j in pairs(templines) do
     newLuaFile:write(j .. "\n")
+    newJSFile:write(tempjslines[i] .. "\n")
   end
   newLuaFile:close()
+  newJSFile:close()
   templines = nil
+  tempjslines = nil
+  WriteItemsSC2()
 end
 local function file_exists(name)
    local f=io.open(name,"r")
@@ -334,33 +398,6 @@ local function WriteItemsSC()
     mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/ItemsNew/" .. i .. ".lua", 2)
   end
 end
-local function WriteItemsSC2()
-  for i,j in pairs(items) do
-    local temp={}
-    local tempr={}
-    for a,b in pairs(j) do
-      if b.hasPattern then
-        temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
-        for g,h in pairs(b.recipe) do
-          if h.tag == "" then
-            temp[a].recipe[g].tag = nil
-          end
-          local ck = mf.containsKey(j,g)
-          if ck then
-            if j[g].hasPattern == false then
-              ck = false
-            end
-          end
-          if ck == false then
-            tempr[g] = {need=0}
-          end
-        end
-      end
-    end
-    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. ".lua", 2)
-    mf.WriteObjectFile(tempr, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. "-RecipeItems.lua", 2)
-  end
-end
 local function irnamesCorrect()
   local templines = {}
   local counter = 0
@@ -385,7 +422,8 @@ local function irnamesCorrect()
   newLuaFile:close()
   templines = nil
 end
-WriteItemsSC2()
+addcostcalc()
+WriteItemFiles2()
 --local mod_sc = {}
 --for a,b in pairs(sc) do
 --  for c,d in pairs(b) do

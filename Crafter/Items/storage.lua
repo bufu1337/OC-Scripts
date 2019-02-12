@@ -46,7 +46,7 @@ return {
  opencomputers_jj_hoverboots={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_nugget={need=4},minecraft_jj_leather={need=2},ore_jj_oc_jj_capacitor={need=1},ore_jj_oc_jj_droneCase1={need=1},ore_jj_oc_jj_hoverUpgrade2={need=1}}},
  opencomputers_jj_keyboard={craftCount=1,maxCount=8,recipe={ore_jj_oc_jj_materialArrowKey={need=1},ore_jj_oc_jj_materialButtonGroup={need=4},ore_jj_oc_jj_materialNumPad={need=1}}},
  opencomputers_jj_material={craftCount=1,maxCount=8,recipe={minecraft_jj_Iron_nugget={need=1},minecraft_jj_stick={need=2}}},
- opencomputers_jj_material_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_fermented_spider_eye={need=1},minecraft_jj_slime_ball={need=1},minecraft_jj_sugar={need=1},minecraft_jj_water_bucket={need=1},ore_jj_bone={need=1}}},
+ opencomputers_jj_material_jj_1={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=1},minecraft_jj_fermented_spider_eye={need=1},minecraft_jj_slime_ball={need=1},minecraft_jj_sugar={need=1},minecraft_jj_water_bucket={need=1}}},
  opencomputers_jj_material_jj_10={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_nugget={need=4},minecraft_jj_redstone={need=1},ore_jj_oc_jj_circuitChip1={need=1},ore_jj_oc_jj_materialTransistor={need=3}}},
  opencomputers_jj_material_jj_11={craftCount=1,maxCount=8,recipe={minecraft_jj_clock={need=1},minecraft_jj_gold_nugget={need=4},minecraft_jj_redstone={need=1},ore_jj_oc_jj_materialTransistor={need=3}}},
  opencomputers_jj_material_jj_12={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_nugget={need=4}}},

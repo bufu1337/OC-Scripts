@@ -595,6 +595,7 @@ function ac.CraftItems()
             ac.MoveRecipeItems(i)
             ac.mf.os.sleep(0.1)
             cr.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
+            ac.mf.thread.create(function(item) ac.MoveCraftedItem(item) end, i)
             local tasks = cr.getTasks()
             while #tasks > 0 do
                 ac.mf.os.sleep(1)
@@ -604,7 +605,6 @@ function ac.CraftItems()
                 end
             end
             ac.items[i].size = ac.items[i].newsize
-            ac.MoveCraftedItem(i)
         end 
     end
     ac.MoveRestBack()

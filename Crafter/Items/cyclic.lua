@@ -22,7 +22,7 @@ return {
  cyclicmagic_jj_block_hydrator={craftCount=1,maxCount=8,recipe={minecraft_jj_dropper={need=1},minecraft_jj_iron_block={need=1},minecraft_jj_mossy_cobblestone={need=3},minecraft_jj_water_bucket={need=2}}},
  cyclicmagic_jj_block_library={craftCount=4,maxCount=8,recipe={minecraft_jj_bookshelf={need=1},minecraft_jj_obsidian={need=2},minecraft_jj_purpur_block={need=2}}},
  cyclicmagic_jj_block_library_ctrl={craftCount=1,maxCount=8,recipe={cyclicmagic_jj_block_library={need=4},ore_jj_chestEnder={need=1}}},
- cyclicmagic_jj_block_miner={craftCount=1,maxCount=8,recipe={minecraft_jj_dispenser={need=1},minecraft_jj_iron_pickaxe={need=1},minecraft_jj_mossy_cobblestone={need=3},ore_jj_bone={need=2}}},
+ cyclicmagic_jj_block_miner={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=2},minecraft_jj_dispenser={need=1},minecraft_jj_iron_pickaxe={need=1},minecraft_jj_mossy_cobblestone={need=3}}},
  cyclicmagic_jj_block_miner_smart={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=2},minecraft_jj_lapis_block={need=2},minecraft_jj_magma={need=1},minecraft_jj_observer={need=1},minecraft_jj_obsidian={need=3}}},
  cyclicmagic_jj_block_screen={craftCount=1,maxCount=8,recipe={minecraft_jj_Iron_nugget={need=5},minecraft_jj_iron_bars={need=2},minecraft_jj_repeater={need=1},minecraft_jj_stained_hardened_clay_jj_15={need=1}}},
  cyclicmagic_jj_block_shears={craftCount=1,maxCount=8,recipe={minecraft_jj_shears={need=4},minecraft_jj_wool_jj_15={need=1}}},
