@@ -16,9 +16,14 @@ var MC = {
 	},
 	createModList: function(){
 		$.each(MC.Mods, function (index, value) {
-			MC.Mod[value.name] = {idname:index, crafter:value.crafter, items:{}}
+			if(MC.Mod[value.name] != null){
+				MC.Mod[value.name].idname.push(index);
+			}
+			else{
+				MC.Mod[value.name] = {idname:[index], crafter:value.crafter, items:{}}
+			}
 			$.each(MC.Items[value.crafter], function (index2, value2) {
-				if ( index2.startsWith(index) ) {
+				if ( index2.startsWith((index + "_")) ) {
 					MC.Mod[value.name].items[index2] = MC.Items[value.crafter][index2]
 				}
 			});
@@ -50,7 +55,9 @@ var MC = {
 				MC.show("btnEditMod");
 				MC.hide("addreceipt_button");
 				MC.hide("nomod");
+				$('#contentSplitter').jqxSplitter('collapse');
 				MC.viewing.Mod = modname;
+				MC.viewing.Item = "";
 				$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + modname + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[modname].items).length);
 				if ( Object.keys(MC.Mod[modname].items).length == 0) {
 					MC.show("noitems");
@@ -60,25 +67,21 @@ var MC = {
 					var itemssource = [];
 					$.each(Object.keys(MC.Mod[modname].items), function (index, item) {
 						//var pricecaption = MC.Mod[modname].items[item].count + " St. => " + MC.Mod[modname].items[item].price;
-						var pricecaption = 0;
-						if ( MC.Mod[modname].items[item].price.includes("/") ) {
-							if ( MC.Mod[modname].items[item].price.endsWith("b") ){
-								pricecaption = parseInt(MC.Mod[modname].items[item].price.split("b")[0].split("/")[0]);
-								pricecaption = MC.Mod[modname].items[item].count + " St. => " + pricecaption + "b";
-							}
-							else{
-								pricecaption = parseInt(MC.Mod[modname].items[item].price.split("b")[0].split("/")[0]);
-								pricecaption = MC.Mod[modname].items[item].count + " St. => " + pricecaption;
-							}
+						var pricecaption = MC.Mod[modname].items[item].count + " St. => " + MC.Mod[modname].items[item].price
+						if ( MC.Mod[modname].items[item].price == 0 ) {
+							pricecaption = "No";
+						}
+						var itemname = "";
+						if (MC.Mod[modname].items[item].label != ""){
+							itemname = MC.Mod[modname].items[item].label;
 						}
 						else{
-							pricecaption = MC.Mod[modname].items[item].count + " St. => " + MC.Mod[modname].items[item].price
+							itemname = item.replace("_jj_", ":").replaceAll("_xx_", "/").replaceAll("_qq_", "-").replaceAll("_vv_", ".").replace("_b_", " Typ: ")
+							if(itemname.contains("_jj_")){
+								itemname = itemname.split("_jj_")[0] + " <b class='itemstyle3'>DMG:</b> " + itemname.split("_jj_")[1]
+							}
 						}
-							
-						if ( MC.Mod[modname].items[item].price.equals("0") ) {
-							pricecaption = "price not defined or calculated";
-						}
-						itemssource.push({html: "<b class='itemstyle'>Name:</b> " + item + " <b class='itemstyle2'>Costs:</b> " + pricecaption, label: item, value: item, group: MC.Mod[modname].items[item].group});
+						itemssource.push({html: "<b class='itemstyle'>Name:</b> " + itemname + " <b class='itemstyle2'>Costs:</b> " + pricecaption, label: item, value: item, group: MC.Mod[modname].items[item].group});
 					});
 					$('#itemListBox').jqxListBox('source', itemssource);
 					$('#itemListBox').jqxListBox('refresh');
@@ -86,23 +89,51 @@ var MC = {
 			}
 		},
 		Item: function(itemname){
-			console.log("Item Page - Mod ID: " + MC.viewing.Mod + " Item: " + itemname);	
+			console.log("Item Page - Mod ID: " + MC.viewing.Mod + " Item: " + itemname);
+			MC.viewing.Item = itemname;	
 			$('#contentSplitter').jqxSplitter('expand');
-			MC.show("btnEditMod");
-			MC.show("btnEditItem");
-			MC.show("addreceipt_button");
-			MC.viewing.Item = itemname;
-			for (var i = 1; i < MC.detailtabcount; i++){
-				$('#itemDetailTabs').jqxTabs('removeAt', i);
-			}			
-			if ( Object.keys(MC.Mod[MC.viewing.Mod].items[itemname].receipt).length > 0 ) {
-				$('#itemDetailTabs').jqxTabs('setTitleAt', i, Object.keys(MC.Mod[MC.viewing.Mod].items[itemname].receipt)[i]); 
-				$('#itemDetailTabs').jqxTabs('setContentAt', i, "<div style='margin: 10px; color: red;font-size: 20px;font-weight: 900;'>No receipt!</div>");
+			var tempname = MC.viewing.Item.split("_b_")[0]
+			var temp_itemdmg = "";
+			if(tempname.split("_jj_")[2] != null){temp_itemdmg = tempname.split("_jj_")[2]}
+			var temp_itemvariant = "";
+			if(MC.viewing.Item .split("_b_")[1] != null){temp_itemvariant = MC.viewing.Item .split("_b_")[1]}
+			$("#id_display").text(MC.viewing.Item);
+			$("#modid_display").text(tempname.split("_jj_")[0]);
+			$("#itemid_display").text(tempname.split("_jj_")[1]);
+			$("#itemdmg_display").text(temp_itemdmg);
+			if(temp_itemdmg == ""){
+				$("#itemdmg_line").css({visibility: "hidden", display: "none"});
 			}
 			else{
-				$('#itemDetailTabs').jqxTabs('setTitleAt', 0, "No receipt!"); 
-				$('#itemDetailTabs').jqxTabs('setContentAt', 0, "<div style='margin: 10px; color: red;font-size: 20px;font-weight: 900;'>No receipt!</div>"); 
+				$("#itemdmg_line").css({visibility: "visible", display: "table-row"});
 			}
+			$("#itemvariant_display").text(temp_itemvariant);
+			if(temp_itemvariant == ""){
+				$("#itemvariant_line").css({visibility: "hidden", display: "none"});
+			}
+			else{
+				$("#itemvariant_line").css({visibility: "visible", display: "table-row"});
+			}
+			$("#itemtag_display").text(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag);
+			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag == ""){
+				$("#itemtag_line").css({visibility: "hidden", display: "none"});
+			}
+			else{
+				$("#itemtag_line").css({visibility: "visible", display: "table-row"});
+			}
+			
+			$("#itemlabel_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label);
+			$("#itemgroup_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group);
+			$('#itemcomment1_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);
+			$('#itemcomment2_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2);
+			$('#itemcomment3_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3);
+			$("#itemtrader_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader);
+			$("#itemselling_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling});
+			$("#itembuying_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying});
+			$("#itemfixedprice_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice});
+			$('#itemprice_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price);
+			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
+			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
 		},
 		RefreshNameArrays: function(){
 			MC.ItemNames = [];
@@ -320,7 +351,11 @@ $(document).ready(function () {
 	
 	$('#mainSplitter').jqxSplitter({  width: 1918, height: 930, panels: [{ size: 280, min: 100 }, {min: 200, size: 500}] });
 	$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 500, min: 100, collapsible: false }, { min: 100, collapsible: true}] });
-	
+	$('#contentSplitter').on('expanded', function (event) {
+		if(MC.viewing.Item == ""){
+			$('#contentSplitter').jqxSplitter('collapse');
+		}
+	});
 	$("#modExpander").jqxExpander({toggleMode: 'none', showArrow: false, width: "100%", height: "100%", 
 		initContent: function () {
 			var temp = Object.keys(MC.Mod).sort()
@@ -348,6 +383,108 @@ $(document).ready(function () {
 	$('#itemListBox').on('select', function (event) {
 		MC.go.Item($('#itemListBox').jqxListBox('getSelectedItem').label);
 	});
+	
+	$("#itemlabel_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	$("#itemgroup_input").jqxInput({placeHolder: "Enter a group...", height: 25, width: 300, minLength: 1});
+	$('#itemcomment1_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
+	$('#itemcomment2_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
+	$('#itemcomment3_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
+	$("#itemtrader_input").jqxInput({placeHolder: "Enter a trader...", height: 25, width: 300});
+	$("#itemselling_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itembuying_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itemchisel_check").jqxCheckBox({height: 25, width: 70, checked: true});
+	$("#itembit_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itempattern_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#itemfixedprice_check").jqxCheckBox({height: 25, width: 100, checked: false});
+	$("#itemfixedprice_check").on('change', function (event) {
+		if (event.args.checked) {
+			$("#itemprice_input").jqxInput({disabled: false});									
+		}
+		else {
+			$("#itemprice_input").jqxInput({disabled: true});									
+		}
+	});
+	$("#itemprice_input").jqxInput({placeHolder: "Enter a price...", height: 25, width: 300, disabled: true});
+	$('#itemValidator').jqxValidator({
+		rules: []
+	});
+	$('#itemValidator').on('validationSuccess', function(event) {//This event is triggered when the window is closed.
+		var tempgroup = $("#itemgroup_input").jqxInput('val');
+		if ( tempgroup.isEmpty() ){
+			tempgroup = "- No Group -";
+		}
+		var newname = $('#itemname_input').jqxInput('val');
+		if(MC.mode.Item.equals("edit")){
+			var tempItems = {};
+			$.each(Object.keys(MC.Mod[MC.editing.Mod].items), function (index, value) {
+				if ( !value.equals(MC.editing.Item) ) {
+					tempItems[value] = MC.Mod[MC.editing.Mod].items[value];
+				}
+			});
+			MC.Mod[MC.editing.Mod].items = tempItems;
+		}
+		if ( MC.mode.Item.equals("add", "edit") ) {
+			
+			MC.Mod[MC.editing.Mod].items[newname] = {
+				description: $('#itemdescription_area').jqxTextArea('val'),
+				group: tempgroup,
+				resource_group: $('#itemresourcegroup_input').jqxInput('val'),
+				chisel: $("#itemchisel_check").jqxCheckBox('checked'),
+				chiselsbit: $("#itembit_check").jqxCheckBox('checked'),
+				fixedprice: $("#itemfixedprice_check").jqxCheckBox('checked'),
+				price: $('#itemprice_input').jqxInput('val'),
+				count: 1,
+				buying: $("#itembuying_check").jqxCheckBox('checked'),
+				selling: $("#itemselling_check").jqxCheckBox('checked'),
+				trader: "",
+				receipt: MC.itemreceipts_temp
+			};
+			$.each(Object.keys(MC.itemreceipts_temp), function (index, receipttable) {
+				$.each(MC.itemreceipts_temp[receipttable], function (index2, receipt) {
+					$.each(Object.keys(receipt), function (index3, IO) {
+						$.each(Object.keys(receipt[IO]), function (index4, receiptitems) {
+							$.each(receipt[IO][receiptitems].things, function (index5, names) {
+								if ( !names.mod.equals(Object.keys(MC.Mod)) ) {
+									MC.Mod[names.mod] = {description: "", iso: "", items: {} }
+								}
+								if ( !names.item.equals(Object.keys(MC.Mod[names.mod].items)) ) {
+									MC.Mod[names.mod].items[names.item] = {description: "", group: "- No Group -", resource_group: "", chisel: false, chiselsbit: false, fixedprice: false, price: "0", count: 0, buying: true, selling: true, trader: "", receipt: {} }
+								}	
+							});																
+						});												
+					});					
+				});
+			});
+			if ( MC.Mod[MC.editing.Mod].items[newname].fixedprice && MC.Mod[MC.editing.Mod].items[newname].price.includes("/") && MC.Mod[MC.editing.Mod].items[newname].count == 1 ) {
+				if ( MC.Mod[MC.editing.Mod].items[newname].price.endsWith("b") ){
+					MC.Mod[MC.editing.Mod].items[newname].count = parseInt(MC.Mod[MC.editing.Mod].items[newname].price.split("b")[0].split("/")[1]);
+				}
+				else{
+					MC.Mod[MC.editing.Mod].items[newname].count = parseInt(MC.Mod[MC.editing.Mod].items[newname].price.split("/")[1]);
+				}
+			}
+			MC.itemreceipts_temp = {},
+			MC.go.ModList();
+			$.each($("#modListBox").jqxListBox('getItems'), function (index, value) {
+				if ( MC.editing.Mod.equals(value.label) ) {
+					$("#modListBox").jqxListBox('unselectIndex', value.index);
+					$("#modListBox").jqxListBox('selectIndex', value.index);
+				}
+			});
+			$.each($("#itemListBox").jqxListBox('getItems'), function (index, value) {
+				if ( newname.equals(value.label) ) {
+					$("#itemListBox").jqxListBox('selectIndex', value.index);
+				}
+			});
+		}
+		$('#itemwindow').jqxWindow('close')
+	});
+	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
+	$('#itemwindow_okButton').on('click', function () {
+		$('#itemValidator').jqxValidator('validate');
+	});
+	$('#itemwindow_cancelButton').jqxButton({ width: '180px', disabled: false });
+	
 	MC.go.Mod("");
 });
 

@@ -41,12 +41,14 @@ String.prototype.equals = function() {
     return false;
 };
 String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.split(search).join(replacement);
+    return this.split(search).join(replacement);
 };
 String.prototype.isEmpty = function() {
 	if ( this.equals("") && this.length == 0 ){return true;}
 	else{return false;}
+};
+String.prototype.contains = function(search) {
+	return this.split(search).length > 1
 };
 var sorting = {
 	main: function (property) {
