@@ -1,5 +1,7 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
+local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/src/", home="Y:/Minecraft/OC-Scripts/"}
+local working = "work"
 local res = {}
 local sc = {}
 local wt = {}
@@ -273,7 +275,7 @@ local function getAllItems()
   --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 end
 local function addcostcalc()
-  local temp = {label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
+  local temp = {bit=false, chisel=false}
   for i,j in pairs(items) do
     for a,b in pairs(j) do
       items[i][a] = mf.combineTables(items[i][a], temp)
@@ -303,16 +305,16 @@ local function WriteItemsSC2()
         end
       end
     end
-    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. ".lua", 2)
-    mf.WriteObjectFile(tempr, "Y:/Minecraft/OC-Scripts/Crafter/Items/" .. i .. "-RecipeItems.lua", 2)
+    mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
   end
 end
-local function WriteItemFiles2()
-  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ALL_Items.lua", 3)
+local function WriteItemFiles()
+  mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
   local templines = {}
   local tempjslines = {}
   local boolfirst = true
-  for line in io.lines("Y:/Minecraft/OC-Scripts/ALL_Items.lua") do
+  for line in io.lines((ocpath[working] .. "ALL_Items.lua")) do
     if boolfirst then
       table.insert(tempjslines, (line:gsub("return", "MC.Items = ")))
       boolfirst = false
@@ -320,43 +322,28 @@ local function WriteItemFiles2()
       table.insert(tempjslines, (line:gsub("=", ":")))
     end
     --{label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
-    local l = line:gsub("={buying=", "    ={buying=    "):gsub(",c1=\"", "    ,c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",fixedprice=", "    ,fixedprice=    "):gsub(",group=\"", "    ,group=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",label=\"", "    ,label=\"    "):gsub("\",maxCount=", "    '\",maxCount=    "):gsub(",price=", "    ,price=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},selling=", "}    ,selling=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\",trader=", "    '\",trader=    ") .. "\n"
+    local l = line:gsub("={bit=", "\t={bit=\t"):gsub(",buying=", "\t,buying=\t"):gsub(",c1=\"", "\t,c1=\"\t"):gsub("\",c2=\"", "\t'\",c2=\"\t"):gsub("\",c3=\"", "\t'\",c3=\"\t"):gsub("\",chisel=", "\t'\",chisel=\t"):gsub(",countforprice=", "\t,countforprice=\t"):gsub(",craftCount=", "\t,craftCount=\t"):gsub(",fixedprice=", "\t,fixedprice=\t"):gsub(",group=\"", "\t,group=\"\t"):gsub("\",hasPattern=", "\t'\",hasPattern=\t"):gsub(",label=\"", "\t,label=\"\t"):gsub("\",maxCount=", "\t'\",maxCount=\t"):gsub(",price=", "\t,price=\t"):gsub(",recipe=", "\t,recipe=\t"):gsub("},selling=", "}\t,selling=\t"):gsub("false,tag=\"", "false\t,tag=\"\t"):gsub("true,tag=\"", "true\t,tag=\"\t"):gsub("\",trader=", "\t'\",trader=\t") .. "\n"
     --local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
-    l = l:gsub("},\n", "    },\n"):gsub("}\n", "    }\n")
+    if mf.startswith(l, "  ") then
+      l = l:sub(3,#l)
+    elseif mf.startswith(l, " ") then
+      l = l:sub(2,#l)
+    end
+    if mf.endswith(l, "={\n") then
+      l = l .. "\n"
+    end
+    if (l == "},\n") or (l == "}\n") then
+      l = "\n" .. l 
+    else
+      l = l:gsub("},\n", "\t},\n"):gsub("}\n", "\t}\n")
+    end
     table.insert(templines, l)
   end
-  local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
-  local newJSFile = mf.io.open("Y:/Minecraft/OC-Scripts/Costs Calculator/MC-ItemsTO.js", "w")
+  templines[#templines] = "}"
+  local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
+  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
   for i,j in pairs(templines) do
     newLuaFile:write(j)
-    newJSFile:write(tempjslines[i] .. "\n")
-  end
-  newLuaFile:close()
-  newJSFile:close()
-  templines = nil
-  tempjslines = nil
-  WriteItemsSC2()
-end
-local function WriteItemFiles()
-  mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ALL_Items.lua", 3)
-  local templines = {}
-  local tempjslines = {}
-  local boolfirst = true
-  for line in io.lines("Y:/Minecraft/OC-Scripts/ALL_Items.lua") do
-    if boolfirst then
-      table.insert(tempjslines, line:gsub("return", "MC.Items = "))
-      boolfirst = false
-    else
-      table.insert(tempjslines, line:gsub("=", ":"))
-    end
-    
-    local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",hasPattern=", "    '\",hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",tag=\"", "    ,tag=\"    "):gsub("\"},\n", "    '\"},\n"):gsub("\"}\n", "    '\"}\n")
-    table.insert(templines, l)
-  end
-  local newLuaFile = mf.io.open("Y:/Minecraft/OC-Scripts/ConvertedItems.lua", "w")
-  local newJSFile = mf.io.open("Y:/Minecraft/OC-Scripts/Costs Calculator/MC-ItemsTO.js", "w")
-  for i,j in pairs(templines) do
-    newLuaFile:write(j .. "\n")
     newJSFile:write(tempjslines[i] .. "\n")
   end
   newLuaFile:close()
@@ -370,8 +357,10 @@ local function file_exists(name)
    if f~=nil then io.close(f) return true else return false end
 end
 local function combinePatternCheck()
+  local patterns_lost = {}
+  local patterns_gained = {}
   for a,b in pairs(items) do
-    if file_exists("Y:/Minecraft/OC-Scripts/Crafter/PatternCheck/" .. a .. "_check.lua") then
+    if file_exists(ocpath[working] .. "Crafter/PatternCheck/" .. a .. "_check.lua") then
       local checkeditems = require("Crafter/PatternCheck/" .. a .. "_check")
       for c,d in pairs(b) do
         if checkeditems[c] ~= nil then
@@ -379,23 +368,28 @@ local function combinePatternCheck()
             print("                  ITEM: " .. c .. "       LOST PATTERN")
           end
           if items[a][c].hasPattern == false and checkeditems[c] == true then
-            --print("ITEM: " .. c .. "    gets a Pattern")
+            print("ITEM: " .. c .. "    gets a Pattern")
           end
           items[a][c].hasPattern = checkeditems[c]
         end
       end
     end
   end
+  mf.WriteObjectFile(patterns_lost, (ocpath[working] .. "Crafter/Patterns_lost.lua"))
+  mf.WriteObjectFile(patterns_gained, (ocpath[working] .. "Crafter/Patterns_gained.lua"))
 end
-local function WriteItemsSC()
-  for i,j in pairs(items) do
-    local temp={}
-    for a,b in pairs(j) do
-      if mf.contains(a, "_b_") == false then
-        temp[a] = b
+local function combineLabels()
+  local patterns_lost = {}
+  local patterns_gained = {}
+  for a,b in pairs(items) do
+    if file_exists(ocpath[working] .. "Crafter/labels/" .. a .. "_label.lua") then
+      local itemlabels = require("Crafter/labels/" .. a .. "_label")
+      for c,d in pairs(b) do
+        if itemlabels[c] ~= nil then
+          items[a][c].label = itemlabels[c]
+        end
       end
     end
-    mf.WriteObjectFile(temp, "Y:/Minecraft/OC-Scripts/Crafter/ItemsNew/" .. i .. ".lua", 2)
   end
 end
 local function irnamesCorrect()
@@ -403,7 +397,7 @@ local function irnamesCorrect()
   local counter = 0
   local counter2 = 0
   local irn = require("IRNames2")
-  for line in io.lines("C:/Users/alexandersk/workspace/OC-Scripts/src/newItems.txt") do
+  for line in io.lines((ocpath[working] .. "newItems.txt")) do
     counter2 = counter2 + 1
     print("Line: " .. tostring(counter2))
     for i,j in pairs(irn) do
@@ -423,7 +417,7 @@ local function irnamesCorrect()
   templines = nil
 end
 addcostcalc()
-WriteItemFiles2()
+WriteItemFiles()
 --local mod_sc = {}
 --for a,b in pairs(sc) do
 --  for c,d in pairs(b) do
