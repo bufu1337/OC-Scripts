@@ -4,7 +4,16 @@ var MC = {
 	Items: {},
 	Mods: {},
 	Mod: {},
-	Traders: {},
+	Traders: [],
+	Suggest: {
+		groups: [],
+		comment1: [],
+		comment2: [],
+		comment3: [],
+		modid: [],
+		itemid: {},
+		itemlabel: []
+	},
 	viewing: {
 		Mod: "",
 		Item: ""
@@ -28,6 +37,59 @@ var MC = {
 				}
 			});
 		});
+		MC.Suggest.modid = Object.keys(MC.Mods);
+	},
+	createItemSource: function(){
+		MC.Suggest.groups = [];
+		MC.Suggest.comment1 = [];
+		MC.Suggest.comment2 = [];
+		MC.Suggest.comment3 = [];
+		$.each(MC.Items, function (crafter, itemarr) {
+			$.each(itemarr, function (name, item) {
+				if ( item.group != "" && item.group.equals(MC.Suggest.groups) == false ) {
+					MC.Suggest.groups.push(item.group);
+				}
+				if ( item.c1 != "" && item.c1.equals(MC.Suggest.comment1) == false ) {
+					MC.Suggest.comment1.push(item.c1);	
+				}
+				if ( item.c2 != "" && item.c2.equals(MC.Suggest.comment2) == false ) {
+					MC.Suggest.comment2.push(item.c2);	
+				}
+				if ( item.c3 != "" && item.c3.equals(MC.Suggest.comment3) == false ) {
+					MC.Suggest.comment3.push(item.c3);				
+				}
+			});
+		});
+	},
+	createRecipeSource: function(modid){
+		MC.Suggest.itemid = {};
+		MC.Suggest.itemlabel = [];
+		if ( modid.equals(MC.Suggest.modid) ) {
+			$.each(MC.Items[MC.Mods[modid].crafter], function (name, item) {
+				if ( name.startsWith(modid) ) {
+					if ( item.label != "" ) {
+						MC.Suggest.itemlabel.push(item.label);
+					}
+					var tempname = name.split("_b_")[0];
+					var tempid = tempname.split("_jj_")[1];
+					var temp_itemdmg = "0";
+					if(tempname.split("_jj_")[2] != null){temp_itemdmg = tempname.split("_jj_")[2]}
+					var temp_itemvariant = "0";
+					if(name.split("_b_")[1] != null){temp_itemvariant = name.split("_b_")[1]}
+					if ( MC.Suggest.itemid[tempid] == null) {
+						MC.Suggest.itemid[tempid] = {damage:temp_itemdmg, variant:temp_itemvariant};
+					}
+					else{
+						if ( parseInt(temp_itemdmg) > parseInt(MC.Suggest.itemid[tempid].damage) ) {
+							MC.Suggest.itemid[tempid].damage = temp_itemdmg;
+						}
+						if ( parseInt(temp_itemvariant) > parseInt(MC.Suggest.itemid[tempid].variant) ) {
+							MC.Suggest.itemid[tempid].variant = temp_itemvariant;
+						}
+					}				
+				}
+			});
+		}
 	},
 	hide: function(div_name){
 		$("#" + div_name).css({visibility: "hidden", display: "none"});
@@ -38,23 +100,15 @@ var MC = {
 	go:{
 		Mod: function(modname){
 			if ( modname.isEmpty() || modname == null) {
-				MC.hide("btnEditMod");
 				MC.hide("noitems");
-				MC.hide("itemListBox");
-				MC.hide("additem_button");
-				MC.hide("addreceipt_button");
-				MC.hide("btnEditItem");
 				MC.show("nomod");
+				MC.hide("itemListBox");
 				$('#contentSplitter').jqxSplitter('collapse');
 			}
 			else {
 				MC.hide("noitems");
-				MC.hide("itemListBox");
-				MC.hide("btnEditItem");
-				MC.show("additem_button");
-				MC.show("btnEditMod");
-				MC.hide("addreceipt_button");
 				MC.hide("nomod");
+				MC.hide("itemListBox");
 				$('#contentSplitter').jqxSplitter('collapse');
 				MC.viewing.Mod = modname;
 				MC.viewing.Item = "";
@@ -96,7 +150,7 @@ var MC = {
 			var temp_itemdmg = "";
 			if(tempname.split("_jj_")[2] != null){temp_itemdmg = tempname.split("_jj_")[2]}
 			var temp_itemvariant = "";
-			if(MC.viewing.Item .split("_b_")[1] != null){temp_itemvariant = MC.viewing.Item .split("_b_")[1]}
+			if(MC.viewing.Item.split("_b_")[1] != null){temp_itemvariant = MC.viewing.Item.split("_b_")[1]}
 			$("#id_display").text(MC.viewing.Item);
 			$("#modid_display").text(tempname.split("_jj_")[0]);
 			$("#itemid_display").text(tempname.split("_jj_")[1]);
@@ -127,84 +181,25 @@ var MC = {
 			$('#itemcomment1_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);
 			$('#itemcomment2_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2);
 			$('#itemcomment3_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3);
-			$("#itemtrader_drop").jqxInput('val', MC.Traders[MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader].label);
+			$.each($("#itemtrader_drop").jqxDropDownList('getItems'), function (index, item) {
+				if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader == item.value ) {
+					$("#itemtrader_drop").jqxDropDownList('selectItem', item ); 
+				}
+			});
 			$("#itemselling_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling});
 			$("#itembuying_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying});
 			$("#itemfixedprice_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice});
-			$('#itemprice_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price);
+			$('#itemprice_input').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price);
 			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
 			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
 			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
-		},
-		RefreshNameArrays: function(){
-			MC.ItemNames = [];
-			MC.ResourceGroups = [];
-			$.each(Object.keys(MC.Mod), function (index, mod) {
-				if ( MC.Mod[mod].groups == null ) {
-					MC.Mod[mod].groups = new Array();
-				}
-				$.each(Object.keys(MC.Mod[mod].items), function (index2, item) {
-					if ( $.inArray( item, MC.ItemNames) == -1 ) {
-						MC.ItemNames.push(item);
-					}
-					if ( $.inArray( MC.Mod[mod].items[item].resource_group, MC.ResourceGroups ) == -1 && !MC.Mod[mod].items[item].resource_group.isEmpty() ) {
-						MC.ResourceGroups.push(MC.Mod[mod].items[item].resource_group);
-					}
-					if ( $.inArray( MC.Mod[mod].items[item].group, MC.Mod[mod].groups) == -1 && !MC.Mod[mod].items[item].group.isEmpty() ) {
-						MC.Mod[mod].groups.push(MC.Mod[mod].items[item].group);
-					}
-				});
-			});
-		},
-		ModList: function(){
-			MC.sort.Mod();
-			MC.sort.Items();
-			MC.CalculateCosts();
-			MC.go.RefreshNameArrays();
-			$('#modListBox').jqxListBox('source', Object.keys(MC.Mod));
-			$('#modListBox').jqxListBox('refresh');
-		},
-		Add:{
-			Mod: function(){
-				MC.mode.Mod = "add";
-				$('#modwindow').jqxWindow('open');
-			},
-			Item: function(){	
-				MC.mode.Item = "add";
-				MC.editing.Mod = MC.viewing.Mod;
-				$('#itemwindow').jqxWindow('open');
-			},
-			Receipt: function(){
-				MC.mode.Receipt = "add";
-				MC.editing.Mod = MC.viewing.Mod;
-				MC.editing.Item = MC.viewing.Item;
-				$('#receiptwindow').jqxWindow('open');
-			}
-		},
-		Edit:{
-			Mod: function(){	
-				MC.mode.Mod = "edit";
-				MC.editing.Mod = MC.viewing.Mod;
-				$('#modwindow').jqxWindow('open');
-			},
-			Item: function(){		
-				MC.mode.Item = "edit";
-				MC.editing.Mod = MC.viewing.Mod;
-				MC.editing.Item = MC.viewing.Item;
-				$('#itemwindow').jqxWindow('open');
-			},
-			Receipt: function(){		
-				MC.mode.Receipt = "edit";
-				MC.editing.Mod = MC.viewing.Mod;
-				MC.editing.Item = MC.viewing.Item;
-				$('#receiptwindow').jqxWindow('open');
-			}
 		}
 	}
 }
 
 $(document).ready(function () {
 	MC.createModList();
+	MC.createItemSource();
 	dataAdapter = new $.jqx.dataAdapter({localdata: MC.Items, datatype: "array"});
 	console.log(dataAdapter)
 	$("#btnSave").jqxButton({ width: 48, height: 48, imgWidth: 48, imgHeight: 48, imgPosition: "center", textPosition: "center", imgSrc: "save.png", textImageRelation: "imageAboveText" });
@@ -341,16 +336,8 @@ $(document).ready(function () {
 			alert('Your browser does not support the HTML5 Blob.');
 		}
 	});
-	$("#btnEditMod").jqxButton({imgWidth: 24, imgHeight: 24, width: 100, height: 34, imgPosition: "center", textPosition: "center", imgSrc: "edit.png", textImageRelation: "imageBeforeText" });
-	$('#btnEditMod').on('click', function () {
-		MC.go.Edit.Mod();
-	});	
-	$("#btnEditItem").jqxButton({imgWidth: 24, imgHeight: 24, width: 100, height: 34, imgPosition: "center", textPosition: "center", imgSrc: "edit.png", textImageRelation: "imageBeforeText" });
-	$('#btnEditItem').on('click', function () {
-		MC.go.Edit.Item();	
-	});
 	
-	$('#mainSplitter').jqxSplitter({  width: 1918, height: 930, panels: [{ size: 280, min: 100 }, {min: 200, size: 500}] });
+	$('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });
 	$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 500, min: 100, collapsible: false }, { min: 100, collapsible: true}] });
 	$('#contentSplitter').on('expanded', function (event) {
 		if(MC.viewing.Item == ""){
@@ -386,10 +373,10 @@ $(document).ready(function () {
 	});
 	
 	$("#itemlabel_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
-	$("#itemgroup_input").jqxInput({placeHolder: "Enter a group...", height: 25, width: 300, minLength: 1});
-	$('#itemcomment1_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
-	$('#itemcomment2_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
-	$('#itemcomment3_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
+	$("#itemgroup_input").jqxInput({source: MC.Suggest.groups, placeHolder: "Enter a group...", height: 25, width: 300, minLength: 1, items: 20});
+	$('#itemcomment1_input').jqxInput({source: MC.Suggest.comment1, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
+	$('#itemcomment2_input').jqxInput({source: MC.Suggest.comment2, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
+	$('#itemcomment3_input').jqxInput({source: MC.Suggest.comment3, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
 	$("#itemtrader_drop").jqxDropDownList({source: MC.Traders, placeHolder: "Enter a trader...", height: 25, width: 307});
 	$("#itemselling_check").jqxCheckBox({height: 25, width: 50, checked: true});
 	$("#itembuying_check").jqxCheckBox({height: 25, width: 50, checked: true});
@@ -399,66 +386,60 @@ $(document).ready(function () {
 	$("#itemfixedprice_check").jqxCheckBox({height: 25, width: 100, checked: false});
 	$("#itemfixedprice_check").on('change', function (event) {
 		if (event.args.checked) {
-			$("#itemprice_input").jqxInput({disabled: false});									
+			$("#itemprice_input").jqxNumberInput({disabled: false});									
 		}
 		else {
-			$("#itemprice_input").jqxInput({disabled: true});									
+			$("#itemprice_input").jqxNumberInput({disabled: true});									
 		}
 	});
-	$("#itemprice_input").jqxInput({placeHolder: "Enter a price...", height: 25, width: 300, disabled: true});
-	$('#itemValidator').jqxValidator({
-		rules: [
-			{ input: '#itemprice_input', message: 'Price must be an Integer!', action: 'valueChanged', rule: function (input, commit) {
-					try{
-						var g = parseInt($('#itemprice_input').jqxInput('val'));
-						return true;
-					}
-					catch{
-						return false;
-					}
-				}
-			}
-		]
-	});
-	$('#itemValidator').on('validationSuccess', function(event) {//This event is triggered when the window is closed.
+	$("#itemprice_input").jqxNumberInput({height: 25, width: 100, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
+	$('#itemwindow_okButton').on('click', function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying = $("#itembuying_check").jqxCheckBox('checked'),
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit = $("#itembit_check").jqxCheckBox('checked');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1 = $('#itemcomment1_input').jqxTextArea('val');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2 = $('#itemcomment2_input').jqxTextArea('val');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 = $('#itemcomment3_input').jqxTextArea('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1 = $('#itemcomment1_input').jqxInput('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2 = $('#itemcomment2_input').jqxInput('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 = $('#itemcomment3_input').jqxInput('val');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').jqxInput('val');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').jqxInput('val'));
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').jqxNumberInput('val'));
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling = $("#itemselling_check").jqxCheckBox('checked');
-		var temptrader = 0;
-		$.each(MC.Traders, function (index, value) {
-			if ( value.label == $('#itemtrader_drop').jqxInput('val') ) {
-				temptrader = value.value
-			}
-		});
-		
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader = temptrader;
-		MC.go.ModList();
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader = $("#itemtrader_drop").jqxDropDownList('getSelectedItem').value;
+		//MC.go.ModList();
+		var temp_item = $("#itemListBox").jqxListBox('getSelectedItem');
 		$.each($("#modListBox").jqxListBox('getItems'), function (index, value) {
-			if ( MC.editing.Mod.equals(value.label) ) {
+			if ( MC.viewing.Mod.equals(value.label) ) {
 				$("#modListBox").jqxListBox('unselectIndex', value.index);
 				$("#modListBox").jqxListBox('selectIndex', value.index);
 			}
 		});
-		$.each($("#itemListBox").jqxListBox('getItems'), function (index, value) {
-			if ( MC.viewing.Item.equals(value.label) ) {
-				$("#itemListBox").jqxListBox('selectIndex', value.index);
-			}
+		MC.createItemSource();
+		$('#itemgroup_input').jqxInput('source', MC.Suggest.groups);
+		$('#itemcomment1_input').jqxInput('source', MC.Suggest.comment1);
+		$('#itemcomment2_input').jqxInput('source', MC.Suggest.comment2);
+		$('#itemcomment3_input').jqxInput('source', MC.Suggest.comment3);
+		$("#itemListBox").jqxListBox('selectItem', temp_item);
+	});
+	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 64});
+	for (var h = 0; h < 9; h++){
+		$("#rc" + h + "_count").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});
+		$("#rc" + h + "_dmg").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+		$("#rc" + h + "_variant").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+		$("#rc" + h + "_modbox").jqxInput({placeHolder: "Enter Mod id...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: MC.Suggest.modid});
+		$("#rc" + h + "_itembox").jqxInput({placeHolder: "Enter Item id...", height: 25, width: 220, minLength: 1, items: 30, searchMode: 'contains', source: Object.keys(MC.Suggest.itemid)});
+		$("#rc" + h + "_itemboxlbl").jqxInput({placeHolder: "Enter Item name...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: MC.Suggest.itemlabel});
+		$("#rc" + h + "_modbox").on('change', function (event) {
+			/*var id = event.target.id.split("_modbox")[0].split("rc")[1];
+			var value = $("#rc" + id + "_modbox0").val();
+			if ( value.isEmpty() ) {$("#rc" + id + "_itembox0").jqxInput({source: MC.ItemNames});}
+			else if ( MC.Mod[value] != null ) {$("#rc" + id + "_itembox0").jqxInput({source: Object.keys(MC.Mod[value].items)});}
+			else{$("#rc" + id + "_itembox0").jqxInput({source: []});}*/
 		});
-	});
-	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
-	$('#itemwindow_okButton').on('click', function () {
-		$('#itemValidator').jqxValidator('validate');
-	});
-	
-	$('#itemwindow_cancelButton').jqxButton({ width: '180px', disabled: false });
-	
+	}
+
+	$('#receiptwindow_okButton').jqxButton({ width: '180px', disabled: false });
+		
 	MC.go.Mod("");
 });
 

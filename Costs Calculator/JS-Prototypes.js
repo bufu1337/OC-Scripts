@@ -97,6 +97,14 @@ Array.prototype.isBoolListTrue = function(){
 	}
 	return true;
 };
+Array.prototype.contains = function(search){
+    for (var i = 0; i < this.length; i++){
+		if ( this[i].toString().equals(search) ){
+			return true;
+		}
+	}
+	return false;
+};
 Object.defineProperty(Object.prototype, "Copy", {
     enumerable: false,
     writable: true,
