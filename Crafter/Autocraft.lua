@@ -595,7 +595,6 @@ function ac.CraftItems()
             ac.MoveRecipeItems(i)
             ac.mf.os.sleep(0.1)
             cr.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
-            ac.mf.thread.create(function(item) ac.MoveCraftedItem(item) end, i)
             local tasks = cr.getTasks()
             while #tasks > 0 do
                 ac.mf.os.sleep(1)
@@ -604,6 +603,7 @@ function ac.CraftItems()
                     tasks = {}
                 end
             end
+            ac.MoveCraftedItem(i)
             ac.items[i].size = ac.items[i].newsize
         end 
     end
@@ -650,7 +650,9 @@ end
 function ac.test()
   ac = require("bufu/Crafter/Autocraft")
   ac.Define("minecraft")
-  ac.ConvertItems()
+  ac.GetItems()
+  ac.MoveRestBack()
+  ac.CraftItems()
   ac.GetStorageItems()
   
   ac.sorted = ac.mf.getSortedKeys(ac.items)

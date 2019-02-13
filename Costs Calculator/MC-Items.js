@@ -127,13 +127,14 @@ var MC = {
 			$('#itemcomment1_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);
 			$('#itemcomment2_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2);
 			$('#itemcomment3_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3);
-			$("#itemtrader_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader);
+			$("#itemtrader_drop").jqxInput('val', MC.Traders[MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader].label);
 			$("#itemselling_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling});
 			$("#itembuying_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying});
 			$("#itemfixedprice_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice});
 			$('#itemprice_input').jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price);
 			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
 			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
+			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
 		},
 		RefreshNameArrays: function(){
 			MC.ItemNames = [];
@@ -389,7 +390,7 @@ $(document).ready(function () {
 	$('#itemcomment1_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
 	$('#itemcomment2_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
 	$('#itemcomment3_input').jqxInput({ placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1 });
-	$("#itemtrader_input").jqxInput({placeHolder: "Enter a trader...", height: 25, width: 300});
+	$("#itemtrader_drop").jqxDropDownList({source: MC.Traders, placeHolder: "Enter a trader...", height: 25, width: 307});
 	$("#itemselling_check").jqxCheckBox({height: 25, width: 50, checked: true});
 	$("#itembuying_check").jqxCheckBox({height: 25, width: 50, checked: true});
 	$("#itemchisel_check").jqxCheckBox({height: 25, width: 70, checked: true});
@@ -406,83 +407,56 @@ $(document).ready(function () {
 	});
 	$("#itemprice_input").jqxInput({placeHolder: "Enter a price...", height: 25, width: 300, disabled: true});
 	$('#itemValidator').jqxValidator({
-		rules: []
-	});
-	$('#itemValidator').on('validationSuccess', function(event) {//This event is triggered when the window is closed.
-		var tempgroup = $("#itemgroup_input").jqxInput('val');
-		if ( tempgroup.isEmpty() ){
-			tempgroup = "- No Group -";
-		}
-		var newname = $('#itemname_input').jqxInput('val');
-		if(MC.mode.Item.equals("edit")){
-			var tempItems = {};
-			$.each(Object.keys(MC.Mod[MC.editing.Mod].items), function (index, value) {
-				if ( !value.equals(MC.editing.Item) ) {
-					tempItems[value] = MC.Mod[MC.editing.Mod].items[value];
-				}
-			});
-			MC.Mod[MC.editing.Mod].items = tempItems;
-		}
-		if ( MC.mode.Item.equals("add", "edit") ) {
-			
-			MC.Mod[MC.editing.Mod].items[newname] = {
-				description: $('#itemdescription_area').jqxTextArea('val'),
-				group: tempgroup,
-				resource_group: $('#itemresourcegroup_input').jqxInput('val'),
-				chisel: $("#itemchisel_check").jqxCheckBox('checked'),
-				chiselsbit: $("#itembit_check").jqxCheckBox('checked'),
-				fixedprice: $("#itemfixedprice_check").jqxCheckBox('checked'),
-				price: $('#itemprice_input').jqxInput('val'),
-				count: 1,
-				buying: $("#itembuying_check").jqxCheckBox('checked'),
-				selling: $("#itemselling_check").jqxCheckBox('checked'),
-				trader: "",
-				receipt: MC.itemreceipts_temp
-			};
-			$.each(Object.keys(MC.itemreceipts_temp), function (index, receipttable) {
-				$.each(MC.itemreceipts_temp[receipttable], function (index2, receipt) {
-					$.each(Object.keys(receipt), function (index3, IO) {
-						$.each(Object.keys(receipt[IO]), function (index4, receiptitems) {
-							$.each(receipt[IO][receiptitems].things, function (index5, names) {
-								if ( !names.mod.equals(Object.keys(MC.Mod)) ) {
-									MC.Mod[names.mod] = {description: "", iso: "", items: {} }
-								}
-								if ( !names.item.equals(Object.keys(MC.Mod[names.mod].items)) ) {
-									MC.Mod[names.mod].items[names.item] = {description: "", group: "- No Group -", resource_group: "", chisel: false, chiselsbit: false, fixedprice: false, price: "0", count: 0, buying: true, selling: true, trader: "", receipt: {} }
-								}	
-							});																
-						});												
-					});					
-				});
-			});
-			if ( MC.Mod[MC.editing.Mod].items[newname].fixedprice && MC.Mod[MC.editing.Mod].items[newname].price.includes("/") && MC.Mod[MC.editing.Mod].items[newname].count == 1 ) {
-				if ( MC.Mod[MC.editing.Mod].items[newname].price.endsWith("b") ){
-					MC.Mod[MC.editing.Mod].items[newname].count = parseInt(MC.Mod[MC.editing.Mod].items[newname].price.split("b")[0].split("/")[1]);
-				}
-				else{
-					MC.Mod[MC.editing.Mod].items[newname].count = parseInt(MC.Mod[MC.editing.Mod].items[newname].price.split("/")[1]);
+		rules: [
+			{ input: '#itemprice_input', message: 'Price must be an Integer!', action: 'valueChanged', rule: function (input, commit) {
+					try{
+						var g = parseInt($('#itemprice_input').jqxInput('val'));
+						return true;
+					}
+					catch{
+						return false;
+					}
 				}
 			}
-			MC.itemreceipts_temp = {},
-			MC.go.ModList();
-			$.each($("#modListBox").jqxListBox('getItems'), function (index, value) {
-				if ( MC.editing.Mod.equals(value.label) ) {
-					$("#modListBox").jqxListBox('unselectIndex', value.index);
-					$("#modListBox").jqxListBox('selectIndex', value.index);
-				}
-			});
-			$.each($("#itemListBox").jqxListBox('getItems'), function (index, value) {
-				if ( newname.equals(value.label) ) {
-					$("#itemListBox").jqxListBox('selectIndex', value.index);
-				}
-			});
-		}
-		$('#itemwindow').jqxWindow('close')
+		]
+	});
+	$('#itemValidator').on('validationSuccess', function(event) {//This event is triggered when the window is closed.
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying = $("#itembuying_check").jqxCheckBox('checked'),
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit = $("#itembit_check").jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1 = $('#itemcomment1_input').jqxTextArea('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2 = $('#itemcomment2_input').jqxTextArea('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 = $('#itemcomment3_input').jqxTextArea('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').jqxInput('val');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').jqxInput('val'));
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling = $("#itemselling_check").jqxCheckBox('checked');
+		var temptrader = 0;
+		$.each(MC.Traders, function (index, value) {
+			if ( value.label == $('#itemtrader_drop').jqxInput('val') ) {
+				temptrader = value.value
+			}
+		});
+		
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader = temptrader;
+		MC.go.ModList();
+		$.each($("#modListBox").jqxListBox('getItems'), function (index, value) {
+			if ( MC.editing.Mod.equals(value.label) ) {
+				$("#modListBox").jqxListBox('unselectIndex', value.index);
+				$("#modListBox").jqxListBox('selectIndex', value.index);
+			}
+		});
+		$.each($("#itemListBox").jqxListBox('getItems'), function (index, value) {
+			if ( MC.viewing.Item.equals(value.label) ) {
+				$("#itemListBox").jqxListBox('selectIndex', value.index);
+			}
+		});
 	});
 	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#itemwindow_okButton').on('click', function () {
 		$('#itemValidator').jqxValidator('validate');
 	});
+	
 	$('#itemwindow_cancelButton').jqxButton({ width: '180px', disabled: false });
 	
 	MC.go.Mod("");
