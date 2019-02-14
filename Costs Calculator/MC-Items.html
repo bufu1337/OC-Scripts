@@ -602,8 +602,12 @@
 																
 										</div>
 										<div style="display: block">
-											<div style="margin-top: 8px; text-align: center; margin-right: 170px; margin-bottom: 10px;" id='rc_craftcount'></div><div style='float: left; margin:-34px 0px 10px 494px;' id='crafting_item'></div>
+											<div style='float: left; margin:-34px 0px 10px 494px;' id='crafting_item'></div>
 											<table>
+												<tr style="margin-top: 10px" id='rc_cc'>
+													<td><div style="font-size:16px; margin-top: 8px; float: right; margin-bottom: 10px;">Craft Count:</div></td>
+													<td><div style="margin-top: 8px; float: left; margin-right: 170px; margin-bottom: 10px;" id='rc_craftcount'></div></td>
+												</tr>
 												<tr style="margin-top: 10px" id='rc0_group0'>
 													<td><input type='textbox' id='rc0_modbox' style='float:left; margin: 3px;'/></td>
 													<td><input type='textbox' id='rc0_itembox' style='margin: 3px;'/></td>
@@ -614,7 +618,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc0_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc0_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc0_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc0_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc1_group0'>
 													<td><input type='textbox' id='rc1_modbox' style='float:left; margin: 3px;'/></td>
@@ -626,7 +630,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc1_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc1_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc1_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc1_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc2_group0'>
 													<td><input type='textbox' id='rc2_modbox' style='float:left; margin: 3px;'/></td>
@@ -638,7 +642,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc2_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc2_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc2_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc2_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc3_group0'>
 													<td><input type='textbox' id='rc3_modbox' style='float:left; margin: 3px;'/></td>
@@ -650,7 +654,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc3_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc3_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc3_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc3_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc4_group0'>
 													<td><input type='textbox' id='rc4_modbox' style='float:left; margin: 3px;'/></td>
@@ -662,7 +666,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc4_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc4_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc4_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc4_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc5_group0'>
 													<td><input type='textbox' id='rc5_modbox' style='float:left; margin: 3px;'/></td>
@@ -674,7 +678,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc5_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc5_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc5_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc5_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc6_group0'>
 													<td><input type='textbox' id='rc6_modbox' style='float:left; margin: 3px;'/></td>
@@ -686,7 +690,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc6_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc6_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc6_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc6_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc7_group0'>
 													<td><input type='textbox' id='rc7_modbox' style='float:left; margin: 3px;'/></td>
@@ -698,7 +702,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc7_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc7_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc7_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc7_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 												<tr style="margin-top: 20px" id='rc8_group0'>
 													<td><input type='textbox' id='rc8_modbox' style='float:left; margin: 3px;'/></td>
@@ -710,7 +714,7 @@
 													<tr style="margin-top: -5px; font-size: 10px;"><td style="float:center;">Damage:</td><td>Variant:</td><td>Need:</td></tr>
 													<tr style="margin-top: -5px"><td><div id='rc8_dmg' style='float:left; margin: 3px;'/></div></td>
 													<td><div id='rc8_variant' style='float:left; margin: 3px;'/></div></td>
-													<td><div id='rc8_count' style='float:left; margin: 3px;'/></div></td></tr></table></td>
+													<td><div id='rc8_need' style='float:left; margin: 3px;'/></div></td></tr></table></td>
 												</tr>
 											</table>
 										</div>

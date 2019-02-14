@@ -1,5 +1,3 @@
-//var fs = require('fs');
-var dataAdapter = null;
 var MC = {
 	Items: {},
 	Mods: {},
@@ -9,35 +7,44 @@ var MC = {
 		groups: [],
 		comment1: [],
 		comment2: [],
-		comment3: [],
-		modid: [],
-		itemid: {},
-		itemlabel: []
+		comment3: []
 	},
 	viewing: {
 		Mod: "",
 		Item: ""
 	},
-	editing: {
-		Mod: "",
-		Item: "",
-		Receipt: ""
-	},
+	item_selecting: false,
 	createModList: function(){
-		$.each(MC.Mods, function (index, value) {
-			if(MC.Mod[value.name] != null){
-				MC.Mod[value.name].idname.push(index);
+		$.each(MC.Mods, function (modid, mod) {
+			MC.Mods[modid].itemid = [];
+			MC.Mods[modid].itemlabel = [];
+			if(MC.Mod[mod.name] != null){
+				MC.Mod[mod.name].idname.push(modid);
 			}
 			else{
-				MC.Mod[value.name] = {idname:[index], crafter:value.crafter, items:{}}
+				MC.Mod[mod.name] = {idname:[modid], crafter:mod.crafter, items:{}}
 			}
-			$.each(MC.Items[value.crafter], function (index2, value2) {
-				if ( index2.startsWith((index + "_")) ) {
-					MC.Mod[value.name].items[index2] = MC.Items[value.crafter][index2]
+			$.each(MC.Items[mod.crafter], function (itemid, item) {
+				var temp = itemid.split("_b_")[0].split("_jj_")[1];
+				if ( itemid.startsWith((modid + "_")) ) {
+					MC.Mod[mod.name].items[itemid] = MC.Items[mod.crafter][itemid]
+					MC.Mods[modid].itemid.push(temp)
+					if(item.label != ""){
+						MC.Mods[modid].itemlabel.push(item.label)
+					}
 				}
 			});
 		});
-		MC.Suggest.modid = Object.keys(MC.Mods);
+	},
+	createLabelSource: function(modid){
+		MC.Mods[modid].itemlabel = [];
+		$.each(MC.Items[MC.Mods[modid].crafter], function (itemid, item) {
+			if ( itemid.startsWith((modid + "_")) ) {
+				if(item.label != ""){
+					MC.Mods[modid].itemlabel.push(item.label)
+				}
+			}
+		});
 	},
 	createItemSource: function(){
 		MC.Suggest.groups = [];
@@ -61,41 +68,49 @@ var MC = {
 			});
 		});
 	},
-	createRecipeSource: function(modid){
-		MC.Suggest.itemid = {};
-		MC.Suggest.itemlabel = [];
-		if ( modid.equals(MC.Suggest.modid) ) {
-			$.each(MC.Items[MC.Mods[modid].crafter], function (name, item) {
-				if ( name.startsWith(modid) ) {
-					if ( item.label != "" ) {
-						MC.Suggest.itemlabel.push(item.label);
-					}
-					var tempname = name.split("_b_")[0];
-					var tempid = tempname.split("_jj_")[1];
-					var temp_itemdmg = "0";
-					if(tempname.split("_jj_")[2] != null){temp_itemdmg = tempname.split("_jj_")[2]}
-					var temp_itemvariant = "0";
-					if(name.split("_b_")[1] != null){temp_itemvariant = name.split("_b_")[1]}
-					if ( MC.Suggest.itemid[tempid] == null) {
-						MC.Suggest.itemid[tempid] = {damage:temp_itemdmg, variant:temp_itemvariant};
-					}
-					else{
-						if ( parseInt(temp_itemdmg) > parseInt(MC.Suggest.itemid[tempid].damage) ) {
-							MC.Suggest.itemid[tempid].damage = temp_itemdmg;
+	convertItemID: function(item){
+		var tempname = item.split("_b_")[0]
+		var citem = {modid: tempname.split("_jj_")[0], itemid: tempname.split("_jj_")[1], dmg: 0, variant: 0, valid: false, crafter: "", tag:"", maxdmg: 0, maxvariant: 0}
+		if(tempname.split("_jj_")[2] != null){citem.dmg = parseInt(tempname.split("_jj_")[2])}
+		if(item.split("_b_")[1] != null){citem.variant = parseInt(item.split("_b_")[1])}
+		if(MC.Mods[citem.modid] != null){
+			citem.crafter = MC.Mods[citem.modid].crafter;
+			if(MC.Items[citem.crafter][item] != null){
+				citem.valid = true;
+				$.each(Object.keys(MC.Items[citem.crafter]), function (index, name) {
+					if ( name.startsWith(citem.modid + "_jj_" + citem.itemid) ) {
+						var tempdmg = name.split("_b_")[0].split("_jj_")[2];
+						if(tempdmg != null){
+							if(parseInt(tempdmg) > citem.maxdmg){
+								citem.maxdmg = parseInt(tempdmg)
+							}
 						}
-						if ( parseInt(temp_itemvariant) > parseInt(MC.Suggest.itemid[tempid].variant) ) {
-							MC.Suggest.itemid[tempid].variant = temp_itemvariant;
-						}
-					}				
-				}
-			});
+						if(name.split("_b_")[1] != null){
+							if(parseInt(name.split("_b_")[1]) > citem.maxvariant){
+								citem.maxvariant = parseInt(name.split("_b_")[1])
+							}
+						}					
+					}
+				});
+			}
 		}
+		return citem
+	},
+	convertCItemtoID: function(citem){
+		var item = citem.modid + "_jj_" + citem.itemid
+		if(citem.dmg > 0){item = item + "_jj_" + citem.dmg}
+		if(citem.variant > 0){item = item + "_b_" + citem.variant}
+		return item
+	},
+	checkItem: function(citem){
+		return MC.convertItemID(MC.convertCItemtoID(citem)).valid
 	},
 	hide: function(div_name){
 		$("#" + div_name).css({visibility: "hidden", display: "none"});
 	},
-	show: function(div_name){
-		$("#" + div_name).css({visibility: "visible", display: "block"});
+	show: function(div_name, typ){
+		if(typ==null){ typ = "block" }
+		$("#" + div_name).css({visibility: "visible", display: typ});
 	},
 	go:{
 		Mod: function(modname){
@@ -155,25 +170,25 @@ var MC = {
 			$("#modid_display").text(tempname.split("_jj_")[0]);
 			$("#itemid_display").text(tempname.split("_jj_")[1]);
 			$("#itemdmg_display").text(temp_itemdmg);
-			if(temp_itemdmg == ""){
-				$("#itemdmg_line").css({visibility: "hidden", display: "none"});
+			if(temp_itemdmg == ""){ 
+				MC.hide("itemdmg_line") 
 			}
-			else{
-				$("#itemdmg_line").css({visibility: "visible", display: "table-row"});
+			else{ 
+				MC.show("itemdmg_line", "table-row")
 			}
 			$("#itemvariant_display").text(temp_itemvariant);
-			if(temp_itemvariant == ""){
-				$("#itemvariant_line").css({visibility: "hidden", display: "none"});
+			if(temp_itemvariant == ""){ 
+				MC.hide("itemvariant_line") 
 			}
-			else{
-				$("#itemvariant_line").css({visibility: "visible", display: "table-row"});
+			else{ 
+				MC.show("itemvariant_line", "table-row")
 			}
 			$("#itemtag_display").text(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag);
-			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag == ""){
-				$("#itemtag_line").css({visibility: "hidden", display: "none"});
+			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag == ""){ 
+				MC.hide("itemtag_line") 
 			}
-			else{
-				$("#itemtag_line").css({visibility: "visible", display: "table-row"});
+			else{ 
+				MC.show("itemtag_line", "table-row")
 			}
 			
 			$("#itemlabel_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label);
@@ -193,6 +208,48 @@ var MC = {
 			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
 			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
 			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
+			
+			$('#rc_craftcount').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount);
+			var temp_counter = 0;
+			$.each(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe, function (itemid, item) {
+				MC.show("rc" + temp_counter + "_group0", "table-row");
+				MC.show("rc" + temp_counter + "_group1", "table-row");
+				$("#rc" + temp_counter + "_need").jqxNumberInput("val", item.need);
+				var temp_citem = MC.convertItemID(itemid);
+				$("#rc" + temp_counter + "_dmg").jqxNumberInput({disabled: (!(temp_citem.maxdmg > 0)), max: temp_citem.maxdmg});
+				$("#rc" + temp_counter + "_dmg").jqxNumberInput("val", temp_citem.dmg);
+				$("#rc" + temp_counter + "_variant").jqxNumberInput({disabled: (!(temp_citem.maxvariant > 0)), max: temp_citem.maxvariant});
+				$("#rc" + temp_counter + "_variant").jqxNumberInput("val", temp_citem.variant);
+				$("#rc" + temp_counter + "_modbox").jqxInput("val", temp_citem.modid);
+				$("#rc" + temp_counter + "_itembox").jqxInput("val", temp_citem.itemid);
+				if(temp_citem.valid){
+					$("#rc" + temp_counter + "_itembox").jqxInput({source: MC.Mods[temp_citem.modid].itemid});
+					$("#rc" + temp_counter + "_itemboxlbl").jqxInput({source: MC.Mods[temp_citem.modid].itemlabel});
+					$("#rc" + temp_counter + "_itemboxlbl").jqxInput("val", MC.Items[temp_citem.crafter][itemid].label);
+				}
+				else{
+					$("#rc" + temp_counter + "_itembox").jqxInput({source: []});
+					$("#rc" + temp_counter + "_itemboxlbl").jqxInput({source: []});
+					$("#rc" + temp_counter + "_itemboxlbl").jqxInput("val", "");
+				}
+				temp_counter += 1;
+			});
+			for(var i = temp_counter; i < 9; i++){
+				$("#rc" + i + "_dmg").jqxNumberInput({disabled: true});
+				$("#rc" + i + "_variant").jqxNumberInput({disabled: true});
+				$("#rc" + i + "_dmg").jqxNumberInput("val", "0");
+				$("#rc" + i + "_variant").jqxNumberInput("val", "0");
+				$("#rc" + i + "_need").jqxNumberInput("val", "1");
+				$("#rc" + i + "_modbox").jqxInput("val", "");
+				$("#rc" + i + "_itembox").jqxInput("val", "");
+				$("#rc" + i + "_itemboxlbl").jqxInput("val", "");
+				$("#rc" + i + "_itembox").jqxInput({source: []});
+				$("#rc" + i + "_itemboxlbl").jqxInput({source: []});
+				MC.hide("rc" + i + "_group0");
+				MC.hide("rc" + i + "_group1");
+			}
+			MC.show("rc" + temp_counter + "_group0", "table-row");
+			MC.show("rc" + temp_counter + "_group1", "table-row");
 		}
 	}
 }
@@ -200,8 +257,6 @@ var MC = {
 $(document).ready(function () {
 	MC.createModList();
 	MC.createItemSource();
-	dataAdapter = new $.jqx.dataAdapter({localdata: MC.Items, datatype: "array"});
-	console.log(dataAdapter)
 	$("#btnSave").jqxButton({ width: 48, height: 48, imgWidth: 48, imgHeight: 48, imgPosition: "center", textPosition: "center", imgSrc: "save.png", textImageRelation: "imageAboveText" });
 	$('#btnSave').on('click', function () {
 		if ('Blob' in window) {
@@ -415,6 +470,7 @@ $(document).ready(function () {
 			}
 		});
 		MC.createItemSource();
+		MC.createLabelSource(MC.viewing.Item.split("_jj_")[0])
 		$('#itemgroup_input').jqxInput('source', MC.Suggest.groups);
 		$('#itemcomment1_input').jqxInput('source', MC.Suggest.comment1);
 		$('#itemcomment2_input').jqxInput('source', MC.Suggest.comment2);
@@ -423,16 +479,27 @@ $(document).ready(function () {
 	});
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 64});
 	for (var h = 0; h < 9; h++){
-		$("#rc" + h + "_count").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});
+		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});
 		$("#rc" + h + "_dmg").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 		$("#rc" + h + "_variant").jqxNumberInput({height: 25, width: 63, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
-		$("#rc" + h + "_modbox").jqxInput({placeHolder: "Enter Mod id...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: MC.Suggest.modid});
-		$("#rc" + h + "_itembox").jqxInput({placeHolder: "Enter Item id...", height: 25, width: 220, minLength: 1, items: 30, searchMode: 'contains', source: Object.keys(MC.Suggest.itemid)});
-		$("#rc" + h + "_itemboxlbl").jqxInput({placeHolder: "Enter Item name...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: MC.Suggest.itemlabel});
+		$("#rc" + h + "_modbox").jqxInput({placeHolder: "Enter Mod id...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: Object.keys(MC.Mods)});
+		$("#rc" + h + "_itembox").jqxInput({placeHolder: "Enter Item id...", height: 25, width: 220, minLength: 1, items: 30, searchMode: 'contains', source: []});
+		$("#rc" + h + "_itemboxlbl").jqxInput({placeHolder: "Enter Item name...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: []});
 		$("#rc" + h + "_modbox").on('change', function (event) {
-			/*var id = event.target.id.split("_modbox")[0].split("rc")[1];
-			var value = $("#rc" + id + "_modbox0").val();
-			if ( value.isEmpty() ) {$("#rc" + id + "_itembox0").jqxInput({source: MC.ItemNames});}
+			if(!MC.item_selecting){
+				var id = event.target.id.split("_modbox")[0].split("rc")[1];
+				var value = $("#rc" + id + "_modbox").val();
+				if(value.equals.Object.keys(MC.Mods)){
+					$("#rc" + id + "_itembox").jqxInput({source: MC.Mods[value].itemid});
+					$("#rc" + id + "_itemboxlbl").jqxInput({source: MC.Mods[value].itemlabel});
+				}
+				else{
+					$("#rc" + id + "_itembox").jqxInput({source: []});
+					$("#rc" + id + "_itemboxlbl").jqxInput({source: []});
+				}
+				
+			}
+			/*if ( value.isEmpty() ) {$("#rc" + id + "_itembox0").jqxInput({source: MC.ItemNames});}
 			else if ( MC.Mod[value] != null ) {$("#rc" + id + "_itembox0").jqxInput({source: Object.keys(MC.Mod[value].items)});}
 			else{$("#rc" + id + "_itembox0").jqxInput({source: []});}*/
 		});
