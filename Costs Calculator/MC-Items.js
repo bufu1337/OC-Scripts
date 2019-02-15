@@ -13,7 +13,10 @@ var MC = {
 		Mod: "",
 		Item: ""
 	},
+	rv_rules: [],
 	item_selecting: false,
+	valid_recipe: false,
+	recipe_show: [],
 	createModList: function(){
 		$.each(MC.Mods, function (modid, mod) {
 			MC.Mods[modid].itemid = [];
@@ -28,7 +31,9 @@ var MC = {
 				var temp = itemid.split("_b_")[0].split("_jj_")[1];
 				if ( itemid.startsWith((modid + "_")) ) {
 					MC.Mod[mod.name].items[itemid] = MC.Items[mod.crafter][itemid]
-					MC.Mods[modid].itemid.push(temp)
+					if ( !temp.equals(MC.Mods[modid].itemid) ) {
+						MC.Mods[modid].itemid.push(temp)
+					}
 					if(item.label != ""){
 						MC.Mods[modid].itemlabel.push(item.label)
 					}
@@ -68,15 +73,22 @@ var MC = {
 			});
 		});
 	},
+	convertCItemtoID: function(citem){
+		var item = citem.modid + "_jj_" + citem.itemid
+		if(citem["dmg"] != null){if(citem.dmg > 0){item = item + "_jj_" + citem.dmg}}
+		if(citem["variant"] != null){if(citem.variant > 0){item = item + "_b_" + citem.variant}}
+		return item
+	},
 	convertItemID: function(item){
 		var tempname = item.split("_b_")[0]
-		var citem = {modid: tempname.split("_jj_")[0], itemid: tempname.split("_jj_")[1], dmg: 0, variant: 0, valid: false, crafter: "", tag:"", maxdmg: 0, maxvariant: 0}
+		var citem = {modid: tempname.split("_jj_")[0], itemid: tempname.split("_jj_")[1], dmg: 0, variant: 0, valid: false, itemfull: "", crafter: "", tag:"", maxdmg: 0, maxvariant: 0}
 		if(tempname.split("_jj_")[2] != null){citem.dmg = parseInt(tempname.split("_jj_")[2])}
 		if(item.split("_b_")[1] != null){citem.variant = parseInt(item.split("_b_")[1])}
 		if(MC.Mods[citem.modid] != null){
 			citem.crafter = MC.Mods[citem.modid].crafter;
 			if(MC.Items[citem.crafter][item] != null){
 				citem.valid = true;
+				citem.itemfull = item
 				$.each(Object.keys(MC.Items[citem.crafter]), function (index, name) {
 					if ( name.startsWith(citem.modid + "_jj_" + citem.itemid) ) {
 						var tempdmg = name.split("_b_")[0].split("_jj_")[2];
@@ -96,14 +108,8 @@ var MC = {
 		}
 		return citem
 	},
-	convertCItemtoID: function(citem){
-		var item = citem.modid + "_jj_" + citem.itemid
-		if(citem.dmg > 0){item = item + "_jj_" + citem.dmg}
-		if(citem.variant > 0){item = item + "_b_" + citem.variant}
-		return item
-	},
 	checkItem: function(citem){
-		return MC.convertItemID(MC.convertCItemtoID(citem)).valid
+		return MC.convertItemID(MC.convertCItemtoID(citem))
 	},
 	hide: function(div_name){
 		$("#" + div_name).css({visibility: "hidden", display: "none"});
@@ -158,6 +164,7 @@ var MC = {
 			}
 		},
 		Item: function(itemname){
+			MC.item_selecting = true;
 			console.log("Item Page - Mod ID: " + MC.viewing.Mod + " Item: " + itemname);
 			MC.viewing.Item = itemname;	
 			$('#contentSplitter').jqxSplitter('expand');
@@ -232,6 +239,7 @@ var MC = {
 					$("#rc" + temp_counter + "_itemboxlbl").jqxInput({source: []});
 					$("#rc" + temp_counter + "_itemboxlbl").jqxInput("val", "");
 				}
+				MC.recipe_show[temp_counter] = true
 				temp_counter += 1;
 			});
 			for(var i = temp_counter; i < 9; i++){
@@ -247,9 +255,15 @@ var MC = {
 				$("#rc" + i + "_itemboxlbl").jqxInput({source: []});
 				MC.hide("rc" + i + "_group0");
 				MC.hide("rc" + i + "_group1");
+				MC.recipe_show[i] = false
 			}
 			MC.show("rc" + temp_counter + "_group0", "table-row");
 			MC.show("rc" + temp_counter + "_group1", "table-row");
+			MC.recipe_show[temp_counter] = true
+			MC.item_selecting = false;
+			if($('#itemDetailTabs').jqxTabs('selectedItem') == 1){
+				$('#recipeValidator').jqxValidator('validate');
+			}
 		}
 	}
 }
@@ -419,7 +433,11 @@ $(document).ready(function () {
 			$('#itemDetailTabs').jqxTabs({  width: '100%', height: '100%', position: 'top' });
 		}
 	});
-	
+	$('#itemDetailTabs').on('selected', function (event) {
+		if ( event.args.item == 1 ) {
+			$('#recipeValidator').jqxValidator('validate');
+		}
+	}); 
 	$('#modListBox').on('select', function (event) {
 		MC.go.Mod($('#modListBox').jqxListBox('getSelectedItem').label);
 	});
@@ -450,6 +468,7 @@ $(document).ready(function () {
 	$("#itemprice_input").jqxNumberInput({height: 25, width: 100, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#itemwindow_okButton').on('click', function () {
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label = $("#itemlabel_input").jqxInput('val'),
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying = $("#itembuying_check").jqxCheckBox('checked'),
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit = $("#itembit_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1 = $('#itemcomment1_input').jqxInput('val');
@@ -462,6 +481,8 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling = $("#itemselling_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader = $("#itemtrader_drop").jqxDropDownList('getSelectedItem').value;
 		//MC.go.ModList();
+		MC.item_selecting = true;
+		MC.createLabelSource(MC.viewing.Item.split("_jj_")[0]);
 		var temp_item = $("#itemListBox").jqxListBox('getSelectedItem');
 		$.each($("#modListBox").jqxListBox('getItems'), function (index, value) {
 			if ( MC.viewing.Mod.equals(value.label) ) {
@@ -470,12 +491,12 @@ $(document).ready(function () {
 			}
 		});
 		MC.createItemSource();
-		MC.createLabelSource(MC.viewing.Item.split("_jj_")[0])
 		$('#itemgroup_input').jqxInput('source', MC.Suggest.groups);
 		$('#itemcomment1_input').jqxInput('source', MC.Suggest.comment1);
 		$('#itemcomment2_input').jqxInput('source', MC.Suggest.comment2);
 		$('#itemcomment3_input').jqxInput('source', MC.Suggest.comment3);
 		$("#itemListBox").jqxListBox('selectItem', temp_item);
+		MC.item_selecting = false;
 	});
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 64});
 	for (var h = 0; h < 9; h++){
@@ -488,24 +509,135 @@ $(document).ready(function () {
 		$("#rc" + h + "_modbox").on('change', function (event) {
 			if(!MC.item_selecting){
 				var id = event.target.id.split("_modbox")[0].split("rc")[1];
-				var value = $("#rc" + id + "_modbox").val();
-				if(value.equals.Object.keys(MC.Mods)){
-					$("#rc" + id + "_itembox").jqxInput({source: MC.Mods[value].itemid});
-					$("#rc" + id + "_itemboxlbl").jqxInput({source: MC.Mods[value].itemlabel});
+				var valmod = $("#rc" + id + "_modbox").val();
+				var valitem = $("#rc" + id + "_itembox").val();
+				if(valmod.equals(Object.keys(MC.Mods))){
+					$("#rc" + id + "_itembox").jqxInput({source: MC.Mods[valmod].itemid});
+					$("#rc" + id + "_itemboxlbl").jqxInput({source: MC.Mods[valmod].itemlabel});
 				}
 				else{
 					$("#rc" + id + "_itembox").jqxInput({source: []});
 					$("#rc" + id + "_itemboxlbl").jqxInput({source: []});
 				}
-				
+				if(valmod != "" && valitem != ""){
+					$('#recipeValidator').jqxValidator('validate');
+				}
 			}
-			/*if ( value.isEmpty() ) {$("#rc" + id + "_itembox0").jqxInput({source: MC.ItemNames});}
-			else if ( MC.Mod[value] != null ) {$("#rc" + id + "_itembox0").jqxInput({source: Object.keys(MC.Mod[value].items)});}
-			else{$("#rc" + id + "_itembox0").jqxInput({source: []});}*/
+		});
+		$("#rc" + h + "_itembox").on('change', function (event) {
+			if(!MC.item_selecting){
+				var id = event.target.id.split("_modbox")[0].split("rc")[1];
+				var valmod = $("#rc" + id + "_modbox").val();
+				var valitem = $("#rc" + id + "_itembox").val();
+				if(valmod != "" && valitem != ""){
+					$('#recipeValidator').jqxValidator('validate');
+				}
+			}
+		});
+		$("#rc" + h + "_itemboxlbl").on('change', function (event) {
+			if(!MC.item_selecting){
+				var id = event.target.id.split("_modbox")[0].split("rc")[1];
+				var valmod = $("#rc" + id + "_modbox").val();
+				var valitem = $("#rc" + id + "_itembox").val();
+				if(valmod != "" && valitem != ""){
+					$('#recipeValidator').jqxValidator('validate');
+				}
+			}
+		});
+		$("#rc" + h + "_dmg").on('change', function (event) {
+			if(!MC.item_selecting){
+				$('#recipeValidator').jqxValidator('validate');
+			}
+		});
+		$("#rc" + h + "_variant").on('change', function (event) {
+			if(!MC.item_selecting){
+				$('#recipeValidator').jqxValidator('validate');
+			}
 		});
 	}
-
-	$('#receiptwindow_okButton').jqxButton({ width: '180px', disabled: false });
+					
+	$('#recipeValidator').jqxValidator({
+ 		rules: [
+			{ input: "#rc0_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc0_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc0_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc0_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc0_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc1_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc1_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc1_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc1_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc1_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc2_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc2_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc2_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc2_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc2_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc3_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc3_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc3_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc3_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc3_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc4_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc4_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc4_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc4_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc4_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc5_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc5_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc5_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc5_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc5_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc6_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc6_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc6_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc6_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc6_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc7_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc7_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc7_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc7_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc7_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }},
+			{ input: "#rc8_modbox", message: 'mod-id not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; if ( input == "" ) {return true} return input.equals(Object.keys(MC.Mods)) }},
+			{ input: "#rc8_itembox", message: 'item not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc8_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemid) }},
+			{ input: "#rc8_itemboxlbl", message: 'item label not found!', action: 'keyup, blur', rule: function (input) { input = input[0].value; var valmod = $("#rc8_modbox").val(); if ( input == "" ) {return true} if ( valmod == "" ) {return false} if ( !valmod.equals(Object.keys(MC.Mods)) ) {return false} return input.equals(MC.Mods[valmod].itemlabel) }}
+		]
+	});
+	$('#recipeValidator').on('validationSuccess', function(event) { 
+		var boollist_valid = [];
+		var boollist_show = [];
+		for (var i = 0; i < 9; i++){
+			if ( MC.recipe_show[i] ) {
+				boollist_show.push(true)
+				var valmod = $("#rc" + i + "_modbox").val();
+				var valitem = $("#rc" + i + "_itembox").val();
+				if(valmod != "" && valitem != ""){
+					var temp_item = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#rc" + i + "_dmg").val(), variant: $("#rc" + i + "_variant").val()})
+					if ( temp_item.valid ) {
+						boollist_valid.push(true)
+						MC.item_selecting = true
+						$("#rc" + i + "_itemboxlbl").val(MC.Items[temp_item.crafter][temp_item.itemfull].label)
+						$("#rc" + i + "_dmg").jqxNumberInput({disabled: (!(temp_item.maxdmg > 0)), max: temp_item.maxdmg});
+						$("#rc" + i + "_variant").jqxNumberInput({disabled: (!(temp_item.maxvariant > 0)), max: temp_item.maxvariant});
+						MC.item_selecting = false
+					}
+					else{
+						boollist_valid.push(false)
+					}
+				}
+			}
+		}
+		MC.valid_recipe = boollist_valid.isBoolListTrue();
+		if ( MC.valid_recipe && boollist_show.length == boollist_valid.length ) {
+			MC.show("rc" + boollist_show.length + "_group0", "table-row");
+			MC.show("rc" + boollist_show.length + "_group1", "table-row");
+			MC.recipe_show[boollist_show.length] = true
+		}
+	});
+	$('#recipeValidator').on('validationError', function(event) { MC.valid_recipe = false; });
+	$('#recipe_okButton').jqxButton({ width: '180px', disabled: false });
+	$('#recipe_okButton').on('click', function () {
+		$('#recipeValidator').jqxValidator('validate');
+		if(MC.valid_recipe){
+			MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount = parseInt($("#rc_craftcount").val())
+			MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe = {}
+			for (var i = 0; i < 9; i++){
+				if ( MC.recipe_show[i] ) {
+					var valmod = $("#rc" + i + "_modbox").val();
+					var valitem = $("#rc" + i + "_itembox").val();
+					if(valmod != "" && valitem != ""){
+						var temp_item = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#rc" + i + "_dmg").val(), variant: $("#rc" + i + "_variant").val()})
+						MC.Items[temp_item.crafter][temp_item.itemfull].label = $("#rc" + i + "_itemboxlbl").val()
+						MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe[temp_item.itemfull] = {need: parseInt($("#rc" + i + "_need").val()), tag: MC.Items[temp_item.crafter][temp_item.itemfull].tag}
+					}
+				}
+			}
+		}
+	});
 		
 	MC.go.Mod("");
 });
