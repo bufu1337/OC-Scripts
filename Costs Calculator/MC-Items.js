@@ -425,7 +425,7 @@ $(document).ready(function () {
 	});
 	$("#itemListExpander").jqxExpander({toggleMode: 'none', showArrow: false, width: "100%", height: "100%",
 		initContent: function () {
-			$('#itemListBox').jqxListBox({ filterable: true, searchMode: 'contains', filterPlaceHolder: "Suche...", source: ['No mod selected! Please Select a mod first!'], width: '100%', height: '100%' });
+			$('#itemListBox').jqxListBox({ filterable: true, searchMode: 'contains', filterPlaceHolder: "Suche...", source: ['No mod selected! Please Select a mod first!'], width: '100%', height: 896 });
 		}
 	});
 	$("#itemDetailExpander").jqxExpander({ toggleMode: 'none', showArrow: false, width: "100%", height: "100%", 
@@ -498,6 +498,53 @@ $(document).ready(function () {
 		$("#itemListBox").jqxListBox('selectItem', temp_item);
 		MC.item_selecting = false;
 	});
+	
+	
+	/* filter_modid_input
+	filter_itemid_input
+	filter_dmg_input
+	filter_tag_input
+	filter_label_input
+	filter_group_input
+	filter_comment1_input
+	filter_comment2_input
+	filter_comment3_input
+	filter_trader_input
+	filter_fixedprice_check
+	filter_price_input
+	filter_validrecipe_check
+	filter_selling_check
+	filter_buying_check
+	filter_chisel_check
+	filter_bit_check
+	filter_pattern_check
+	filterwindow_okButton*/	
+	$("#filter_modid_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	$("#filter_itemid_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	$("#filter_dmg_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	$("#filter_tag_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	
+	$("#filter_label_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
+	$("#filter_group_input").jqxInput({source: MC.Suggest.groups, placeHolder: "Enter a group...", height: 25, width: 300, minLength: 1, items: 20});
+	$('#filter_comment1_input').jqxInput({source: MC.Suggest.comment1, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
+	$('#filter_comment2_input').jqxInput({source: MC.Suggest.comment2, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
+	$('#filter_comment3_input').jqxInput({source: MC.Suggest.comment3, placeHolder: "Enter a comment...", height: 25, width: 300, minLength: 1, items: 20 });
+	$("#filter_trader_input").jqxDropDownList({source: MC.Traders, placeHolder: "Enter a trader...", height: 25, width: 307});
+	$("#itemselling_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itembuying_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itemchisel_check").jqxCheckBox({height: 25, width: 70, checked: true});
+	$("#itembit_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#itempattern_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#filter_fixedprice_check").jqxCheckBox({height: 25, width: 100, checked: false});
+	$("#filter_price_input").jqxNumberInput({height: 25, width: 100, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
+	$('#itemwindow_okButton').on('click', function () {
+		
+		
+	});
+
+	
+	
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 64});
 	for (var h = 0; h < 9; h++){
 		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});

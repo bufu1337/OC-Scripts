@@ -522,6 +522,7 @@
                                     <ul id="DetailTabs">
 										<li>Main</li>
                                         <li>Recipe</li>
+										<li>Item-List-Filter</li>
                                     </ul>
                                     <div id="MainTabContent">
                                         <div style="display: block">
@@ -726,6 +727,75 @@
 											</div>
 										</div>
 									</div>
+									<div id="FilterTabContent">
+                                        <div style="display: block">
+											<table>
+												<tr style="margin-top: 10px">
+													<td>Mod-ID: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_modid_input"/></td>
+													<td><div style="margin-top: 0px; margin-left: 10px" id="modid_display"/></div></td>
+												</tr>
+												<tr style="margin-top: 10px" id="itemid_line">
+													<td>Item-ID: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_itemid_input"/></td>
+													<td><div style="margin-top: 0px; margin-left: 10px" id="itemid_display"/></div></td>
+												</tr>
+												<tr style="margin-top: 10px" id="itemdmg_line">
+													<td>Damage: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_dmg_input"/></td>
+													<td><div style="margin-top: 0px; margin-left: 10px" id="itemdmg_display"/></div></td>
+												</tr>
+												<tr style="margin-top: 10px" id="itemtag_line">
+													<td>Tag: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_tag_input"/></td>
+													<td><div style="margin-top: 0px; margin-left: 10px" id="itemtag_display"/></div></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Name: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_label_input"/></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Group: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_group_input"/></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Comment 1: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_comment1_input"></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Comment 2: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_comment2_input"></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Comment 3: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_comment3_input"></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td>Trader: </td>
+													<td><input style="margin-top: 5px; margin-left: 10px" type="text" id="filter_trader_input"></td>
+												</tr>
+												<tr style="margin-top: 10px">
+													<td><div id='filter_fixedprice_check' style='margin-left: 10px; margin-top: 5px; float: left;'>Fixed Price</div></td>
+													<td><div style="margin-top: 5px; margin-left: 10px" id="filter_price_input"/></div></td>
+													<td><div id='filter_validrecipe_check' style='margin-left: 7px;float: left;'>Recipe Valid</div></td>
+												</tr>
+											</table>
+											<table>
+												<tr style="margin-top: 10px">
+													<td><div id='filter_selling_check' style='margin-left: 7px;float: left;'>Sell</div></td>
+													<td><div id='filter_buying_check' style='margin-left: 7px;float: left;'>Buy</div></td>
+													<td><div id='filter_chisel_check' style='margin-left: 7px; float: left;'>Chisel</div></td>
+													<td><div id='filter_bit_check' style='margin-left: 7px;float: left;'>Bits</div></td>
+													<td><div id='filter_pattern_check' style='margin-left: 7px;float: left;'>Has Pattern</div></td>
+												</tr>
+											</table>
+										</div>
+										<div style="height: 65px; align-items: center; display: flex;">
+											<div style="text-align: center; width: 100%;">
+												<input type="button" value="Filter" id="filterwindow_okButton" /><br />
+											</div>
+										</div>
+                                    </div>
 								</div>
                             </div>
                         </div>
