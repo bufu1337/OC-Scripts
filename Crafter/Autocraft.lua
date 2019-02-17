@@ -649,7 +649,7 @@ function ac.CheckRecipes()
 end
 function ac.test()
   ac = require("bufu/Crafter/Autocraft")
-  ac.Define("chimneys")
+  ac.Define("minecraft")
   ac.GetItems()
   ac.MoveRestBack()
   ac.CraftItems()

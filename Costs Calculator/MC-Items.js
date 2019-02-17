@@ -27,6 +27,44 @@ var MC = {
 		});
 		console.log("Set Changed Recipes finished")
 	},
+	listInvalidRecipeItems: function(modid, counts){
+		if ( counts == null ) {
+			counts = 1
+		}
+		var itemlist = {};
+		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
+			if ( itemid.startsWith(modid) ) {
+				$.each(Object.keys(MC.Items[MC.Mods[modid].crafter][itemid].recipe), function (j, ritemid) {
+					if(!MC.convertItemID(ritemid, false, false).valid){
+						if(itemlist[ritemid] == null){
+							itemlist[ritemid] = 1
+						}
+						else{
+							itemlist[ritemid] = itemlist[ritemid] + 1
+						}
+					}
+				});
+			}
+		});
+		var itemlistnew = [];
+		$.each(itemlist, function (itemid, count) {
+			if ( count > counts ) {
+				itemlistnew.push(itemid)
+			}
+		});
+		return itemlistnew
+	},
+	listItemsWOCraftCount: function(modid){
+		var itemlist = [];
+		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
+			if ( itemid.startsWith(modid) ) {
+				if(MC.Items[MC.Mods[modid].crafter][itemid].craftCount == 0 && MC.Items[MC.Mods[modid].crafter][itemid].hasPattern){
+					itemlist.push(itemid)
+				}
+			}
+		});
+		return itemlist
+	},
 	changeRecipeItem: function(modid, item, newitem){
 		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
 			if ( itemid.startsWith(modid) ) {
@@ -39,6 +77,7 @@ var MC = {
 				}
 			}
 		});
+		console.log("Change RecipeItem " + item + " finished")
 	},
 	createNewItems: function(items){
 		$.each(items, function (i, item) {
@@ -55,18 +94,35 @@ var MC = {
 				}
 			}
 			if ( citem.crafter != "" ) {
-				MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":tag,"trader":0}
+				MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
 				MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
-				MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(itemid, true, true)
-				if(!citem.itemid.equals(MC.Mods[modid].itemid)){
-					MC.Mods[citem.modid][item.id].push(citem.itemid)
+				MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(item.id, true, true)
+				if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
+					MC.Mods[citem.modid].itemid.push(citem.itemid)
 				}
 			}
 		});
 		//{"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":tag,"trader":0}
 	},
 	setForAll: function(what, items, newval){
-		
+		if ( !what.equals("recipe") && what.equals(Object.keys(MC.Items.minecraft.minecraft_jj_glass)) ) {
+			if ( (typeof newval).equals(typeof MC.Items.minecraft.minecraft_jj_glass[what]) ) {
+				$.each(items, function (i, itemid) {
+					var citem = MC.convertItemID(itemid, false, false)
+					if ( citem.valid ) {
+						var oldvalue = MC.Items[MC.Mods[citem.modid].crafter][itemid][what]
+						MC.Items[MC.Mods[citem.modid].crafter][itemid][what] = newval
+						console.log("Changed " + what + " -- Crafter: " + MC.Mods[citem.modid].crafter + " -- ItemID: " + itemid + " -- Old Value: " + oldvalue + " -- New Value: " + newval)
+					}
+				});
+			}
+			else{
+				console.log("Wrong type for the new value. Please set a " + (typeof MC.Items.minecraft.minecraft_jj_glass[what]) + ".")
+			}
+		}
+		else{
+			console.log("'" + what + "' is not a field in the item repository")
+		}
 	},
 	createModList: function(modid){
 		if ( modid != null && MC.Mods[modid] != null ) {
@@ -1063,4 +1119,246 @@ MC.changeRecipeItem("atlcraft", "ore_jj_paneGlassPink", "minecraft_jj_stained_gl
 MC.changeRecipeItem("atlcraft", "ore_jj_paneGlassPurple", "minecraft_jj_stained_glass_pane_jj_")
 MC.changeRecipeItem("atlcraft", "ore_jj_paneGlassRed", "minecraft_jj_stained_glass_pane_jj_")
 MC.changeRecipeItem("atlcraft", "ore_jj_paneGlassYellow", "minecraft_jj_stained_glass_pane_jj_")
+
+MC.changeRecipeItem("advancedrocketry", "ore_jj_ingotTitaniumAluminide", "advancedrocketry_jj_productingot")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_plateTitaniumIridium", "advancedrocketry_jj_productplate_jj_1")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_ingotCopper", "mekanism_jj_ingot_jj_5")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_sheetIron", "libvulpes_jj_productsheet_jj_1")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_coilCopper", "libvulpes_jj_coil0_jj_4")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_plateTin", "libvulpes_jj_productplate_jj_5")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_plateGold", "libvulpes_jj_productplate_jj_2")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_plateSteel", "libvulpes_jj_productplate_jj_6")
+
+MC.changeRecipeItem("advancedrocketry", "ore_jj_gearSteel", "libvulpes_jj_productgear_jj_6")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_gearTitaniumAluminide", "advancedrocketry_jj_productgear")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_stickTitaniumAluminide", "advancedrocketry_jj_productrod")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_dustDilithium", "libvulpes_jj_productdust")
+MC.changeRecipeItem("advancedrocketry", "ore_jj_crystalDilithium", "libvulpes_jj_productcrystal")
+
+var list2 = [
+"libvulpes_jj_productplate_jj_9",
+"libvulpes_jj_productfan_jj_6",
+"libvulpes_jj_productrod_jj_6",
+"libvulpes_jj_productsheet_jj_7",
+"libvulpes_jj_productplate_jj_7",
+"libvulpes_jj_productdust_jj_4",
+"libvulpes_jj_productplate_jj_1",
+"minecraft_jj_wooden_slab",
+"libvulpes_jj_productdust_jj_2",
+"libvulpes_jj_productrod_jj_7",
+"libvulpes_jj_productrod_jj_1",
+"advancedrocketry_jj_concrete",
+"libvulpes_jj_productrod_jj_4",
+"advancedrocketry_jj_productingot_jj_1",
+"minecraft_jj_glass_pane",
+"libvulpes_jj_battery",
+"advancedrocketry_jj_misc_jj_1",
+"advancedrocketry_jj_productplate",
+"advancedrocketry_jj_productrod_jj_1",
+"advancedrocketry_jj_metal0",
+"advancedrocketry_jj_metal0_jj_1",
+"libvulpes_jj_productgear_jj_7",
+"libvulpes_jj_productingot_jj_6",
+"libvulpes_jj_productsheet_jj_9",
+"libvulpes_jj_coil0_jj_9",
+"libvulpes_jj_productdust_jj_9",
+"libvulpes_jj_productdust_jj_1",
+"advancedrocketry_jj_thermite"
+]
+
+var list2 = [
+"appliedenergistics2_jj_material",
+"appliedenergistics2_jj_material_jj_8",
+"appliedenergistics2_jj_material_jj_2",
+"actuallyadditions_jj_item_dust_jj_5",
+"appliedenergistics2_jj_material_jj_7",
+"basemetals_jj_wood_gear",
+"appliedenergistics2_jj_material_jj_5",
+"",
+"appliedenergistics2_jj_quartz_ore",
+"minecraft_jj_quartz",
+"appliedenergistics2_jj_part_jj_180"
+]
+
+$.each(list, function (j, item) {
+	if ( list2[j] != null ) {
+		if(!list2[j].equals("")){
+			MC.changeRecipeItem("appliedenergistics2", item, list2[j])
+		}
+	}
+});
+
+
+MC.changeRecipeItem("basemetals", "ore_jj_blockAdamantine", "basemetals_jj_adamantine_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotAdamantine", "basemetals_jj_adamantine_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetAdamantine", "basemetals_jj_adamantine_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateAdamantine", "basemetals_jj_adamantine_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustAdamantine", "basemetals_jj_adamantine_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldAdamantine", "basemetals_jj_adamantine_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyAdamantine", "basemetals_jj_adamantine_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockAntimony", "basemetals_jj_antimony_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotAntimony", "basemetals_jj_antimony_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetAntimony", "basemetals_jj_antimony_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateAntimony", "basemetals_jj_antimony_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustAntimony", "basemetals_jj_antimony_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldAntimony", "basemetals_jj_antimony_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyAntimony", "basemetals_jj_antimony_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockAquarium", "basemetals_jj_aquarium_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotAquarium", "basemetals_jj_aquarium_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetAquarium", "basemetals_jj_aquarium_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustAquarium", "basemetals_jj_aquarium_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyAquarium", "basemetals_jj_aquarium_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockBismuth", "basemetals_jj_bismuth_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotBismuth", "basemetals_jj_bismuth_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetBismuth", "basemetals_jj_bismuth_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateBismuth", "basemetals_jj_bismuth_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustBismuth", "basemetals_jj_bismuth_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldBismuth", "basemetals_jj_bismuth_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyBismuth", "basemetals_jj_bismuth_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockBrass", "basemetals_jj_brass_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotBrass", "basemetals_jj_brass_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetBrass", "basemetals_jj_brass_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateBrass", "basemetals_jj_brass_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustBrass", "basemetals_jj_brass_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldBrass", "basemetals_jj_brass_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyBrass", "basemetals_jj_brass_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotBrick", "basemetals_jj_brick_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_blockBronze", "basemetals_jj_bronze_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotBronze", "basemetals_jj_bronze_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetBronze", "basemetals_jj_bronze_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustBronze", "basemetals_jj_bronze_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyBronze", "basemetals_jj_bronze_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotCharcoal", "basemetals_jj_charcoal_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_dustCharcoal", "basemetals_jj_charcoal_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyCharcoal", "basemetals_jj_charcoal_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotCoal", "basemetals_jj_coal_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_dustCoal", "basemetals_jj_coal_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyCoal", "basemetals_jj_coal_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockColdiron", "basemetals_jj_coldiron_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotColdiron", "basemetals_jj_coldiron_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetColdiron", "basemetals_jj_coldiron_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateColdiron", "basemetals_jj_coldiron_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustColdiron", "basemetals_jj_coldiron_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldColdiron", "basemetals_jj_coldiron_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyColdiron", "basemetals_jj_coldiron_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockCopper", "basemetals_jj_copper_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotCopper", "basemetals_jj_copper_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetCopper", "basemetals_jj_copper_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateCopper", "basemetals_jj_copper_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustCopper", "basemetals_jj_copper_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyCopper", "basemetals_jj_copper_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockCupronickel", "basemetals_jj_cupronickel_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotCupronickel", "basemetals_jj_cupronickel_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetCupronickel", "basemetals_jj_cupronickel_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateCupronickel", "basemetals_jj_cupronickel_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustCupronickel", "basemetals_jj_cupronickel_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldCupronickel", "basemetals_jj_cupronickel_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyCupronickel", "basemetals_jj_cupronickel_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetDiamond", "basemetals_jj_diamond_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyDiamond", "basemetals_jj_diamond_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockElectrum", "basemetals_jj_electrum_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotElectrum", "basemetals_jj_electrum_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetElectrum", "basemetals_jj_electrum_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateElectrum", "basemetals_jj_electrum_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustElectrum", "basemetals_jj_electrum_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldElectrum", "basemetals_jj_electrum_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyElectrum", "basemetals_jj_electrum_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetEmerald", "basemetals_jj_emerald_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateEmerald", "basemetals_jj_emerald_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldEmerald", "basemetals_jj_emerald_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyEmerald", "basemetals_jj_emerald_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustGold", "basemetals_jj_gold_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyGold", "basemetals_jj_gold_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockInvar", "basemetals_jj_invar_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotInvar", "basemetals_jj_invar_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetInvar", "basemetals_jj_invar_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustInvar", "basemetals_jj_invar_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyInvar", "basemetals_jj_invar_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_plateIron", "basemetals_jj_iron_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustIron", "basemetals_jj_iron_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldIron", "basemetals_jj_iron_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyIron", "basemetals_jj_iron_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockLead", "basemetals_jj_lead_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotLead", "basemetals_jj_lead_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetLead", "basemetals_jj_lead_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateLead", "basemetals_jj_lead_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustLead", "basemetals_jj_lead_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyLead", "basemetals_jj_lead_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotMercury", "basemetals_jj_mercury_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_dustMercury", "basemetals_jj_mercury_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockMithril", "basemetals_jj_mithril_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotMithril", "basemetals_jj_mithril_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetMithril", "basemetals_jj_mithril_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustMithril", "basemetals_jj_mithril_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyMithril", "basemetals_jj_mithril_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockNickel", "basemetals_jj_nickel_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotNickel", "basemetals_jj_nickel_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetNickel", "basemetals_jj_nickel_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateNickel", "basemetals_jj_nickel_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustNickel", "basemetals_jj_nickel_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldNickel", "basemetals_jj_nickel_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyNickel", "basemetals_jj_nickel_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockObsidian", "basemetals_jj_obsidian_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotObsidian", "basemetals_jj_obsidian_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetObsidian", "basemetals_jj_obsidian_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustObsidian", "basemetals_jj_obsidian_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyObsidian", "basemetals_jj_obsidian_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockPewter", "basemetals_jj_pewter_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotPewter", "basemetals_jj_pewter_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetPewter", "basemetals_jj_pewter_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_platePewter", "basemetals_jj_pewter_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustPewter", "basemetals_jj_pewter_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyPewter", "basemetals_jj_pewter_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockPlatinum", "basemetals_jj_platinum_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotPlatinum", "basemetals_jj_platinum_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetPlatinum", "basemetals_jj_platinum_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_platePlatinum", "basemetals_jj_platinum_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustPlatinum", "basemetals_jj_platinum_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldPlatinum", "basemetals_jj_platinum_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyPlatinum", "basemetals_jj_platinum_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotQuartz", "basemetals_jj_quartz_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetQuartz", "basemetals_jj_quartz_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustQuartz", "basemetals_jj_quartz_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyQuartz", "basemetals_jj_quartz_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockSilver", "basemetals_jj_silver_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotSilver", "basemetals_jj_silver_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetSilver", "basemetals_jj_silver_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateSilver", "basemetals_jj_silver_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustSilver", "basemetals_jj_silver_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldSilver", "basemetals_jj_silver_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinySilver", "basemetals_jj_silver_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockStarsteel", "basemetals_jj_starsteel_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotStarsteel", "basemetals_jj_starsteel_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetStarsteel", "basemetals_jj_starsteel_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_dustStarsteel", "basemetals_jj_starsteel_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyStarsteel", "basemetals_jj_starsteel_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockSteel", "basemetals_jj_steel_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotSteel", "basemetals_jj_steel_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetSteel", "basemetals_jj_steel_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateSteel", "basemetals_jj_steel_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustSteel", "basemetals_jj_steel_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinySteel", "basemetals_jj_steel_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockTin", "basemetals_jj_tin_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotTin", "basemetals_jj_tin_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetTin", "basemetals_jj_tin_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateTin", "basemetals_jj_tin_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTin", "basemetals_jj_tin_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldTin", "basemetals_jj_tin_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyTin", "basemetals_jj_tin_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_blockZinc", "basemetals_jj_zinc_block")
+MC.changeRecipeItem("basemetals", "ore_jj_ingotZinc", "basemetals_jj_zinc_ingot")
+MC.changeRecipeItem("basemetals", "ore_jj_nuggetZinc", "basemetals_jj_zinc_nugget")
+MC.changeRecipeItem("basemetals", "ore_jj_plateZinc", "basemetals_jj_zinc_plate")
+MC.changeRecipeItem("basemetals", "ore_jj_dustZinc", "basemetals_jj_zinc_powder")
+MC.changeRecipeItem("basemetals", "ore_jj_shieldZinc", "basemetals_jj_zinc_shield")
+MC.changeRecipeItem("basemetals", "ore_jj_dustTinyZinc", "basemetals_jj_zinc_smallpowder")
+MC.changeRecipeItem("basemetals", "ore_jj_gemEmerald", "minecraft_jj_emerald")
+MC.changeRecipeItem("basemetals", "minecraft_jj_Iron_nugget", "minecraft_jj_iron_nugget")
+
+
+
+
+$('#mainSplitter').jqxSplitter({  width: 1598, height: 718, panels: [{ size: 300, min: 300 }, {min: 300, size: 300}] });
+$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 620, min: 300, collapsible: false }, { min: 300, collapsible: true}] });
+	
 */
