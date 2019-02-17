@@ -102,7 +102,7 @@ return {
  minecraft_jj_cobblestone_wall_jj_1={craftCount=6,maxCount=640,recipe={minecraft_jj_mossy_cobblestone={need=6}}},
  minecraft_jj_command_block={craftCount=1,maxCount=64,recipe={conquest_jj_iron_chain={need=6},minecraft_jj_iron_block={need=1},minecraft_jj_iron_ingot={need=2}}},
  minecraft_jj_command_block_minecart={craftCount=1,maxCount=64,recipe={conquest_jj_iron_chain={need=6},minecraft_jj_iron_ingot={need=2},minecraft_jj_minecart={need=1}}},
- minecraft_jj_comparator={craftCount=1,maxCount=640,recipe={minecraft_jj_redstone_torch={need=3},minecraft_jj_stone={need=3}}},
+ minecraft_jj_comparator={craftCount=1,maxCount=640,recipe={minecraft_jj_quartz={need=1},minecraft_jj_redstone_torch={need=3},minecraft_jj_stone={need=3}}},
  minecraft_jj_compass={craftCount=1,maxCount=256,recipe={minecraft_jj_iron_ingot={need=4},minecraft_jj_redstone={need=1}}},
  minecraft_jj_concrete={craftCount=1,maxCount=640,recipe={minecraft_jj_concrete_powder={need=1}}},
  minecraft_jj_concrete_jj_1={craftCount=1,maxCount=640,recipe={minecraft_jj_concrete_powder_jj_1={need=1}}},

@@ -108,7 +108,7 @@ Array.prototype.contains = function(search){
 Object.defineProperty(Object.prototype, "Copy", {
     enumerable: false,
     writable: true,
-    value: function() {
+    value: function(exceptions, includes) {
     	//console.log("arguments length: " + arguments.length);
 		var returning;
 		if ( this instanceof Array == false && this instanceof Object){
@@ -117,12 +117,17 @@ Object.defineProperty(Object.prototype, "Copy", {
 		else if ( this instanceof Array){
 			returning = new Array();
 		}
+		if ( !exceptions ) {
+			exceptions = ""
+		}
 		for (var i = 0; i < Object.keys(this).length; i++){
-			if ( this[Object.keys(this)[i]] instanceof Object){
-				returning[Object.keys(this)[i]] = this[Object.keys(this)[i]].Copy();
-			}
-			else{
-				returning[Object.keys(this)[i]] = this[Object.keys(this)[i]];
+			if ( !Object.keys(this)[i].equals(exceptions) || exceptions.equals("") ) {
+				if ( this[Object.keys(this)[i]] instanceof Object){
+					returning[Object.keys(this)[i]] = this[Object.keys(this)[i]].Copy();
+				}
+				else{
+					returning[Object.keys(this)[i]] = this[Object.keys(this)[i]];
+				}
 			}
 		}
         return returning;
