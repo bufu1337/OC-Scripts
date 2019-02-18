@@ -4,6 +4,7 @@ var MC = {
 	Mods: {},
 	Mod: {},
 	Traders: [],
+	Listing: {itemListBox:[]},
 	Suggest: {
 		groups: [],
 		comment1: [],
@@ -102,7 +103,6 @@ var MC = {
 				}
 			}
 		});
-		//{"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":tag,"trader":0}
 	},
 	setForAll: function(what, items, newval){
 		if ( !what.equals("recipe") && what.equals(Object.keys(MC.Items.minecraft.minecraft_jj_glass)) ) {
@@ -176,13 +176,13 @@ var MC = {
 					MC.Suggest.groups.push(item.group);
 				}
 				if ( item.c1 != "" && item.c1.equals(MC.Suggest.comment1) == false ) {
-					MC.Suggest.comment1.push(item.c1);	
+					MC.Suggest.comment1.push(item.c1);
 				}
 				if ( item.c2 != "" && item.c2.equals(MC.Suggest.comment2) == false ) {
-					MC.Suggest.comment2.push(item.c2);	
+					MC.Suggest.comment2.push(item.c2);
 				}
 				if ( item.c3 != "" && item.c3.equals(MC.Suggest.comment3) == false ) {
-					MC.Suggest.comment3.push(item.c3);				
+					MC.Suggest.comment3.push(item.c3);
 				}
 			});
 		});
@@ -224,7 +224,7 @@ var MC = {
 								if(!name.split("_b_")[1].equals(citem.variants)){
 									citem.variants.push(name.split("_b_")[1])
 								}
-							}					
+							}
 						}
 					});
 				}
@@ -248,6 +248,7 @@ var MC = {
 			"filter_comment3_input",
 			"filter_trader_input",
 			"filter_fixedprice_check",
+			"filter_maxCountfrom_numinput",
 			"filter_pricefrom_numinput",
 			"filter_validrecipe_check",
 			"filter_selling_check",
@@ -264,6 +265,7 @@ var MC = {
 			if ( filt.endsWith("_input") ) { check = ( $('#' + filt).val() != "" )}
 			else if (filt.endsWith("_check")){ check = ( $('#' + filt).val() != null )}
 			else if (filt.endsWith("filter_pricefrom_numinput")){ check = ( $('#' + filt).val() != "0" || $('#filter_priceto_numinput').val() != "0" )}
+			else if (filt.endsWith("filter_maxCountfrom_numinput")){ check = ( $('#' + filt).val() != "0" || $('#filter_maxCountto_numinput').val() != "0" )}
 			if ( check ) {
 				var id = filt.split("_")[1]
 				$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
@@ -302,6 +304,12 @@ var MC = {
 								items[item] = false
 							}
 						}
+						else if ( id == "maxCountfrom" ) {
+							var tmaxCount = MC.Mod[MC.viewing.Mod].items[item].maxCount
+							if ( tmaxCount < (parseInt($('#' + filt).val()) || tmaxCount > parseInt($('#filter_maxCountto_numinput').val())) ) {
+								items[item] = false
+							}
+						}
 					}
 				});
 			}
@@ -311,6 +319,7 @@ var MC = {
 		});
 		MC.show("itemListBox");
 		var itemssource = [];
+		MC.Listing.itemListBox = [];
 		$.each(Object.keys(newitems), function (index, item) {
 			//var pricecaption = newitems[item].count + " St. => " + newitems[item].price;
 			//var pricecaption = newitems[item].count + " St. => " + newitems[item].price
@@ -337,6 +346,7 @@ var MC = {
 			else if(!MC.CItems[MC.viewing.Mod][item].valid_recipe){
 				valid = " <b class='itemstyle4'>Recipe: Not valid</b>"
 			}
+			MC.Listing.itemListBox.push(item);
 			itemssource.push({html: "<b class='itemstyle'>Name:</b> " + itemname + valid + " <b class='itemstyle2'>Costs:</b> " + pricecaption, label: item, value: item, group: MC.Mod[MC.viewing.Mod].items[item].group});
 		});
 		$('#itemListBox').jqxListBox('source', itemssource);
@@ -386,7 +396,7 @@ var MC = {
 			if ( $('#itemDetailTabs').jqxTabs('selectedItem') == 2 ) {
 				$('#itemDetailTabs').jqxTabs('select', 0);
 			}
-			MC.viewing.Item = itemname;	
+			MC.viewing.Item = itemname;
 			var tempname = MC.viewing.Item.split("_b_")[0]
 			var temp_itemdmg = "";
 			if(tempname.split("_jj_")[2] != null){temp_itemdmg = tempname.split("_jj_")[2]}
@@ -416,7 +426,7 @@ var MC = {
 			else{ 
 				MC.show("itemtag_line", "table-row")
 			}
-			
+
 			$("#itemlabel_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label);
 			$("#itemgroup_input").jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group);
 			$('#itemcomment1_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);
@@ -430,11 +440,12 @@ var MC = {
 			$("#itemselling_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling});
 			$("#itembuying_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].buying});
 			$("#itemfixedprice_check").jqxCheckBox({checked: MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice});
+			$('#itemMaxCount_input').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount);
 			$('#itemprice_input').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price);
 			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
 			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
 			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
-			
+
 			$('#rc_craftcount').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount);
 			var temp_counter = 0;
 			$.each(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe, function (itemid, item) {
@@ -515,7 +526,7 @@ $(document).ready(function () {
 				}
 			}
 			var textFileAsBlob = new Blob([JStextToWrite], { type: 'application/javascript' });
-	
+
 			if ('msSaveOrOpenBlob' in navigator) {
 				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
 			} 
@@ -568,7 +579,7 @@ $(document).ready(function () {
 				}
 			}
 			var textFileAsBlob = new Blob([JStextToWrite], { type: 'application/javascript' });
-		
+
 			if ('msSaveOrOpenBlob' in navigator) {
 				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
 			} 
@@ -649,7 +660,7 @@ $(document).ready(function () {
 				}
 			}
 			var textFileAsBlob = new Blob([LUAtextToWrite], { type: 'application/lua' });
-			
+
 			if ('msSaveOrOpenBlob' in navigator) {
 				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName2);
 			} 
@@ -675,7 +686,7 @@ $(document).ready(function () {
 			alert('Your browser does not support the HTML5 Blob.');
 		}
 	});
-	
+
 	$('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });
 	$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 500, min: 100, collapsible: false }, { min: 100, collapsible: true}] });
 	$('#contentSplitter').on('expanded', function (event) {
@@ -719,7 +730,7 @@ $(document).ready(function () {
 	$('#itemListBox').on('select', function (event) {
 		MC.go.Item($('#itemListBox').jqxListBox('getSelectedItem').label);
 	});
-	
+
 	$("#itemlabel_input").jqxInput({placeHolder: "Enter a name...", height: 25, width: 300, minLength: 1});
 	$("#itemgroup_input").jqxComboBox({source: MC.Suggest.groups, placeHolder: "Enter a group...", height: 25, width: 307, minLength: 1, items: 20});
 	$('#itemcomment1_input').jqxComboBox({source: MC.Suggest.comment1, placeHolder: "Enter a comment...", height: 25, width: 307, minLength: 1, items: 20 });
@@ -734,13 +745,14 @@ $(document).ready(function () {
 	$("#itemfixedprice_check").jqxCheckBox({height: 25, width: 100, checked: false});
 	$("#itemfixedprice_check").on('change', function (event) {
 		if (event.args.checked) {
-			$("#itemprice_input").jqxNumberInput({disabled: false});									
+			$("#itemprice_input").jqxNumberInput({disabled: false});
 		}
 		else {
-			$("#itemprice_input").jqxNumberInput({disabled: true});									
+			$("#itemprice_input").jqxNumberInput({disabled: true});
 		}
 	});
-	$("#itemprice_input").jqxNumberInput({height: 25, width: 100, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$("#itemprice_input").jqxNumberInput({height: 25, width: 66, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
+	$("#itemMaxCount_input").jqxNumberInput({height: 25, width: 100, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#itemwindow_okButton').on('click', function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label = $("#itemlabel_input").val();
@@ -752,6 +764,7 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').val();
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount = parseInt($('#itemMaxCount_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].selling = $("#itemselling_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader = $("#itemtrader_drop").val();
@@ -774,8 +787,8 @@ $(document).ready(function () {
 		$("#itemListBox").jqxListBox('selectItem', temp_item);
 		MC.item_selecting = false;
 	});
-	
-	
+
+
 	$("#filter_modid_input").jqxInput({placeHolder: "ModID contains...", height: 25, width: 300, minLength: 1});
 	$("#filter_itemid_input").jqxInput({placeHolder: "ItemID contains...", height: 25, width: 300, minLength: 1});
 	$("#filter_dmg_input").jqxInput({placeHolder: "Enter a damage...", height: 25, width: 300, minLength: 1});
@@ -795,6 +808,8 @@ $(document).ready(function () {
 	$("#filter_fixedprice_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_pricefrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#filter_priceto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
+	$("#filter_maxCountfrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$("#filter_maxCountto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$('#filter_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#filter_okButton').on('click', MC.itemfilter);
 	$('#filter_clearButton').jqxButton({ width: '180px', disabled: false });
@@ -818,11 +833,13 @@ $(document).ready(function () {
 		$("#filter_fixedprice_check").jqxCheckBox({checked: null});
 		$("#filter_pricefrom_numinput").val("0");
 		$("#filter_priceto_numinput").val("0");
-			
+		$("#filter_maxCountfrom_numinput").val("0");
+		$("#filter_maxCountto_numinput").val("0");
+
 		MC.itemfilter();
 	});
-	
-	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 64});
+
+	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
 	for (var h = 0; h < 9; h++){
 		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});
 		$("#rc" + h + "_dmg").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
@@ -880,7 +897,7 @@ $(document).ready(function () {
 			}
 		});
 	}
-					
+
 	$('#recipeValidator').jqxValidator({
 		position: 'topcenter',
 		hintType : 'label',
@@ -998,7 +1015,7 @@ $(document).ready(function () {
 			setInterval(function(){ MC.hide("recipe_message") }, 10000);
 		}
 	});
-	
+
 	$("#cr_dmg").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
 	$("#cr_variant").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
 	$("#cr_modbox").jqxInput({placeHolder: "Enter ModID...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: Object.keys(MC.Mods)});
@@ -1060,7 +1077,7 @@ $(document).ready(function () {
 			}
 		}
 	});
-		
+
 	$('#recipe_copyButton').jqxButton({ width: '180px', disabled: false });
 	$('#recipe_copyButton').on('click', function () {
 		if($('#cr_group')[0].style.visibility == "hidden"){
@@ -1094,7 +1111,7 @@ $(document).ready(function () {
 			}
 		}
 	});
-			
+
 	MC.go.Mod("");
 });
 
@@ -1360,5 +1377,5 @@ MC.changeRecipeItem("basemetals", "minecraft_jj_Iron_nugget", "minecraft_jj_iron
 
 $('#mainSplitter').jqxSplitter({  width: 1598, height: 718, panels: [{ size: 300, min: 300 }, {min: 300, size: 300}] });
 $('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 620, min: 300, collapsible: false }, { min: 300, collapsible: true}] });
-	
+
 */
