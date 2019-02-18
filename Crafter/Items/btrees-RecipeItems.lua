@@ -1,4 +1,6 @@
 return {
+ basemetals_jj_gold_gear={need=0},
+ basemetals_jj_iron_gear={need=0},
  conquest_jj_hops={need=0},
  extratrees_jj_planks_vv_0={need=0},
  extratrees_jj_planks_vv_0_jj_1={need=0},
@@ -72,7 +74,10 @@ return {
  extratrees_jj_planks_vv_fireproof_vv_2_jj_1={need=0},
  extratrees_jj_planks_vv_fireproof_vv_2_jj_2={need=0},
  extratrees_jj_planks_vv_fireproof_vv_2_jj_3={need=0},
+ forestry_jj_gear_bronze={need=0},
+ forestry_jj_gear_copper={need=0},
  forestry_jj_impregnated_casing={need=0},
+ forestry_jj_ingot_tin={need=0},
  forestry_jj_oak_stick={need=0},
  forestry_jj_sturdy_machine={need=0},
  minecraft_jj_book={need=0},
@@ -94,10 +99,5 @@ return {
  minecraft_jj_stick={need=0},
  minecraft_jj_stone_button={need=0},
  minecraft_jj_wheat_seeds={need=0},
- minecraft_jj_wooden_slab={need=0},
- ore_jj_gearBronze={need=0},
- ore_jj_gearCopper={need=0},
- ore_jj_gearGold={need=0},
- ore_jj_gearIron={need=0},
- ore_jj_ingotTin={need=0}
+ minecraft_jj_wooden_slab={need=0}
  }

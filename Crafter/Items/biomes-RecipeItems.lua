@@ -24,6 +24,7 @@ return {
  biomesoplenty_jj_leaves_2_jj_8={need=0},
  biomesoplenty_jj_leaves_5_jj_8={need=0},
  biomesoplenty_jj_mud_brick={need=0},
+ biomesoplenty_jj_mudball={need=0},
  biomesoplenty_jj_mushroom={need=0},
  biomesoplenty_jj_mushroom_jj_1={need=0},
  biomesoplenty_jj_mushroom_jj_2={need=0},
@@ -99,7 +100,5 @@ return {
  moarfood_jj_peach={need=0},
  mysticalagriculture_jj_crafting_jj_14={need=0},
  mysticalagriculture_jj_creeper_essence={need=0},
- mysticalagriculture_jj_skeleton_essence={need=0},
- ore_jj_ballMud={need=0},
- ore_jj_grass={need=0}
+ mysticalagriculture_jj_skeleton_essence={need=0}
  }

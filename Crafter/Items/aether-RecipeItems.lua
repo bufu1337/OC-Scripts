@@ -13,8 +13,9 @@ return {
  aether_legacy_jj_skyroot_plank={need=0},
  animania_jj_cooked_prime_bacon={need=0},
  animania_jj_plain_omelette={need=0},
+ animania_jj_salt={need=0},
  animania_jj_truffle={need=0},
- minecraft_jj_Iron_nugget={need=0},
+ harvestcraft_jj_cheeseitem={need=0},
  minecraft_jj_bed={need=0},
  minecraft_jj_book={need=0},
  minecraft_jj_bowl={need=0},
@@ -27,9 +28,11 @@ return {
  minecraft_jj_glass_pane={need=0},
  minecraft_jj_gold_ingot={need=0},
  minecraft_jj_iron_ingot={need=0},
+ minecraft_jj_iron_nugget={need=0},
  minecraft_jj_leather={need=0},
  minecraft_jj_leaves={need=0},
  minecraft_jj_melon_seeds={need=0},
+ minecraft_jj_milk_bucket={need=0},
  minecraft_jj_planks={need=0},
  minecraft_jj_pumpkin_seeds={need=0},
  minecraft_jj_stick={need=0},
@@ -41,8 +44,5 @@ return {
  minecraft_jj_wool={need=0},
  minecraft_jj_wool_jj_11={need=0},
  minecraft_jj_wool_jj_14={need=0},
- minecraft_jj_wool_jj_4={need=0},
- ore_jj_dustSalt={need=0},
- ore_jj_foodCheese={need=0},
- ore_jj_listAllmilk={need=0}
+ minecraft_jj_wool_jj_4={need=0}
  }

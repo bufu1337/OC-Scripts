@@ -5,12 +5,7 @@ var MC = {
 	Mod: {},
 	Traders: [],
 	Listing: {itemListBox:[]},
-	Suggest: {
-		groups: [],
-		comment1: [],
-		comment2: [],
-		comment3: []
-	},
+	Suggest: { groups: [], comment1: [], comment2: [], comment3: [] },
 	viewing: {
 		Mod: "",
 		Item: ""
@@ -235,7 +230,7 @@ var MC = {
 	checkItem: function(citem){
 		return MC.convertItemID(MC.convertCItemtoID(citem), false, true)
 	},
-	itemfilter: function () {
+	itemfilter: function (gomod) {
 		var newitems = {}
 		var filters = [ "filter_modid_input",
 			"filter_itemid_input",
@@ -260,12 +255,34 @@ var MC = {
 		$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
 			items[item] = true
 		});
+		
+		if ( gomod ) {
+			var Suggest = { groups: [], comment1: [], comment2: [], comment3: [] }
+			$.each(MC.Mod[MC.viewing.Mod].items, function (index, item) {
+				if ( item.group != "" && item.group.equals(Suggest.groups) == false ) {
+					Suggest.groups.push(item.group);
+				}
+				if ( item.c1 != "" && item.c1.equals(Suggest.comment1) == false ) {
+					Suggest.comment1.push(item.c1);
+				}
+				if ( item.c2 != "" && item.c2.equals(Suggest.comment2) == false ) {
+					Suggest.comment2.push(item.c2);
+				}
+				if ( item.c3 != "" && item.c3.equals(Suggest.comment3) == false ) {
+					Suggest.comment3.push(item.c3);
+				}
+			});
+			$("#filter_group_input").jqxComboBox({source: Suggest.groups});
+			$('#filter_comment1_input').jqxComboBox({source: Suggest.comment1});
+			$('#filter_comment2_input').jqxComboBox({source: Suggest.comment2});
+			$('#filter_comment3_input').jqxComboBox({source: Suggest.comment3});
+		}
+		
 		$.each(filters, function(i, filt) {
 			var check = false;
 			if ( filt.endsWith("_input") ) { check = ( $('#' + filt).val() != "" )}
 			else if (filt.endsWith("_check")){ check = ( $('#' + filt).val() != null )}
-			else if (filt.endsWith("filter_pricefrom_numinput")){ check = ( $('#' + filt).val() != "0" || $('#filter_priceto_numinput').val() != "0" )}
-			else if (filt.endsWith("filter_maxCountfrom_numinput")){ check = ( $('#' + filt).val() != "0" || $('#filter_maxCountto_numinput').val() != "0" )}
+			else if (filt.endsWith("_numinput")){ check = ( $('#' + filt).val() != "0" || $('#' + filt.replace("from", "to")).val() != "0" )}
 			if ( check ) {
 				var id = filt.split("_")[1]
 				$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
@@ -298,15 +315,9 @@ var MC = {
 								items[item] = false
 							}
 						}
-						else if ( id == "pricefrom" ) {
-							var tprice = MC.Mod[MC.viewing.Mod].items[item].price
-							if ( tprice < (parseInt($('#' + filt).val()) || tprice > parseInt($('#filter_priceto_numinput').val())) ) {
-								items[item] = false
-							}
-						}
-						else if ( id == "maxCountfrom" ) {
-							var tmaxCount = MC.Mod[MC.viewing.Mod].items[item].maxCount
-							if ( tmaxCount < (parseInt($('#' + filt).val()) || tmaxCount > parseInt($('#filter_maxCountto_numinput').val())) ) {
+						else if ( filt.endsWith("_numinput") ) {
+							var temp = MC.Mod[MC.viewing.Mod].items[item][id.substring(0, id.length - 4)]
+							if ( temp < parseInt($('#' + filt).val()) || temp > parseInt($('#' + filt.replace("from", "to")).val()) ) {
 								items[item] = false
 							}
 						}
@@ -352,6 +363,70 @@ var MC = {
 		$('#itemListBox').jqxListBox('source', itemssource);
 		$('#itemListBox').jqxListBox('refresh');
 	},
+	save: function(what){
+		if ('Blob' in window) {
+			var fileName = 'MC-' + what + '.js';
+			var JStextToWrite = "MC." + what + " = {\n" 
+			var typ = 'application/javascript'
+			var replaceforLUA = false
+			if ( what == 'lua' ) {
+				fileName = 'ALL_Items.lua';
+				JStextToWrite = "return {\n" 
+				typ = 'application/lua'
+				what = 'Items'
+				replaceforLUA = true
+			}
+			var objKeys = {}
+			objKeys.main = Object.keys(MC[what])
+			for(var i = 0; i < objKeys.main.length; i++) {
+				JStextToWrite += "  " + JSON.stringify(objKeys.main[i]) + ":{\n";
+				objKeys[objKeys.main[i]] = Object.keys(MC[what][objKeys.main[i]]);
+				for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
+					JStextToWrite += "    " + JSON.stringify(objKeys[objKeys.main[i]][j]) + ":" + JSON.stringify(MC[what][objKeys.main[i]][objKeys[objKeys.main[i]][j]])
+					if (j == objKeys[objKeys.main[i]].length - 1){
+						JStextToWrite += "\n";
+						if (i == objKeys.main.length - 1){
+							JStextToWrite += "  }\n}";
+						}
+						else{
+							JStextToWrite += "  },\n";
+						}
+					}
+					else{
+						JStextToWrite += ",\n";
+					}
+				}
+			}
+			if ( replaceforLUA ) {
+				JStextToWrite = JStextToWrite.replaceAll(":", "=").replaceAll(":", "=").replaceAll("\"=", "=").replaceAll(",\"", ",").replaceAll("{\"", "{").replaceAll("  \"", "  ")
+			}
+			var textFileAsBlob = new Blob([JStextToWrite], { type: typ });
+		
+			if ('msSaveOrOpenBlob' in navigator) {
+				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
+			} 
+			else {
+				var downloadLink = document.createElement('a');
+				downloadLink.download = fileName;
+				downloadLink.innerHTML = 'Download File';
+				if ('webkitURL' in window) {
+					// Chrome allows the link to be clicked without actually adding it to the DOM.
+					downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+				}
+				else {
+					// Firefox requires the link to be added to the DOM before it can be clicked.
+					downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+					downloadLink.onclick = function (event) {document.body.removeChild(event.target);};
+					downloadLink.style.display = 'none';
+					document.body.appendChild(downloadLink);
+				}
+				downloadLink.click();
+			}
+		}
+		else {
+			alert('Your browser does not support the HTML5 Blob.');
+		}
+	},
 	hide: function(div_name){
 		$("#" + div_name).css({visibility: "hidden", display: "none"});
 	},
@@ -381,7 +456,7 @@ var MC = {
 					MC.show("noitems");
 				}
 				else{
-					MC.itemfilter();
+					MC.itemfilter(true);
 				}
 			}
 		},
@@ -500,192 +575,11 @@ $(document).ready(function () {
 	MC.createModList();
 	MC.createItemSource();
 	$("#btnSave").jqxButton({ width: 48, height: 48, imgWidth: 48, imgHeight: 48, imgPosition: "left", textPosition: "center", imgSrc: "save-js.png", textImageRelation: "overlay" });
-	$('#btnSave').on('click', function () {
-		if ('Blob' in window) {
-			var fileName = 'MC-ItemsTO.js';
-			var JStextToWrite = "MC.Items = {\n"
-			var objKeys = {}
-			objKeys.main = Object.keys(MC.Items)
-			for(var i = 0; i < objKeys.main.length; i++) {
-				JStextToWrite += "  " + JSON.stringify(objKeys.main[i]) + ":{\n";
-				objKeys[objKeys.main[i]] = Object.keys(MC.Items[objKeys.main[i]]);
-				for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
-					JStextToWrite += "    " + JSON.stringify(objKeys[objKeys.main[i]][j]) + ":" + JSON.stringify(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]])
-					if (j == objKeys[objKeys.main[i]].length - 1){
-						JStextToWrite += "\n";
-						if (i == objKeys.main.length - 1){
-							JStextToWrite += "  }\n}";
-						}
-						else{
-							JStextToWrite += "  },\n";
-						}
-					}
-					else{
-						JStextToWrite += ",\n";
-					}
-				}
-			}
-			var textFileAsBlob = new Blob([JStextToWrite], { type: 'application/javascript' });
-
-			if ('msSaveOrOpenBlob' in navigator) {
-				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
-			} 
-			else {
-				var downloadLink = document.createElement('a');
-				downloadLink.download = fileName;
-				downloadLink.innerHTML = 'Download File';
-				if ('webkitURL' in window) {
-					// Chrome allows the link to be clicked without actually adding it to the DOM.
-					downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-				}
-				else {
-					// Firefox requires the link to be added to the DOM before it can be clicked.
-					downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-					downloadLink.onclick = function (event) {document.body.removeChild(event.target);};
-					downloadLink.style.display = 'none';
-					document.body.appendChild(downloadLink);
-				}
-				downloadLink.click();
-			}
-		}
-		else {
-			alert('Your browser does not support the HTML5 Blob.');
-		}
-	});
+	$('#btnSave').on('click', function () { MC.save('Items') });
 	$("#btnSaveConvert").jqxButton({ width: 48, height: 48, imgWidth: 48, imgHeight: 48, imgPosition: "left", textPosition: "center", imgSrc: "save-convert.png", textImageRelation: "overlay" });
-	$('#btnSaveConvert').on('click', function () {
-		if ('Blob' in window) {
-			var fileName = 'MC-CItems.js';
-			var JStextToWrite = "MC.CItems = {\n"
-			var objKeys = {}
-			objKeys.main = Object.keys(MC.CItems)
-			for(var i = 0; i < objKeys.main.length; i++) {
-				JStextToWrite += "  " + JSON.stringify(objKeys.main[i]) + ":{\n";
-				objKeys[objKeys.main[i]] = Object.keys(MC.CItems[objKeys.main[i]]);
-				for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
-					JStextToWrite += "    " + JSON.stringify(objKeys[objKeys.main[i]][j]) + ":" + JSON.stringify(MC.CItems[objKeys.main[i]][objKeys[objKeys.main[i]][j]])
-					if (j == objKeys[objKeys.main[i]].length - 1){
-						JStextToWrite += "\n";
-						if (i == objKeys.main.length - 1){
-							JStextToWrite += "  }\n}";
-						}
-						else{
-							JStextToWrite += "  },\n";
-						}
-					}
-					else{
-						JStextToWrite += ",\n";
-					}
-				}
-			}
-			var textFileAsBlob = new Blob([JStextToWrite], { type: 'application/javascript' });
-
-			if ('msSaveOrOpenBlob' in navigator) {
-				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
-			} 
-			else {
-				var downloadLink = document.createElement('a');
-				downloadLink.download = fileName;
-				downloadLink.innerHTML = 'Download File';
-				if ('webkitURL' in window) {
-					// Chrome allows the link to be clicked without actually adding it to the DOM.
-					downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-				}
-				else {
-					// Firefox requires the link to be added to the DOM before it can be clicked.
-					downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-					downloadLink.onclick = function (event) {document.body.removeChild(event.target);};
-					downloadLink.style.display = 'none';
-					document.body.appendChild(downloadLink);
-				}
-				downloadLink.click();
-			}
-		}
-		else {
-			alert('Your browser does not support the HTML5 Blob.');
-		}
-	});
+	$('#btnSaveConvert').on('click', function () { MC.save('CItems') });
 	$("#btnSaveLUA").jqxButton({ width: 48, height: 48, imgWidth: 48, imgHeight: 48, imgPosition: "left", textPosition: "center", imgSrc: "save-lua.png", textImageRelation: "overlay" });
-	$('#btnSaveLUA').on('click', function () {
-		if ('Blob' in window) {
-			var fileName2 = 'All-Items.lua';
-			var LUAtextToWrite = "return {\n"
-			var objKeys = {}
-			objKeys.main = Object.keys(MC.Items)
-			for(var i = 0; i < objKeys.main.length; i++) {
-				LUAtextToWrite += "  " + objKeys.main[i] + "={\n";
-				objKeys[objKeys.main[i]] = Object.keys(MC.Items[objKeys.main[i]]);
-				for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
-					LUAtextToWrite += "    " + objKeys[objKeys.main[i]][j] + "={"
-					var templuakeys = Object.keys(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]])
-					for(var g = 0; g < templuakeys.length; g++) {
-						//console.log(typeof MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]])
-						if((typeof MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]]) == "object"){
-							var templen = LUAtextToWrite.length
-							LUAtextToWrite += templuakeys[g] + "={";
-							var templuaobjkeys = Object.keys(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]]);
-							for(var b = 0; b < templuaobjkeys.length; b++) {
-								LUAtextToWrite += templuaobjkeys[b] + "={";
-								var templuaobjkeys2 = Object.keys(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]][templuaobjkeys[b]])
-								for(var c = 0; c < templuaobjkeys2.length; c++) {
-									LUAtextToWrite += templuaobjkeys2[c] + "=" + JSON.stringify(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]][templuaobjkeys[b]][templuaobjkeys2[c]]) + ","
-								}
-								LUAtextToWrite = LUAtextToWrite.substring(0, LUAtextToWrite.length - 1) + "},";
-							}
-							if(templuaobjkeys.length == 0){
-								LUAtextToWrite += "},";
-							}
-							else{
-								LUAtextToWrite = LUAtextToWrite.substring(0, LUAtextToWrite.length - 1) + "},";
-							}
-							//console.log(LUAtextToWrite.substring(templen, LUAtextToWrite.length));
-						}
-						else{
-							LUAtextToWrite += templuakeys[g] + "=" + JSON.stringify(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][templuakeys[g]]) + ",";
-						}
-					}
-					LUAtextToWrite = LUAtextToWrite.substring(0, LUAtextToWrite.length - 1);
-					if (j == objKeys[objKeys.main[i]].length - 1){
-						LUAtextToWrite += "}\n";
-						if (i == objKeys.main.length - 1){
-							LUAtextToWrite += "  }\n}";
-						}
-						else{
-							LUAtextToWrite += "  },\n";
-						}
-					}
-					else{
-						LUAtextToWrite += "},\n";
-					}
-				}
-			}
-			var textFileAsBlob = new Blob([LUAtextToWrite], { type: 'application/lua' });
-
-			if ('msSaveOrOpenBlob' in navigator) {
-				navigator.msSaveOrOpenBlob(textFileAsBlob, fileName2);
-			} 
-			else {
-				var downloadLink = document.createElement('a');
-				downloadLink.download = fileName2;
-				downloadLink.innerHTML = 'Download File';
-				if ('webkitURL' in window) {
-					// Chrome allows the link to be clicked without actually adding it to the DOM.
-					downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-				}
-				else {
-					// Firefox requires the link to be added to the DOM before it can be clicked.
-					downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-					downloadLink.onclick = function (event) {document.body.removeChild(event.target);};
-					downloadLink.style.display = 'none';
-					document.body.appendChild(downloadLink);
-				}
-				downloadLink.click();
-			}
-		}
-		else {
-			alert('Your browser does not support the HTML5 Blob.');
-		}
-	});
+	$('#btnSaveLUA').on('click', function () { MC.save('lua') });
 
 	$('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });
 	$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 500, min: 100, collapsible: false }, { min: 100, collapsible: true}] });
@@ -706,7 +600,7 @@ $(document).ready(function () {
 	});
 	$("#itemListExpander").jqxExpander({toggleMode: 'none', showArrow: false, width: "100%", height: "100%",
 		initContent: function () {
-			$('#itemListBox').jqxListBox({ filterable: true, searchMode: 'contains', filterPlaceHolder: "Suche...", source: ['No mod selected! Please Select a mod first!'], width: '100%', height: 896 });
+			$('#itemListBox').jqxListBox({ filterable: true, searchMode: 'contains', filterPlaceHolder: "Suche...", source: ['No mod selected! Please Select a mod first!'], width: '100%', height: '100%' });
 		}
 	});
 	$("#itemDetailExpander").jqxExpander({ toggleMode: 'none', showArrow: false, width: "100%", height: "100%", 
@@ -1372,9 +1266,11 @@ MC.changeRecipeItem("basemetals", "ore_jj_dustTinyZinc", "basemetals_jj_zinc_sma
 MC.changeRecipeItem("basemetals", "ore_jj_gemEmerald", "minecraft_jj_emerald")
 MC.changeRecipeItem("basemetals", "minecraft_jj_Iron_nugget", "minecraft_jj_iron_nugget")
 
-
-
-
+normal
+$('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });
+$('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 500, min: 100, collapsible: false }, { min: 100, collapsible: true}] });
+	
+lappy
 $('#mainSplitter').jqxSplitter({  width: 1598, height: 718, panels: [{ size: 300, min: 300 }, {min: 300, size: 300}] });
 $('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 620, min: 300, collapsible: false }, { min: 300, collapsible: true}] });
 

@@ -1,4 +1,5 @@
 return {
+ basemetals_jj_iron_gear={need=0},
  botania_jj_manaresource={need=0},
  botany_jj_flowerbed_jj_7={need=0},
  botany_jj_loam={need=0},
@@ -90,6 +91,7 @@ return {
  botany_jj_soil_jj_1={need=0},
  botany_jj_soil_jj_6={need=0},
  botany_jj_soil_jj_8={need=0},
+ extrabees_jj_honey_drop={need=0},
  forestry_jj_alveary_vv_plain={need=0},
  forestry_jj_ash={need=0},
  forestry_jj_beeswax={need=0},
@@ -101,6 +103,9 @@ return {
  forestry_jj_frame_impregnated={need=0},
  forestry_jj_frame_proven={need=0},
  forestry_jj_frame_untreated={need=0},
+ forestry_jj_gear_bronze={need=0},
+ forestry_jj_gear_tin={need=0},
+ forestry_jj_honey_drop={need=0},
  forestry_jj_impregnated_casing={need=0},
  forestry_jj_mulch={need=0},
  forestry_jj_oak_stick={need=0},
@@ -115,6 +120,7 @@ return {
  forestry_jj_thermionic_tubes_jj_5={need=0},
  forestry_jj_wood_pulp={need=0},
  genetics_jj_misc_jj_3={need=0},
+ ic2_jj_dust_jj_16={need=0},
  magicbees_jj_pollen={need=0},
  magicbees_jj_resource_jj_1={need=0},
  magicbees_jj_resource_jj_3={need=0},
@@ -191,13 +197,8 @@ return {
  minecraft_jj_water_bucket={need=0},
  minecraft_jj_wheat_seeds={need=0},
  minecraft_jj_wool={need=0},
- ore_jj_dustSulphur={need=0},
  ore_jj_gearBronze={need=0},
- ore_jj_gearIron={need=0},
- ore_jj_gearTin={need=0},
  ore_jj_ingotBronze={need=0},
  ore_jj_ingotTin={need=0},
- ore_jj_slabWood={need=0},
- ore_jj_toolTrowel={need=0},
- ore_jj_weedkiller={need=0}
+ ore_jj_slabWood={need=0}
  }

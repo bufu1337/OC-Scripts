@@ -79,18 +79,18 @@ return {
  animania_jj_block_trough={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=1},minecraft_jj_planks={need=4},minecraft_jj_stick={need=2}}},
  animania_jj_carving_knife={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=2},minecraft_jj_stick={need=1}}},
  animania_jj_cheese_mold={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=1},minecraft_jj_planks={need=3}}},
- animania_jj_cheese_omelette={craftCount=1,maxCount=8,recipe={animania_jj_plain_omelette={need=1},ore_jj_foodCheese={need=1}}},
+ animania_jj_cheese_omelette={craftCount=1,maxCount=8,recipe={animania_jj_plain_omelette={need=1},harvestcraft_jj_cheeseitem={need=1}}},
  animania_jj_chocolate_truffle={craftCount=1,maxCount=8,recipe={animania_jj_truffle={need=1},minecraft_jj_dye_jj_3={need=1},minecraft_jj_sugar={need=1}}},
  animania_jj_hamster_ball_clear={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_pane={need=8}}},
  animania_jj_hamster_ball_colored={craftCount=1,maxCount=8,recipe={minecraft_jj_dye={need=1},minecraft_jj_glass_pane={need=8}}},
  animania_jj_hamster_food={craftCount=3,maxCount=8,recipe={minecraft_jj_melon_seeds={need=1},minecraft_jj_pumpkin_seeds={need=1},minecraft_jj_wheat_seeds={need=1}}},
  animania_jj_item_cart={craftCount=1,maxCount=8,recipe={animania_jj_wheel={need=2},minecraft_jj_iron_ingot={need=1},minecraft_jj_planks={need=4},minecraft_jj_stick={need=1}}},
  animania_jj_item_wagon={craftCount=1,maxCount=8,recipe={animania_jj_item_cart={need=1},animania_jj_wheel={need=2},minecraft_jj_bed={need=1},minecraft_jj_chest={need=1},minecraft_jj_planks={need=2},minecraft_jj_wool={need=2}}},
- animania_jj_milk_bottle={craftCount=4,maxCount=8,recipe={minecraft_jj_glass_bottle={need=4},ore_jj_listAllmilk={need=1}}},
+ animania_jj_milk_bottle={craftCount=4,maxCount=8,recipe={minecraft_jj_glass_bottle={need=4},minecraft_jj_milk_bucket={need=1}}},
  animania_jj_riding_crop={craftCount=1,maxCount=8,recipe={minecraft_jj_leather={need=2},minecraft_jj_stick={need=1}}},
- animania_jj_salt_lick={craftCount=1,maxCount=8,recipe={minecraft_jj_water_bucket={need=1},ore_jj_dustSalt={need=8}}},
- animania_jj_super_omelette={craftCount=1,maxCount=8,recipe={animania_jj_cooked_prime_bacon={need=1},animania_jj_plain_omelette={need=1},animania_jj_truffle={need=1},ore_jj_foodCheese={need=1}}},
+ animania_jj_salt_lick={craftCount=1,maxCount=8,recipe={animania_jj_salt={need=8},minecraft_jj_water_bucket={need=1}}},
+ animania_jj_super_omelette={craftCount=1,maxCount=8,recipe={animania_jj_cooked_prime_bacon={need=1},animania_jj_plain_omelette={need=1},animania_jj_truffle={need=1},harvestcraft_jj_cheeseitem={need=1}}},
  animania_jj_truffle_omelette={craftCount=1,maxCount=8,recipe={animania_jj_plain_omelette={need=1},animania_jj_truffle={need=1}}},
  animania_jj_truffle_soup={craftCount=1,maxCount=8,recipe={animania_jj_truffle={need=2},minecraft_jj_bowl={need=1}}},
- animania_jj_wheel={craftCount=1,maxCount=8,recipe={minecraft_jj_Iron_nugget={need=1},minecraft_jj_stick={need=4}}}
+ animania_jj_wheel={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_nugget={need=1},minecraft_jj_stick={need=4}}}
  }

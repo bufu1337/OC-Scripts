@@ -13,6 +13,7 @@ return {
  actuallyadditions_jj_block_laser_relay_item={need=0},
  actuallyadditions_jj_block_testifi_bucks_green_wall={need=0},
  actuallyadditions_jj_block_testifi_bucks_white_wall={need=0},
+ actuallyadditions_jj_item_battery_b_1={need=0},
  actuallyadditions_jj_item_coffee_beans={need=0},
  actuallyadditions_jj_item_crystal_shard={need=0},
  actuallyadditions_jj_item_crystal_shard_jj_1={need=0},
@@ -89,7 +90,6 @@ return {
  minecraft_jj_furnace={need=0},
  minecraft_jj_ghast_tear={need=0},
  minecraft_jj_glass={need=0},
- minecraft_jj_glassBlack={need=0},
  minecraft_jj_glass_bottle={need=0},
  minecraft_jj_glowstone={need=0},
  minecraft_jj_glowstone_dust={need=0},
@@ -123,7 +123,7 @@ return {
  minecraft_jj_paper={need=0},
  minecraft_jj_piston={need=0},
  minecraft_jj_planks={need=0},
- minecraft_jj_potion={need=0},
+ minecraft_jj_potion_b_1={need=0},
  minecraft_jj_prismarine_shard={need=0},
  minecraft_jj_pumpkin={need=0},
  minecraft_jj_quartz={need=0},
@@ -134,6 +134,7 @@ return {
  minecraft_jj_sign={need=0},
  minecraft_jj_skull_jj_1={need=0},
  minecraft_jj_slime_ball={need=0},
+ minecraft_jj_stained_glass_jj_15={need=0},
  minecraft_jj_stick={need=0},
  minecraft_jj_stone={need=0},
  minecraft_jj_stone_axe={need=0},
@@ -153,7 +154,5 @@ return {
  minecraft_jj_wooden_shovel={need=0},
  minecraft_jj_wooden_sword={need=0},
  minecraft_jj_wool={need=0},
- ore_jj_coal={need=0},
- ore_jj_gemEmerald={need=0},
- ore_jj_nuggetEnderium={need=0}
+ thermalfoundation_jj_material_jj_231={need=0}
  }

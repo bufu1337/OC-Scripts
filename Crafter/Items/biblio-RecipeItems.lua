@@ -1,10 +1,4 @@
 return {
- bibliocraft_jj_seatback2_jj_1={need=0},
- bibliocraft_jj_seatback2_jj_2={need=0},
- bibliocraft_jj_seatback2_jj_3={need=0},
- bibliocraft_jj_seatback2_jj_4={need=0},
- bibliocraft_jj_seatback2_jj_5={need=0},
- bibliocraft_jj_seatback2_jj_6={need=0},
  bibliocraft_jj_slottedbook={need=0},
  minecraft_jj_blaze_rod={need=0},
  minecraft_jj_clock={need=0},
