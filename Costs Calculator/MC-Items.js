@@ -657,6 +657,7 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 = $('#itemcomment3_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern = parseInt($('#itempattern_check').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount = parseInt($('#itemMaxCount_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').val());
@@ -1265,6 +1266,11 @@ MC.changeRecipeItem("basemetals", "ore_jj_shieldZinc", "basemetals_jj_zinc_shiel
 MC.changeRecipeItem("basemetals", "ore_jj_dustTinyZinc", "basemetals_jj_zinc_smallpowder")
 MC.changeRecipeItem("basemetals", "ore_jj_gemEmerald", "minecraft_jj_emerald")
 MC.changeRecipeItem("basemetals", "minecraft_jj_Iron_nugget", "minecraft_jj_iron_nugget")
+
+MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearStone", "buildcraftcore_jj_gearStone")
+MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearDiamond", "buildcraftcore_jj_gear_diamond")
+MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearIron", "buildcraftcore_jj_gear_iron")
+MC.changeRecipeItem("buildcraftsilicon", "ore_jj_gearDiamond", "buildcraftcore_jj_gear_diamond")
 
 normal
 $('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });

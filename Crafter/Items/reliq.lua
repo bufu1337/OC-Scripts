@@ -61,7 +61,7 @@ return {
  xreliquary_jj_mob_charm_fragment_jj_3={craftCount=1,maxCount=8,recipe={minecraft_jj_bone={need=1},minecraft_jj_gunpowder={need=2},xreliquary_jj_mob_ingredient_jj_3={need=6}}},
  xreliquary_jj_mob_charm_fragment_jj_4={craftCount=1,maxCount=8,recipe={minecraft_jj_glass_bottle={need=2},minecraft_jj_spider_eye={need=1},xreliquary_jj_witch_hat={need=6}}},
  xreliquary_jj_mob_charm_fragment_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_golden_sword={need=1},minecraft_jj_rotten_flesh={need=2},xreliquary_jj_mob_ingredient_jj_6={need=6}}},
- xreliquary_jj_mob_charm_fragment_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_potion={need=1,tag="({Potion: minecraft:poison})"},minecraft_jj_string={need=2},xreliquary_jj_mob_ingredient_jj_2={need=6}}},
+ xreliquary_jj_mob_charm_fragment_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_potion={need=1,tag="({Potion= minecraft=poison})"},minecraft_jj_string={need=2},xreliquary_jj_mob_ingredient_jj_2={need=6}}},
  xreliquary_jj_mob_charm_fragment_jj_7={craftCount=1,maxCount=8,recipe={minecraft_jj_spider_eye={need=1},minecraft_jj_string={need=2},xreliquary_jj_mob_ingredient_jj_2={need=6}}},
  xreliquary_jj_mob_charm_fragment_jj_8={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=2},xreliquary_jj_mob_ingredient_jj_11={need=7}}},
  xreliquary_jj_mob_charm_fragment_jj_9={craftCount=1,maxCount=8,recipe={minecraft_jj_ghast_tear={need=6},minecraft_jj_gunpowder={need=2},xreliquary_jj_mob_ingredient_jj_3={need=1}}},

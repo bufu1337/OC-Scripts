@@ -270,7 +270,7 @@ return {
  minecraft_jj_mushroom_stew={craftCount=1,maxCount=128,recipe={harvestcraft_jj_potitem={need=1},minecraft_jj_brown_mushroom={need=2}}},
  minecraft_jj_name_tag={craftCount=1,maxCount=256,recipe={minecraft_jj_gold_nugget={need=1},minecraft_jj_string={need=1}}},
  minecraft_jj_nether_brick={craftCount=1,maxCount=1280,recipe={minecraft_jj_netherbrick={need=4}}},
- minecraft_jj_nether_brick_fence={craftCount=10,maxCount=640,recipe={minecraft_jj_nether_brick={need=5}}},
+ minecraft_jj_nether_brick_fence={craftCount=6,maxCount=640,recipe={minecraft_jj_nether_brick={need=6}}},
  minecraft_jj_nether_brick_stairs={craftCount=4,maxCount=640,recipe={minecraft_jj_nether_brick={need=6}}},
  minecraft_jj_nether_wart_block={craftCount=1,maxCount=1280,recipe={minecraft_jj_nether_wart={need=9}}},
  minecraft_jj_netherbrick={craftCount=1,maxCount=512,recipe={minecraft_jj_netherrack={need=1}}},

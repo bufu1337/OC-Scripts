@@ -78,7 +78,7 @@ return {
  nuclearcraft_jj_cooler_jj_5={craftCount=1,maxCount=8,recipe={minecraft_jj_glowstone={need=2},minecraft_jj_glowstone_dust={need=6},nuclearcraft_jj_cooler={need=1}}},
  nuclearcraft_jj_cooler_jj_6={craftCount=1,maxCount=8,recipe={minecraft_jj_lapis_block={need=2},nuclearcraft_jj_cooler={need=1}}},
  nuclearcraft_jj_cooler_jj_7={craftCount=1,maxCount=8,recipe={minecraft_jj_diamond={need=8},nuclearcraft_jj_cooler={need=1}}},
- nuclearcraft_jj_cooler_jj_8={craftCount=1,maxCount=8,recipe={forge_jj_bucketfilled={need=1,tag="({FluidName: liquidhelium, Amount: 1000})"},nuclearcraft_jj_cooler={need=1}}},
+ nuclearcraft_jj_cooler_jj_8={craftCount=1,maxCount=8,recipe={forge_jj_bucketfilled={need=1,tag="({FluidName= liquidhelium, Amount= 1000})"},nuclearcraft_jj_cooler={need=1}}},
  nuclearcraft_jj_cooler_jj_9={craftCount=1,maxCount=8,recipe={nuclearcraft_jj_cooler={need=1},ore_jj_ingotEnderium={need=8}}},
  nuclearcraft_jj_crystallizer_idle={craftCount=1,maxCount=8,recipe={nuclearcraft_jj_ingot_former_idle={need=1},ore_jj_ingotBeryllium={need=4},ore_jj_plateAdvanced={need=4}}},
  nuclearcraft_jj_decay_generator={craftCount=1,maxCount=8,recipe={minecraft_jj_cobblestone={need=4},minecraft_jj_redstone={need=1},ore_jj_ingotLead={need=4}}},
