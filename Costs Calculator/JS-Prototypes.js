@@ -97,6 +97,14 @@ Array.prototype.isBoolListTrue = function(){
 	}
 	return true;
 };
+Array.prototype.isOneBoolTrue = function(){
+    for (var i = 0; i < this.length; i++){
+		if ( this[i].toString().equals("true") ){
+			return true;
+		}
+	}
+	return false;
+};
 Array.prototype.contains = function(search){
     for (var i = 0; i < this.length; i++){
 		if ( this[i].toString().equals(search) ){

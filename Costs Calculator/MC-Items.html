@@ -562,10 +562,35 @@
 												</tr>
 											</table>
 										</div>
-										<div style="height: 65px; align-items: center; display: flex;">
+										<div style="margin-top: 20px; align-items: center; display: flex;">
 											<div style="text-align: center; width: 100%;">
 												<input type="button" value="Filter" id="filter_okButton" />
-												<input type="button" style="margin-top: 10px;" value="Clear" id="filter_clearButton" /><br />
+												<input type="button" value="Clear" id="filter_clearButton" /><br />
+											</div>
+										</div>
+										<div style="margin-top: 20px; align-items: center; display: flex;">
+											<div style="width: 100%;">
+												<table>
+												   <tr style="margin-top: 10px">
+														<td><div style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_what'></div></td>
+														<td>
+														   <input style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_group_input'/>
+															<input style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_comment1_input'/>
+															<input style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_comment2_input'/>
+															<input style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_comment3_input'/>
+															<input style='margin-top: 5px; margin-left: 10px' type='text' id='setALL_trader_input'/>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_fixedprice_check'>Fixed Price</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_price_numinput'></div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_hasPattern_check'>Has Pattern</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_maxCount_numinput'></div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_selling_check'>Sell</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_buying_check'>Buy</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_chisel_check'>Chisel</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_bit_check'>Bits</div>
+														</td>
+													</tr>
+												</table>
+												<input style="margin-left: 150px;" type="button" value="Set to ALL listed" id="setALL_okButton" />
 											</div>
 										</div>
                                     </div>

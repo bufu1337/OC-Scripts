@@ -14,6 +14,10 @@ var MC = {
 	item_selecting: false,
 	valid_recipe: false,
 	recipe_show: [],
+	setALL_source: [
+		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "price", "maxCount"],
+		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count"]
+	],
 	setChangedRecipes: function(modid){
 		console.log("Setting Changed Recipes")
 		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
@@ -284,13 +288,27 @@ var MC = {
 			else if (filt.endsWith("_check")){ check = ( $('#' + filt).val() != null )}
 			else if (filt.endsWith("_numinput")){ check = ( $('#' + filt).val() != "0" || $('#' + filt.replace("from", "to")).val() != "0" )}
 			if ( check ) {
+				var splits = []
 				var id = filt.split("_")[1]
+				if ( id.equals(["modid","itemid","dmg","tag","label"]) ) {
+					splits = $('#' + filt).val().split(", ")
+					if ( splits[splits.length - 1] == "" ) {
+						splits.pop()
+					}
+				}
+				if ( id.equals(["group","comment1","comment2","comment3","trader"]) ) {
+					$.each($('#' + filt).jqxComboBox('getSelectedItems'), function (index, item) {
+						splits[index] = item.value
+					});
+				}
 				$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
 					if ( items[item] ) {
 						if ( id.equals(["modid","itemid","dmg"]) ) {
-							if ( !MC.CItems[MC.viewing.Mod][item][id].contains($('#' + filt).val() ) ) {
-								items[item] = false
-							}
+							$.each(splits, function (j, sp) {
+								if ( MC.CItems[MC.viewing.Mod][item][id].toString().contains(sp.replace("-", "")) == sp.startsWith("-") ) {
+									items[item] = false
+								}
+							});
 						}
 						else if ( id == "validrecipe" ) {
 							if ( MC.CItems[MC.viewing.Mod][item]["valid_recipe"] != ($('#' + filt).val())  ) {
@@ -306,9 +324,11 @@ var MC = {
 							}
 						}
 						else if( filt.endsWith("_input") ){
-							if ( !MC.Mod[MC.viewing.Mod].items[item][id].contains($('#' + filt).val() ) ) {
-								items[item] = false
-							}
+							$.each(splits, function (j, sp) {
+								if ( MC.Mod[MC.viewing.Mod].items[item][id].toString().contains(sp.replace("-", "")) == sp.startsWith("-") ) {
+									items[item] = false
+								}
+							});
 						}
 						else if( filt.endsWith("_check") ){
 							if ( MC.Mod[MC.viewing.Mod].items[item][id] != ($('#' + filt).val() ) ) {
@@ -362,6 +382,7 @@ var MC = {
 		});
 		$('#itemListBox').jqxListBox('source', itemssource);
 		$('#itemListBox').jqxListBox('refresh');
+		$('#setALL_what').jqxDropDownList('selectIndex', 0);
 	},
 	save: function(what){
 		if ('Blob' in window) {
@@ -429,6 +450,14 @@ var MC = {
 	},
 	hide: function(div_name){
 		$("#" + div_name).css({visibility: "hidden", display: "none"});
+	},
+	hide_SetALL: function(){
+		$.each(MC.setALL_source[0], function (index, item) {
+			var temp = "_check"
+			if ( index < 5 ) { temp = "_input" }
+			else if ( index > 10 ) { temp = "_numinput" }
+			MC.hide("setALL_" + item + temp)
+		});
 	},
 	show: function(div_name, typ){
 		if(typ==null){ typ = "block" }
@@ -733,6 +762,45 @@ $(document).ready(function () {
 
 		MC.itemfilter();
 	});
+
+	$('#setALL_what').jqxDropDownList({source: MC.setALL_source[1], width: 110, height: 25 });
+	$('#setALL_what').on('select', function(){
+		MC.hide_SetALL()
+		var index = $('#setALL_what').jqxDropDownList('getSelectedIndex');
+		var temp = "_check"
+		if ( index < 5 ) { temp = "_input" }
+		else if ( index > 10 ) { temp = "_numinput" }
+		MC.show("setALL_" + MC.setALL_source[0][index] + temp)
+	});
+	
+	$('#setALL_group_input').jqxInput({source: MC.Suggest.groups, placeHolder: "Enter group...", height: 25, width: 200, minLength: 1});
+	$('#setALL_comment1_input').jqxInput({source: MC.Suggest.comment1, placeHolder: "Enter comment...", height: 25, width: 200, minLength: 1});
+	$('#setALL_comment2_input').jqxInput({source: MC.Suggest.comment2, placeHolder: "Enter comment...", height: 25, width: 200, minLength: 1});
+	$('#setALL_comment3_input').jqxInput({source: MC.Suggest.comment3, placeHolder: "Enter comment...", height: 25, width: 200, minLength: 1});
+	$("#setALL_trader_input").jqxInput({source: MC.Traders, placeHolder: "Enter trader...", height: 25, width: 200, minLength: 1});
+	$("#setALL_selling_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#setALL_buying_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#setALL_chisel_check").jqxCheckBox({height: 25, width: 70, checked: true});
+	$("#setALL_bit_check").jqxCheckBox({height: 25, width: 50, checked: true});
+	$("#setALL_hasPattern_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#setALL_fixedprice_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#setALL_price_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
+	$("#setALL_maxCount_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	
+	$('#setALL_okButton').jqxButton({ width: '180px', disabled: false });
+	$('#setALL_okButton').on('click', function(){
+		var index = $('#setALL_what').jqxDropDownList('getSelectedIndex')
+		var temp = "_check"
+		if ( index < 5 ) { temp = "_input" }
+		else if ( index > 10 ) { temp = "_numinput";}
+		var valnew = $("#setALL_" + MC.setALL_source[0][index] + temp).val()
+		if ( index > 10 ) { valnew = parseInt(valnew) }
+		console.log("New Value for ALL:")
+		console.log(valnew)
+		console.log(typeof valnew)
+		MC.setForAll(MC.setALL_source[0][index].replace("omment",""), MC.Listing.itemListBox, valnew);
+	});
+		
 
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
 	for (var h = 0; h < 9; h++){
@@ -1271,6 +1339,21 @@ MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearStone", "buildcraftcore_jj_
 MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearDiamond", "buildcraftcore_jj_gear_diamond")
 MC.changeRecipeItem("buildcraftfactory", "ore_jj_gearIron", "buildcraftcore_jj_gear_iron")
 MC.changeRecipeItem("buildcraftsilicon", "ore_jj_gearDiamond", "buildcraftcore_jj_gear_diamond")
+
+MC.changeRecipeItem("cyclicmagic", "minecraft_jj_Iron_nugget", "minecraft_jj_iron_nugget")
+MC.changeRecipeItem("cyclicmagic", "ore_jj_workbench", "minecraft_jj_crafting_table")
+MC.changeRecipeItem("cyclicmagic", "ore_jj_gemEmerald", "minecraft_jj_emerald")
+MC.changeRecipeItem("cyclicmagic", "ore_jj_blockCoal", "minecraft_jj_coal_block")
+MC.changeRecipeItem("cyclicmagic", "minecraft_jj_tallgrass", "minecraft_jj_tallgrass_jj_1")
+MC.changeRecipeItem("cyclicmagic", "ore_jj_chestEnder", "minecraft_jj_ender_chest")
+
+MC.changeRecipeItem("defiledlands", "ore_jj_gemHephaestite", "defiledlands_jj_hephaestite")
+MC.changeRecipeItem("defiledlands", "ore_jj_ingotUmbrium", "defiledlands_jj_umbrium_ingot")
+MC.changeRecipeItem("defiledlands", "ore_jj_gemScarlite", "defiledlands_jj_scarlite")
+MC.changeRecipeItem("defiledlands", "ore_jj_stoneDefiled", "defiledlands_jj_stone_defiled")
+MC.changeRecipeItem("defiledlands", "ore_jj_essenceDestroyer", "defiledlands_jj_essence_destroyer")
+MC.changeRecipeItem("defiledlands", "ore_jj_ingotRavaging", "defiledlands_jj_ravaging_ingot")
+
 
 normal
 $('#mainSplitter').jqxSplitter({  width: 1278, height: 900, panels: [{ size: 300, min: 100 }, {min: 200, size: 300}] });
