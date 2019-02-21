@@ -330,6 +330,13 @@ var MC = {
 								items[item] = false
 							}
 						}
+						else if( id.equals(["group","c1","c2","c3","trader"]) ){
+							$.each(splits, function (j, sp) {
+								if ( MC.Mod[MC.viewing.Mod].items[item][id].toString().equals(sp.replace("-", "")) == sp.startsWith("-") ) {
+									items[item] = false
+								}
+							});
+						}
 						else if( filt.endsWith("_input") ){
 							$.each(splits, function (j, sp) {
 								if ( MC.Mod[MC.viewing.Mod].items[item][id].toString().contains(sp.replace("-", "")) == sp.startsWith("-") ) {
@@ -1087,8 +1094,8 @@ $(document).ready(function () {
 
 /*OTHER
 
-ingots			
-thermalfoundation={	
+var ingots={               
+"Thermal Foundation":[  
 "Aluminium",
 "Electrum",
 "Invar",
@@ -1099,8 +1106,8 @@ thermalfoundation={
 "Enderium",
 "Platinum",
 "Iridium"
-},	
-Base Metals={	
+],  
+"Base Metals":[ 
 "Nickel",
 "Zinc",
 "Platinum",
@@ -1112,12 +1119,12 @@ Base Metals={
 "Antimon",
 "Redstone",
 "Obsidian"
-},	
-Minecraft={	
+],  
+Minecraft:[ 
 "Gold",
 "Iron"
-},	
-Modern Metals={	
+],  
+"Modern Metals":[   
 "Aluminium",
 "Magnesium",
 "Iridium",
@@ -1132,15 +1139,15 @@ Modern Metals={
 "Plutonium",
 "Chrom",
 "Titan"
-},	
-Mekanism={	
+],  
+Mekanism:[  
 "Copper",
 "Tin",
 "Osmium",
 "RefinedObsidian",
 "RefinedGlowstone"
-},	
-IndustrialCraft 2={	
+],  
+"IndustrialCraft 2":[   
 "Lead",
 "Silver",
 "Copper",
@@ -1148,28 +1155,66 @@ IndustrialCraft 2={
 "Tin",
 "Steel",
 "Uranium"
-},	
-Tinkers={	
+],  
+Tinkers:[   
 "Alubrass",
 "Cobalt",
 "Knightslime",
 "Ardit",
 "Manyullyn"
-},	
-Tech Reborn={	
+],  
+"Tech Reborn":[ 
 "Tin",
 "Zinc",
 "Brass",
 "Tungsten",
 "Chrome",
 "Titanium"
-},	
-NuclearCraft={	
+],  
+NuclearCraft:[  
 "Yellorium",
 "Uranium"
-}
+]
 }
 
+var ingotequal = {};
+$.each(Object.keys(ingots), function (mod_i, mod_key) {
+	$.each(ingots[mod_key], function (item_i, item) {
+		$.each(Object.keys(ingots), function (mod_i2, mod_key2) {
+			if(!mod_key.equals(mod_key2)){
+				$.each(ingots[mod_key2], function (item_i2, item2) {
+					if(item.equals(item2)){
+						if(ingotequal[item] == null){
+							ingotequal[item] = []
+						}
+						if(!mod_key.equals(ingotequal[item])){
+							ingotequal[item].push(mod_key)
+						}
+						if(!mod_key2.equals(ingotequal[item])){
+							ingotequal[item].push(mod_key2)
+						}
+					}
+				})
+			}
+		})
+	})
+})
+$.each(ingotequal, function (i, ing) {
+	var str = "Ingot: " + i + " is in: "
+	$.each(ing, function (j, mod) {
+		str += mod + ", "
+	})
+	console.log(str.substring(0, str.length - 2))
+})
+
+Aluminium: [ "Thermal Foundation", "Modern Metals" ]
+Copper: [ "Mekanism", "IndustrialCraft 2" ]
+Iridium: [ "Thermal Foundation", "Modern Metals" ]
+Osmium: [ "Modern Metals", "Mekanism" ]
+Platinum: [ "Thermal Foundation", "Base Metals" ]
+Tin: [ "Mekanism", "IndustrialCraft 2", "Tech Reborn" ]
+Uranium: [ "Modern Metals", "IndustrialCraft 2", "NuclearCraft" ]
+Zinc: [ "Base Metals", "Tech Reborn" ]
 
 MC.changeRecipeItem("atlcraft", "ore_jj_materialPressedwax", "atlcraft_jj_atlcraft_wax")
 MC.changeRecipeItem("atlcraft", "ore_jj_wick", "minecraft_jj_string")
