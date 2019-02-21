@@ -15,8 +15,8 @@ var MC = {
 	valid_recipe: false,
 	recipe_show: [],
 	setALL_source: [
-		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "price", "maxCount"],
-		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count"]
+		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "price", "maxCount", "craftCount"],
+		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count", "Craft Count"]
 	],
 	setChangedRecipes: function(modid){
 		console.log("Setting Changed Recipes")
@@ -250,6 +250,7 @@ var MC = {
 			"filter_maxCountfrom_numinput",
 			"filter_pricefrom_numinput",
 			"filter_validrecipe_check",
+			"filter_norecipe_check",
 			"filter_selling_check",
 			"filter_buying_check",
 			"filter_chisel_check",
@@ -261,25 +262,34 @@ var MC = {
 		});
 		
 		if ( gomod ) {
-			var Suggest = { groups: [], comment1: [], comment2: [], comment3: [] }
+			var Suggest = { groups: [], comment1: [], comment2: [], comment3: [], trader: [] }
 			$.each(MC.Mod[MC.viewing.Mod].items, function (index, item) {
 				if ( item.group != "" && item.group.equals(Suggest.groups) == false ) {
 					Suggest.groups.push(item.group);
+					Suggest.groups.push(("-" + item.group));
 				}
 				if ( item.c1 != "" && item.c1.equals(Suggest.comment1) == false ) {
 					Suggest.comment1.push(item.c1);
+					Suggest.comment1.push(("-" + item.c1));
 				}
 				if ( item.c2 != "" && item.c2.equals(Suggest.comment2) == false ) {
 					Suggest.comment2.push(item.c2);
+					Suggest.comment2.push(("-" + item.c2));
 				}
 				if ( item.c3 != "" && item.c3.equals(Suggest.comment3) == false ) {
 					Suggest.comment3.push(item.c3);
+					Suggest.comment3.push(("-" + item.c3));
+				}
+				if ( item.trader != "" && item.trader.equals(Suggest.trader) == false ) {
+					Suggest.trader.push(item.trader);
+					Suggest.trader.push(("-" + item.trader));
 				}
 			});
 			$("#filter_group_input").jqxComboBox({source: Suggest.groups});
 			$('#filter_comment1_input').jqxComboBox({source: Suggest.comment1});
 			$('#filter_comment2_input').jqxComboBox({source: Suggest.comment2});
 			$('#filter_comment3_input').jqxComboBox({source: Suggest.comment3});
+			$('#filter_trader_input').jqxComboBox({source: Suggest.comment3});
 		}
 		
 		$.each(filters, function(i, filt) {
@@ -289,14 +299,14 @@ var MC = {
 			else if (filt.endsWith("_numinput")){ check = ( $('#' + filt).val() != "0" || $('#' + filt.replace("from", "to")).val() != "0" )}
 			if ( check ) {
 				var splits = []
-				var id = filt.split("_")[1]
+				var id = filt.split("_")[1].replace("omment", "")
 				if ( id.equals(["modid","itemid","dmg","tag","label"]) ) {
 					splits = $('#' + filt).val().split(", ")
 					if ( splits[splits.length - 1] == "" ) {
 						splits.pop()
 					}
 				}
-				if ( id.equals(["group","comment1","comment2","comment3","trader"]) ) {
+				if ( id.equals(["group","c1","c2","c3","trader"]) ) {
 					$.each($('#' + filt).jqxComboBox('getSelectedItems'), function (index, item) {
 						splits[index] = item.value
 					});
@@ -314,13 +324,10 @@ var MC = {
 							if ( MC.CItems[MC.viewing.Mod][item]["valid_recipe"] != ($('#' + filt).val())  ) {
 								items[item] = false
 							}
-							if(Object.keys(MC.Mod[MC.viewing.Mod].items[item].recipe).length == 0){
-								if ( ($('#' + filt).val() ) ) {
-									items[item] = false
-								}
-								else{
-									items[item] = true
-								}
+						}
+						else if ( id == "norecipe" ) {
+							if((Object.keys(MC.Mod[MC.viewing.Mod].items[item].recipe).length > 0) == ($('#' + filt).val() )){
+								items[item] = false
 							}
 						}
 						else if( filt.endsWith("_input") ){
@@ -729,13 +736,14 @@ $(document).ready(function () {
 	$("#filter_bit_check").jqxCheckBox({height: 25, width: 50, hasThreeStates: true, checked: null});
 	$("#filter_hasPattern_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_validrecipe_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
+	$("#filter_norecipe_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_fixedprice_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_pricefrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#filter_priceto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#filter_maxCountfrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#filter_maxCountto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$('#filter_okButton').jqxButton({ width: '180px', disabled: false });
-	$('#filter_okButton').on('click', MC.itemfilter);
+	$('#filter_okButton').on('click', function(){MC.itemfilter(false)});
 	$('#filter_clearButton').jqxButton({ width: '180px', disabled: false });
 	$('#filter_clearButton').on('click', function(){
 		$("#filter_modid_input").val("");
@@ -754,6 +762,7 @@ $(document).ready(function () {
 		$("#filter_bit_check").jqxCheckBox({checked: null});
 		$("#filter_hasPattern_check").jqxCheckBox({checked: null});
 		$("#filter_validrecipe_check").jqxCheckBox({checked: null});
+		$("#filter_norecipe_check").jqxCheckBox({checked: null});
 		$("#filter_fixedprice_check").jqxCheckBox({checked: null});
 		$("#filter_pricefrom_numinput").val("0");
 		$("#filter_priceto_numinput").val("0");
@@ -778,14 +787,15 @@ $(document).ready(function () {
 	$('#setALL_comment2_input').jqxInput({source: MC.Suggest.comment2, placeHolder: "Enter comment...", height: 25, width: 200, minLength: 1});
 	$('#setALL_comment3_input').jqxInput({source: MC.Suggest.comment3, placeHolder: "Enter comment...", height: 25, width: 200, minLength: 1});
 	$("#setALL_trader_input").jqxInput({source: MC.Traders, placeHolder: "Enter trader...", height: 25, width: 200, minLength: 1});
-	$("#setALL_selling_check").jqxCheckBox({height: 25, width: 50, checked: true});
-	$("#setALL_buying_check").jqxCheckBox({height: 25, width: 50, checked: true});
-	$("#setALL_chisel_check").jqxCheckBox({height: 25, width: 70, checked: true});
-	$("#setALL_bit_check").jqxCheckBox({height: 25, width: 50, checked: true});
-	$("#setALL_hasPattern_check").jqxCheckBox({height: 25, width: 100, checked: true});
-	$("#setALL_fixedprice_check").jqxCheckBox({height: 25, width: 100, checked: true});
-	$("#setALL_price_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
-	$("#setALL_maxCount_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$("#setALL_selling_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_buying_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_chisel_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_bit_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_hasPattern_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_fixedprice_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_price_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
+	$("#setALL_maxCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$("#setALL_craftCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
 	
 	$('#setALL_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#setALL_okButton').on('click', function(){
@@ -795,9 +805,6 @@ $(document).ready(function () {
 		else if ( index > 10 ) { temp = "_numinput";}
 		var valnew = $("#setALL_" + MC.setALL_source[0][index] + temp).val()
 		if ( index > 10 ) { valnew = parseInt(valnew) }
-		console.log("New Value for ALL:")
-		console.log(valnew)
-		console.log(typeof valnew)
 		MC.setForAll(MC.setALL_source[0][index].replace("omment",""), MC.Listing.itemListBox, valnew);
 	});
 		
@@ -1079,6 +1086,91 @@ $(document).ready(function () {
 });
 
 /*OTHER
+
+ingots			
+thermalfoundation={	
+"Aluminium",
+"Electrum",
+"Invar",
+"Constantan",
+"Lumium",
+"Signalum",
+"Mithril",
+"Enderium",
+"Platinum",
+"Iridium"
+},	
+Base Metals={	
+"Nickel",
+"Zinc",
+"Platinum",
+"ColdIron",
+"Aquarium",
+"Adamant",
+"Starsteel",
+"Bismuth",
+"Antimon",
+"Redstone",
+"Obsidian"
+},	
+Minecraft={	
+"Gold",
+"Iron"
+},	
+Modern Metals={	
+"Aluminium",
+"Magnesium",
+"Iridium",
+"Uranium",
+"Osmium",
+"Zircomium",
+"Rutile",
+"Tantal",
+"Mangan",
+"Cadium",
+"Wolfram",
+"Plutonium",
+"Chrom",
+"Titan"
+},	
+Mekanism={	
+"Copper",
+"Tin",
+"Osmium",
+"RefinedObsidian",
+"RefinedGlowstone"
+},	
+IndustrialCraft 2={	
+"Lead",
+"Silver",
+"Copper",
+"Bronze",
+"Tin",
+"Steel",
+"Uranium"
+},	
+Tinkers={	
+"Alubrass",
+"Cobalt",
+"Knightslime",
+"Ardit",
+"Manyullyn"
+},	
+Tech Reborn={	
+"Tin",
+"Zinc",
+"Brass",
+"Tungsten",
+"Chrome",
+"Titanium"
+},	
+NuclearCraft={	
+"Yellorium",
+"Uranium"
+}
+}
+
+
 MC.changeRecipeItem("atlcraft", "ore_jj_materialPressedwax", "atlcraft_jj_atlcraft_wax")
 MC.changeRecipeItem("atlcraft", "ore_jj_wick", "minecraft_jj_string")
 MC.changeRecipeItem("atlcraft", "ore_jj_glassclear", "minecraft_jj_glass_pane")
