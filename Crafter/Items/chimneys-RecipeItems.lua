@@ -14,8 +14,8 @@ return {
  minecraft_jj_iron_ingot={need=0},
  minecraft_jj_planks={need=0},
  minecraft_jj_stick={need=0},
- ore_jj_gemSapphire={need=0},
- ore_jj_ingotCobalt={need=0},
+ tconstruct_jj_ingots={need=0},
+ techreborn_jj_gem_jj_1={need=0},
  techreborn_jj_ingot_jj_1={need=0},
  techreborn_jj_ingot_jj_14={need=0},
  thermalfoundation_jj_material_jj_134={need=0}

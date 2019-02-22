@@ -60,7 +60,6 @@ return {
  minecraft_jj_string={need=0},
  minecraft_jj_sugar={need=0},
  minecraft_jj_water_bucket={need=0},
- opencomputers_jj_cable_jj_11250603={need=0},
  opencomputers_jj_component_jj_2={need=0},
  opencomputers_jj_material_jj_4={need=0},
  ore_jj_chest={need=0},

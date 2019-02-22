@@ -149,7 +149,7 @@ return {
  twilightforest_jj_uncrafting_table={craftCount=1,maxCount=8,recipe={ore_jj_workbench={need=8},twilightforest_jj_maze_map_focus={need=1}}},
  twilightforest_jj_zombie_scepter={craftCount=1,maxCount=8,recipe={minecraft_jj_potion={need=1,tag="({Potion= minecraft=strong_strength})"},minecraft_jj_rotten_flesh={need=1},twilightforest_jj_zombie_scepter_jj_9={need=1}}},
  uniquecrops_jj_3dglasses={craftCount=0,maxCount=8,recipe={}},
- uniquecrops_jj_abstractbarrel={craftCount=1,maxCount=8,recipe={ore_jj_chest={need=1},uniquecrops_jj_generic_jj_22={need=8}}},
+ uniquecrops_jj_abstractbarrel={craftCount=1,maxCount=8,recipe={minecraft_jj_chest={need=1},uniquecrops_jj_generic_jj_22={need=8}}},
  uniquecrops_jj_emblem_vv_defense={craftCount=1,maxCount=8,recipe={minecraft_jj_arrow={need=4},minecraft_jj_bow={need=2},minecraft_jj_shield={need=2},uniquecrops_jj_darkblock={need=1}}},
  uniquecrops_jj_emblem_vv_food={craftCount=1,maxCount=8,recipe={minecraft_jj_potato={need=8},uniquecrops_jj_darkblock={need=1}}},
  uniquecrops_jj_emblem_vv_ironstomach={craftCount=1,maxCount=8,recipe={minecraft_jj_cooked_beef={need=1},minecraft_jj_cooked_chicken={need=1},minecraft_jj_cooked_porkchop={need=1},minecraft_jj_cooked_rabbit={need=1},minecraft_jj_diamond={need=1},minecraft_jj_emerald={need=1},minecraft_jj_gold_ingot={need=1},minecraft_jj_iron_ingot={need=1},uniquecrops_jj_darkblock={need=1}}},

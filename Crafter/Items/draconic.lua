@@ -254,7 +254,7 @@ return {
  draconicevolution_jj_dislocator={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconium_dust={need=4},minecraft_jj_blaze_powder={need=4},minecraft_jj_ender_eye={need=1}}},
  draconicevolution_jj_dislocator_pedestal={craftCount=1,maxCount=8,recipe={minecraft_jj_blaze_powder={need=1},minecraft_jj_stone={need=1},minecraft_jj_stone_pressure_plate={need=1},minecraft_jj_stone_slab={need=2}}},
  draconicevolution_jj_dislocator_receptacle={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconic_core={need=1},draconicevolution_jj_infused_obsidian={need=1},minecraft_jj_iron_ingot={need=4}}},
- draconicevolution_jj_diss_enchanter={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconic_core={need=1},minecraft_jj_bookshelf={need=3},minecraft_jj_emerald={need=2},minecraft_jj_enchanted_book={need=2},minecraft_jj_enchanting_table={need=1}}},
+ draconicevolution_jj_diss_enchanter={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconic_core={need=1},minecraft_jj_bookshelf={need=3},minecraft_jj_emerald={need=2},minecraft_jj_enchanted_book={need=2,tag="({StoredEnchantments= [{lvl= 1 as short, id= 0 as short}]})"},minecraft_jj_enchanting_table={need=1}}},
  draconicevolution_jj_draconic_block={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconic_ingot={need=9}}},
  draconicevolution_jj_draconic_core={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconium_ingot={need=4},minecraft_jj_diamond={need=1},minecraft_jj_gold_ingot={need=4}}},
  draconicevolution_jj_draconic_energy_core={craftCount=1,maxCount=8,recipe={draconicevolution_jj_draconic_ingot={need=4},draconicevolution_jj_wyvern_core={need=1},draconicevolution_jj_wyvern_energy_core={need=4}}},

@@ -1297,13 +1297,57 @@ var list2 = [
 "appliedenergistics2_jj_part_jj_180"
 ]
 
+var list2 = ["forestry_jj_ingot_bronze",
+"minecraft_jj_wooden_slab",
+"forestry_jj_ash",
+"forestry_jj_bee_combs",
+"forestry_jj_ingot_tin",
+"forestry_jj_ingot_copper",
+"forestry_jj_gear_bronze",
+"forestry_jj_gear_copper",
+"forestry_jj_gear_tin",
+"minecraft_jj_trapdoor",
+"basemetals_jj_stone_gear",
+"minecraft_jj_glass_pane"]
+
+0: "ore_jj_plateSteel"
+1: "ore_jj_ingotCopper"
+2: "ore_jj_ingotAluminum"
+3: "ore_jj_fabricHemp"
+4: "ore_jj_slabTreatedWood"
+5: "ore_jj_paneGlass"
+6: "ore_jj_ingotSteel"
+7: "ore_jj_stickSteel"
+8: "ore_jj_scaffoldingSteel"
+9: "ore_jj_stickIron"
+10: "ore_jj_plateAluminum"
+11: "ore_jj_plateIron"
+12: "ore_jj_plankTreatedWood"
+13: "ore_jj_stickTreatedWood"
+14: "ore_jj_plateCopper"
+15: "ore_jj_plateElectrum"
+16: "ore_jj_fiberHemp"
+17: "ore_jj_ingotElectrum"
+18: "ore_jj_stickAluminum"
+19: "ore_jj_bricksStone"
+20: "ore_jj_fenceSteel"
+21: "ore_jj_wireSteel"
+22: "ore_jj_ingotLead"
+23: "ore_jj_blockSheetmetalIron"
+24: "ore_jj_wireCopper"
+25: "ore_jj_wireAluminum"
+26: "ore_jj_fenceTreatedWood"
+
+
+
 $.each(list, function (j, item) {
 	if ( list2[j] != null ) {
 		if(!list2[j].equals("")){
-			MC.changeRecipeItem("appliedenergistics2", item, list2[j])
+			MC.changeRecipeItem("forestry", item, list2[j])
 		}
 	}
 });
+
 
 
 MC.changeRecipeItem("basemetals", "ore_jj_blockAdamantine", "basemetals_jj_adamantine_block")

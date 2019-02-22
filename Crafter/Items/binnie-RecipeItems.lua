@@ -196,9 +196,9 @@ return {
  minecraft_jj_vine={need=0},
  minecraft_jj_water_bucket={need=0},
  minecraft_jj_wheat_seeds={need=0},
+ minecraft_jj_wooden_slab={need=0},
  minecraft_jj_wool={need=0},
  ore_jj_gearBronze={need=0},
  ore_jj_ingotBronze={need=0},
- ore_jj_ingotTin={need=0},
- ore_jj_slabWood={need=0}
+ ore_jj_ingotTin={need=0}
  }

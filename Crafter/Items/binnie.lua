@@ -225,7 +225,7 @@ return {
  genetics_jj_misc_jj_8={craftCount=1,maxCount=8,recipe={forestry_jj_chipsets_jj_1={need=1},minecraft_jj_dye_jj_4={need=2},minecraft_jj_glowstone_dust={need=2}}},
  genetics_jj_misc_jj_9={craftCount=1,maxCount=8,recipe={genetics_jj_misc_jj_8={need=8},minecraft_jj_diamond={need=1}}},
  genetics_jj_registry={craftCount=1,maxCount=8,recipe={genetics_jj_misc_jj_8={need=1}}},
- magicbees_jj_effectjar={craftCount=1,maxCount=8,recipe={magicbees_jj_pollen={need=1},minecraft_jj_glass={need=5},minecraft_jj_quartz={need=2},ore_jj_slabWood={need=1}}},
+ magicbees_jj_effectjar={craftCount=1,maxCount=8,recipe={magicbees_jj_pollen={need=1},minecraft_jj_glass={need=5},minecraft_jj_quartz={need=2},minecraft_jj_wooden_slab={need=1}}},
  magicbees_jj_enchanted_earth={craftCount=1,maxCount=8,recipe={magicbees_jj_resource_jj_7={need=1},minecraft_jj_dirt={need=4}}},
  magicbees_jj_frames_vv_gentle={craftCount=1,maxCount=8,recipe={magicbees_jj_frames_vv_magic={need=1},magicbees_jj_resource_jj_7={need=1}}},
  magicbees_jj_frames_vv_magic={craftCount=1,maxCount=8,recipe={forestry_jj_frame_untreated={need=1},magicbees_jj_wax={need=8}}},

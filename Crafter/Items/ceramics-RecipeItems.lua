@@ -5,7 +5,6 @@ return {
  ceramics_jj_porcelain_barrel_extension={need=0},
  ceramics_jj_rainbow_clay_jj_7={need=0},
  ceramics_jj_unfired_clay_jj_5={need=0},
- ceramics_jj_unfired_clay_jj_7={need=0},
  ceramics_jj_unfired_clay_jj_9={need=0},
  minecraft_jj_brick={need=0},
  minecraft_jj_brick_block={need=0},
@@ -27,6 +26,5 @@ return {
  minecraft_jj_dye_jj_7={need=0},
  minecraft_jj_dye_jj_8={need=0},
  minecraft_jj_dye_jj_9={need=0},
- minecraft_jj_gold_nugget={need=0},
- ore_jj_clayPorcelain={need=0}
+ minecraft_jj_gold_nugget={need=0}
  }

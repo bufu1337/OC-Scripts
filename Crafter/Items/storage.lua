@@ -1,5 +1,5 @@
 return {
- ocsensors_jj_sensor={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=1},minecraft_jj_iron_ingot={need=2},opencomputers_jj_adapter={need=1},opencomputers_jj_cable_jj_11250603={need=1}}},
+ ocsensors_jj_sensor={craftCount=1,maxCount=8,recipe={minecraft_jj_ender_pearl={need=1},minecraft_jj_iron_ingot={need=2},opencomputers_jj_adapter={need=1},opencomputers_jj_cable={need=1}}},
  opencomputers_jj_adapter={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=4},ore_jj_oc_jj_cable={need=3},ore_jj_oc_jj_circuitChip1={need=1},ore_jj_oc_jj_materialCircuitBoardPrinted={need=1}}},
  opencomputers_jj_assembler={craftCount=1,maxCount=8,recipe={minecraft_jj_iron_ingot={need=4},ore_jj_craftingPiston={need=2},ore_jj_oc_jj_circuitChip2={need=1},ore_jj_oc_jj_materialCircuitBoardPrinted={need=1},ore_jj_workbench={need=1}}},
  opencomputers_jj_cable={craftCount=0,maxCount=8,recipe={}},
