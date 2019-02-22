@@ -193,13 +193,20 @@ function ac.GetStorageItems()
       end
       for i,j in pairs(o) do
         local rs_item = {}
+        local ok = false
         local rs_proxy = ac.prox.GetProxy(ac.items[j].mod, "home")
         if(rs_proxy ~= "") then
           local rs_comp = ac.mf.component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
-            rs_item = rs_comp.getItem(ac.items[j])
-            if(rs_item == nil) then
-              rs_item = {size=0.0}
+            ok, rs_item = pcall(rs_comp.getItem, ac.items[j])
+            if ok then
+                if(rs_item == nil) then
+                  rs_item = {size=0.0}
+                end
+            else
+                ac.mf.writex(rs_item)
+                ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+                rs_item = {size=0.0, notvalid=true}
             end
           end
         end
@@ -237,13 +244,20 @@ function ac.GetStorageItems()
       end
       for i,j in pairs(o) do
         local rs_item = {}
+		local ok = false
         local rs_proxy = ac.prox.GetProxy(ac.recipeitems[j].mod, "home")
         if(rs_proxy ~= "") then
           local rs_comp = ac.mf.component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
-            rs_item = rs_comp.getItem(ac.recipeitems[j])
-            if(rs_item == nil) then
-              rs_item = {size=0.0}
+			ok, rs_item = pcall(rs_comp.getItem, ac.recipeitems[j])
+            if ok then
+                if(rs_item == nil) then
+                  rs_item = {size=0.0}
+                end
+            else
+                ac.mf.writex(rs_item)
+                ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+                rs_item = {size=0.0, notvalid=true}
             end
           end
         end
@@ -550,9 +564,15 @@ function ac.MoveItem(item, count, route)
         local storage = ac.mf.component.proxy(route[r].proxy)
         if r == 2 then ac.mf.os.sleep(0.05) end
         while count > 0 do
-            local dropped = storage.extractItem(item, count, route[r].side)
-            if dropped ~= nil then
-                count = count - dropped
+			local ok, dropped = pcall(storage.extractItem, item, count, route[r].side)
+            if ok then
+				if dropped ~= nil then
+					count = count - dropped
+				end
+            else
+                ac.mf.writex(dropped)
+                ac.mf.WriteObjectFile(dropped, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+                count = 0
             end
         end
         r = r + 1
@@ -566,6 +586,7 @@ function ac.MoveRecipeItems(item)
             ac.MoveItem(ac.items[i], ac.items[item].crafts * j.need, (ac.prox.GetRoute(ac.items[i].mod, "craft", ac.crafter, 2)))
         end
     end
+    ac.mf.os.sleep(0.1)
 end
 function ac.MoveCraftedItem(item)
     ac.MoveItem(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount, (ac.prox.GetRoute(ac.crafter, "home", ac.items[item].mod, 1)))
@@ -630,9 +651,14 @@ function ac.CheckItemRecipe(item)
     end
     if returning == "" then
         ac.MoveRecipeItems(item)
-        ac.mf.os.sleep(0.1)
-        local r = ac.rs_cr.getMissingItems(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount)
-        if r.n > 1 then returning = "Wrong " .. ac.mf.serial.serialize(r) else returning = "OK" end
+        local ok, r = ac.rs_cr.getMissingItems(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount)
+		if ok then
+			if r.n > 1 then returning = "Wrong " .. ac.mf.serial.serialize(r) else returning = "OK" end
+		else
+			returning = tostring(r)
+			ac.mf.writex(returning)
+            ac.mf.WriteObjectFile(returning, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+		end
         ac.MoveRestBack()
     end
     print(returning)
