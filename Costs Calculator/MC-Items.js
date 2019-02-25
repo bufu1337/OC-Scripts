@@ -14,6 +14,10 @@ var MC = {
 	item_selecting: false,
 	valid_recipe: false,
 	recipe_show: [],
+	timer: {
+		recipe: null,
+		item: null
+	},
 	setALL_source: [
 		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "price", "maxCount", "craftCount"],
 		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count", "Craft Count"]
@@ -546,10 +550,31 @@ var MC = {
 			}
 
 			$("#itemlabel_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label);
-			$("#itemgroup_input").jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group);
-			$('#itemcomment1_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);
-			$('#itemcomment2_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2);
-			$('#itemcomment3_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3);
+			if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group == "" ) {
+				$('#itemgroup_input').jqxComboBox('clear')
+			}
+			else{
+				$("#itemgroup_input").jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group);
+			}
+			if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1 == "" ) {
+				$('#itemcomment1_input').jqxComboBox('clearSelection')		
+			}
+			else{
+				$('#itemcomment1_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c1);			
+			}
+			if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2 == "" ) {
+				$('#itemcomment2_input').jqxComboBox('clearSelection')					
+			}
+			else{
+				$('#itemcomment2_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c2);						
+			}
+			if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 == "" ) {
+				$('#itemcomment3_input').jqxComboBox('clearSelection')								
+			}
+			else{
+				$('#itemcomment3_input').jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3);									
+			}
+			
 			$.each($("#itemtrader_drop").jqxComboBox('getItems'), function (index, item) {
 				if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].trader == item.value ) {
 					$("#itemtrader_drop").jqxComboBox('selectItem', item ); 
@@ -700,7 +725,7 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].c3 = $('#itemcomment3_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern = parseInt($('#itempattern_check').val());
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern = $('#itempattern_check').jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount = parseInt($('#itemMaxCount_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').val());
@@ -716,7 +741,20 @@ $(document).ready(function () {
 				$("#modListBox").jqxListBox('selectIndex', value.index);
 			}
 		});
+		$("#itemListBox").jqxListBox('selectItem', temp_item);
 		$('#itemDetailTabs').jqxTabs('select', 0);
+		MC.item_selecting = false;
+		$("#item_message")[0].innerHTML = "Item properties written successfully!!!"
+		MC.show("item_message");
+		if ( MC.timer.item != null ) {
+			clearTimeout(MC.timer.item)
+		}
+		MC.timer.item = setTimeout(function(){ MC.hide("item_message") }, 10000);
+	});
+	$('#refreshsources_okButton').jqxButton({ width: '220px', disabled: false });
+	$('#refreshsources_okButton').on('click', function () {
+		MC.item_selecting = true;
+		var temp_item = $("#itemListBox").jqxListBox('getSelectedItem');
 		MC.createItemSource();
 		$('#itemgroup_input').jqxInput('source', MC.Suggest.groups);
 		$('#itemcomment1_input').jqxInput('source', MC.Suggest.comment1);
@@ -726,7 +764,7 @@ $(document).ready(function () {
 		MC.item_selecting = false;
 	});
 
-
+	MC.hide("item_message")
 	$("#filter_modid_input").jqxInput({placeHolder: "ModID contains...", height: 25, width: 300, minLength: 1});
 	$("#filter_itemid_input").jqxInput({placeHolder: "ItemID contains...", height: 25, width: 300, minLength: 1});
 	$("#filter_dmg_input").jqxInput({placeHolder: "Enter a damage...", height: 25, width: 300, minLength: 1});
@@ -963,7 +1001,10 @@ $(document).ready(function () {
 			$("#recipe_message")[0].style.color = "green"
 			$("#recipe_message")[0].innerHTML = "Recipe written successfully!!!"
 			MC.show("recipe_message");
-			setInterval(function(){ MC.hide("recipe_message") }, 10000);
+			if ( MC.timer.recipe != null ) {
+				clearTimeout(MC.timer.recipe)
+			}
+			MC.timer.recipe = setTimeout(function(){ MC.hide("recipe_message") }, 10000);
 		}
 		else{
 			var boollist_valid = [];
@@ -989,7 +1030,10 @@ $(document).ready(function () {
 			$("#recipe_message")[0].style.color = "red"
 			$("#recipe_message")[0].innerHTML = "Recipe not valid, check: " + returning.substring(0, returning.length - 2)
 			MC.show("recipe_message");
-			setInterval(function(){ MC.hide("recipe_message") }, 10000);
+			if ( MC.timer.recipe != null ) {
+				clearTimeout(MC.timer.recipe)
+			}
+			MC.timer.recipe = setTimeout(function(){ MC.hide("recipe_message") }, 10000);
 		}
 	});
 
@@ -1070,6 +1114,7 @@ $(document).ready(function () {
 				MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount = MC.Items[citem.crafter][itemid].craftCount
 				MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe = MC.Items[citem.crafter][itemid].recipe.Copy()
 				MC.CItems[MC.viewing.Mod][MC.viewing.Item].valid_recipe = MC.CItems[MC.Mods[citem.modid].name][itemid].valid_recipe
+				$("#itemListBox").jqxListBox('selectItem', $("#itemListBox").jqxListBox('getSelectedItem'));
 				$("#recipe_message")[0].style.color = "green"
 				$("#recipe_message")[0].innerHTML = "Recipe copied successfully from: " + itemid
 				MC.hide("cr_group");
@@ -1077,15 +1122,16 @@ $(document).ready(function () {
 				$("#cr_itembox").val("");
 				$("#cr_dmg").val("0");
 				$("#cr_variant").val("0");
-				MC.show("recipe_message");
-				setInterval(function(){ MC.hide("recipe_message") }, 10000);
 			}
 			else{
 				$("#recipe_message")[0].style.color = "red"
 				$("#recipe_message")[0].innerHTML = "Cant copy recipe, item not valid: " + itemid
-				MC.show("recipe_message");
-				setInterval(function(){ MC.hide("recipe_message") }, 10000);
 			}
+			MC.show("recipe_message");
+			if ( MC.timer.recipe != null ) {
+				clearTimeout(MC.timer.recipe)
+			}
+			MC.timer.recipe = setTimeout(function(){ MC.hide("recipe_message") }, 10000);
 		}
 	});
 
@@ -1096,84 +1142,83 @@ $(document).ready(function () {
 
 var ingots={               
 "Thermal Foundation":[  
-"Aluminium",
-"Electrum",
-"Invar",
-"Constantan",
-"Lumium",
-"Signalum",
-"Mithril",
-"Enderium",
-"Platinum",
-"Iridium"
+"Aluminium", thermalfoundation_jj_material_jj_132
+"Electrum", thermalfoundation_jj_material_jj_161
+"Invar", thermalfoundation_jj_material_jj_162
+"Constantan", thermalfoundation_jj_material_jj_164
+"Lumium", thermalfoundation_jj_material_jj_166
+"Signalum", thermalfoundation_jj_material_jj_165
+"Mithril", thermalfoundation_jj_material_jj_136
+"Enderium", thermalfoundation_jj_material_jj_167
+"Platinum", thermalfoundation_jj_material_jj_134
+"Iridium" thermalfoundation_jj_material_jj_135
 ],  
 "Base Metals":[ 
-"Nickel",
-"Zinc",
-"Platinum",
-"ColdIron",
-"Aquarium",
-"Adamant",
-"Starsteel",
-"Bismuth",
-"Antimon",
-"Redstone",
-"Obsidian"
+"Nickel", basemetals_jj_nickel_ingot
+//"Zinc",
+//"Platinum",
+"ColdIron", basemetals_jj_coldiron_ingot
+"Aquarium", basemetals_jj_aquarium_ingot
+"Adamant", basemetals_jj_adamantine_ingot
+"Starsteel", basemetals_jj_starsteel_ingot
+"Bismuth", basemetals_jj_bismuth_ingot
+"Antimon", basemetals_jj_antimony_ingot
+"Redstone", basemetals_jj_redstone_ingot
+"Obsidian" basemetals_jj_obsidian_ingot
 ],  
 Minecraft:[ 
-"Gold",
-"Iron"
+"Gold", minecraft_jj_gold_ingot
+"Iron" minecraft_jj_iron_ingot
 ],  
 "Modern Metals":[   
-"Aluminium",
-"Magnesium",
-"Iridium",
-"Uranium",
-"Osmium",
-"Zircomium",
-"Rutile",
-"Tantal",
-"Mangan",
-"Cadium",
-"Wolfram",
-"Plutonium",
-"Chrom",
-"Titan"
+//"Aluminium",
+"Magnesium", modernmetals_jj_magnesium_ingot
+//"Iridium",
+"Uranium", modernmetals_jj_uranium_ingot
+//"Osmium",
+"Zircomium", modernmetals_jj_zirconium_ingot
+"Rutile", modernmetals_jj_rutile_ingot
+"Tantal", modernmetals_jj_tantalum_ingot
+"Mangan", modernmetals_jj_manganese_ingot
+"Cadmium", modernmetals_jj_cadmium_ingot
+"Wolfram", modernmetals_jj_tungsten_ingot
+"Plutonium", modernmetals_jj_plutonium_ingot
+"Chrom", modernmetals_jj_chromium_ingot
+"Titanium" modernmetals_jj_titanium_ingot
 ],  
 Mekanism:[  
-"Copper",
-"Tin",
-"Osmium",
-"RefinedObsidian",
-"RefinedGlowstone"
+//"Copper",
+//"Tin",
+"Osmium", mekanism_jj_ingot_jj_1
+"RefinedObsidian", mekanism_jj_ingot
+"RefinedGlowstone" mekanism_jj_ingot_jj_3
 ],  
 "IndustrialCraft 2":[   
-"Lead",
-"Silver",
-"Copper",
-"Bronze",
-"Tin",
-"Steel",
-"Uranium"
+"Lead", ic2_jj_ingot_jj_3
+"Silver", ic2_jj_ingot_jj_4
+"Copper", ic2_jj_ingot_jj_2
+"Bronze", ic2_jj_ingot_jj_1
+"Tin", ic2_jj_ingot_jj_6
+"Steel", ic2_jj_ingot_jj_5
 ],  
 Tinkers:[   
-"Alubrass",
-"Cobalt",
-"Knightslime",
-"Ardit",
-"Manyullyn"
+"Alubrass", tconstruct_jj_ingots_jj_5
+"Cobalt", tconstruct_jj_ingots
+"Knightslime", tconstruct_jj_ingots_jj_3
+"Ardit", tconstruct_jj_ingots_jj_1
+"Manyullyn" tconstruct_jj_ingots_jj_2
 ],  
 "Tech Reborn":[ 
-"Tin",
-"Zinc",
-"Brass",
-"Tungsten",
-"Chrome",
-"Titanium"
+//"Tin",
+"Zinc", techreborn_jj_ingot_jj_18
+"Brass", techreborn_jj_ingot_jj_1
+"Tungsten", techreborn_jj_ingot_jj_15
+"Chrome", techreborn_jj_ingot_jj_3
+//"Titanium"  
 ],  
 NuclearCraft:[  
-"Yellorium",
-"Uranium"
+"Yellorium", bigreactors_jj_ingotmetals
+//"Uranium"
 ]
 }
 
@@ -1207,14 +1252,14 @@ $.each(ingotequal, function (i, ing) {
 	console.log(str.substring(0, str.length - 2))
 })
 
-Aluminium: [ "Thermal Foundation", "Modern Metals" ]
-Copper: [ "Mekanism", "IndustrialCraft 2" ]
-Iridium: [ "Thermal Foundation", "Modern Metals" ]
-Osmium: [ "Modern Metals", "Mekanism" ]
-Platinum: [ "Thermal Foundation", "Base Metals" ]
-Tin: [ "Mekanism", "IndustrialCraft 2", "Tech Reborn" ]
-Uranium: [ "Modern Metals", "IndustrialCraft 2", "NuclearCraft" ]
-Zinc: [ "Base Metals", "Tech Reborn" ]
+Aluminium: [ "Thermal Foundation", "Modern Metals" ] --> thermal
+Copper: [ "Mekanism", "IndustrialCraft 2" ] --> ic2
+Iridium: [ "Thermal Foundation", "Modern Metals" ] --> thermal
+Osmium: [ "Modern Metals", "Mekanism" ] --> meka
+Platinum: [ "Thermal Foundation", "Base Metals" ] --> thermal
+Tin: [ "Mekanism", "IndustrialCraft 2", "Tech Reborn" ] --> ic2
+Uranium: [ "Modern Metals", "IndustrialCraft 2", "NuclearCraft" ] --> modern
+Zinc: [ "Base Metals", "Tech Reborn" ] --> tech
 
 MC.changeRecipeItem("atlcraft", "ore_jj_materialPressedwax", "atlcraft_jj_atlcraft_wax")
 MC.changeRecipeItem("atlcraft", "ore_jj_wick", "minecraft_jj_string")
@@ -1340,10 +1385,516 @@ var list2 = ["forestry_jj_ingot_bronze",
 
 
 
+0: "ore_jj_dustDiamond"
+1: "ore_jj_ingotBronze"
+2: "ore_jj_ingotCopper"
+3: "ore_jj_ingotSteel"
+4: "ore_jj_circuitElite"
+5: "ore_jj_circuitBasic"
+6: "ore_jj_circuitAdvanced"
+7: "ore_jj_circuitUltimate"
+8: "ore_jj_alloyBasic"
+9: "ore_jj_paneGlass"
+10: "ore_jj_ingotRefinedObsidian"
+11: "ore_jj_ingotRefinedGlowstone"
+12: "ore_jj_ingotOsmium"
+13: "ore_jj_alloyAdvanced"
+14: "ore_jj_alloyElite"
+15: "ore_jj_alloyUltimate"
+16: "ore_jj_dustPetrotheum"
+17: "ore_jj_oreOsmium"
+18: "ore_jj_dustGold"
+19: "ore_jj_dustIron"
+20: "ore_jj_dustOsmium"
+21: "ore_jj_ingotTin"
+
+var list2 = ["mekanism_jj_otherdust",
+"mekanism_jj_ingot_jj_2",
+"mekanism_jj_ingot_jj_5",
+"mekanism_jj_ingot_jj_4",
+"mekanism_jj_controlcircuit_jj_2",
+"mekanism_jj_controlcircuit",
+"mekanism_jj_controlcircuit_jj_1",
+"mekanism_jj_controlcircuit_jj_3",
+"",
+"minecraft_jj_glass_pane",
+"mekanism_jj_ingot",
+"mekanism_jj_ingot_jj_3",
+"mekanism_jj_ingot_jj_1",
+"mekanism_jj_enrichedalloy",
+"mekanism_jj_reinforcedalloy",
+"mekanism_jj_atomicalloy",
+"",
+"",
+"mekanism_jj_dust_jj_1",
+"mekanism_jj_dust",
+"mekanism_jj_dust_jj_2",
+"mekanism_jj_ingot_jj_6"]
+
+
+0: "ore_jj_blockAluminum"
+1: "ore_jj_blockAluminumbrass"
+2: "ore_jj_blockBeryllium"
+3: "ore_jj_blockBoron"
+4: "ore_jj_blockCadmium"
+5: "ore_jj_blockChromium"
+6: "ore_jj_blockGalvanizedsteel"
+7: "ore_jj_blockIridium"
+8: "ore_jj_blockMagnesium"
+9: "ore_jj_blockManganese"
+10: "ore_jj_blockNichrome"
+11: "ore_jj_blockOsmium"
+12: "ore_jj_blockPlutonium"
+13: "ore_jj_blockRutile"
+14: "ore_jj_blockStainlesssteel"
+15: "ore_jj_blockTantalum"
+16: "ore_jj_blockThorium"
+17: "ore_jj_blockTitanium"
+18: "ore_jj_blockTungsten"
+19: "ore_jj_blockUranium"
+20: "ore_jj_blockZirconium"
+21: "ore_jj_dustPetrotheum"
+22: "ore_jj_dustPyrotheum"
+23: "ore_jj_dustRutile"
+24: "ore_jj_ingotAluminum"
+25: "ore_jj_ingotAluminumbrass"
+26: "ore_jj_ingotBeryllium"
+27: "ore_jj_ingotBoron"
+28: "ore_jj_ingotCadmium"
+29: "ore_jj_ingotChromium"
+30: "ore_jj_ingotGalvanizedsteel"
+31: "ore_jj_ingotIridium"
+32: "ore_jj_ingotMagnesium"
+33: "ore_jj_ingotManganese"
+34: "ore_jj_ingotNichrome"
+35: "ore_jj_ingotOsmium"
+36: "ore_jj_ingotPlutonium"
+37: "ore_jj_ingotRutile"
+38: "ore_jj_ingotStainlesssteel"
+39: "ore_jj_ingotTantalum"
+40: "ore_jj_ingotThorium"
+41: "ore_jj_ingotTitanium"
+42: "ore_jj_ingotTungsten"
+43: "ore_jj_ingotUranium"
+44: "ore_jj_ingotZirconium"
+45: "ore_jj_nuggetAluminum"
+46: "ore_jj_nuggetAluminumbrass"
+47: "ore_jj_nuggetBeryllium"
+48: "ore_jj_nuggetBoron"
+49: "ore_jj_nuggetCadmium"
+50: "ore_jj_nuggetChromium"
+51: "ore_jj_nuggetGalvanizedsteel"
+52: "ore_jj_nuggetIridium"
+53: "ore_jj_nuggetMagnesium"
+54: "ore_jj_nuggetManganese"
+55: "ore_jj_nuggetNichrome"
+56: "ore_jj_nuggetOsmium"
+57: "ore_jj_nuggetPlutonium"
+58: "ore_jj_nuggetRutile"
+59: "ore_jj_nuggetStainlesssteel"
+60: "ore_jj_nuggetTantalum"
+61: "ore_jj_nuggetThorium"
+62: "ore_jj_nuggetTitanium"
+63: "ore_jj_nuggetTungsten"
+64: "ore_jj_nuggetUranium"
+65: "ore_jj_nuggetZirconium"
+66: "ore_jj_oreCadmium"
+67: "ore_jj_rodAluminum"
+68: "ore_jj_rodAluminumbrass"
+69: "ore_jj_rodBeryllium"
+70: "ore_jj_rodBoron"
+71: "ore_jj_rodCadmium"
+72: "ore_jj_rodChromium"
+73: "ore_jj_rodGalvanizedsteel"
+74: "ore_jj_rodIridium"
+75: "ore_jj_rodMagnesium"
+76: "ore_jj_rodManganese"
+77: "ore_jj_rodNichrome"
+78: "ore_jj_rodOsmium"
+79: "ore_jj_rodPlutonium"
+80: "ore_jj_rodRutile"
+81: "ore_jj_rodStainlesssteel"
+82: "ore_jj_rodTantalum"
+83: "ore_jj_rodThorium"
+84: "ore_jj_rodTitanium"
+85: "ore_jj_rodTungsten"
+86: "ore_jj_rodUranium"
+87: "ore_jj_rodZirconium"
+
+var list2 = ["modernmetals_jj_aluminum_block",
+"modernmetals_jj_aluminumbrass_block",
+"modernmetals_jj_beryllium_block",
+"modernmetals_jj_boron_block",
+"modernmetals_jj_cadmium_block",
+"modernmetals_jj_chromium_block",
+"modernmetals_jj_galvanizedsteel_block",
+"modernmetals_jj_iridium_block",
+"modernmetals_jj_magnesium_block",
+"modernmetals_jj_manganese_block",
+"modernmetals_jj_nichrome_block",
+"modernmetals_jj_osmium_block",
+"modernmetals_jj_plutonium_block",
+"modernmetals_jj_rutile_block",
+"modernmetals_jj_stainlesssteel_block",
+"modernmetals_jj_tantalum_block",
+"modernmetals_jj_thorium_block",
+"modernmetals_jj_titanium_block",
+"modernmetals_jj_tungsten_block",
+"modernmetals_jj_uranium_block",
+"modernmetals_jj_zirconium_block",
+"",
+"",
+"",
+"modernmetals_jj_aluminum_ingot",
+"modernmetals_jj_aluminumbrass_ingot",
+"modernmetals_jj_beryllium_ingot",
+"modernmetals_jj_boron_ingot",
+"modernmetals_jj_cadmium_ingot",
+"modernmetals_jj_chromium_ingot",
+"modernmetals_jj_galvanizedsteel_ingot",
+"modernmetals_jj_iridium_ingot",
+"modernmetals_jj_magnesium_ingot",
+"modernmetals_jj_manganese_ingot",
+"modernmetals_jj_nichrome_ingot",
+"modernmetals_jj_osmium_ingot",
+"modernmetals_jj_plutonium_ingot",
+"modernmetals_jj_rutile_ingot",
+"modernmetals_jj_stainlesssteel_ingot",
+"modernmetals_jj_tantalum_ingot",
+"modernmetals_jj_thorium_ingot",
+"modernmetals_jj_titanium_ingot",
+"modernmetals_jj_tungsten_ingot",
+"modernmetals_jj_uranium_ingot",
+"modernmetals_jj_zirconium_ingot",
+"modernmetals_jj_aluminum_nugget",
+"modernmetals_jj_aluminumbrass_nugget",
+"modernmetals_jj_beryllium_nugget",
+"modernmetals_jj_boron_nugget",
+"modernmetals_jj_cadmium_nugget",
+"modernmetals_jj_chromium_nugget",
+"modernmetals_jj_galvanizedsteel_nugget",
+"modernmetals_jj_iridium_nugget",
+"modernmetals_jj_magnesium_nugget",
+"modernmetals_jj_manganese_nugget",
+"modernmetals_jj_nichrome_nugget",
+"modernmetals_jj_osmium_nugget",
+"modernmetals_jj_plutonium_nugget",
+"modernmetals_jj_rutile_nugget",
+"modernmetals_jj_stainlesssteel_nugget",
+"modernmetals_jj_tantalum_nugget",
+"modernmetals_jj_thorium_nugget",
+"modernmetals_jj_titanium_nugget",
+"modernmetals_jj_tungsten_nugget",
+"modernmetals_jj_uranium_nugget",
+"modernmetals_jj_zirconium_nugget",
+"",
+"modernmetals_jj_aluminum_rod",
+"modernmetals_jj_aluminumbrass_rod",
+"modernmetals_jj_beryllium_rod",
+"modernmetals_jj_boron_rod",
+"modernmetals_jj_cadmium_rod",
+"modernmetals_jj_chromium_rod",
+"modernmetals_jj_galvanizedsteel_rod",
+"modernmetals_jj_iridium_rod",
+"modernmetals_jj_magnesium_rod",
+"modernmetals_jj_manganese_rod",
+"modernmetals_jj_nichrome_rod",
+"modernmetals_jj_osmium_rod",
+"modernmetals_jj_plutonium_rod",
+"modernmetals_jj_rutile_rod",
+"modernmetals_jj_stainlesssteel_rod",
+"modernmetals_jj_tantalum_rod",
+"modernmetals_jj_thorium_rod",
+"modernmetals_jj_titanium_rod",
+"modernmetals_jj_tungsten_rod",
+"modernmetals_jj_uranium_rod",
+"modernmetals_jj_zirconium_rod"]
+
+0: "ore_jj_dustPetrotheum"
+1: "ore_jj_ingotAoci"
+2: "ore_jj_ingotAryxi"
+3: "ore_jj_ingotBydoom"
+4: "ore_jj_ingotDuxirete"
+5: "ore_jj_ingotJosawriline"
+6: "ore_jj_ingotMurol"
+7: "ore_jj_ingotOdeznum"
+8: "ore_jj_ingotOivi"
+9: "ore_jj_ingotPetuxo"
+10: "ore_jj_ingotRo"
+11: "ore_jj_ingotSusimen"
+12: "ore_jj_ingotUamaf"
+13: "ore_jj_ingotUokuwixasi"
+14: "ore_jj_oreAurine"
+15: "ore_jj_oreAyzanite"
+16: "ore_jj_oreDraxate"
+17: "ore_jj_oreEukavoynt"
+18: "ore_jj_oreIturite"
+19: "ore_jj_oreNodemite"
+20: "ore_jj_oreSivenium"
+
+var list2 = ["",
+"mores_jj_aoci_ingot",
+"mores_jj_aryxi_ingot",
+"mores_jj_bydoom_ingot",
+"mores_jj_duxirete_ingot",
+"mores_jj_josawriline_ingot",
+"mores_jj_murol_ingot",
+"mores_jj_odeznum_ingot",
+"mores_jj_oivi_ingot",
+"mores_jj_petuxo_ingot",
+"mores_jj_ro_ingot",
+"mores_jj_susimen_ingot",
+"mores_jj_uamaf_ingot",
+"mores_jj_uokuwixasi_ingot",
+"mores_jj_aurine_ore",
+"mores_jj_ayzanite_ore",
+"mores_jj_draxate_ore",
+"mores_jj_eukavoynt_ore",
+"mores_jj_iturite_ore",
+"mores_jj_nodemite_ore",
+"mores_jj_sivenium_ore"]
+
+
+0: "chisel_jj_limestone2_jj_7"
+1: "minecraft_jj_iron_ingotwood"
+2: "minecraft_jj_quartzBlack"
+3: "ore_jj_crystalCertusQuartz"
+4: "ore_jj_crystalFluix"
+5: "ore_jj_dustSaltpeter"
+6: "ore_jj_dustSulfur"
+7: "ore_jj_gemAmber"
+8: "ore_jj_gemApatite"
+9: "ore_jj_gemMalachite"
+10: "ore_jj_gemPeridot"
+11: "ore_jj_gemRuby"
+12: "ore_jj_gemSapphire"
+13: "ore_jj_gemTanzanite"
+14: "ore_jj_gemTopaz"
+15: "ore_jj_ingotAdamantine"
+16: "ore_jj_ingotAluminum"
+17: "ore_jj_ingotAquarium"
+18: "ore_jj_ingotBrass"
+19: "ore_jj_ingotBronze"
+20: "ore_jj_ingotChrome"
+21: "ore_jj_ingotColdiron"
+22: "ore_jj_ingotConstantan"
+23: "ore_jj_ingotCopper"
+24: "ore_jj_ingotElectrum"
+25: "ore_jj_ingotEnderium"
+26: "ore_jj_ingotFiery"
+27: "ore_jj_ingotInvar"
+28: "ore_jj_ingotIridium"
+29: "ore_jj_ingotKnightmetal"
+30: "ore_jj_ingotLead"
+31: "ore_jj_ingotLumium"
+32: "ore_jj_ingotMithril"
+33: "ore_jj_ingotNickel"
+34: "ore_jj_ingotOsmium"
+35: "ore_jj_ingotPlatinum"
+36: "ore_jj_ingotRefinedGlowstone"
+37: "ore_jj_ingotRefinedObsidian"
+38: "ore_jj_ingotSignalum"
+39: "ore_jj_ingotSilver"
+40: "ore_jj_ingotStarsteel"
+41: "ore_jj_ingotSteel"
+42: "ore_jj_ingotSteeleaf"
+43: "ore_jj_ingotTin"
+44: "ore_jj_ingotTitanium"
+45: "ore_jj_ingotTungsten"
+46: "ore_jj_ingotUranium"
+47: "ore_jj_ingotYellorium"
+48: "ore_jj_ingotZinc"
+49: "ore_jj_itemRubber"
+50: "ore_jj_itemSilicon"
+51: "ore_jj_rodBasalz"
+52: "ore_jj_rodBlitz"
+53: "ore_jj_rodBlizz"
+54: "ore_jj_workbench"
+
+var list2 = ["",
+"",
+"",
+"appliedenergistics2_jj_material",
+"appliedenergistics2_jj_material_jj_7",
+"thermalfoundation_jj_material_jj_772",
+"ic2_jj_dust_jj_16",
+"biomesoplenty_jj_gem_jj_7",
+"forestry_jj_apatite",
+"biomesoplenty_jj_gem_jj_5",
+"biomesoplenty_jj_gem_jj_2",
+"biomesoplenty_jj_gem_jj_1",
+"biomesoplenty_jj_gem_jj_6",
+"biomesoplenty_jj_gem_jj_4",
+"biomesoplenty_jj_gem_jj_3",
+"basemetals_jj_adamantine_ingot",
+"thermalfoundation_jj_material_jj_132",
+"basemetals_jj_aquarium_ingot",
+"techreborn_jj_ingot_jj_1",
+"ic2_jj_ingot_jj_1",
+"techreborn_jj_ingot_jj_3",
+"basemetals_jj_coldiron_ingot",
+"thermalfoundation_jj_material_jj_164",
+"ic2_jj_ingot_jj_2",
+"thermalfoundation_jj_material_jj_161",
+"thermalfoundation_jj_material_jj_167",
+"twilightforest_jj_fiery_ingot",
+"thermalfoundation_jj_material_jj_162",
+"thermalfoundation_jj_material_jj_135",
+"twilightforest_jj_knightmetal_ingot",
+"ic2_jj_ingot_jj_3",
+"thermalfoundation_jj_material_jj_166",
+"thermalfoundation_jj_material_jj_136",
+"basemetals_jj_nickel_ingot",
+"mekanism_jj_ingot_jj_1",
+"thermalfoundation_jj_material_jj_134",
+"mekanism_jj_ingot_jj_3",
+"mekanism_jj_ingot",
+"thermalfoundation_jj_material_jj_165",
+"ic2_jj_ingot_jj_4",
+"basemetals_jj_starsteel_ingot",
+"ic2_jj_ingot_jj_5",
+"twilightforest_jj_steeleaf_ingot",
+"ic2_jj_ingot_jj_6",
+"modernmetals_jj_titanium_ingot",
+"techreborn_jj_ingot_jj_15",
+"modernmetals_jj_uranium_ingot",
+"bigreactors_jj_ingotmetals",
+"techreborn_jj_ingot_jj_18",
+"ic2_jj_crafting",
+"appliedenergistics2_jj_material_jj_5",
+"thermalfoundation_jj_material_jj_2052",
+"thermalfoundation_jj_material_jj_2050",
+"thermalfoundation_jj_material_jj_2048",
+"minecraft_jj_crafting_table"]
+
+
+0: "ore_jj_blockDepletedUranium"
+1: "ore_jj_dustGraphite"
+2: "ore_jj_dustObsidian"
+3: "ore_jj_dustPetrotheum"
+4: "ore_jj_dustPyrotheum"
+5: "ore_jj_dustQuartz"
+6: "ore_jj_gemBoronNitride"
+7: "ore_jj_ingotAmericium242"
+8: "ore_jj_ingotAmericium242Oxide"
+9: "ore_jj_ingotAmericium243"
+10: "ore_jj_ingotBerkelium247"
+11: "ore_jj_ingotBerkelium248"
+12: "ore_jj_ingotBerkelium248Oxide"
+13: "ore_jj_ingotBeryllium"
+14: "ore_jj_ingotBoron"
+15: "ore_jj_ingotBronze"
+16: "ore_jj_ingotCalifornium249"
+17: "ore_jj_ingotCalifornium249Oxide"
+18: "ore_jj_ingotCalifornium251"
+19: "ore_jj_ingotCalifornium251Oxide"
+20: "ore_jj_ingotCalifornium252"
+21: "ore_jj_ingotCopper"
+22: "ore_jj_ingotCurium243"
+23: "ore_jj_ingotCurium243Oxide"
+24: "ore_jj_ingotCurium245"
+25: "ore_jj_ingotCurium245Oxide"
+26: "ore_jj_ingotCurium246"
+27: "ore_jj_ingotCurium247"
+28: "ore_jj_ingotCurium247Oxide"
+29: "ore_jj_ingotGraphite"
+30: "ore_jj_ingotHardCarbon"
+31: "ore_jj_ingotLead"
+32: "ore_jj_ingotMagnesium"
+33: "ore_jj_ingotNeptunium236"
+34: "ore_jj_ingotNeptunium236Oxide"
+35: "ore_jj_ingotNeptunium237"
+36: "ore_jj_ingotPlutonium239"
+37: "ore_jj_ingotPlutonium239Oxide"
+38: "ore_jj_ingotPlutonium241"
+39: "ore_jj_ingotPlutonium241Oxide"
+40: "ore_jj_ingotPlutonium242"
+41: "ore_jj_ingotThorium232Oxide"
+42: "ore_jj_ingotTin"
+43: "ore_jj_ingotTough"
+44: "ore_jj_ingotUranium233"
+45: "ore_jj_ingotUranium233Oxide"
+46: "ore_jj_ingotUranium235"
+47: "ore_jj_ingotUranium235Oxide"
+48: "ore_jj_ingotUranium238"
+49: "ore_jj_ingotZirconium"
+50: "ore_jj_oreBeryllium"
+51: "ore_jj_oreMagnesium"
+52: "ore_jj_plateAdvanced"
+53: "ore_jj_plateBasic"
+54: "ore_jj_plateDU"
+55: "ore_jj_plateElite"
+56: "ore_jj_record"
+57: "ore_jj_solenoidCopper"
+58: "ore_jj_solenoidMagnesiumDiboride"
+
+
+var list2 = ["nuclearcraft_jj_block_depleted_uranium",
+"nuclearcraft_jj_dust_jj_8",
+"nuclearcraft_jj_gem_dust_jj_3",
+"",
+"",
+"nuclearcraft_jj_gem_dust_jj_2",
+"nuclearcraft_jj_gem_jj_1",
+"nuclearcraft_jj_americium_jj_4",
+"nuclearcraft_jj_americium_jj_5",
+"nuclearcraft_jj_americium_jj_8",
+"nuclearcraft_jj_berkelium",
+"nuclearcraft_jj_berkelium_jj_4",
+"nuclearcraft_jj_berkelium_jj_5",
+"nuclearcraft_jj_ingot_jj_9",
+"nuclearcraft_jj_ingot_jj_5",
+"nuclearcraft_jj_alloy",
+"nuclearcraft_jj_californium",
+"nuclearcraft_jj_californium_jj_1",
+"nuclearcraft_jj_californium_jj_8",
+"nuclearcraft_jj_californium_jj_9",
+"nuclearcraft_jj_californium_jj_12",
+"nuclearcraft_jj_ingot",
+"nuclearcraft_jj_curium",
+"nuclearcraft_jj_curium_jj_1",
+"nuclearcraft_jj_curium_jj_4",
+"nuclearcraft_jj_curium_jj_5",
+"nuclearcraft_jj_curium_jj_8",
+"nuclearcraft_jj_curium_jj_12",
+"nuclearcraft_jj_curium_jj_13",
+"nuclearcraft_jj_ingot_jj_8",
+"nuclearcraft_jj_alloy_jj_2",
+"nuclearcraft_jj_ingot_jj_2",
+"nuclearcraft_jj_ingot_jj_7",
+"nuclearcraft_jj_neptunium",
+"nuclearcraft_jj_neptunium_jj_1",
+"nuclearcraft_jj_neptunium_jj_4",
+"nuclearcraft_jj_plutonium_jj_4",
+"nuclearcraft_jj_plutonium_jj_5",
+"nuclearcraft_jj_plutonium_jj_8",
+"nuclearcraft_jj_plutonium_jj_9",
+"nuclearcraft_jj_plutonium_jj_12",
+"nuclearcraft_jj_thorium_jj_5",
+"nuclearcraft_jj_ingot_jj_1",
+"nuclearcraft_jj_alloy_jj_1",
+"nuclearcraft_jj_uranium",
+"nuclearcraft_jj_uranium_jj_1",
+"nuclearcraft_jj_uranium_jj_4",
+"nuclearcraft_jj_uranium_jj_5",
+"nuclearcraft_jj_uranium_jj_8",
+"nuclearcraft_jj_ingot_jj_10",
+"modernmetals_jj_beryllium_ore",
+"nuclearcraft_jj_ore_jj_7",
+"nuclearcraft_jj_part_jj_1",
+"nuclearcraft_jj_part",
+"nuclearcraft_jj_part_jj_2",
+"nuclearcraft_jj_part_jj_3",
+"",
+"",
+""]
+
+
+
 $.each(list, function (j, item) {
 	if ( list2[j] != null ) {
 		if(!list2[j].equals("")){
-			MC.changeRecipeItem("forestry", item, list2[j])
+			MC.changeRecipeItem("nuclearcraft", item, list2[j])
 		}
 	}
 });

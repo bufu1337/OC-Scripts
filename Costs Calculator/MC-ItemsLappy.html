@@ -307,8 +307,14 @@
 											</form>
 										</div>
 										<div style="height: 65px; align-items: center; display: flex;">
-											<div style="text-align: center; width: 100%;">
+											<div style="text-align: center; width: 100%;max-width: 420px;">
 												<input type="button" value="Confirm" id="itemwindow_okButton" /><br />
+												<div style="color: green; font-size: 14px; font-weight: 800; margin-top: 10px; display: block;" id="item_message"></div>
+											</div>
+										</div>
+										<div style="height: 65px; align-items: center; display: flex;">
+											<div style="text-align: center; width: 100%;max-width: 420px;">
+												<input type="button" value="Refresh ComboBox sources" id="refreshsources_okButton" /><br />
 											</div>
 										</div>
                                     </div>
@@ -459,8 +465,8 @@
 										<div style="height: 65px; align-items: center; display: block; margin-top: 20px">
 											<div style="text-align: center; width: 100%;">
 												<input type="button" value="Confirm" id="recipe_okButton" />
-												<div style="color: green; font-size: 14px; font-weight: 800; margin-top: 10px; display: block;" id="recipe_message"></div>
 												<input type="button" style="margin-top: 10px;" value="Copy From" id="recipe_copyButton" />
+												<div style="color: green; font-size: 14px; font-weight: 800; margin-top: 10px; display: block;" id="recipe_message"></div>
 												<div style="visibility: hidden; display: none; margin-top: 10px" align="center" id="cr_group">
 													<form id="copyrecipeValidator">
 														<table style="border-top-style: solid;border-top-width: 1px;border-bottom-style: solid; border-bottom-width: 1px;">
