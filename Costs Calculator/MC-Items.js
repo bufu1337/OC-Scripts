@@ -1890,11 +1890,767 @@ var list2 = ["nuclearcraft_jj_block_depleted_uranium",
 ""]
 
 
+0: "ore_jj_bread"
+1: "ore_jj_cropApricot"
+2: "ore_jj_cropAsparagus"
+3: "ore_jj_cropAvocado"
+4: "ore_jj_cropBanana"
+5: "ore_jj_cropBarley"
+6: "ore_jj_cropBean"
+7: "ore_jj_cropBeet"
+8: "ore_jj_cropBellpepper"
+9: "ore_jj_cropBlackberry"
+10: "ore_jj_cropBlueberry"
+11: "ore_jj_cropBroccoli"
+12: "ore_jj_cropCabbage"
+13: "ore_jj_cropCelery"
+14: "ore_jj_cropCherry"
+15: "ore_jj_cropChilipepper"
+16: "ore_jj_cropCinnamon"
+17: "ore_jj_cropCoconut"
+18: "ore_jj_cropCorn"
+19: "ore_jj_cropCranberry"
+20: "ore_jj_cropCucumber"
+21: "ore_jj_cropEggplant"
+22: "ore_jj_cropFig"
+23: "ore_jj_cropGarlic"
+24: "ore_jj_cropGinger"
+25: "ore_jj_cropGooseberry"
+26: "ore_jj_cropGrape"
+27: "ore_jj_cropGrapefruit"
+28: "ore_jj_cropKiwi"
+29: "ore_jj_cropLeek"
+30: "ore_jj_cropLemon"
+31: "ore_jj_cropLettuce"
+32: "ore_jj_cropLime"
+33: "ore_jj_cropMango"
+34: "ore_jj_cropMaplesyrup"
+35: "ore_jj_cropMustard"
+36: "ore_jj_cropOats"
+37: "ore_jj_cropOkra"
+38: "ore_jj_cropOnion"
+39: "ore_jj_cropOrange"
+40: "ore_jj_cropPapaya"
+41: "ore_jj_cropPeach"
+42: "ore_jj_cropPeanut"
+43: "ore_jj_cropPear"
+44: "ore_jj_cropPeas"
+45: "ore_jj_cropPecan"
+46: "ore_jj_cropPeppercorn"
+47: "ore_jj_cropPersimmon"
+48: "ore_jj_cropPineapple"
+49: "ore_jj_cropPistachio"
+50: "ore_jj_cropPlum"
+51: "ore_jj_cropPomegranate"
+52: "ore_jj_cropPotato"
+53: "ore_jj_cropPumpkin"
+54: "ore_jj_cropRadish"
+55: "ore_jj_cropRaspberry"
+56: "ore_jj_cropRice"
+57: "ore_jj_cropScallion"
+58: "ore_jj_cropSeaweed"
+59: "ore_jj_cropSesame"
+60: "ore_jj_cropSoybean"
+61: "ore_jj_cropSpiceleaf"
+62: "ore_jj_cropSpinach"
+63: "ore_jj_cropStarfruit"
+64: "ore_jj_cropStrawberry"
+65: "ore_jj_cropSunflower"
+66: "ore_jj_cropSweetpotato"
+67: "ore_jj_cropTea"
+68: "ore_jj_cropTomato"
+69: "ore_jj_cropTurnip"
+70: "ore_jj_cropWalnut"
+71: "ore_jj_cropZucchini"
+72: "ore_jj_dustSalt"
+73: "ore_jj_foodBatter"
+74: "ore_jj_foodBlackpepper"
+75: "ore_jj_foodBoiledegg"
+76: "ore_jj_foodBubblywater"
+77: "ore_jj_foodButter"
+78: "ore_jj_foodButteredpotato"
+79: "ore_jj_foodCaramel"
+80: "ore_jj_foodCheese"
+81: "ore_jj_foodChocolatebar"
+82: "ore_jj_foodCocoapowder"
+83: "ore_jj_foodCornmeal"
+84: "ore_jj_foodCrackers"
+85: "ore_jj_foodDonut"
+86: "ore_jj_foodDough"
+87: "ore_jj_foodFirmtofu"
+88: "ore_jj_foodFlour"
+89: "ore_jj_foodFries"
+90: "ore_jj_foodGrapejelly"
+91: "ore_jj_foodGrilledcheese"
+92: "ore_jj_foodGroundcinnamon"
+93: "ore_jj_foodGroundnutmeg"
+94: "ore_jj_foodHamburger"
+95: "ore_jj_foodHeavycream"
+96: "ore_jj_foodHoneydrop"
+97: "ore_jj_foodHotsauce"
+98: "ore_jj_foodKetchup"
+99: "ore_jj_foodMarshmellows"
+100: "ore_jj_foodMashedpotatoes"
+101: "ore_jj_foodMayo"
+102: "ore_jj_foodMustard"
+103: "ore_jj_foodNoodles"
+104: "ore_jj_foodOliveoil"
+105: "ore_jj_foodPasta"
+106: "ore_jj_foodPickles"
+107: "ore_jj_foodPlainyogurt"
+108: "ore_jj_foodPorksausage"
+109: "ore_jj_foodPotatochips"
+110: "ore_jj_foodRaisins"
+111: "ore_jj_foodSalt"
+112: "ore_jj_foodSausage"
+113: "ore_jj_foodShrimpraw"
+114: "ore_jj_foodSoysauce"
+115: "ore_jj_foodStock"
+116: "ore_jj_foodToast"
+117: "ore_jj_foodTortilla"
+118: "ore_jj_foodVanilla"
+119: "ore_jj_foodVinegar"
+120: "ore_jj_itemSalt"
+121: "ore_jj_listAllbeefcooked"
+122: "ore_jj_listAllbeefraw"
+123: "ore_jj_listAllchickencooked"
+124: "ore_jj_listAllchickenraw"
+125: "ore_jj_listAllegg"
+126: "ore_jj_listAllfishcooked"
+127: "ore_jj_listAllfishraw"
+128: "ore_jj_listAllfruit"
+129: "ore_jj_listAllgrain"
+130: "ore_jj_listAllheavycream"
+131: "ore_jj_listAllicecream"
+132: "ore_jj_listAllmeatcooked"
+133: "ore_jj_listAllmeatraw"
+134: "ore_jj_listAllmilk"
+135: "ore_jj_listAllmushroom"
+136: "ore_jj_listAllmuttonraw"
+137: "ore_jj_listAllnut"
+138: "ore_jj_listAllnutbutter"
+139: "ore_jj_listAllporkcooked"
+140: "ore_jj_listAllporkraw"
+141: "ore_jj_listAllsoda"
+142: "ore_jj_listAllspice"
+143: "ore_jj_listAllveggie"
+144: "ore_jj_listAllwater"
+145: "ore_jj_toolCuttingboard"
+146: "ore_jj_toolJuicer"
+147: "ore_jj_toolMixingbowl"
+148: "ore_jj_toolMortarandpestle"
+149: "ore_jj_toolSaucepan"
+150: "ore_jj_toolSkillet"
+
+
+var list2 = ["minecraft_jj_bread",
+"harvestcraft_jj_apricotitem",
+"harvestcraft_jj_asparagusitem",
+"harvestcraft_jj_avocadoitem",
+"harvestcraft_jj_bananaitem",
+"harvestcraft_jj_barleyitem",
+"harvestcraft_jj_beanitem",
+"harvestcraft_jj_beetitem",
+"harvestcraft_jj_bellpepperitem",
+"harvestcraft_jj_blackberryitem",
+"harvestcraft_jj_blueberryitem",
+"harvestcraft_jj_broccoliitem",
+"harvestcraft_jj_cabbageitem",
+"harvestcraft_jj_celeryitem",
+"harvestcraft_jj_cherryitem",
+"harvestcraft_jj_chilipepperitem",
+"harvestcraft_jj_cinnamonitem",
+"harvestcraft_jj_coconutitem",
+"harvestcraft_jj_cornitem",
+"harvestcraft_jj_cranberryitem",
+"harvestcraft_jj_cucumberitem",
+"harvestcraft_jj_eggplantitem",
+"harvestcraft_jj_figitem",
+"harvestcraft_jj_garlicitem",
+"harvestcraft_jj_gingeritem",
+"harvestcraft_jj_gooseberryitem",
+"harvestcraft_jj_grapeitem",
+"harvestcraft_jj_grapefruititem",
+"harvestcraft_jj_kiwiitem",
+"harvestcraft_jj_leekitem",
+"harvestcraft_jj_lemonitem",
+"harvestcraft_jj_lettuceitem",
+"harvestcraft_jj_limeitem",
+"harvestcraft_jj_mangoitem",
+"harvestcraft_jj_maplesyrupitem",
+"harvestcraft_jj_mustarditem",
+"harvestcraft_jj_oatsitem",
+"harvestcraft_jj_okraitem",
+"harvestcraft_jj_onionitem",
+"harvestcraft_jj_orangeitem",
+"harvestcraft_jj_papayaitem",
+"harvestcraft_jj_peachitem",
+"harvestcraft_jj_peanutitem",
+"harvestcraft_jj_pearitem",
+"harvestcraft_jj_peasitem",
+"harvestcraft_jj_pecanitem",
+"harvestcraft_jj_peppercornitem",
+"harvestcraft_jj_persimmonitem",
+"harvestcraft_jj_pineappleitem",
+"harvestcraft_jj_pistachioitem",
+"harvestcraft_jj_plumitem",
+"harvestcraft_jj_pomegranateitem",
+"harvestcraft_jj_potatoitem",
+"harvestcraft_jj_pumpkinitem",
+"harvestcraft_jj_radishitem",
+"harvestcraft_jj_raspberryitem",
+"harvestcraft_jj_riceitem",
+"harvestcraft_jj_scallionitem",
+"harvestcraft_jj_seaweeditem",
+"harvestcraft_jj_sesameitem",
+"harvestcraft_jj_soybeanitem",
+"harvestcraft_jj_spiceleafitem",
+"harvestcraft_jj_spinachitem",
+"harvestcraft_jj_starfruititem",
+"harvestcraft_jj_strawberryitem",
+"harvestcraft_jj_sunfloweritem",
+"harvestcraft_jj_sweetpotatoitem",
+"harvestcraft_jj_teaitem",
+"harvestcraft_jj_tomatoitem",
+"harvestcraft_jj_turnipitem",
+"harvestcraft_jj_walnutitem",
+"harvestcraft_jj_zucchiniitem",
+"harvestcraft_jj_saltitem",
+"harvestcraft_jj_batteritem",
+"harvestcraft_jj_blackpepperitem",
+"harvestcraft_jj_boiledeggitem",
+"harvestcraft_jj_bubblywateritem",
+"harvestcraft_jj_butteritem",
+"harvestcraft_jj_butteredpotatoitem",
+"harvestcraft_jj_caramelitem",
+"harvestcraft_jj_cheeseitem",
+"harvestcraft_jj_chocolatebaritem",
+"harvestcraft_jj_cocoapowderitem",
+"harvestcraft_jj_cornmealitem",
+"harvestcraft_jj_crackersitem",
+"harvestcraft_jj_donutitem",
+"harvestcraft_jj_doughitem",
+"harvestcraft_jj_firmtofuitem",
+"harvestcraft_jj_flouritem",
+"harvestcraft_jj_friesitem",
+"harvestcraft_jj_grapejellyitem",
+"harvestcraft_jj_grilledcheeseitem",
+"harvestcraft_jj_groundcinnamonitem",
+"harvestcraft_jj_groundnutmegitem",
+"harvestcraft_jj_hamburgeritem",
+"harvestcraft_jj_heavycreamitem",
+"harvestcraft_jj_honeydropitem",
+"harvestcraft_jj_hotsauceitem",
+"harvestcraft_jj_ketchupitem",
+"harvestcraft_jj_marshmellowsitem",
+"harvestcraft_jj_mashedpotatoesitem",
+"harvestcraft_jj_mayoitem",
+"harvestcraft_jj_mustarditem",
+"harvestcraft_jj_noodlesitem",
+"harvestcraft_jj_oliveoilitem",
+"harvestcraft_jj_pastaitem",
+"harvestcraft_jj_picklesitem",
+"harvestcraft_jj_plainyogurtitem",
+"harvestcraft_jj_porksausageitem",
+"harvestcraft_jj_potatochipsitem",
+"harvestcraft_jj_raisinsitem",
+"harvestcraft_jj_saltitem",
+"harvestcraft_jj_sausageitem",
+"harvestcraft_jj_shrimprawitem",
+"harvestcraft_jj_soysauceitem",
+"harvestcraft_jj_stockitem",
+"harvestcraft_jj_toastitem",
+"harvestcraft_jj_tortillaitem",
+"harvestcraft_jj_vanillaitem",
+"harvestcraft_jj_vinegaritem",
+"harvestcraft_jj_saltitem",
+"harvestcraft_jj_cookedtofeakitem",
+"harvestcraft_jj_rawtofeakitem",
+"harvestcraft_jj_cookedtofickenitem",
+"harvestcraft_jj_rawtofickenitem",
+"harvestcraft_jj_rawtofeggitem",
+"harvestcraft_jj_cookedtofishitem",
+"harvestcraft_jj_rawtofishitem",
+"harvestcraft_jj_peachitem",
+"harvestcraft_jj_ryeitem",
+"harvestcraft_jj_silkentofuitem",
+"harvestcraft_jj_icecreamitem",
+"harvestcraft_jj_duckcookeditem",
+"harvestcraft_jj_duckrawitem",
+"harvestcraft_jj_freshmilkitem",
+"harvestcraft_jj_whitemushroomitem",
+"harvestcraft_jj_rawtofuttonitem",
+"harvestcraft_jj_peanutitem",
+"harvestcraft_jj_almondbutteritem",
+"harvestcraft_jj_cookedtofaconitem",
+"harvestcraft_jj_rawtofaconitem",
+"harvestcraft_jj_colasodaitem",
+"harvestcraft_jj_currypowderitem",
+"harvestcraft_jj_leekitem",
+"harvestcraft_jj_freshwateritem",
+"harvestcraft_jj_cuttingboarditem",
+"harvestcraft_jj_juiceritem",
+"harvestcraft_jj_mixingbowlitem",
+"harvestcraft_jj_mortarandpestleitem",
+"harvestcraft_jj_saucepanitem",
+"harvestcraft_jj_skilletitem"]
+
+
+0: "harvestcraft_jj_honeydropitem"
+1: "harvestcraft_jj_potatoitem"
+2: "harvestcraft_jj_pumpkinitem"
+3: "harvestcraft_jj_rawtofeggitem"
+4: "harvestcraft_jj_sesameitem"
+5: "harvestcraft_jj_sunfloweritem"
+6: "ore_jj_cropAlmond"
+7: "ore_jj_cropBambooshoot"
+8: "ore_jj_cropCactusfruit"
+9: "ore_jj_cropCashew"
+10: "ore_jj_cropCauliflower"
+11: "ore_jj_cropChestnut"
+12: "ore_jj_cropCoffee"
+13: "ore_jj_cropCotton"
+14: "ore_jj_cropCurryleaf"
+15: "ore_jj_cropDate"
+16: "ore_jj_cropDurian"
+17: "ore_jj_cropEdibleroot"
+18: "ore_jj_cropNutmeg"
+19: "ore_jj_cropParsnip"
+20: "ore_jj_cropRhubarb"
+21: "ore_jj_cropRutabaga"
+22: "ore_jj_cropVanillabean"
+23: "ore_jj_cropWaterchestnut"
+24: "ore_jj_cropWintersquash"
+25: "ore_jj_dropHoney"
+26: "ore_jj_foodAnchovyraw"
+27: "ore_jj_foodApplejelly"
+28: "ore_jj_foodApricotjelly"
+29: "ore_jj_foodBaconcheeseburger"
+30: "ore_jj_foodBakedbeans"
+31: "ore_jj_foodBiscuit"
+32: "ore_jj_foodBiscuitsandgravy"
+33: "ore_jj_foodBlackberryjelly"
+34: "ore_jj_foodBlueberryjelly"
+35: "ore_jj_foodBread"
+36: "ore_jj_foodBulgogi"
+37: "ore_jj_foodCheeseburger"
+38: "ore_jj_foodCheesecake"
+39: "ore_jj_foodCherryicecream"
+40: "ore_jj_foodCherryjelly"
+41: "ore_jj_foodCherryjuice"
+42: "ore_jj_foodChickencurry"
+43: "ore_jj_foodChickensandwich"
+44: "ore_jj_foodChili"
+45: "ore_jj_foodChipsandsalsa"
+46: "ore_jj_foodChocolateicecream"
+47: "ore_jj_foodChocolatemilk"
+48: "ore_jj_foodClamraw"
+49: "ore_jj_foodCoconutcream"
+50: "ore_jj_foodCoconutmilk"
+51: "ore_jj_foodColeslaw"
+52: "ore_jj_foodCornedbeef"
+53: "ore_jj_foodCornedbeefhash"
+54: "ore_jj_foodCrabcooked"
+55: "ore_jj_foodCrabraw"
+56: "ore_jj_foodCranberryjelly"
+57: "ore_jj_foodCrayfishcooked"
+58: "ore_jj_foodCrayfishraw"
+59: "ore_jj_foodCurrypowder"
+60: "ore_jj_foodDeluxecheeseburger"
+61: "ore_jj_foodEspresso"
+62: "ore_jj_foodFestivalbread"
+63: "ore_jj_foodFigjelly"
+64: "ore_jj_foodFishsandwich"
+65: "ore_jj_foodFishsticks"
+66: "ore_jj_foodFivespice"
+67: "ore_jj_foodFriedchicken"
+68: "ore_jj_foodFriedegg"
+69: "ore_jj_foodFriedonions"
+70: "ore_jj_foodFrograw"
+71: "ore_jj_foodFruitsalad"
+72: "ore_jj_foodGarammasala"
+73: "ore_jj_foodGarlicbread"
+74: "ore_jj_foodGooseberryjelly"
+75: "ore_jj_foodGrapefruitjelly"
+76: "ore_jj_foodGrapefruitjuice"
+77: "ore_jj_foodGrapejuice"
+78: "ore_jj_foodGravy"
+79: "ore_jj_foodGrits"
+80: "ore_jj_foodHoisinsauce"
+81: "ore_jj_foodHotdog"
+82: "ore_jj_foodKimchi"
+83: "ore_jj_foodKiwijelly"
+84: "ore_jj_foodLemonaide"
+85: "ore_jj_foodLemonjelly"
+86: "ore_jj_foodLimejelly"
+87: "ore_jj_foodLimejuice"
+88: "ore_jj_foodMangochutney"
+89: "ore_jj_foodMangojelly"
+90: "ore_jj_foodMaplesausage"
+91: "ore_jj_foodNaan"
+92: "ore_jj_foodOmurice"
+93: "ore_jj_foodOnionsoup"
+94: "ore_jj_foodOrangejelly"
+95: "ore_jj_foodOrangejuice"
+96: "ore_jj_foodPancakes"
+97: "ore_jj_foodPaneer"
+98: "ore_jj_foodPapayajelly"
+99: "ore_jj_foodPeachjelly"
+100: "ore_jj_foodPearjelly"
+101: "ore_jj_foodPepperjelly"
+102: "ore_jj_foodPepperoni"
+103: "ore_jj_foodPersimmonjelly"
+104: "ore_jj_foodPistachioicecream"
+105: "ore_jj_foodPizza"
+106: "ore_jj_foodPlumjelly"
+107: "ore_jj_foodPomegranatejelly"
+108: "ore_jj_foodPotatocakes"
+109: "ore_jj_foodPotatosalad"
+110: "ore_jj_foodRaspberryjelly"
+111: "ore_jj_foodRoastchicken"
+112: "ore_jj_foodRoastpotatoes"
+113: "ore_jj_foodSaladdressing"
+114: "ore_jj_foodSalmonraw"
+115: "ore_jj_foodSalsa"
+116: "ore_jj_foodSardineraw"
+117: "ore_jj_foodSesameoil"
+118: "ore_jj_foodSoftpretzel"
+119: "ore_jj_foodSpagetti"
+120: "ore_jj_foodSpagettiandmeatballs"
+121: "ore_jj_foodSpringsalad"
+122: "ore_jj_foodStarfruitjelly"
+123: "ore_jj_foodStrawberryicecream"
+124: "ore_jj_foodStrawberryjelly"
+125: "ore_jj_foodStrawberryjuice"
+126: "ore_jj_foodSweetandsoursauce"
+127: "ore_jj_foodSweetpickle"
+128: "ore_jj_foodSweetpotatopie"
+129: "ore_jj_foodTaco"
+130: "ore_jj_foodTatertots"
+131: "ore_jj_foodTea"
+132: "ore_jj_foodToastedcoconut"
+133: "ore_jj_foodTomatosoup"
+134: "ore_jj_foodTortillachips"
+135: "ore_jj_foodTunaraw"
+136: "ore_jj_foodVanillaicecream"
+137: "ore_jj_foodVegemite"
+138: "ore_jj_foodWaffles"
+139: "ore_jj_foodWatermelonjelly"
+140: "ore_jj_foodYorkshirepudding"
+141: "ore_jj_foodZucchinifries"
+142: "ore_jj_listAllcitrus"
+143: "ore_jj_listAllcookie"
+144: "ore_jj_listAllduckraw"
+145: "ore_jj_listAllgreenveggie"
+146: "ore_jj_listAlljuice"
+147: "ore_jj_listAllmuttoncooked"
+148: "ore_jj_listAllpepper"
+149: "ore_jj_listAllseed"
+150: "ore_jj_listAllsmoothie"
+151: "ore_jj_listAllturkeycooked"
+152: "ore_jj_materialCloth"
+153: "ore_jj_materialPressedwax"
+
+
+var list2 = ["harvestcraft_jj_honeyitem",
+"minecraft_jj_potato",
+"minecraft_jj_pumpkin",
+"harvestcraft_jj_rawtofeegitem",
+"harvestcraft_jj_sesameseedsitem",
+"harvestcraft_jj_sunflowerseedsitem",
+"harvestcraft_jj_almonditem",
+"harvestcraft_jj_bambooshootitem",
+"harvestcraft_jj_cactusfruititem",
+"harvestcraft_jj_cashewitem",
+"harvestcraft_jj_caulifloweritem",
+"harvestcraft_jj_chestnutitem",
+"harvestcraft_jj_coffeeitem",
+"harvestcraft_jj_cottonitem",
+"harvestcraft_jj_curryleafitem",
+"harvestcraft_jj_dateitem",
+"harvestcraft_jj_durianitem",
+"harvestcraft_jj_ediblerootitem",
+"harvestcraft_jj_nutmegitem",
+"harvestcraft_jj_parsnipitem",
+"harvestcraft_jj_rhubarbitem",
+"harvestcraft_jj_rutabagaitem",
+"harvestcraft_jj_vanillabeanitem",
+"harvestcraft_jj_waterchestnutitem",
+"harvestcraft_jj_wintersquashitem",
+"harvestcraft_jj_honeyitem",
+"harvestcraft_jj_anchovyrawitem",
+"harvestcraft_jj_applejellyitem",
+"harvestcraft_jj_apricotjellyitem",
+"harvestcraft_jj_baconcheeseburgeritem",
+"harvestcraft_jj_bakedbeansitem",
+"harvestcraft_jj_biscuititem",
+"harvestcraft_jj_biscuitsandgravyitem",
+"harvestcraft_jj_blackberryjellyitem",
+"harvestcraft_jj_blueberryjellyitem",
+"harvestcraft_jj_breaditem",
+"harvestcraft_jj_bulgogiitem",
+"harvestcraft_jj_cheeseburgeritem",
+"harvestcraft_jj_cheesecakeitem",
+"harvestcraft_jj_cherryicecreamitem",
+"harvestcraft_jj_cherryjellyitem",
+"harvestcraft_jj_cherryjuiceitem",
+"harvestcraft_jj_chickencurryitem",
+"harvestcraft_jj_chickensandwichitem",
+"harvestcraft_jj_chiliitem",
+"harvestcraft_jj_chipsandsalsaitem",
+"harvestcraft_jj_chocolateicecreamitem",
+"harvestcraft_jj_chocolatemilkitem",
+"harvestcraft_jj_clamrawitem",
+"harvestcraft_jj_coconutcreamitem",
+"harvestcraft_jj_coconutmilkitem",
+"harvestcraft_jj_coleslawitem",
+"harvestcraft_jj_cornedbeefitem",
+"harvestcraft_jj_cornedbeefhashitem",
+"harvestcraft_jj_crabcookeditem",
+"harvestcraft_jj_crabrawitem",
+"harvestcraft_jj_cranberryjellyitem",
+"harvestcraft_jj_crayfishcookeditem",
+"harvestcraft_jj_crayfishrawitem",
+"harvestcraft_jj_currypowderitem",
+"harvestcraft_jj_deluxecheeseburgeritem",
+"harvestcraft_jj_espressoitem",
+"harvestcraft_jj_festivalbreaditem",
+"harvestcraft_jj_figjellyitem",
+"harvestcraft_jj_fishsandwichitem",
+"harvestcraft_jj_fishsticksitem",
+"harvestcraft_jj_fivespiceitem",
+"harvestcraft_jj_friedchickenitem",
+"harvestcraft_jj_friedeggitem",
+"harvestcraft_jj_friedonionsitem",
+"harvestcraft_jj_frograwitem",
+"harvestcraft_jj_fruitsaladitem",
+"harvestcraft_jj_garammasalaitem",
+"harvestcraft_jj_garlicbreaditem",
+"harvestcraft_jj_gooseberryjellyitem",
+"harvestcraft_jj_grapefruitjellyitem",
+"harvestcraft_jj_grapefruitjuiceitem",
+"harvestcraft_jj_grapejuiceitem",
+"harvestcraft_jj_gravyitem",
+"harvestcraft_jj_gritsitem",
+"harvestcraft_jj_hoisinsauceitem",
+"harvestcraft_jj_hotdogitem",
+"harvestcraft_jj_kimchiitem",
+"harvestcraft_jj_kiwijellyitem",
+"harvestcraft_jj_lemonaideitem",
+"harvestcraft_jj_lemonjellyitem",
+"harvestcraft_jj_limejellyitem",
+"harvestcraft_jj_limejuiceitem",
+"harvestcraft_jj_mangochutneyitem",
+"harvestcraft_jj_mangojellyitem",
+"harvestcraft_jj_maplesausageitem",
+"harvestcraft_jj_naanitem",
+"harvestcraft_jj_omuriceitem",
+"harvestcraft_jj_onionsoupitem",
+"harvestcraft_jj_orangejellyitem",
+"harvestcraft_jj_orangejuiceitem",
+"harvestcraft_jj_pancakesitem",
+"harvestcraft_jj_paneeritem",
+"harvestcraft_jj_papayajellyitem",
+"harvestcraft_jj_peachjellyitem",
+"harvestcraft_jj_pearjellyitem",
+"harvestcraft_jj_pepperjellyitem",
+"harvestcraft_jj_pepperoniitem",
+"harvestcraft_jj_persimmonjellyitem",
+"harvestcraft_jj_pistachioicecreamitem",
+"harvestcraft_jj_pizzaitem",
+"harvestcraft_jj_plumjellyitem",
+"harvestcraft_jj_pomegranatejellyitem",
+"harvestcraft_jj_potatocakesitem",
+"harvestcraft_jj_potatosaladitem",
+"harvestcraft_jj_raspberryjellyitem",
+"harvestcraft_jj_roastchickenitem",
+"harvestcraft_jj_roastpotatoesitem",
+"harvestcraft_jj_saladdressingitem",
+"harvestcraft_jj_salmonrawitem",
+"harvestcraft_jj_salsaitem",
+"harvestcraft_jj_sardinerawitem",
+"harvestcraft_jj_sesameoilitem",
+"harvestcraft_jj_softpretzelitem",
+"harvestcraft_jj_spagettiitem",
+"harvestcraft_jj_spagettiandmeatballsitem",
+"harvestcraft_jj_springsaladitem",
+"harvestcraft_jj_starfruitjellyitem",
+"harvestcraft_jj_strawberryicecreamitem",
+"harvestcraft_jj_strawberryjellyitem",
+"harvestcraft_jj_strawberryjuiceitem",
+"harvestcraft_jj_sweetandsoursauceitem",
+"harvestcraft_jj_sweetpickleitem",
+"harvestcraft_jj_sweetpotatopieitem",
+"harvestcraft_jj_tacoitem",
+"harvestcraft_jj_tatertotsitem",
+"harvestcraft_jj_teaitem",
+"harvestcraft_jj_toastedcoconutitem",
+"harvestcraft_jj_tomatosoupitem",
+"harvestcraft_jj_tortillachipsitem",
+"harvestcraft_jj_tunarawitem",
+"harvestcraft_jj_vanillaicecreamitem",
+"harvestcraft_jj_vegemiteitem",
+"harvestcraft_jj_wafflesitem",
+"harvestcraft_jj_watermelonjellyitem",
+"harvestcraft_jj_yorkshirepuddingitem",
+"harvestcraft_jj_zucchinifriesitem",
+"harvestcraft_jj_lemonitem",
+"harvestcraft_jj_peanutbuttercookiesitem",
+"harvestcraft_jj_duckrawitem",
+"harvestcraft_jj_lettuceitem",
+"",
+"harvestcraft_jj_cookedtofuttonitem",
+"harvestcraft_jj_chilipepperitem",
+"harvestcraft_jj_radishseeditem",
+"harvestcraft_jj_melonsmoothieitem",
+"harvestcraft_jj_turkeycookeditem",
+"harvestcraft_jj_wovencottonitem",
+"harvestcraft_jj_beeswaxitem"]
+
+
+0: "ore_jj_blockSteel"
+1: "ore_jj_circuitAdvanced"
+2: "ore_jj_circuitBasic"
+3: "ore_jj_circuitElite"
+4: "ore_jj_circuitMaster"
+5: "ore_jj_craftingDiamondGrinder"
+6: "ore_jj_craftingSuperconductor"
+7: "ore_jj_dustAlmandine"
+8: "ore_jj_dustAluminum"
+9: "ore_jj_dustAndesite"
+10: "ore_jj_dustAndradite"
+11: "ore_jj_dustAshes"
+12: "ore_jj_dustBasalt"
+13: "ore_jj_dustBauxite"
+14: "ore_jj_dustBrass"
+15: "ore_jj_dustBronze"
+16: "ore_jj_dustCalcite"
+17: "ore_jj_dustCharcoal"
+18: "ore_jj_dustChrome"
+19: "ore_jj_dustCinnabar"
+20: "ore_jj_dustClay"
+21: "ore_jj_dustCoal"
+22: "ore_jj_dustCopper"
+23: "ore_jj_dustDiamond"
+24: "ore_jj_dustDiorite"
+25: "ore_jj_dustElectrum"
+26: "ore_jj_dustEmerald"
+27: "ore_jj_dustEndstone"
+28: "ore_jj_dustFlint"
+29: "ore_jj_dustGalena"
+30: "ore_jj_dustGold"
+31: "ore_jj_dustGranite"
+32: "ore_jj_dustGrossular"
+33: "ore_jj_dustInvar"
+34: "ore_jj_dustIron"
+35: "ore_jj_dustLazurite"
+36: "ore_jj_dustLead"
+37: "ore_jj_dustMagnesium"
+38: "ore_jj_dustManganese"
+39: "ore_jj_dustMarble"
+40: "ore_jj_dustNetherrack"
+41: "ore_jj_dustNickel"
+42: "ore_jj_dustObsidian"
+43: "ore_jj_dustPeridot"
+44: "ore_jj_dustPetrotheum"
+45: "ore_jj_dustPhosphorous"
+46: "ore_jj_dustPlatinum"
+47: "ore_jj_dustPyrite"
+48: "ore_jj_dustPyrope"
+49: "ore_jj_dustPyrotheum"
+50: "ore_jj_dustRuby"
+51: "ore_jj_dustSaltpeter"
+52: "ore_jj_dustSapphire"
+53: "ore_jj_dustSilver"
+54: "ore_jj_dustSodalite"
+55: "ore_jj_dustSpessartine"
+56: "ore_jj_dustSphalerite"
+57: "ore_jj_dustSteel"
+58: "ore_jj_dustSulfur"
+59: "ore_jj_dustTin"
+60: "ore_jj_dustTitanium"
+61: "ore_jj_dustTungsten"
+62: "ore_jj_dustUvarovite"
+63: "ore_jj_dustZinc"
+64: "ore_jj_dye"
+65: "ore_jj_energyCrystal"
+66: "ore_jj_gemEmerald"
+67: "ore_jj_gemPeridot"
+68: "ore_jj_gemRedGarnet"
+69: "ore_jj_gemRuby"
+70: "ore_jj_gemSapphire"
+71: "ore_jj_gemYellowGarnet"
+72: "ore_jj_glassReinforced"
+73: "ore_jj_ingotAdvancedAlloy"
+74: "ore_jj_ingotAluminum"
+75: "ore_jj_ingotBrass"
+76: "ore_jj_ingotBronze"
+77: "ore_jj_ingotChrome"
+78: "ore_jj_ingotCopper"
+79: "ore_jj_ingotElectrum"
+80: "ore_jj_ingotHotTungstensteel"
+81: "ore_jj_ingotInvar"
+82: "ore_jj_ingotIridium"
+83: "ore_jj_ingotLead"
+84: "ore_jj_ingotNickel"
+85: "ore_jj_ingotPlatinum"
+86: "ore_jj_ingotRefinedIron"
+87: "ore_jj_ingotSilver"
+88: "ore_jj_ingotSteel"
+89: "ore_jj_ingotTin"
+90: "ore_jj_ingotTitanium"
+91: "ore_jj_ingotTungsten"
+92: "ore_jj_ingotTungstensteel"
+93: "ore_jj_ingotZinc"
+94: "ore_jj_itemRubber"
+95: "ore_jj_lapotronCrystal"
+96: "ore_jj_machineBlockAdvanced"
+97: "ore_jj_machineBlockBasic"
+98: "ore_jj_machineBlockElite"
+99: "ore_jj_nuggetAluminum"
+100: "ore_jj_nuggetBronze"
+101: "ore_jj_nuggetCopper"
+102: "ore_jj_nuggetElectrum"
+103: "ore_jj_nuggetHotTungstensteel"
+104: "ore_jj_nuggetInvar"
+105: "ore_jj_nuggetIridium"
+106: "ore_jj_nuggetLead"
+107: "ore_jj_nuggetNickel"
+108: "ore_jj_nuggetPlatinum"
+109: "ore_jj_nuggetSilver"
+110: "ore_jj_nuggetSteel"
+111: "ore_jj_oreBauxite"
+112: "ore_jj_oreCinnabar"
+113: "ore_jj_oreGalena"
+114: "ore_jj_oreManganese"
+115: "ore_jj_orePyrite"
+116: "ore_jj_oreSapphire"
+117: "ore_jj_oreSodalite"
+118: "ore_jj_oreSphalerite"
+119: "ore_jj_oreTitanium"
+120: "ore_jj_oreTungsten"
+121: "ore_jj_oreZinc"
+122: "ore_jj_paneGlass"
+123: "ore_jj_plateAdvancedAlloy"
+124: "ore_jj_plateAluminum"
+125: "ore_jj_plateCarbon"
+126: "ore_jj_plateChrome"
+127: "ore_jj_plateCopper"
+128: "ore_jj_plateInvar"
+129: "ore_jj_plateIridium"
+130: "ore_jj_plateIridiumAlloy"
+131: "ore_jj_plateIron"
+132: "ore_jj_plateMagnalium"
+133: "ore_jj_plateSteel"
+134: "ore_jj_plateTitanium"
+135: "ore_jj_plateTungstensteel"
+136: "ore_jj_reBattery"
+137: "ore_jj_workbench"
 
 $.each(list, function (j, item) {
 	if ( list2[j] != null ) {
 		if(!list2[j].equals("")){
-			MC.changeRecipeItem("nuclearcraft", item, list2[j])
+			MC.changeRecipeItem("harvestcraft", item, list2[j])
 		}
 	}
 });
