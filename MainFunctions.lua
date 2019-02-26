@@ -8,7 +8,7 @@ mf.shell = require("shell")
 mf.filesystem = require("filesystem")
 mf.os = require("os")
 mf.serial = require("serialization")
-mf.OCNet = {toSystem = "", system = "", to = "", from = "", tunnel = false, loc = "", remote = "", tunnels = {}, main_server = {}}
+mf.OCNet = {system = "", tunnels = {}, main_server = {}}
 
 for address, componentType in mf.component.list() do 
   if componentType == "tunnel" then
@@ -82,8 +82,23 @@ function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
   end
   return true
 end
+function mf.GetFreeOCNetSlot()
+	local slot = 0
+	for i = 1, 1000, 1 do
+		if mf.OCNet[i] == nil then
+			slot = i
+			mf.OCNet[i] = {toSystem = "", to = "", from = "", tunnel = false, loc = "", remote = ""}
+			break
+		elseif mf.OCNet[i].toSystem == "" then
+			slot = i
+			break
+		end
+	end
+	return slot
+end
 function mf.ReceiveFromOCNet(timeout)
   local _, localAddress, remoteAddress, data = ""
+  local slot = mf.GetFreeOCNetSlot()
   if timeout ~= nil and tonumber(timeout) ~= nil then
     _, localAddress, remoteAddress, _, _, data = mf.event.pull(timeout, "modem_message")
   else
@@ -92,20 +107,20 @@ function mf.ReceiveFromOCNet(timeout)
   if remoteAddress ~= nil then
     data = mf.serial.unserialize(data)
     if mf.containsKey(data, "OCNet") then
-    	mf.OCNet = mf.combineTables(mf.OCNet, data.OCNet)
+    	mf.OCNet[slot] = mf.combineTables(mf.OCNet, data.OCNet)
     	if mf.contains(mf.OCNet.tunnels, localAddress) then
-    	  mf.OCNet.tunnel = true
-    	  mf.OCNet.loc = localAddress
+    	  mf.OCNet[slot].tunnel = true
+    	  mf.OCNet[slot].loc = localAddress
     	else
-    	  mf.OCNet.tunnel = false
-    	  mf.OCNet.loc = ""
+    	  mf.OCNet[slot].tunnel = false
+    	  mf.OCNet[slot].loc = ""
     	end
-    	mf.OCNet.remote = remoteAddress
+    	mf.OCNet[slot].remote = remoteAddress
     	data.OCNet = nil
-    	return data, mf.copyTable(mf.OCNet)
+    	return data, slot
     else
     	print("Received data is not from OCNet.")
-    	return data
+    	return data, -1
     end
   else
     print("No data received from OCNet.")
@@ -113,12 +128,16 @@ function mf.ReceiveFromOCNet(timeout)
   end
 end
 
-function mf.SendBack(data)
-  if mf.OCNet.tunnel then
-    mf.SendOverOCNet(mf.OCNet.from, data, nil, nil, mf.OCNet.loc)
-  else
-    mf.SendOverOCNet(mf.OCNet.from, data, mf.OCNet.remote)
+function mf.SendBack(data, slot)
+  if slot == nil then
+	slot = 0
   end
+  if mf.OCNet.tunnel then
+    mf.SendOverOCNet(mf.OCNet[slot].from, data, nil, nil, mf.OCNet[slot].loc)
+  else
+    mf.SendOverOCNet(mf.OCNet[slot].from, data, mf.OCNet[slot].remote)
+  end
+  mf.OCNet[slot] = nil
 end
 function mf.GetNamesFromOCNet(typ, system)
   system = getSystem(system)
@@ -152,18 +171,21 @@ function mf.SetComputerName(typ, system)
     if mf.ComputerName[system].isRegistered == false then
       local sended = mf.SendOverOCNet("", {registerComputer={system=system, name=mf.ComputerName[system].name, typ=typ}}, "", "OCNet")
       if sended then
-        local received = mf.ReceiveFromOCNet(10)
+        local received, slot = mf.ReceiveFromOCNet(10)
         if received then
           print("OCNet found. Computer registered in OCNet.")
-          mf.OCNet.main_server.address = mf.OCNet.remote
+          mf.OCNet.main_server.address = mf.OCNet[slot].remote
           mf.OCNet.main_server.name = received[1]
+		  mf.ComputerName[system].isRegistered = true
           mf.WriteObjectFile(mf.OCNet.main_server, "/home/OCNetServer.lua")
           return true
         else
           print("No OCNet found.")
         end
       end
-    end
+	else
+		return true
+	end
   else
     print("Please define system.")
   end
