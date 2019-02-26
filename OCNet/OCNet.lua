@@ -58,20 +58,14 @@ function oc.getNames(system, typ)
   end
   return returning
 end
-function oc.SendBack(data, oc_data)
-  if oc_data.tunnel then
-    oc.mf.SendOverOCNet(oc_data.from, data, nil, nil, oc_data.loc)
-  else
-    oc.mf.SendOverOCNet(oc_data.from, data, oc_data.remote)
-  end
-end
-function oc.Received(data, oc_data)
+function oc.Received(data, oc_slot)
+  local oc_data = oc.mf.CopyTable(oc.mf.OCNet[oc_slot])
   if oc_data.toSystem == "OCNet" then
     if oc.mf.containsKey(data, "registerComputer") then
       if oc.mf.containsKeys(data.registerComputer, {"system", "name", "typ"}) then
         if oc.main_server.isMain and data.registerComputer.system == "OCNet" then
           oc.servers[data.registerComputer.name] = oc_data.remote
-          oc.SendBack({oc.mf.ComputerName.OCnet.name}, oc_data)
+          oc.mf.SendBack({oc.mf.ComputerName.OCnet.name}, oc_slot)
           oc.save()
           oc.setOC()
         elseif data.registerComputer.system ~= "OCNet" then
@@ -79,7 +73,7 @@ function oc.Received(data, oc_data)
             oc.receivers[data.registerComputer.system] = {}
           end
           oc.receivers[data.registerComputer.system][data.registerComputer.name] = {address = oc_data.remote, overTunnel = oc_data.tunnel, tunnel = {address = oc_data.loc, cn = oc.mf.ComputerName.OCNet}, typ = data.registerComputer.typ}
-          oc.SendBack({oc.mf.OCNet.main_server.name}, oc_data)
+          oc.mf.SendBack({oc.mf.OCNet.main_server.name}, oc_slot)
           oc.save()
           oc.setOC()
         end
@@ -92,7 +86,7 @@ function oc.Received(data, oc_data)
       oc.save()
     elseif oc.mf.containsKey(data, "getNames") then
       if oc.mf.containsKeys(data.getNames, {"system", "typ"}) then
-        oc.SendBack(oc.getNames(data.getNames.system, data.getNames.typ), oc_data)
+        oc.mf.SendBack(oc.getNames(data.getNames.system, data.getNames.typ), oc_slot)
       end
     end
   else
@@ -105,7 +99,7 @@ function oc.Received(data, oc_data)
         oc.modem.send(oc.receivers[oc_data.toSystem][oc_data.to].address, 478, forward)
       end
     else
-      oc.SendBack({"Computer_not_found"}, oc_data)
+      oc.mf.SendBack({"Computer_not_found"}, oc_slot)
     end
   end
 end
@@ -114,6 +108,6 @@ oc.findMain()
 oc.getOC()
 
 while true do
-  local data, oc_data = oc.mf.ReceiveFromOCNet()
-  oc.mf.thread.create(oc.Received(data, oc_data), data, oc_data)
+  local data, oc_slot = oc.mf.ReceiveFromOCNet()
+  oc.mf.thread.create(oc.Received(data, oc_slot), data, oc_slot)
 end
