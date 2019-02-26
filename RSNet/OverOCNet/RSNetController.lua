@@ -8,7 +8,7 @@ RSC.stationcount = 0
 RSC.timercount = 30
 RSC.itemselect = {dis=1, s=1, r=1, m=1}
 RSC.app = RSC.gui.application()
-RSC.mf.system = "RSNet"
+RSC.mf.OCNet.system = "RSNet"
 local varpath = "/home/RSNetStationVars.lua"
 
 function RSC.Draw_GUI() 
@@ -277,7 +277,7 @@ function RSC.start()
   RSC.rs = require("RSNetStationVars")
   local ocsuccess = RSC.mf.SetComputerName("Controller")
   if ocsuccess then
-    local names = RSC.mf.GetNamesFromOCNet("Distributors")
+    local names = RSC.mf.GetNamesFromOCNet("Distributor")
     if names ~= nil then
       if names.Distributors ~= nil then
         for i,j in pairs(names.Distributors) do

@@ -1,6 +1,7 @@
 local dis = {gui = require("GUI"), mf = require("MainFunctions"), rs = {}, tp_net = "", tp_dest = "", listener = "", distime = 50}
 dis.red = dis.mf.component.redstone
 dis.modem = dis.mf.component.modem
+dis.mf.OCNet.system = "RSNet"
 
 function dis.save()
   dis.mf.WriteObjectFile(dis.rs, "/home/RSNetComponents.lua")
@@ -322,7 +323,7 @@ local function setup()
 --  print("  Slot 25: 4x Diorit")
 --  print("  Slot 26: 4x Dirt")
 --  print("  Slot 27: 64x Stone")
-  local ocnetsuccess = dis.mf.SetComputerName("RSNet")
+  local ocnetsuccess = dis.mf.SetComputerName("Distributor")
   print("Please enter the Transposer UID for storing the Network-Cards.")
   dis.rs.transposer_netcards = dis.mf.getComponentProxyInput()
   print("Please enter the Transposer UID for the storage of items for distribution.")
@@ -364,7 +365,7 @@ function dis.start()
   local ocnetsuccess = true
   if dis.mf.filesystem.exists("/home/RSNetComponents.lua") then
     dis.rs = require("RSNetComponents")
-    ocnetsuccess = dis.mf.SetComputerName("RSNet")
+    ocnetsuccess = dis.mf.SetComputerName("Distributor")
   else
     ocnetsuccess = setup()
   end
@@ -381,8 +382,8 @@ function dis.start()
   dis.save()
   dis.listener = dis.mf.thread.create(function()
     while true do
-      local data = dis.mf.ReceiveFromOCNet()
-      if dis.mf.OCNet.toSystem == "RSNet" and dis.mf.OCNet.to == dis.mf.ComputerName[dis.mf.OCNet.system].name then
+      local data, slot = dis.mf.ReceiveFromOCNet()
+      if dis.mf.OCNet[slot].toSystem == "RSNet" and dis.mf.OCNet[slot].to == dis.mf.ComputerName[dis.mf.OCNet.system].name then
         if dis.mf.contains(data, "check", "number") then
           dis.StationCheck(data)
         elseif dis.mf.contains(data, "register", "number") and dis.mf.containsKey(data, "station") then
