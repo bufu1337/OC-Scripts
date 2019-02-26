@@ -3,6 +3,8 @@ ac.convert = require("bufu/Convert")
 ac.prox = require("bufu/Proxies")
 ac.mD = require("bufu/Crafter/getMaxDamage")
 ac.mf = require("bufu/MainFunctions")
+ac.mf.OCNet.system = "ACNet"
+ac.mf.SetComputerName("Crafter")
 ac.items = {}
 ac.recipeitems = {}
 ac.priocount = 0
@@ -244,12 +246,12 @@ function ac.GetStorageItems()
       end
       for i,j in pairs(o) do
         local rs_item = {}
-		local ok = false
+        local ok = false
         local rs_proxy = ac.prox.GetProxy(ac.recipeitems[j].mod, "home")
         if(rs_proxy ~= "") then
           local rs_comp = ac.mf.component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
-			ok, rs_item = pcall(rs_comp.getItem, ac.recipeitems[j])
+            ok, rs_item = pcall(rs_comp.getItem, ac.recipeitems[j])
             if ok then
                 if(rs_item == nil) then
                   rs_item = {size=0.0}
@@ -564,11 +566,11 @@ function ac.MoveItem(item, count, route)
         local storage = ac.mf.component.proxy(route[r].proxy)
         if r == 2 then ac.mf.os.sleep(0.05) end
         while count > 0 do
-			local ok, dropped = pcall(storage.extractItem, item, count, route[r].side)
+            local ok, dropped = pcall(storage.extractItem, item, count, route[r].side)
             if ok then
-				if dropped ~= nil then
-					count = count - dropped
-				end
+                if dropped ~= nil then
+                    count = count - dropped
+                end
             else
                 ac.mf.writex(dropped)
                 ac.mf.WriteObjectFile(dropped, "/home/" .. ac.crafter .. "-errors.lua", null, true)
@@ -652,19 +654,21 @@ function ac.CheckItemRecipe(item)
     if returning == "" then
         ac.MoveRecipeItems(item)
         local ok, r = ac.rs_cr.getMissingItems(ac.items[item], ac.items[item].crafts * ac.items[item].craftCount)
-		if ok then
-			if r.n > 1 then returning = "Wrong " .. ac.mf.serial.serialize(r) else returning = "OK" end
-		else
-			returning = tostring(r)
-			ac.mf.writex(returning)
+        if ok then
+            if r.n > 1 then returning = "Wrong " .. ac.mf.serial.serialize(r) else returning = "OK" end
+        else
+            returning = tostring(r)
+            ac.mf.writex(returning)
             ac.mf.WriteObjectFile(returning, "/home/" .. ac.crafter .. "-errors.lua", null, true)
-		end
+        end
         ac.MoveRestBack()
     end
     print(returning)
     return returning
 end
-function ac.CheckRecipes()
+function ac.CheckRecipes(itemrepo)
+    ac.Define(itemrepo)
+    ac.GetItems()
     ac.rs_cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
     local cr_items = {}
     for i,j in pairs(ac.mf.getSortedKeys(ac.items)) do
@@ -672,6 +676,22 @@ function ac.CheckRecipes()
     end
     ac.MoveRestBack()
     ac.mf.WriteObjectFile(cr_items, "/home/" .. ac.crafter .. " - RecipeChecked.lua")
+end
+function ac.CheckPattern(itemrepo)
+    ac.mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsAll/" .. itemrepo .. ".lua" .. "?" .. math.random() .. " /home/" .. itemrepo .. ".lua")
+    local items = require(itemrepo)
+    local rs = ac.mf.component.proxy(ac.prox.GetProxyByName(itemrepo, "craft"))
+    local newItems = {}
+    for i,j in pairs(items) do 
+        local st = pcall(function(v) newItems[v] = rs.hasPattern(ac.convert.TextToItem(v)) end, i)
+        if st then
+            print(i .. " = " .. tostring(newItems[i]))
+        else
+            print(i .. "     INVALID STACK")
+        end
+    end
+    ac.mf.WriteObjectFile(newItems, "/home/" .. itemrepo .. " - PatternChecked.lua")
+    ac.mf.filesystem.remove("/home/" .. itemrepo .. ".lua")
 end
 function ac.test()
   ac = require("bufu/Crafter/Autocraft")

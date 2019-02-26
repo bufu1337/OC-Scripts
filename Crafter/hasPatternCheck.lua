@@ -4,7 +4,7 @@ local convert = require("Convert")
 local mf = require("MainFunctions")
 local hpc = {}
 function hpc.CheckPattern(param)
-    mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsNew/" .. param .. ".lua" .. "?" .. math.random() .. " /home/" .. param .. ".lua")
+    mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsAll/" .. param .. ".lua" .. "?" .. math.random() .. " /home/" .. param .. ".lua")
     local items = require(param)
     local rs = mf.component.proxy(prox.GetProxyByName(param, "craft"))
     local newItems = {}
