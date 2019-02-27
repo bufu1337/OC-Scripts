@@ -287,6 +287,7 @@ local function WriteItemsSC2()
   for i,j in pairs(items) do
     local temp={}
     local tempr={}
+    local tempall={}
     for a,b in pairs(j) do
       if b.hasPattern then
         temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
@@ -305,9 +306,15 @@ local function WriteItemsSC2()
           end
         end
       end
+      if j.tag == "" then
+        tempall[a] = mf.copyTable(b, {"hasPattern", "label"})
+      else
+        tempall[a] = mf.copyTable(b, {"hasPattern", "label", "tag"})
+      end
     end
     mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
     mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
+    mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
   end
 end
 local function WriteItemFiles()
@@ -361,17 +368,17 @@ local function combinePatternCheck()
   local patterns_lost = {}
   local patterns_gained = {}
   for a,b in pairs(items) do
-    if file_exists(ocpath[working] .. "Crafter/PatternCheck/" .. a .. "_check.lua") then
-      local checkeditems = require("Crafter/PatternCheck/" .. a .. "_check")
+    if file_exists(ocpath[working] .. "Crafter/PatternCheck/" .. a .. "_PatternChecked.lua") then
+      local checkeditems = require("Crafter/PatternCheck/" .. a .. "_PatternChecked")
       for c,d in pairs(b) do
         if checkeditems[c] ~= nil then
-          if items[a][c].hasPattern == true and checkeditems[c] == false then
-            print("                  ITEM: " .. c .. "       LOST PATTERN")
-          end
-          if items[a][c].hasPattern == false and checkeditems[c] == true then
-            print("ITEM: " .. c .. "    gets a Pattern")
-          end
-          items[a][c].hasPattern = checkeditems[c]
+		  if items[a][c].hasPattern == true and checkeditems[c] == false then
+			print("                  ITEM: " .. c .. "       LOST PATTERN")
+		  end
+		  if items[a][c].hasPattern == false and checkeditems[c] == true then
+			print("ITEM: " .. c .. "    gets a Pattern")
+		  end
+		  items[a][c].hasPattern = checkeditems[c]
         end
       end
     end
@@ -379,12 +386,30 @@ local function combinePatternCheck()
   mf.WriteObjectFile(patterns_lost, (ocpath[working] .. "Crafter/Patterns_lost.lua"))
   mf.WriteObjectFile(patterns_gained, (ocpath[working] .. "Crafter/Patterns_gained.lua"))
 end
+local function combineRecipeCheck()
+  local patterns_lost = {}
+  local patterns_gained = {}
+  for a,b in pairs(items) do
+    if file_exists(ocpath[working] .. "Crafter/RecipeCheck/" .. a .. "_RecipeChecked.lua") then
+      local itemrecipecheck = require("Crafter/RecipeCheck/" .. a .. "_RecipeChecked.lua")
+      for c,d in pairs(b) do
+        if itemrecipecheck[c] ~= nil then
+          if items[a][c].c3 ~= "" then
+            items[a][c].c3 = items[a][c].c3 .. " --RecipeCheck: " .. itemrecipecheck[c]
+          else
+            items[a][c].c3 = " --RecipeCheck: " .. itemrecipecheck[c]
+          end
+        end
+      end
+    end
+  end
+end
 local function combineLabels()
   local patterns_lost = {}
   local patterns_gained = {}
   for a,b in pairs(items) do
-    if file_exists(ocpath[working] .. "Crafter/labels/" .. a .. "_label.lua") then
-      local itemlabels = require("Crafter/labels/" .. a .. "_label")
+    if file_exists(ocpath[working] .. "Crafter/NewLabels/" .. a .. "_NewLabels.lua") then
+      local itemlabels = require("Crafter/NewLabels/" .. a .. "_NewLabels.lua")
       for c,d in pairs(b) do
         if itemlabels[c] ~= nil then
           items[a][c].label = itemlabels[c]
