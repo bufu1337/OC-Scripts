@@ -2656,6 +2656,815 @@ $.each(list, function (j, item) {
 });
 
 
+var list = ["ore_jj_blockSteel",
+"ore_jj_circuitAdvanced",
+"ore_jj_circuitBasic",
+"ore_jj_circuitElite",
+"ore_jj_circuitMaster",
+"ore_jj_craftingDiamondGrinder",
+"ore_jj_craftingSuperconductor",
+"ore_jj_dustAlmandine",
+"ore_jj_dustAluminum",
+"ore_jj_dustAndesite",
+"ore_jj_dustAndradite",
+"ore_jj_dustAshes",
+"ore_jj_dustBasalt",
+"ore_jj_dustBauxite",
+"ore_jj_dustBrass",
+"ore_jj_dustBronze",
+"ore_jj_dustCalcite",
+"ore_jj_dustCharcoal",
+"ore_jj_dustChrome",
+"ore_jj_dustCinnabar",
+"ore_jj_dustClay",
+"ore_jj_dustCoal",
+"ore_jj_dustCopper",
+"ore_jj_dustDiamond",
+"ore_jj_dustDiorite",
+"ore_jj_dustElectrum",
+"ore_jj_dustEmerald",
+"ore_jj_dustEndstone",
+"ore_jj_dustFlint",
+"ore_jj_dustGalena",
+"ore_jj_dustGold",
+"ore_jj_dustGranite",
+"ore_jj_dustGrossular",
+"ore_jj_dustInvar",
+"ore_jj_dustIron",
+"ore_jj_dustLazurite",
+"ore_jj_dustLead",
+"ore_jj_dustMagnesium",
+"ore_jj_dustManganese",
+"ore_jj_dustMarble",
+"ore_jj_dustNetherrack",
+"ore_jj_dustNickel",
+"ore_jj_dustObsidian",
+"ore_jj_dustPeridot",
+"ore_jj_dustPhosphorous",
+"ore_jj_dustPlatinum",
+"ore_jj_dustPyrite",
+"ore_jj_dustPyrope",
+"ore_jj_dustRuby",
+"ore_jj_dustSaltpeter",
+"ore_jj_dustSapphire",
+"ore_jj_dustSilver",
+"ore_jj_dustSodalite",
+"ore_jj_dustSpessartine",
+"ore_jj_dustSphalerite",
+"ore_jj_dustSteel",
+"ore_jj_dustSulfur",
+"ore_jj_dustTin",
+"ore_jj_dustTitanium",
+"ore_jj_dustTungsten",
+"ore_jj_dustUvarovite",
+"ore_jj_dustZinc",
+"ore_jj_dye",
+"ore_jj_energyCrystal",
+"ore_jj_gemEmerald",
+"ore_jj_gemPeridot",
+"ore_jj_gemRedGarnet",
+"ore_jj_gemRuby",
+"ore_jj_gemSapphire",
+"ore_jj_gemYellowGarnet",
+"ore_jj_glassReinforced",
+"ore_jj_ingotAdvancedAlloy",
+"ore_jj_ingotAluminum",
+"ore_jj_ingotBrass",
+"ore_jj_ingotBronze",
+"ore_jj_ingotChrome",
+"ore_jj_ingotCopper",
+"ore_jj_ingotElectrum",
+"ore_jj_ingotHotTungstensteel",
+"ore_jj_ingotInvar",
+"ore_jj_ingotIridium",
+"ore_jj_ingotLead",
+"ore_jj_ingotNickel",
+"ore_jj_ingotPlatinum",
+"ore_jj_ingotRefinedIron",
+"ore_jj_ingotSilver",
+"ore_jj_ingotSteel",
+"ore_jj_ingotTin",
+"ore_jj_ingotTitanium",
+"ore_jj_ingotTungsten",
+"ore_jj_ingotTungstensteel",
+"ore_jj_ingotZinc",
+"ore_jj_itemRubber",
+"ore_jj_lapotronCrystal",
+"ore_jj_machineBlockAdvanced",
+"ore_jj_machineBlockBasic",
+"ore_jj_machineBlockElite",
+"ore_jj_nuggetAluminum",
+"ore_jj_nuggetBronze",
+"ore_jj_nuggetCopper",
+"ore_jj_nuggetElectrum",
+"ore_jj_nuggetHotTungstensteel",
+"ore_jj_nuggetInvar",
+"ore_jj_nuggetIridium",
+"ore_jj_nuggetLead",
+"ore_jj_nuggetNickel",
+"ore_jj_nuggetPlatinum",
+"ore_jj_nuggetSilver",
+"ore_jj_nuggetSteel",
+"ore_jj_oreBauxite",
+"ore_jj_oreCinnabar",
+"ore_jj_oreGalena",
+"ore_jj_oreManganese",
+"ore_jj_orePyrite",
+"ore_jj_oreSapphire",
+"ore_jj_oreSodalite",
+"ore_jj_oreSphalerite",
+"ore_jj_oreTitanium",
+"ore_jj_oreTungsten",
+"ore_jj_oreZinc",
+"ore_jj_paneGlass",
+"ore_jj_plateAdvancedAlloy",
+"ore_jj_plateAluminum",
+"ore_jj_plateCarbon",
+"ore_jj_plateChrome",
+"ore_jj_plateCopper",
+"ore_jj_plateInvar",
+"ore_jj_plateIridium",
+"ore_jj_plateIridiumAlloy",
+"ore_jj_plateIron",
+"ore_jj_plateMagnalium",
+"ore_jj_plateSteel",
+"ore_jj_plateTitanium",
+"ore_jj_plateTungstensteel",
+"ore_jj_reBattery",
+"ore_jj_workbench"]
+
+
+var list2 = ["techreborn_jj_storage_jj_4",
+"techreborn_jj_part_jj_30",
+"techreborn_jj_part_jj_29",
+"techreborn_jj_part_jj_1",
+"techreborn_jj_part",
+"techreborn_jj_part_jj_4",
+"techreborn_jj_part_jj_17",
+"techreborn_jj_dust",
+"techreborn_jj_dust_jj_1",
+"techreborn_jj_dust_jj_61",
+"techreborn_jj_dust_jj_2",
+"techreborn_jj_dust_jj_3",
+"techreborn_jj_dust_jj_4",
+"techreborn_jj_dust_jj_5",
+"techreborn_jj_dust_jj_6",
+"techreborn_jj_dust_jj_7",
+"techreborn_jj_dust_jj_8",
+"techreborn_jj_dust_jj_9",
+"techreborn_jj_dust_jj_10",
+"techreborn_jj_dust_jj_11",
+"techreborn_jj_dust_jj_12",
+"techreborn_jj_dust_jj_13",
+"techreborn_jj_dust_jj_14",
+"techreborn_jj_dust_jj_16",
+"techreborn_jj_dust_jj_62",
+"techreborn_jj_dust_jj_17",
+"techreborn_jj_dust_jj_18",
+"techreborn_jj_dust_jj_21",
+"techreborn_jj_dust_jj_22",
+"techreborn_jj_dust_jj_23",
+"techreborn_jj_dust_jj_24",
+"techreborn_jj_dust_jj_63",
+"techreborn_jj_dust_jj_25",
+"techreborn_jj_dust_jj_26",
+"techreborn_jj_dust_jj_27",
+"techreborn_jj_dust_jj_28",
+"techreborn_jj_dust_jj_29",
+"techreborn_jj_dust_jj_30",
+"techreborn_jj_dust_jj_31",
+"techreborn_jj_dust_jj_32",
+"techreborn_jj_dust_jj_33",
+"techreborn_jj_dust_jj_34",
+"techreborn_jj_dust_jj_35",
+"techreborn_jj_dust_jj_36",
+"techreborn_jj_dust_jj_37",
+"techreborn_jj_dust_jj_38",
+"techreborn_jj_dust_jj_39",
+"techreborn_jj_dust_jj_40",
+"techreborn_jj_dust_jj_43",
+"techreborn_jj_dust_jj_44",
+"techreborn_jj_dust_jj_45",
+"techreborn_jj_dust_jj_47",
+"techreborn_jj_dust_jj_48",
+"techreborn_jj_dust_jj_49",
+"techreborn_jj_dust_jj_50",
+"techreborn_jj_dust_jj_51",
+"techreborn_jj_dust_jj_52",
+"techreborn_jj_dust_jj_53",
+"techreborn_jj_dust_jj_54",
+"techreborn_jj_dust_jj_55",
+"techreborn_jj_dust_jj_56",
+"techreborn_jj_dust_jj_59",
+"minecraft_jj_dye",
+"techreborn_jj_energyCrystal",
+"minecraft_jj_emerald",
+"techreborn_jj_gem_jj_2",
+"techreborn_jj_gem_jj_3",
+"techreborn_jj_gem",
+"techreborn_jj_gem_jj_1",
+"techreborn_jj_gem_jj_4",
+"techreborn_jj_reinforced_glass",
+"techreborn_jj_ingot_jj_20",
+"techreborn_jj_ingot",
+"techreborn_jj_ingot_jj_1",
+"techreborn_jj_ingot_jj_2",
+"techreborn_jj_ingot_jj_3",
+"techreborn_jj_ingot_jj_4",
+"techreborn_jj_ingot_jj_5",
+"techreborn_jj_ingot_jj_16",
+"techreborn_jj_ingot_jj_6",
+"techreborn_jj_ingot_jj_7",
+"techreborn_jj_ingot_jj_8",
+"techreborn_jj_ingot_jj_9",
+"techreborn_jj_ingot_jj_10",
+"techreborn_jj_ingot_jj_19",
+"techreborn_jj_ingot_jj_11",
+"techreborn_jj_ingot_jj_12",
+"techreborn_jj_ingot_jj_13",
+"techreborn_jj_ingot_jj_14",
+"techreborn_jj_ingot_jj_15",
+"techreborn_jj_ingot_jj_17",
+"techreborn_jj_ingot_jj_18",
+"techreborn_jj_part_jj_32",
+"techreborn_jj_lapotroncrystal",
+"techreborn_jj_machine_frame_jj_1",
+"techreborn_jj_machine_frame",
+"techreborn_jj_machine_frame_jj_2",
+"techreborn_jj_nuggets",
+"techreborn_jj_nuggets_jj_2",
+"techreborn_jj_nuggets_jj_4",
+"techreborn_jj_nuggets_jj_5",
+"techreborn_jj_nuggets_jj_16",
+"techreborn_jj_nuggets_jj_6",
+"techreborn_jj_nuggets_jj_7",
+"techreborn_jj_nuggets_jj_8",
+"techreborn_jj_nuggets_jj_9",
+"techreborn_jj_nuggets_jj_10",
+"techreborn_jj_nuggets_jj_11",
+"techreborn_jj_nuggets_jj_12",
+"techreborn_jj_ore_jj_4",
+"techreborn_jj_ore_jj_6",
+"techreborn_jj_ore",
+"modernmetals_jj_manganese_ore",
+"techreborn_jj_ore_jj_5",
+"techreborn_jj_ore_jj_3",
+"techreborn_jj_ore_jj_11",
+"techreborn_jj_ore_jj_7",
+"modernmetals_jj_titanium_ore",
+"techreborn_jj_ore_jj_8",
+"basemetals_jj_zinc_ore",
+"minecraft_jj_glass_pane",
+"techreborn_jj_plates_jj_35",
+"techreborn_jj_plates_jj_16",
+"techreborn_jj_plates_jj_2",
+"techreborn_jj_plates_jj_19",
+"techreborn_jj_plates_jj_20",
+"techreborn_jj_plates_jj_22",
+"techreborn_jj_plates_jj_23",
+"techreborn_jj_plates_jj_37",
+"techreborn_jj_plates",
+"techreborn_jj_plates_jj_36",
+"techreborn_jj_plates_jj_28",
+"techreborn_jj_plates_jj_30",
+"techreborn_jj_plates_jj_32",
+"techreborn_jj_reBattery",
+"minecraft_jj_crafting_table"]
+
+
+0: "minecraft_jj_slimeCongealed"
+1: "minecraft_jj_slime_ballBlood"
+2: "minecraft_jj_slime_ballBlue"
+3: "minecraft_jj_slime_ballGreen"
+4: "minecraft_jj_slime_ballMagma"
+5: "minecraft_jj_slime_ballPurple"
+6: "ore_jj_blockAlubrass"
+7: "ore_jj_blockAluminum"
+8: "ore_jj_blockArdite"
+9: "ore_jj_blockBlutonium"
+10: "ore_jj_blockBrass"
+11: "ore_jj_blockBronze"
+12: "ore_jj_blockChrome"
+13: "ore_jj_blockCobalt"
+14: "ore_jj_blockCopper"
+15: "ore_jj_blockCyanite"
+16: "ore_jj_blockElectrum"
+17: "ore_jj_blockElectrumFlux"
+18: "ore_jj_blockEnderium"
+19: "ore_jj_blockInvar"
+20: "ore_jj_blockIridium"
+21: "ore_jj_blockKnightslime"
+22: "ore_jj_blockLead"
+23: "ore_jj_blockLudicrite"
+24: "ore_jj_blockLumium"
+25: "ore_jj_blockManyullyn"
+26: "ore_jj_blockMithril"
+27: "ore_jj_blockMossy"
+28: "ore_jj_blockNickel"
+29: "ore_jj_blockOsmium"
+30: "ore_jj_blockPigiron"
+31: "ore_jj_blockPlatinum"
+32: "ore_jj_blockRefinedGlowstone"
+33: "ore_jj_blockRefinedObsidian"
+34: "ore_jj_blockSignalum"
+35: "ore_jj_blockSilver"
+36: "ore_jj_blockSteel"
+37: "ore_jj_blockTin"
+38: "ore_jj_blockTitanium"
+39: "ore_jj_blockTungsten"
+40: "ore_jj_blockTungstensteel"
+41: "ore_jj_blockYellorium"
+42: "ore_jj_blockZinc"
+43: "ore_jj_cast"
+44: "ore_jj_dirt"
+45: "ore_jj_gemEmerald"
+46: "ore_jj_ingotAlubrass"
+47: "ore_jj_ingotArdite"
+48: "ore_jj_ingotCobalt"
+49: "ore_jj_ingotKnightslime"
+50: "ore_jj_ingotManyullyn"
+51: "ore_jj_ingotPigiron"
+52: "ore_jj_nuggetAlubrass"
+53: "ore_jj_nuggetArdite"
+54: "ore_jj_nuggetCobalt"
+55: "ore_jj_nuggetManyullyn"
+56: "ore_jj_paneGlass"
+57: "ore_jj_rodStone"
+58: "ore_jj_slabWood"
+59: "ore_jj_trapdoorWood"
+60: "ore_jj_workbench"
+
+var list2 = ["tconstruct_jj_slime_congealed",
+"tconstruct_jj_edible_jj_3",
+"tconstruct_jj_edible_jj_1",
+"minecraft_jj_slime_ball",
+"tconstruct_jj_edible_jj_4",
+"tconstruct_jj_edible_jj_2",
+"tconstruct_jj_metal_jj_5",
+"thermalfoundation_jj_storage_jj_4",
+"tconstruct_jj_metal_jj_1",
+"bigreactors_jj_blockmetals_jj_3",
+"techreborn_jj_storage_jj_5",
+"thermalfoundation_jj_storage_alloy_jj_3",
+"techreborn_jj_storage_jj_3",
+"tconstruct_jj_metal",
+"thermalfoundation_jj_storage",
+"bigreactors_jj_blockmetals_jj_1",
+"thermalfoundation_jj_storage_alloy_jj_1",
+"redstonearsenal_jj_storage",
+"thermalfoundation_jj_storage_alloy_jj_7",
+"thermalfoundation_jj_storage_alloy_jj_2",
+"thermalfoundation_jj_storage_jj_7",
+"tconstruct_jj_metal_jj_3",
+"thermalfoundation_jj_storage_jj_3",
+"bigreactors_jj_blockmetals_jj_4",
+"thermalfoundation_jj_storage_alloy_jj_6",
+"tconstruct_jj_metal_jj_2",
+"thermalfoundation_jj_storage_jj_8",
+"minecraft_jj_mossy_cobblestone",
+"thermalfoundation_jj_storage_jj_5",
+"mekanism_jj_basicblock",
+"tconstruct_jj_metal_jj_4",
+"thermalfoundation_jj_storage_jj_6",
+"mekanism_jj_basicblock_jj_4",
+"mekanism_jj_basicblock_jj_2",
+"thermalfoundation_jj_storage_alloy_jj_5",
+"thermalfoundation_jj_storage_jj_2",
+"thermalfoundation_jj_storage_alloy",
+"thermalfoundation_jj_storage_jj_1",
+"techreborn_jj_storage_jj_2",
+"techreborn_jj_storage_jj_10",
+"techreborn_jj_storage2",
+"bigreactors_jj_blockmetals",
+"techreborn_jj_storage_jj_8",
+"tconstruct_jj_cast",
+"minecraft_jj_dirt",
+"minecraft_jj_emerald",
+"tconstruct_jj_ingots_jj_5",
+"tconstruct_jj_ingots_jj_1",
+"tconstruct_jj_ingots",
+"tconstruct_jj_ingots_jj_3",
+"tconstruct_jj_ingots_jj_2",
+"tconstruct_jj_ingots_jj_4",
+"tconstruct_jj_nuggets_jj_5",
+"tconstruct_jj_nuggets_jj_1",
+"tconstruct_jj_nuggets",
+"tconstruct_jj_nuggets_jj_2",
+"minecraft_jj_glass_pane",
+"tconstruct_jj_stone_stick",
+"minecraft_jj_wooden_slab",
+"minecraft_jj_trapdoor",
+"minecraft_jj_crafting_table"]
+
+0: "ore_jj_blockAluminum"
+1: "ore_jj_blockIridium"
+2: "ore_jj_blockSteel"
+3: "ore_jj_blockTitanium"
+4: "ore_jj_coilAluminum"
+5: "ore_jj_coilCopper"
+6: "ore_jj_coilGold"
+7: "ore_jj_coilTitanium"
+8: "ore_jj_dustPetrotheum"
+9: "ore_jj_ingotAluminum"
+10: "ore_jj_ingotCopper"
+11: "ore_jj_ingotIridium"
+12: "ore_jj_ingotSilicon"
+13: "ore_jj_ingotSteel"
+14: "ore_jj_ingotTin"
+15: "ore_jj_ingotTitanium"
+16: "ore_jj_nuggetCopper"
+17: "ore_jj_nuggetSilicon"
+18: "ore_jj_nuggetTin"
+19: "ore_jj_oreDilithium"
+20: "ore_jj_plateCopper"
+21: "ore_jj_plateIridium"
+22: "ore_jj_plateIron"
+23: "ore_jj_plateSteel"
+24: "ore_jj_plateTin"
+25: "ore_jj_plateTitanium"
+26: "ore_jj_stickIridium"
+27: "ore_jj_stickIron"
+28: "ore_jj_stickSteel"
+29: "ore_jj_stickTitanium"
+
+var list2 = ["libvulpes_jj_metal0_jj_9",
+"libvulpesmetal0_jj_10",
+"libvulpesmetal0_jj_6",
+"libvulpesmetal0_jj_7",
+"libvulpescoil0_jj_9",
+"libvulpescoil1_jj_4",
+"libvulpescoil2_jj_2",
+"libvulpescoil3_jj_7",
+"thermalfoundationmaterial_jj_1027",
+"libvulpesproductingot_jj_9",
+"libvulpesproductingot_jj_4",
+"libvulpesproductingot_jj_10",
+"libvulpesproductingot_jj_3",
+"libvulpesproductingot_jj_6",
+"libvulpesproductingot_jj_5",
+"libvulpesproductingot_jj_7",
+"libvulpesproductnugget_jj_4",
+"libvulpesproductnugget_jj_3",
+"libvulpesproductnugget_jj_5",
+"libvulpesore0",
+"libvulpesproductplate_jj_4",
+"libvulpesproductplate_jj_10",
+"libvulpesproductplate_jj_1",
+"libvulpesproductplate_jj_6",
+"libvulpesproductplate_jj_5",
+"libvulpesproductplate_jj_7",
+"libvulpesproductrod_jj_10",
+"libvulpesproductrod_jj_1",
+"libvulpesproductrod_jj_6",
+"libvulpesproductrod_jj_7"]
+
+0: "libvulpescoil0_jj_9"
+1: "libvulpescoil1_jj_4"
+2: "libvulpescoil2_jj_2"
+3: "libvulpescoil3_jj_7"
+4: "libvulpesmetal0_jj_10"
+5: "libvulpesmetal0_jj_6"
+6: "libvulpesmetal0_jj_7"
+7: "libvulpesore0"
+8: "libvulpesproductingot_jj_10"
+9: "libvulpesproductingot_jj_3"
+10: "libvulpesproductingot_jj_4"
+11: "libvulpesproductingot_jj_5"
+12: "libvulpesproductingot_jj_6"
+13: "libvulpesproductingot_jj_7"
+14: "libvulpesproductingot_jj_9"
+15: "libvulpesproductnugget_jj_3"
+16: "libvulpesproductnugget_jj_4"
+17: "libvulpesproductnugget_jj_5"
+18: "libvulpesproductplate_jj_1"
+19: "libvulpesproductplate_jj_10"
+20: "libvulpesproductplate_jj_4"
+21: "libvulpesproductplate_jj_5"
+22: "libvulpesproductplate_jj_6"
+23: "libvulpesproductplate_jj_7"
+24: "libvulpesproductrod_jj_1"
+25: "libvulpesproductrod_jj_10"
+26: "libvulpesproductrod_jj_6"
+27: "libvulpesproductrod_jj_7"
+28: "thermalfoundationmaterial_jj_1027"
+
+var list2 = ["libvulpes_jj_coil0_jj_9",
+"libvulpes_jj_coil1_jj_4",
+"libvulpes_jj_coil2_jj_2",
+"libvulpes_jj_coil3_jj_7",
+"libvulpes_jj_metal0_jj_10",
+"libvulpes_jj_metal0_jj_6",
+"libvulpes_jj_metal0_jj_7",
+"libvulpes_jj_ore0",
+"libvulpes_jj_productingot_jj_10",
+"libvulpes_jj_productingot_jj_3",
+"libvulpes_jj_productingot_jj_4",
+"libvulpes_jj_productingot_jj_5",
+"libvulpes_jj_productingot_jj_6",
+"libvulpes_jj_productingot_jj_7",
+"libvulpes_jj_productingot_jj_9",
+"libvulpes_jj_productnugget_jj_3",
+"libvulpes_jj_productnugget_jj_4",
+"libvulpes_jj_productnugget_jj_5",
+"libvulpes_jj_productplate_jj_1",
+"libvulpes_jj_productplate_jj_10",
+"libvulpes_jj_productplate_jj_4",
+"libvulpes_jj_productplate_jj_5",
+"libvulpes_jj_productplate_jj_6",
+"libvulpes_jj_productplate_jj_7",
+"libvulpes_jj_productrod_jj_1",
+"libvulpes_jj_productrod_jj_10",
+"libvulpes_jj_productrod_jj_6",
+"libvulpes_jj_productrod_jj_7",
+"thermalfoundation_jj_material_jj_1027"]
+
+
+$.each(list, function (j, item) {
+	if ( list2[j] != null ) {
+		if(!list2[j].equals("")){
+			MC.changeRecipeItem("libvulpes", item, list2[j])
+		}
+	}
+});
+
+
+0: "minecraft_jj_Iron_nugget"
+1: "minecraft_jj_glassHardened"
+2: "ore_jj_ingotBronze"
+3: "ore_jj_ingotCopper"
+4: "ore_jj_ingotElectrum"
+5: "ore_jj_ingotEnderium"
+6: "ore_jj_ingotInvar"
+7: "ore_jj_ingotLead"
+8: "ore_jj_ingotSignalum"
+9: "ore_jj_ingotTin"
+10: "ore_jj_nuggetElectrum"
+11: "ore_jj_nuggetSignalum"
+
+
+
+
+0: "minecraft_jj_glassHardened"
+1: "ore_jj_blockRockwool"
+2: "ore_jj_crystalSlag"
+3: "ore_jj_dustAerotheum"
+4: "ore_jj_dustCharcoal"
+5: "ore_jj_dustCryotheum"
+6: "ore_jj_dustObsidian"
+7: "ore_jj_dustPetrotheum"
+8: "ore_jj_dustPyrotheum"
+9: "ore_jj_dustSulfur"
+10: "ore_jj_dustWood"
+11: "ore_jj_gearBronze"
+12: "ore_jj_gearConstantan"
+13: "ore_jj_gearCopper"
+14: "ore_jj_gearElectrum"
+15: "ore_jj_gearInvar"
+16: "ore_jj_gearIron"
+17: "ore_jj_gearLead"
+18: "ore_jj_gearNickel"
+19: "ore_jj_gearSignalum"
+20: "ore_jj_gearSilver"
+21: "ore_jj_gearTin"
+22: "ore_jj_gemEmerald"
+23: "ore_jj_ingotBronze"
+24: "ore_jj_ingotCopper"
+25: "ore_jj_ingotElectrum"
+26: "ore_jj_ingotLead"
+27: "ore_jj_ingotSilver"
+28: "ore_jj_ingotTin"
+29: "ore_jj_nuggetInvar"
+30: "ore_jj_nuggetLead"
+31: "ore_jj_nuggetSignalum"
+32: "ore_jj_plateBronze"
+33: "ore_jj_plateCopper"
+34: "ore_jj_plateElectrum"
+35: "ore_jj_plateGold"
+36: "ore_jj_plateInvar"
+37: "ore_jj_plateLead"
+38: "ore_jj_plateLumium"
+39: "ore_jj_plateNickel"
+40: "ore_jj_plateSilver"
+41: "ore_jj_plateTin"
+
+
+0: "forge_jj_bucketfilled"
+1: "minecraft_jj_glassHardened"
+2: "ore_jj_blockElectrum"
+3: "ore_jj_blockFuelCoke"
+4: "ore_jj_blockNickel"
+5: "ore_jj_blockPlatinum"
+6: "ore_jj_crystalSlag"
+7: "ore_jj_crystalSlagRich"
+8: "ore_jj_dustBasalz"
+9: "ore_jj_dustBlitz"
+10: "ore_jj_dustBlizz"
+11: "ore_jj_dustCharcoal"
+12: "ore_jj_dustCoal"
+13: "ore_jj_dustCopper"
+14: "ore_jj_dustCryotheum"
+15: "ore_jj_dustGold"
+16: "ore_jj_dustIron"
+17: "ore_jj_dustLead"
+18: "ore_jj_dustNickel"
+19: "ore_jj_dustObsidian"
+20: "ore_jj_dustPetrotheum"
+21: "ore_jj_dustPlatinum"
+22: "ore_jj_dustPyrotheum"
+23: "ore_jj_dustSaltpeter"
+24: "ore_jj_dustSilver"
+25: "ore_jj_dustSulfur"
+26: "ore_jj_dustTin"
+27: "ore_jj_dustWood"
+28: "ore_jj_fuelCoke"
+29: "ore_jj_gearBronze"
+30: "ore_jj_gearElectrum"
+31: "ore_jj_gearLumium"
+32: "ore_jj_gearSilver"
+33: "ore_jj_gemEmerald"
+34: "ore_jj_ingotAluminum"
+35: "ore_jj_ingotBronze"
+36: "ore_jj_ingotConstantan"
+37: "ore_jj_ingotCopper"
+38: "ore_jj_ingotElectrum"
+39: "ore_jj_ingotEnderium"
+40: "ore_jj_ingotInvar"
+41: "ore_jj_ingotIridium"
+42: "ore_jj_ingotLead"
+43: "ore_jj_ingotLumium"
+44: "ore_jj_ingotMithril"
+45: "ore_jj_ingotNickel"
+46: "ore_jj_ingotPlatinum"
+47: "ore_jj_ingotSignalum"
+48: "ore_jj_ingotSilver"
+49: "ore_jj_ingotSteel"
+50: "ore_jj_ingotTin"
+51: "ore_jj_nuggetBronze"
+52: "ore_jj_nuggetCopper"
+53: "ore_jj_nuggetLead"
+54: "ore_jj_nuggetLumium"
+55: "ore_jj_nuggetSignalum"
+56: "ore_jj_nuggetSilver"
+57: "ore_jj_nuggetSteel"
+58: "ore_jj_nuggetTin"
+59: "ore_jj_oreIridium"
+60: "ore_jj_oreMithril"
+61: "ore_jj_orePlatinum"
+62: "ore_jj_rodBasalz"
+63: "ore_jj_rodBlitz"
+64: "ore_jj_rodBlizz"
+
+
+
+var list4 = ["minecraft_jj_iron_nugget",
+"thermalfoundation_jj_glass",
+"thermalfoundation_jj_material_jj_163",
+"thermalfoundation_jj_material_jj_128",
+"thermalfoundation_jj_material_jj_161",
+"thermalfoundation_jj_material_jj_167",
+"thermalfoundation_jj_material_jj_162",
+"thermalfoundation_jj_material_jj_131",
+"thermalfoundation_jj_material_jj_165",
+"thermalfoundation_jj_material_jj_129",
+"thermalfoundation_jj_material_jj_225",
+"thermalfoundation_jj_material_jj_229"]
+
+
+
+var list5 = ["thermalfoundation_jj_glass",
+"thermalfoundation_jj_rockwool_jj_7",
+"thermalfoundation_jj_material_jj_864",
+"thermalfoundation_jj_material_jj_1026",
+"thermalfoundation_jj_material_jj_769",
+"thermalfoundation_jj_material_jj_1025",
+"thermalfoundation_jj_material_jj_770",
+"thermalfoundation_jj_material_jj_1027",
+"thermalfoundation_jj_material_jj_1024",
+"thermalfoundation_jj_material_jj_772",
+"thermalfoundation_jj_material_jj_800",
+"thermalfoundation_jj_material_jj_291",
+"thermalfoundation_jj_material_jj_292",
+"thermalfoundation_jj_material_jj_256",
+"thermalfoundation_jj_material_jj_289",
+"thermalfoundation_jj_material_jj_290",
+"thermalfoundation_jj_material_jj_24",
+"thermalfoundation_jj_material_jj_259",
+"thermalfoundation_jj_material_jj_261",
+"thermalfoundation_jj_material_jj_293",
+"thermalfoundation_jj_material_jj_258",
+"thermalfoundation_jj_material_jj_257",
+"minecraft_jj_emerald",
+"thermalfoundation_jj_material_jj_163",
+"thermalfoundation_jj_material_jj_128",
+"thermalfoundation_jj_material_jj_161",
+"thermalfoundation_jj_material_jj_131",
+"thermalfoundation_jj_material_jj_130",
+"thermalfoundation_jj_material_jj_129",
+"thermalfoundation_jj_material_jj_226",
+"thermalfoundation_jj_material_jj_195",
+"thermalfoundation_jj_material_jj_229",
+"thermalfoundation_jj_material_jj_355",
+"thermalfoundation_jj_material_jj_320",
+"thermalfoundation_jj_material_jj_353",
+"thermalfoundation_jj_material_jj_33",
+"thermalfoundation_jj_material_jj_354",
+"thermalfoundation_jj_material_jj_323",
+"thermalfoundation_jj_material_jj_358",
+"thermalfoundation_jj_material_jj_325",
+"thermalfoundation_jj_material_jj_322",
+"thermalfoundation_jj_material_jj_321"]
+
+
+
+var list6 = ["",
+"thermalfoundation_jj_glass",
+"thermalfoundation_jj_storage_alloy_jj_1",
+"thermalfoundation_jj_storage_resource_jj_1",
+"thermalfoundation_jj_storage_jj_5",
+"thermalfoundation_jj_storage_jj_6",
+"thermalfoundation_jj_material_jj_864",
+"thermalfoundation_jj_material_jj_865",
+"thermalfoundation_jj_material_jj_2053",
+"thermalfoundation_jj_material_jj_2051",
+"thermalfoundation_jj_material_jj_2049",
+"thermalfoundation_jj_material_jj_769",
+"thermalfoundation_jj_material_jj_768",
+"thermalfoundation_jj_material_jj_64",
+"thermalfoundation_jj_material_jj_1025",
+"thermalfoundation_jj_material_jj_1",
+"thermalfoundation_jj_material",
+"thermalfoundation_jj_material_jj_67",
+"thermalfoundation_jj_material_jj_69",
+"thermalfoundation_jj_material_jj_770",
+"thermalfoundation_jj_material_jj_1027",
+"thermalfoundation_jj_material_jj_70",
+"thermalfoundation_jj_material_jj_1024",
+"thermalfoundation_jj_material_jj_772",
+"thermalfoundation_jj_material_jj_66",
+"thermalfoundation_jj_material_jj_771",
+"thermalfoundation_jj_material_jj_65",
+"thermalfoundation_jj_material_jj_800",
+"thermalfoundation_jj_material_jj_802",
+"thermalfoundation_jj_material_jj_291",
+"thermalfoundation_jj_material_jj_289",
+"thermalfoundation_jj_material_jj_294",
+"thermalfoundation_jj_material_jj_258",
+"minecraft_jj_emerald",
+"thermalfoundation_jj_material_jj_132",
+"thermalfoundation_jj_material_jj_163",
+"thermalfoundation_jj_material_jj_164",
+"thermalfoundation_jj_material_jj_128",
+"thermalfoundation_jj_material_jj_161",
+"thermalfoundation_jj_material_jj_167",
+"thermalfoundation_jj_material_jj_162",
+"thermalfoundation_jj_material_jj_135",
+"thermalfoundation_jj_material_jj_131",
+"thermalfoundation_jj_material_jj_166",
+"thermalfoundation_jj_material_jj_136",
+"thermalfoundation_jj_material_jj_133",
+"thermalfoundation_jj_material_jj_134",
+"thermalfoundation_jj_material_jj_165",
+"thermalfoundation_jj_material_jj_130",
+"thermalfoundation_jj_material_jj_160",
+"thermalfoundation_jj_material_jj_129",
+"thermalfoundation_jj_material_jj_227",
+"thermalfoundation_jj_material_jj_192",
+"thermalfoundation_jj_material_jj_195",
+"thermalfoundation_jj_material_jj_230",
+"thermalfoundation_jj_material_jj_229",
+"thermalfoundation_jj_material_jj_194",
+"thermalfoundation_jj_material_jj_224",
+"thermalfoundation_jj_material_jj_193",
+"thermalfoundation_jj_ore_jj_7",
+"thermalfoundation_jj_ore_jj_8",
+"thermalfoundation_jj_ore_jj_6",
+"thermalfoundation_jj_material_jj_2052",
+"thermalfoundation_jj_material_jj_2050",
+"thermalfoundation_jj_material_jj_2048"]
+
+
+$.each(list, function (j, item) {
+	if ( list4[j] != null ) {
+		if(!list4[j].equals("")){
+			MC.changeRecipeItem("thermaldynamics", item, list4[j])
+		}
+	}
+});
+$.each(list2, function (j, item) {
+	if ( list5[j] != null ) {
+		if(!list5[j].equals("")){
+			MC.changeRecipeItem("thermalexpansion", item, list5[j])
+		}
+	}
+});
+$.each(list3, function (j, item) {
+	if ( list6[j] != null ) {
+		if(!list6[j].equals("")){
+			MC.changeRecipeItem("thermalfoundation", item, list6[j])
+		}
+	}
+});
+
 
 MC.changeRecipeItem("basemetals", "ore_jj_blockAdamantine", "basemetals_jj_adamantine_block")
 MC.changeRecipeItem("basemetals", "ore_jj_ingotAdamantine", "basemetals_jj_adamantine_ingot")
