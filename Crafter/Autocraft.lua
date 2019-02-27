@@ -675,7 +675,7 @@ function ac.CheckRecipes(itemrepo)
         cr_items[j] = ac.CheckItemRecipe(j)
     end
     ac.MoveRestBack()
-    ac.mf.WriteObjectFile(cr_items, "/home/" .. ac.crafter .. " - RecipeChecked.lua")
+    ac.mf.WriteObjectFile(cr_items, "/home/" .. ac.crafter .. "_RecipeChecked.lua")
 end
 function ac.CheckPattern(itemrepo)
     ac.mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsAll/" .. itemrepo .. ".lua" .. "?" .. math.random() .. " /home/" .. itemrepo .. ".lua")
@@ -690,7 +690,23 @@ function ac.CheckPattern(itemrepo)
             print(i .. "     INVALID STACK")
         end
     end
-    ac.mf.WriteObjectFile(newItems, "/home/" .. itemrepo .. " - PatternChecked.lua")
+    ac.mf.WriteObjectFile(newItems, "/home/" .. itemrepo .. "_PatternChecked.lua")
+    ac.mf.filesystem.remove("/home/" .. itemrepo .. ".lua")
+end
+function ac.CheckLabels(itemrepo)
+    ac.mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsAll/" .. itemrepo .. ".lua" .. "?" .. math.random() .. " /home/" .. itemrepo .. ".lua")
+    local items = require(itemrepo)
+    local rs = ac.mf.component.proxy(ac.prox.GetProxyByName(itemrepo, "home"))
+    local newItems = {}
+    for i,j in pairs(items) do 
+        local st = pcall(function(v) newItems[v] = rs.getItem(ac.convert.TextToItem(v)).label end, i)
+        if st then
+            print(i .. " = " .. tostring(newItems[i]))
+        else
+            print(i .. "     INVALID STACK")
+        end
+    end
+    ac.mf.WriteObjectFile(newItems, "/home/" .. itemrepo .. "_NewLabels.lua")
     ac.mf.filesystem.remove("/home/" .. itemrepo .. ".lua")
 end
 function ac.test()
