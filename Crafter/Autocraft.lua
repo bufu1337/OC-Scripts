@@ -3,8 +3,6 @@ ac.convert = require("bufu/Convert")
 ac.prox = require("bufu/Proxies")
 ac.mD = require("bufu/Crafter/getMaxDamage")
 ac.mf = require("bufu/MainFunctions")
-ac.mf.OCNet.system = "ACNet"
-ac.mf.SetComputerName("Crafter")
 ac.items = {}
 ac.recipeitems = {}
 ac.priocount = 0
@@ -677,7 +675,7 @@ function ac.CheckRecipes(itemrepo)
     ac.MoveRestBack()
     ac.mf.WriteObjectFile(cr_items, "/home/" .. ac.crafter .. "_RecipeChecked.lua")
 end
-function ac.CheckPattern(itemrepo)
+function ac.CheckPatterns(itemrepo)
     ac.mf.os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsAll/" .. itemrepo .. ".lua" .. "?" .. math.random() .. " /home/" .. itemrepo .. ".lua")
     local items = require(itemrepo)
     local rs = ac.mf.component.proxy(ac.prox.GetProxyByName(itemrepo, "craft"))
@@ -820,7 +818,14 @@ function ac.CraftExItems(itemsToCraft)
 end
 
 if ac.args[1] ~= nil and ac.args[1]:find("Autocraft") == nil then
-    ac.Craft(ac.args[1])
+	if ac.args[2] ~= nil then
+		if ac[ac.args[2]] ~= "Craft" and ac[ac.args[2]] ~= "CheckRecipes" and ac[ac.args[2]] ~= "CheckLabels" and ac[ac.args[2]] ~= "CheckPatterns" then
+			ac[ac.args[2]] = "Craft"
+		end
+		ac[ac.args[2]](ac.args[1])
+	else
+		ac.Craft(ac.args[1])
+	end
 end
 
 return ac
