@@ -448,15 +448,17 @@ function mf.split(inputstr, sep)
     return t
 end
 function mf.copyTable(ab, keys)
-  local returning = mf.serial.unserialize(mf.serial.serialize(ab))
   if keys ~= nil then
-    for i,j in pairs(returning) do
-      if mf.contains(keys, i) == false then
-        returning[i] = nil
+	local returning = {}
+    for i,j in pairs(ab) do
+      if mf.contains(keys, i) then
+        returning[i] = j
       end
     end
+	return returning
+  else
+    return mf.serial.unserialize(mf.serial.serialize(ab))
   end
-  return returning
 end
 function mf.combineTables(table1, table2)
   for i,j in pairs(table2) do

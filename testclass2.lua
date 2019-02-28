@@ -1,6 +1,5 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
---local json = require("json")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/src/", home="Y:/Minecraft/OC-Scripts/"}
 local working = "home"
 local res = {}
@@ -275,11 +274,10 @@ local function getAllItems()
 --  end
   --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 end
-local function addcostcalc()
-  local temp = {bit=false, chisel=false}
+local function AddItemFields(tableWithFields)
   for i,j in pairs(items) do
     for a,b in pairs(j) do
-      items[i][a] = mf.combineTables(items[i][a], temp)
+      items[i][a] = mf.combineTables(items[i][a], tableWithFields)
     end
   end
 end
@@ -314,7 +312,7 @@ local function WriteItemsSC2()
     end
     mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
     mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
-    mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
   end
 end
 local function WriteItemFiles()
@@ -442,8 +440,11 @@ local function irnamesCorrect()
   newLuaFile:close()
   templines = nil
 end
---addcostcalc()
+
 WriteItemFiles()
+
+
+--addcostcalc()
 --local mod_sc = {}
 --for a,b in pairs(sc) do
 --  for c,d in pairs(b) do
