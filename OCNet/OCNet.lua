@@ -59,7 +59,7 @@ function oc.getNames(system, typ)
   return returning
 end
 function oc.Received(data, oc_slot)
-  local oc_data = oc.mf.CopyTable(oc.mf.OCNet[oc_slot])
+  local oc_data = oc.mf.copyTable(oc.mf.OCNet[oc_slot])
   if oc_data.toSystem == "OCNet" then
     if oc.mf.containsKey(data, "registerComputer") then
       if oc.mf.containsKeys(data.registerComputer, {"system", "name", "typ"}) then
