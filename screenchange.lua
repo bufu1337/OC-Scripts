@@ -10,7 +10,7 @@ local screens = {
     Temp="912e8944-1357-42cd-8dbf-e8140f7627e4";
     Main="9a85f463-04f0-45e6-a803-b1dafa230b47"
 }
-local servers = {}
+local servers = require("bufu/servers")
 
 mf.writex("ScreenChanger Init")
 getServers()
@@ -18,12 +18,6 @@ local sname = tostring(mf.getIndex(servers, m.address))
 
 local function getScreens()
     screens = require("bufu/screens")
-end
-local function getServers()
-    servers = require("bufu/servers")
-end
-local function WriteServersFile()
-    mf.WriteObjectFile(servers, serversfile)
 end
 local function WriteScreensFile()
     mf.WriteObjectFile(screens, screensfile)
@@ -51,7 +45,7 @@ if (sname == "-1") then
     mf.writex("New Server started. Please define a name:")
     local command = mf.io.read()
     servers[command] = m.address
-    WriteServersFile()
+    mf.WriteObjectFile(servers, serversfile)
     sendToAll({"getServers"})
     mf.writex("Server: " .. command .. " is now on the main screen!")
     sname = command
@@ -66,31 +60,33 @@ local t = mf.thread.create(function()
     while true do
         mf.os.sleep()
         local data, slot = mf.ReceiveFromOCNet()
-        if data[1] == "getServers" then
-            getServers()
-        elseif ((data[2] ~= nil) and (data[1] == "exec")) then
-            local execparams = data[2]
-            if #data > 2 then
-                for i = 3, #data, 1 do
-                    execparams = execparams .. " " .. data[i]
+        if slot ~= -1 then
+            if data[1] == "getServers" then
+                servers = require("bufu/servers")
+            elseif ((data[2] ~= nil) and (data[1] == "exec")) then
+                local execparams = data[2]
+                if #data > 2 then
+                    for i = 3, #data, 1 do
+                        execparams = execparams .. " " .. data[i]
+                    end
                 end
-            end
-            mf.shell.execute(execparams)
-        else
-            local where = ""
-            if (sname == data[1]) then
-              where = "Main"
+                mf.shell.execute(execparams)
             else
-              where = "Temp"
+                local where = ""
+                if (sname == data[1]) then
+                  where = "Main"
+                else
+                  where = "Temp"
+                end
+                gpu.bind(screens[where], true)
+                mf.component.setPrimary("screen", screens[where])
+                mf.component.setPrimary("keyboard", mf.component.invoke(gpu.getScreen(), "getKeyboards")[1])
+                --log(sname .. " Server bound to " .. where .. " Screen")
+                mf.shell.execute("clear")
+                mf.writex("Server: " .. sname .. " bound to " .. where .. " Screen")
             end
-            gpu.bind(screens[where], true)
-            mf.component.setPrimary("screen", screens[where])
-            mf.component.setPrimary("keyboard", mf.component.invoke(gpu.getScreen(), "getKeyboards")[1])
-            --log(sname .. " Server bound to " .. where .. " Screen")
-            mf.shell.execute("clear")
-            mf.writex("Server: " .. sname .. " bound to " .. where .. " Screen")
+            mf.OCNet[slot] = nil
         end
-        mf.OCNet[slot] = nil
     end
 end)
 
@@ -109,7 +105,7 @@ while true do
                         servers[sname] = nil
                         mf.writex("ScreenChanger: Server: \"" .. sname .. "\" renamed to: \"" .. newname .. "\"")
                         sname = newname
-                        WriteServersFile()
+                        mf.WriteObjectFile(servers, serversfile)
                         sendToAll({"getServers"})
                     else
                         mf.writex("ScreenChanger: Write \"sc renameServer $server$\" to rename the current server")

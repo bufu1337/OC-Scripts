@@ -67,13 +67,13 @@ function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
   if tunnel ~= nil then
     mf.component.proxy(tunnel).send(message)
   elseif modem_destination ~= nil and mf.component.modem ~= nil then
-  	if modem_destination == "" and mf.OCNet.main_server.address == nil then
-	    mf.components.modem.broadcast(478, message)
-  	elseif modem_destination == "" and mf.OCNet.main_server.address ~= nil then
-  	  mf.components.modem.send(mf.OCNet.main_server.address, 478, message)
-  	elseif modem_destination ~= "" then
-  	  mf.components.modem.send(modem_destination, 478, message)
-  	end
+      if modem_destination == "" and mf.OCNet.main_server.address == nil then
+        mf.components.modem.broadcast(478, message)
+      elseif modem_destination == "" and mf.OCNet.main_server.address ~= nil then
+        mf.components.modem.send(mf.OCNet.main_server.address, 478, message)
+      elseif modem_destination ~= "" then
+        mf.components.modem.send(modem_destination, 478, message)
+      end
   elseif mf.component.tunnel ~= nil then
       mf.component.tunnel.send(message)
   else
@@ -83,18 +83,18 @@ function mf.SendOverOCNet(computer, data, modem_destination, system, tunnel)
   return true
 end
 function mf.GetFreeOCNetSlot()
-	local slot = 0
-	for i = 1, 1000, 1 do
-		if mf.OCNet[i] == nil then
-			slot = i
-			mf.OCNet[i] = {toSystem = "", to = "", from = "", tunnel = false, loc = "", remote = ""}
-			break
-		elseif mf.OCNet[i].toSystem == "" then
-			slot = i
-			break
-		end
-	end
-	return slot
+    local slot = 0
+    for i = 1, 1000, 1 do
+        if mf.OCNet[i] == nil then
+            slot = i
+            mf.OCNet[i] = {toSystem = "", to = "", from = "", tunnel = false, loc = "", remote = ""}
+            break
+        elseif mf.OCNet[i].toSystem == "" then
+            slot = i
+            break
+        end
+    end
+    return slot
 end
 function mf.ReceiveFromOCNet(timeout)
   local _, localAddress, remoteAddress, data = ""
@@ -102,35 +102,44 @@ function mf.ReceiveFromOCNet(timeout)
   if timeout ~= nil and tonumber(timeout) ~= nil then
     _, localAddress, remoteAddress, _, _, data = mf.event.pull(timeout, "modem_message")
   else
-	  _, localAddress, remoteAddress, _, _, data = mf.event.pull("modem_message")
+      _, localAddress, remoteAddress, _, _, data = mf.event.pull("modem_message")
   end
   if remoteAddress ~= nil then
     data = mf.serial.unserialize(data)
     if mf.containsKey(data, "OCNet") then
-    	mf.OCNet[slot] = mf.combineTables(mf.OCNet, data.OCNet)
-    	if mf.contains(mf.OCNet.tunnels, localAddress) then
-    	  mf.OCNet[slot].tunnel = true
-    	  mf.OCNet[slot].loc = localAddress
-    	else
-    	  mf.OCNet[slot].tunnel = false
-    	  mf.OCNet[slot].loc = ""
-    	end
-    	mf.OCNet[slot].remote = remoteAddress
-    	data.OCNet = nil
-    	return data, slot
+        mf.OCNet[slot] = mf.combineTables(mf.OCNet[slot], data.OCNet)
+        if mf.contains(mf.OCNet.tunnels, localAddress) then
+          mf.OCNet[slot].tunnel = true
+          mf.OCNet[slot].loc = localAddress
+        else
+          mf.OCNet[slot].tunnel = false
+          mf.OCNet[slot].loc = ""
+        end
+        mf.OCNet[slot].remote = remoteAddress
+        data.OCNet = nil
+        return data, slot
     else
-    	print("Received data is not from OCNet.")
-    	return data, -1
+        print("Received data is not from OCNet.")
+        if timeout == nil then
+            return mf.ReceiveFromOCNet()
+        else
+            return {}, -1
+        end
     end
   else
     print("No data received from OCNet.")
-    return nil
+    if timeout == nil then
+        return mf.ReceiveFromOCNet()
+    else
+        return {}, -1
+    end
   end
+  return {}, -1
 end
 
 function mf.SendBack(data, slot)
   if slot == nil then
-	slot = 0
+    slot = 0
   end
   if mf.OCNet.tunnel then
     mf.SendOverOCNet(mf.OCNet[slot].from, data, nil, nil, mf.OCNet[slot].loc)
@@ -176,16 +185,16 @@ function mf.SetComputerName(typ, system)
           print("OCNet found. Computer registered in OCNet.")
           mf.OCNet.main_server.address = mf.OCNet[slot].remote
           mf.OCNet.main_server.name = received[1]
-		  mf.ComputerName[system].isRegistered = true
+          mf.ComputerName[system].isRegistered = true
           mf.WriteObjectFile(mf.OCNet.main_server, "/home/OCNetServer.lua")
           return true
         else
           print("No OCNet found.")
         end
       end
-	else
-		return true
-	end
+    else
+        return true
+    end
   else
     print("Please define system.")
   end
@@ -404,23 +413,23 @@ function mf.getAutoSizeForGuiList(list)
   return r
 end
 function mf.getCount(ab)
-	local count = 0
-	for i,j in pairs(ab) do
-		count = count + 1
-	end
-	return count
+    local count = 0
+    for i,j in pairs(ab) do
+        count = count + 1
+    end
+    return count
 end
 function mf.getKeys(ab)
-	local keys = {}
-	for k in pairs(ab) do
-		table.insert(keys, k)
-	end
-	return keys
+    local keys = {}
+    for k in pairs(ab) do
+        table.insert(keys, k)
+    end
+    return keys
 end
 function mf.getSortedKeys(ab)
-	local keys = mf.getKeys(ab)
-	table.sort(keys)
-	return keys
+    local keys = mf.getKeys(ab)
+    table.sort(keys)
+    return keys
 end
 function mf.getIndex(ab, element)
   for key, value in pairs(ab) do
@@ -449,13 +458,13 @@ function mf.split(inputstr, sep)
 end
 function mf.copyTable(ab, keys)
   if keys ~= nil then
-	local returning = {}
+    local returning = {}
     for i,j in pairs(ab) do
       if mf.contains(keys, i) then
         returning[i] = j
       end
     end
-	return returning
+    return returning
   else
     return mf.serial.unserialize(mf.serial.serialize(ab))
   end
@@ -492,7 +501,7 @@ local function x(where, var, file, outline)
     if (typ == "function")then
         out[where](typ, file)
     elseif (typ == "table") then
-		local p = ""
+        local p = ""
         for i,j in pairs(var) do
             if (type(j) == "table") then
                 if (outline == nil) then
@@ -517,13 +526,13 @@ local function x(where, var, file, outline)
 end
 out.x = x
 function mf.writex(var)
-	out.x("w", var)
+    out.x("w", var)
 end
 function mf.printx(var)
-	out.x("p", var)
+    out.x("p", var)
 end
 function mf.filewx(var, file)
-	out.x("f", var, file)
+    out.x("f", var, file)
 end
 --local newLuaFile = io.open("C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/test.lua", "w")
 --  local t = serial.serializedtable({a="dsf",["b:c"]=3,d=true, {1,sad="dd",3,4}},true)
