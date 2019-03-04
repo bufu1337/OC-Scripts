@@ -3,6 +3,8 @@ ac.convert = require("bufu/Convert")
 ac.prox = require("bufu/Proxies")
 ac.mD = require("bufu/Crafter/getMaxDamage")
 ac.mf = require("bufu/MainFunctions")
+if ac.mf.filesystem.exists("/home/bufu/ActiveCraft.lua") == false then ac.mf.WriteObjectFile({}, "/home/bufu/ActiveCraft.lua") end
+ac.activecraft = require("bufu/ActiveCraft")
 ac.items = {}
 ac.recipeitems = {}
 ac.priocount = 0
