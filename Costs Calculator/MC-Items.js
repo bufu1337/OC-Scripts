@@ -266,11 +266,17 @@ var MC = {
 		});
 		
 		if ( gomod ) {
-			var Suggest = { groups: [], comment1: [], comment2: [], comment3: [], trader: [] }
+			var Suggest = { group: [], comment1: [], comment2: [], comment3: [], trader: [] }
+			var selecteditems = { group: [], comment1: [], comment2: [], comment3: [], trader: [] }
+			$.each(Object.keys(Suggest), function(i, filt) {
+				$.each($("#filter_" + filt + "_input").jqxComboBox('getSelectedItems'), function (index, item) {
+					selecteditems[filt].push(item.label)
+				});
+			});
 			$.each(MC.Mod[MC.viewing.Mod].items, function (index, item) {
-				if ( item.group != "" && item.group.equals(Suggest.groups) == false ) {
-					Suggest.groups.push(item.group);
-					Suggest.groups.push(("-" + item.group));
+				if ( item.group != "" && item.group.equals(Suggest.group) == false ) {
+					Suggest.group.push(item.group);
+					Suggest.group.push(("-" + item.group));
 				}
 				if ( item.c1 != "" && item.c1.equals(Suggest.comment1) == false ) {
 					Suggest.comment1.push(item.c1);
@@ -289,11 +295,15 @@ var MC = {
 					Suggest.trader.push(("-" + item.trader));
 				}
 			});
-			$("#filter_group_input").jqxComboBox({source: Suggest.groups});
-			$('#filter_comment1_input').jqxComboBox({source: Suggest.comment1});
-			$('#filter_comment2_input').jqxComboBox({source: Suggest.comment2});
-			$('#filter_comment3_input').jqxComboBox({source: Suggest.comment3});
-			$('#filter_trader_input').jqxComboBox({source: Suggest.comment3});
+			
+			$.each(Object.keys(Suggest), function(i, filt) {
+				$("#filter_" + filt + "_input").jqxComboBox({source: Suggest[filt]});
+				$.each($("#filter_" + filt + "_input").jqxComboBox('getItems'), function (index, item) {
+					if(selecteditems[filt].contains(item.label)){
+						$("#filter_" + filt + "_input").jqxComboBox('selectItem', item)
+					}
+				});
+			});
 		}
 		
 		$.each(filters, function(i, filt) {
@@ -796,11 +806,11 @@ $(document).ready(function () {
 		$("#filter_dmg_input").val("");
 		$("#filter_tag_input").val("");
 		$("#filter_label_input").val("");
-		$("#filter_group_input").val("");
-		$('#filter_comment1_input').val("");
-		$('#filter_comment2_input').val("");
-		$('#filter_comment3_input').val("");
-		$("#filter_trader_input").val("");
+		$.each(["group", "comment1", "comment2", "comment3", "trader"], function(i, filt) {
+			$.each($("#filter_" + filt + "_input").jqxComboBox('getSelectedItems'), function (index, item) {
+				$("#filter_" + filt + "_input").jqxComboBox('unselectItem', item );
+			});
+		});
 		$("#filter_selling_check").jqxCheckBox({checked: null});
 		$("#filter_buying_check").jqxCheckBox({checked: null});
 		$("#filter_chisel_check").jqxCheckBox({checked: null});
