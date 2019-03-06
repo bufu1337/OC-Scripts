@@ -48,7 +48,17 @@ String.prototype.isEmpty = function() {
 	else{return false;}
 };
 String.prototype.contains = function(search) {
-	return this.split(search).length > 1
+	if ( search instanceof Array ){
+		for (var j = 0; j < search.length; j++){
+			if ( this.split(search[j].toString()).length > 1 ){
+				return true;
+			}
+		}
+	}
+	else{
+		return this.split(search.toString()).length > 1
+	}
+	return false
 };
 var sorting = {
 	main: function (property) {
@@ -108,6 +118,14 @@ Array.prototype.isOneBoolTrue = function(){
 Array.prototype.contains = function(search){
     for (var i = 0; i < this.length; i++){
 		if ( this[i].toString().equals(search) ){
+			return true;
+		}
+	}
+	return false;
+};
+Array.prototype.containsEx = function(search){
+    for (var i = 0; i < this.length; i++){
+		if ( this[i].toString().contains(search) ){
 			return true;
 		}
 	}
