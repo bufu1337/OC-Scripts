@@ -312,27 +312,36 @@ var MC = {
 			else if (filt.endsWith("_check")){ check = ( $('#' + filt).val() != null )}
 			else if (filt.endsWith("_numinput")){ check = ( $('#' + filt).val() != "0" || $('#' + filt.replace("from", "to")).val() != "0" )}
 			if ( check ) {
-				var splits = []
+				var splits_yes = []
+				var splits_no = []
 				var id = filt.split("_")[1].replace("omment", "")
 				if ( id.equals(["modid","itemid","dmg","tag","label"]) ) {
-					splits = $('#' + filt).val().split(", ")
-					if ( splits[splits.length - 1] == "" ) {
-						splits.pop()
-					}
+					var splits = $('#' + filt).val().split(", ")
+					$.each(splits, function (index, item) {
+						if ( item.startsWith("-") ) {
+							splits_no.push(item.replace("-", ""))
+						}
+						else{
+							splits_yes.push(item)
+						}
+					});
 				}
 				if ( id.equals(["group","c1","c2","c3","trader"]) ) {
 					$.each($('#' + filt).jqxComboBox('getSelectedItems'), function (index, item) {
-						splits[index] = item.value
+						if ( item.value.startsWith("-") ) {
+							splits_no.push(item.value.replace("-", ""))
+						}
+						else{
+							splits_yes.push(item.value)
+						}
 					});
 				}
 				$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
 					if ( items[item] ) {
 						if ( id.equals(["modid","itemid","dmg"]) ) {
-							$.each(splits, function (j, sp) {
-								if ( MC.CItems[MC.viewing.Mod][item][id].toString().contains(sp.replace("-", "")) == sp.startsWith("-") ) {
-									items[item] = false
-								}
-							});
+							if ( (splits_no.length > 0 && MC.CItems[MC.viewing.Mod][item][id].toString().contains(splits_no) == true) || (splits_yes.length > 0 && MC.CItems[MC.viewing.Mod][item][id].toString().contains(splits_yes) == false) ) {
+								items[item] = false
+							}
 						}
 						else if ( id == "validrecipe" ) {
 							if ( MC.CItems[MC.viewing.Mod][item]["valid_recipe"] != ($('#' + filt).val())  ) {
@@ -345,18 +354,14 @@ var MC = {
 							}
 						}
 						else if( id.equals(["group","c1","c2","c3","trader"]) ){
-							$.each(splits, function (j, sp) {
-								if ( MC.Mod[MC.viewing.Mod].items[item][id].toString().equals(sp.replace("-", "")) == sp.startsWith("-") ) {
-									items[item] = false
-								}
-							});
+							if ( (splits_no.length > 0 && MC.Mod[MC.viewing.Mod].items[item][id].toString().equals(splits_no) == true) || (splits_yes.length > 0 && MC.Mod[MC.viewing.Mod].items[item][id].toString().equals(splits_yes) == false) ) {
+								items[item] = false
+							}
 						}
 						else if( filt.endsWith("_input") ){
-							$.each(splits, function (j, sp) {
-								if ( MC.Mod[MC.viewing.Mod].items[item][id].toString().contains(sp.replace("-", "")) == sp.startsWith("-") ) {
-									items[item] = false
-								}
-							});
+							if ( (splits_no.length > 0 && MC.Mod[MC.viewing.Mod].items[item][id].toString().contains(splits_no) == true) || (splits_yes.length > 0 && MC.Mod[MC.viewing.Mod].items[item][id].toString().contains(splits_yes) == false) ) {
+								items[item] = false
+							}
 						}
 						else if( filt.endsWith("_check") ){
 							if ( MC.Mod[MC.viewing.Mod].items[item][id] != ($('#' + filt).val() ) ) {
@@ -411,6 +416,7 @@ var MC = {
 		$('#itemListBox').jqxListBox('source', itemssource);
 		$('#itemListBox').jqxListBox('refresh');
 		$('#setALL_what').jqxDropDownList('selectIndex', 0);
+		$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + MC.viewing.Mod + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[MC.viewing.Mod].items).length + " <b class='headerstyle'>Filtered-Count:</b> " + MC.Listing.itemListBox.length);
 	},
 	save: function(what){
 		if ('Blob' in window) {
@@ -508,7 +514,6 @@ var MC = {
 				$('#itemDetailTabs').jqxTabs('select', 2);
 				MC.viewing.Mod = modname;
 				MC.viewing.Item = "";
-				$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + modname + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[modname].items).length);
 				if ( Object.keys(MC.Mod[modname].items).length == 0) {
 					MC.show("noitems");
 				}
@@ -866,7 +871,7 @@ $(document).ready(function () {
 
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
 	for (var h = 0; h < 9; h++){
-		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1, max: 9});
+		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1});
 		$("#rc" + h + "_dmg").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
 		$("#rc" + h + "_variant").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
 		$("#rc" + h + "_modbox").jqxInput({placeHolder: "Enter ModID...", height: 25, width: 210, minLength: 1, items: 30, searchMode: 'contains', source: Object.keys(MC.Mods)});
@@ -1149,6 +1154,12 @@ $(document).ready(function () {
 });
 
 /*OTHER
+
+$.each(MC.Listing.itemListBox, function (itemc, item) {
+			MC.Mod[MC.viewing.Mod].items[item].recipe = {fp_jj_metal_gitter_block:{need: 64, tag: ""}}
+			MC.Mod[MC.viewing.Mod].items[item].recipe[("fp_jj_lacktank" + MC.CItems[MC.viewing.Mod][item].dmg)] = {need: 1, tag: ""}
+			MC.Mod[MC.viewing.Mod].items[item].craftCount = 64
+		});
 
 var ingots={               
 "Thermal Foundation":[  
@@ -2656,6 +2667,37 @@ var list2 = ["harvestcraft_jj_honeyitem",
 135: "ore_jj_plateTungstensteel"
 136: "ore_jj_reBattery"
 137: "ore_jj_workbench"
+
+
+0: "ore_jj_ingotNeon"
+1: "ore_jj_dustNeon"
+2: "ore_jj_ingotGlowtite"
+3: "ore_jj_ingotMagnetite"
+4: "ore_jj_ingotZinc"
+5: "ore_jj_ingotCopper"
+6: "ore_jj_ingotQuantanium"
+7: "ore_jj_ingotNeodymium"
+8: "fp_jj_escenner_jj_1"
+
+var list2 = [
+	"fp_jj_itemerze_jj_3",
+	"",
+	"fp_jj_itemerze_jj_6",
+	"fp_jj_itemerze_jj_4",
+	"fp_jj_itemerze_jj_1",
+	"fp_jj_itemerze_jj_2",
+	"fp_jj_itemerze_jj_9",
+	"fp_jj_itemerze_jj_13",
+	"fp_jj_escenner"
+]
+
+$.each(list, function (j, item) {
+	if ( list2[j] != null ) {
+		if(!list2[j].equals("")){
+			MC.changeRecipeItem("fp", item, list2[j])
+		}
+	}
+});
 
 $.each(list, function (j, item) {
 	if ( list2[j] != null ) {
