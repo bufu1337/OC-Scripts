@@ -418,11 +418,14 @@ var MC = {
 		$('#setALL_what').jqxDropDownList('selectIndex', 0);
 		$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + MC.viewing.Mod + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[MC.viewing.Mod].items).length + " <b class='headerstyle'>Filtered-Count:</b> " + MC.Listing.itemListBox.length);
 	},
-	filterEnterKey: function(event){
-		if ( event.which == 13 ) {
-			MC.itemfilter(false)
+	enterKey: function(e, knopp){
+		if ( e.which == 13 ) {
+			$("#" + knopp + "_okButton").trigger("click");
 		}
 	},
+	filterEnterKey: function(event){ MC.enterKey(event, "filter") },
+	recipeEnterKey: function(event){ MC.enterKey(event, "recipe") },
+	mainEnterKey: function(event){ MC.enterKey(event, "itemwindow") },
 	save: function(what){
 		if ('Blob' in window) {
 			var fileName = 'MC-' + what + '.js';
@@ -735,6 +738,16 @@ $(document).ready(function () {
 	});
 	$("#itemprice_input").jqxNumberInput({height: 25, width: 66, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#itemMaxCount_input").jqxNumberInput({height: 25, width: 100, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	
+	$("#itemlabel_input").on('keydown', function(e){MC.mainEnterKey(e)});
+	$("#itemgroup_input").on('keydown', function(e){MC.mainEnterKey(e)});
+	$('#itemcomment1_input').on('keydown', function(e){MC.mainEnterKey(e)});
+	$('#itemcomment2_input').on('keydown', function(e){MC.mainEnterKey(e)});
+	$('#itemcomment3_input').on('keydown', function(e){MC.mainEnterKey(e)});
+	$("#itemtrader_drop").on('keydown', function(e){MC.mainEnterKey(e)});
+	$("#itemprice_input").on('keydown', function(e){MC.mainEnterKey(e)});
+	$("#itemMaxCount_input").on('keydown', function(e){MC.mainEnterKey(e)});
+	
 	$('#itemwindow_okButton').jqxButton({ width: '180px', disabled: false });
 	$('#itemwindow_okButton').on('click', function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label = $("#itemlabel_input").val();
@@ -878,6 +891,7 @@ $(document).ready(function () {
 		
 
 	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
+	$("#rc_craftcount").on('keydown', function(e){MC.recipeEnterKey(e)});
 	for (var h = 0; h < 9; h++){
 		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1});
 		$("#rc" + h + "_dmg").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
@@ -934,6 +948,11 @@ $(document).ready(function () {
 				$('#recipeValidator').jqxValidator('validate');
 			}
 		});
+		$("#rc" + h + "_modbox").on('keydown', function(e){MC.recipeEnterKey(e)});
+		$("#rc" + h + "_itembox").on('keydown', function(e){MC.recipeEnterKey(e)});
+		$("#rc" + h + "_itemboxlbl").on('keydown', function(e){MC.recipeEnterKey(e)});
+		$("#rc" + h + "_dmg").on('keydown', function(e){MC.recipeEnterKey(e)});
+		$("#rc" + h + "_variant").on('keydown', function(e){MC.recipeEnterKey(e)});
 	}
 
 	$('#recipeValidator').jqxValidator({
