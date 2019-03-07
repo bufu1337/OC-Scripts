@@ -418,6 +418,11 @@ var MC = {
 		$('#setALL_what').jqxDropDownList('selectIndex', 0);
 		$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + MC.viewing.Mod + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[MC.viewing.Mod].items).length + " <b class='headerstyle'>Filtered-Count:</b> " + MC.Listing.itemListBox.length);
 	},
+	filterEnterKey: function(event){
+		if ( event.which == 13 ) {
+			MC.itemfilter(false)
+		}
+	},
 	save: function(what){
 		if ('Blob' in window) {
 			var fileName = 'MC-' + what + '.js';
@@ -831,7 +836,10 @@ $(document).ready(function () {
 
 		MC.itemfilter();
 	});
-
+	$.each([ "filter_modid_input", "filter_itemid_input", "filter_dmg_input", "filter_tag_input", "filter_label_input", "filter_group_input", "filter_comment1_input", "filter_comment2_input", "filter_comment3_input", "filter_trader_input", "filter_fixedprice_check", "filter_maxCountfrom_numinput", "filter_pricefrom_numinput"], function(i, filt) {
+		$('#' + filt).on('keydown', function(e){MC.filterEnterKey(e)});
+	});
+	
 	$('#setALL_what').jqxDropDownList({source: MC.setALL_source[1], width: 110, height: 25 });
 	$('#setALL_what').on('select', function(){
 		MC.hide_SetALL()
@@ -869,7 +877,7 @@ $(document).ready(function () {
 	});
 		
 
-	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
+	$("#rc_craftcount").jqxNumberInput({height: 25, width: 63, disabled: false, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	for (var h = 0; h < 9; h++){
 		$("#rc" + h + "_need").jqxNumberInput({height: 25, width: 63, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 1});
 		$("#rc" + h + "_dmg").jqxInput({height: 25, width: 63, disabled: true, minLength: 0, items: 30, searchMode: 'contains'});
