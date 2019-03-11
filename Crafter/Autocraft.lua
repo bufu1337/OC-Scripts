@@ -74,9 +74,9 @@ function ac.Define(itemrepo)
     end
   end
 end
-function ac.DefineEx(itemsToCraft, recipeitemsForCraft)
+function ac.DefineEx(crafter, itemsToCraft, recipeitemsForCraft)
   ac.completeRepo = false
-  ac.crafter = ac.prox.ModToPName(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
+  ac.crafter = crafter
   ac.items = itemsToCraft
   ac.recipeitems = recipeitemsForCraft
   ac.logfile = "/home/bufu/Crafter/AC-Log - " .. ac.crafter .. ".lua"
@@ -763,7 +763,6 @@ function ac.GetRecipeCraftings()
       if recipecrafting[j.crafter] == nil then
         recipecrafting[j.crafter] = {items={}, recipeitems={}}
       end
-      recipecrafting[j.crafter].items[i] = j
     end
   end
   for i,j in pairs(recipecrafting) do
@@ -772,57 +771,62 @@ function ac.GetRecipeCraftings()
     local repo = ac.searchforRepo(i)
     local reporec = ac.searchforRepoRecipe(i)
     if repo ~= "" then
-      temp = require(repo)
+      recipecrafting[i].items = require(repo)
+	  if reporec ~= "" then
+	    recipecrafting[i].recipeitems = require(reporec)
+	  end
     end
-    if reporec ~= "" then
-      temp2 = require(reporec)
+    for a,b in pairs(recipecrafting[i].items) do
+      recipecrafting[i].items[a].maxCount = 0
+      recipecrafting[i].items[a].need = ac.recipeitems[a].need
     end
-    for a,b in pairs(j.items) do
-      recipecrafting[i].items[a].maxCount = temp[a].maxCount
-      recipecrafting[i].items[a].craftCount = temp[a].craftCount
-      recipecrafting[i].items[a].recipe = ac.mf.copyTable(temp[a].recipe)
-      for c,d in pairs(b.recipe) do
-        recipecrafting[i].recipeitems[c] = ac.mf.copyTable(temp2[c])
-      end
-    end
-    temp = {}
-    temp2 = {}
   end
   for i,j in pairs(recipecrafting) do
     local tempac = require("bufu/Crafter/Autocraft")
-    tempac.DefineEx(j.items, j.recipeitems)
-    tempac.GetItems()
-    tempac.CalculateCrafts()
-    tempac.GetRecipeCraftings()
-    tempac.CraftItems()
-    for a,b in pairs(tempac.items) do
-      ac.recipeitems[a].newsize = b.newsize
-      ac.recipeitems[a].size = b.newsize
-    end
+    tempac.CraftExItems(i, j.items, j.recipeitems)
     tempac = {}
   end
 end
+function ac.WaitforCrafter()
+  if ac.activecraft[ac.crafter] == nil then
+    ac.activecraft[ac.crafter] = false
+  end
+  while ac.activecraft[ac.crafter] do
+    ac.mf.os.sleep(20)
+    print("Waiting for crafter: " .. ac.crafter)
+  end
+end
+function ac.StartCrafting()
+  ac.activecraft = require("bufu/ActiveCraft")
+  ac.activecraft[ac.crafter] = true
+  ac.mf.WriteObjectFile(ac.activecraft, "/home/bufu/ActiveCraft.lua")
+end
+function ac.FinishCrafting()
+  ac.activecraft = require("bufu/ActiveCraft")
+  ac.activecraft[ac.crafter] = false
+  ac.mf.WriteObjectFile(ac.activecraft, "/home/bufu/ActiveCraft.lua")
+end
+function ac.CraftEx()
+  ac.WaitforCrafter()
+  ac.StartCrafting()
+  ac.GetItems()
+  ac.GetRecipeCraftings()
+  ac.CraftItems()
+  ac.FinishCrafting()
+end
 function ac.Craft(itemrepo)
   ac.Define(itemrepo)
-  ac.GetItems()
-  ac.CraftItems()
+  ac.CraftEx()
 end
-function ac.CraftExItems(itemsToCraft)
-  ac.DefineItems(itemsToCraft)
-  for i,crafter in pairs(ac.itemcrafters) do
-    local tempac = require("bufu/Crafter/Autocraft")
-    tempac.DefineEx(crafter.items, crafter.recipeitems)
-    tempac.GetItems()
-    tempac.CalculateCrafts()
-    tempac.GetRecipeCraftings()
-    tempac.CraftItems()
-  end
+function ac.CraftExItems(crafter, items, recipeitems)
+  ac.DefineEx(crafter, items, recipeitems)
+  ac.CraftEx()
 end
 
 if ac.args[1] ~= nil and ac.args[1]:find("Autocraft") == nil then
 	if ac.args[2] ~= nil then
-		if ac[ac.args[2]] ~= "Craft" and ac[ac.args[2]] ~= "CheckRecipes" and ac[ac.args[2]] ~= "CheckLabels" and ac[ac.args[2]] ~= "CheckPatterns" then
-			ac[ac.args[2]] = "Craft"
+		if ac.args[2] ~= "Craft" and ac.args[2] ~= "CheckRecipes" and ac.args[2] ~= "CheckLabels" and ac.args[2] ~= "CheckPatterns" then
+			ac.args[2] = "Craft"
 		end
 		ac[ac.args[2]](ac.args[1])
 	else
