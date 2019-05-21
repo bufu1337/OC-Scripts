@@ -225,7 +225,15 @@ end
                   
 local function getAllItems()
   local bitems = {}
-  for line in io.lines("Y:/Minecraft/OC-Scripts/items.log") do
+  for m in pairs(items) do
+    if mf.containsKey(bitems, m) == false then
+        bitems[m] = {}
+    end
+    for i in pairs(items[m]) do
+        bitems[m][i] = true
+    end
+  end
+  for line in io.lines("Y:/Minecraft/names-new.txt") do
     line = line:gsub("\"",""):gsub("<",""):gsub(">",""):gsub("%.withTag", "?")
     line = mf.split(line, "?")--
     local tag = ""
@@ -261,10 +269,19 @@ local function getAllItems()
     end
     if found == false then
       print("     Creating Item (" .. isc .. "): " .. name)
-      items[isc][name] = {c1="",c2="",c3="",hasPattern=false,maxCount=1,tag=tag}
-      --bitems[isc][name] = {c1="",c2="",c3="",hasPattern=false,maxCount=1,tag=tag}
+      items[isc][name] = {bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag=tag,trader=0}
+      bitems[isc][name] = false
     else
+      bitems[isc][name] = false
       print("Found Item (" .. isc .. "): " .. name)
+    end
+  end
+  for m in pairs(bitems) do
+    for i in pairs(bitems[m]) do
+      if bitems[m][i] == true then
+        items[m][i] = nil
+        print("Not Found Item (" .. m .. "): " .. i)
+      end
     end
   end
 --  for i,j in pairs(bitems) do
@@ -441,7 +458,9 @@ local function irnamesCorrect()
   templines = nil
 end
 
-WriteItemFiles()
+mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
+--getAllItems()
+--WriteItemFiles()
 
 
 --addcostcalc()
@@ -454,7 +473,7 @@ WriteItemFiles()
 --mf.WriteObjectFile(mod_sc, "Y:/Minecraft/OC-Scripts/Mods.lua", 2)
 --mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
 --print(findSC("thermalfoundation"))
---getAllItems()
+--
 --WriteItemsSC()
 --convertCT()
 --combinePatternCheck()
