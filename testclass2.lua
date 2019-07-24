@@ -50,7 +50,7 @@ local function convertCT()
   local invalid_recipes = {}
   local additional_recipes = {}
   local irnames = {}--mf.combineTables(require("InvalidRecipeNames"), require("IRNames"))
-  for line in io.lines("Y:/Minecraft/OC-Scripts/recipes.log") do
+  for line in io.lines(ocpath[working] .. "recipes.log") do
     --print(line)
     line = line:gsub("recipes.addShaped%(\"","{__oo__"):gsub("recipes.addShapeless%(\"","{__oo__"):gsub("\", <","__oo__, <"):gsub("\"",""):gsub("__oo__","\""):gsub("%);","}"):gsub("%)",")\""):gsub("%.withTag%(",", \"withTag("):gsub("<","\""):gsub(">","\""):gsub("%[","{"):gsub("%]","}"):gsub(" %*",", "):gsub(" %| ", ", "):gsub("%)\"_",")_"):gsub("null","\"null\"")
     print(line)
@@ -197,9 +197,9 @@ local function convertCT()
       end
     end
   end
-  mf.WriteObjectFile(items,"Y:/Minecraft/OC-Scripts/ItemsWithRecipes.lua", 3)
-  mf.WriteObjectFile(invalid_recipes,"Y:/Minecraft/OC-Scripts/InvalidRecipes.lua", 3)
-  mf.WriteObjectFile(additional_recipes,"Y:/Minecraft/OC-Scripts/AdditionalRecipes.lua", 4)
+  mf.WriteObjectFile(items,ocpath[working] .. "ItemsWithRecipes.lua", 3)
+  mf.WriteObjectFile(invalid_recipes,ocpath[working] .. "InvalidRecipes.lua", 3)
+  mf.WriteObjectFile(additional_recipes,ocpath[working] .. "AdditionalRecipes.lua", 4)
   for a,b in pairs(invalid_recipes) do
     for e,f in pairs(b) do
       for c,d in pairs(f.recipe) do
@@ -210,15 +210,15 @@ local function convertCT()
     end
   end
   local tempir = {}
-  mf.WriteObjectFile(irnames,"Y:/Minecraft/OC-Scripts/InvalidRecipeNames.lua", 2)
+  mf.WriteObjectFile(irnames,ocpath[working] .. "InvalidRecipeNames.lua", 2)
   for a,b in pairs(irnames) do
     if b ~= "" then
       tempir[a] = irnames[a]
       irnames[a] = nil
     end
   end
-  mf.WriteObjectFile(irnames,"Y:/Minecraft/OC-Scripts/IRNames.lua", 2)
-  mf.WriteObjectFile(tempir,"Y:/Minecraft/OC-Scripts/TempIRNames.lua", 2)
+  mf.WriteObjectFile(irnames,ocpath[working] .. "IRNames.lua", 2)
+  mf.WriteObjectFile(tempir,ocpath[working] .. "TempIRNames.lua", 2)
   print("DONE CONVERTING")
 end
 
@@ -233,7 +233,7 @@ local function getAllItems()
         bitems[m][i] = true
     end
   end
-  for line in io.lines("Y:/Minecraft/names-new.txt") do
+  for line in io.lines(ocpath[working] .. "names-new2.txt") do
     line = line:gsub("\"",""):gsub("<",""):gsub(">",""):gsub("%.withTag", "?")
     line = mf.split(line, "?")--
     local tag = ""
@@ -289,7 +289,7 @@ local function getAllItems()
 --      bitems[i] = nil
 --    end
 --  end
-  --mf.WriteObjectFile(bitems, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
+  --mf.WriteObjectFile(bitems, ocpath[working] .. "ConvertedItems.lua", 3)
 end
 local function AddItemFields(tableWithFields)
   for i,j in pairs(items) do
@@ -458,9 +458,9 @@ local function irnamesCorrect()
   templines = nil
 end
 
-mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
---getAllItems()
---WriteItemFiles()
+--mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
+getAllItems()
+WriteItemFiles()
 
 
 --addcostcalc()
@@ -470,8 +470,8 @@ mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --    mod_sc[d] = a
 --  end
 --end
---mf.WriteObjectFile(mod_sc, "Y:/Minecraft/OC-Scripts/Mods.lua", 2)
---mf.WriteObjectFile(items, "Y:/Minecraft/OC-Scripts/ConvertedItems.lua", 3)
+--mf.WriteObjectFile(mod_sc, ocpath[working] .. "Mods.lua", 2)
+--mf.WriteObjectFile(items, ocpath[working] .. "ConvertedItems.lua", 3)
 --print(findSC("thermalfoundation"))
 --
 --WriteItemsSC()

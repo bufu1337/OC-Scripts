@@ -23,13 +23,23 @@ var MC = {
 		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count", "Craft Count"]
 	],
 	setChangedRecipes: function(modid){
-		console.log("Setting Changed Recipes")
-		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
-			if ( itemid.startsWith(modid) ) {
-				MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
-			}
-		});
-		console.log("Set Changed Recipes finished")
+		if ( modid == null ) {
+			$.each(Object.keys(MC.Mods), function (i, modid) {
+				MC.setChangedRecipes(modid)
+			});
+		}
+		else{
+			console.log("Setting Changed Recipes " + modid)
+			$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
+				if ( MC.CItems[MC.Mods[modid].name] == null ){
+					MC.CItems[MC.Mods[modid].name] = {}
+				}
+				if ( itemid.startsWith(modid) ) {
+					MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
+				}
+			});
+			console.log("Set Changed Recipes finished")
+		}
 	},
 	listInvalidRecipeItems: function(modid, counts){
 		if ( counts == null ) {
@@ -83,6 +93,15 @@ var MC = {
 		});
 		console.log("Change RecipeItem " + item + " finished")
 	},
+	getItemCount: function(){
+		var allitemcount = 0
+		$.each(Object.keys(MC.Items), function (i, mod) {
+			allitemcount = allitemcount + MC.Items[mod].count()
+			console.log(mod + " " + MC.Items[mod].count())
+		});
+		console.log()
+		console.log("OVERALL: " + allitemcount)
+	},
 	createNewItems: function(items){
 		$.each(items, function (i, item) {
 			if ( !item.tag ) {
@@ -100,6 +119,9 @@ var MC = {
 			if ( citem.crafter != "" ) {
 				MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
 				MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
+				if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
+					MC.CItems[MC.Mods[citem.modid].name] = {}
+				}
 				MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(item.id, true, true)
 				if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
 					MC.Mods[citem.modid].itemid.push(citem.itemid)
@@ -3739,4 +3761,124 @@ lappy
 $('#mainSplitter').jqxSplitter({  width: 1598, height: 718, panels: [{ size: 300, min: 300 }, {min: 300, size: 300}] });
 $('#contentSplitter').jqxSplitter({ width: '100%', height: '100%', panels: [{ size: 620, min: 300, collapsible: false }, { min: 300, collapsible: true}] });
 
+
+animania_jj_cooked_longhorn_roast not found
+VM1475:8 animania_jj_raw_orpington_chicken not found
+VM1475:8 animania_jj_raw_plymouth_rock_chicken not found
+VM1475:8 basemetals_jj_diamond_powder not found
+VM1475:8 basemetals_jj_diamond_shield not found
+VM1475:8 basemetals_jj_diamond_smallpowder not found
+VM1475:8 basemetals_jj_emerald_nugget not found
+VM1475:8 basemetals_jj_emerald_powder not found
+VM1475:8 basemetals_jj_emerald_shield not found
+VM1475:8 basemetals_jj_emerald_smallpowder not found
+VM1475:8 basemetals_jj_gold_plate not found
+VM1475:8 basemetals_jj_gold_shield not found
+VM1475:8 basemetals_jj_gold_trapdoor not found
+VM1475:8 basemetals_jj_iron_plate not found
+VM1475:8 basemetals_jj_iron_rod not found
+VM1475:8 basemetals_jj_iron_shield not found
+VM1475:8 basemetals_jj_obsidian_crackhammer not found
+VM1475:8 basemetals_jj_obsidian_ingot not found
+VM1475:8 basemetals_jj_obsidian_rod not found
+VM1475:8 basemetals_jj_obsidian_shield not found
+VM1475:8 basemetals_jj_obsidian_slab not found
+VM1475:8 basemetals_jj_obsidian_stairs not found
+VM1475:8 basemetals_jj_obsidian_wall not found
+VM1475:8 basemetals_jj_quartz_axe not found
+VM1475:8 basemetals_jj_quartz_boots not found
+VM1475:8 basemetals_jj_quartz_chestplate not found
+VM1475:8 basemetals_jj_quartz_door not found
+VM1475:8 basemetals_jj_quartz_gear not found
+VM1475:8 basemetals_jj_quartz_helmet not found
+VM1475:8 basemetals_jj_quartz_hoe not found
+VM1475:8 basemetals_jj_quartz_horse_armor not found
+VM1475:8 basemetals_jj_quartz_leggings not found
+VM1475:8 basemetals_jj_quartz_lever not found
+VM1475:8 basemetals_jj_quartz_pickaxe not found
+VM1475:8 basemetals_jj_quartz_powder not found
+VM1475:8 basemetals_jj_quartz_pressure_plate not found
+VM1475:8 basemetals_jj_quartz_rod not found
+VM1475:8 basemetals_jj_quartz_shears not found
+VM1475:8 basemetals_jj_quartz_shield not found
+VM1475:8 basemetals_jj_quartz_shovel not found
+VM1475:8 basemetals_jj_quartz_sword not found
+VM1475:8 basemetals_jj_quartz_trapdoor not found
+VM1475:8 basemetals_jj_stone_gear not found
+VM1475:8 basemetals_jj_wood_gear not found
+VM1475:8 bigreactors_jj_blockmetals not found
+VM1475:8 bigreactors_jj_blockmetals_jj_3 not found
+VM1475:8 bigreactors_jj_blockmetals_jj_5 not found
+VM1475:8 bigreactors_jj_ingotmetals not found
+VM1475:8 bigreactors_jj_ingotmetals_jj_1 not found
+VM1475:8 bigreactors_jj_ingotmetals_jj_2 not found
+VM1475:8 bigreactors_jj_ingotmetals_jj_3 not found
+VM1475:8 bigreactors_jj_ingotmetals_jj_5 not found
+VM1475:8 bigreactors_jj_minerals not found
+VM1475:8 bigreactors_jj_minerals_jj_1 not found
+VM1475:8 biomesoplenty_jj_ambrosia not found
+VM1475:8 biomesoplenty_jj_jelled_poison not found
+VM1475:8 biomesoplenty_jj_pinecone not found
+VM1475:8 biomesoplenty_jj_pixie_dust not found
+VM1475:8 cfm_jj_fridge not found
+VM1475:8 defiledlands_jj_blastem not found
+VM1475:8 environmentaltech_jj_aethium_jj_1 not found
+VM1475:8 environmentaltech_jj_aethium_jj_2 not found
+VM1475:8 environmentaltech_jj_aethium_jj_3 not found
+VM1475:8 environmentaltech_jj_erodium_jj_1 not found
+VM1475:8 environmentaltech_jj_erodium_jj_2 not found
+VM1475:8 environmentaltech_jj_erodium_jj_3 not found
+VM1475:8 environmentaltech_jj_ionite_jj_1 not found
+VM1475:8 environmentaltech_jj_ionite_jj_2 not found
+VM1475:8 environmentaltech_jj_ionite_jj_3 not found
+VM1475:8 environmentaltech_jj_kyronite_jj_1 not found
+VM1475:8 environmentaltech_jj_kyronite_jj_2 not found
+VM1475:8 environmentaltech_jj_kyronite_jj_3 not found
+VM1475:8 environmentaltech_jj_litherite_jj_1 not found
+VM1475:8 environmentaltech_jj_litherite_jj_2 not found
+VM1475:8 environmentaltech_jj_litherite_jj_3 not found
+VM1475:8 environmentaltech_jj_lonsdaleite_jj_1 not found
+VM1475:8 environmentaltech_jj_lonsdaleite_jj_2 not found
+VM1475:8 environmentaltech_jj_lonsdaleite_jj_3 not found
+VM1475:8 environmentaltech_jj_pladium_jj_1 not found
+VM1475:8 environmentaltech_jj_pladium_jj_2 not found
+VM1475:8 environmentaltech_jj_pladium_jj_3 not found
+VM1475:8 floricraft_jj_flower_cut_jj_5 not found
+VM1475:8 forestry_jj_greenhouse_jj_5 not found
+VM1475:8 forestry_jj_greenhouse_screen not found
+VM1475:8 forestry_jj_propolis_jj_2 not found
+VM1475:8 forge_jj_bucketfilled not found
+VM1475:8 fpfa_jj_bioterium_frame not found
+VM1475:8 fpfa_jj_glowtit_frame not found
+VM1475:8 fpfa_jj_impirial_frame not found
+VM1475:8 fpfa_jj_iron_frame not found
+VM1475:8 fpfa_jj_neon_frame not found
+VM1475:8 fpfa_jj_neon_scoop not found
+VM1475:8 fpfa_jj_princess_frame not found
+VM1475:8 fpfa_jj_retium_frame not found
+VM1475:8 fpfa_jj_retium_scoop not found
+VM1475:8 FVTM_jj_Material_jj_ generic_jj_goldkey not found
+VM1475:8 FVTM_jj_Material_jj_ generic_jj_key not found
+VM1475:8 fvtm_container_jj_ {SelectedTexture_jj_ 0}}) not found
+VM1475:8 fvtm_container_jj_ {SelectedTexture_jj_ 1}}) not found
+VM1475:8 fvtm_container_jj_ {SelectedTexture_jj_ 2}}) not found
+VM1475:8 harvestcraft_jj_greenbeencasseroleitem not found
+VM1475:8 id_jj_ 32 as short}}) not found
+VM1475:8 malisisblocks_jj_vanishing_block_wood not found
+VM1475:8 mekanism_jj_machineblock_5 not found
+VM1475:8 mekanism_jj_machineblock_5_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt_alt_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt_alt_alt_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt_alt_alt_alt_alt not found
+VM1475:8 mekanism_jj_machineblock_5_alt_alt_alt_alt_alt_alt_alt not found
+VM1475:8 mekanism_jj_tierinstaller_0 not found
+VM1475:8 ore_jj_circuitBasic not found
+VM1475:8 ore_jj_ingotGold not found
+VM1475:8 ore_jj_ingotIron not found
+VM1475:8 ore_jj_plankWood not found
+VM1475:8 rftools_jj_shape_card_pump not found
+VM1475:8 rftools_jj_shape_card_pump_liquid not found
+VM1475:8 rftools_jj_shape_card_quarry not found
 */

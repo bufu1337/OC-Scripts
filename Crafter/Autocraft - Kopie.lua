@@ -40,7 +40,7 @@ function ac.searchforRepoRecipe(itemrepo)
 end
 function ac.getCrafter(oname)
   local temp = {}
-  local c = ac.prox.ModToPName(ac.convert.TextToItem(oname).mod)
+  local c = ac.prox.ModToCrafter(ac.convert.TextToItem(oname).mod)
   local repo = ac.searchforRepo(c)
   if repo ~= "" then
     temp = require(repo)
@@ -59,7 +59,7 @@ function ac.Define(itemrepo)
       local repo2 = ac.searchforRepo(itemrepo .. "2")
       ac.items = ac.mf.combineTables(ac.items, require(repo2))
     end
-    ac.crafter = ac.prox.ModToPName(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
+    ac.crafter = ac.prox.ModToCrafter(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
     local reporecipe = ac.searchforRepoRecipe(itemrepo)
     if reporecipe ~= "" then
       ac.recipeitems = require(reporecipe)
@@ -74,7 +74,7 @@ function ac.Define(itemrepo)
 end
 function ac.DefineEx(itemsToCraft, recipeitemsForCraft)
   ac.completeRepo = false
-  ac.crafter = ac.prox.ModToPName(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
+  ac.crafter = ac.prox.ModToCrafter(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
   ac.items = itemsToCraft
   ac.recipeitems = recipeitemsForCraft
   ac.logfile = "/home/bufu/Crafter/AC-Log - " .. ac.crafter .. ".lua"
@@ -86,7 +86,7 @@ function ac.DefineEx(itemsToCraft, recipeitemsForCraft)
 end
 function ac.DefineItems(itemsToCraft)
   for i,j in pairs(ac.mf.getKeys(itemsToCraft)) do
-    local temp_item_crafter = ac.prox.ModToPName(ac.convert.TextToItem(j).mod)
+    local temp_item_crafter = ac.prox.ModToCrafter(ac.convert.TextToItem(j).mod)
     if ac.mf.containsKey(ac.itemcrafters, temp_item_crafter) then
       ac.itemcrafters[temp_item_crafter] = {items={}, ac.recipeitems{}}
     end

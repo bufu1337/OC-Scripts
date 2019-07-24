@@ -53,7 +53,7 @@ local function Proxies(name)
     }
     return pr[name]
 end
-local function ModToPName(mod)
+local function ModToCrafter(mod)
     local mtpn = {
        actuallyadditions="actadd",
        adchimneys="chimneys",
@@ -244,7 +244,7 @@ local function ModToPName(mod)
     return mtpn[mod]
 end
 local function GetProx(mod, typ)
-    local pname = ModToPName(mod)
+    local pname = ModToCrafter(mod)
     --print("Mod: " .. mod .. " pname: " .. pname)
     local proxy = Proxies(pname)
     if (proxy[typ] == nil) then
@@ -319,7 +319,7 @@ prox.GetProx = GetProx
 prox.GetProxy = GetProxy
 prox.GetProxByName = GetProxByName
 prox.GetProxyByName = GetProxyByName
-prox.ModToPName = ModToPName
+prox.ModToCrafter = ModToCrafter
 return prox
 
 
