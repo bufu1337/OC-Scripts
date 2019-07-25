@@ -426,6 +426,9 @@ var MC = {
 				}
 			}
 			var valid = ""
+			if ( MC.CItems[MC.viewing.Mod][item] == null ) {
+				MC.CItems[MC.viewing.Mod][item] = MC.convertItemID(item, true, true)
+			}
 			if ( Object.keys(newitems[item].recipe).length == 0) {
 				valid = " <b class='itemstyle4'>Recipe: No</b>"
 			}
