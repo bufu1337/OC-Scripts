@@ -1,6 +1,6 @@
 local sides = require("sides")
 local prox = {}
-local function Proxies(name)
+local function GetProxyByCrafter(name)
     local pr = {
         minecraft = "5e641952-57b9-4d2c-bdc4-84c3169c9003",
 		draconic = "d24e6b8e-ff7b-44ea-89b4-86a73b6b9625",
@@ -54,495 +54,260 @@ local function Proxies(name)
 	}
     return pr[name]
 end
-local function ModToCrafter(mod)
+local function ModToProp(mod, typ)
     local mtpn = {
-       actuallyadditions="actadd",
-       adchimneys="chimneys",
-       adhooks="others",
-       advancedrocketry="rocketry",
-       ae2stuff="appen",
-       aether_legacy="aether",
-       animania="aether",
-       appliedenergistics2="appen",
-       aquamunda="others",
-       arcticmobs="cyclic",
-       as_extraresources="chimneys",
-       astikoor="others",
-       atlcraft="atl",
-       basemetals="metals",
-       baubles="others",
-       betterquesting="others",
-       bibliocraft="biblio",
-       bigreactors="nuclear",
-       binniecore="btrees",
-       biomesoplenty="biomes",
-       blackthorne="draconic",
-       blueboyscaterpillarmtspack="draconic",
-       botania="botania",
-       botany="binnie",
-       bq_standard="others",
-       buildcraftbuilders="rocketry",
-       buildcraftcore="rocketry",
-       buildcraftenergy="rocketry",
-       buildcraftfactory="rocketry",
-       buildcraftlib="rocketry",
-       buildcraftrobotics="rocketry",
-       buildcraftsilicon="rocketry",
-       buildcrafttransport="rocketry",
-       car="draconic",
-       carryon="others",
-       carz="others",
-       cdm="draconic",
-       ceramics="ceramics",
-       cfm="draconic",
-       chisel="chisel",
-       chiselsandbits="others",
-       compactmachines3="others",
-       conquest="conquest",
-       cookingforblockheads="others",
-       corail_pillar="pillar",
-       corail_pillar_extension_biomesoplenty="pillar",
-       corail_pillar_extension_chisel="pillar",
-       corail_pillar_extension_forestry="pillar",
-       coralreef="others",
-       customnpcs="others",
-       cyclicmagic="cyclic",
-       darkutils="utilities",
-       davincisvessels="others",
-       ddb="others",
-       deepresonance="others",
-       defiledlands="utilities",
-       demonmobs="cyclic",
-       desertmobs="cyclic",
-       draconicevolution="draconic",
-       electrostatics="others",
-       elementalmobs="cyclic",
-       energyconverters="others",
-       environmentalmaterials="environ",
-       environmentaltech="environ",
-       etlunar="environ",
-       extrabees="binnie",
-       extrabitmanipulation="others",
-       extratrees="btrees",
-       extrautils2="utilities",
-       fairylights="fairy",
-       farmory="fiifex",
-       fcl="fiifex",
-       fdecostuff="fiifex",
-       ffoods="fiifex",
-       flatcoloredblocks="flat",
-       floricraft="fairy",
-       fmagic="fiifex",
-       forestmobs="cyclic",
-       forestry="forestry",
-       forge="minecraft",
-       fp="future",
-       fpfa="future",
-       freshwatermobs="cyclic",
-       fresource="fiifex",
-       frsm="fiifex",
-       fvtm="fiifex",
-       gemmary="others",
-       gendustry="binnie",
-       genetics="binnie",
-       gravestone="others",
-       gravitygun="others",
-       harvestcraft="food",
-       ic2="industrial",
-       ichunutil="others",
-       immcraft="immersive",
-       immersiveengineering="immersive",
-       immersivehempcraft="immersive",
-       immersiverailroading="railroading",
-       immersivetech="immersive",
-       industrialforegoing="fiifex",
-       infernomobs="cyclic",
-       infinitycraft="fiifex",
-       itorch="others",
-       junglemobs="cyclic",
-       libvulpes="rocketry",
-       lycanitesmobs="cyclic",
-       magicbees="binnie",
-       malisisadvert="others",
-       malisisblocks="others",
-       malisisdoors="others",
-       malisisswitches="others",
-       mekanism="mekanism",
-       mekanismgenerators="mekanism",
-       mekanismtools="mekanism",
-       minecraft="minecraft",
-       minewatch="minewatch",
-       mmmpack="draconic",
-       moarfood="food",
-       modcurrency="others",
-       modernmetals="modern",
-       morebeautifulbuttons="more",
-       morebeautifulplates="more",
-       mores="minewatch",
-       mountainmobs="cyclic",
-       mts="draconic",
-       mtsheavyindustrialbyadamrk="draconic",
-       mtsofficialpack="draconic",
-       mtsseagullcivilpack="draconic",
-       mtsseagullmilitarypack="draconic",
-       mxtune="others",
-       mysticalagradditions="mystical",
-       mysticalagriculture="mystical",
-       nethermetals="others",
-       nuclearcraft="nuclear",
-       ocsensors="storage",
-       opencomputers="storage",
-       openglider="others",
-       persistentbits="others",
-       personalcars="draconic",
-       placeableitems="others",
-       plainsmobs="cyclic",
-       plants2="plants",
-       platforms="others",
-       props="others",
-       psi="others",
-       quantumstorage="storage",
-       questbook="others",
-       rafradek_tf2_weapons="minewatch",
-       rangedpumps="others",
-       rebornstorage="storage",
-       redstonearsenal="others",
-       redstonepaste="others",
-       refinedstorage="storage",
-       rftools="rftools",
-       rftoolscontrol="rftools",
-       rftoolsdim="rftools",
-       runecraft="others",
-       rustic="plants",
-       saltmod="others",
-       saltwatermobs="cyclic",
-       shadowmobs="cyclic",
-       signpost="others",
-       simpledimensions="others",
-       simplytea="others",
-       steamworld="others",
-       swampmobs="cyclic",
-       tconstruct="tinkers",
-       techreborn="treborn",
-       terraqueous="terra",
-       teslacorelib="terra",
-       teslathingies="terra",
-       theoneprobe="others",
-       thermalcultivation="thermal",
-       thermaldynamics="thermal",
-       thermalexpansion="thermal",
-       thermalfoundation="thermal",
-       torcharrowsmod="others",
-       twilightforest="plants",
-       uniquecrops="plants",
-       unlimitedchiselworks="chisel",
-       unuparts="draconic",
-       vc="draconic",
-       xnet="others",
-       xreliquary="reliq",
-       zerocore="others"
-    }
-    return mtpn[mod]
+		actuallyadditions={crafter="actadd", name="Actually Additions"},
+		adchimneys={crafter="chimneys", name="Advanced Chimneys"},
+		adhooks={crafter="others", name="Advanced Hook Launchers"},
+		advancedrocketry={crafter="rocketry", name="Advanced Rocketry"},
+		advancedsticks={crafter="chimneys", name="Advanced Sticks"},
+		ae2stuff={crafter="appen", name="Applied Energistics 2 Stuff"},
+		aether_legacy={crafter="aether", name="Aether Legacy"},
+		animania={crafter="aether", name="Animania"},
+		animus={crafter="reliq", name="Blood Magic"},
+		appliedenergistics2={crafter="appen", name="Applied Energistics 2"},
+		aquamunda={crafter="others", name="Aqua Munda"},
+		arcticmobs={crafter="cyclic", name="Lycanites Mobs"},
+		armorunder={crafter="biomes", name="Tough as Nails"},
+		as_extraresources={crafter="chimneys", name="Advanced Sticks"},
+		astikorcarts={crafter="others", name="Astikoor"},
+		astralsorcery={crafter="reliq", name="Astral Sorcery"},
+		atlcraft={crafter="atl", name="ATLCraft"},
+		base={crafter="others", name="BASE"},
+		basemetals={crafter="metals", name="Base Metals"},
+		baubles={crafter="others", name="Baubles"},
+		betterquesting={crafter="others", name="Better Questing"},
+		bibliocraft={crafter="biblio", name="BiblioCraft"},
+		bigreactors={crafter="nuclear", name="Extreme Reactors"},
+		binniecore={crafter="btrees", name="Binnie Core"},
+		biomesoplenty={crafter="biomes", name="Biomes O' Plenty"},
+		blackthorne={crafter="draconic", name="MTS - Stuff"},
+		bloodarsenal={crafter="reliq", name="Blood Magic"},
+		bloodmagic={crafter="reliq", name="Blood Magic"},
+		bloodtinker={crafter="reliq", name="Blood Magic"},
+		blueboyscaterpillarmtspack={crafter="draconic", name="MTS - Stuff"},
+		botania={crafter="botania", name="Botania"},
+		botanicadds={crafter="botania", name="Botania"},
+		botany={crafter="binnie", name="Binnie Botany"},
+		bq_standard={crafter="others", name="Better Questing"},
+		buildcraftbuilders={crafter="rocketry", name="Buildcraft"},
+		buildcraftcompat={crafter="rocketry", name="Buildcraft"},
+		buildcraftcore={crafter="rocketry", name="Buildcraft"},
+		buildcraftenergy={crafter="rocketry", name="Buildcraft"},
+		buildcraftfactory={crafter="rocketry", name="Buildcraft"},
+		buildcraftlib={crafter="rocketry", name="Buildcraft"},
+		buildcraftrobotics={crafter="rocketry", name="Buildcraft"},
+		buildcraftsilicon={crafter="rocketry", name="Buildcraft"},
+		buildcrafttransport={crafter="rocketry", name="Buildcraft"},
+		buildinggadgets={crafter="others", name="Building Gadgets"},
+		car={crafter="draconic", name="Car Mod"},
+		carryon={crafter="others", name="Carry On"},
+		carz={crafter="others", name="Carz"},
+		cd4017be_lib={crafter="others", name="CD4017BE Lib"},
+		cdm={crafter="draconic", name="MrCrayfish's Device Mod"},
+		ceramics={crafter="ceramics", name="Ceramics"},
+		cfm={crafter="draconic", name="MrCrayfish's Furniture Mod"},
+		chickenchunks={crafter="others", name="Chicken Chunks"},
+		chisel={crafter="others", name="Chisel"},
+		chiselsandbits={crafter="others", name="Chisels & Bits"},
+		circuits={crafter="others", name="Automated Redstone"},
+		colossalchests={crafter="others", name="Colossal Chests"},
+		compactmachines3={crafter="others", name="Compact Machines"},
+		conarm={crafter="tinkers", name="Tinkers Constructs Armory"},
+		conquest={crafter="conquest", name="Conquest Reforged"},
+		cookingforblockheads={crafter="others", name="Cooking for Blockheads"},
+		corail_pillar={crafter="pillar", name="Corail Pillar"},
+		corail_pillar_extension_biomesoplenty={crafter="pillar", name="Corail Pillar"},
+		corail_pillar_extension_chisel={crafter="pillar", name="Corail Pillar"},
+		corail_pillar_extension_forestry={crafter="pillar", name="Corail Pillar"},
+		corail_pillar_extension_quark={crafter="pillar", name="Corail Pillar"},
+		coralreef={crafter="others", name="Coralreef"},
+		customnpcs={crafter="others", name="Custom NPCs"},
+		cyclicmagic={crafter="cyclic", name="Cyclic"},
+		danknull={crafter="others", name="DankNull"},
+		darkutils={crafter="utilities", name="Dark Utilities"},
+		davincisvessels={crafter="others", name="Davincis Vessels"},
+		ddb={crafter="others", name="Do it Yourself"},
+		deepresonance={crafter="others", name="Deep Resonance"},
+		defiledlands={crafter="utilities", name="Defiled Lands"},
+		demonmobs={crafter="cyclic", name="Lycanites Mobs"},
+		desertmobs={crafter="cyclic", name="Lycanites Mobs"},
+		draconicadditions={crafter="draconic", name="Draconic Evolution"},
+		draconicevolution={crafter="draconic", name="Draconic Evolution"},
+		electrostatics={crafter="others", name="Electrostatics"},
+		elementalmobs={crafter="cyclic", name="Lycanites Mobs"},
+		elevatorid={crafter="others", name="Elevator Mod"},
+		enderio={crafter="environ", name="Ender IO"},
+		energyconverters={crafter="others", name="Energy Converters"},
+		environmentalmaterials={crafter="environ", name="Environmental Tech"},
+		environmentaltech={crafter="environ", name="Environmental Tech"},
+		etlunar={crafter="environ", name="Environmental Tech"},
+		extrabees={crafter="binnie", name="Binnie Bees"},
+		extrabitmanipulation={crafter="others", name="Extra Bit Manipulation"},
+		extratrees={crafter="btrees", name="Binnie Trees"},
+		extrautils2={crafter="utilities", name="Extra Utilities 2"},
+		fairylights={crafter="fairy", name="Fairy Lights"},
+		farmory={crafter="fiifex", name="Forge Your World"},
+		fcl={crafter="fiifex", name="Fexcraft"},
+		fdecostuff={crafter="fiifex", name="Forge Your World"},
+		ffactory={crafter="fiifex", name="Forge Your World"},
+		ffoods={crafter="fiifex", name="Forge Your World"},
+		flatcoloredblocks={crafter="flat", name="Flat Colored Blocks"},
+		floricraft={crafter="fairy", name="Floricraft"},
+		fmagic={crafter="fiifex", name="Forge Your World"},
+		forestmobs={crafter="cyclic", name="Lycanites Mobs"},
+		forestry={crafter="forestry", name="Forestry"},
+		forge={crafter="minecraft", name="Minecraft"},
+		fp={crafter="future", name="Futurepack"},
+		fpfa={crafter="future", name="Futurepack"},
+		freshwatermobs={crafter="cyclic", name="Lycanites Mobs"},
+		fresource={crafter="fiifex", name="Forge Your World"},
+		frsm={crafter="fiifex", name="Fexcraft"},
+		funkylocomotion={crafter="others", name="Funky Locomotion"},
+		fvtm={crafter="fiifex", name="Fexcraft"},
+		gemmary={crafter="others", name="Gemmary"},
+		gendustry={crafter="binnie", name="Gendustry"},
+		genetics={crafter="binnie", name="Binnie Genetics"},
+		gravestone={crafter="others", name="Gravestone"},
+		gravestone_qq_extended={crafter="others", name="Gravestone"},
+		gravitygun={crafter="others", name="Gravity Gun"},
+		guideapi={crafter="others", name="Guide API"},
+		hammercore={crafter="others", name="HammerCore"},
+		harvestcraft={crafter="food", name="Pam's HarvestCraft"},
+		ic2={crafter="industrial", name="IndustrialCraft 2"},
+		ichunutil={crafter="others", name="iChunUtil"},
+		immcraft={crafter="immersive", name="Immersive Engineering"},
+		immersiveengineering={crafter="immersive", name="Immersive Engineering"},
+		immersivehempcraft={crafter="immersive", name="Immersive HempCraft"},
+		immersivepetroleum={crafter="immersive", name="Immersive Petroleum"},
+		immersiverailroading={crafter="railroading", name="Immersive Railroading"},
+		immersivetech={crafter="immersive", name="Immersive Engineering"},
+		industrialforegoing={crafter="fiifex", name="Industrial Foregoing"},
+		industrialwires={crafter="immersive", name="Industrial Wires"},
+		infernomobs={crafter="cyclic", name="Lycanites Mobs"},
+		infinitycraft={crafter="fiifex", name="InfinityCraft"},
+		integrateddynamics={crafter="appen", name="Integrated Dynamics"},
+		integratedtunnels={crafter="appen", name="Integrated Tunnels"},
+		itorch={crafter="others", name="iTorch"},
+		junglemobs={crafter="cyclic", name="Lycanites Mobs"},
+		libvulpes={crafter="rocketry", name="Vulpes library"},
+		lost_aether={crafter="aether", name="Aether Legacy"},
+		lycanitesmobs={crafter="cyclic", name="Lycanites Mobs"},
+		magicbees={crafter="binnie", name="MagicBees"},
+		malisisadvert={crafter="others", name="Malisis Mods"},
+		malisisblocks={crafter="others", name="Malisis Mods"},
+		malisisdoors={crafter="others", name="Malisis Mods"},
+		malisisswitches={crafter="others", name="Malisis Mods"},
+		mekanism={crafter="mekanism", name="Mekanism"},
+		mekanismgenerators={crafter="mekanism", name="Mekanism"},
+		mekanismtools={crafter="mekanism", name="Mekanism"},
+		microblockcbe={crafter="others", name="Microblocks"},
+		minecolonies={crafter="aether", name="MineColonies"},
+		minecraft={crafter="minecraft", name="Minecraft"},
+		minewatch={crafter="minewatch", name="Minewatch"},
+		mmdlib={crafter="metals", name="MMD Lib"},
+		mmmpack={crafter="draconic", name="MTS - Stuff"},
+		moarboats={crafter="others", name="Moar Boats"},
+		moarfood={crafter="food", name="MoarFood"},
+		modcurrency={crafter="others", name="Good Old Currency"},
+		modernmetals={crafter="modern", name="Modern Metals"},
+		morebeautifulbuttons={crafter="more", name="More Beautiful Buttons"},
+		morebeautifulplates={crafter="more", name="More Beautiful Plates"},
+		mores={crafter="minewatch", name="Mores"},
+		mountainmobs={crafter="cyclic", name="Lycanites Mobs"},
+		mts={crafter="draconic", name="MTS"},
+		mtsheavyindustrialbyadamrk={crafter="draconic", name="MTS - Stuff"},
+		mtsofficialpack={crafter="draconic", name="MTS - Stuff"},
+		mtsseagullcivilpack={crafter="draconic", name="MTS - Stuff"},
+		mtsseagullmilitarypack={crafter="draconic", name="MTS - Stuff"},
+		mtsseagulltrinpartpack={crafter="draconic", name="MTS - Stuff"},
+		mxtune={crafter="others", name="MXTune"},
+		mysticalagradditions={crafter="mystical", name="Mystical Agriculture"},
+		mysticalagriculture={crafter="mystical", name="Mystical Agriculture"},
+		nethermetals={crafter="others", name="Nether Metals"},
+		nuclearcraft={crafter="nuclear", name="NuclearCraft"},
+		ocdevices={crafter="storage", name="Open Computers"},
+		ocsensors={crafter="storage", name="Open Computers"},
+		opencomputers={crafter="storage", name="Open Computers"},
+		openglider={crafter="others", name="Open Glider"},
+		patchouli={crafter="others", name="Patchouli"},
+		persistentbits={crafter="others", name="Persistent Bits"},
+		personalcars={crafter="draconic", name="Personal Cars"},
+		placeableitems={crafter="others", name="Placeable Items Mod"},
+		plainsmobs={crafter="cyclic", name="Lycanites Mobs"},
+		plants2={crafter="plants", name="Plants"},
+		platforms={crafter="others", name="Platforms"},
+		plustic={crafter="tinkers", name="Plustic"},
+		pneumaticcraft={crafter="ceramics", name="Pneumatic Craft"},
+		props={crafter="others", name="Decocraft"},
+		psi={crafter="others", name="PSI"},
+		quantumstorage={crafter="storage", name="Quantum Storage"},
+		questbook={crafter="others", name="Better Questing"},
+		rafradek_tf2_weapons={crafter="minewatch", name="TF2 Stuff Mod"},
+		railstuff={crafter="railroading", name="Immersive Railroading"},
+		randomthings={crafter="biomes", name="Random Things"},
+		rangedpumps={crafter="others", name="Ranged Pumps"},
+		rebornstorage={crafter="storage", name="Reborn Storage"},
+		redstonearsenal={crafter="others", name="Redstone Arsenal"},
+		redstonepaste={crafter="others", name="Redstone Paste"},
+		refinedstorage={crafter="storage", name="Refined Storage"},
+		rftools={crafter="rftools", name="RFTools"},
+		rftoolscontrol={crafter="rftools", name="RFTools Control"},
+		rftoolsdim={crafter="rftools", name="RFTools Dimensions"},
+		runecraft={crafter="others", name="RuneCraft"},
+		rustic={crafter="plants", name="Rustic"},
+		saltmod={crafter="others", name="Salt Mod"},
+		saltwatermobs={crafter="cyclic", name="Lycanites Mobs"},
+		sereneseasons={crafter="biomes", name="Serene Seasons"},
+		shadowmobs={crafter="cyclic", name="Lycanites Mobs"},
+		signpost={crafter="others", name="Sign Post"},
+		simpledimensions={crafter="others", name="Simple Dimensions"},
+		simplytea={crafter="others", name="Simply Tea"},
+		steamworld={crafter="others", name="SteamWorld"},
+		structurize={crafter="aether", name="Structurize"},
+		swampmobs={crafter="cyclic", name="Lycanites Mobs"},
+		taiga={crafter="tinkers", name="Tinkers Alloy Addon"},
+		tanaddons={crafter="biomes", name="Tough as Nails"},
+		tcomplement={crafter="tinkers", name="Tinkers Constructs Complement"},
+		tconstruct={crafter="tinkers", name="Tinkers Construct"},
+		techreborn={crafter="treborn", name="Tech Reborn"},
+		terraqueous={crafter="terra", name="Terraqueous"},
+		teslacorelib={crafter="terra", name="Tesla"},
+		teslathingies={crafter="terra", name="Tesla"},
+		thaumcomp={crafter="biblio", name="ThaumCraft"},
+		thaumcraft={crafter="biblio", name="ThaumCraft"},
+		theoneprobe={crafter="others", name="The One Probe"},
+		thermalcultivation={crafter="thermal", name="Thermal Cultivation"},
+		thermaldynamics={crafter="thermal", name="Thermal Dynamics"},
+		thermalexpansion={crafter="thermal", name="Thermal Expansion"},
+		thermalfoundation={crafter="thermal", name="Thermal Foundation"},
+		torcharrowsmod={crafter="others", name="TorchArrow"},
+		toughasnails={crafter="biomes", name="Tough as Nails"},
+		twilightforest={crafter="plants", name="Twilight Forrest"},
+		uniquecrops={crafter="plants", name="Unique Crops"},
+		unlimitedchiselworks={crafter="chisel", name="Unlimited Chisel Works"},
+		unuparts={crafter="draconic", name="MTS - Stuff"},
+		valkyrielib={crafter="others", name="Valkyrie Lib"},
+		vehicle={crafter="draconic", name="MrCrayfish's - Vehicles"},
+		vc={crafter="draconic", name="ViesCraft"},
+		xnet={crafter="others", name="XNet"},
+		xreliquary={crafter="reliq", name="Reliquary"},
+		zerocore={crafter="others", name="Zero CORE"},
+	}
+    return mtpn[mod][typ]
 end
-local function GetProx(mod, typ)
-    local pname = ModToCrafter(mod)
-    --print("Mod: " .. mod .. " pname: " .. pname)
-    local proxy = Proxies(pname)
-    if (proxy[typ] == nil) then
-        --print("proxy not found for typ: " .. typ)
-        return nil
-    else
-        --print("proxy not for typ: " .. typ)
-        return proxy[typ]
-    end
+local function ModCrafter(mod)
+	return ModToProp(mod, "crafter")
 end
-local function GetProxByName(name, typ)
-    local proxy = Proxies(name)
-    if (proxy == nil) then
-        return nil
-    else
-        if (proxy[typ] == nil) then
-            return nil
-        else
-            return proxy[typ]
-        end
-    end
+local function ModName(mod)
+	return ModToProp(mod, "name")
 end
-local function GetProxy(mod, typ)
-    local p = GetProx(mod, typ)
-    if (p ~= nil) then
-        return p.proxy
-    else
-        return ""
-    end
+local function GetProxyByMod(mod)
+    return GetProxyByCrafter(ModCrafter(mod))
 end
-local function GetProxyByName(name, typ)
-    local p = GetProxByName(name, typ)
-    if (p ~= nil) then
-        return p.proxy
-    else
-        return ""
-    end
-end
-local function GetRoute(mod, typ, destinationmod, schalter)
-    local typ2 = ""
-    if typ == "craft" then
-        typ2 = "home"
-    elseif typ == "hometohome" then
-        typ = "home"
-        typ2 = "home"
-    elseif typ == "crafttocraft" then
-        typ = "craft"
-        typ2 = "craft"
-    else
-        typ2 = "craft"
-    end
-    local pro = {}
-    local ro = {}
-    if schalter == 1 then
-        pro = GetProxByName(mod, typ2)
-        ro = GetProx(destinationmod, "route")
-    elseif schalter == 2 then
-        pro = GetProx(mod, typ2)
-        ro = GetProxByName(destinationmod, "route")
-    else
-        pro = GetProx(mod, typ2)
-        ro = GetProx(destinationmod, "route")
-    end
-    if((mod == destinationmod) or (destinationmod == nil))then
-        return {{proxy = pro.proxy, side=pro[("to" .. typ)]}}
-    else
-        return {{proxy = pro.proxy, side=pro.toroute}, {proxy = ro.proxy, side=ro[typ]}}
-    end
-end
-prox.GetRoute = GetRoute
-prox.GetProx = GetProx
-prox.GetProxy = GetProxy
-prox.GetProxByName = GetProxByName
-prox.GetProxyByName = GetProxyByName
-prox.ModToCrafter = ModToCrafter
+
+prox.GetProxyByMod = GetProxyByMod
+prox.GetProxyByCrafter = GetProxyByCrafter
+prox.ModCrafter = ModCrafter
+prox.ModName = ModName
 return prox
-
-
---b6f438be-9e4e-43f9-840e-bbec27971a09
-
---59c6cb63-3294-43b9-a36d-eb65669477ee
-
---bb705998-ea01-43da-a771-df74cd53cadf
-
-
---3c20d393-1595-4324-aabf-1bdc141bbcb5
-
---f520f06f-2ca5-4443-bf59-4198a4499520
-
---88f3f731-d4cc-468a-9bde-efe17fb89f33
-
-
---4aef5bec-42d5-44a9-bd92-068bfcb00511
-
---e2275cb7-5417-40fd-8b6d-fd201f6dd7d5
-
---8ba270f8-408d-49dc-b50a-e6354d5235ee
-
-
---e333b629-221a-4575-ad8b-1ed72fad8943
-
---1fe6244f-d827-454c-8b55-04f0bbeb479b
-
---544ad8b1-ee26-4b34-b832-45ffa193a615
-
-
---3b9a461b-5fa1-49a0-8f78-c1da0b615d30
-
---edc2605c-75fa-4575-92cc-eb1e47d74765
-
---283f524e-21d8-417a-b58a-c6fe2affeb95
-
-
---15a1cec9-bd70-45e3-9c5e-8764805b5194
-
---2e465f86-5da6-4b53-8b0a-154cd92828d3
-
---85db3f15-d705-4329-b71c-cba80ebc02f5
-
-
---7849e03e-8029-4215-bee3-ef75fe8a1cb4
-
---7adafc97-4380-4994-801d-942fc3a1784f
-
---fa2fb100-e43c-4bfb-b116-53e0b764f0f0
-
-
---fa216edb-38d4-4bdf-93ac-4e3809af8f38
-
---490da3ac-e650-41bd-9697-250dbdf25309
-
---77d5666f-733c-4c41-8a82-1e73af1186cd
-
-
---92daa3ee-da9d-4b9d-bad8-d54391389a0b
-
---469e7dc4-5a30-4774-acc5-5cee47f152f8
-
---219c377c-58ff-45c5-aa4a-a61c6a1dca7f
-
-
---adf0f536-2c04-4378-b6bf-b915ee167fa5
-
---21446d84-62e0-432d-b2f4-3dd06626155f
-
---7595f7c0-b1ad-48b7-ba14-c0d0e022daa6
-
-
---10e5b513-d84e-400b-b149-ea54d0a832f8
-
---3de55085-01cd-4b8d-8a14-51bbfa6a168f
-
---792c250c-4626-47b9-a884-1f6885cc95e2
-
-
---0ec2e8d3-cf5e-472f-9302-7407565ea7b3
-
---b6df51db-8219-4b7c-9a6d-c33083290ed7
-
---af0d3d9c-2557-48b0-824a-f3253129328a
-
-
---1a64b305-ed4a-4fa8-9d5b-2c9dad9e2657
-
---9f9368ac-7a54-47e0-88dc-a3e4892bba1b
-
---50575962-3565-4365-8c0c-8e520efa2970
-
-
---a4b3febc-e30c-4710-941e-f2522a847854
-
---65ff3831-68a9-4012-a32e-faaac07f7a7d
-
---95db9eec-3ade-4c06-8c71-1478c3d7e3de
-
-
---e55640ae-7d70-4160-9039-9766ef49267a
-
---36e15dab-c9f1-4621-b8b2-cbc2c4218f4c
-
---3a309850-e908-4919-a639-63ebfd84174f
-
-
---7cd74f03-06e0-4731-aebe-943e7f3a05bf
-
---995eaa09-68bb-4e0e-8b31-8b8e9a3a2ef4
-
---5df25b59-cf9b-409a-8644-e59fb7521947
-
-
---fd750485-8eb6-4f34-8fdd-9d57b9cba002
-
---3cde4183-f0b0-4eb7-a879-f06082d151d9
-
---c0726f3a-3661-4d2e-a67e-4b9398cf38a8
-
-
---266a26bd-f121-4f66-84e6-498684a67083
-
---e844d25f-037b-4d9f-a6f5-758f848e11b3
-
---65e660e4-fe07-4b2f-96a2-530cda054e4e
-
-
---bb86e549-295e-4c80-938e-022eae961a2c
-
---abf79c82-b00b-4cee-829c-ad6d36dab51e
-
---4ea11d9e-3ea5-4f58-9fea-49ff8464092e
-
-
---97c75567-0587-484a-a913-5d8c5bd5b673
-
---c249bcf1-946f-43c4-bfce-f30e5c1640b2
-
---3e6052fe-8363-4ba6-aa3c-bd9427cda488
-
-
---8d1a00a7-1de1-4eb0-aca7-21bb173c8b92
-
---d4f7b874-ccb7-4e7f-9996-dca91b9b36ef
-
---9ba9f521-5355-44f6-86d0-b69a3ffe458b
-
-
---25c51d88-501e-4bf1-8761-0a5334b38029
-
---65049d55-13c8-4039-81b5-7238fb3edb4a
-
---dbdd4e24-1123-49b1-ac17-fb802379bd6e
-
-
---45925852-26f5-4a51-9195-e05da2f0e4d3
-
---79b21d3b-8899-469a-b9c7-ef4be8803ee7
-
---dc099cb8-99a4-4389-8f6e-651836e989c6
-
-
---971975a3-0581-4edf-b260-6a17aeb2cdee
-
---6767c3c9-efdc-48b1-b57b-814c9ed0cceb
-
---c8a11d9a-72d7-4be9-9116-5b39d4c61e1c
-
-
---2da61edf-e8c9-401f-8937-b5cd14efb538
-
---0a4a7858-7ff2-4c67-aac0-9a744e2827e2
-
---7067ba9c-a046-4639-ad78-5446ccff3bc3
-
-
---7f41bc23-af37-4f81-b967-30925ec6c88f
-
---fb268d86-34ec-42ce-906f-770bcc24cc95
-
---d9191998-b161-4273-b366-607171df1135
-
-
---462756b6-62bb-4858-87f5-e17a9b638476
-
---31e5e559-b686-4b28-9e94-27d37739cac1
-
---27736f6c-c19c-4152-ae68-b28282b7efea
-
-
---7e483a5e-d03c-4768-8c3d-68a809499a49
-
---0ac405b1-8ada-4451-80ba-e2fbfca962f5
-
---d475544f-84e2-4cb5-998c-98cd165ff08a
-
-
---d89c9188-652b-45ae-9f03-29e743872f43
-
---4a67d33e-56d1-4ba0-8757-85ad455cd551
-
---ac1c60cc-0d7e-4a68-8560-bcf456aa5c83
-
-
---4f5e4ffb-8654-4f21-9007-46032725d0d1
-
---5d1dc33e-8a41-4b9d-adaf-c7f2c7674ba1
-
---6eb97680-f6fb-431b-8da7-b346cbc494f4
-
-
---9b31f0f2-e523-4f48-aec0-4c2445e86b2d
-
---ff27a073-4312-4211-8bd7-0e718184ca8d
-
---f389cc63-0760-480c-9cec-06e2e86279c8
-
-
---dce29bd7-9246-42d2-b76b-2d4556bb1b53
-
---997da8b5-0332-4277-98c6-6561326a4baa
-
---968b99b3-c4f6-4ed0-b8bd-51e2700441aa

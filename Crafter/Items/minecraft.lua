@@ -1,5 +1,4 @@
 return {
- forge_jj_bucketfilled={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_1={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_10={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_100={craftCount=1,maxCount=8,recipe={}},
@@ -84,6 +83,7 @@ return {
  forge_jj_bucketfilled_b_150={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_1500={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_1501={craftCount=1,maxCount=8,recipe={}},
+ forge_jj_bucketfilled_b_1502={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_151={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_152={craftCount=1,maxCount=8,recipe={}},
  forge_jj_bucketfilled_b_153={craftCount=1,maxCount=8,recipe={}},
