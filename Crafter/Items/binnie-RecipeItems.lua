@@ -107,6 +107,8 @@ return {
  forestry_jj_gear_tin={need=0},
  forestry_jj_honey_drop={need=0},
  forestry_jj_impregnated_casing={need=0},
+ forestry_jj_ingot_bronze={need=0},
+ forestry_jj_ingot_tin={need=0},
  forestry_jj_mulch={need=0},
  forestry_jj_oak_stick={need=0},
  forestry_jj_portable_alyzer={need=0},
@@ -197,8 +199,5 @@ return {
  minecraft_jj_water_bucket={need=0},
  minecraft_jj_wheat_seeds={need=0},
  minecraft_jj_wooden_slab={need=0},
- minecraft_jj_wool={need=0},
- ore_jj_gearBronze={need=0},
- ore_jj_ingotBronze={need=0},
- ore_jj_ingotTin={need=0}
+ minecraft_jj_wool={need=0}
  }

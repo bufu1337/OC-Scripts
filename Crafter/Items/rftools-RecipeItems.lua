@@ -61,7 +61,6 @@ return {
  minecraft_jj_water_bucket={need=0},
  minecraft_jj_wooden_button={need=0},
  minecraft_jj_wool={need=0},
- ore_jj_chest={need=0},
  rftools_jj_dimensional_shard={need=0},
  rftoolsdim_jj_dimlet_base={need=0}
  }

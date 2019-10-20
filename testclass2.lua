@@ -327,13 +327,14 @@ local function WriteItemsSC2()
         tempall[a] = mf.copyTable(b, {"hasPattern", "label", "tag"})
       end
     end
+    print("Save ModFiles: " .. i)
     mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
     mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
     mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
   end
 end
 local function WriteItemFiles()
-  mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
+  --mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
   local templines = {}
   local tempjslines = {}
   local boolfirst = true
@@ -366,8 +367,8 @@ local function WriteItemFiles()
   local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
   local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
   for i,j in pairs(templines) do
-    newLuaFile:write(j)
-    newJSFile:write(tempjslines[i] .. "\n")
+    --newLuaFile:write(j)
+    --newJSFile:write(tempjslines[i] .. "\n")
   end
   newLuaFile:close()
   newJSFile:close()

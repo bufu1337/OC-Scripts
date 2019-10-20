@@ -13,7 +13,7 @@ return {
  actuallyadditions_jj_block_laser_relay_item={need=0},
  actuallyadditions_jj_block_testifi_bucks_green_wall={need=0},
  actuallyadditions_jj_block_testifi_bucks_white_wall={need=0},
- actuallyadditions_jj_item_battery_b_1={need=0},
+ actuallyadditions_jj_item_battery_double={need=0},
  actuallyadditions_jj_item_coffee_beans={need=0},
  actuallyadditions_jj_item_crystal_shard={need=0},
  actuallyadditions_jj_item_crystal_shard_jj_1={need=0},
