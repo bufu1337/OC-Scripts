@@ -117,14 +117,19 @@ var MC = {
 				}
 			}
 			if ( citem.crafter != "" ) {
-				MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
-				MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
-				if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
-					MC.CItems[MC.Mods[citem.modid].name] = {}
+				if ( MC.Items[citem.crafter][item.id] == null ) {
+					MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
+					MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
+					if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
+						MC.CItems[MC.Mods[citem.modid].name] = {}
+					}
+					MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(item.id, true, true)
+					if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
+						MC.Mods[citem.modid].itemid.push(citem.itemid)
+					}
 				}
-				MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(item.id, true, true)
-				if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
-					MC.Mods[citem.modid].itemid.push(citem.itemid)
+				else{
+					console.log("Item already existing: " + item.id)
 				}
 			}
 		});
