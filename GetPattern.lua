@@ -14,7 +14,7 @@ function gp.GetPattern(crafter, newrecipes)
     rs = gp.com.proxy(gp.prox.GetProxyByCrafter(crafter))
     for i,j in pairs(gp.mf.getSortedKeys(gp.items)) do
         if string.match(j, "_b_") == nil then
-            start1 = gp.mf.containsKey(gp.items[j], "recipe") and newrecipes == false
+            start1 = gp.mf.getCount(gp.mf.getKeys(gp.items[j].recipe)) == 0 and newrecipes == false
             if newrecipes or start1 then
                 item = gp.cv.TextToItem(j)
                 ok, pattern = pcall(rs.getPattern, item)

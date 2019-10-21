@@ -1,7 +1,7 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
-local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/src/", home="Y:/Minecraft/OC-Scripts/"}
-local working = "home"
+local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
+local working = "work"
 local res = {}
 local sc = {}
 local wt = {}
@@ -303,6 +303,7 @@ local function WriteItemsSC2()
     local temp={}
     local tempr={}
     local tempall={}
+    local tempfullall={}
     for a,b in pairs(j) do
       if b.hasPattern then
         temp[a] = mf.copyTable(b, {"craftCount", "maxCount", "recipe"})
@@ -326,15 +327,17 @@ local function WriteItemsSC2()
       else
         tempall[a] = mf.copyTable(b, {"hasPattern", "label", "tag"})
       end
+      tempfullall[a] = mf.copyTable(b, nil)
     end
     print("Save ModFiles: " .. i)
-    mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
-    mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
-    mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
+    --mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
+    --mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
+    --mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
   end
 end
 local function WriteItemFiles()
-  --mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
+  mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
   local templines = {}
   local tempjslines = {}
   local boolfirst = true
@@ -364,17 +367,17 @@ local function WriteItemFiles()
     table.insert(templines, l)
   end
   templines[#templines] = "}"
-  local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
-  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
+  --local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
+  --local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
   for i,j in pairs(templines) do
     --newLuaFile:write(j)
     --newJSFile:write(tempjslines[i] .. "\n")
   end
-  newLuaFile:close()
-  newJSFile:close()
+  --newLuaFile:close()
+  --newJSFile:close()
   templines = nil
   tempjslines = nil
-  WriteItemsSC2()
+  --WriteItemsSC2()
 end
 local function file_exists(name)
    local f=io.open(name,"r")
@@ -434,6 +437,11 @@ local function combineLabels()
     end
   end
 end
+local function combineFull()
+    for i, j in pairs(items) do
+        items[i] = require("Crafter/ItemsFullAll/" .. i)
+    end
+end
 local function irnamesCorrect()
   local templines = {}
   local counter = 0
@@ -460,7 +468,8 @@ local function irnamesCorrect()
 end
 
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
-getAllItems()
+--getAllItems()
+combineFull()
 WriteItemFiles()
 
 
