@@ -1,9 +1,9 @@
 local gp = {}
-gp.mf = require("MainFunctions")
+gp.mf = require("/home/MainFunctions")
 gp.filesystem = require("filesystem")
 gp.com = require("component")
-gp.cv = require("Convert")
-gp.prox = require("Proxies")
+gp.cv = require("/home/Convert")
+gp.prox = require("/home/Proxies")
 gp.items = {}
 function gp.GetCrafterLoc(crafter)
     local cl = {
@@ -109,7 +109,7 @@ function gp.GetPattern(crafter, newrecipes)
                 gp.items[j].hasPattern = false
             end
         end
-        gp.mf.WriteObjectFile(rs_item, "/mnt/" .. craftloc .. "/home/Crafter/ItemsAll/" .. crafter .. ".lua", nil, true)
+        gp.mf.WriteObjectFile(gp.items, "/mnt/" .. craftloc .. "/home/Crafter/ItemsAll/" .. crafter .. ".lua", 3)
     else
         print("Cant find Location: " .. crafter)
     end

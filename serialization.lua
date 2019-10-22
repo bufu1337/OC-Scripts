@@ -26,6 +26,7 @@ function serialization.serializedtable(value, pretty, dep)
     dep = 100000
   end
   local function recurse(current_value, depth)
+    os.sleep(0.1)
     local t = type(current_value)
     if t == "number" then
       if current_value ~= current_value then
