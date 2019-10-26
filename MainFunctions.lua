@@ -209,6 +209,7 @@ function mf.WriteObjectFile(object, path, dep, append)
     if type(object) == "table" then
       newLuaFile:write("return ")
       for i, k in pairs(mf.serial.serializedtable(object, true, dep)) do
+        mf.os.sleep(0.01)
         newLuaFile:write(k)
       end
     elseif type(object) == "string" then
