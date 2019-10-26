@@ -8,54 +8,21 @@ gp.items = {}
 function gp.GetCrafterLoc(crafter)
     local cl = {
         a9f = {
-            "actadd",
-            "aether",
-            "appen",
-            "atl",
-            "biomes",
-            "ceramics",
-            "cyclic",
-            "fairy",
-            "fiifex",
-            "immersive",
-            "mekanism",
-            "minewatch",
-            "more",
-            "mystical",
-            "nuclear",
-            "plants",
-            "railroading",
-            "rocketry",
-            "storage",
-            "terra",
-            "treborn",
-            "utilities"
+            "conquest",
+            "others",
+            "binnie",
+            "tinkers",
+            "forestry"
         },
         x58e = {
-            "deco",
-            "draconic",
-            "flat",
-            "minecraft",
-            "pillar"
+            "conquest",
+            "others",
+            "binnie"
         },
         f3d = {
-            "biblio",
-            "botania",
-            "btrees",
-            "chimneys",
-            "environ",
-            "food",
-            "industrial",
-            "metals",
-            "modern",
-            "reliq",
-            "rftools",
-            "thermal"
+            "conquest"
         },
         caa = {
-            "binnie",
-            "conquest",
-            "others"
         }
     }
     loc = ""
@@ -75,7 +42,7 @@ function gp.GetPattern(crafter, newrecipes)
         local rs = gp.com.proxy(gp.prox.GetProxyByCrafter(crafter))
         for i,j in pairs(gp.mf.getSortedKeys(gp.items)) do
             if string.match(j, "_b_") == nil then
-                local start1 = gp.mf.getCount(gp.mf.getKeys(gp.items[j].recipe)) == 0 and newrecipes == false
+                local start1 = gp.mf.getCount(gp.items[j].recipe) == 0 and newrecipes == false
                 if newrecipes or start1 then
                     print("Check Item: " .. j)
                     local item = gp.cv.TextToItem(j)
@@ -109,7 +76,7 @@ function gp.GetPattern(crafter, newrecipes)
                 gp.items[j].hasPattern = false
             end
         end
-        gp.mf.WriteObjectFile(gp.items, "/mnt/" .. craftloc .. "/home/Crafter/ItemsAll/" .. crafter .. ".lua", 3)
+        gp.mf.WriteObjectFile(gp.items, "/mnt/" .. craftloc .. "/home/Crafter/ItemsAll/" .. crafter .. ".lua", 2)
     else
         print("Cant find Location: " .. crafter)
     end
