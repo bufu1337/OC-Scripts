@@ -1,5 +1,4 @@
 return {
- actuallyadditions_jj_item_dust_jj_5={need=0},
  appliedenergistics2_jj_material={need=0},
  appliedenergistics2_jj_material_jj_1={need=0},
  appliedenergistics2_jj_material_jj_10={need=0},
@@ -8,17 +7,19 @@ return {
  appliedenergistics2_jj_material_jj_22={need=0},
  appliedenergistics2_jj_material_jj_23={need=0},
  appliedenergistics2_jj_material_jj_24={need=0},
+ appliedenergistics2_jj_material_jj_37={need=0},
+ appliedenergistics2_jj_material_jj_38={need=0},
  appliedenergistics2_jj_material_jj_45={need=0},
+ appliedenergistics2_jj_material_jj_46={need=0},
  appliedenergistics2_jj_material_jj_6={need=0},
  appliedenergistics2_jj_material_jj_7={need=0},
  appliedenergistics2_jj_material_jj_8={need=0},
  appliedenergistics2_jj_sky_stone_block={need=0},
  appliedenergistics2_jj_smooth_sky_stone_block={need=0},
- basemetals_jj_wood_gear={need=0},
  ic2_jj_cable_jj_1={need=0},
+ ic2_jj_ingot_jj_2={need=0},
  immersiveengineering_jj_wirecoil_jj_2={need=0},
  minecraft_jj_chest={need=0},
- minecraft_jj_cobblestone={need=0},
  minecraft_jj_crafting_table={need=0},
  minecraft_jj_diamond={need=0},
  minecraft_jj_dye={need=0},
@@ -52,8 +53,8 @@ return {
  minecraft_jj_redstone_torch={need=0},
  minecraft_jj_stick={need=0},
  minecraft_jj_sticky_piston={need=0},
- minecraft_jj_stone={need=0},
  minecraft_jj_water_bucket={need=0},
+ minecraft_jj_wool={need=0},
  mysticalagriculture_jj_certus_quartz_essence={need=0},
- mysticalagriculture_jj_silicon_essence={need=0}
+ nuclearcraft_jj_gem_jj_6={need=0}
  }

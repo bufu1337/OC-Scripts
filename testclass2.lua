@@ -1,11 +1,22 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
-local working = "work"
+local working = "home"
 local res = {}
 local sc = {}
 local wt = {}
 
+
+local function isFile(name)
+    if type(name)~="string" then return false end
+    if not exists(name) then return false end
+    local f = io.open(name)
+    if f then
+        f:close()
+        return true
+    end
+    return false
+end
 local function getSCMods()
   for a,b in pairs(items) do
     sc[a] = {}
@@ -292,13 +303,18 @@ local function getAllItems()
   --mf.WriteObjectFile(bitems, ocpath[working] .. "ConvertedItems.lua", 3)
 end
 local function AddItemFields(tableWithFields)
-  for i,j in pairs(items) do
-    for a,b in pairs(j) do
-      items[i][a] = mf.combineTables(items[i][a], tableWithFields)
-    end
+  for g,h in pairs(tableWithFields) do
+      for i,j in pairs(items) do
+        for a,b in pairs(j) do
+          if items[i][a][g] == nil then
+            items[i][a][g] = h
+          end
+        end
+      end
   end
 end
 local function WriteItemsSC2()
+  local temprall={}
   for i,j in pairs(items) do
     local temp={}
     local tempr={}
@@ -316,6 +332,14 @@ local function WriteItemsSC2()
             if j[g].hasPattern == false then
               ck = false
             end
+          else
+            if temprall[g] == nil then
+              temprall[g] = h.need
+            else
+              if temprall[g] > h.need then
+                temprall[g] = h.need
+              end
+            end
           end
           if ck == false then
             tempr[g] = {need=0}
@@ -330,11 +354,12 @@ local function WriteItemsSC2()
       tempfullall[a] = mf.copyTable(b, nil)
     end
     print("Save ModFiles: " .. i)
-    --mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
-    --mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
-    --mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
-    mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
+    mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
+    --mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
   end
+  mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/RecipeItemsAll.lua"), 2)
 end
 local function WriteItemFiles()
   mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
@@ -368,16 +393,16 @@ local function WriteItemFiles()
   end
   templines[#templines] = "}"
   --local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
-  --local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
+  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
   for i,j in pairs(templines) do
     --newLuaFile:write(j)
-    --newJSFile:write(tempjslines[i] .. "\n")
+    newJSFile:write(tempjslines[i] .. "\n")
   end
   --newLuaFile:close()
-  --newJSFile:close()
+  newJSFile:close()
   templines = nil
   tempjslines = nil
-  --WriteItemsSC2()
+  WriteItemsSC2()
 end
 local function file_exists(name)
    local f=io.open(name,"r")
@@ -439,7 +464,9 @@ local function combineLabels()
 end
 local function combineFull()
     for i, j in pairs(items) do
-        items[i] = require("Crafter/ItemsFullAll/" .. i)
+        if file_exists(("Crafter/ItemsAllNew/" .. i .. ".lua")) then
+            items[i] = require("Crafter/ItemsAllNew/" .. i)
+        end
     end
 end
 local function irnamesCorrect()
@@ -470,6 +497,7 @@ end
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --getAllItems()
 combineFull()
+AddItemFields({aspects={},oredict=false,processing=false})
 WriteItemFiles()
 
 

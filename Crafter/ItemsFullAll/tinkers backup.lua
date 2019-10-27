@@ -1,4 +1,4 @@
-conarm_jj_armor_plate={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=0,fixedprice=false,group="",hasPattern=false,label="",maxCount=8,price=0,recipe={},selling=false,tag="({Material= alumite})",trader=0},
+ conarm_jj_armor_plate={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=0,fixedprice=false,group="",hasPattern=false,label="",maxCount=8,price=0,recipe={},selling=false,tag="({Material= alumite})",trader=0},
  conarm_jj_armor_plate_b_100={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({Material= manganese})",trader=0},
  conarm_jj_armor_plate_b_101={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({Material= manyullyn})",trader=0},
  conarm_jj_armor_plate_b_102={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({Material= mithril})",trader=0},

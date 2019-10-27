@@ -1,5 +1,6 @@
 return {
  atlcraft_jj_atlcraft_bayberries={need=0},
+ atlcraft_jj_atlcraft_candle01_stone_natural={need=0},
  minecraft_jj_brick_block={need=0},
  minecraft_jj_coal={need=0},
  minecraft_jj_cobblestone={need=0},

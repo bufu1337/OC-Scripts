@@ -8,11 +8,12 @@ gp.items = {}
 function gp.GetCrafterLoc(crafter)
     local cl = {
         a9f = {
-            "conquest",
-            "others",
-            "binnie",
-            "tinkers",
-            "forestry"
+            "terra",
+            "modern",
+            "immersive",
+            "fiifex",
+            "plants",
+            "rocketry"
         },
         x58e = {
             "conquest",

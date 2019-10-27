@@ -1,4 +1,4 @@
-botany_jj_ceramicbrick={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({id= 0})",trader=0},
+ botany_jj_ceramicbrick={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({id= 0})",trader=0},
  botany_jj_ceramicbrick_b_1={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({id= 10023})",trader=0},
  botany_jj_ceramicbrick_b_10={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({id= 12079})",trader=0},
  botany_jj_ceramicbrick_b_11={bit=false,buying=false,c1="",c2="",c3="",chisel=false,craftCount=1,fixedprice=false,group="",hasPattern=true,label="",maxCount=8,price=0,recipe={},selling=false,tag="({id= 12336})",trader=0},
