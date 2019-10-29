@@ -342,7 +342,13 @@ local function WriteItemsSC2()
             end
           end
           if ck == false then
-            tempr[g] = {need=0}
+            if tempr[g] == nil then
+              tempr[g] = {need=h.need}
+            else
+              if tempr[g].need > h.need then
+                tempr[g].need = h.need
+              end
+            end
           end
         end
       end
@@ -351,7 +357,9 @@ local function WriteItemsSC2()
       else
         tempall[a] = mf.copyTable(b, {"hasPattern", "label", "tag"})
       end
-      tempfullall[a] = mf.copyTable(b, nil)
+      if mf.contains(a, "_b_", nil) == false then
+        tempfullall[a] = mf.copyTable(b, {"hasPattern", "label", "recipe"})
+      end
     end
     print("Save ModFiles: " .. i)
     mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
@@ -359,7 +367,7 @@ local function WriteItemsSC2()
     mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
     --mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
   end
-  mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/RecipeItemsAll.lua"), 2)
+  mf.WriteObjectFile(temprall, (ocpath[working] .. "Crafter/RecipeItemsAll.lua"), 2)
 end
 local function WriteItemFiles()
   mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
@@ -465,7 +473,7 @@ end
 local function combineFull()
     for i, j in pairs(items) do
         if file_exists(("Crafter/ItemsAllNew/" .. i .. ".lua")) then
-            items[i] = require("Crafter/ItemsAllNew/" .. i)
+            items[i] = mf.combineTables(items[i], require("Crafter/ItemsAllNew/" .. i))
         end
     end
 end
@@ -496,8 +504,8 @@ end
 
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --getAllItems()
-combineFull()
-AddItemFields({aspects={},oredict=false,processing=false})
+--combineFull()
+--AddItemFields({aspects={},oredict=false,processing=false})
 WriteItemFiles()
 
 
