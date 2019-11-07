@@ -1,7 +1,7 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
-local working = "home"
+local working = "work"
 local res = {}
 local sc = {}
 local wt = {}
@@ -365,7 +365,7 @@ local function WriteItemsSC2()
     mf.WriteObjectFile(temp, (ocpath[working] .. "Crafter/Items/" .. i .. ".lua"), 2)
     mf.WriteObjectFile(tempr, (ocpath[working] .. "Crafter/Items/" .. i .. "-RecipeItems.lua"), 2)
     mf.WriteObjectFile(tempall, (ocpath[working] .. "Crafter/ItemsAll/" .. i .. ".lua"), 2)
-    --mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
+    mf.WriteObjectFile(tempfullall, (ocpath[working] .. "Crafter/ItemsFullAll/" .. i .. ".lua"), 2)
   end
   mf.WriteObjectFile(temprall, (ocpath[working] .. "Crafter/RecipeItemsAll.lua"), 2)
 end

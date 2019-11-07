@@ -43,7 +43,8 @@ function gp.GetPattern(crafter, newrecipes)
         local rs = gp.com.proxy(gp.prox.GetProxyByCrafter(crafter))
         for i,j in pairs(gp.mf.getSortedKeys(gp.items)) do
             if string.match(j, "_b_") == nil then
-                local start1 = gp.mf.getCount(gp.items[j].recipe) == 0 and newrecipes == false
+                local start2 = gp.mf.getCount(gp.items[j].recipe) == 0 or gp.items[j].hasPattern == false
+                local start1 = start2 and newrecipes == false
                 if newrecipes or start1 then
                     print("Check Item: " .. j)
                     local item = gp.cv.TextToItem(j)
