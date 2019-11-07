@@ -19,8 +19,8 @@ var MC = {
 		item: null
 	},
 	setALL_source: [
-		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "oredict", "processing", "price", "maxCount", "craftCount"],
-		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Oredict", "Processing", "Price", "max. Count", "Craft Count"]
+		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "price", "maxCount", "craftCount"],
+		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Price", "max. Count", "Craft Count"]
 	],
 	setChangedRecipes: function(modid){
 		if ( modid == null ) {
@@ -286,9 +286,7 @@ var MC = {
 			"filter_buying_check",
 			"filter_chisel_check",
 			"filter_bit_check",
-			"filter_hasPattern_check",
-			"filter_oredict_check",
-			"filter_processing_check"];
+			"filter_hasPattern_check"];
 		var items = {};
 		$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
 			items[item] = true
@@ -529,7 +527,7 @@ var MC = {
 		$.each(MC.setALL_source[0], function (index, item) {
 			var temp = "_check"
 			if ( index < 5 ) { temp = "_input" }
-			else if ( index > 12 ) { temp = "_numinput" }
+			else if ( index > 10 ) { temp = "_numinput" }
 			MC.hide("setALL_" + item + temp)
 		});
 	},
@@ -643,8 +641,6 @@ var MC = {
 			$("#itemchisel_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel);
 			$("#itembit_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].bit);
 			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
-			$("#itemoredict_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].oredict);
-			$("#itemprocessing_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].processing);
 
 			$('#rc_craftcount').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount);
 			var temp_counter = 0;
@@ -770,8 +766,6 @@ $(document).ready(function () {
 			$("#itemprice_input").jqxNumberInput({disabled: true});
 		}
 	});
-	$("#itemoredict_check").jqxCheckBox({height: 25, width: 100, checked: true});
-	$("#itemprocessing_check").jqxCheckBox({height: 25, width: 100, checked: true});
 	$("#itemprice_input").jqxNumberInput({height: 25, width: 66, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#itemMaxCount_input").jqxNumberInput({height: 25, width: 100, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	
@@ -795,8 +789,6 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].chisel = $("#itemchisel_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].fixedprice = $("#itemfixedprice_check").jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern = $('#itempattern_check').jqxCheckBox('checked');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].oredict = $('#itemoredict_check').jqxCheckBox('checked');
-		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].processing = $('#itemprocessing_check').jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount = parseInt($('#itemMaxCount_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').val());
@@ -854,8 +846,6 @@ $(document).ready(function () {
 	$("#filter_validrecipe_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_norecipe_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_fixedprice_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
-	$("#filter_oredict_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
-	$("#filter_processing_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_pricefrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#filter_priceto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#filter_maxCountfrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
@@ -882,8 +872,6 @@ $(document).ready(function () {
 		$("#filter_validrecipe_check").jqxCheckBox({checked: null});
 		$("#filter_norecipe_check").jqxCheckBox({checked: null});
 		$("#filter_fixedprice_check").jqxCheckBox({checked: null});
-		$("#filter_oredict_check").jqxCheckBox({checked: null});
-		$("#filter_processing_check").jqxCheckBox({checked: null});
 		$("#filter_pricefrom_numinput").val("0");
 		$("#filter_priceto_numinput").val("0");
 		$("#filter_maxCountfrom_numinput").val("0");
@@ -891,7 +879,7 @@ $(document).ready(function () {
 
 		MC.itemfilter();
 	});
-	$.each([ "filter_modid_input", "filter_itemid_input", "filter_dmg_input", "filter_tag_input", "filter_label_input", "filter_group_input", "filter_comment1_input", "filter_comment2_input", "filter_comment3_input", "filter_trader_input", "filter_fixedprice_check", "filter_oredict_check", "filter_processing_check", "filter_maxCountfrom_numinput", "filter_pricefrom_numinput"], function(i, filt) {
+	$.each([ "filter_modid_input", "filter_itemid_input", "filter_dmg_input", "filter_tag_input", "filter_label_input", "filter_group_input", "filter_comment1_input", "filter_comment2_input", "filter_comment3_input", "filter_trader_input", "filter_fixedprice_check", "filter_maxCountfrom_numinput", "filter_pricefrom_numinput"], function(i, filt) {
 		$('#' + filt).on('keydown', function(e){MC.filterEnterKey(e)});
 	});
 	
@@ -901,7 +889,7 @@ $(document).ready(function () {
 		var index = $('#setALL_what').jqxDropDownList('getSelectedIndex');
 		var temp = "_check"
 		if ( index < 5 ) { temp = "_input" }
-		else if ( index > 12 ) { temp = "_numinput" }
+		else if ( index > 10 ) { temp = "_numinput" }
 		MC.show("setALL_" + MC.setALL_source[0][index] + temp)
 	});
 	
@@ -916,8 +904,6 @@ $(document).ready(function () {
 	$("#setALL_bit_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_hasPattern_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_fixedprice_check").jqxCheckBox({height: 25, width: 200, checked: true});
-	$("#setALL_oredict_check").jqxCheckBox({height: 25, width: 200, checked: true});
-	$("#setALL_processing_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_price_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#setALL_maxCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#setALL_craftCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});

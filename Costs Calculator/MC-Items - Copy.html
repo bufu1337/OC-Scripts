@@ -136,9 +136,8 @@
     <script src='jqwidgets/jqxtreemap.js'> </script>
     <script src='jqwidgets/jqxvalidator.js'> </script>
     <script src='jqwidgets/jqxwindow.js'> </script>
-	
-	<script src="MC-Items.js?v=0.12"></script>
-    <script src="MC-ItemsLappy.js?v=0.12"></script>
+
+    <script src="MC-Items.js?v=0.11"></script>
 	<script src="MC-ItemsTO.js"></script>
 	<script src="MC-ModsTO.js"></script>
 	<script src="MC-TraderTO.js"></script>
@@ -289,7 +288,7 @@
 												</table>
 												<table>	
 													<tr style="margin-top: 10px">
-														<td><div id='itemfixedprice_check' style='margin-left: 7px; float: left;'>Fixed Price</div></td>
+														<td><div id='itemfixedprice_check' style='margin-left: 10px; float: left;'>Fixed Price</div></td>
 														<td><div style="margin-top: 5px; margin-left: 10px" id="itemprice_input"></div></td>
 														<td><div style='margin-left: 10px; float: left;'>Max. Count:</div></td>
 														<td><div style="margin-top: 5px; margin-left: 10px" id="itemMaxCount_input"></div></td>
@@ -301,12 +300,6 @@
 														<td><div id='itembuying_check' style='margin-left: 7px;float: left;'>Buy</div></td>
 														<td><div id='itemchisel_check' style='margin-left: 7px; float: left;'>Chisel</div></td>
 														<td><div id='itembit_check' style='margin-left: 7px;float: left;'>Bits</div></td>
-													</tr>
-												</table>
-												<table>
-													<tr style="margin-top: 10px">
-														<td><div id='itemoredict_check' style='margin-left: 7px;float: left;'>Oredict</div></td>
-														<td><div id='itemprocessing_check' style='margin-left: 7px;float: left;'>Processing</div></td>
 														<td><div id='itempattern_check' style='margin-left: 7px;float: left;'>Has Pattern</div></td>
 													</tr>
 												</table>
@@ -471,8 +464,8 @@
 										<div style="height: 65px; align-items: center; display: block; margin-top: 20px">
 											<div style="text-align: center; width: 100%;">
 												<input type="button" value="Confirm" id="recipe_okButton" />
-												<input type="button" style="margin-top: 10px;" value="Copy From" id="recipe_copyButton" />
 												<div style="color: green; font-size: 14px; font-weight: 800; margin-top: 10px; display: block;" id="recipe_message"></div>
+												<input type="button" style="margin-top: 10px;" value="Copy From" id="recipe_copyButton" />
 												<div style="visibility: hidden; display: none; margin-top: 10px" align="center" id="cr_group">
 													<form id="copyrecipeValidator">
 														<table style="border-top-style: solid;border-top-width: 1px;border-bottom-style: solid; border-bottom-width: 1px;">
@@ -543,9 +536,9 @@
 											</table>
 											<table>
 												<tr style="margin-top: 10px">
-													<td><div id='filter_validrecipe_check' style='margin-left: 7px; float: left;'>Recipe Valid</div></td>
-													<td><div id='filter_norecipe_check' style='margin-left: 7px;float: left;'>No Recipe</div></td>
-													<td><div id='filter_hasPattern_check' style='margin-left: 7px;float: left;'>Has Pattern</div></td>
+													<td><div id='filter_fixedprice_check' style='margin-left: 10px; float: left;'>Fixed Price</div></td>
+													<td><div id='filter_hasPattern_check' style='margin-left: 10px;float: left;'>Has Pattern</div></td>
+													<td><div id='filter_validrecipe_check' style='margin-left: 10px; float: left;'>Recipe Valid</div></td>
 												</tr>
 											</table>
 											<table>
@@ -554,13 +547,7 @@
 													<td><div id='filter_buying_check' style='margin-left: 7px;float: left;'>Buy</div></td>
 													<td><div id='filter_chisel_check' style='margin-left: 7px; float: left;'>Chisel</div></td>
 													<td><div id='filter_bit_check' style='margin-left: 7px;float: left;'>Bits</div></td>
-												</tr>
-											</table>
-											<table>
-												<tr style="margin-top: 10px">
-													<td><div id='filter_oredict_check' style='margin-left: 7px;float: left;'>Oredict</div></td>
-													<td><div id='filter_processing_check' style='margin-left: 7px;float: left;'>Processing</div></td>
-													<td><div id='filter_fixedprice_check' style='margin-left: 7px; float: left;'>Fixed Price</div></td>
+													<td><div id='filter_norecipe_check' style='margin-left: 7px;float: left;'>No Recipe</div></td>
 												</tr>
 											</table>
 											<table>
@@ -583,7 +570,7 @@
 											</table>
 										</div>
 										<div style="margin-top: 20px; align-items: center; display: flex;">
-											<div style="margin-left: 60px; width: 100%;">
+											<div style="text-align: center; width: 100%;">
 												<input type="button" value="Filter" id="filter_okButton" />
 												<input type="button" value="Clear" id="filter_clearButton" /><br />
 											</div>
@@ -607,8 +594,6 @@
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_buying_check'>Buy</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_chisel_check'>Chisel</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_bit_check'>Bits</div>
-															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_oredict_check'>Oredict</div>
-															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_processing_check'>Processing</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_craftCount_numinput'></div>
 														</td>
 													</tr>
