@@ -42,7 +42,7 @@ function ac.searchforRepoRecipe(itemrepo)
 end
 function ac.getCrafter(oname)
   local temp = {}
-  local c = ac.prox.ModToCrafter(ac.convert.TextToItem(oname).mod)
+  local c = ac.prox.ModCrafter(ac.convert.TextToItem(oname).mod)
   local repo = ac.searchforRepo(c)
   if repo ~= "" then
     temp = require(repo)
@@ -61,7 +61,7 @@ function ac.Define(itemrepo)
       local repo2 = ac.searchforRepo(itemrepo .. "2")
       ac.items = ac.mf.combineTables(ac.items, require(repo2))
     end
-    ac.crafter = ac.prox.ModToCrafter(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
+    ac.crafter = ac.prox.ModCrafter(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
     local reporecipe = ac.searchforRepoRecipe(itemrepo)
     if reporecipe ~= "" then
       ac.recipeitems = require(reporecipe)
@@ -196,7 +196,7 @@ function ac.GetStorageItems()
       for i,j in pairs(o) do
         local rs_item = {}
         local ok = false
-        local rs_proxy = ac.prox.GetProxy(ac.items[j].mod, "home")
+        local rs_proxy = ac.prox.GetProxyByMod(ac.items[j].mod)
         if(rs_proxy ~= "") then
           local rs_comp = ac.mf.component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
@@ -772,9 +772,9 @@ function ac.GetRecipeCraftings()
     local reporec = ac.searchforRepoRecipe(i)
     if repo ~= "" then
       recipecrafting[i].items = require(repo)
-	  if reporec ~= "" then
-	    recipecrafting[i].recipeitems = require(reporec)
-	  end
+      if reporec ~= "" then
+        recipecrafting[i].recipeitems = require(reporec)
+      end
     end
     for a,b in pairs(recipecrafting[i].items) do
       recipecrafting[i].items[a].maxCount = 0
@@ -788,11 +788,13 @@ function ac.GetRecipeCraftings()
   end
 end
 function ac.WaitforCrafter()
+  ac.activecraft = require("bufu/ActiveCraft")
   if ac.activecraft[ac.crafter] == nil then
     ac.activecraft[ac.crafter] = false
   end
   while ac.activecraft[ac.crafter] do
     ac.mf.os.sleep(20)
+    ac.activecraft = require("bufu/ActiveCraft")
     print("Waiting for crafter: " .. ac.crafter)
   end
 end
