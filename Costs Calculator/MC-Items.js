@@ -417,21 +417,24 @@ var MC = {
 			//var pricecaption = newitems[item].count + " St. => " + newitems[item].price;
 			//var pricecaption = newitems[item].count + " St. => " + newitems[item].price
 			if ( newitems[item].price == 0 ) {
-				pricecaption = "No";
+				pricecaption = ""
 			}
 			else{
-				pricecaption = newitems[item].price.toString()
+				pricecaption = " <b class='itemstyle2'>Costs:</b> " + newitems[item].price.toString()
 			}
-			var itemname = "";
-			if (newitems[item].label != ""){
-				itemname = newitems[item].label;
+			var itemname = item.replace("_jj_", ":").replaceAll("_xx_", "/").replaceAll("_qq_", "-").replaceAll("_vv_", ".")
+            if(itemname.contains("_jj_")){
+                itemname = itemname.split("_jj_")[0] + " <b class='itemstyle3'>DMG:</b> " + itemname.split("_jj_")[1]
+            }
+            if(itemname.contains("_b_")){
+                itemname = itemname.split("_b_")[0] + " <b class='itemstyle3'>Typ:</b> " + itemname.split("_b_")[1]
+            }
+            if (newitems[item].label != ""){
+				itemname = "<b class='headerstyle'>" + newitems[item].label + "</b> " + "<b class='itemstyleblack'>(" + itemname + ")</b>";
 			}
-			else{
-				itemname = item.replace("_jj_", ":").replaceAll("_xx_", "/").replaceAll("_qq_", "-").replaceAll("_vv_", ".").replace("_b_", " Typ: ")
-				if(itemname.contains("_jj_")){
-					itemname = itemname.split("_jj_")[0] + " <b class='itemstyle3'>DMG:</b> " + itemname.split("_jj_")[1]
-				}
-			}
+            else{
+                itemname = "<b class='itemstyleblack'>" + itemname + "</b>"
+            }
 			var valid = ""
 			if ( MC.CItems[MC.viewing.Mod][item] == null ) {
 				MC.CItems[MC.viewing.Mod][item] = MC.convertItemID(item, true, true)
@@ -443,12 +446,12 @@ var MC = {
 				valid = " <b class='itemstyle4'>Recipe: Not valid</b>"
 			}
 			MC.Listing.itemListBox.push(item);
-			itemssource.push({html: "<b class='itemstyle'>Name:</b> " + itemname + valid + " <b class='itemstyle2'>Costs:</b> " + pricecaption, label: item, value: item, group: MC.Mod[MC.viewing.Mod].items[item].group});
+			itemssource.push({html: itemname + valid + pricecaption, label: item, value: item, group: MC.Mod[MC.viewing.Mod].items[item].group});
 		});
 		$('#itemListBox').jqxListBox('source', itemssource);
 		$('#itemListBox').jqxListBox('refresh');
 		$('#setALL_what').jqxDropDownList('selectIndex', 0);
-		$('#itemHeader').html("<b class='headerstyle'>Mod-Name: </b>" + MC.viewing.Mod + " <b class='headerstyle'>Item-Count:</b> " + Object.keys(MC.Mod[MC.viewing.Mod].items).length + " <b class='headerstyle'>Filtered-Count:</b> " + MC.Listing.itemListBox.length);
+		$('#itemHeader').html("<b class='headerstyle'>Mod: </b>" + MC.viewing.Mod + " <b class='headerstyle'>Crafter:</b> " + MC.Mod[MC.viewing.Mod].crafter + " <b class='headerstyle'>Items:</b> " + Object.keys(MC.Mod[MC.viewing.Mod].items).length + " <b class='headerstyle'>Filtered:</b> " + MC.Listing.itemListBox.length);
 	},
 	enterKey: function(e, knopp){
 		if ( e.which == 13 ) {
