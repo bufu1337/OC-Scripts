@@ -1,7 +1,7 @@
 local mf = require("MainFunctionsEclipse")
 local items = require("ALL_Items")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
-local working = "work"
+local working = "home"
 local res = {}
 local sc = {}
 local wt = {}
