@@ -1,10 +1,10 @@
 local ac = {}
-ac.convert = require("bufu/Convert")
-ac.prox = require("bufu/Proxies")
-ac.mD = require("bufu/Crafter/getMaxDamage")
-ac.mf = require("bufu/MainFunctions")
-if ac.mf.filesystem.exists("/home/bufu/ActiveCraft.lua") == false then ac.mf.WriteObjectFile({}, "/home/bufu/ActiveCraft.lua") end
-ac.activecraft = require("bufu/ActiveCraft")
+ac.convert = require("Convert")
+ac.prox = require("Proxies")
+ac.mD = require("Crafter/getMaxDamage")
+ac.mf = require("MainFunctions")
+if ac.mf.filesystem.exists("/home/ActiveCraft.lua") == false then ac.mf.WriteObjectFile({}, "/home/ActiveCraft.lua") end
+ac.activecraft = require("ActiveCraft")
 ac.items = {}
 ac.recipeitems = {}
 ac.priocount = 0
@@ -13,7 +13,7 @@ ac.crafter = ""
 ac.itemcrafters = {}
 ac.completeRepo = true
 ac.itemschange = false
-ac.logfile = "/home/bufu/Crafter/AC-Log.lua"
+ac.logfile = "/home/Crafter/AC-Log.lua"
 ac.args = ac.mf.shell.parse( ... )
 
 function ac.searchforRepo(itemrepo)
@@ -66,7 +66,7 @@ function ac.Define(itemrepo)
     if reporecipe ~= "" then
       ac.recipeitems = require(reporecipe)
     end
-    ac.logfile = "/home/bufu/Crafter/AC-Log - " .. itemrepo .. ".lua"
+    ac.logfile = "/home/Crafter/AC-Log - " .. itemrepo .. ".lua"
     for i,j in pairs(ac.items) do
       if j.craftCount == nil then
         ac.items[i].craftCount = 1
@@ -79,7 +79,7 @@ function ac.DefineEx(crafter, itemsToCraft, recipeitemsForCraft)
   ac.crafter = crafter
   ac.items = itemsToCraft
   ac.recipeitems = recipeitemsForCraft
-  ac.logfile = "/home/bufu/Crafter/AC-Log - " .. ac.crafter .. ".lua"
+  ac.logfile = "/home/Crafter/AC-Log - " .. ac.crafter .. ".lua"
   for i,j in pairs(ac.items) do
     if j.craftCount == nil then
       ac.items[i].craftCount = 1
@@ -129,7 +129,7 @@ function ac.DefineItems(itemsToCraft)
           end
         end
       end
-      ac.logfile = "/home/bufu/Crafter/AC-Log - items.lua"
+      ac.logfile = "/home/Crafter/AC-Log - items.lua"
       for i,j in pairs(ac.items) do
         if j.craftCount == nil then
           ac.items[i].craftCount = 1
@@ -710,7 +710,7 @@ function ac.CheckLabels(itemrepo)
     ac.mf.filesystem.remove("/home/" .. itemrepo .. ".lua")
 end
 function ac.test()
-  ac = require("bufu/Crafter/Autocraft")
+  ac = require("Crafter/Autocraft")
   ac.Define("minecraft")
   ac.GetItems()
   ac.MoveRestBack()
@@ -782,31 +782,31 @@ function ac.GetRecipeCraftings()
     end
   end
   for i,j in pairs(recipecrafting) do
-    local tempac = require("bufu/Crafter/Autocraft")
+    local tempac = require("Crafter/Autocraft")
     tempac.CraftExItems(i, j.items, j.recipeitems)
     tempac = {}
   end
 end
 function ac.WaitforCrafter()
-  ac.activecraft = require("bufu/ActiveCraft")
+  ac.activecraft = require("ActiveCraft")
   if ac.activecraft[ac.crafter] == nil then
     ac.activecraft[ac.crafter] = false
   end
   while ac.activecraft[ac.crafter] do
     ac.mf.os.sleep(20)
-    ac.activecraft = require("bufu/ActiveCraft")
+    ac.activecraft = require("ActiveCraft")
     print("Waiting for crafter: " .. ac.crafter)
   end
 end
 function ac.StartCrafting()
-  ac.activecraft = require("bufu/ActiveCraft")
+  ac.activecraft = require("ActiveCraft")
   ac.activecraft[ac.crafter] = true
-  ac.mf.WriteObjectFile(ac.activecraft, "/home/bufu/ActiveCraft.lua")
+  ac.mf.WriteObjectFile(ac.activecraft, "/home/ActiveCraft.lua")
 end
 function ac.FinishCrafting()
-  ac.activecraft = require("bufu/ActiveCraft")
+  ac.activecraft = require("ActiveCraft")
   ac.activecraft[ac.crafter] = false
-  ac.mf.WriteObjectFile(ac.activecraft, "/home/bufu/ActiveCraft.lua")
+  ac.mf.WriteObjectFile(ac.activecraft, "/home/ActiveCraft.lua")
 end
 function ac.CraftEx()
   ac.WaitforCrafter()
