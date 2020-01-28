@@ -442,10 +442,11 @@ end
 function mf.combineTables(table1, table2)
   for i,j in pairs(table2) do
     if table1[i] ~= nil then
+      table1[i] = j
       if type(table1[i]) == "table" and type(j) == "table" then
-        table1[i] = mf.combineTables(table1[i], j)
+        --table1[i] = mf.combineTables(table1[i], j)
       else
-        table1[i] = j
+        --table1[i] = j22
       end
     else
       table1[i] = j

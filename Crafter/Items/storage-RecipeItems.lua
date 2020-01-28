@@ -1,5 +1,5 @@
 return {
- ic2_jj_fence={need=1},
+ appliedenergistics2_jj_material_jj_5={need=4},
  minecraft_jj_blaze_powder={need=1},
  minecraft_jj_bone={need=1},
  minecraft_jj_book={need=1},
@@ -11,6 +11,7 @@ return {
  minecraft_jj_clay={need=1},
  minecraft_jj_clock={need=1},
  minecraft_jj_coal_jj_1={need=1},
+ minecraft_jj_comparator={need=2},
  minecraft_jj_compass={need=1},
  minecraft_jj_crafting_table={need=1},
  minecraft_jj_daylight_detector={need=3},
@@ -66,17 +67,12 @@ return {
  minecraft_jj_sugar={need=1},
  minecraft_jj_water_bucket={need=1},
  minecraft_jj_wool={need=7},
- nuclearcraft_jj_gem_jj_6={need=4},
  opencomputers_jj_cable_jj_11250603={need=1},
  opencomputers_jj_card_jj_9={need=2},
  opencomputers_jj_component={need=1},
  opencomputers_jj_component_jj_1={need=1},
  opencomputers_jj_component_jj_2={need=1},
- opencomputers_jj_material_jj_4={need=1},
- refinedstorage_jj_processor_jj_3={need=1},
  refinedstorage_jj_processor_jj_4={need=1},
- refinedstorage_jj_processor_jj_5={need=1},
- refinedstorage_jj_silicon={need=1},
  rftools_jj_infused_diamond={need=3},
  techreborn_jj_refined_iron_fence={need=1}
  }

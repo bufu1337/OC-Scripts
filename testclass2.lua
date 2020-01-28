@@ -1,5 +1,5 @@
 local mf = require("MainFunctionsEclipse")
-local items = require("ALL_Items")
+local items = require("Costs Calculator/ALL_Items")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
 local working = "home"
 local res = {}
@@ -370,11 +370,11 @@ local function WriteItemsSC2()
   mf.WriteObjectFile(temprall, (ocpath[working] .. "Crafter/RecipeItemsAll.lua"), 2)
 end
 local function WriteItemFiles()
-  mf.WriteObjectFile(items, (ocpath[working] .. "ALL_Items.lua"), 3)
+  mf.WriteObjectFile(items, (ocpath[working] .. "Costs Calculator/ALL_Items.lua"), 3)
   local templines = {}
   local tempjslines = {}
   local boolfirst = true
-  for line in io.lines((ocpath[working] .. "ALL_Items.lua")) do
+  for line in io.lines((ocpath[working] .. "Costs Calculator/ALL_Items.lua")) do
     if boolfirst then
       table.insert(tempjslines, (line:gsub("return", "MC.Items = ")))
       boolfirst = false
@@ -473,7 +473,12 @@ end
 local function combineFull()
     for i, j in pairs(items) do
         if file_exists(("Crafter/ItemsAllNew/" .. i .. ".lua")) then
-            items[i] = mf.combineTables(items[i], require("Crafter/ItemsAllNew/" .. i))
+            local temp = require("Crafter/ItemsAllNew/" .. i)
+            for g, h in pairs(items[i]) do
+                if temp[g] ~= nil then
+                    items[i][g] = mf.combineTables(items[i][g], temp[g])
+                end
+            end
         end
     end
 end
@@ -504,7 +509,7 @@ end
 
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --getAllItems()
---combineFull()
+combineFull()
 --AddItemFields({aspects={},oredict=false,processing=false})
 WriteItemFiles()
 
