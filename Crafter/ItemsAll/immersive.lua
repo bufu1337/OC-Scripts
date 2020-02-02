@@ -403,7 +403,7 @@ return {
  immersiveengineering_jj_toolupgrade_jj_7={hasPattern=true,label="Focused Nozzle",tag=""},
  immersiveengineering_jj_toolupgrade_jj_8={hasPattern=true,label="Precision Scope",tag=""},
  immersiveengineering_jj_toolupgrade_jj_9={hasPattern=true,label="Additional Capacitors",tag=""},
- immersiveengineering_jj_treated_wood={hasPattern=true,label="Treated Wood Planks",tag=""},
+ immersiveengineering_jj_treated_wood={hasPattern=false,label="Treated Wood Planks",tag=""},
  immersiveengineering_jj_treated_wood_jj_1={hasPattern=true,label="Treated Wood Planks",tag=""},
  immersiveengineering_jj_treated_wood_jj_2={hasPattern=true,label="Treated Wood Planks",tag=""},
  immersiveengineering_jj_treated_wood_slab={hasPattern=true,label="Treated Wood Slab",tag=""},

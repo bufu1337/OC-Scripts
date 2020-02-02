@@ -76,6 +76,8 @@ local function ModToProp(mod, typ)
 		base={crafter="others", name="BASE"},
 		basemetals={crafter="metals", name="Base Metals"},
 		baubles={crafter="others", name="Baubles"},
+        bedrockminer={crafter="others", name="Bedrockminer"},
+        bedrockores={crafter="others", name="Bedrockminer"},
 		betterquesting={crafter="others", name="Better Questing"},
 		bibliocraft={crafter="biblio", name="BiblioCraft"},
 		bigreactors={crafter="nuclear", name="Extreme Reactors"},
@@ -128,6 +130,8 @@ local function ModToProp(mod, typ)
 		darkutils={crafter="utilities", name="Dark Utilities"},
 		davincisvessels={crafter="others", name="Davincis Vessels"},
 		ddb={crafter="others", name="Do it Yourself"},
+        deepmoblearning={crafter="others", name="Deepmob Learning"},
+        deepmoblearningbm={crafter="others", name="Deepmob Learning"},
 		deepresonance={crafter="others", name="Deep Resonance"},
 		defiledlands={crafter="utilities", name="Defiled Lands"},
 		demonmobs={crafter="cyclic", name="Lycanites Mobs"},
@@ -138,6 +142,8 @@ local function ModToProp(mod, typ)
 		elementalmobs={crafter="cyclic", name="Lycanites Mobs"},
 		elevatorid={crafter="others", name="Elevator Mod"},
 		enderio={crafter="environ", name="Ender IO"},
+        enderstorage={crafter="others", name="Ender Storage"},
+        endertanks={crafter="others", name="Ender Tanks"},
 		energyconverters={crafter="others", name="Energy Converters"},
 		environmentalmaterials={crafter="environ", name="Environmental Tech"},
 		environmentaltech={crafter="environ", name="Environmental Tech"},
@@ -290,9 +296,10 @@ local function ModToProp(mod, typ)
 		valkyrielib={crafter="others", name="Valkyrie Lib"},
 		vehicle={crafter="draconic", name="MrCrayfish's - Vehicles"},
 		vc={crafter="draconic", name="ViesCraft"},
+        woot={crafter="reliq", name="Woot"},
 		xnet={crafter="others", name="XNet"},
 		xreliquary={crafter="reliq", name="Reliquary"},
-		zerocore={crafter="others", name="Zero CORE"},
+		zerocore={crafter="others", name="Zero CORE"}
 	}
     return mtpn[mod][typ]
 end

@@ -302,7 +302,7 @@ return {
  immersiveengineering_jj_toolupgrade_jj_7={hasPattern=true,label="Focused Nozzle",recipe={ic2_jj_ingot_jj_5={need=4,tag=""},immersiveengineering_jj_metal_device1_jj_6={need=2,tag=""},immersiveengineering_jj_metal_jj_8={need=4,tag=""},minecraft_jj_hopper={need=1,tag=""}}},
  immersiveengineering_jj_toolupgrade_jj_8={hasPattern=true,label="Precision Scope",recipe={ic2_jj_ingot_jj_2={need=4,tag=""},immersiveengineering_jj_metal={need=4,tag=""},minecraft_jj_glass_pane={need=2,tag=""}}},
  immersiveengineering_jj_toolupgrade_jj_9={hasPattern=true,label="Additional Capacitors",recipe={immersiveengineering_jj_metal_device0_jj_2={need=3,tag=""},immersiveengineering_jj_wirecoil_jj_2={need=3,tag=""}}},
- immersiveengineering_jj_treated_wood={hasPattern=true,label="Treated Wood Planks",recipe={forge_jj_bucketfilled={need=1,tag=""},minecraft_jj_planks={need=8,tag=""}}},
+ immersiveengineering_jj_treated_wood={hasPattern=false,label="Treated Wood Planks",recipe={forge_jj_bucketfilled={need=1,tag=""},minecraft_jj_planks={need=8,tag=""}}},
  immersiveengineering_jj_treated_wood_jj_1={hasPattern=true,label="Treated Wood Planks",recipe={immersiveengineering_jj_treated_wood={need=1,tag=""}}},
  immersiveengineering_jj_treated_wood_jj_2={hasPattern=true,label="Treated Wood Planks",recipe={immersiveengineering_jj_treated_wood_jj_1={need=1,tag=""}}},
  immersiveengineering_jj_treated_wood_slab={hasPattern=true,label="Treated Wood Slab",recipe={immersiveengineering_jj_treated_wood={need=3,tag=""}}},

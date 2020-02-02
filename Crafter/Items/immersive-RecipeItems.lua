@@ -69,6 +69,7 @@ return {
  immersiveengineering_jj_metal_jj_7={need=1},
  immersiveengineering_jj_metal_jj_8={need=1},
  immersiveengineering_jj_seed={need=1},
+ immersiveengineering_jj_treated_wood={need=1},
  immersivehempcraft_jj_hempstone_brick={need=4},
  immersivehempcraft_jj_hempstone_hardened={need=3},
  immersivehempcraft_jj_lightmix={need=1},

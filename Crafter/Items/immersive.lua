@@ -199,7 +199,6 @@ return {
  immersiveengineering_jj_toolupgrade_jj_7={craftCount=1,maxCount=8,recipe={ic2_jj_ingot_jj_5={need=4},immersiveengineering_jj_metal_device1_jj_6={need=2},immersiveengineering_jj_metal_jj_8={need=4},minecraft_jj_hopper={need=1}}},
  immersiveengineering_jj_toolupgrade_jj_8={craftCount=1,maxCount=8,recipe={ic2_jj_ingot_jj_2={need=4},immersiveengineering_jj_metal={need=4},minecraft_jj_glass_pane={need=2}}},
  immersiveengineering_jj_toolupgrade_jj_9={craftCount=1,maxCount=8,recipe={immersiveengineering_jj_metal_device0_jj_2={need=3},immersiveengineering_jj_wirecoil_jj_2={need=3}}},
- immersiveengineering_jj_treated_wood={craftCount=8,maxCount=8,recipe={forge_jj_bucketfilled={need=1},minecraft_jj_planks={need=8}}},
  immersiveengineering_jj_treated_wood_jj_1={craftCount=1,maxCount=8,recipe={immersiveengineering_jj_treated_wood={need=1}}},
  immersiveengineering_jj_treated_wood_jj_2={craftCount=1,maxCount=8,recipe={immersiveengineering_jj_treated_wood_jj_1={need=1}}},
  immersiveengineering_jj_treated_wood_slab={craftCount=6,maxCount=8,recipe={immersiveengineering_jj_treated_wood={need=3}}},
