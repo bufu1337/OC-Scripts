@@ -24,3 +24,6 @@ os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Convert.lua" .. "?" .. math.random() .. " /home/Convert.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Proxies.lua" .. "?" .. math.random() .. " /home/Proxies.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/GetPattern.lua" .. "?" .. math.random() .. " /home/GetPattern.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/getMaxDamage.lua" .. "?" .. math.random() .. " /home/Crafter/getMaxDamage.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Autocraft.lua" .. "?" .. math.random() .. " /home/Crafter/Autocraft.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/GetPattern.lua" .. "?" .. math.random() .. " /home/GetPattern.lua")
