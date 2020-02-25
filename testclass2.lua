@@ -334,10 +334,13 @@ local function WriteItemsSC2()
             end
           else
             if temprall[g] == nil then
-              temprall[g] = h.need
+              temprall[g] = {need=h.need, crafter={i}}
             else
-              if temprall[g] > h.need then
-                temprall[g] = h.need
+              if temprall[g].need > h.need then
+                temprall[g].need = h.need
+              end
+              if mf.contains(temprall[g].crafter, i) == false then
+                table.insert(temprall[g].crafter, i)
               end
             end
           end

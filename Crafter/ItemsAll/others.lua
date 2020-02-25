@@ -85,7 +85,7 @@ return {
  carz_jj_car_part={hasPattern=false,label="",tag="({PartType= 0})"},
  carz_jj_fuel_station={hasPattern=true,label="Fuel Station",tag=""},
  carz_jj_key={hasPattern=true,label="Key",tag=""},
- carz_jj_license={hasPattern=true,label="item.carz:license.name",tag="({Type= 0, State= {Owner= Herobrine, OwnerIdMost= -6541591261426463422 as long, ExpireDate= DD.MM.YYYY, OwnerIdLeast= -7767171335151758581 as long, BTMMoonApproved= 0 as byte, IsValid= 0 as byte}})"},
+ carz_jj_license={hasPattern=true,label="item.carz=license.name",tag="({Type= 0, State= {Owner= Herobrine, OwnerIdMost= -6541591261426463422 as long, ExpireDate= DD.MM.YYYY, OwnerIdLeast= -7767171335151758581 as long, BTMMoonApproved= 0 as byte, IsValid= 0 as byte}})"},
  carz_jj_oil_probe={hasPattern=true,label="Oil probe",tag=""},
  carz_jj_painter={hasPattern=false,label="",tag=""},
  carz_jj_plant_fermenter={hasPattern=false,label="",tag=""},

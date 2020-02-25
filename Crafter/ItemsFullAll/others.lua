@@ -85,7 +85,7 @@ return {
  carz_jj_car_part={hasPattern=false,label="",recipe={}},
  carz_jj_fuel_station={hasPattern=true,label="Fuel Station",recipe={extrautils2_jj_pipe={need=3,tag=""},immersiveengineering_jj_metal_jj_39={need=4,tag=""},minecraft_jj_dye_jj_4={need=1,tag=""},minecraft_jj_iron_block={need=1,tag=""}}},
  carz_jj_key={hasPattern=true,label="Key",recipe={electrostatics_jj_rubber={need=1,tag=""},minecraft_jj_iron_nugget={need=1,tag=""}}},
- carz_jj_license={hasPattern=true,label="item.carz:license.name",recipe={electrostatics_jj_rubber={need=1,tag=""}}},
+ carz_jj_license={hasPattern=true,label="item.carz=license.name",recipe={electrostatics_jj_rubber={need=1,tag=""}}},
  carz_jj_oil_probe={hasPattern=true,label="Oil probe",recipe={frsm_jj_tvscreensmall={need=1,tag=""},ic2_jj_crafting_jj_1={need=1,tag=""},minecraft_jj_iron_ingot={need=1,tag=""}}},
  carz_jj_painter={hasPattern=false,label="",recipe={}},
  carz_jj_plant_fermenter={hasPattern=false,label="",recipe={}},
