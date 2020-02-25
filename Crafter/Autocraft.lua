@@ -615,22 +615,22 @@ function ac.CraftItems()
     for j,i in pairs(ac.priolist) do
         if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
             print("Crafting Item: " .. i .. " Crafts: " .. ac.items[i].crafts)
-            ac.MoveRecipeItems(i)
+            --ac.MoveRecipeItems(i)
             ac.mf.os.sleep(0.1)
-            cr.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
-            local tasks = cr.getTasks()
+            ac.rs.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
+            local tasks = ac.rs.getTasks()
             while #tasks > 0 do
                 ac.mf.os.sleep(1)
-                tasks = cr.getTasks()
+                tasks = ac.rs.getTasks()
                 if (tasks == nil) then
                     tasks = {}
                 end
             end
-            ac.MoveCraftedItem(i)
+            --ac.MoveCraftedItem(i)
             ac.items[i].size = ac.items[i].newsize
         end 
     end
-    ac.MoveRestBack()
+    --ac.MoveRestBack()
 end
 function ac.CheckItemRecipe(item)
     local returning = ""
