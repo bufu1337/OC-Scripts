@@ -10,6 +10,7 @@ ac.recipeitems = {}
 ac.priocount = 0
 ac.priolist = {}
 ac.crafter = ""
+ac.rs = {}
 ac.itemcrafters = {}
 ac.completeRepo = true
 ac.itemschange = false
@@ -62,6 +63,7 @@ function ac.Define(itemrepo)
       ac.items = ac.mf.combineTables(ac.items, require(repo2))
     end
     ac.crafter = ac.prox.ModCrafter(ac.convert.TextToItem(ac.mf.getKeys(ac.items)[1]).mod)
+    ac.rs = ac.prox.GetProxyByCafter(ac.crafter)
     local reporecipe = ac.searchforRepoRecipe(itemrepo)
     if reporecipe ~= "" then
       ac.recipeitems = require(reporecipe)
@@ -189,34 +191,30 @@ function ac.GetStorageItems()
   end
   local ttable = {}
   for v = 1, co, 1 do
-    th[v] = ac.mf.thread.create(function(o, u)
+    th[v] = ac.mf.thread.create(function(o, u, rs_proxy)
       for v = 1, u, 1 do
-        ac.mf.os.sleep()
+        ac.mf.os.sleep(1)
       end
       for i,j in pairs(o) do
         local rs_item = {}
         local ok = false
-        local rs_proxy = ac.prox.GetProxyByMod(ac.items[j].mod)
-        if(rs_proxy ~= "") then
-          local rs_comp = ac.mf.component.proxy(rs_proxy)
-          if(rs_comp ~= nil) then
-            ok, rs_item = pcall(rs_comp.getItem, ac.items[j])
-            if ok then
-                if(rs_item == nil) then
-                  rs_item = {size=0.0}
-                end
-            else
-                ac.mf.writex(rs_item)
-                ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
-                rs_item = {size=0.0, notvalid=true}
-            end
+        if(rs_proxy ~= nil) then
+          ok, rs_item = pcall(ac.rs.getItem, ac.items[j])
+          if ok then
+              if(rs_item == nil) then
+                rs_item = {size=0.0}
+              end
+          else
+              ac.mf.writex(rs_item)
+              ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+              rs_item = {size=0.0, notvalid=true}
           end
         end
         for a,b in pairs(rs_item) do
           ac.items[j][a] = b
         end
       end
-    end, iarr[v], v)
+    end, iarr[v], v, rs_proxy)
     table.insert(ttable, th[v])
   end
   ac.mf.thread.waitForAll(ttable)
@@ -247,7 +245,7 @@ function ac.GetStorageItems()
       for i,j in pairs(o) do
         local rs_item = {}
         local ok = false
-        local rs_proxy = ac.prox.GetProxy(ac.recipeitems[j].mod, "home")
+        local rs_proxy = ac.prox.GetProxyByMod(ac.recipeitems[j].mod)
         if(rs_proxy ~= "") then
           local rs_comp = ac.mf.component.proxy(rs_proxy)
           if(rs_comp ~= nil) then
@@ -271,6 +269,8 @@ function ac.GetStorageItems()
     table.insert(ttable, th[v])
   end
   ac.mf.thread.waitForAll(ttable)
+  iarr = nil
+  th = nil
   print("GetStorageItems end")
 end
 function ac.WriteNewRepo()
@@ -367,7 +367,7 @@ function ac.GetRecipes()
                 ac.mf.os.sleep()
             end
             for i,j in pairs(o) do
-                local rs_proxy = ac.prox.GetProxyByName(ac.crafter, "craft")
+                local rs_proxy = ac.prox.GetProxyByCrafter(ac.crafter)
                 if(rs_proxy ~= "") then
                     local rs_comp = ac.mf.component.proxy(rs_proxy)
                     if rs_comp ~= nil then
