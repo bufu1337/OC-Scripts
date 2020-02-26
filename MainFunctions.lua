@@ -28,27 +28,7 @@ if mf.filesystem.exists("/home/OCNetServer.lua") then
 end
 mf.logFile = ""
 
-function mf.OpenLogFile(path)
-  if mf.logFile == "" then
-    mf.logFile = mf.io.open(path, "a")
-  end
-end
-function mf.CloseLogFile()
-  if mf.logFile ~= "" then
-    mf.logFile:close()
-    mf.logFile = ""
-  end
-end
-function mf.Log(logtext)
-  if mf.logFile ~= "" then
-    mf.logFile:write(logtext)
-  end
-end
-function mf.LogEx(path, logtext)
-  mf.OpenLogFile(path)
-  mf.logFile:write(logtext)
-  mf.CloseLogFile()
-end
+
 local function getSystem(system)
   if system == nil then
     return mf.OCNet.system
@@ -200,24 +180,38 @@ function mf.SetComputerName(typ, system)
   end
   return false
 end
-function mf.WriteObjectFile(object, path, dep, append)
+function mf.WriteObjectFile(object, path, dep, append, noreturn)
     local mode = "w"
+    local returning = true
+    local retstr = "return "
     if append then
       mode = "a"
     end
+    if noreturn then
+      returning = false
+      retstr = ""
+    end
     local newLuaFile = mf.io.open(path, mode)
     if type(object) == "table" then
-      newLuaFile:write("return ")
+      if returning then
+        newLuaFile:write(retstr)
+      end
       for i, k in pairs(mf.serial.serializedtable(object, true, dep)) do
         mf.os.sleep(0.01)
         newLuaFile:write(k)
       end
     elseif type(object) == "string" then
-      newLuaFile:write("return " .. mf.serial.serialize(object))
+      newLuaFile:write(retstr .. mf.serial.serialize(object))
     else
-      newLuaFile:write("return " .. toString(object))
+      newLuaFile:write(retstr .. toString(object))
     end    
     newLuaFile:close()
+end
+function mf.Log(logtext)
+  mf.writex(logtext)
+  if mf.logFile ~= "" then
+    mf.WriteObjectFile(logtext, logFile, nil, true, true)
+  end
 end
 function mf.listSubDirsInDir(directory)
     local i, t = 0, {}

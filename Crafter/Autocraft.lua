@@ -14,7 +14,10 @@ ac.rs = {}
 ac.itemcrafters = {}
 ac.completeRepo = true
 ac.itemschange = false
-ac.logfile = "/home/Crafter/AC-Log.lua"
+ac.mf.logFile = "/home/Crafter/AC-Log.lua"
+if ac.mf.filesystem.exists(ac.mf.logFile) then
+    ac.mf.os.execute("rm " .. ac.mf.logFile)
+end
 ac.args = ac.mf.shell.parse( ... )
 
 function ac.searchforRepo(itemrepo)
@@ -68,7 +71,7 @@ function ac.Define(itemrepo)
     if reporecipe ~= "" then
       ac.recipeitems = require(reporecipe)
     end
-    ac.logfile = "/home/Crafter/AC-Log - " .. itemrepo .. ".lua"
+    ac.mf.logFile = "/home/" .. ac.crafter .. "-Log.lua"
     for i,j in pairs(ac.items) do
       if j.craftCount == nil then
         ac.items[i].craftCount = 1
@@ -81,7 +84,7 @@ function ac.DefineEx(crafter, itemsToCraft, recipeitemsForCraft)
   ac.crafter = crafter
   ac.items = itemsToCraft
   ac.recipeitems = recipeitemsForCraft
-  ac.logfile = "/home/Crafter/AC-Log - " .. ac.crafter .. ".lua"
+  ac.mf.logFile = "/home/" .. ac.crafter .. "-Log.lua"
   for i,j in pairs(ac.items) do
     if j.craftCount == nil then
       ac.items[i].craftCount = 1
@@ -131,7 +134,7 @@ function ac.DefineItems(itemsToCraft)
           end
         end
       end
-      ac.logfile = "/home/Crafter/AC-Log - items.lua"
+      ac.mf.logFile = "/home/" .. ac.crafter .. "-Log.lua"
       for i,j in pairs(ac.items) do
         if j.craftCount == nil then
           ac.items[i].craftCount = 1
@@ -191,30 +194,28 @@ function ac.GetStorageItems()
   end
   local ttable = {}
   for v = 1, co, 1 do
-    th[v] = ac.mf.thread.create(function(o, u, rs_proxy)
+    th[v] = ac.mf.thread.create(function(o, u)
       for v = 1, u, 1 do
         ac.mf.os.sleep(1)
       end
       for i,j in pairs(o) do
         local rs_item = {}
         local ok = false
-        if(rs_proxy ~= nil) then
-          ok, rs_item = pcall(ac.rs.getItem, ac.items[j])
-          if ok then
-              if(rs_item == nil) then
-                rs_item = {size=0.0}
-              end
-          else
-              ac.mf.writex(rs_item)
-              ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
-              rs_item = {size=0.0, notvalid=true}
+        ok, rs_item = pcall(ac.rs.getItem, ac.items[j])
+        if ok then
+          if(rs_item == nil) then
+            rs_item = {size=0.0}
           end
+        else
+          ac.mf.writex(rs_item)
+          ac.mf.Log(rs_item)
+          rs_item = {size=0.0, notvalid=true}
         end
         for a,b in pairs(rs_item) do
           ac.items[j][a] = b
         end
       end
-    end, iarr[v], v, rs_proxy)
+    end, iarr[v], v)
     table.insert(ttable, th[v])
   end
   ac.mf.thread.waitForAll(ttable)
@@ -252,14 +253,29 @@ function ac.GetStorageItems()
             ok, rs_item = pcall(rs_comp.getItem, ac.recipeitems[j])
             if ok then
                 if(rs_item == nil) then
+                  ac.mf.Log("Cant find item: " .. ac.recipeitems[j].name)
                   rs_item = {size=0.0}
                 end
             else
-                ac.mf.writex(rs_item)
-                ac.mf.WriteObjectFile(rs_item, "/home/" .. ac.crafter .. "-errors.lua", null, true)
+                ac.mf.Log("Item is invalid: " .. ac.recipeitems[j].name)
+                ac.mf.Log(rs_item)
                 rs_item = {size=0.0, notvalid=true}
             end
           end
+        end
+        local temp_item = {}
+        local ok = false
+        ok, temp_item = pcall(ac.rs.getItem, ac.recipeitems[j])
+        if ok then
+          if(temp_item == nil) then
+            rs_item.isize = 0.0
+          else
+            rs_item.isize = temp_item.size
+          end
+        else
+          ac.mf.writex(rs_item)
+          ac.mf.Log(rs_item)
+          rs_item.isize = 0.0
         end
         for a,b in pairs(rs_item) do
           ac.recipeitems[j][a] = b
@@ -490,6 +506,11 @@ function ac.SetCrafts(item, newneed)
             if ac.items[item].crafts > 0 then
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
+                      if ac.recipeitems[a].isize == 0.0 then
+                        ac.mf.log("Cant craft item: " .. item)
+                        ac.mf.log("Recipeitem missing at Crafter: " .. a)
+                        ac.items[item].crafts = 0
+                      end
                       if ac.recipeitems[a].need ~= nil then
                         ac.recipeitems[a].need = ac.recipeitems[a].need + (ThisTempCrafts * b.need)
                       else
@@ -812,7 +833,7 @@ function ac.CraftEx()
   ac.WaitforCrafter()
   ac.StartCrafting()
   ac.GetItems()
-  ac.GetRecipeCraftings()
+  --ac.GetRecipeCraftings()
   ac.CraftItems()
   ac.FinishCrafting()
 end
