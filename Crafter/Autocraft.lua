@@ -263,19 +263,34 @@ function ac.GetStorageItems()
             end
           end
         end
-        local temp_item = {}
-        local ok = false
-        ok, temp_item = pcall(ac.rs.getItem, ac.recipeitems[j])
-        if ok then
-          if(temp_item == nil) then
-            rs_item.isize = 0.0
-          else
-            rs_item.isize = temp_item.size
-          end
-        else
-          ac.mf.writex(rs_item)
-          ac.mf.Log(rs_item)
-          rs_item.isize = 0.0
+        if ac.crafter ~= ac.prox.ModCrafter(ac.convert.TextToItem(j).mod) then
+            local temp_item = {}
+            local ok = false
+            ok, temp_item = pcall(ac.rs.getItem, ac.recipeitems[j])
+            if ok then
+              if(temp_item == nil) then
+                rs_item.isize = 0.0
+              else
+                rs_item.isize = temp_item.size
+              end
+            else
+              ac.mf.writex(rs_item)
+              ac.mf.Log(rs_item)
+              rs_item.isize = 0.0
+            end
+            
+            for g,h in pairs(ac.items) do
+              if ac.items[g].recipe[j] ~= nil then
+                  if rs_item.isize == 0.0 then
+                    ac.mf.log("Cant craft item: " .. g)
+                    ac.mf.log("Recipeitem missing at Crafter: " .. j)
+                  end
+                  local temp = math.floor(rs_item.isize / ac.recipeitems[j].need)
+                  if ac.items[g].atTime == nil or ac.items[g].atTime < temp then
+                    ac.items[g].atTime = temp
+                  end
+              end
+            end
         end
         for a,b in pairs(rs_item) do
           ac.recipeitems[j][a] = b
@@ -506,11 +521,6 @@ function ac.SetCrafts(item, newneed)
             if ac.items[item].crafts > 0 then
                 for a,b in pairs(ac.items[item].recipe) do
                     if ac.recipeitems[a] ~= nil then
-                      if ac.recipeitems[a].isize == 0.0 then
-                        ac.mf.log("Cant craft item: " .. item)
-                        ac.mf.log("Recipeitem missing at Crafter: " .. a)
-                        ac.items[item].crafts = 0
-                      end
                       if ac.recipeitems[a].need ~= nil then
                         ac.recipeitems[a].need = ac.recipeitems[a].need + (ThisTempCrafts * b.need)
                       else
@@ -633,23 +643,45 @@ function ac.MoveRestBack()
 end
 function ac.CraftItems()
     local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
-    for j,i in pairs(ac.priolist) do
-        if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
-            print("Crafting Item: " .. i .. " Crafts: " .. ac.items[i].crafts)
-            --ac.MoveRecipeItems(i)
-            ac.mf.os.sleep(0.1)
-            ac.rs.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
-            local tasks = ac.rs.getTasks()
-            while #tasks > 0 do
-                ac.mf.os.sleep(1)
-                tasks = ac.rs.getTasks()
-                if (tasks == nil) then
-                    tasks = {}
+    for j,g in pairs(ac.priolist) do
+        for b,i in pairs(ac.priolist) do
+            if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
+                if ac.items[i].atTime == 0 then
+                    ac.mf.log("Cant craft item: " .. i .. ". Recipeitems missing at Crafter")
+                else
+                    ac.mf.Log("Crafting Item: " .. i .. " Count: " .. (ac.items[i].crafts * ac.items[i].craftCount))
+                    
+                    if ac.items[i].atTime == nil then
+                        ac.rs.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
+                        ac.items[i].crafts = 0
+                    else
+                        while ac.items[i].crafts ~= 0 do
+                            if ac.items[i].crafts <= ac.items[i].atTime then
+                                temp = ac.rs.scheduleTask(ac.items[i], ac.items[i].crafts * ac.items[i].craftCount)
+                                if temp ~= nil then
+                                    ac.items[i].crafts = 0
+                                end
+                            else
+                                temp = ac.rs.scheduleTask(ac.items[i], ac.items[i].atTime * ac.items[i].craftCount)
+                                if temp ~= nil then
+                                    ac.items[i].crafts = ac.items[i].crafts - ac.items[i].atTime
+                                end
+                            end
+                            ac.mf.os.sleep(0.05)
+                        end
+                    end
+                    ac.items[i].size = ac.items[i].newsize
                 end
             end
-            --ac.MoveCraftedItem(i)
-            ac.items[i].size = ac.items[i].newsize
-        end 
+        end
+        local tasks = ac.rs.getTasks()
+        while #tasks > 0 do
+            ac.mf.os.sleep(1)
+            tasks = ac.rs.getTasks()
+            if (tasks == nil) then
+                tasks = {}
+            end
+        end
     end
     --ac.MoveRestBack()
 end
@@ -767,7 +799,7 @@ function ac.SetPrios()
   for i,j in pairs(ac.mf.getSortedKeys(newprios)) do if newprios[j] == 1 then newprios[j] = newpriocount + 1; newpriocount = newpriocount + 1 end end
   for i,j in pairs(ac.items) do ac.items[i].prio = newprios[ac.items[i].prio] end
   ac.priocount = newpriocount
-  for g = 1, ac.priocount, 1 do for i,j in pairs(ac.items) do if j.crafts > 0 then if ac.items[i].prio == g then table.insert(ac.priolist, i) end end end end
+  for g = 1, ac.priocount, 1 do ac.priolist[g] = {}; for i,j in pairs(ac.items) do if j.crafts > 0 then if ac.items[i].prio == g then table.insert(ac.priolist[g], i) end end end end
 end
 function ac.GetItems()
     print("GetItems")
