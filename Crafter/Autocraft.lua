@@ -642,7 +642,6 @@ function ac.MoveRestBack()
     ac.mf.os.sleep(0.1)
 end
 function ac.CraftItems()
-    local cr = ac.mf.component.proxy(ac.prox.GetProxyByName(ac.crafter,"craft"))
     for j,g in pairs(ac.priolist) do
         for b,i in pairs(ac.priolist) do
             if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
@@ -683,7 +682,6 @@ function ac.CraftItems()
             end
         end
     end
-    --ac.MoveRestBack()
 end
 function ac.CheckItemRecipe(item)
     local returning = ""
