@@ -107,6 +107,7 @@ var MC = {
 			if ( !item.tag ) {
 				item.tag = ""
 			}
+            item.id = item.id.replace(":", "_jj_").replace("/", "_xx_").replace("-", "_qq_").replace(".", "_vv_")
 			var citem = MC.convertItemID(item.id)
 			if ( citem.crafter == "" ) {
 				if ( !item.crafter ) {
@@ -118,7 +119,7 @@ var MC = {
 			}
 			if ( citem.crafter != "" ) {
 				if ( MC.Items[citem.crafter][item.id] == null ) {
-					MC.Items[citem.crafter][item.id] = {"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":0,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"price":0,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
+					MC.Items[citem.crafter][item.id] = {"aspects":{},"bit":false,"buying":false,"c1":"manuell","c2":"Fluidtransposer","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
 					MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
 					if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
 						MC.CItems[MC.Mods[citem.modid].name] = {}
@@ -127,9 +128,10 @@ var MC = {
 					if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
 						MC.Mods[citem.modid].itemid.push(citem.itemid)
 					}
+                    console.log("Item added: " + item.id)
 				}
 				else{
-					console.log("Item already existing: " + item.id)
+					console.log("    Item already existing: " + item.id)
 				}
 			}
 		});
