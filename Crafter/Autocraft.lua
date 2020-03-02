@@ -20,29 +20,23 @@ if ac.mf.filesystem.exists(ac.mf.logFile) then
 end
 ac.args = ac.mf.shell.parse( ... )
 
-function ac.searchforRepo(itemrepo)
+function ac.searchforRepoEx(itemrepo, extentsion)
   for b = 1, 30, 1 do
     local s = ""
     if b ~= 1 then
       s = tostring(b)
     end
-    if ac.mf.filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. ".lua") == true then
-      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo
+    if ac.mf.filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. extentsion .. ".lua") == true then
+      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo .. extentsion
     end
   end
   return ""
 end
+function ac.searchforRepo(itemrepo)
+  return ac.searchforRepoEx(itemrepo, "")
+end
 function ac.searchforRepoRecipe(itemrepo)
-  for b = 1, 30, 1 do
-    local s = ""
-    if b ~= 1 then
-      s = tostring(b)
-    end
-    if ac.mf.filesystem.exists("/home/bufu" .. s .. "/Crafter/Items/" .. itemrepo .. "-RecipeItems" .. ".lua") == true then
-      return "bufu" .. s .. "/Crafter/Items/" .. itemrepo .. "-RecipeItems"
-    end
-  end
-  return ""
+  return ac.searchforRepoEx(itemrepo, "-RecipeItems")
 end
 function ac.getCrafter(oname)
   local temp = {}
