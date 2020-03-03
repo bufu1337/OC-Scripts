@@ -198,10 +198,11 @@ function ac.GetStorageItems()
         ok, rs_item = pcall(ac.rs.getItem, ac.items[j])
         if ok then
           if(rs_item == nil) then
+            ac.mf.Log("Cant find item: " .. j)
             rs_item = {size=0.0}
           end
         else
-          ac.mf.writex(rs_item)
+          ac.mf.Log("Item is invalid: " .. j)
           ac.mf.Log(rs_item)
           rs_item = {size=0.0, notvalid=true}
         end
@@ -247,11 +248,11 @@ function ac.GetStorageItems()
             ok, rs_item = pcall(rs_comp.getItem, ac.recipeitems[j])
             if ok then
                 if(rs_item == nil) then
-                  ac.mf.Log("Cant find item: " .. ac.recipeitems[j].name)
+                  ac.mf.Log("Cant find item: " .. j)
                   rs_item = {size=0.0}
                 end
             else
-                ac.mf.Log("Item is invalid: " .. ac.recipeitems[j].name)
+                ac.mf.Log("Item is invalid: " .. j)
                 ac.mf.Log(rs_item)
                 rs_item = {size=0.0, notvalid=true}
             end
@@ -637,7 +638,7 @@ function ac.MoveRestBack()
 end
 function ac.CraftItems()
     for j,g in pairs(ac.priolist) do
-        for b,i in pairs(ac.priolist) do
+        for b,i in pairs(ac.priolist[j]) do
             if ac.items[i].crafts ~= nil and ac.items[i].crafts ~= 0 then
                 if ac.items[i].atTime == 0 then
                     ac.mf.log("Cant craft item: " .. i .. ". Recipeitems missing at Crafter")
@@ -673,6 +674,23 @@ function ac.CraftItems()
             tasks = ac.rs.getTasks()
             if (tasks == nil) then
                 tasks = {}
+            end
+        end
+        ac.mf.log("Check crafted itemcount")
+        for b,i in pairs(ac.priolist[j]) do
+            local rs_item = {}
+            local ok = false
+            ok, rs_item = pcall(ac.rs.getItem, ac.items[i])
+            if ok then
+              if(rs_item == nil) then
+                ac.mf.log("Cant find item: " .. i)
+              elseif(rs_item.size ~= ac.items[i].size) then
+                ac.mf.log("Itemcount different: Is: " .. rs_item.size .. " Should: ".. ac.items[i].size)
+              else
+                ac.mf.log("Correctly crafted : " .. i)
+              end
+            else
+              ac.mf.log("Invalid item: " .. i)
             end
         end
     end
