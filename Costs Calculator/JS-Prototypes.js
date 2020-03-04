@@ -100,6 +100,7 @@ Object.defineProperty(Array.prototype, "sortBy", {
     }
 });
 Array.prototype.isBoolListTrue = function(){
+    if(this.length == 0){ return false }
     for (var i = 0; i < this.length; i++){
 		if ( !this[i].toString().equals("true") ){
 			return false;
@@ -189,7 +190,16 @@ Object.defineProperty(Object.prototype, "equals", {
     writable: true,
     value: function() {
 		if ( arguments.length == 1 ){
-			return JSON.stringify(this).equals(JSON.stringify(arguments[0]));
+            if ( this instanceof Array == false && this instanceof Object && arguments[0] instanceof Array == false && arguments[0] instanceof Object ){
+                var temp = []
+                $.each(Object.keys(this), function (i, v) {
+                    temp.push(v.equals(arguments[0][i]))
+                });
+                return temp.isBoolListTrue()
+            }
+            else if ( this instanceof Array && arguments[0] instanceof Array){
+                return JSON.stringify(this.sort()).equals(JSON.stringify(arguments[0].sort()));
+            }
 		}
 		return false;
 	}

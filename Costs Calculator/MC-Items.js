@@ -3,6 +3,7 @@ var MC = {
 	CItems: {},
 	Mods: {},
 	Mod: {},
+    Imports: {},
 	Traders: [],
 	Listing: {itemListBox:[]},
 	Suggest: { groups: [], comment1: [], comment2: [], comment3: [] },
@@ -136,6 +137,27 @@ var MC = {
 			}
 		});
 	},
+    importItems: function(items){
+        $.each(items, function (i, item) {
+            if ( !item.tag ) {
+				item.tag = ""
+			}
+            item.id = item.id.replace(":", "_jj_").replace("/", "_xx_").replace("-", "_qq_").replace(".", "_vv_")
+			var citem = MC.convertItemID(item.id)
+			if ( citem.crafter == "" ) {
+				if ( !item.crafter ) {
+					console.log("Cant find crafter for item: " + item.id)
+				}
+				else{
+					citem.crafter = item.crafter
+				}
+			}
+            if(MC.Imports[citem.modid] == null){
+                MC.Imports[citem.modid] = {}
+            }
+            MC.Imports[citem.modid][item.id] = {"tag":item.tag, "crafter":citem.crafter}
+        });
+    },
 	setForAll: function(what, items, newval){
 		if ( !what.equals("recipe") && what.equals(Object.keys(MC.Items.minecraft.minecraft_jj_glass)) ) {
 			if ( (typeof newval).equals(typeof MC.Items.minecraft.minecraft_jj_glass[what]) ) {
@@ -3908,4 +3930,19 @@ VM1475:8 ore_jj_plankWood not found
 VM1475:8 rftools_jj_shape_card_pump not found
 VM1475:8 rftools_jj_shape_card_pump_liquid not found
 VM1475:8 rftools_jj_shape_card_quarry not found
+
+"<    -->    {id:"
+>"    -->    "},
+>.withTag(    -->    ", tag:
+})"\r\n    -->    }},\r\n
+""    -->    "
+ as float
+ as short
+ as long
+ as byte
+ as int[]
+identifier: ",    -->    identifier: "",
+styling: [][][], value: "}    -->    styling: [], value: ""}
+OreDict: "}    -->    OreDict: ""}
+][][]    -->    ]
 */
