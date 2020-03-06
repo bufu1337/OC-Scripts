@@ -132,6 +132,12 @@ Array.prototype.containsEx = function(search){
 	}
 	return false;
 };
+Number.prototype.equals = function(num){
+	return this == num;
+};
+Boolean.prototype.equals = function(bool){
+	return this == bool;
+};
 Object.defineProperty(Object.prototype, "Copy", {
     enumerable: false,
     writable: true,
@@ -191,9 +197,11 @@ Object.defineProperty(Object.prototype, "equals", {
     value: function() {
 		if ( arguments.length == 1 ){
             if ( this instanceof Array == false && this instanceof Object && arguments[0] instanceof Array == false && arguments[0] instanceof Object ){
-                var temp = []
-                $.each(Object.keys(this), function (i, v) {
-                    temp.push(v.equals(arguments[0][i]))
+                var temp = [true]
+				var t=this
+				var b = arguments[0]
+                $.each(Object.keys(t), function (i, v) {
+                    temp.push(t[v].equals(b[v]))
                 });
                 return temp.isBoolListTrue()
             }

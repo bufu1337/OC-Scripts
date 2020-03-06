@@ -106,9 +106,9 @@ var MC = {
 	createNewItems: function(items){
 		$.each(items, function (i, item) {
 			if ( !item.tag ) {
-				item.tag = ""
+				item.tag = {}
 			}
-            item.id = item.id.replace(":", "_jj_").replace("/", "_xx_").replace("-", "_qq_").replace(".", "_vv_")
+            item.id = item.id.replaceAll(":", "_jj_").replaceAll("/", "_xx_").replaceAll("-", "_qq_").replaceAll(".", "_vv_")
 			var citem = MC.convertItemID(item.id)
 			if ( citem.crafter == "" ) {
 				if ( !item.crafter ) {
@@ -120,7 +120,7 @@ var MC = {
 			}
 			if ( citem.crafter != "" ) {
 				if ( MC.Items[citem.crafter][item.id] == null ) {
-					MC.Items[citem.crafter][item.id] = {"aspects":{},"bit":false,"buying":false,"c1":"manuell","c2":"Fluidtransposer","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
+					MC.Items[citem.crafter][item.id] = {"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
 					MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
 					if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
 						MC.CItems[MC.Mods[citem.modid].name] = {}
@@ -137,12 +137,48 @@ var MC = {
 			}
 		});
 	},
+	mergeImports: function(){
+		MC.New = {}
+		$.each(MC.Items, function (b, z) {
+			MC.New[b] = {}
+			$.each(MC.Items[b], function (j, g) {
+				var found = "NOT"
+				var hu = ""
+				$.each(Object.keys(MC.Imports[b]), function (k, l) {
+					if(l.toString().split("_b_")[0].equals(j.split("_b_")[0])){
+						if(MC.Imports[b][l] != null){
+							if(g.tag.equals(MC.Imports[b][l].tag)){
+								found = ""
+								hu = l
+							}
+						}
+					}
+				});
+				if(found.equals("NOT")){
+					console.log("item " + found + " found: " + j + " = " + hu)
+				}
+				else{
+					MC.New[b][hu] = MC.Items[b][j]
+					MC.Imports[b][hu] = null
+				}
+			});
+		});
+		$.each(MC.Imports, function (modid, item) {
+			$.each(MC.Imports[modid], function (itemid, itemex) {
+				if(itemex != null){
+					MC.New[modid][itemid]={"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":itemex.tag,"trader":0}
+			   }
+			});
+		});
+		MC.Items = MC.New
+		console.log("Finished Merge Imports")
+	},
     importItems: function(items){
         $.each(items, function (i, item) {
             if ( !item.tag ) {
-				item.tag = ""
+				item.tag = {}
 			}
-            item.id = item.id.replace(":", "_jj_").replace("/", "_xx_").replace("-", "_qq_").replace(".", "_vv_")
+            item.id = item.id.replaceAll(":", "_jj_").replaceAll("/", "_xx_").replaceAll("-", "_qq_").replaceAll(".", "_vv_")
 			var citem = MC.convertItemID(item.id)
 			if ( citem.crafter == "" ) {
 				if ( !item.crafter ) {
@@ -152,10 +188,33 @@ var MC = {
 					citem.crafter = item.crafter
 				}
 			}
-            if(MC.Imports[citem.modid] == null){
-                MC.Imports[citem.modid] = {}
+            if(MC.Imports[citem.crafter] == null){
+                MC.Imports[citem.crafter] = {}
             }
-            MC.Imports[citem.modid][item.id] = {"tag":item.tag, "crafter":citem.crafter}
+			if(!item.tag.equals({}) && MC.Imports[citem.crafter][item.id] != null){
+				var gg = 1
+				var idnew = item.id + "_b_" + gg
+				while(MC.Imports[citem.crafter][idnew] != null){
+					gg++
+					idnew = item.id + "_b_" + gg
+				}
+				console.log(idnew)
+				MC.Imports[citem.crafter][idnew] = {"tag":item.tag}
+			}
+			else{
+				console.log(item.id)
+				MC.Imports[citem.crafter][item.id] = {"tag":item.tag}
+			}
+        });
+    },
+	getItemsWithTag: function(items){
+		$.each(MC.Items, function (i, v) {
+			MC.Imports[i] = {}
+			$.each(v, function (j, g) {
+				if(!g.tag.equals("") && !g.tag.equals({})){
+					MC.Imports[i][j] = {tag:g.tag}
+				}
+            });
         });
     },
 	setForAll: function(what, items, newval){
@@ -193,7 +252,10 @@ var MC = {
 				var temp = itemid.split("_b_")[0].split("_jj_")[1];
 				if ( itemid.startsWith((modid + "_")) ) {
 					MC.Mod[MC.Mods[modid].name].items[itemid] = MC.Items[MC.Mods[modid].crafter][itemid]
-					//MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
+					if ( !MC.CItems[MC.Mods[modid].name] ) {
+						MC.CItems[MC.Mods[modid].name] = {}
+					}
+					// MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
 					if ( !temp.equals(MC.Mods[modid].itemid) ) {
 						MC.Mods[modid].itemid.push(temp)
 					}
@@ -249,7 +311,7 @@ var MC = {
 	},
 	convertItemID: function(item, rcheck, multi){
 		var tempname = item.split("_b_")[0]
-		var citem = {modid: tempname.split("_jj_")[0], itemid: tempname.split("_jj_")[1], dmg: 0, variant: 0, valid: false, valid_recipe: true, itemfull: "", crafter: "", tag:"", damages: ["0"], variants: ["0"]}
+		var citem = {modid: tempname.split("_jj_")[0], itemid: tempname.split("_jj_")[1], dmg: 0, variant: 0, valid: false, valid_recipe: true, itemfull: "", crafter: "", tag:{}, damages: ["0"], variants: ["0"]}
 		if(tempname.split("_jj_")[2] != null){citem.dmg = parseInt(tempname.split("_jj_")[2])}
 		if(item.split("_b_")[1] != null){citem.variant = parseInt(item.split("_b_")[1])}
 		if(MC.Mods[citem.modid] != null){
@@ -623,8 +685,8 @@ var MC = {
 			else{ 
 				MC.show("itemvariant_line", "table-row")
 			}
-			$("#itemtag_display").text(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag);
-			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag == ""){ 
+			$("#itemtag_display").text(JSON.stringify(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag));
+			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag.equals({})){ 
 				MC.hide("itemtag_line") 
 			}
 			else{ 
