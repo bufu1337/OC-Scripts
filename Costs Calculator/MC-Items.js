@@ -582,7 +582,7 @@ var MC = {
 				}
 			}
 			if ( replaceforLUA ) {
-				JStextToWrite = JStextToWrite.replaceAll(":", "=").replaceAll(":", "=").replaceAll("\"=", "=").replaceAll(",\"", ",").replaceAll("{\"", "{").replaceAll("  \"", "  ")
+				JStextToWrite = JStextToWrite.replaceAll(":", "=").replaceAll(":", "=").replaceAll("\"=", "=").replaceAll(",\"", ",").replaceAll("{\"", "{").replaceAll("  \"", "  ").replaceAll("[", "{").replaceAll("]", "}")
 			}
 			var textFileAsBlob = new Blob([JStextToWrite], { type: typ });
 		

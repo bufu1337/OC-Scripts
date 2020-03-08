@@ -179,7 +179,7 @@ local function ModToProp(mod, typ)
         funkylocomotion={crafter="others", name="Funky Locomotion"},
         fvp={crafter:"fiifex", name="Fexcraft"},
         fvtm={crafter="fiifex", name="Fexcraft"},
-        gasconduits={crafter="draconic", name="Ender IO"},
+        gasconduits={crafter="environ", name="Ender IO"},
         gemmary={crafter="others", name="Gemmary"},
         gendustry={crafter="binnie", name="Gendustry"},
         genetics={crafter="binnie", name="Binnie Genetics"},

@@ -1,5 +1,7 @@
 return {
  actuallyadditions_jj_item_dust_jj_5={need=1},
+ appliedenergistics2_jj_dense_energy_cell={need=1},
+ appliedenergistics2_jj_energy_cell={need=1},
  appliedenergistics2_jj_material={need=1},
  appliedenergistics2_jj_material_jj_1={need=1},
  appliedenergistics2_jj_material_jj_10={need=1},

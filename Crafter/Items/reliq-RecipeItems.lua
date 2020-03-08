@@ -85,6 +85,7 @@ return {
  minecraft_jj_wool_jj_14={need=1},
  minecraft_jj_wool_jj_15={need=1},
  xreliquary_jj_bullet={need=8},
+ xreliquary_jj_bullet_jj_1={need=8},
  xreliquary_jj_mob_ingredient={need=1},
  xreliquary_jj_mob_ingredient_jj_1={need=1},
  xreliquary_jj_mob_ingredient_jj_10={need=1},

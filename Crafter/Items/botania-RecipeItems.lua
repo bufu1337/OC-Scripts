@@ -52,6 +52,7 @@ return {
  botania_jj_manaresource_jj_8={need=1},
  botania_jj_manaresource_jj_9={need=1},
  botania_jj_manasteelhelmreveal={need=1},
+ botania_jj_manatablet={need=1},
  botania_jj_pistonrelay={need=1},
  botania_jj_quartz_jj_1={need=4},
  botania_jj_quartz_jj_5={need=1},

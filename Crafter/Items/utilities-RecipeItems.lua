@@ -12,6 +12,7 @@ return {
  extrautils2_jj_ingredients_jj_10={need=1},
  extrautils2_jj_ironwood_log={need=1},
  extrautils2_jj_ironwood_log_jj_1={need=1},
+ extrautils2_jj_machine={need=1},
  extrautils2_jj_suncrystal={need=1},
  extrautils2_jj_unstableingots={need=1},
  immersivehempcraft_jj_perlite={need=8},

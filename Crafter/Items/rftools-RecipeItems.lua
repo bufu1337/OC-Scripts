@@ -62,5 +62,6 @@ return {
  minecraft_jj_wooden_button={need=1},
  minecraft_jj_wool={need=4},
  rftools_jj_dimensional_shard={need=1},
+ rftools_jj_syringe={need=1},
  rftoolsdim_jj_dimlet_base={need=1}
  }

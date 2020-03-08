@@ -38,7 +38,6 @@ return {
  fp_jj_gasturbine_jj_10={craftCount=1,maxCount=8,recipe={}},
  fp_jj_gasturbine_jj_2={craftCount=1,maxCount=8,recipe={}},
  fp_jj_gasturbine_jj_6={craftCount=1,maxCount=8,recipe={}},
- fp_jj_hologramcontroler_b_1={craftCount=1,maxCount=8,recipe={}},
  fp_jj_insert_node={craftCount=1,maxCount=8,recipe={}},
  fp_jj_itemfood_jj_12={craftCount=1,maxCount=8,recipe={}},
  fp_jj_itemfood_jj_13={craftCount=1,maxCount=8,recipe={}},

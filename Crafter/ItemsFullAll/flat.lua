@@ -1,5 +1,5 @@
 return {
- flatcoloredblocks_jj_coloredcraftingitem={hasPattern=false,label="",recipe={minecraft_jj_dye_jj_1={need=1,tag=""},minecraft_jj_dye_jj_2={need=1,tag=""},minecraft_jj_dye_jj_5={need=1,tag=""},minecraft_jj_dye_jj_6={need=1,tag=""},minecraft_jj_iron_ingot={need=1,tag=""}}},
+ flatcoloredblocks_jj_coloredcraftingitem={hasPattern=false,label="",recipe={minecraft_jj_dye_jj_1={need=1,tag={}},minecraft_jj_dye_jj_2={need=1,tag={}},minecraft_jj_dye_jj_5={need=1,tag={}},minecraft_jj_dye_jj_6={need=1,tag={}},minecraft_jj_iron_ingot={need=1,tag={}}}},
  flatcoloredblocks_jj_flatcoloredblock0={hasPattern=false,label="",recipe={}},
  flatcoloredblocks_jj_flatcoloredblock0_jj_1={hasPattern=false,label="",recipe={}},
  flatcoloredblocks_jj_flatcoloredblock0_jj_10={hasPattern=false,label="",recipe={}},

@@ -1,11 +1,11 @@
 local mf = require("MainFunctionsEclipse")
-local items = require("Costs Calculator/ALL_Items")
+--local items = require("Costs Calculator/ALL_Items")
+local json = require("Costs Calculator/json")
 local ocpath = {work="C:/Users/alexandersk/workspace/OC-Scripts/", home="Y:/Minecraft/OC-Scripts/"}
 local working = "home"
 local res = {}
 local sc = {}
 local wt = {}
-
 
 local function isFile(name)
     if type(name)~="string" then return false end
@@ -17,6 +17,14 @@ local function isFile(name)
     end
     return false
 end
+local function readAll(file)
+    local f = assert(io.open(file, "rb"))
+    local content = f:read("*all")
+    f:close()
+    return content
+end
+local b = readAll("Costs Calculator/MC-ItemsTO.js")
+local items = json.decode(b:gsub("MC.Items = ",""))
 local function getSCMods()
   for a,b in pairs(items) do
     sc[a] = {}
@@ -404,11 +412,12 @@ local function WriteItemFiles()
   end
   templines[#templines] = "}"
   --local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
-  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
+  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTOgg.js"), "w")
   for i,j in pairs(templines) do
     --newLuaFile:write(j)
-    newJSFile:write(tempjslines[i] .. "\n")
+    --newJSFile:write(tempjslines[i] .. "\n")
   end
+  newJSFile:write("MC.Items = " .. json.encode(items))
   --newLuaFile:close()
   newJSFile:close()
   templines = nil
@@ -510,9 +519,11 @@ local function irnamesCorrect()
   templines = nil
 end
 
+--print("")
+--print("finish")
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --getAllItems()
-combineFull()
+--combineFull()
 --AddItemFields({aspects={},oredict=false,processing=false})
 WriteItemFiles()
 
