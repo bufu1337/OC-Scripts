@@ -255,7 +255,7 @@ var MC = {
 					if ( !MC.CItems[MC.Mods[modid].name] ) {
 						MC.CItems[MC.Mods[modid].name] = {}
 					}
-					// MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
+					MC.CItems[MC.Mods[modid].name][itemid] = MC.convertItemID(itemid, true, true)
 					if ( !temp.equals(MC.Mods[modid].itemid) ) {
 						MC.Mods[modid].itemid.push(temp)
 					}
@@ -328,21 +328,23 @@ var MC = {
 					});
 				}
 				if ( multi ) {
-					$.each(Object.keys(MC.Items[citem.crafter]), function (index, name) {
-						if ( name.startsWith(citem.modid + "_jj_" + citem.itemid) ) {
-							var tempdmg = name.split("_b_")[0].split("_jj_")[2];
-							if(tempdmg != null){
-								if(!tempdmg.equals(citem.damages)){
-									citem.damages.push(tempdmg)
-								}
-							}
-							if(name.split("_b_")[1] != null){
-								if(!name.split("_b_")[1].equals(citem.variants)){
-									citem.variants.push(name.split("_b_")[1])
-								}
-							}
-						}
-					});
+                    if(citem.variant == 0){
+                        $.each(Object.keys(MC.Items[citem.crafter]), function (index, name) {
+                            if ( name.startsWith(citem.modid + "_jj_" + citem.itemid) ) {
+                                var tempdmg = name.split("_b_")[0].split("_jj_")[2];
+                                if(tempdmg != null){
+                                    if(!tempdmg.equals(citem.damages)){
+                                        citem.damages.push(tempdmg)
+                                    }
+                                }
+                                if(name.split("_b_")[1] != null){
+                                    if(!name.split("_b_")[1].equals(citem.variants)){
+                                        citem.variants.push(name.split("_b_")[1])
+                                    }
+                                }
+                            }
+                        });
+                    }
 				}
 			}
 		}
@@ -740,7 +742,8 @@ var MC = {
 			$.each(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].recipe, function (itemid, item) {
 				MC.show("rc" + temp_counter + "_group", "table");
 				$("#rc" + temp_counter + "_need").jqxNumberInput("val", item.need);
-				var temp_citem = MC.convertItemID(itemid, false, true);
+				var temp_citem = MC.convertItemID(itemid, false, false);
+                var temp_citem2 = MC.convertItemID(itemid.split("_b_")[0], false, true);
 				if(temp_citem.valid){
 					$("#rc" + temp_counter + "_itembox").jqxInput({source: MC.Mods[temp_citem.modid].itemid});
 					$("#rc" + temp_counter + "_itemboxlbl").jqxInput({source: MC.Mods[temp_citem.modid].itemlabel});
@@ -754,7 +757,7 @@ var MC = {
 				console.log("setting 2 " + temp_counter + " to " + (!(temp_citem.damages.length > 1)))
 				$("#rc" + temp_counter + "_dmg").jqxInput({disabled: (!(temp_citem.damages.length > 1)), source: temp_citem.damages});
 				$("#rc" + temp_counter + "_dmg").val(temp_citem.dmg.toString());
-				$("#rc" + temp_counter + "_variant").jqxInput({disabled: (!(temp_citem.variants.length > 1)), source: temp_citem.variants});
+				$("#rc" + temp_counter + "_variant").jqxInput({disabled: (!(temp_citem2.variants.length > 1)), source: temp_citem2.variants});
 				$("#rc" + temp_counter + "_variant").val(temp_citem.variant.toString());
 				$("#rc" + temp_counter + "_modbox").val(temp_citem.modid);
 				$("#rc" + temp_counter + "_itembox").val(temp_citem.itemid);
@@ -1131,13 +1134,14 @@ $(document).ready(function () {
 				var valitem = $("#rc" + i + "_itembox").val();
 				if(valmod != "" && valitem != ""){
 					var temp_item = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#rc" + i + "_dmg").val(), variant: $("#rc" + i + "_variant").val()})
-					if ( temp_item.valid ) {
+					var temp_item2 = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#rc" + i + "_dmg").val(), variant: 0})
+                    if ( temp_item.valid ) {
 						boollist_valid.push(true)
 						MC.item_selecting = true
 						$("#rc" + i + "_itemboxlbl").val(MC.Items[temp_item.crafter][temp_item.itemfull].label);
 						$("#rc" + i + "_dmg").jqxInput({disabled: (!(temp_item.damages.length > 1)), source: temp_item.damages});
 						//console.log("setting " + i + " to " + (!(temp_item.damages.length > 1)))
-						$("#rc" + i + "_variant").jqxInput({disabled: (!(temp_item.variants.length > 1)), source: temp_item.variants});
+						$("#rc" + i + "_variant").jqxInput({disabled: (!(temp_item2.variants.length > 1)), source: temp_item2.variants});
 						$("#rc" + i + "_dmg").val(temp_item.dmg.toString());
 						$("#rc" + i + "_variant").val(temp_item.variant.toString());
 						MC.item_selecting = false
@@ -1262,10 +1266,11 @@ $(document).ready(function () {
 			var valitem = $("#cr_itembox").val();
 			if(valmod != "" && valitem != ""){
 				var temp_item = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#cr_dmg").val(), variant: $("#cr_variant").val()})
-				if ( temp_item.valid ) {
+				var temp_item2 = MC.checkItem({modid:valmod, itemid:valitem, dmg: $("#cr_dmg").val(), variant: 0})
+                if ( temp_item.valid ) {
 					MC.item_selecting = true
 					$("#cr_dmg").jqxInput({disabled: (!(temp_item.damages.length > 1)), source: temp_item.damages});
-					$("#cr_variant").jqxInput({disabled: (!(temp_item.variants.length > 1)), source: temp_item.variants});
+					$("#cr_variant").jqxInput({disabled: (!(temp_item2.variants.length > 1)), source: temp_item2.variants});
 					$("#cr_dmg").val(temp_item.dmg.toString());
 					$("#cr_variant").val(temp_item.variant.toString());
 					MC.item_selecting = false
