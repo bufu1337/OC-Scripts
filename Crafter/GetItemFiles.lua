@@ -5,7 +5,7 @@ if filesystem.exists("/home/Crafter/ItemsAll") == false then filesystem.makeDire
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/minecraft.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/minecraft.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/draconic.lua" .. "?" .. math.random() .. " /mnt/58e/home/Crafter/ItemsAll/draconic.lua")
-os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/conquest.lua" .. "?" .. math.random() .. " /home/caa/Crafter/ItemsAll/conquest.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/conquest.lua" .. "?" .. math.random() .. " /mnt/caa/home/Crafter/ItemsAll/conquest.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/mekanism.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/mekanism.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/utilities.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/utilities.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/environ.lua" .. "?" .. math.random() .. " /mnt/58e/home/Crafter/ItemsAll/environ.lua")

@@ -8,7 +8,6 @@ return {
  minecraft_jj_carpet={need=1},
  minecraft_jj_cauldron={need=1},
  minecraft_jj_chest={need=1},
- minecraft_jj_clay={need=1},
  minecraft_jj_clock={need=1},
  minecraft_jj_coal_jj_1={need=1},
  minecraft_jj_comparator={need=2},
@@ -54,7 +53,6 @@ return {
  minecraft_jj_piston={need=1},
  minecraft_jj_planks={need=4},
  minecraft_jj_quartz={need=1},
- minecraft_jj_quartz_block={need=4},
  minecraft_jj_redstone={need=1},
  minecraft_jj_redstone_block={need=1},
  minecraft_jj_redstone_torch={need=1},
@@ -72,7 +70,9 @@ return {
  opencomputers_jj_component={need=1},
  opencomputers_jj_component_jj_1={need=1},
  opencomputers_jj_component_jj_2={need=1},
- refinedstorage_jj_processor_jj_4={need=1},
+ opencomputers_jj_material_jj_12={need=1},
+ opencomputers_jj_material_jj_2={need=1},
+ quantumstorage_jj_chest_diamond={need=1},
  rftools_jj_infused_diamond={need=3},
  techreborn_jj_refined_iron_fence={need=1}
  }

@@ -14,6 +14,7 @@ return {
  forestry_jj_bee_combs_jj_6={need=9},
  forestry_jj_bee_combs_jj_7={need=9},
  forestry_jj_beeswax={need=2},
+ forestry_jj_butterfly_ge={need=5},
  forestry_jj_chipsets={need=1},
  forestry_jj_chipsets_jj_2={need=1},
  forestry_jj_crafting_material_jj_2={need=9},

@@ -24,7 +24,14 @@ local function readAll(file)
     return content
 end
 local b = readAll("Costs Calculator/MC-ItemsTO.js")
-local items = json.decode(b:gsub("MC.Items = ",""))
+local itemstemp = json.decode(b:gsub("MC.Items = ",""))
+local items = {}
+for a,b in pairs(mf.getSortedKeys(itemstemp)) do
+    items[b] = {}
+    for i,j in pairs(mf.getSortedKeys(itemstemp[b])) do
+      items[b][j] = itemstemp[b][j]
+    end
+end
 local function getSCMods()
   for a,b in pairs(items) do
     sc[a] = {}
@@ -382,46 +389,46 @@ local function WriteItemsSC2()
 end
 local function WriteItemFiles()
   mf.WriteObjectFile(items, (ocpath[working] .. "Costs Calculator/ALL_Items.lua"), 3)
-  local templines = {}
-  local tempjslines = {}
-  local boolfirst = true
-  for line in io.lines((ocpath[working] .. "Costs Calculator/ALL_Items.lua")) do
-    if boolfirst then
-      table.insert(tempjslines, (line:gsub("return", "MC.Items = ")))
-      boolfirst = false
-    else
-      table.insert(tempjslines, (line:gsub("=", ":")))
-    end
-    --{label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
-    local l = line:gsub("={bit=", "\t={bit=\t"):gsub(",buying=", "\t,buying=\t"):gsub(",c1=\"", "\t,c1=\"\t"):gsub("\",c2=\"", "\t'\",c2=\"\t"):gsub("\",c3=\"", "\t'\",c3=\"\t"):gsub("\",chisel=", "\t'\",chisel=\t"):gsub(",countforprice=", "\t,countforprice=\t"):gsub(",craftCount=", "\t,craftCount=\t"):gsub(",fixedprice=", "\t,fixedprice=\t"):gsub(",group=\"", "\t,group=\"\t"):gsub("\",hasPattern=", "\t'\",hasPattern=\t"):gsub(",label=\"", "\t,label=\"\t"):gsub("\",maxCount=", "\t'\",maxCount=\t"):gsub(",price=", "\t,price=\t"):gsub(",recipe=", "\t,recipe=\t"):gsub("},selling=", "}\t,selling=\t"):gsub("false,tag=\"", "false\t,tag=\"\t"):gsub("true,tag=\"", "true\t,tag=\"\t"):gsub("\",trader=", "\t'\",trader=\t") .. "\n"
-    --local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
-    if mf.startswith(l, "  ") then
-      l = l:sub(3,#l)
-    elseif mf.startswith(l, " ") then
-      l = l:sub(2,#l)
-    end
-    if mf.endswith(l, "={\n") then
-      l = l .. "\n"
-    end
-    if (l == "},\n") or (l == "}\n") then
-      l = "\n" .. l 
-    else
-      l = l:gsub("},\n", "\t},\n"):gsub("}\n", "\t}\n")
-    end
-    table.insert(templines, l)
-  end
-  templines[#templines] = "}"
-  --local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
-  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTOgg.js"), "w")
-  for i,j in pairs(templines) do
-    --newLuaFile:write(j)
-    --newJSFile:write(tempjslines[i] .. "\n")
-  end
+  -- local templines = {}
+  -- local tempjslines = {}
+  -- local boolfirst = true
+  -- for line in io.lines((ocpath[working] .. "Costs Calculator/ALL_Items.lua")) do
+    -- if boolfirst then
+      -- table.insert(tempjslines, (line:gsub("return", "MC.Items = ")))
+      -- boolfirst = false
+    -- else
+      -- table.insert(tempjslines, (line:gsub("=", ":")))
+    -- end
+    -- --{label="", selling=false, buying=false, fixedprice=false, group="", price=0, trader=0}
+    -- local l = line:gsub("={bit=", "\t={bit=\t"):gsub(",buying=", "\t,buying=\t"):gsub(",c1=\"", "\t,c1=\"\t"):gsub("\",c2=\"", "\t'\",c2=\"\t"):gsub("\",c3=\"", "\t'\",c3=\"\t"):gsub("\",chisel=", "\t'\",chisel=\t"):gsub(",countforprice=", "\t,countforprice=\t"):gsub(",craftCount=", "\t,craftCount=\t"):gsub(",fixedprice=", "\t,fixedprice=\t"):gsub(",group=\"", "\t,group=\"\t"):gsub("\",hasPattern=", "\t'\",hasPattern=\t"):gsub(",label=\"", "\t,label=\"\t"):gsub("\",maxCount=", "\t'\",maxCount=\t"):gsub(",price=", "\t,price=\t"):gsub(",recipe=", "\t,recipe=\t"):gsub("},selling=", "}\t,selling=\t"):gsub("false,tag=\"", "false\t,tag=\"\t"):gsub("true,tag=\"", "true\t,tag=\"\t"):gsub("\",trader=", "\t'\",trader=\t") .. "\n"
+    -- --local l = line:gsub("={c1=\"", "    ={c1=\"    "):gsub("\",c2=\"", "    '\",c2=\"    "):gsub("\",c3=\"", "    '\",c3=\"    "):gsub("\",craftCount=", "    '\",craftCount=    "):gsub(",hasPattern=", "    ,hasPattern=    "):gsub(",maxCount=", "    ,maxCount=    "):gsub(",recipe=", "    ,recipe=    "):gsub("},tag=\"", "}    ,tag=\"    ") .. "\n"
+    -- if mf.startswith(l, "  ") then
+      -- l = l:sub(3,#l)
+    -- elseif mf.startswith(l, " ") then
+      -- l = l:sub(2,#l)
+    -- end
+    -- if mf.endswith(l, "={\n") then
+      -- l = l .. "\n"
+    -- end
+    -- if (l == "},\n") or (l == "}\n") then
+      -- l = "\n" .. l 
+    -- else
+      -- l = l:gsub("},\n", "\t},\n"):gsub("}\n", "\t}\n")
+    -- end
+    -- table.insert(templines, l)
+  -- end
+  -- templines[#templines] = "}"
+  -- --local newLuaFile = mf.io.open((ocpath[working] .. "ConvertedItems.lua"), "w")
+  -- for i,j in pairs(templines) do
+    -- --newLuaFile:write(j)
+    -- --newJSFile:write(tempjslines[i] .. "\n")
+  -- end
+  local newJSFile = mf.io.open((ocpath[working] .. "Costs Calculator/MC-ItemsTO.js"), "w")
   newJSFile:write("MC.Items = " .. json.encode(items))
   --newLuaFile:close()
   newJSFile:close()
-  templines = nil
-  tempjslines = nil
+  -- templines = nil
+  -- tempjslines = nil
   WriteItemsSC2()
 end
 local function file_exists(name)
@@ -485,6 +492,7 @@ end
 local function combineFull()
     for i, j in pairs(items) do
         if file_exists(("Crafter/ItemsAllNew/" .. i .. ".lua")) then
+            print("Combining: " .. i)
             local temp = require("Crafter/ItemsAllNew/" .. i)
             for g, h in pairs(items[i]) do
                 if temp[g] ~= nil then
@@ -523,7 +531,7 @@ end
 --print("finish")
 --mf.WriteObjectFile(sc, (ocpath[working] .. "Mods.lua"), 3)
 --getAllItems()
---combineFull()
+combineFull()
 --AddItemFields({aspects={},oredict=false,processing=false})
 WriteItemFiles()
 

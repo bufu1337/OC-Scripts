@@ -120,7 +120,6 @@ return {
  nuclearcraft_jj_ingot_jj_6={need=1},
  nuclearcraft_jj_ingot_jj_8={need=1},
  nuclearcraft_jj_ingot_oxide_jj_3={need=1},
- nuclearcraft_jj_lithium_ion_cell={need=4},
  nuclearcraft_jj_neptunium={need=1},
  nuclearcraft_jj_neptunium_jj_1={need=1},
  nuclearcraft_jj_neptunium_jj_4={need=5},
