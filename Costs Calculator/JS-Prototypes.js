@@ -22,6 +22,7 @@ String.prototype.equals = function() {
 			for (var i = 0; i < arguments[0].length; i++){
 				if ( this.equals(arguments[0][i]) ){
 					returning = true;
+                    break
 				}
 			}
 			return returning;

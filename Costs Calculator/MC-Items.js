@@ -191,7 +191,7 @@ var MC = {
             if(MC.Imports[citem.crafter] == null){
                 MC.Imports[citem.crafter] = {}
             }
-			if(!item.tag.equals({}) && MC.Imports[citem.crafter][item.id] != null){
+			if(!item.tag.equals({}) && !item.tag.equals([]) && MC.Imports[citem.crafter][item.id] != null){
 				var gg = 1
 				var idnew = item.id + "_b_" + gg
 				while(MC.Imports[citem.crafter][idnew] != null){
@@ -211,7 +211,7 @@ var MC = {
 		$.each(MC.Items, function (i, v) {
 			MC.Imports[i] = {}
 			$.each(v, function (j, g) {
-				if(!g.tag.equals("") && !g.tag.equals({})){
+				if(!g.tag.equals("") && !g.tag.equals({}) && !g.tag.equals([])){
 					MC.Imports[i][j] = {tag:g.tag}
 				}
             });
@@ -688,7 +688,7 @@ var MC = {
 				MC.show("itemvariant_line", "table-row")
 			}
 			$("#itemtag_display").text(JSON.stringify(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag));
-			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag.equals({})){ 
+			if(MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag.equals({}) || MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].tag.equals([])){ 
 				MC.hide("itemtag_line") 
 			}
 			else{ 
@@ -3998,6 +3998,37 @@ VM1475:8 ore_jj_plankWood not found
 VM1475:8 rftools_jj_shape_card_pump not found
 VM1475:8 rftools_jj_shape_card_pump_liquid not found
 VM1475:8 rftools_jj_shape_card_quarry not found
+
+var temp = []
+$.each(MC.Items.industrial, function (index, item) {
+			if(index.startsWith("ic2_jj_fluid_cell")){
+if(item.tag.Fluid != null){
+if(!temp.contains(item.tag.Fluid.FluidName)){
+temp.push(item.tag.Fluid.FluidName)
+}
+else{
+console.log(item.tag.Fluid.FluidName)
+}
+}
+else{console.log("Empty: " + index)}
+            }
+		});
+        
+var temp2 = []
+$.each(MC.Items.minecraft, function (index, item) {
+			if(index.startsWith("forge_jj_bucketfilled")){
+if(item.tag.FluidName != null){
+if(!temp2.contains(item.tag.FluidName)){
+temp2.push(item.tag.FluidName)
+}
+else{
+console.log(item.tag.FluidName)
+}
+}
+else{console.log("Empty: " + index)}
+            }
+		});
+
 
 "<    -->    {id:"
 >"    -->    "},
