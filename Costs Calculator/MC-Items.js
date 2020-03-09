@@ -563,10 +563,10 @@ var MC = {
 				replaceforLUA = true
 			}
 			var objKeys = {}
-			objKeys.main = Object.keys(MC[what])
+			objKeys.main = Object.keys(MC[what]).sort()
 			for(var i = 0; i < objKeys.main.length; i++) {
 				JStextToWrite += "  " + JSON.stringify(objKeys.main[i]) + ":{\n";
-				objKeys[objKeys.main[i]] = Object.keys(MC[what][objKeys.main[i]]);
+				objKeys[objKeys.main[i]] = Object.keys(MC[what][objKeys.main[i]]).sort();
 				for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
 					JStextToWrite += "    " + JSON.stringify(objKeys[objKeys.main[i]][j]) + ":" + JSON.stringify(MC[what][objKeys.main[i]][objKeys[objKeys.main[i]][j]])
 					if (j == objKeys[objKeys.main[i]].length - 1){
