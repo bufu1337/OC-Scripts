@@ -14,7 +14,7 @@ return {
  ic2_jj_crop_res={need=1},
  ic2_jj_dust_jj_16={need=1},
  ic2_jj_dust_jj_2={need=3},
- ic2_jj_energy_crystal_jj_26={need=1},
+ ic2_jj_energy_crystal_jj_27={need=1},
  ic2_jj_ingot_jj_1={need=1},
  ic2_jj_ingot_jj_3={need=1},
  ic2_jj_ingot_jj_5={need=1},

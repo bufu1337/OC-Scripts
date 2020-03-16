@@ -56,7 +56,7 @@ return {
  betterquesting_jj_guide_book={hasPattern=true,label="Better Questing Starter Guide",recipe={questbook_jj_itemquestbook={need=1,tag=""}}},
  betterquesting_jj_placeholder={hasPattern=false,label="",recipe={}},
  betterquesting_jj_submit_station={hasPattern=true,label="Object Submission Station (OSS)",recipe={minecraft_jj_book={need=1,tag=""},minecraft_jj_chest={need=1,tag=""},minecraft_jj_glass={need=1,tag=""}}},
- biomestaff_jj_biome_staff={hasPattern=false,label="",recipe={}},
+ biomestaff_jj_biome_staff={hasPattern=false,label="Biome Staff",recipe={}},
  biomestaff_jj_obsidian_shaft={hasPattern=false,label="",recipe={}},
  biomestaff_jj_top_plate={hasPattern=false,label="",recipe={}},
  bq_standard_jj_loot_chest={hasPattern=false,label="",recipe={}},

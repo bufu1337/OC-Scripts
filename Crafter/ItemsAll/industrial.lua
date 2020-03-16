@@ -182,7 +182,7 @@ return {
  ic2_jj_electric_wrench={hasPattern=false,label="Electric Wrench",tag={charge=12000}},
  ic2_jj_electric_wrench_jj_26={hasPattern=true,label="Elektrischer Schraubenschlüssel",tag={}},
  ic2_jj_energy_crystal={hasPattern=false,label="",tag={charge=1000000}},
- ic2_jj_energy_crystal_jj_26={hasPattern=false,label="",tag={}},
+ ic2_jj_energy_crystal_jj_27={hasPattern=false,label="",tag={}},
  ic2_jj_energy_pack={hasPattern=false,label="",tag={charge=2000000}},
  ic2_jj_energy_pack_jj_26={hasPattern=true,label="Energiepack",tag={}},
  ic2_jj_fence={hasPattern=true,label="Eisenzaun",tag={}},

@@ -56,7 +56,7 @@ return {
  betterquesting_jj_guide_book={hasPattern=true,label="Better Questing Starter Guide",tag={}},
  betterquesting_jj_placeholder={hasPattern=false,label="",tag={}},
  betterquesting_jj_submit_station={hasPattern=true,label="Object Submission Station (OSS)",tag={}},
- biomestaff_jj_biome_staff={hasPattern=false,label="",tag={}},
+ biomestaff_jj_biome_staff={hasPattern=false,label="Biome Staff",tag={}},
  biomestaff_jj_biome_staff_b_1={hasPattern=false,label="",tag={biome=10}},
  biomestaff_jj_biome_staff_b_10={hasPattern=false,label="",tag={biome=-79}},
  biomestaff_jj_biome_staff_b_100={hasPattern=false,label="",tag={biome=-82}},
