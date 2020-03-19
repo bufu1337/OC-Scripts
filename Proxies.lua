@@ -154,6 +154,7 @@ local function ModToProp(mod, typ)
         environmentalmaterials={crafter="environ", name="Environmental Tech"},
         environmentaltech={crafter="environ", name="Environmental Tech"},
         etlunar={crafter="environ", name="Environmental Tech"},
+        exoticbirds={crafter="biomes", name="Exotic Birds"},
         extraalchemy={crafter="biblio", name="Extra Alchemy"},
         extrabees={crafter="binnie", name="Binnie Bees"},
         extrabitmanipulation={crafter="others", name="Extra Bit Manipulation"},
