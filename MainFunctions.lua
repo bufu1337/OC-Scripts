@@ -347,6 +347,24 @@ function mf.MathUp(num)
     end
     return result
 end
+function mf.compare(a, b)
+  local r = true
+  for key, value in pairs(a) do
+    if b[key] == nil then
+      r = false
+      break
+    elseif type(value) == "table" then
+      if compare(value, b[key]) == false then
+        r = false
+        break
+      end
+    elseif value ~= b[key] then
+      r = false
+      break
+    end
+  end
+  return r
+end
 function mf.contains(ab, element, only_keytype)
   if type(ab) == "string" then
     local abnew = ab:gsub(element, "")

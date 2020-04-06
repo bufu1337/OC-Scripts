@@ -1,6 +1,10 @@
 local filesystem = require("filesystem")
 if filesystem.exists("/home/Crafter/") == false then filesystem.makeDirectory("/home/Crafter/") end
 if filesystem.exists("/home/Crafter/ItemsAll") == false then filesystem.makeDirectory("/home/Crafter/ItemsAll") end
+if filesystem.exists("/mnt/58e/home/Crafter/") == false then filesystem.makeDirectory("/mnt/58e/home/Crafter/") end
+if filesystem.exists("/mnt/58e/home/Crafter/ItemsAll") == false then filesystem.makeDirectory("/mnt/58e/home/Crafter/ItemsAll") end
+if filesystem.exists("/mnt/caa/home/Crafter/") == false then filesystem.makeDirectory("/mnt/caa/home/Crafter/") end
+if filesystem.exists("/mnt/caa/home/Crafter/ItemsAll") == false then filesystem.makeDirectory("/mnt/caa/home/Crafter/ItemsAll") end
 
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/minecraft.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/minecraft.lua")
@@ -45,8 +49,8 @@ os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master
 --os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/chisel.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/chisel.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/bits.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/bits.lua")
 --os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/flat.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/flat.lua")
---os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/pillar.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/pillar.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/more.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/more.lua")
---os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/chimneys.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/chimneys.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/pillar.lua" .. "?" .. math.random() .. " /mnt/caa/home/Crafter/ItemsAll/pillar.lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/chimneys.lua" .. "?" .. math.random() .. " /mnt/caa/home/Crafter/ItemsAll/chimneys.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/minewatch.lua" .. "?" .. math.random() .. " /home/Crafter/ItemsAll/minewatch.lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/future.lua" .. "?" .. math.random() .. " /mnt/58e/home/Crafter/ItemsAll/future.lua")

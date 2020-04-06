@@ -5,6 +5,8 @@ var MC = {
 	Mod: {},
     Imports: {},
 	Traders: [],
+	Aspects: {},
+	AspectsAnzahl: {},
 	Listing: {itemListBox:[]},
 	Suggest: { groups: [], comment1: [], comment2: [], comment3: [] },
 	viewing: {
@@ -268,6 +270,28 @@ var MC = {
 		else{
 			$.each(MC.Mods, function (modid, mod) {
 				MC.createModList(modid);
+			});
+			$.each(MC.Items, function (im, mod) {
+				$.each(mod, function (ii, item) {
+					if(item.aspects != null){
+						$.each(item.aspects, function (ia, aspect) {
+							if(MC.Aspects[ia] == null){
+								MC.Aspects[ia] = {}
+							}
+							MC.Aspects[ia][ii] = item.aspects
+							if(MC.AspectsAnzahl[ia] == null){
+								MC.AspectsAnzahl[ia] = {}
+							}
+							if(MC.AspectsAnzahl[ia][aspect] == null){
+								MC.AspectsAnzahl[ia][aspect] = []
+							}
+							MC.AspectsAnzahl[ia][aspect].push(ii)
+						});
+					}
+					else{
+						console.log(ii + " has not aspects")
+					}
+				});
 			});
 		}
 	},

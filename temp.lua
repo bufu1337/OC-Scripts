@@ -25,6 +25,11 @@ gp.items = {}; gp.GetPattern("chimneys", true);
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/terra.lua" .. "?" .. math.random() .. " /mnt/a9f/home/Crafter/ItemsAll/terra.lua");
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/GetItemFiles.lua" .. "?" .. math.random() .. " /home/Crafter/GetItemFiles.lua");
 
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libcrc32/crc32.lua" .. "?" .. math.random() .. " /lib/crc32.lua");
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libdeflate/deflate.lua" .. "?" .. math.random() .. " /lib/deflate.lua");
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libitem/item.lua" .. "?" .. math.random() .. " /lib/item.lua");
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libnbt/nbt.lua" .. "?" .. math.random() .. " /lib/nbt.lua");
+
 minecraft	"5e641952-57b9-4d2c-bdc4-84c3169c9003",
 draconic	"d24e6b8e-ff7b-44ea-89b4-86a73b6b9625",  
 conquest	"a40d3a48-9744-4d54-99d3-87c76fd4ba93",
@@ -74,7 +79,6 @@ minewatch	"e0184266-3df9-4b63-b052-830060a9b8a3",
 future	"22997dcf-62d9-43a1-a8f7-c5a1b59b5b71",
         itemsort = "ae451f31-8a79-4ca0-8b40-9a534ba94511",
         fluid = "56338f1c-21de-4400-aa0e-8696db0a9c7e"
-        
         
         
 ac = require("home/Crafter/Autocraft")

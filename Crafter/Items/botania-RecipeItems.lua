@@ -15,6 +15,7 @@ return {
  botania_jj_biomestonea_jj_7={need=3},
  botania_jj_biomestonea_jj_8={need=3},
  botania_jj_biomestonea_jj_9={need=3},
+ botania_jj_dreamwood={need=1},
  botania_jj_elfglass={need=1},
  botania_jj_flower={need=1},
  botania_jj_flower_jj_1={need=1},

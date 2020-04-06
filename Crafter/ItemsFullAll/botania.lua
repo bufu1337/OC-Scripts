@@ -227,7 +227,7 @@ return {
  botania_jj_doubleflower2_jj_5={hasPattern=false,label="",recipe={}},
  botania_jj_doubleflower2_jj_6={hasPattern=false,label="",recipe={}},
  botania_jj_doubleflower2_jj_7={hasPattern=false,label="",recipe={}},
- botania_jj_dreamwood={hasPattern=true,label="Dreamwood",recipe={botania_jj_dreamwood0slab={need=2,tag=""}}},
+ botania_jj_dreamwood={hasPattern=false,label="Dreamwood",recipe={botania_jj_dreamwood0slab={need=2,tag=""}}},
  botania_jj_dreamwood0slab={hasPattern=true,label="Dreamwood Slab",recipe={botania_jj_dreamwood={need=3,tag=""}}},
  botania_jj_dreamwood0stairs={hasPattern=true,label="Dreamwood Stairs",recipe={botania_jj_dreamwood={need=6,tag=""}}},
  botania_jj_dreamwood0wall={hasPattern=true,label="Dreamwood Wall",recipe={botania_jj_dreamwood={need=6,tag=""}}},
