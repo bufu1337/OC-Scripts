@@ -7,23 +7,57 @@ gp.prox = require("/home/Proxies")
 gp.items = {}
 function gp.GetCrafterLoc(crafter)
     local cl = {
+        f3d = {
+        },
         a9f = {
-            "terra",
-            "modern",
-            "immersive",
-            "fiifex",
-            "plants",
-            "rocketry"
+          "actadd",
+"aether",
+"appen",
+"atl",
+"binnie",
+"biomes",
+"bits",
+"btrees",
+"ceramics",
+"cyclic",
+"fairy",
+"forestry",
+"immersive",
+"industrial",
+"mekanism",
+"minecraft",
+"minewatch",
+"more",
+"plants",
+"railroad",
+"reliq",
+"rftools",
+"rocketry",
+"storage",
+"terra",
+"tinkers",
+"treborn",
+"utilities" 
         },
         x58e = {
-            "conquest",
-            "others",
-            "binnie"
-        },
-        f3d = {
-            "conquest"
+          "biblio",
+"botania",
+"draconic",
+"environ",
+"fiifex",
+"food",
+"future",
+"metals",
+"modern",
+"mystical",
+"nuclear",
+"others",
+"thermal"
         },
         caa = {
+       "conquest",
+       "pillar",
+       "chimneys"
         }
     }
     loc = ""
@@ -43,8 +77,7 @@ function gp.GetPattern(crafter, newrecipes)
         local rs = gp.com.proxy(gp.prox.GetProxyByCrafter(crafter))
         for i,j in pairs(gp.mf.getSortedKeys(gp.items)) do
             if string.match(j, "_b_") == nil then
-                local start2 = gp.mf.getCount(gp.items[j].recipe) == 0 or gp.items[j].hasPattern == false
-                local start1 = start2 and newrecipes == false
+                local start1 = gp.mf.getCount(gp.mf.getKeys(gp.items[j].recipe)) == 0 and newrecipes == false
                 if newrecipes or start1 then
                     print("Check Item: " .. j)
                     local item = gp.cv.TextToItem(j)
