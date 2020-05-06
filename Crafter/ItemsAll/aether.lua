@@ -650,7 +650,7 @@ return {
  structurize_jj_blocktimberframe_spruce_plain={hasPattern=true,label="",tag={}},
  structurize_jj_blocktimberframe_spruce_sideframed={hasPattern=true,label="",tag={}},
  structurize_jj_cactusdoor={hasPattern=true,label="",tag={}},
- structurize_jj_caliper={hasPattern=true,label="",tag={}},
+ structurize_jj_caliper={hasPattern=false,label="",tag={}},
  structurize_jj_multiblock={hasPattern=true,label="",tag={}},
  structurize_jj_sceptergold={hasPattern=true,label="",tag={}},
  structurize_jj_sceptersteel={hasPattern=true,label="",tag={}},

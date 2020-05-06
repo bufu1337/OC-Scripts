@@ -646,7 +646,7 @@ return {
  structurize_jj_blocktimberframe_spruce_plain={hasPattern=true,label="",recipe={}},
  structurize_jj_blocktimberframe_spruce_sideframed={hasPattern=true,label="",recipe={}},
  structurize_jj_cactusdoor={hasPattern=true,label="",recipe={}},
- structurize_jj_caliper={hasPattern=true,label="",recipe={}},
+ structurize_jj_caliper={hasPattern=false,label="",recipe={}},
  structurize_jj_multiblock={hasPattern=true,label="",recipe={}},
  structurize_jj_sceptergold={hasPattern=true,label="",recipe={}},
  structurize_jj_sceptersteel={hasPattern=true,label="",recipe={}},

@@ -107,12 +107,31 @@ var MC = {
 	},
 	createNewItems: function(items){
 		$.each(items, function (i, item) {
+            item.id = item.id.replaceAll(":", "_jj_").replaceAll("/", "_xx_").replaceAll("-", "_qq_").replaceAll(".", "_vv_")
+			var citem = MC.convertItemID(item.id)
+			var idtemp = item.id
 			if ( !item.tag ) {
 				item.tag = {}
 			}
-            item.id = item.id.replaceAll(":", "_jj_").replaceAll("/", "_xx_").replaceAll("-", "_qq_").replaceAll(".", "_vv_")
-			var citem = MC.convertItemID(item.id)
-			if ( citem.crafter == "" ) {
+            else{
+                if(MC.CItems[MC.Mods[citem.modid].name][item.id] != null){
+                    var found = false
+                    $.each(MC.CItems[MC.Mods[citem.modid].name][item.id].variants, function (i, variant) {
+						if(variant != 0){
+							var gg = item.id + "_b_" + variant
+							var t = MC.Items[citem.crafter][gg].tag
+							if(t != null && t.equals(item.tag)){
+								found = true
+								return
+							}
+						}
+                    });
+                    if(found == false){
+                        item.id = item.id + "_b_" + MC.CItems[MC.Mods[citem.modid].name][item.id].variants.length
+                    }
+                }
+            }
+            if ( citem.crafter == "" ) {
 				if ( !item.crafter ) {
 					console.log("Cant find crafter for item: " + item.id)
 				}
@@ -127,7 +146,7 @@ var MC = {
 					if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
 						MC.CItems[MC.Mods[citem.modid].name] = {}
 					}
-					MC.CItems[MC.Mods[citem.modid].name][item.id] = MC.convertItemID(item.id, true, true)
+					MC.CItems[MC.Mods[citem.modid].name][idtemp] = MC.convertItemID(idtemp, true, true)
 					if(!citem.itemid.equals(MC.Mods[citem.modid].itemid)){
 						MC.Mods[citem.modid].itemid.push(citem.itemid)
 					}

@@ -111,7 +111,6 @@ return {
  structurize_jj_blocktimberframe_spruce_plain={craftCount=1,maxCount=8,recipe={}},
  structurize_jj_blocktimberframe_spruce_sideframed={craftCount=1,maxCount=8,recipe={}},
  structurize_jj_cactusdoor={craftCount=1,maxCount=8,recipe={}},
- structurize_jj_caliper={craftCount=1,maxCount=8,recipe={}},
  structurize_jj_multiblock={craftCount=1,maxCount=8,recipe={}},
  structurize_jj_sceptergold={craftCount=1,maxCount=8,recipe={}},
  structurize_jj_sceptersteel={craftCount=1,maxCount=8,recipe={}},
