@@ -3353,6 +3353,7 @@ return {
  forestry_jj_portable_alyzer={hasPattern=true,label="Tragbarer Analysierer",tag={}},
  forestry_jj_propolis={hasPattern=false,label="",tag={}},
  forestry_jj_propolis_jj_1={hasPattern=false,label="",tag={}},
+ forestry_jj_propolis_jj_2={hasPattern=false,label="",tag={}},
  forestry_jj_propolis_jj_3={hasPattern=false,label="",tag={}},
  forestry_jj_rainmaker={hasPattern=true,label="Regenmacher",tag={}},
  forestry_jj_raintank={hasPattern=true,label="Regentank",tag={}},

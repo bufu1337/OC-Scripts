@@ -2839,7 +2839,7 @@ return {
  forestry_jj_slabs_vv_vanilla_vv_fireproof_vv_0_jj_4={craftCount=6,maxCount=8,recipe={forestry_jj_planks_vv_vanilla_vv_fireproof_vv_0_jj_4={need=3}}},
  forestry_jj_slabs_vv_vanilla_vv_fireproof_vv_0_jj_5={craftCount=6,maxCount=8,recipe={forestry_jj_planks_vv_vanilla_vv_fireproof_vv_0_jj_5={need=3}}},
  forestry_jj_smoker={craftCount=1,maxCount=8,recipe={forestry_jj_ingot_tin={need=5},minecraft_jj_flint_and_steel={need=1},minecraft_jj_leather={need=2},minecraft_jj_stick={need=1}}},
- forestry_jj_soldering_iron={craftCount=1,maxCount=8,recipe={forestry_jj_ingot_bronze={need=1},uniquecrops_jj_ediblemetal_vv_ironingot={need=3}}},
+ forestry_jj_soldering_iron={craftCount=1,maxCount=8,recipe={forestry_jj_ingot_bronze={need=1},minecraft_jj_iron_ingot={need=3}}},
  forestry_jj_squeezer={craftCount=1,maxCount=8,recipe={forestry_jj_ingot_tin={need=6},forestry_jj_sturdy_machine={need=1},minecraft_jj_glass={need=2}}},
  forestry_jj_stairs_vv_acacia={craftCount=4,maxCount=8,recipe={forestry_jj_planks_vv_0_jj_2={need=6}}},
  forestry_jj_stairs_vv_balsa={craftCount=4,maxCount=8,recipe={forestry_jj_planks_vv_0_jj_11={need=6}}},

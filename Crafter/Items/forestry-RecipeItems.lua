@@ -139,6 +139,5 @@ return {
  minecraft_jj_water_bucket={need=1},
  minecraft_jj_wheat={need=4},
  minecraft_jj_wooden_slab={need=3},
- minecraft_jj_wool={need=1},
- uniquecrops_jj_ediblemetal_vv_ironingot={need=3}
+ minecraft_jj_wool={need=1}
  }

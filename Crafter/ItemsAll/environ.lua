@@ -289,8 +289,8 @@ return {
  enderio_jj_block_solar_panel_jj_3={hasPattern=true,label="Vibrant Photovoltaic Cell",tag={}},
  enderio_jj_block_soul_binder={hasPattern=true,label="Soul Binder",tag={}},
  enderio_jj_block_stirling_generator={hasPattern=true,label="Stirling Generator",tag={}},
- enderio_jj_block_tank={hasPattern=true,label="Fluid Tank",tag={}},
- enderio_jj_block_tank_jj_1={hasPattern=true,label="Pressurized Fluid Tank",tag={}},
+ enderio_jj_block_tank={hasPattern=false,label="Fluid Tank",tag={}},
+ enderio_jj_block_tank_jj_1={hasPattern=false,label="Pressurized Fluid Tank",tag={}},
  enderio_jj_block_tele_pad={hasPattern=true,label="Telepad Block",tag={}},
  enderio_jj_block_transceiver={hasPattern=true,label="Dimensional Transceiver",tag={}},
  enderio_jj_block_travel_anchor={hasPattern=true,label="Travel Anchor",tag={}},
@@ -1095,5 +1095,5 @@ return {
  etlunar_jj_lunar_cont_5={hasPattern=true,label="Lunar Array Controller Tier 5",tag={}},
  etlunar_jj_lunar_cont_6={hasPattern=true,label="Lunar Array Controller Tier 6",tag={}},
  etlunar_jj_lunarvoltaic_cell={hasPattern=true,label="Lunarvoltaic Cell",tag={}},
- gasconduits_jj_item_gas_filter={hasPattern=false,label="",tag={}}
+ gasconduits_jj_item_gas_filter={hasPattern=true,label="Gas Filter",tag={}}
  }

@@ -29,7 +29,7 @@ return {
  morebeautifulbuttons_jj_brown_stained_glass_button={hasPattern=false,label="",tag={}},
  morebeautifulbuttons_jj_brown_terracotta_button={hasPattern=false,label="",tag={}},
  morebeautifulbuttons_jj_brown_wool_button={hasPattern=false,label="",tag={}},
- morebeautifulbuttons_jj_button_press={hasPattern=false,label="",tag={}},
+ morebeautifulbuttons_jj_button_press={hasPattern=true,label="Button Press",tag={}},
  morebeautifulbuttons_jj_cactus_button={hasPattern=false,label="",tag={}},
  morebeautifulbuttons_jj_chiseled_quartz_block_button={hasPattern=false,label="",tag={}},
  morebeautifulbuttons_jj_chiseled_red_sandstone_button={hasPattern=false,label="",tag={}},

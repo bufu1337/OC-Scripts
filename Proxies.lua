@@ -1,6 +1,6 @@
 local sides = require("sides")
 local prox = {}
-local function GetProxyByCrafter(name)
+function prox.GetProxyByCrafter(name)
     local pr = {
         minecraft = "5e641952-57b9-4d2c-bdc4-84c3169c9003",
         draconic = "d24e6b8e-ff7b-44ea-89b4-86a73b6b9625",
@@ -54,7 +54,7 @@ local function GetProxyByCrafter(name)
     }
     return pr[name]
 end
-local function ModToProp(mod, typ)
+function prox.ModToProp(mod, typ)
     local mtpn = {
         actuallyadditions={crafter="actadd", name="Actually Additions"},
         adchimneys={crafter="chimneys", name="Advanced Chimneys"},
@@ -329,18 +329,14 @@ local function ModToProp(mod, typ)
 	}
     return mtpn[mod][typ]
 end
-local function ModCrafter(mod)
+function prox.ModCrafter(mod)
 	return ModToProp(mod, "crafter")
 end
-local function ModName(mod)
+function prox.ModName(mod)
 	return ModToProp(mod, "name")
 end
-local function GetProxyByMod(mod)
+function prox.GetProxyByMod(mod)
     return GetProxyByCrafter(ModCrafter(mod))
 end
 
-prox.GetProxyByMod = GetProxyByMod
-prox.GetProxyByCrafter = GetProxyByCrafter
-prox.ModCrafter = ModCrafter
-prox.ModName = ModName
 return prox

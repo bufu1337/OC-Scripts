@@ -8,7 +8,52 @@ gp.GetPattern("cyclic", true); gp.items = {}; gp.GetPattern("ceramics", true); g
 
 gp = require("home/GetPattern"); gp.items = {}; gp.GetPattern("forestry", true); os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/2/conquest.lua" .. "?" .. math.random() .. " /mnt/58e/home/Crafter/ItemsAll/conquest.lua"); os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/2/others.lua" .. "?" .. math.random() .. " /mnt/58e/home/Crafter/ItemsAll/others.lua");
 gp.items = {}; gp.GetPattern("fiifex", true); gp.items = {}; gp.GetPattern("plants", true); gp.items = {}; gp.GetPattern("rocketry", true); gp.items = {}; gp.GetPattern("immersive", true); gp.items = {}; gp.GetPattern("modern", true); 
-gp = require("home/GetPattern"); gp.items = {}; gp.GetPattern("terra", true); 
+gp = require("home/GetPattern"); gp.items = {}; gp.GetPattern("conquest", true); 
+
+gp.items = {}; gp.GetPattern("actadd", true);
+gp.items = {}; gp.GetPattern("aether", true);
+gp.items = {}; gp.GetPattern("appen", true);
+gp.items = {}; gp.GetPattern("atl", true);
+gp.items = {}; gp.GetPattern("binnie", true);
+gp.items = {}; gp.GetPattern("biomes", true);
+gp.items = {}; gp.GetPattern("bits", true);
+gp.items = {}; gp.GetPattern("btrees", true);
+gp.items = {}; gp.GetPattern("ceramics", true);
+gp.items = {}; gp.GetPattern("cyclic", true);
+gp.items = {}; gp.GetPattern("fairy", true);
+gp.items = {}; gp.GetPattern("forestry", true);
+gp.items = {}; gp.GetPattern("immersive", true);
+gp.items = {}; gp.GetPattern("industrial", true);
+gp.items = {}; gp.GetPattern("mekanism", true);
+gp.items = {}; gp.GetPattern("minecraft", true);
+gp.items = {}; gp.GetPattern("minewatch", true);
+gp.items = {}; gp.GetPattern("more", true);
+gp.items = {}; gp.GetPattern("plants", true);
+gp.items = {}; gp.GetPattern("railroad", true);
+gp.items = {}; gp.GetPattern("reliq", true);
+gp.items = {}; gp.GetPattern("rftools", true);
+gp.items = {}; gp.GetPattern("rocketry", true);
+gp.items = {}; gp.GetPattern("storage", true);
+gp.items = {}; gp.GetPattern("terra", true);
+gp.items = {}; gp.GetPattern("tinkers", true);
+gp.items = {}; gp.GetPattern("treborn", true);
+gp.items = {}; gp.GetPattern("utilities", true);
+gp.items = {}; gp.GetPattern("biblio", true);
+gp.items = {}; gp.GetPattern("botania", true);
+gp.items = {}; gp.GetPattern("draconic", true);
+gp.items = {}; gp.GetPattern("environ", true);
+gp.items = {}; gp.GetPattern("fiifex", true);
+gp.items = {}; gp.GetPattern("food", true);
+gp.items = {}; gp.GetPattern("future", true);
+gp.items = {}; gp.GetPattern("metals", true);
+gp.items = {}; gp.GetPattern("modern", true);
+gp.items = {}; gp.GetPattern("mystical", true);
+gp.items = {}; gp.GetPattern("nuclear", true);
+gp.items = {}; gp.GetPattern("others", true);
+gp.items = {}; gp.GetPattern("thermal", true);
+gp.items = {}; gp.GetPattern("conquest", true);
+gp.items = {}; gp.GetPattern("pillar", true);
+gp.items = {}; gp.GetPattern("chimneys", true);
 
 
 

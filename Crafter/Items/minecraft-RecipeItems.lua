@@ -4,6 +4,7 @@ return {
  conquest_jj_iron_trapdoormodel_1={need=3},
  conquest_jj_stone_verticalslab_2_jj_2={need=6},
  darkutils_jj_shulker_pearl={need=8},
+ gemmary_jj_emerald_part={need=9},
  harvestcraft_jj_apple_sapling={need=1},
  harvestcraft_jj_bakewareitem={need=1},
  harvestcraft_jj_beetsoupitem={need=1},
@@ -94,6 +95,5 @@ return {
  mysticalagriculture_jj_skeleton_essence={need=1},
  mysticalagriculture_jj_wither_skeleton_essence={need=8},
  mysticalagriculture_jj_zombie_essence={need=8},
- thermalfoundation_jj_material_jj_17={need=9},
  thermalfoundation_jj_material_jj_800={need=4}
  }

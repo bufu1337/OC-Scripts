@@ -48,7 +48,7 @@ return {
  mekanism_jj_basicblock_jj_2={hasPattern=true,label="Raffiniertes Obsidian",tag={}},
  mekanism_jj_basicblock_jj_3={hasPattern=false,label="",tag={}},
  mekanism_jj_basicblock_jj_4={hasPattern=true,label="Raffiniertes Glowstone",tag={}},
- mekanism_jj_basicblock_jj_5={hasPattern=false,label="Stahlblock",tag={}},
+ mekanism_jj_basicblock_jj_5={hasPattern=true,label="Stahlblock",tag={}},
  mekanism_jj_basicblock_jj_6={hasPattern=false,label="",tag={tier=0}},
  mekanism_jj_basicblock_jj_6_b_1={hasPattern=false,label="",tag={tier=1}},
  mekanism_jj_basicblock_jj_6_b_2={hasPattern=false,label="",tag={tier=2}},

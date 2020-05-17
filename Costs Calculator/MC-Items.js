@@ -345,6 +345,10 @@ var MC = {
 				}
 			});
 		});
+        MC.Suggest.groups.sort();
+		MC.Suggest.comment1.sort();
+		MC.Suggest.comment2.sort();
+		MC.Suggest.comment3.sort();
 	},
 	convertCItemtoID: function(citem){
 		var item = citem.modid + "_jj_" + citem.itemid
@@ -740,7 +744,7 @@ var MC = {
 
 			$("#itemlabel_input").jqxInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].label);
 			if ( MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group == "" ) {
-				$('#itemgroup_input').jqxComboBox('clear')
+				$('#itemgroup_input').jqxComboBox('clearSelection')
 			}
 			else{
 				$("#itemgroup_input").jqxComboBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group);
