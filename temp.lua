@@ -126,6 +126,8 @@ future	"22997dcf-62d9-43a1-a8f7-c5a1b59b5b71",
         fluid = "56338f1c-21de-4400-aa0e-8696db0a9c7e"
         
         
-ac = require("home/Crafter/Autocraft")
-com = ac.mf.component.proxy(ac.prox.GetProxyByCrafter(""))
+ac = require("home/Crafter/Autocraft"); crafter = ""; com = ac.mf.component.proxy(ac.prox.GetProxyByCrafter(crafter))
 pat = com.getPattern({ name = "" })
+
+ac.items = require("mnt/f3d/home/Crafter/Items/".. crafter .. "-RecipeItems"); ac.ConvertItems()
+for i,j in pairs(ac.items) do pat = com.getItem(j) if pat == nil then print(i) end end

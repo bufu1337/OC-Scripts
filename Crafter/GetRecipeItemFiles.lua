@@ -1,6 +1,6 @@
 local filesystem = require("filesystem")
 if filesystem.exists("/mnt/f3d/home/Crafter/") == false then filesystem.makeDirectory("/mnt/f3d/home/Crafter/") end
-if filesystem.exists("/mnt/f3d/home/Crafter/Items") == false then filesystem.makeDirectory("/mnt/f3d/home/Crafter/Items") end
+if filesystem.exists("/mnt/f3d/home/Crafter/Items") == false then ilesystem.makeDirectory("/mnt/f3d/home/Crafter/Items") end
 
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Items/minecraft-RecipeItems.lua" .. "?" .. math.random() .. " /mnt/f3d/home/Crafter/Items/minecraft-RecipeItems.lua")

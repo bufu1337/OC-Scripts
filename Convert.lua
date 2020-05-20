@@ -1,55 +1,55 @@
 local convert = {}
-local function TextToItem(text)
-    local result = {name="";damage=0;mod=""}
-    local counter = 0
+local function split(inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t={}
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+function convert.TextToItem(text)
+    local result = {name="";damage=0;mod="";tagnum=0}
     text = text:gsub("_jj_", ":")
     text = text:gsub("_xx_", "/")
     text = text:gsub("_qq_", "-")
     text = text:gsub("_vv_", ".")
-    for w in (text .. ":"):gmatch("([^:]*):") do 
-        if(counter == 0)then
-            result.name = w
-            result.mod = w 
-        end
-        if(counter == 1)then
-            result.name = result.name .. ":" .. w
-        end
-        if(counter == 2)then
-            result.damage = tonumber(w)
-        end
-        counter = counter +1
+    text = text:gsub("_b_", "#")
+    local temp = split(text, "#")
+    local temp2 = split(temp[1], ":")
+    result.mod = temp2[1]
+    result.name = temp2[1] .. ":" .. temp2[2]
+    text = temp[1]
+    if temp2[3] ~= nil then
+        result.damage = tonumber(temp2[3])
     end
-    if result.damage == nil then
-        result.damage = 0.0
+    if temp[2] ~= nil then
+        result.tagnum = tonumber(temp[2])
     end
     return result
 end
-local function ItemToText(item)
+function convert.ItemToText(item)
     return item.name .. ":" .. item.damage
 end
-local function TextToOName(text)
+function convert.TextToOName(text)
     text = text:gsub(":", "_jj_")
     text = text:gsub("/", "_xx_")
     text = text:gsub("-", "_qq_")
     text = text:gsub("%.", "_vv_")
     return text
 end
-local function ItemToOName(item)
+function convert.ItemToOName(item)
     if item.damage ~= nil and item.damage ~= 0 then
       return TextToOName(item.name) .. "_jj_" .. item.damage
     else
       return TextToOName(item.name)
     end
 end
-local function ItemMod(item)
+function convert.ItemMod(item)
     if item.mod == nil then
         item = TextToItem(ItemToOName(item))
     end
     return item.mod
 end
-convert.TextToItem = TextToItem
-convert.ItemToText = ItemToText
-convert.ItemToOName = ItemToOName
-convert.TextToOName = TextToOName
-convert.ItemMod = ItemMod
 return convert
