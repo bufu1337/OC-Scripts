@@ -69,7 +69,7 @@ gp.items = {}; gp.GetPattern("chimneys", true);
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/ItemsFullAll/terra.lua" .. "?" .. math.random() .. " /mnt/a9f/home/Crafter/ItemsAll/terra.lua");
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/GetItemFiles.lua" .. "?" .. math.random() .. " /home/Crafter/GetItemFiles.lua");
-
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Convert.lua" .. "?" .. math.random() .. " /home/Convert.lua");
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libcrc32/crc32.lua" .. "?" .. math.random() .. " /lib/crc32.lua");
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libdeflate/deflate.lua" .. "?" .. math.random() .. " /lib/deflate.lua");
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/nbt/Magik6k-Programs-master/libitem/item.lua" .. "?" .. math.random() .. " /lib/item.lua");
