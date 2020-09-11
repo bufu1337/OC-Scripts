@@ -1,11 +1,12 @@
-param($bank = 10000,
-$numcount = 100000,
-$limitbethalf=4,
-$limitbetthird=4,
-$limithalf=14,
-$limitthird=27,
-$limitmultihalf=4,
-$limitmultithird=4)
+param($bank = 100.00,
+$numcount = 10000,
+$limitbethalf=7,
+$limitbetthird=7,
+$limithalf=5,
+$limitthird=9,
+$limitmultihalf=2,
+$limitmultithird=1.5,
+$winlimit = 40)
 $limit = @{bethalf=$limitbethalf; betthird=$limitbetthird; half=$limithalf; third=$limitthird; multihalf=$limitmultihalf; multithird=$limitmultithird}
 $numbers = @{
 G_U_1 = @{count=0;num=@(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36)};
@@ -23,6 +24,8 @@ L_3 = @{count=0;num=@(3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36)}
 }
 $win = 0
 $loose = 0
+$loosewait = 0
+$lw = $false
 $logall = @()
 $key = @("G_U_1", "G_U_2", "R_S_1", "R_S_2", "H_1", "H_2", "D_1", "D_2", "D_3", "L_1", "L_2", "L_3")
 $startTime = Get-Date
@@ -52,7 +55,7 @@ foreach($numkeys in $numbers.keys){
     }
 }
 for($i=0;$i -lt $numcount; $i++){
-    if(($i -ne 0) -and (([math]::floor(($i/10000))*10000) -eg $i)){
+    if(($i -ne 0) -and (([math]::floor(($i/10000))*10000) -eq $i)){
         $logall | Out-File "C:\Privat\RO.csv" -Append
         $logall = @()
     }
@@ -68,6 +71,10 @@ for($i=0;$i -lt $numcount; $i++){
                 $bank += $numbers[$numkeys].bet * $numbers[$numkeys].win
                 Write-Host $i $numkeys WIN $wintemp Bank: $bank
                 $win++
+                $loosewait++
+                if($loosewait -eq $winlimit){
+                    $lw = $true
+                }
                 $numcount = $numcount_orig
                 $numbers[$numkeys].bet = 0
                 $numbers[$numkeys].betcount = 0
@@ -108,20 +115,22 @@ for($i=0;$i -lt $numcount; $i++){
     $log += " ;"
     foreach($numkeys in $key){
         if($numbers[$numkeys].count -eq $numbers[$numkeys].limit){
-            $numbers[$numkeys].bet = [math]::floor(($bank/10000))*100
-            if(($numbers[$numkeys].bet -eq 0) -and ($bank -gt 0)){
-                $numbers[$numkeys].bet = [math]::floor(($bank/1000))*10
+            if(!$lw){
+                $numbers[$numkeys].bet = [math]::floor($bank/100)
+                # if(($numbers[$numkeys].bet -eq 0) -and ($bank -gt 0)){
+                    # $numbers[$numkeys].bet = [math]::floor($bank/10)
+                # }
+                if(($numbers[$numkeys].bet -eq 0) -and ($bank -gt 0)){
+                    $numbers[$numkeys].bet = [math]::round($bank/100, 2)
+                }
+                $bank -= $numbers[$numkeys].bet
             }
-            if(($numbers[$numkeys].bet -eq 0) -and ($bank -gt 0)){
-                $numbers[$numkeys].bet = [math]::floor(($bank/100))
-            }
-            $bank -= $numbers[$numkeys].bet
             $numbers[$numkeys].betcount++
         }
         elseif($numbers[$numkeys].count -gt $numbers[$numkeys].limit){
             if($numbers[$numkeys].betcount -lt $numbers[$numkeys].betlimit){
                 if($numbers[$numkeys].bet -gt 0){
-                    $numbers[$numkeys].bet = $numbers[$numkeys].bet * $numbers[$numkeys].multi
+                    $numbers[$numkeys].bet = [math]::round($numbers[$numkeys].bet * $numbers[$numkeys].multi, 2)
                     if($numbers[$numkeys].bet -gt $bank){
                         $numbers[$numkeys].bet = $bank
                     }
@@ -132,14 +141,15 @@ for($i=0;$i -lt $numcount; $i++){
             else{
                 $bettemp = $numbers[$numkeys].bet
                 $maxtemp = $numbers[$numkeys].count
-                Write-Host $i $numkeys Loose $bettemp Bank: $bank
+                Write-Host $i $numkeys Loose $bettemp Bank: $bank Loosewait: $loosewait
                 $loose++
-                
+                $lw = $false
+                $loosewait = 0
                 $numbers[$numkeys].bet = 0
                 $numbers[$numkeys].betcount = 0
             }
         }
-        $log += "" + $numbers[$numkeys].bet + ";"
+        $log += "" + $numbers[$numkeys].bet.toString().replace(".", ",") + ";"
     }
     $log += " ;"
     foreach($numkeys in $key){
@@ -151,9 +161,9 @@ for($i=0;$i -lt $numcount; $i++){
         $log += "" + $numbers[$numkeys].betcount + ";"
     }
     
-    $log = "$num;$bank;" + $log
+    $log = "$num;$bank;".replace(".", ",") + $log
     $logall += $log
-    if(($bank -lt 100) -and ($numcount -ne ($i + 1))){
+    if(($bank -lt 1) -and ($numcount -ne ($i + 1))){
         $numcount = $i + 2
     }
 }
@@ -171,6 +181,8 @@ foreach($numkeys in $key){
     Write-Host 
 }
 Write-Host WIN: $win Loose: $loose Bank: $bank
+$ratio = $win / $loose
+Write-Host WIN-Loose-Ratio: $ratio
 Write-Host 
 $csv = Import-Csv "C:\Privat\RO.csv" -Delimiter ";"
 $csv | Export-Csv -Path "C:\Privat\RO.csv" -Delimiter ";"
