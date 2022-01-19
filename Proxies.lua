@@ -233,6 +233,7 @@ function prox.ModToProp(mod, typ)
         mmmpack={crafter="draconic", name="MTS - Stuff"},
         moarboats={crafter="others", name="Moar Boats"},
         moarfood={crafter="food", name="MoarFood"},
+		moartinkers:{crafter:"tinkers", name:"Moar Tinkers"},
         modcurrency={crafter="others", name="Good Old Currency"},
         modernmetals={crafter="modern", name="Modern Metals"},
         morebeautifulbuttons={crafter="more", name="More Beautiful Buttons"},

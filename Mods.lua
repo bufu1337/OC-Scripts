@@ -12,7 +12,7 @@ return {
  chimneys={"adchimneys","as_extraresources"},
  chisel={"unlimitedchiselworks"},
  conquest={"conquest"},
- cyclic={"cyclicmagic","lycanitesmobs","saltwatermobs","junglemobs","elementalmobs","desertmobs","plainsmobs","arcticmobs","swampmobs","demonmobs","mountainmobs","shadowmobs","infernomobs","forestmobs","freshwatermobs"},
+ cyclic={"cyclicmagic","lycanitesmobs"},
  deco={"props"},
  draconic={"cfm","blackthorne","personalcars","mts","mtsseagullcivilpack","draconicevolution","car","mtsofficialpack","mtsheavyindustrialbyadamrk","cdm","blueboyscaterpillarmtspack","vc","unuparts","mtsseagullmilitarypack","mmmpack"},
  environ={"environmentalmaterials","environmentaltech","etlunar"},

@@ -3,10 +3,12 @@ var MC = {
 	CItems: {},
 	Mods: {},
 	Mod: {},
+	Crafters: {},
     Imports: {},
 	Traders: [],
 	Aspects: {},
 	AspectsAnzahl: {},
+	MachineTypes: {},
 	Listing: {itemListBox:[]},
 	Suggest: { groups: [], comment1: [], comment2: [], comment3: [] },
 	viewing: {
@@ -22,8 +24,8 @@ var MC = {
 		item: null
 	},
 	setALL_source: [
-		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "oredict", "processing", "price", "maxCount", "craftCount"],
-		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Oredict", "Processing", "Price", "max. Count", "Craft Count"]
+		["group", "comment1", "comment2", "comment3", "trader", "selling", "buying", "chisel", "bit", "hasPattern", "fixedprice", "oredict", "processing", "auto", "liquid", "price", "maxCount", "craftCount"],
+		["Group", "Comment 1", "Comment 2", "Comment 3", "Trader", "Selling", "Buying", "Chisel", "Bit", "has Pattern", "Fixed Price", "Oredict", "Processing", "Automated", "Liquid", "Price", "max. Count", "Craft Count"]
 	],
 	setChangedRecipes: function(modid){
 		if ( modid == null ) {
@@ -71,6 +73,27 @@ var MC = {
 		});
 		return itemlistnew
 	},
+	getMachineTypes: function(){
+		$.each(MC.Suggest.comment1, function (h, machine) {
+			MC.MachineTypes[machine] = {count:0, crafters:0}
+		});
+		$.each(Object.keys(MC.Items), function (i, crafter) {
+			var countcrafter = {}
+			$.each(MC.Suggest.comment1, function (h, machine) {
+				countcrafter[machine] = true
+			});
+			$.each(Object.keys(MC.Items[crafter]), function (j, item) {
+				if(MC.MachineTypes[MC.Items[crafter][item].c1] != null){
+					MC.MachineTypes[MC.Items[crafter][item].c1].count++
+					if(countcrafter[MC.Items[crafter][item].c1]){
+						MC.MachineTypes[MC.Items[crafter][item].c1].crafters++
+						countcrafter[MC.Items[crafter][item].c1] = false
+					}
+				}
+			});
+		});
+		console.log("Done")
+	},
 	listItemsWOCraftCount: function(modid){
 		var itemlist = [];
 		$.each(Object.keys(MC.Items[MC.Mods[modid].crafter]), function (i, itemid) {
@@ -105,16 +128,22 @@ var MC = {
 		console.log()
 		console.log("OVERALL: " + allitemcount)
 	},
-	createNewItems: function(items){
+	createNewItemsEx: function(items, replace){
 		$.each(items, function (i, item) {
             item.id = item.id.replaceAll(":", "_jj_").replaceAll("/", "_xx_").replaceAll("-", "_qq_").replaceAll(".", "_vv_")
 			var citem = MC.convertItemID(item.id)
 			var idtemp = item.id
+			if ( !item.label ) {
+				item.label = ""
+			}
+			if ( !item.liquid ) {
+				item.liquid = false
+			}
 			if ( !item.tag ) {
 				item.tag = {}
 			}
             else{
-                if(MC.CItems[MC.Mods[citem.modid].name][item.id] != null){
+                if((MC.CItems[MC.Mods[citem.modid].name][item.id] != null) && (replace == false)){
                     var found = false
                     $.each(MC.CItems[MC.Mods[citem.modid].name][item.id].variants, function (i, variant) {
 						if(variant != 0){
@@ -131,6 +160,9 @@ var MC = {
                     }
                 }
             }
+			if ( !item.label ) {
+				item.label = ""
+			}
             if ( citem.crafter == "" ) {
 				if ( !item.crafter ) {
 					console.log("Cant find crafter for item: " + item.id)
@@ -141,7 +173,7 @@ var MC = {
 			}
 			if ( citem.crafter != "" ) {
 				if ( MC.Items[citem.crafter][item.id] == null ) {
-					MC.Items[citem.crafter][item.id] = {"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":item.tag,"trader":0}
+					MC.Items[citem.crafter][item.id] = {"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":item.label,"maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":item.tag,"trader":0,"auto":false,"liquid":item.liquid}
 					MC.Mod[MC.Mods[citem.modid].name].items[item.id] = MC.Items[citem.crafter][item.id]
 					if ( MC.CItems[MC.Mods[citem.modid].name] == null ) {
 						MC.CItems[MC.Mods[citem.modid].name] = {}
@@ -152,10 +184,29 @@ var MC = {
 					}
                     console.log("Item added: " + item.id)
 				}
+				else if(replace){
+                    $.each(Object.keys(item), function (i, j) {
+                        if(j != "id"){
+                            MC.Items[citem.crafter][item.id][j] = item[j]
+                        }
+                    });
+					console.log("  Item replaced: " + item.id)
+				}
 				else{
 					console.log("    Item already existing: " + item.id)
 				}
 			}
+		});
+	},
+	createNewItems: function(items){
+        MC.createNewItemsEx(items, false)
+    },
+    createCrafters: function(){
+		$.each(Object.keys(MC.Mod), function (j, mod) {
+			if(MC.Crafters[MC.Mod[mod].crafter] == undefined){
+				MC.Crafters[MC.Mod[mod].crafter] =[]
+			}
+			MC.Crafters[MC.Mod[mod].crafter].push(mod)
 		});
 	},
 	mergeImports: function(){
@@ -187,7 +238,7 @@ var MC = {
 		$.each(MC.Imports, function (modid, item) {
 			$.each(MC.Imports[modid], function (itemid, itemex) {
 				if(itemex != null){
-					MC.New[modid][itemid]={"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":itemex.tag,"trader":0}
+					MC.New[modid][itemid]={"aspects":{},"bit":false,"buying":false,"c1":"","c2":"","c3":"","chisel":false,"craftCount":1,"fixedprice":false,"group":"","hasPattern":false,"label":"","maxCount":8,"oredict":false,"price":0,"processing":false,"recipe":{},"selling":false,"tag":itemex.tag,"trader":0,"auto":false,"liquid":false}
 			   }
 			});
 		});
@@ -423,7 +474,9 @@ var MC = {
 			"filter_bit_check",
 			"filter_hasPattern_check",
 			"filter_oredict_check",
-			"filter_processing_check"];
+			"filter_processing_check",
+			"filter_auto_check",
+			"filter_liquid_check"];
 		var items = {};
 		$.each(Object.keys(MC.Mod[MC.viewing.Mod].items), function (index, item) {
 			items[item] = true
@@ -596,6 +649,18 @@ var MC = {
 	filterEnterKey: function(event){ MC.enterKey(event, "filter") },
 	recipeEnterKey: function(event){ MC.enterKey(event, "recipe") },
 	mainEnterKey: function(event){ MC.enterKey(event, "itemwindow") },
+    addAttribute: function(name, value){
+        var objKeys = {}
+        objKeys.main = Object.keys(MC.Items).sort()
+        for(var i = 0; i < objKeys.main.length; i++) {
+            objKeys[objKeys.main[i]] = Object.keys(MC.Items[objKeys.main[i]]).sort();
+            for(var j = 0; j < objKeys[objKeys.main[i]].length; j++) {
+				if(MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][name] == null){
+					MC.Items[objKeys.main[i]][objKeys[objKeys.main[i]][j]][name] = value;
+				}
+            }
+        }
+    },
 	save: function(what){
 		if ('Blob' in window) {
 			var fileName = 'MC-' + what + '.js';
@@ -667,7 +732,7 @@ var MC = {
 		$.each(MC.setALL_source[0], function (index, item) {
 			var temp = "_check"
 			if ( index < 5 ) { temp = "_input" }
-			else if ( index > 12 ) { temp = "_numinput" }
+			else if ( index > 14 ) { temp = "_numinput" }
 			MC.hide("setALL_" + item + temp)
 		});
 	},
@@ -783,6 +848,8 @@ var MC = {
 			$("#itempattern_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern);
 			$("#itemoredict_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].oredict);
 			$("#itemprocessing_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].processing);
+			$("#itemauto_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].auto);
+			$("#itemliquid_check").jqxCheckBox('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].liquid);
 
 			$('#rc_craftcount').jqxNumberInput('val', MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].craftCount);
 			var temp_counter = 0;
@@ -912,6 +979,8 @@ $(document).ready(function () {
 	});
 	$("#itemoredict_check").jqxCheckBox({height: 25, width: 100, checked: true});
 	$("#itemprocessing_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#itemauto_check").jqxCheckBox({height: 25, width: 100, checked: true});
+	$("#itemliquid_check").jqxCheckBox({height: 25, width: 100, checked: true});
 	$("#itemprice_input").jqxNumberInput({height: 25, width: 66, disabled: true, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#itemMaxCount_input").jqxNumberInput({height: 25, width: 100, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	
@@ -937,6 +1006,8 @@ $(document).ready(function () {
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].hasPattern = $('#itempattern_check').jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].oredict = $('#itemoredict_check').jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].processing = $('#itemprocessing_check').jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].auto = $('#itemauto_check').jqxCheckBox('checked');
+		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].liquid = $('#itemliquid_check').jqxCheckBox('checked');
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].group = $('#itemgroup_input').val();
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].maxCount = parseInt($('#itemMaxCount_input').val());
 		MC.Mod[MC.viewing.Mod].items[MC.viewing.Item].price = parseInt($('#itemprice_input').val());
@@ -996,6 +1067,8 @@ $(document).ready(function () {
 	$("#filter_fixedprice_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_oredict_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_processing_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
+	$("#filter_auto_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
+	$("#filter_liquid_check").jqxCheckBox({height: 25, width: 100, hasThreeStates: true, checked: null});
 	$("#filter_pricefrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#filter_priceto_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#filter_maxCountfrom_numinput").jqxNumberInput({height: 25, width: 60, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
@@ -1024,6 +1097,8 @@ $(document).ready(function () {
 		$("#filter_fixedprice_check").jqxCheckBox({checked: null});
 		$("#filter_oredict_check").jqxCheckBox({checked: null});
 		$("#filter_processing_check").jqxCheckBox({checked: null});
+		$("#filter_auto_check").jqxCheckBox({checked: null});
+		$("#filter_liquid_check").jqxCheckBox({checked: null});
 		$("#filter_pricefrom_numinput").val("0");
 		$("#filter_priceto_numinput").val("0");
 		$("#filter_maxCountfrom_numinput").val("0");
@@ -1031,7 +1106,7 @@ $(document).ready(function () {
 
 		MC.itemfilter();
 	});
-	$.each([ "filter_modid_input", "filter_itemid_input", "filter_dmg_input", "filter_tag_input", "filter_label_input", "filter_group_input", "filter_comment1_input", "filter_comment2_input", "filter_comment3_input", "filter_trader_input", "filter_fixedprice_check", "filter_oredict_check", "filter_processing_check", "filter_maxCountfrom_numinput", "filter_pricefrom_numinput"], function(i, filt) {
+	$.each([ "filter_modid_input", "filter_itemid_input", "filter_dmg_input", "filter_tag_input", "filter_label_input", "filter_group_input", "filter_comment1_input", "filter_comment2_input", "filter_comment3_input", "filter_trader_input", "filter_fixedprice_check", "filter_oredict_check", "filter_processing_check", "filter_auto_check", "filter_liquid_check", "filter_maxCountfrom_numinput", "filter_pricefrom_numinput"], function(i, filt) {
 		$('#' + filt).on('keydown', function(e){MC.filterEnterKey(e)});
 	});
 	
@@ -1058,6 +1133,8 @@ $(document).ready(function () {
 	$("#setALL_fixedprice_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_oredict_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_processing_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_auto_check").jqxCheckBox({height: 25, width: 200, checked: true});
+	$("#setALL_liquid_check").jqxCheckBox({height: 25, width: 200, checked: true});
 	$("#setALL_price_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 6400});
 	$("#setALL_maxCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0});
 	$("#setALL_craftCount_numinput").jqxNumberInput({height: 25, width: 200, spinButtons: true, decimalDigits: 0, inputMode: "simple", min: 0, max: 64});
@@ -4142,4 +4219,1515 @@ identifier: ",    -->    identifier: "",
 styling: [][][], value: "}    -->    styling: [], value: ""}
 OreDict: "}    -->    OreDict: ""}
 ][][]    -->    ]
+
+
+Ores:
+
+oreGold
+oreIron
+oreLapis
+oreDiamond
+oreRedstone
+oreEmerald
+oreQuartz
+oreCoal
+oreTin
+oreCopper
+oreSilver
+oreLead
+oreUranium
+oreAmethyst
+oreRuby
+orePeridot
+oreTopaz
+oreTanzanite
+oreMalachite
+oreSapphire
+oreAmber
+oreNickel
+orePlatinum
+oreAluminum
+oreIridium
+oreMithril
+oreClathrateOilSand
+oreClathrateOilShale
+oreClathrateRedstone
+oreClathrateGlowstone
+oreClathrateEnder
+oreDraconium
+oreAntimony
+oreBismuth
+oreZinc
+oreAdamantine
+oreColdiron
+oreStarsteel
+oreMercury
+oreBeryllium
+oreBoron
+oreChromium
+oreMagnesium
+oreManganese
+oreOsmium
+oreRutile
+oreTantalum
+oreThorium
+oreTungsten
+oreZirconium
+oreCadmium
+orePlutonium
+oreTitanium
+oreNetherIron
+oreNetherGold
+oreNetherDiamond
+oreNetherCoal
+oreNetherEmerald
+oreNetherRedstone
+oreNetherAntimony
+oreNetherBismuth
+oreNetherCopper
+oreNetherLead
+oreNetherNickel
+oreNetherSilver
+oreNetherTin
+oreNetherZinc
+oreNetherPlatinum
+oreNetherMercury
+oreNetherAluminum
+oreNetherChromium
+oreNetherMagnesium
+oreNetherManganese
+oreNetherOsmium
+oreNetherRutile
+oreNetherTantalum
+oreNetherTungsten
+oreNetherZirconium
+oreNetherCadmium
+oreNetherIridium
+oreNetherPlutonium
+oreNetherUranium
+oreNetherTitanium
+oreGalena
+oreBauxite
+orePyrite
+oreCinnabar
+oreSphalerite
+oreSheldonite
+oreSodalite
+oreApatite
+oreSalt
+oreLithium
+orePhantom
+oreAurine
+oreAyzanite
+oreDraxate
+oreEukavoynt
+oreIturite
+oreNodemite
+oreOxaxagite
+oreSivenium
+oreAustralium
+oreCobalt
+oreArdite
+oreQuartzBlack
+oreCertusQuartz
+oreDilithium
+oreChargedCertusQuartz
+oreMagnetite
+oreCrystalAir
+oreCrystalEarth
+oreCrystalWater
+oreCrystalFire
+oreCrystalOrder
+oreCrystalEntropy
+oreCrystalTaint
+oreDimensionalShard
+oreResonating
+oreHephaestite
+oreUmbrium
+oreScarlite
+oreYellorium
+oreAnglesite
+oreBenitoite
+oreYellorite
+oreNetherLapis
+oreSteaite
+oreAncite
+oreGalite
+oreTerrite
+oreGoldNugget
+oreEmeraldNugget
+oreEndRedstone
+oreEndCoal
+oreEndLapis
+oreEndEmerald
+oreEndDiamond
+oreEndGold
+oreEndIron
+oreAstralStarmetal
+oreAquamarine
+oreSulfur
+oreSyrmorite
+oreBone
+oreOctine
+oreValonite
+oreAquaMiddleGem
+oreGreenMiddleGem
+oreCrimsonMiddleGem
+oreLifeCrystal
+oreScabyst
+oreIronwood
+oreKnightmetal
+oreZanite
+oreAmbrosium
+oreGravitite
+oreAdamantite
+oreAdamantium
+oreAdamant
+oreQuicksilver
+oreEnderium
+oreTerillium
+oreBlazecoal
+oreReddiamond
+oreProsperity
+oreNetherProsperity
+oreEndProsperity
+oreInferium
+oreNetherInferium
+oreEndInferium
+oreAluminium
+oreChrome
+oreWolfram
+oreTiberium
+oreAurorium
+orePrometheum
+oreDuranite
+oreValyrium
+oreVibranium
+oreKarmesine
+oreOvium
+oreJauxum
+orePalladium
+oreUru
+oreOsram
+oreEezo
+oreAbyssum
+oreEndimium
+oreBurnium
+oreEbonys
+oreArchaic
+oreNagrilite
+oreTenebrum
+
+
+Liquids:
+
+abyssum_fluid
+adamant_fluid
+adamantine
+advancedalloy
+aerotheum
+ale
+alewort
+alubrass
+alugentum
+alumina
+aluminum
+aluminumbrass
+alumite
+amber
+americium_241
+americium_241_fluoride
+americium_241_fluoride_flibe
+americium_242
+americium_242_fluoride
+americium_242_fluoride_flibe
+americium_243
+americium_243_fluoride
+americium_243_fluoride_flibe
+ammonia
+ancite
+animania_honey
+antimony
+applejuice
+aquarium
+ardite
+arsenic
+astralsorcery.liquidstarlight
+astrium_fluid
+aurorium_fluid
+bas
+basalt_fluid
+base_essence
+bef2
+berkelium_247
+berkelium_247_fluoride
+berkelium_247_fluoride_flibe
+berkelium_248
+berkelium_248_fluoride
+berkelium_248_fluoride_flibe
+beryllium
+betterquesting.placeholder
+binnie.bacteria
+binnie.bacteria.poly
+binnie.bacteria.vector
+binnie.beer.ale
+binnie.beer.corn
+binnie.beer.lager
+binnie.beer.rye
+binnie.beer.stout
+binnie.beer.wheat
+binnie.brandy.apple
+binnie.brandy.apricot
+binnie.brandy.cherry
+binnie.brandy.citrus
+binnie.brandy.elderberry
+binnie.brandy.fruit
+binnie.brandy.grape
+binnie.brandy.pear
+binnie.brandy.plum
+binnie.cider.apple
+binnie.cider.peach
+binnie.ciderpear
+binnie.dna.raw
+binnie.fermented.potatoes
+binnie.growth.medium
+binnie.juice
+binnie.juice.apple
+binnie.juice.apricot
+binnie.juice.banana
+binnie.juice.carrot
+binnie.juice.cherry
+binnie.juice.cranberry
+binnie.juice.elderberry
+binnie.juice.grapefruit
+binnie.juice.lemon
+binnie.juice.lime
+binnie.juice.olive
+binnie.juice.orange
+binnie.juice.peach
+binnie.juice.pear
+binnie.juice.pineapple
+binnie.juice.plum
+binnie.juice.red.grape
+binnie.juice.tomato
+binnie.juice.white.grape
+binnie.latex
+binnie.liqueur.almond
+binnie.liqueur.anise
+binnie.liqueur.banana
+binnie.liqueur.blackberry
+binnie.liqueur.blackcurrant
+binnie.liqueur.cherry
+binnie.liqueur.chocolate
+binnie.liqueur.cinnamon
+binnie.liqueur.coffee
+binnie.liqueur.hazelnut
+binnie.liqueur.herbal
+binnie.liqueur.lemon
+binnie.liqueur.melon
+binnie.liqueur.mint
+binnie.liqueur.orange
+binnie.liqueur.peach
+binnie.liqueur.raspberry
+binnie.liquor.apple
+binnie.liquor.apricot
+binnie.liquor.cherry
+binnie.liquor.elderberry
+binnie.liquor.fruit
+binnie.liquor.pear
+binnie.mash.corn
+binnie.mash.grain
+binnie.mash.rye
+binnie.mash.wheat
+binnie.resin
+binnie.rum.dark
+binnie.rum.white
+binnie.sap
+binnie.spirit.gin
+binnie.spirit.neutral
+binnie.spirit.sugarcane
+binnie.tequila
+binnie.turpentine
+binnie.vodka
+binnie.whiskey
+binnie.whiskey.corn
+binnie.whiskey.rye
+binnie.whiskey.wheat
+binnie.wine.agave
+binnie.wine.apricot
+binnie.wine.banana
+binnie.wine.carrot
+binnie.wine.cherry
+binnie.wine.citrus
+binnie.wine.cranberry
+binnie.wine.elderberry
+binnie.wine.fortified
+binnie.wine.pineapple
+binnie.wine.plum
+binnie.wine.red
+binnie.wine.sparkling
+binnie.wine.tomato
+binnie.wine.white
+bio.ethanol
+bio_diesel
+bio_fuel
+biocrude
+biodiesel
+biofuel
+biomass
+bismuth
+blaze_juice
+blockfluidantimatter
+blockfluiddirt
+blood
+bloodarsenal.molten_blood_infused_iron
+bloodbronze
+blueslime
+blutonium
+borax_solution
+boric_acid
+boron
+boron10
+boron11
+boron_nitride_solution
+brass
+brine
+bronze
+cadmium
+calcium_sulfate_solution
+californium_249
+californium_249_fluoride
+californium_249_fluoride_flibe
+californium_250
+californium_250_fluoride
+californium_250_fluoride_flibe
+californium_251
+californium_251_fluoride
+californium_251_fluoride_flibe
+californium_252
+californium_252_fluoride
+californium_252_fluoride_flibe
+canola_methanol_mix
+canola_oil
+canolaoil
+carbon_dioxide
+carbon_monoxide
+charcoal
+chocolate_liquor
+chrome
+chromium
+cider
+clay
+cloud_seed
+cloud_seed_concentrated
+coal
+cobalt
+cocoa_butter
+coldiron
+concrete
+condensate_water
+conductive_iron
+constantan
+construction_alloy
+copper
+copper_nak
+copper_nak_hot
+corium
+creosote
+crude_oil
+crude_steel
+cryotheum
+cryotheum_nak
+cryotheum_nak_hot
+crystal
+crystalline_alloy
+crystalline_pink_slime
+crystaloil
+cupronickel
+curium_243
+curium_243_fluoride
+curium_243_fluoride_flibe
+curium_245
+curium_245_fluoride
+curium_245_fluoride_flibe
+curium_246
+curium_246_fluoride
+curium_246_fluoride_flibe
+curium_247
+curium_247_fluoride
+curium_247_fluoride_flibe
+cyanite
+dark_chocolate
+dark_steel
+dark_water
+depleted_fuel_hea_242
+depleted_fuel_hea_242_fluoride
+depleted_fuel_hea_242_fluoride_flibe
+depleted_fuel_heb_248
+depleted_fuel_heb_248_fluoride
+depleted_fuel_heb_248_fluoride_flibe
+depleted_fuel_hecf_249
+depleted_fuel_hecf_249_fluoride
+depleted_fuel_hecf_249_fluoride_flibe
+depleted_fuel_hecf_251
+depleted_fuel_hecf_251_fluoride
+depleted_fuel_hecf_251_fluoride_flibe
+depleted_fuel_hecm_243
+depleted_fuel_hecm_243_fluoride
+depleted_fuel_hecm_243_fluoride_flibe
+depleted_fuel_hecm_245
+depleted_fuel_hecm_245_fluoride
+depleted_fuel_hecm_245_fluoride_flibe
+depleted_fuel_hecm_247
+depleted_fuel_hecm_247_fluoride
+depleted_fuel_hecm_247_fluoride_flibe
+depleted_fuel_hen_236
+depleted_fuel_hen_236_fluoride
+depleted_fuel_hen_236_fluoride_flibe
+depleted_fuel_hep_239
+depleted_fuel_hep_239_fluoride
+depleted_fuel_hep_239_fluoride_flibe
+depleted_fuel_hep_241
+depleted_fuel_hep_241_fluoride
+depleted_fuel_hep_241_fluoride_flibe
+depleted_fuel_heu_233
+depleted_fuel_heu_233_fluoride
+depleted_fuel_heu_233_fluoride_flibe
+depleted_fuel_heu_235
+depleted_fuel_heu_235_fluoride
+depleted_fuel_heu_235_fluoride_flibe
+depleted_fuel_lea_242
+depleted_fuel_lea_242_fluoride
+depleted_fuel_lea_242_fluoride_flibe
+depleted_fuel_leb_248
+depleted_fuel_leb_248_fluoride
+depleted_fuel_leb_248_fluoride_flibe
+depleted_fuel_lecf_249
+depleted_fuel_lecf_249_fluoride
+depleted_fuel_lecf_249_fluoride_flibe
+depleted_fuel_lecf_251
+depleted_fuel_lecf_251_fluoride
+depleted_fuel_lecf_251_fluoride_flibe
+depleted_fuel_lecm_243
+depleted_fuel_lecm_243_fluoride
+depleted_fuel_lecm_243_fluoride_flibe
+depleted_fuel_lecm_245
+depleted_fuel_lecm_245_fluoride
+depleted_fuel_lecm_245_fluoride_flibe
+depleted_fuel_lecm_247
+depleted_fuel_lecm_247_fluoride
+depleted_fuel_lecm_247_fluoride_flibe
+depleted_fuel_len_236
+depleted_fuel_len_236_fluoride
+depleted_fuel_len_236_fluoride_flibe
+depleted_fuel_lep_239
+depleted_fuel_lep_239_fluoride
+depleted_fuel_lep_239_fluoride_flibe
+depleted_fuel_lep_241
+depleted_fuel_lep_241_fluoride
+depleted_fuel_lep_241_fluoride_flibe
+depleted_fuel_leu_233
+depleted_fuel_leu_233_fluoride
+depleted_fuel_leu_233_fluoride_flibe
+depleted_fuel_leu_235
+depleted_fuel_leu_235_fluoride
+depleted_fuel_leu_235_fluoride_flibe
+depleted_fuel_tbu
+depleted_fuel_tbu_fluoride
+depleted_fuel_tbu_fluoride_flibe
+deuterium
+diamond
+diamond_nak
+diamond_nak_hot
+diborane
+diesel
+dilithium_fluid
+dirt
+dist_water
+dragonsteel_fire
+dragonsteel_ice
+duranite_fluid
+dyonite_fluid
+ebonypsi
+eezo_fluid
+electrical_steel
+electrum
+electrumflux
+elementium
+elvenelementium
+emerald
+emerald_nak
+emerald_nak_hot
+empoweredoil
+end_steel
+ender
+ender_distillation
+ender_nak
+ender_nak_hot
+ender_sap
+enderium
+energetic_alloy
+energetic_silver
+enrichedlava
+essen
+essence
+etchacid
+ethanol
+ethene
+exhaust_steam
+experience
+ferroboron
+fiery_essence
+fierymetal
+fire_water
+flibe
+fluidberylium
+fluidbiofuel
+fluidcalcium
+fluidcalciumcarbonate
+fluidcarbon
+fluidcarbonfiber
+fluidchlorite
+fluidcompressedair
+fluiddeuterium
+fluiddiesel
+fluidelectrolyzedwater
+fluidglyceryl
+fluidhelium
+fluidhelium3
+fluidheliumplasma
+fluidhydrogen
+fluidlithium
+fluidmercury
+fluidmethane
+fluidnitrocarbon
+fluidnitrocoalfuel
+fluidnitrodiesel
+fluidnitrofuel
+fluidnitrogen
+fluidnitrogendioxide
+fluidoil
+fluidpotassium
+fluidsilicon
+fluidsodium
+fluidsodiumpersulfate
+fluidsodiumsulfide
+fluidsulfur
+fluidsulfuricacid
+fluidtritium
+fluidwolframium
+fluorine
+fluorite_water
+fluoromethane
+flux_goo
+fog
+for.honey
+fractum_fluid
+fresh_water
+fuel
+fuel_dense
+fuel_dense_heat_1
+fuel_dense_heat_2
+fuel_gaseous
+fuel_gaseous_heat_1
+fuel_gaseous_heat_2
+fuel_hea_242
+fuel_hea_242_fluoride
+fuel_hea_242_fluoride_flibe
+fuel_heb_248
+fuel_heb_248_fluoride
+fuel_heb_248_fluoride_flibe
+fuel_hecf_249
+fuel_hecf_249_fluoride
+fuel_hecf_249_fluoride_flibe
+fuel_hecf_251
+fuel_hecf_251_fluoride
+fuel_hecf_251_fluoride_flibe
+fuel_hecm_243
+fuel_hecm_243_fluoride
+fuel_hecm_243_fluoride_flibe
+fuel_hecm_245
+fuel_hecm_245_fluoride
+fuel_hecm_245_fluoride_flibe
+fuel_hecm_247
+fuel_hecm_247_fluoride
+fuel_hecm_247_fluoride_flibe
+fuel_hen_236
+fuel_hen_236_fluoride
+fuel_hen_236_fluoride_flibe
+fuel_hep_239
+fuel_hep_239_fluoride
+fuel_hep_239_fluoride_flibe
+fuel_hep_241
+fuel_hep_241_fluoride
+fuel_hep_241_fluoride_flibe
+fuel_heu_233
+fuel_heu_233_fluoride
+fuel_heu_233_fluoride_flibe
+fuel_heu_235
+fuel_heu_235_fluoride
+fuel_heu_235_fluoride_flibe
+fuel_lea_242
+fuel_lea_242_fluoride
+fuel_lea_242_fluoride_flibe
+fuel_leb_248
+fuel_leb_248_fluoride
+fuel_leb_248_fluoride_flibe
+fuel_lecf_249
+fuel_lecf_249_fluoride
+fuel_lecf_249_fluoride_flibe
+fuel_lecf_251
+fuel_lecf_251_fluoride
+fuel_lecf_251_fluoride_flibe
+fuel_lecm_243
+fuel_lecm_243_fluoride
+fuel_lecm_243_fluoride_flibe
+fuel_lecm_245
+fuel_lecm_245_fluoride
+fuel_lecm_245_fluoride_flibe
+fuel_lecm_247
+fuel_lecm_247_fluoride
+fuel_lecm_247_fluoride_flibe
+fuel_len_236
+fuel_len_236_fluoride
+fuel_len_236_fluoride_flibe
+fuel_lep_239
+fuel_lep_239_fluoride
+fuel_lep_239_fluoride_flibe
+fuel_lep_241
+fuel_lep_241_fluoride
+fuel_lep_241_fluoride_flibe
+fuel_leu_233
+fuel_leu_233_fluoride
+fuel_leu_233_fluoride_flibe
+fuel_leu_235
+fuel_leu_235_fluoride
+fuel_leu_235_fluoride_flibe
+fuel_light
+fuel_light_heat_1
+fuel_light_heat_2
+fuel_mixed_heavy
+fuel_mixed_heavy_heat_1
+fuel_mixed_heavy_heat_2
+fuel_mixed_light
+fuel_mixed_light_heat_1
+fuel_mixed_light_heat_2
+fuel_tbu
+fuel_tbu_fluoride
+fuel_tbu_fluoride_flibe
+fuelcolumn
+fuelium
+gaia
+galite
+galvanizedsteel
+gasoline
+gelatin
+glass
+glowstone
+glowstone_nak
+glowstone_nak_hot
+glycerin
+gold
+gold_nak
+gold_nak_hot
+grapejuice
+gs_toxic_water
+hard_carbon
+heavywater
+helium
+helium3
+high_pressure_steam
+honey
+hootch
+hot_spring_water
+hydrated_gelatin
+hydrofluoric_acid
+hydrogen
+ic2air
+ic2biogas
+ic2biomass
+ic2construction_foam
+ic2coolant
+ic2creosote
+ic2distilled_water
+ic2heavy_water
+ic2hot_coolant
+ic2hot_water
+ic2hydrogen
+ic2oxygen
+ic2pahoehoe_lava
+ic2steam
+ic2superheated_steam
+ic2uu_matter
+ic2weed_ex
+ice
+if.ore_fluid_fermented
+if.ore_fluid_raw
+if.pink_slime
+if.protein
+ignitz_fluid
+imperomite_fluid
+inferium
+intermedium
+invar
+iox_fluid
+iridium
+iron
+iron_nak
+iron_nak_hot
+ironberryjuice
+ironwine
+ivorypsi
+jauxum_fluid
+juice
+karmesine_fluid
+kerosene
+knightmetal
+knightslime
+koh
+lapis
+lapis_nak
+lapis_nak_hot
+latex
+lava
+lead
+lif
+lifeessence
+liquid.biogas
+liquid.bitripentium
+liquid.neon
+liquid_crystal
+liquid_death
+liquid_nitrogen
+liquid_sunshine
+liquidchlorine
+liquidchorus
+liquiddeuterium
+liquiddna
+liquidethene
+liquidfusionfuel
+liquidhelium
+liquidhelium_nak
+liquidhelium_nak_hot
+liquidhydrogen
+liquidhydrogenchloride
+liquidlithium
+liquidoxygen
+liquidsodium
+liquidsulfurdioxide
+liquidsulfurtrioxide
+liquidtritium
+lithium
+lithium6
+lithium7
+low_pressure_steam
+low_quality_steam
+lpg
+lubricant
+ludicrite
+lumium
+lumix_fluid
+magma_fluid
+magnesium
+magnesium_nak
+magnesium_nak_hot
+mana
+manasteel
+manganese
+manganese_dioxide
+manyullyn
+marshmallow
+mead
+meat
+melodic_alloy
+menrilresin
+mercury
+meteorite_fluid
+methanol
+miasma
+milk
+milk_chocolate
+milk_friesian
+milk_goat
+milk_holstein
+milk_jersey
+milk_sheep
+mirion
+mithril
+molten_reinforced_pink_slime
+mushroom_stew
+mutagen
+nak
+nak_hot
+naoh
+napalm
+neptunium_236
+neptunium_236_fluoride
+neptunium_236_fluoride_flibe
+neptunium_237
+neptunium_237_fluoride
+neptunium_237_fluoride_flibe
+neutron
+nichrome
+nickel
+nihilite_fluid
+niob_fluid
+nitrogen
+nitronite_fluid
+nucleum_fluid
+nutrient_distillation
+obsidian
+obsidiorite_fluid
+oil
+oil_dense
+oil_dense_heat_1
+oil_dense_heat_2
+oil_distilled
+oil_distilled_heat_1
+oil_distilled_heat_2
+oil_heat_1
+oil_heat_2
+oil_heavy
+oil_heavy_heat_1
+oil_heavy_heat_2
+oil_residue
+oil_residue_heat_1
+oil_residue_heat_2
+oliveoil
+ooze
+osgloglas
+osmiridium
+osmium
+osram_fluid
+ovium_fluid
+oxygen
+oxygen_difluoride
+palladium_fluid
+petrotheum
+pewter
+pigiron
+plantoil
+plasma
+plastic
+platinum
+plutonium
+plutonium_238
+plutonium_238_fluoride
+plutonium_238_fluoride_flibe
+plutonium_239
+plutonium_239_fluoride
+plutonium_239_fluoride_flibe
+plutonium_241
+plutonium_241_fluoride
+plutonium_241_fluoride_flibe
+plutonium_242
+plutonium_242_fluoride
+plutonium_242_fluoride_flibe
+plutonium_fluoride
+plutonium_fluoride_flibe
+poison
+potassium
+potassium_fluoride_solution
+potassium_hydroxide_solution
+potion
+potion_lingering
+potion_splash
+preheated_water
+preservationliquid
+prismarine
+prometheum_fluid
+protein
+proxii_fluid
+prudentium
+psi
+psimetal
+pulsating_iron
+purelava
+purified_water
+purifying_fluid
+purpleslime
+pyrotheum
+quartz
+quartz_nak
+quartz_nak_hot
+radaway
+radaway_slow
+redstone
+redstone_alloy
+redstone_nak
+redstone_nak_hot
+refined_biofuel
+refined_fuel
+refined_life_essence
+refined_oil
+refinedcanolaoil
+refinedglowstone
+refinediron
+refinedobsidian
+resin
+rocket_fuel
+rocketfuel
+rubber
+rutile
+saltwater
+sand
+sap
+seed.oil
+seed_oil
+seismum_fluid
+sewage
+short.mead
+sic_vapor
+signalum
+silver
+slop
+sludge
+sodium
+sodium_fluoride_solution
+sodium_hydroxide_solution
+solarium_fluid
+soularium
+soulium
+stagnant_water
+stainlesssteel
+starmetal
+starsteel
+steaite
+steam
+steel
+stellar_alloy
+stone
+sugar
+sulfur
+sulfur_dioxide
+sulfur_trioxide
+sulfuric_acid
+sulfuricacid
+superium
+supremium
+swamp_water
+syrup
+tantalum
+tar
+terrasteel
+terrax_fluid
+territe
+tf-liquidxp
+tf-molten_tesla
+tf-sewage
+thaumium
+thorium
+thorium_230
+thorium_230_fluoride
+thorium_230_fluoride_flibe
+thorium_fluoride
+thorium_fluoride_flibe
+tiberium_fluid
+tin
+tin_nak
+tin_nak_hot
+titanium
+tough
+tree_oil
+triberium_fluid
+tritium
+tritonite_fluid
+tungsten
+umbrium
+unsweetened_chocolate
+uranium
+uranium_233
+uranium_233_fluoride
+uranium_233_fluoride_flibe
+uranium_235
+uranium_235_fluoride
+uranium_235_fluoride_flibe
+uranium_238
+uranium_238_fluoride
+uranium_238_fluoride_flibe
+uranium_fluoride
+uranium_fluoride_flibe
+uru_fluid
+valyrium_fluid
+vapor_of_levity
+vibranium_fluid
+vibrant_alloy
+violium_fluid
+vivid_alloy
+water
+wildberryjuice
+wildberrywine
+wine
+witheringliquid
+xpjuice
+xu_demonic_metal
+xu_enchanted_metal
+xu_evil_metal
+yellorium
+yrdeen_fluid
+zinc
+zirconium
+
+
+
+{
+  "header": {
+    "version": "2-beta",
+    "mc_version": "1.16.3",
+    "name": "Copy 0",
+    "author": "bufu16",
+    "bounding_box": {
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 10,
+      "max_y": 24,
+      "max_z": 14
+    },
+    "material_list": {
+      "root_type": "buildinggadgets:entries",
+      "root_entry": [
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 4,
+          "item": {
+            "id": "minecraft:beacon"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 4,
+          "item": {
+            "id": "minecraft:black_carpet"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 21,
+          "item": {
+            "id": "minecraft:black_stained_glass"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:black_stained_glass_pane"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 18,
+          "item": {
+            "id": "minecraft:chiseled_quartz_block"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 22,
+          "item": {
+            "id": "minecraft:coal_block"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 5,
+          "item": {
+            "id": "minecraft:cobblestone_slab"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 4,
+          "item": {
+            "id": "minecraft:dandelion"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 54,
+          "item": {
+            "id": "minecraft:dark_oak_planks"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:dark_oak_sign"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 12,
+          "item": {
+            "id": "minecraft:fern"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 4,
+          "item": {
+            "id": "minecraft:glass_pane"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 1,
+          "item": {
+            "id": "minecraft:gold_block"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 11,
+          "item": {
+            "id": "minecraft:gray_carpet"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 76,
+          "item": {
+            "id": "minecraft:gray_stained_glass_pane"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 135,
+          "item": {
+            "id": "minecraft:gray_terracotta"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 30,
+          "item": {
+            "id": "minecraft:gray_wool"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:green_concrete"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 20,
+          "item": {
+            "id": "minecraft:heavy_weighted_pressure_plate"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 1,
+          "item": {
+            "id": "minecraft:iron_bars"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 4,
+          "item": {
+            "id": "minecraft:lapis_block"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 40,
+          "item": {
+            "id": "minecraft:light_blue_stained_glass"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 200,
+          "item": {
+            "id": "minecraft:light_gray_wool"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 37,
+          "item": {
+            "id": "minecraft:lime_terracotta"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:lime_wool"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:mossy_cobblestone_wall"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 16,
+          "item": {
+            "id": "minecraft:nether_brick_stairs"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 84,
+          "item": {
+            "id": "minecraft:oak_planks"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 6,
+          "item": {
+            "id": "minecraft:oak_sign"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 8,
+          "item": {
+            "id": "minecraft:poppy"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 20,
+          "item": {
+            "id": "minecraft:quartz_block"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 12,
+          "item": {
+            "id": "minecraft:quartz_slab"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 20,
+          "item": {
+            "id": "minecraft:red_sandstone_stairs"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 10,
+          "item": {
+            "id": "minecraft:redstone_lamp"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 140,
+          "item": {
+            "id": "minecraft:smooth_stone_slab"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 27,
+          "item": {
+            "id": "minecraft:sponge"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 5,
+          "item": {
+            "id": "minecraft:stone"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 32,
+          "item": {
+            "id": "minecraft:stone_brick_slab"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 24,
+          "item": {
+            "id": "minecraft:stone_brick_stairs"
+          }
+        },
+        {
+          "item_type": "buildinggadgets:simple_item",
+          "count": 2,
+          "item": {
+            "id": "minecraft:torch"
+          }
+        }
+      ]
+    }
+  },
+  "body": "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\u003d"
+}
+
+refined_fuel {
+        I:burnTime=750
+        I:powerPreTick=50
+}
+oil {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+ic2biogas {
+        I:burnTime=25
+        I:powerPreTick=50
+}
+hootch {
+        I:burnTime=150
+        I:powerPreTick=50
+}
+kerosene {
+        I:burnTime=750
+        I:powerPreTick=50
+}
+creosote {
+        I:burnTime=20
+        I:powerPreTick=50
+}
+fuel_light {
+        I:burnTime=400
+        I:powerPreTick=50
+}
+fuel_gaseous {
+        I:burnTime=100
+        I:powerPreTick=50
+}
+lpg {
+        I:burnTime=1250
+        I:powerPreTick=50
+}
+fuel_mixed_light {
+        I:burnTime=160
+        I:powerPreTick=50
+}
+coal {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+fuel_mixed_heavy {
+        I:burnTime=320
+        I:powerPreTick=50
+}
+biodiesel {
+        I:burnTime=250
+        I:powerPreTick=50
+}
+fire_water {
+        I:burnTime=375
+        I:powerPreTick=50
+}
+rocketfuel {
+        I:burnTime=500
+        I:powerPreTick=50
+}
+rocket_fuel {
+        I:burnTime=500
+        I:powerPreTick=50
+}
+bio.ethanol {
+        I:burnTime=250
+        I:powerPreTick=50
+}
+ethanol {
+        I:burnTime=250
+        I:powerPreTick=50
+}
+oil_dense {
+        I:burnTime=800
+        I:powerPreTick=50
+}
+diesel {
+        I:burnTime=500
+        I:powerPreTick=50
+}
+seed_oil {
+        I:burnTime=40
+        I:powerPreTick=50
+}
+fuel {
+        I:burnTime=1000
+        I:powerPreTick=50
+}
+refinedcanolaoil {
+        I:burnTime=100
+        I:powerPreTick=50
+}
+crystaloil {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+empoweredoil {
+        I:burnTime=350
+        I:powerPreTick=50
+}
+fuel_dense {
+        I:burnTime=1200
+        I:powerPreTick=50
+}
+tree_oil {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+oil_distilled {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+crude_oil {
+        I:burnTime=200
+        I:powerPreTick=50
+}
+oil_heavy {
+        I:burnTime=500
+        I:powerPreTick=50
+}
+refined_oil {
+        I:burnTime=500
+        I:powerPreTick=50
+}
+refined_biofuel {
+        I:burnTime=400
+        I:powerPreTick=50
+}
+canolaoil {
+        I:burnTime=40
+        I:powerPreTick=50
+}
+gasoline {
+        I:burnTime=600
+        I:powerPreTick=50
+}
+aerotheum {
+        I:burnTime=1000
+        I:powerPreTick=50
+}
+pyrotheum {
+        I:burnTime=1000
+        I:powerPreTick=50
+}
+petrotheum {
+        I:burnTime=1000
+        I:powerPreTick=50
+}
+
+$fl = Get-Content E:\Y-Downloads\Minecraft\OC-Scripts\liquids.json | ConvertFrom-Json
+$keys = ($fl | get-member -MemberType NoteProperty | select -ExpandProperty Name)
+$g = @()
+foreach($f in $keys){$g += $fl.$f}
+$g.Name | where{!$_.contains(":")}
+Write-Host
+($g.Name | where{!$_.contains(":")}).length
+
 */

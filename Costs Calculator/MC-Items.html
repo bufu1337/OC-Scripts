@@ -138,7 +138,7 @@
     <script src='jqwidgets/jqxwindow.js'> </script>
 
     <script src="MC-Items.js?v=0.11"></script>
-	<script src="MC-ItemsTO.js"></script>
+	<script src="MC-ItemsDrawer.js"></script>
 	<script src="MC-ModsTO.js"></script>
 	<script src="MC-TraderTO.js"></script>
 	<script src="MC-Citems.js"></script>
@@ -311,6 +311,12 @@
 														<td><div id='itemoredict_check' style='margin-left: 7px;float: left;'>Oredict</div></td>
 														<td><div id='itemprocessing_check' style='margin-left: 7px;float: left;'>Processing</div></td>
 														<td><div id='itempattern_check' style='margin-left: 7px;float: left;'>Has Pattern</div></td>
+													</tr>
+												</table>
+												<table>
+													<tr style="margin-top: 10px">
+														<td><div id='itemauto_check' style='margin-left: 7px;float: left;'>Automated</div></td>
+														<td><div id='itemliquid_check' style='margin-left: 7px;float: left;'>Liquid</div></td>
 													</tr>
 												</table>
 											</form>
@@ -568,6 +574,12 @@
 											</table>
 											<table>
 												<tr style="margin-top: 10px">
+													<td><div id='filter_auto_check' style='margin-left: 7px;float: left;'>Automated</div></td>
+													<td><div id='filter_liquid_check' style='margin-left: 7px;float: left;'>Liquid</div></td>
+												</tr>
+											</table>
+											<table>
+												<tr style="margin-top: 10px">
 													<td>Price: </td>
 													<td>from: </td>
 													<td><div style="margin-top: 5px; margin-left: 10px" id="filter_pricefrom_numinput"></div></td>
@@ -612,6 +624,8 @@
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_bit_check'>Bits</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_oredict_check'>Oredict</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_processing_check'>Processing</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_auto_check'>Automated</div>
+															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_liquid_check'>Liquid</div>
 															<div style='margin-top: 5px; margin-left: 10px;' id='setALL_craftCount_numinput'></div>
 														</td>
 													</tr>
