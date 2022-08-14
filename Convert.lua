@@ -41,14 +41,14 @@ function convert.TextToOName(text)
 end
 function convert.ItemToOName(item)
     if item.damage ~= nil and item.damage ~= 0 then
-      return TextToOName(item.name) .. "_jj_" .. item.damage
+      return convert.TextToOName(item.name) .. "_jj_" .. item.damage
     else
-      return TextToOName(item.name)
+      return convert.TextToOName(item.name)
     end
 end
 function convert.ItemMod(item)
     if item.mod == nil then
-        item = TextToItem(ItemToOName(item))
+        item = convert.TextToItem(convert.ItemToOName(item))
     end
     return item.mod
 end

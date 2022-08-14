@@ -7,7 +7,7 @@ rsac.items = {}
 rsac.storageitems = rsac.refs.getItems()
 
 for index,item in pairs(rsac.storageitems) do
-    rsac.items[rsac.convert.TextToOName(item)] = {minCount=0, maxCount=0, rschannel={}}
+    rsac.items[rsac.convert.ItemToOName(item)] = {minCount=0, maxCount=0, rschannel={}}
 end
 
 rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
