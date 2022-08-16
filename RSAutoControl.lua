@@ -20,6 +20,9 @@ end
 
 function rsac.MergeItems()
     for index,item in pairs(rsac.storageitems) do
+        if index == "n" then
+            goto continue
+        end
         local citem = rsac.convert.ItemToOName(item)
         if rsac.items[citem] ~= nil then
             rsac.items[citem].Count = item.size
@@ -27,6 +30,7 @@ function rsac.MergeItems()
         else
             print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
         end
+        ::continue::
     end
 end
 
