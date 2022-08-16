@@ -13,7 +13,7 @@ for index,item in pairs(rsac.items) do
     end
 end
 -- for index,item in pairs(rsac.storageitems) do
-    -- rsac.items[rsac.convert.ItemToOName(item)] = {minCount=0, maxCount=0, RSchannel={}}
+    -- rsac.items[rsac.convert.ItemToOName(item)] = {minCount=0, maxCount=0, RSChannel={}}
 -- end
 
 -- rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
@@ -36,18 +36,18 @@ end
 
 function rsac.ValidItem(item)
     local ok = true
-    for i,j in pairs({"minCount", "maxCount", "Count", "RSchannel", "Label"}) do
+    for i,j in pairs({"minCount", "maxCount", "Count", "RSChannel", "Label"}) do
         if item[j] == nil then
             ok = false
         end
     end
-    if rsac.mf.getCount(item.RSchannel) ~= 3 then
+    if rsac.mf.getCount(item.RSChannel) ~= 3 then
         ok = false
-    elseif rsac.prox[item.rschannel[1]] == nil then
+    elseif rsac.prox[item.RSChannel[1]] == nil then
         ok = false
-    elseif rsac.prox[item.rschannel[1]][item.rschannel[2]] == nil then
+    elseif rsac.prox[item.RSChannel[1]][item.RSChannel[2]] == nil then
         ok = false
-    elseif rsac.mf.sides[item.rschannel[3]] == nil then
+    elseif rsac.mf.sides[item.RSChannel[3]] == nil then
         ok = false
     end
     return ok
@@ -76,8 +76,8 @@ function rsac.SwitchRS(item, state)
     if item.RSreversed ~= nil then
         strength = 0
     end
-    local proxy = rsac.mf.component.proxy(rsac.prox[item.rschannel[1]][item.rschannel[2]])
-    local b = proxy.setOutput(rsac.mf.sides[item.rschannel[3]], strength)
+    local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
+    local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
     rsac.items[item.Converted].State = state
     if state then
         print("Turned ON: " .. citem .. " (" .. item.label .. ")")
