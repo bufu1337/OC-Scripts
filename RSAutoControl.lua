@@ -8,7 +8,7 @@ rsac.storageitems = rsac.refs.getItems()
 
 for index,item in pairs(rsac.items) do
     rsac.items[index].Converted = index
-    if item.State != nil then
+    if item.State ~= nil then
         item.State = false
     end
 end
@@ -21,7 +21,7 @@ end
 function rsac.MergeItems()
     for index,item in pairs(rsac.storageitems) do
         local citem = rsac.convert.ItemToOName(item)
-        if rsac.items[citem] != nil then
+        if rsac.items[citem] ~= nil then
             rsac.items[citem].Count = item.size
             rsac.items[citem].Label = item.label
         else
@@ -37,7 +37,7 @@ function rsac.ValidItem(item)
             ok = false
         end
     end
-    if rsac.mf.getCount(item.RSchannel) != 3 then
+    if rsac.mf.getCount(item.RSchannel) ~= 3 then
         ok = false
     elseif rsac.prox[item.rschannel[1]] == nil then
         ok = false
@@ -54,7 +54,7 @@ function rsac.Check(item)
         return
     end
     local stateq = {false, true}
-    if item.Reversed != nil then
+    if item.Reversed ~= nil then
         stateq = {true, false}
     end
     if item.State == stateq[1] and item.minCount > item.Count then
@@ -65,11 +65,11 @@ function rsac.Check(item)
 end
 
 function rsac.SwitchRS(item, state)
-    if item.State != nil and item.State == state then
+    if item.State ~= nil and item.State == state then
         return
     end
     local strength = 0
-    if item.RSreversed != nil then
+    if item.RSreversed ~= nil then
         strength = 0
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.rschannel[1]][item.rschannel[2]])
