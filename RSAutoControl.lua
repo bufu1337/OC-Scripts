@@ -5,6 +5,7 @@ rsac.mf = require("MainFunctions")
 rsac.refs = rsac.mf.component.block_refinedstorage_cable
 rsac.items = require("RSItems")
 rsac.storageitems = {}
+rsac.prio = 1
 
 
 -- for index,item in pairs(rsac.storageitems) do
@@ -14,6 +15,7 @@ rsac.storageitems = {}
 -- rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
 
 function rsac.MergeItems()
+    rsac.prio = 1
     rsac.storageitems = rsac.refs.getItems()
     for index,item in pairs(rsac.storageitems) do
         if index == "n" then
@@ -50,6 +52,7 @@ function rsac.GetPrio(item, initPrio)
                     end
                 end
             end
+            if rsac.prio < prio then rsac.prio = prio end
             item.Prio = prio
         else
             item.Prio = 1
@@ -76,6 +79,18 @@ function rsac.ValidItem(item)
     return ok
 end
 
+function rsac.GetStateSwitch(item)
+    local stateSwitch = {OFF = false, ON = true}
+    if item.Reversed ~= nil then
+        stateSwitch = {OFF = true, ON = false}
+    end
+    return stateSwitch
+end
+
+function rsac.GetStateString(item, state)
+    return rsac.mf.getIndex(rsac.GetStateSwitch(item), state)
+end
+
 function rsac.Check(item)
     item.Status = ""
     if rsac.ValidItem(item) == false then
@@ -92,15 +107,12 @@ function rsac.Check(item)
             end
         end
     end
-    local stateq = {false, true}
-    if item.Reversed ~= nil then
-        stateq = {true, false}
-    end
-    if item.State == stateq[1] and item.minCount > item.Count then
-        rsac.SwitchRS(item, stateq[2])
+    local stateSwitch = rsac.GetStateSwitch(item)
+    if item.State == stateSwitch.OFF and item.minCount > item.Count then
+        rsac.SwitchRS(item, stateSwitch.ON)
         item.Status = "Low"
-    elseif item.State == stateq[2] and item.maxCount < item.Count then
-        rsac.SwitchRS(item, stateq[1])
+    elseif item.State == stateSwitch.ON and item.maxCount < item.Count then
+        rsac.SwitchRS(item, stateSwitch.OFF)
         item.Status = "Ok"
     else
         item.Status = "Ok"
@@ -118,18 +130,53 @@ function rsac.SwitchRS(item, state)
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
     rsac.items[item.Converted].State = state
-    if state then
-        print("Turned ON: " .. item.Label .. " (" .. item.Converted .. ")")
-    else
-        print("Turned OFF: " .. item.Label .. " (" .. item.Converted .. ")")
+    print("Turned " .. rsac.GetStateString(item, state) .. ": " .. item.Label .. " (" .. item.Converted .. ")")
+end
+
+function rsac.GoThruItems()
+    rsac.MergeItems()
+    for p=1,rsac.prio,1 do
+        for index,item in pairs(rsac.items) do
+            if item.Prio == p then
+                rsac.Check(item)
+            end
+        end
     end
 end
 
-function GoThruItems()
-    rsac.MergeItems()
+function rsac.TurnOffAll()
     for index,item in pairs(rsac.items) do
-        rsac.Check(item)
+        if rsac.ValidItem(item) == false then
+            return
+        end
+        local stateSwitch = rsac.GetStateSwitch(item)
+        rsac.SwitchRS(item, stateSwitch.OFF)
     end
+end
+
+function rsac.GetSysState(typeInt)
+    local proxy = rsac.mf.component.proxy(rsac.prox[typeInt][1])
+    local strength = proxy.getOutput(rsac.mf.sides.down)
+    if strength == 15 then return true end
+    return false
+end
+
+function rsac.GetSystemState()
+    return rsac.GetSysState(1)
+end
+
+function rsac.GetLoopState()
+    return rsac.GetSysState(2)
+end
+
+function rsac.Start()
+    while rsac.GetLoopState() do
+        if rsac.GetSystemState() then
+            rsac.GoThruItems()
+        end
+        rsac.mf.os.sleep(60)
+    end
+    print("RSAuto Loop End")
 end
 
 return rsac

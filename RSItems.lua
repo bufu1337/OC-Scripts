@@ -540,9 +540,9 @@ return {
   RSChannel={}
   },
  basemetals_jj_copper_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=256,
+  minCount=192,
+  RSChannel={1,2, "south"}
   },
  basemetals_jj_electrum_nugget={
   maxCount=0,
@@ -555,9 +555,9 @@ return {
   RSChannel={}
   },
  basemetals_jj_lead_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=256,
+  minCount=192,
+  RSChannel={1,3, "south"}
   },
  basemetals_jj_mercury_ingot={
   maxCount=0,
