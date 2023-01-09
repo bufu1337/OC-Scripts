@@ -52,7 +52,10 @@ function rsac.GetPrio(item, initPrio)
                     end
                 end
             end
-            if rsac.prio < prio then rsac.prio = prio end
+            if rsac.prio < prio then 
+                rsac.prio = prio
+                print("Set overall Prio to " .. rsac.prio)
+            end
             item.Prio = prio
         else
             item.Prio = 1
