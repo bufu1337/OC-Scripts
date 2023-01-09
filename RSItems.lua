@@ -532,7 +532,8 @@ return {
  basemetals_jj_bronze_nugget={
   maxCount=256,
   minCount=192,
-  RSChannel={1,1, "south"}
+  RSChannel={1,1, "south"},
+  DependsOn={{name="basemetals_jj_copper_nugget"}}
   },
  basemetals_jj_coldiron_ingot={
   maxCount=0,
@@ -542,7 +543,8 @@ return {
  basemetals_jj_copper_nugget={
   maxCount=256,
   minCount=192,
-  RSChannel={1,2, "south"}
+  RSChannel={1,2, "south"},
+  DependsOn={{name="basemetals_jj_lead_nugget"}}
   },
  basemetals_jj_electrum_nugget={
   maxCount=0,
