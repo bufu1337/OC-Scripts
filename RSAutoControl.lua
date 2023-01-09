@@ -6,7 +6,7 @@ rsac.refs = rsac.mf.component.block_refinedstorage_cable
 rsac.items = require("RSItems")
 rsac.storageitems = {}
 rsac.prio = 1
-
+rsac.firsttime = true
 
 -- for index,item in pairs(rsac.storageitems) do
     -- rsac.items[rsac.convert.ItemToOName(item)] = {minCount=0, maxCount=0, RSChannel={}}
@@ -14,30 +14,34 @@ rsac.prio = 1
 
 -- rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
 
-function rsac.MergeItems()
-    rsac.prio = 1
+function rsac.MergeItems(firsttime)
     rsac.storageitems = rsac.refs.getItems()
     for index,item in pairs(rsac.storageitems) do
         if index == "n" then
             goto continue
         end
         local citem = rsac.convert.ItemToOName(item)
-        if rsac.items[citem] ~= nil then
+        if rsac.items[citem] ~= nil thene
             rsac.items[citem].Count = item.size
-            rsac.items[citem].Label = item.label
-            rsac.items[citem].Status = ""
-        else
+            if firsttime then
+                rsac.items[citem].Label = item.label
+                rsac.items[citem].Status = ""
+            end
+        elseif firsttime then
             print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
         end
         ::continue::
     end
-    for index,item in pairs(rsac.items) do
-        rsac.items[index].Converted = index
-        if item.State == nil then
-            item.State = false
+    if firsttime then
+        for index,item in pairs(rsac.items) do
+            rsac.items[index].Converted = index
+            if item.State == nil then
+                item.State = false
+            end
+            rsac.GetPrio(item, 1)
         end
-        rsac.GetPrio(item, 1)
     end
+    rsac.firsttime = false
 end
 
 function rsac.GetPrio(item, initPrio)
@@ -54,7 +58,6 @@ function rsac.GetPrio(item, initPrio)
             end
             if rsac.prio < prio then 
                 rsac.prio = prio
-                print("Set overall Prio to " .. rsac.prio)
             end
             item.Prio = prio
         else
@@ -137,7 +140,7 @@ function rsac.SwitchRS(item, state)
 end
 
 function rsac.GoThruItems()
-    rsac.MergeItems()
+    rsac.MergeItems(rsac.firsttime)
     for p=1,rsac.prio,1 do
         for index,item in pairs(rsac.items) do
             if item.Prio == p then
