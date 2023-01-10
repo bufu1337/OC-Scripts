@@ -5,6 +5,7 @@ rsac.mf = require("MainFunctions")
 rsac.refs = rsac.mf.component.block_refinedstorage_cable
 rsac.items = require("RSItems")
 rsac.storageitems = {}
+rsac.validitems = {}
 rsac.prio = 1
 rsac.firsttime = true
 
@@ -21,7 +22,7 @@ function rsac.MergeItems(firsttime)
             goto continue
         end
         local citem = rsac.convert.ItemToOName(item)
-        if rsac.items[citem] ~= nil thene
+        if rsac.items[citem] ~= nil then
             rsac.items[citem].Count = item.size
             if firsttime then
                 rsac.items[citem].Label = item.label
@@ -33,13 +34,21 @@ function rsac.MergeItems(firsttime)
         ::continue::
     end
     if firsttime then
+        local saved = require("RSItemsSaved")
         for index,item in pairs(rsac.items) do
             rsac.items[index].Converted = index
+            if saved[index] ~= nil then
+                item.State = saved[index].State
+            end
             if item.State == nil then
                 item.State = false
             end
             rsac.GetPrio(item, 1)
+            if rsac.ValidItem(item) == false then
+                table.insert(rsac.validitems, item)
+            end
         end
+        saved = nil
     end
     rsac.firsttime = false
 end
@@ -99,10 +108,6 @@ end
 
 function rsac.Check(item)
     item.Status = ""
-    if rsac.ValidItem(item) == false then
-        item.Status = "Not Valid"
-        return
-    end
     if item.DependsOn ~= nil then
         for depI,dependItem in pairs(item.DependsOn) do
             if rsac.items[dependItem.name] ~= nil then
@@ -142,7 +147,7 @@ end
 function rsac.GoThruItems()
     rsac.MergeItems(rsac.firsttime)
     for p=1,rsac.prio,1 do
-        for index,item in pairs(rsac.items) do
+        for index,item in pairs(rsac.validitems) do
             if item.Prio == p then
                 rsac.Check(item)
             end
@@ -175,6 +180,15 @@ function rsac.GetLoopState()
     return rsac.GetSysState(2)
 end
 
+function rsac.SaveItems()
+    local temp = {}
+    for index,item in pairs(rsac.validitems) do
+        temp[item.Converted] = {State=item.State}
+    end
+    rsac.mf.WriteObjectFile(temp,"/home/RSItemsSaved.lua")
+    temp = nil
+end
+
 function rsac.Start()
     while rsac.GetLoopState() do
         if rsac.GetSystemState() then
@@ -182,6 +196,7 @@ function rsac.Start()
         end
         rsac.mf.os.sleep(60)
     end
+    rsac.SaveItems()
     print("RSAuto Loop End")
 end
 
