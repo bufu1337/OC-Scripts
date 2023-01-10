@@ -36,15 +36,15 @@ function rsac.MergeItems(firsttime)
     if firsttime then
         local saved = require("RSItemsSaved")
         for index,item in pairs(rsac.items) do
-            rsac.items[index].Converted = index
-            if saved[index] ~= nil then
-                item.State = saved[index].State
-            end
-            if item.State == nil then
-                item.State = false
-            end
-            rsac.GetPrio(item, 1)
-            if rsac.ValidItem(item) == false then
+            if rsac.ValidItem(item) then
+                rsac.items[index].Converted = index
+                if saved[index] ~= nil then
+                    item.State = saved[index].State
+                end
+                if item.State == nil then
+                    item.State = false
+                end
+                rsac.GetPrio(item, 1)
                 table.insert(rsac.validitems, item)
             end
         end
