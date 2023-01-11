@@ -15,7 +15,7 @@ rsac.firsttime = true
 
 -- rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
 
-function rsac.MergeItems(firsttime)
+function rsac.MergeItems()
     rsac.storageitems = rsac.refs.getItems()
     for index,item in pairs(rsac.storageitems) do
         if index == "n" then
@@ -24,16 +24,16 @@ function rsac.MergeItems(firsttime)
         local citem = rsac.convert.ItemToOName(item)
         if rsac.items[citem] ~= nil then
             rsac.items[citem].Count = item.size
-            if firsttime then
+            if rsac.firsttime then
                 rsac.items[citem].Label = item.label
                 rsac.items[citem].Status = ""
             end
-        elseif firsttime then
+        elseif rsac.firsttime then
             print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
         end
         ::continue::
     end
-    if firsttime then
+    if rsac.firsttime then
         local saved = require("RSItemsSaved")
         for index,item in pairs(rsac.items) do
             if rsac.ValidItem(item) then
@@ -145,7 +145,7 @@ function rsac.SwitchRS(item, state)
 end
 
 function rsac.GoThruItems()
-    rsac.MergeItems(rsac.firsttime)
+    rsac.MergeItems()
     for p=1,rsac.prio,1 do
         for index,item in pairs(rsac.validitems) do
             if item.Prio == p then
