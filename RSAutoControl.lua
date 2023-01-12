@@ -111,7 +111,9 @@ function rsac.Check(item)
     if item.DependsOn ~= nil then
         for depI,dependItem in pairs(item.DependsOn) do
             if rsac.items[dependItem.name] ~= nil then
-                if rsac.items[dependItem.name].Status == "Low" or rsac.items[dependItem.name].Status == "Depends" then
+                local on = rsac.items[dependItem.name].State == rsac.GetStateSwitch(rsac.items[dependItem.name]).ON
+                local depending = rsac.items[dependItem.name].Status == "Depends"
+                if on or depending then
                     item.Status = "Depends"
                     return
                 end
@@ -121,12 +123,8 @@ function rsac.Check(item)
     local stateSwitch = rsac.GetStateSwitch(item)
     if item.State == stateSwitch.OFF and item.minCount > item.Count then
         rsac.SwitchRS(item, stateSwitch.ON)
-        item.Status = "Low"
     elseif item.State == stateSwitch.ON and item.maxCount < item.Count then
         rsac.SwitchRS(item, stateSwitch.OFF)
-        item.Status = "Ok"
-    else
-        item.Status = "Ok"
     end
 end
 
