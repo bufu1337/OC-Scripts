@@ -25,11 +25,29 @@ function rsac.MergeItems()
         if rsac.items[citem] ~= nil then
             rsac.items[citem].Count = item.size
             if rsac.firsttime then
+                rsac.items[citem].Converted = citem
+                rsac.items[citem].Name = citem
                 rsac.items[citem].Label = item.label
                 rsac.items[citem].Status = ""
             end
         elseif rsac.firsttime then
             print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
+        end
+        local zindex = 2
+        while true do
+            local zitem = citem .. "_z" .. zindex
+            if rsac.items[zitem] ~= nil then
+                rsac.items[zitem].Count = item.size
+                if rsac.firsttime then
+                    rsac.items[zitem].Converted = citem
+                    rsac.items[zitem].Name = zitem
+                    rsac.items[zitem].Label = item.label
+                    rsac.items[zitem].Status = ""
+                end
+            else
+                break
+            end
+            zindex = zindex + 1
         end
         ::continue::
     end
@@ -37,7 +55,6 @@ function rsac.MergeItems()
         local saved = require("RSItemsSaved")
         for index,item in pairs(rsac.items) do
             if rsac.ValidItem(item) then
-                rsac.items[index].Converted = index
                 if saved[index] ~= nil then
                     item.State = saved[index].State
                 end
@@ -181,7 +198,7 @@ end
 function rsac.SaveItems()
     local temp = {}
     for index,item in pairs(rsac.validitems) do
-        temp[item.Converted] = {State=item.State}
+        temp[item.Name] = {State=item.State}
     end
     rsac.mf.WriteObjectFile(temp,"/home/RSItemsSaved.lua")
     temp = nil
