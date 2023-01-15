@@ -150,13 +150,15 @@ function rsac.SwitchRS(item, state)
         return
     end
     local strength = 0
+    local switchString = "OFF"
     if (state == false and item.RSreversed ~= nil) or (state and item.RSreversed == nil) then
         strength = 15
+        switchString = "ON"
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
-    rsac.items[item.Converted].State = state
-    print("Turned " .. rsac.GetStateString(item, state) .. ": " .. item.Label .. " (" .. item.Converted .. ")")
+    rsac.items[item.Name].State = state
+    print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ")")
 end
 
 function rsac.GoThruItems()

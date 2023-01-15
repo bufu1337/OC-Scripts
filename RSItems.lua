@@ -530,10 +530,9 @@ return {
   RSChannel={}
   },
  basemetals_jj_bronze_nugget={
-  maxCount=256,
-  minCount=192,
-  RSChannel={1,1, "south"},
-  DependsOn={{name="basemetals_jj_copper_nugget"}}
+  maxCount=0,
+  minCount=0,
+  RSChannel={}
   },
  basemetals_jj_coldiron_ingot={
   maxCount=0,
@@ -541,10 +540,9 @@ return {
   RSChannel={}
   },
  basemetals_jj_copper_nugget={
-  maxCount=256,
-  minCount=192,
-  RSChannel={1,2, "south"},
-  DependsOn={{name="basemetals_jj_lead_nugget"}}
+  maxCount=0,
+  minCount=0,
+  RSChannel={}
   },
  basemetals_jj_electrum_nugget={
   maxCount=0,
@@ -557,9 +555,9 @@ return {
   RSChannel={}
   },
  basemetals_jj_lead_nugget={
-  maxCount=256,
-  minCount=192,
-  RSChannel={1,3, "south"}
+  maxCount=0,
+  minCount=0,
+  RSChannel={}
   },
  basemetals_jj_mercury_ingot={
   maxCount=0,
@@ -7532,9 +7530,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_clay={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=1000000,
+  minCount=2000000,
+  RSChannel={1,1, "north"}
   },
  minecraft_jj_clay_ball={
   maxCount=0,
@@ -7557,9 +7555,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_coal_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=160000,
+  minCount=200000,
+  RSChannel={1,1, "east"}
   },
  minecraft_jj_coal_ore={
   maxCount=0,
@@ -8907,9 +8905,10 @@ return {
   RSChannel={}
   },
  minecraft_jj_quartz_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=64,
+  minCount=3000,
+  RSChannel={1,1, "west"},
+  Reversed=true
   },
  minecraft_jj_rabbit={
   maxCount=0,
@@ -9042,9 +9041,10 @@ return {
   RSChannel={}
   },
  minecraft_jj_redstone_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=64,
+  minCount=3000,
+  RSChannel={1,1, "south"},
+  Reversed=true
   },
  minecraft_jj_redstone_torch={
   maxCount=0,
