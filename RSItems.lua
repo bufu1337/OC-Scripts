@@ -7530,8 +7530,8 @@ return {
   RSChannel={}
   },
  minecraft_jj_clay={
-  maxCount=1000000,
-  minCount=2000000,
+  maxCount=2000000,
+  minCount=1000000,
   RSChannel={1,1, "north"}
   },
  minecraft_jj_clay_ball={
@@ -7555,8 +7555,8 @@ return {
   RSChannel={}
   },
  minecraft_jj_coal_jj_1={
-  maxCount=160000,
-  minCount=200000,
+  maxCount=200000,
+  minCount=160000,
   RSChannel={1,1, "east"}
   },
  minecraft_jj_coal_ore={
@@ -8905,8 +8905,8 @@ return {
   RSChannel={}
   },
  minecraft_jj_quartz_ore={
-  maxCount=64,
-  minCount=3000,
+  maxCount=3000,
+  minCount=64,
   RSChannel={1,1, "west"},
   Reversed=true
   },
@@ -9041,8 +9041,8 @@ return {
   RSChannel={}
   },
  minecraft_jj_redstone_ore={
-  maxCount=64,
-  minCount=3000,
+  maxCount=3000,
+  minCount=64,
   RSChannel={1,1, "south"},
   Reversed=true
   },
