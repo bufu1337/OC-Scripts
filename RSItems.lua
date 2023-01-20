@@ -7560,9 +7560,11 @@ return {
   RSChannel={1,1, "east"}
   },
  minecraft_jj_coal_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=3000,
+  minCount=64,
+  RSChannel={1,2, "east"},
+  Reversed=true,
+  DependsOn={name="minecraft_jj_lapis_ore"}
   },
  minecraft_jj_cobblestone={
   maxCount=0,
@@ -7875,9 +7877,10 @@ return {
   RSChannel={}
   },
  minecraft_jj_diamond_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=3000,
+  minCount=64,
+  RSChannel={1,2, "south"},
+  Reversed=true
   },
  minecraft_jj_diamond_pickaxe={
   maxCount=0,
@@ -8055,9 +8058,11 @@ return {
   RSChannel={}
   },
  minecraft_jj_emerald_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=3000,
+  minCount=64,
+  RSChannel={1,2, "west"},
+  Reversed=true,
+  DependsOn={name="minecraft_jj_diamond_ore"}
   },
  minecraft_jj_enchanted_book={
   maxCount=0,
@@ -8490,9 +8495,11 @@ return {
   RSChannel={}
   },
  minecraft_jj_lapis_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=3000,
+  minCount=64,
+  RSChannel={1,2, "north"},
+  Reversed=true,
+  DependsOn={name="minecraft_jj_emerald_ore"}
   },
  minecraft_jj_lava_bucket={
   maxCount=0,
