@@ -135,6 +135,7 @@ function main(){
                 yellow: 0
             }
         },
+        moonBetting: true,
         Bet: {
             base: config.baseBet.value, 
             current: config.baseBet.value,
@@ -147,21 +148,25 @@ function main(){
             Win: config[(`${config.onPayoutWin.value}PayoutWin`)].value,
             Loss: config[(`${config.onPayoutLoss.value}PayoutLoss`)].value
         },
+        types: ["Bet", "Payout"],
         SetBetBase: function(){
             if(config.dobetPerCent.value){
                 BCC.Bet.base = (currency.amount / 100 * config.baseBetPercent.value).toFixed(BCC.NCS("Bet")-1)
             }
         },
         InitVars: function(){
-            if(config.onBetLoss.value == "seq"){
-                BCC.Bet.Loss = BCC.Bet.Loss.split(BCC.GetSeqSepartor(BCC.Bet.Loss));
-            }
-            if(config.onPayoutLoss.value == "seq"){
-                BCC.Payout.Loss = BCC.Payout.Loss.split(BCC.GetSeqSepartor(BCC.Payout.Loss));
-                BCC.Payout.Loss.forEach((str, index) => { 
-                    BCC.Payout.Loss[index] = parseFloat(str)
+            BCC.types.forEach((type, tindex) => {
+            if(config[`on${type}Loss`].value == "seq"){
+                BCC[type].Loss = BCC[type].Loss.split(BCC.GetSeqSepartor(BCC[type].Loss));
+                BCC[type].Loss.forEach((str, index) => { 
+                    BCC[type].Loss[index] = parseFloat(str)
                 });
             }
+            config[`moon${type}Seq`].value.split(BCC.GetSeqSepartor(config[`moon${type}Seq`].value));
+            config[`moon${type}Seq`].value.forEach((str, index) => { 
+                    config[`moon${type}Seq`].value[index] = parseFloat(str)
+                });
+            });
             BCC.SetBetBase()
         },
         GetSeqSepartor: function(seq){
@@ -227,13 +232,12 @@ function main(){
         Calculate: function(odds){
             BCC.SetOdds(odds)
             BCC.SetCounters()
-            BCC.SetBetBase()
             var win = BCC.counter.now.win > 0
             var wintext = "Loss"
             if(win == true){
                 wintext = "Win"
             }
-            var types = ["Bet", "Payout"]
+            if(BCC.moonBetting == false){
             if(BCC.placebet == false && BCC.counter.now.red == config.waitForRed.value){
                 BCC.placebet = true
             }
@@ -243,7 +247,16 @@ function main(){
             if(BCC.placebet == true && BCC.counter.now.win == config.winRepeat.value){
                 BCC.placebet = false
             }
-
+            if(BCC.placebet == false && config.moonPhase.value <= BCC.counter.now.noyellow){            
+                BCC.placebet = true
+                BCC.moonBetting = true
+            }
+            }
+            else{
+                if(BCC.counter.now.win > 0){
+                    BCC.placebet = false
+                }
+            }
             
             // config.baseBet.value = config.moonBet.value
             // config.baseBetPercent.value = config.moonBetPercent.value
@@ -251,7 +264,7 @@ function main(){
             // config.moonPayout.value
             // config.moonPayoutSeq.value
             // config.moonPhase.value
-
+            BCC.SetBetBase()
             if(BCC.placebet == false){
                 types.forEach((type, index, arr) => { 
                     BCC[type].current = BCC[type].base;
@@ -261,7 +274,7 @@ function main(){
             // config.winRepeat.value
             // config.lossReset.value
             // config.waitForRed.value
-            types.forEach((type, index, arr) => { 
+            BCC.types.forEach((type, index, arr) => { 
                 var switchValue = config[`on${type}${wintext}`].value
                 switch(switchValue){
                     case 'none':{
