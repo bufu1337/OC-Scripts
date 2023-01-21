@@ -1,4 +1,3 @@
-DATA HOSTED WITH ♥ BY PASTEBIN.COM - DOWNLOAD RAW - SEE ORIGINAL
 var config = {
   scriptTitle: {label: '//////// Script by https://bnbcasinos.net | Check out for more Casinos and Strategies! \\\\\\\\ \n Starts with a payout of 10x and adds 1.02x to the payout after every loss. After every Loss streak of 500 it divides the payout by 2 and multiplies the bet amount by 2. This are the settings I personally used (Base Bet of 0.000015 BTC) ', type: 'title'},
   baseBet: {label: 'Starting Bet:', value: 0.000015, type: 'number'},
