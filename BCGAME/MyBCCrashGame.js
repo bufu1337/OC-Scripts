@@ -1,13 +1,36 @@
+// var currency = {
+//     minAmount: 1,
+//     maxAmount: 2000,
+//     amount: 10000,
+//     currencyName: "JB"
+// }
+// currency = {
+//     minAmount: 0.000001,
+//     maxAmount: 20000,
+//     amount: 0.04,
+//     currencyName: "BCD"
+// }
+// var log = {
+//     success: function(text){
+//         console.log(text)
+//     },
+//     error: function(text){
+//         console.log(text)
+//     },
+//     info: function(text){
+//         console.log(text)
+//     }
+// }
 var config = {
     dobetlabel: {label: 'Live Mode', type: 'title'},
-    dobet: {label: '', value: false, type: 'radio',
+    dobet: {label: '', value: true, type: 'radio',
       options: [
         {value: true, label: 'Yes'},
         {value: false, label: 'No'}
       ]
     },
     betPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
-    dobetPerCent: {label: '', value: false, type: 'radio',
+    dobetPerCent: {label: '', value: true, type: 'radio',
       options: [
         {value: true, label: 'Yes'},
         {value: false, label: 'No'}
@@ -18,24 +41,25 @@ var config = {
     maxBet: {label: 'Maximum Bet:', value: currency.maxAmount, type: 'number'},
     minBet: {label: 'Minimum Bet:', value: currency.minAmount, type: 'number'},
 
-    basePayout: {label: 'Starting Payout:', value: 2, type: 'number'},
+    basePayout: {label: 'Starting Payout:', value: 3, type: 'number'},
     maxPayout: {label: 'Maximum Payout:', value: 20.00, type: 'number'},
     minPayout: {label: 'Minimum Payout:', value: 1.01, type: 'number'},
 
     winRepeat: {label: 'Reset After Win Streak of:', value: 2, type: 'number'},
-    lossReset: {label: 'Reset After Loss Streak of:', value: 8, type: 'number'},
+    LossReset: {label: 'Reset After Loss Streak of:', value: 8, type: 'number'},
     waitForRed: {label: 'Wait for Red:', value: 1, type: 'number'},
 
     moonSettingsTitle :{label: 'Moon Settings', type: 'title'},
     moonBet: {label: 'Bet when awaiting moon:', value: currency.minAmount, type: 'number'},
-    moonBetPercent: {label: 'Starting Bet in Percent:', value: 0.1, type: 'number'},
-    moonBetSeq: {label: 'Bet Sequense Multiplier when awaiting moon:', value: "", type: 'text'},
-    moonPayout: {label: 'Payout when awaiting moon:', value: 12, type: 'number'},
-    moonPayoutSeq: {label: 'Payout Sequense when awaiting moon:', value: "", type: 'text'},
+    moonBetPercent: {label: 'Starting Bet in Percent:', value: 1, type: 'number'},
+    moonBetSeq: {label: 'Bet Sequense Multiplier when awaiting moon:', value: "1.1,1.1,1.1,1.1,1.1,1.2,1.2,1.2,1.2,1.2,1.3", type: 'text'},
+    moonPayout: {label: 'Payout when awaiting moon:', value: 10, type: 'number'},
+    moonPayoutSeq: {label: 'Payout Sequense when awaiting moon:', value: "10", type: 'text'},
     moonPhase: {label: 'Moon Phase after X Games:', value: 50, type: 'number'},
+    moonLossReset: {label: 'Reset moon after Loss Streak of:', value: 20, type: 'number'},
 
     onBetLossTitle: {label: 'Loss Bet Settings', type: 'title'},
-    onBetLoss: {label: '', value: 'none', type: 'radio',
+    onBetLoss: {label: '', value: 'seq', type: 'radio',
         options: [
             {value: 'none',label: 'Return to Starting Bet'},
             {value: 'add', label: 'Add to Bet'},
@@ -49,7 +73,7 @@ var config = {
     subBetLoss: { label: 'Decrease Bet By:', value: 0, type: 'number' },
     mulBetLoss: { label: 'Multiply Bet By:', value: 2, type: 'number' },
     divBetLoss: { label: 'Divide Bet By:', value: 2, type: 'number' },
-    seqBetLoss: { label: 'Sequense Bet Multiplier', value: 500, type: 'text'},
+    seqBetLoss: { label: 'Sequense Bet Multiplier', value: "2.3,2.2,2.1,2", type: 'text'},
 
     onPayoutLossTitle :{label: 'Loss Payout Settings', type: 'title'},
     onPayoutLoss: {label: '', value: 'none', type: 'radio',
@@ -62,7 +86,7 @@ var config = {
             {value: 'seq', label: 'Sequense Payout'}
         ]
     },
-    addPayoutLoss: { label: 'Increase Payout By:', value: 1.02, type: 'number' },
+    addPayoutLoss: { label: 'Increase Payout By:', value: 1, type: 'number' },
     subPayoutLoss: { label: 'Decrease Payout By:', value: 0, type: 'number' },
     mulPayoutLoss: { label: 'Multiply Payout By:', value: 1, type: 'number' },
     divPayoutLoss: { label: 'Divide Payout By:', value: 2, type: 'number' },
@@ -100,12 +124,6 @@ var config = {
 }
 
 function main(){
-    // var currency = {
-    //     minAmount: 1,
-    //     maxAmount: 2000,
-    //     amount: 10000,
-    //     currencyName: "JB"
-    // }
     var BCC = {
         dobet: config.dobet.value,
         placebet: false,
@@ -135,43 +153,120 @@ function main(){
                 yellow: 0
             }
         },
-        moonBetting: true,
+        moonBetting: false,
         Bet: {
             base: config.baseBet.value, 
             current: config.baseBet.value,
-            Win: config[(`${config.onBetWin.value}BetWin`)].value,
-            Loss: config[(`${config.onBetLoss.value}BetLoss`)].value
+            Win: 0,
+            Loss: 0,
+            moonBase: config.moonBet.value,
+            moonLoss: config.moonBetSeq.value
         },
         Payout: {
             base: config.basePayout.value, 
             current: config.basePayout.value,
-            Win: config[(`${config.onPayoutWin.value}PayoutWin`)].value,
-            Loss: config[(`${config.onPayoutLoss.value}PayoutLoss`)].value
+            Win: 0,
+            Loss: 0,
+            moonBase: config.moonPayout.value,
+            moonLoss: config.moonPayoutSeq.value
         },
         types: ["Bet", "Payout"],
+        // GetObjectAsString: function(data){
+        //     var returning = ""
+        //     Object.keys(data).forEach((j, i) => {
+        //         var a = ""
+        //         if(typeof(data[j]) == "object"){
+        //             a = `{${BCC.GetObjectAsString(data[j])}}`
+        //         }
+        //         else{
+        //             a = `${data[j]}`
+        //         }
+        //         var b = `${j}: ${a}`
+        //         if(returning == ""){
+        //             returning = b
+        //         }
+        //         else{
+        //             returning += `, ${b}`
+        //         }
+        //     });
+        //     return returning
+        // },
+        GetMaxBase: function(moon){
+            var wintext = "Loss"
+            if(moon){
+                wintext = "moonLoss"
+            }
+            var type = "Bet"
+            var switchValue = "none"
+            var amount = currency.maxAmount
+            if(wintext == "moonLoss"){
+                switchValue = "seq"
+            }
+            else{
+                switchValue = config[`on${type}${wintext}`].value
+            }
+            for(var i=config[`${wintext}Reset`].value - 1; i > 0; i--){
+                switch(switchValue){
+                    case 'add':{
+                        amount -= BCC[type][wintext]
+                        break;
+                    }
+                    case 'mul':{
+                        amount /= BCC[type][wintext]
+                        break;
+                    }
+                    case 'seq':{
+                        var seqIndex = i - 1
+                        if(seqIndex > BCC[type][wintext].length - 1){
+                            seqIndex = BCC[type][wintext].length - 1
+                        }
+                        if(seqIndex >= 0){
+                            amount /= BCC[type][wintext][seqIndex]
+                        }
+                        break;
+                    }
+                }
+            }
+            return amount.toFixed(BCC.NCS("Bet"))
+        },
         SetBetBase: function(){
             if(config.dobetPerCent.value){
-                BCC.Bet.base = (currency.amount / 100 * config.baseBetPercent.value).toFixed(BCC.NCS("Bet")-1)
+                BCC.Bet.base = parseFloat((BCC.wallet / 100 * config.baseBetPercent.value).toFixed(BCC.NCS("Bet")-1))
+                if(BCC.Bet.base > BCC.GetMaxBase(false)){
+                    BCC.Bet.base = BCC.GetMaxBase(false)
+                }
+                BCC.Bet.moonBase = parseFloat((BCC.wallet / 100 * config.moonBetPercent.value).toFixed(BCC.NCS("Bet")-1))
+                if(BCC.Bet.moonBase > BCC.GetMaxBase(true)){
+                    BCC.Bet.moonBase = BCC.GetMaxBase(true)
+                }
             }
         },
         InitVars: function(){
             BCC.types.forEach((type, tindex) => {
-            if(config[`on${type}Loss`].value == "seq"){
-                BCC[type].Loss = BCC[type].Loss.split(BCC.GetSeqSepartor(BCC[type].Loss));
-                BCC[type].Loss.forEach((str, index) => { 
-                    BCC[type].Loss[index] = parseFloat(str)
-                });
-            }
-            config[`moon${type}Seq`].value.split(BCC.GetSeqSepartor(config[`moon${type}Seq`].value));
-            config[`moon${type}Seq`].value.forEach((str, index) => { 
-                    config[`moon${type}Seq`].value[index] = parseFloat(str)
+                ["Win","Loss"].forEach((s, index) => {
+                    var test = config[`on${type}${s}`].value
+                    if(test != "none"){
+                        BCC[type][s] = config[(`${test}${type}${s}`)].value
+                    }
                 });
             });
+            ["","moon"].forEach((moon, mindex) => {
+                BCC.types.forEach((type, tindex) => {
+                    if(config[`on${type}Loss`].value == "seq" || moon != ""){
+                        BCC[type][`${moon}Loss`] = BCC[type][`${moon}Loss`].split(BCC.GetSeqSepartor(BCC[type][`${moon}Loss`]));
+                        BCC[type][`${moon}Loss`].forEach((str, index) => { 
+                            BCC[type][`${moon}Loss`][index] = parseFloat(str)
+                        });
+                    }
+                });
+            });
+            BCC.wallet = parseFloat(BCC.wallet.toFixed(BCC.NCS("Bet")))
             BCC.SetBetBase()
+            BCC.ResetCurrent()
         },
         GetSeqSepartor: function(seq){
             var separators = ['-', '/', ',', ' ']
-            var returning = ""
+            var returning = " "
             separators.forEach((str, index, arr) => { 
                 if(seq.includes(str)){
                     returning = str;
@@ -189,6 +284,8 @@ function main(){
         SetOdds: function(odds){
             BCC.Odds.current = odds
             BCC.Odds.all.push(odds)
+            log.info(`Odds: ${odds}`)
+            console.log(`${BCC.Odds.all.length}: ${odds}`)
         },
         SetCounters: function(){
             if(BCC.placebet){
@@ -196,14 +293,20 @@ function main(){
                     BCC.counter.now.win++
                     BCC.counter.all.win++
                     BCC.counter.now.loss = 0
-                    BCC.wallet += (BCC.Bet.current * BCC.Payout.current).toFixed(BCC.NCS("Bet"))
+                    var marge = parseFloat((parseFloat(BCC.Bet.current) * (parseFloat(BCC.Payout.current) - 1)).toFixed(BCC.NCS("Bet")))
+                    BCC.wallet += marge
+                    log.success(`WIN: ${marge}`)
                 }
                 else{
                     BCC.counter.now.loss++
                     BCC.counter.all.loss++
                     BCC.counter.now.win = 0
-                    BCC.wallet -= (BCC.Bet.current).toFixed(BCC.NCS("Bet"))
+                    var marge = parseFloat(parseFloat(BCC.Bet.current).toFixed(BCC.NCS("Bet")))
+                    BCC.wallet -= marge
+                    log.error(`LOST: ${marge} (${BCC.counter.now.loss}/${config.LossReset.value})`)
                 }
+                BCC.wallet = parseFloat(BCC.wallet.toFixed(BCC.NCS("Bet")))
+                log.info("-------------")
             }
             else{
                 BCC.counter.now.loss = 0
@@ -229,126 +332,214 @@ function main(){
                 BCC.counter.now.red = 0
             }
         },
+        ResetCurrent: function(){
+            BCC.types.forEach((type, index, arr) => { 
+                BCC[type].current = BCC[type].base;
+            })
+        },
         Calculate: function(odds){
             BCC.SetOdds(odds)
             BCC.SetCounters()
-            var win = BCC.counter.now.win > 0
-            var wintext = "Loss"
-            if(win == true){
-                wintext = "Win"
-            }
+            var wintext = ""
             if(BCC.moonBetting == false){
-            if(BCC.placebet == false && BCC.counter.now.red == config.waitForRed.value){
-                BCC.placebet = true
-            }
-            if(BCC.placebet == true && BCC.counter.now.loss == config.lossReset.value){
-                BCC.placebet = false
-            }
-            if(BCC.placebet == true && BCC.counter.now.win == config.winRepeat.value){
-                BCC.placebet = false
-            }
-            if(BCC.placebet == false && config.moonPhase.value <= BCC.counter.now.noyellow){            
-                BCC.placebet = true
-                BCC.moonBetting = true
-            }
+                if(BCC.placebet == false && BCC.counter.now.red == config.waitForRed.value){
+                    BCC.placebet = true
+                }
+                if(BCC.placebet == true && BCC.counter.now.loss == config.LossReset.value){
+                    BCC.placebet = false
+                }
+                if(BCC.placebet == true && BCC.counter.now.win == config.winRepeat.value){
+                    BCC.placebet = false
+                }
+                if(BCC.placebet == false && config.moonPhase.value <= BCC.counter.now.noyellow){            
+                    BCC.placebet = true
+                    BCC.moonBetting = true
+                    BCC.types.forEach((type, index, arr) => { 
+                        BCC[type].current = BCC[type].moonBase;
+                    })
+                }
             }
             else{
                 if(BCC.counter.now.win > 0){
                     BCC.placebet = false
+                    BCC.moonBetting = false
+                }
+                if(BCC.counter.now.loss == config.moonLossReset.value){
+                    BCC.placebet = false
+                    BCC.moonBetting = false
                 }
             }
             
-            // config.baseBet.value = config.moonBet.value
-            // config.baseBetPercent.value = config.moonBetPercent.value
-            // config.moonBetSeq.value
-            // config.moonPayout.value
-            // config.moonPayoutSeq.value
-            // config.moonPhase.value
             BCC.SetBetBase()
             if(BCC.placebet == false){
-                types.forEach((type, index, arr) => { 
-                    BCC[type].current = BCC[type].base;
-                })
+                BCC.ResetCurrent()
                 return;
             }
-            // config.winRepeat.value
-            // config.lossReset.value
-            // config.waitForRed.value
-            BCC.types.forEach((type, index, arr) => { 
-                var switchValue = config[`on${type}${wintext}`].value
-                switch(switchValue){
-                    case 'none':{
-                        BCC[type].current = BCC[type].base;
-                        break;
+
+            if(BCC.counter.now.win > 0){
+                wintext = "Win"
+            }
+            else if(BCC.counter.now.loss > 0){
+                wintext = "Loss"
+            }
+            
+            if(wintext != ""){
+                BCC.types.forEach((type, index, arr) => {
+                    var switchValue = "none"
+                    if(BCC.moonBetting){
+                        wintext = "moonLoss";
+                        switchValue = "seq"
                     }
-                    case 'add':{
-                        BCC[type].current += BCC[type][wintext]
-                        break;
+                    else{
+                        switchValue = config[`on${type}${wintext}`].value
                     }
-                    case 'sub':{
-                        BCC[type].current -= BCC[type][wintext]
-                        break;
-                    }
-                    case 'mul':{
-                        BCC[type].current *= BCC[type][wintext]
-                        break;
-                    }
-                    case 'div':{
-                        BCC[type].current /= BCC[type][wintext]
-                        break;
-                    }
-                    case 'seq':{
-                        var seqIndex = BCC.counter.loss - 1
-                        if(seqIndex > BCC[type][wintext].length - 1){
-                            seqIndex = BCC[type][wintext].length - 1
+                    switch(switchValue){
+                        case 'none':{
+                            BCC[type].current = BCC[type].base;
+                            break;
                         }
-                        if(seqIndex >= 0){
-                            if(type == "Bet"){
-                                BCC[type].current *= BCC[type][wintext][seqIndex]
+                        case 'add':{
+                            BCC[type].current += BCC[type][wintext]
+                            break;
+                        }
+                        case 'sub':{
+                            BCC[type].current -= BCC[type][wintext]
+                            break;
+                        }
+                        case 'mul':{
+                            BCC[type].current *= BCC[type][wintext]
+                            break;
+                        }
+                        case 'div':{
+                            BCC[type].current /= BCC[type][wintext]
+                            break;
+                        }
+                        case 'seq':{
+                            var seqIndex = BCC.counter.now.loss - 1
+                            if(seqIndex > BCC[type][wintext].length - 1){
+                                seqIndex = BCC[type][wintext].length - 1
                             }
-                            else{
-                                BCC[type].current = BCC[type][wintext][seqIndex]
+                            if(seqIndex >= 0){
+                                if(type == "Bet"){
+                                    BCC[type].current *= BCC[type][wintext][seqIndex]
+                                }
+                                else{
+                                    BCC[type].current = BCC[type][wintext][seqIndex]
+                                }
                             }
+                            break;
                         }
-                        break;
                     }
-                }
-                switch(switchValue){
-                    case 'add':
-                    case 'mul':
-                    case 'seq':{
-                        if (BCC[type].current > config[`max${type}`].value){
-                            log.error(`Maximum ${type} reached!`);
-                            BCC[type].current = config[`max${type}`].value
-                            return maxPayout;
+                    switch(switchValue){
+                        case 'add':
+                        case 'mul':
+                        case 'seq':{
+                            if (BCC[type].current > config[`max${type}`].value){
+                                log.error(`Maximum ${type} reached!`);
+                                BCC[type].current = config[`max${type}`].value
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    case 'sub':
-                    case 'div':{
-                        if (BCC[type].current < config[`min${type}`].value){
-                            log.error(`Minimum ${type} reached!`);
-                            BCC[type].current = config[`min${type}`].value
+                        case 'sub':
+                        case 'div':{
+                            if (BCC[type].current < config[`min${type}`].value){
+                                log.error(`Minimum ${type} reached!`);
+                                BCC[type].current = config[`min${type}`].value
+                            }
+                            break;
                         }
-                        break;
                     }
-                }
-                BCC[type].current = BCC[type].current.toFixed(BCC.NCS(type))
-            });
+                    BCC[type].current = parseFloat((parseFloat(BCC[type].current)).toFixed(BCC.NCS(type)))
+                });
+            }
+            if(BCC.Bet.current > BCC.wallet){
+                BCC.Bet.current = BCC.wallet
+            }
+            log.info(`Place Bet: ${BCC.Bet.current} Payout: ${BCC.Payout.current}`)
         },
+        // jsonfile: [],
+        // LogThis: function(){
+        //     var temp = BCC.GetObjectAsString({
+        //         Odds: BCC.Odds.current, 
+        //         wallet: BCC.wallet, 
+        //         Bet_base: BCC.Bet.base, 
+        //         Bet_moonBase: BCC.Bet.moonBase, 
+        //         Bet_current: BCC.Bet.current, 
+        //         Payout_base: BCC.Payout.base, 
+        //         Payout_moonBase: BCC.Payout.moonBase, 
+        //         Payout_current: BCC.Payout.current, 
+        //         Counter_now_win: BCC.counter.now.win,
+        //         Counter_now_loss: BCC.counter.now.loss,
+        //         Counter_now_red: BCC.counter.now.red,
+        //         Counter_now_green: BCC.counter.now.green,
+        //         Counter_now_noyellow: BCC.counter.now.noyellow,
+        //         Counter_all_win: BCC.counter.all.win,
+        //         Counter_all_loss: BCC.counter.all.loss,
+        //         Counter_all_red: BCC.counter.all.red,
+        //         Counter_all_green: BCC.counter.all.green,
+        //         Counter_all_yellow: BCC.counter.all.yellow,
+        //         moonBetting: BCC.moonBetting, 
+        //         placebet: BCC.placebet
+        //     })
+        //     BCC.jsonfile.push(temp)
+        //     //log.success(temp)
+        // },
+        // save: function(){
+        //     if ('Blob' in window) {
+        //         var fileName = 'BCGameTest.json';
+        //         var text = ""
+        //         BCC.jsonfile.forEach((a, index, arra) => { 
+        //             text += `{${a}},\n`
+        //         })
+        //         var JStextToWrite = `[\n${text}]` 
+        //         var typ = 'application/javascript'
+        //         var textFileAsBlob = new Blob([JStextToWrite], { type: typ });
+            
+        //         if ('msSaveOrOpenBlob' in navigator) {
+        //             navigator.msSaveOrOpenBlob(textFileAsBlob, fileName);
+        //         } 
+        //         else {
+        //             var downloadLink = document.createElement('a');
+        //             downloadLink.download = fileName;
+        //             downloadLink.innerHTML = 'Download File';
+        //             if ('webkitURL' in window) {
+        //                 // Chrome allows the link to be clicked without actually adding it to the DOM.
+        //                 downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        //             }
+        //             else {
+        //                 // Firefox requires the link to be added to the DOM before it can be clicked.
+        //                 downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        //                 downloadLink.onclick = function (event) {document.body.removeChild(event.target);};
+        //                 downloadLink.style.display = 'none';
+        //                 document.body.appendChild(downloadLink);
+        //             }
+        //             downloadLink.click();
+        //         }
+        //     }
+        //     else {
+        //         alert('Your browser does not support the HTML5 Blob.');
+        //     }
+        // },
+        // GoThruTemp: function(){
+        //     BCC.Odds.temp.forEach((odds, index, arr) => { 
+        //         BCC.Calculate(odds)
+        //         BCC.LogThis()
+        //     })
+        //     log.success(`wallet: ${BCC.wallet}`)
+        //     //BCC.save()
+        // },
         LogObject: function(data){
             Object.keys(data).forEach((j, i) => { 
                 log.success(`${j}: ${data[j]}`);
             });
-            //log.success(Object.keys(data));
         }
     }
     BCC.InitVars()
-
+    //BCC.GoThruTemp()
     game.onBet = function () {
         if(BCC.dobet && BCC.placebet){
-            game.bet(1, 1.01).then(function (payout){
-                log.success(`Won: ${payout}`)
+            game.bet(BCC.Bet.current, BCC.Payout.current).then(function (payout){
+                //log.success(`Won: ${payout}`)
             })
         }
     }
