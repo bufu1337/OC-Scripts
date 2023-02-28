@@ -19,8 +19,8 @@ var config = {
     baseBetPercent: {label: 'Starting Bet in Percent:', value: 0.1, type: 'number'},
     baseBetMultiP: {label: 'Bet Multiplier:', value: 2, type: 'number'},
     basePayout: {label: 'Starting Payout:', value: 3, type: 'number'},
-    baseWait: {label: 'Wait for lower Odds:', value: 5, type: 'number'},
-    baseLossReset: {label: 'Reset After Loss Streak of:', value: 8, type: 'number'},
+    baseWait: {label: 'Wait for lower Odds:', value: 6, type: 'number'},
+    baseLossReset: {label: 'Reset After Loss Streak of:', value: 11, type: 'number'},
 
     midlowlabel: {label: '---- MIDLOW ----', type: 'title'},
     midlowBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -49,8 +49,8 @@ var config = {
     midBetPercent: {label: 'Starting Bet in Percent:', value: 0.15, type: 'number'},
     midBetMultiP: {label: 'Bet Multiplier:', value: 1.25, type: 'number'},
     midPayout: {label: 'Starting Payout:', value: 5, type: 'number'},
-    midWait: {label: 'Wait for lower Odds:', value: 7, type: 'number'},
-    midLossReset: {label: 'Reset After Loss Streak of:', value: 10, type: 'number'},
+    midWait: {label: 'Wait for lower Odds:', value: 8, type: 'number'},
+    midLossReset: {label: 'Reset After Loss Streak of:', value: 15, type: 'number'},
 
     highlabel: {label: '---- HIGH ----', type: 'title'},
     highBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -64,8 +64,8 @@ var config = {
     highBetPercent: {label: 'Starting Bet in Percent:', value: 0.185, type: 'number'},
     highBetMultiP: {label: 'Bet Multiplier:', value: 1.1, type: 'number'},
     highPayout: {label: 'Starting Payout:', value: 10, type: 'number'},
-    highWait: {label: 'Wait for lower Odds:', value: 50, type: 'number'},
-    highLossReset: {label: 'Reset After Loss Streak of:', value: 20, type: 'number'},
+    highWait: {label: 'Wait for lower Odds:', value: 60, type: 'number'},
+    highLossReset: {label: 'Reset After Loss Streak of:', value: 30, type: 'number'},
     
     lowlabel: {label: '---- LOW ----', type: 'title'},
     lowBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -79,7 +79,7 @@ var config = {
     lowBetPercent: {label: 'Starting Bet in Percent:', value: 0.125, type: 'number'},
     lowBetMultiP: {label: 'Bet Multiplier:', value: 3, type: 'number'},
     lowPayout: {label: 'Starting Payout:', value: 1.5, type: 'number'},
-    lowWait: {label: 'Wait for lower Odds:', value: 3, type: 'number'},
+    lowWait: {label: 'Wait for lower Odds:', value: 4, type: 'number'},
     lowLossReset: {label: 'Reset After Loss Streak of:', value: 3, type: 'number'}
 }
 
@@ -123,12 +123,12 @@ function main(){
             for(var i=BCC.CfgVal("LossReset", mode) - 1; i > 0; i--){
                 amount /= BCC.CfgVal("BetMultiP", mode)
             }
-            return amount.toFixed(BCC.NCS("Bet"))
+            return parseFloat(amount.toFixed(BCC.NCS("Bet")))
         },
         SetBetBase: function(){
             BCC.modeDef.forEach((mode, index, arr) => { 
                 if(BCC.CfgVal("DoBetPercent", mode)){
-                    BCC.Bet[mode] = parseFloat((BCC.wallet / 100 * BCC.CfgVal("BetPercent", mode)).toFixed(BCC.NCS("Bet")-1))
+                    BCC.Bet[mode] = parseFloat(parseFloat((BCC.wallet / 100 * BCC.CfgVal("BetPercent", mode)).toFixed(BCC.NCS("Bet"))))
                     if(BCC.Bet[mode] > BCC.GetMaxBase(mode)){
                         BCC.Bet[mode] = BCC.GetMaxBase(mode)
                     }
@@ -173,7 +173,7 @@ function main(){
                 if(BCC.Odds.current >= BCC.Payout.current){
                     BCC.Counter.win++
                     BCC.Counter.loss = 0
-                    var marge = parseFloat((parseFloat(BCC.Bet.current) * (parseFloat(BCC.Payout.current) - 1)).toFixed(BCC.NCS("Bet")))
+                    var marge = parseFloat(parseFloat((parseFloat(BCC.Bet.current) * (parseFloat(BCC.Payout.current) - 1)).toFixed(BCC.NCS("Bet"))))
                     BCC.wallet += marge
                     log.success(`WIN: ${marge}`)
                 }

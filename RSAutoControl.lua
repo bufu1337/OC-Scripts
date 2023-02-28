@@ -4,8 +4,9 @@ rsac.prox = require("RSProxies")
 rsac.mf = require("MainFunctions")
 rsac.refs = rsac.mf.component.block_refinedstorage_cable
 rsac.items = require("RSItems")
-rsac.storageitems = {}
-rsac.validitems = {}
+rsac.fluids = require("RSFluids")
+rsac.storage = {items={}, fluids={}}
+rsac.valid = {items={}, fluids={}}
 rsac.prio = 1
 rsac.firsttime = true
 
@@ -16,69 +17,84 @@ rsac.firsttime = true
 -- rsac.mf.WriteObjectFile(rsac.items, "/home/RSItems.lua")
 
 function rsac.MergeItems()
-    rsac.storageitems = rsac.refs.getItems()
-    for index,item in pairs(rsac.storageitems) do
-        if index == "n" then
-            goto continue
+    for i,typ in pairs({"items", "fluids"}) do
+        if typ == "items" then
+            rsac.storage[typ] = rsac.refs.getItems()
+        else
+            rsac.storage[typ] = rsac.refs.getFluids()
         end
-        local citem = rsac.convert.ItemToOName(item)
-        if rsac.items[citem] ~= nil then
-            rsac.items[citem].Count = item.size
-            if rsac.firsttime then
-                rsac.items[citem].Converted = citem
-                rsac.items[citem].Name = citem
-                rsac.items[citem].Label = item.label
-                rsac.items[citem].Status = ""
+        for index,item in pairs(rsac.storageitems) do
+            if index == "n" then
+                goto continue
             end
-        elseif rsac.firsttime then
-            print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
-        end
-        local zindex = 2
-        while true do
-            local zitem = citem .. "_z" .. zindex
-            if rsac.items[zitem] ~= nil then
-                rsac.items[zitem].Count = item.size
+            local citem = rsac.convert.ItemToOName(item)
+            if rsac[typ][citem] ~= nil then
+                rsac[typ][citem].Count = item.size
                 if rsac.firsttime then
-                    rsac.items[zitem].Converted = citem
-                    rsac.items[zitem].Name = zitem
-                    rsac.items[zitem].Label = item.label
-                    rsac.items[zitem].Status = ""
+                    rsac[typ][citem].Converted = citem
+                    rsac[typ][citem].Name = citem
+                    rsac[typ][citem].Label = item.label
+                    rsac[typ][citem].Status = ""
                 end
-            else
-                break
+            elseif rsac.firsttime then
+                print("StorageItem not found in ItemList: " .. citem .. " (" .. item.label .. ")")
             end
-            zindex = zindex + 1
-        end
-        ::continue::
-    end
-    if rsac.firsttime then
-        local saved = require("RSItemsSaved")
-        for index,item in pairs(rsac.items) do
-            if rsac.ValidItem(item) then
-                if saved[index] ~= nil then
-                    item.State = saved[index].State
+            local zindex = 2
+            while true do
+                local zitem = citem .. "_z" .. zindex
+                if rsac[typ][zitem] ~= nil then
+                    rsac[typ][zitem].Count = item.size
+                    if rsac.firsttime then
+                        rsac[typ][zitem].Converted = citem
+                        rsac[typ][zitem].Name = zitem
+                        rsac[typ][zitem].Label = item.label
+                        rsac[typ][zitem].Status = ""
+                    end
+                else
+                    break
                 end
-                if item.State == nil then
-                    item.State = false
-                end
-                rsac.GetPrio(item, 1)
-                table.insert(rsac.validitems, item)
+                zindex = zindex + 1
             end
+            ::continue::
+            rsac.storage[typ] = {}
         end
-        saved = nil
+        if rsac.firsttime then
+            local saved = require("RSItemsSaved")
+            if typ ~= "items" then
+                saved = require("RSFluidsSaved")
+            end
+            for index,item in pairs(rsac[typ]) do
+                if rsac.ValidItem(item) then
+                    if saved[index] ~= nil then
+                        item.State = saved[index].State
+                    end
+                    if item.State == nil then
+                        item.State = false
+                    end
+                    rsac.GetPrio(item, 1, typ)
+                    table.insert(rsac.valid[typ], item)
+                end
+            end
+            saved = nil
+        end
     end
     rsac.firsttime = false
 end
 
-function rsac.GetPrio(item, initPrio)
+function rsac.GetPrio(item, initPrio, typ)
     if item.Prio == nil then
         if item.DependsOn ~= nil then
             local prio = initPrio
             for depI,dependItem in pairs(item.DependsOn) do
-                if rsac.items[dependItem.name] ~= nil then
-                    rsac.GetPrio(rsac.items[dependItem.name], 1)
-                    if rsac.items[dependItem.name].Prio >= prio then
-                        prio = rsac.items[dependItem.name].Prio + 1
+                if dependItem.typ ~= nil then
+                    typEx = dependItem.typ
+                else
+                    typEx = typ
+                end
+                if rsac[typEx][dependItem.name] ~= nil then
+                    rsac.GetPrio(rsac[typEx][dependItem.name], 1, typEx)
+                    if rsac[typEx][dependItem.name].Prio >= prio then
+                        prio = rsac[typEx][dependItem.name].Prio + 1
                     end
                 end
             end
@@ -123,13 +139,18 @@ function rsac.GetStateString(item, state)
     return rsac.mf.getIndex(rsac.GetStateSwitch(item), state)
 end
 
-function rsac.Check(item)
+function rsac.Check(item, typ)
     item.Status = ""
     if item.DependsOn ~= nil then
         for depI,dependItem in pairs(item.DependsOn) do
-            if rsac.items[dependItem.name] ~= nil then
-                local on = rsac.items[dependItem.name].State == rsac.GetStateSwitch(rsac.items[dependItem.name]).ON
-                local depending = rsac.items[dependItem.name].Status == "Depends"
+            if dependItem.typ ~= nil then
+                typEx = dependItem.typ
+            else
+                typEx = typ
+            end
+            if rsac[typEx][dependItem.name] ~= nil then
+                local on = rsac[typEx][dependItem.name].State == rsac.GetStateSwitch(rsac[typEx][dependItem.name]).ON
+                local depending = rsac[typEx][dependItem.name].Status == "Depends"
                 if on or depending then
                     item.Status = "Depends"
                     return
@@ -139,13 +160,13 @@ function rsac.Check(item)
     end
     local stateSwitch = rsac.GetStateSwitch(item)
     if item.State == stateSwitch.OFF and item.minCount > item.Count then
-        rsac.SwitchRS(item, stateSwitch.ON)
+        rsac.SwitchRS(item, stateSwitch.ON, typ)
     elseif item.State == stateSwitch.ON and item.maxCount < item.Count then
-        rsac.SwitchRS(item, stateSwitch.OFF)
+        rsac.SwitchRS(item, stateSwitch.OFF, typ)
     end
 end
 
-function rsac.SwitchRS(item, state)
+function rsac.SwitchRS(item, state, typ)
     if item.State ~= nil and item.State == state then
         return
     end
@@ -157,16 +178,18 @@ function rsac.SwitchRS(item, state)
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
-    rsac.items[item.Name].State = state
+    rsac[typ][item.Name].State = state
     print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ")")
 end
 
 function rsac.GoThruItems()
     rsac.MergeItems()
     for p=1,rsac.prio,1 do
-        for index,item in pairs(rsac.validitems) do
-            if item.Prio == p then
-                rsac.Check(item)
+        for i,typ in pairs({"items", "fluids"}) do
+            for index,item in pairs(rsac.valid[typ]) do
+                if item.Prio == p then
+                    rsac.Check(item, typ)
+                end
             end
         end
     end
@@ -199,10 +222,15 @@ end
 
 function rsac.SaveItems()
     local temp = {}
-    for index,item in pairs(rsac.validitems) do
+    for index,item in pairs(rsac.valid.items) do
         temp[item.Name] = {State=item.State}
     end
     rsac.mf.WriteObjectFile(temp,"/home/RSItemsSaved.lua")
+    temp = {}
+    for index,item in pairs(rsac.valid.fluids) do
+        temp[item.Name] = {State=item.State}
+    end
+    rsac.mf.WriteObjectFile(temp,"/home/RSFluidsSaved.lua")
     temp = nil
 end
 

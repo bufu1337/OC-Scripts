@@ -7,6 +7,7 @@ if filesystem.exists("/home/bufu/Crafter/Items/max/") == false then filesystem.m
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. "RSAutoControl" .. ".lua?" .. math.random() .. " /home/" .. "RSAutoControl" .. ".lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. "RSItems" .. ".lua?" .. math.random() .. " /home/" .. "RSItems" .. ".lua")
+os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. "RSFluids" .. ".lua?" .. math.random() .. " /home/" .. "RSFluids" .. ".lua")
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/" .. "RSProxies" .. ".lua?" .. math.random() .. " /home/" .. "RSProxies" .. ".lua")
 
 os.execute("wget -f https://raw.githubusercontent.com/bufu1337/OC-Scripts/master/Crafter/Items/" .. "minecraft" .. ".lua?" .. math.random() .. " /home/bufu/Crafter/Items/" .. "minecraft" .. ".lua")

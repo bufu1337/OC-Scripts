@@ -291,11 +291,10 @@ var config = {
     },
     baseBet: {label: 'Starting Bet:', value: currency.minAmount, type: 'number'},
     baseBetPercent: {label: 'Starting Bet in Percent:', value: 0.1, type: 'number'},
-    baseBetMultiP: {label: 'Bet Multiplier:', value: 2, type: 'number'},
+    baseBetMultiP: {label: 'Bet Multiplier:', value: 1.8, type: 'number'},
     basePayout: {label: 'Starting Payout:', value: 3, type: 'number'},
-    baseWait: {label: 'Wait for lower Odds:', value: 5, type: 'number'},
-    baseLossReset: {label: 'Reset After Loss Streak of:', value: 8, type: 'number'},
-    baseLastPayout: {label: 'Last Payout:', value: 2, type: 'number'},
+    baseWait: {label: 'Wait for lower Odds:', value: 6, type: 'number'},
+    baseLossReset: {label: 'Reset After Loss Streak of:', value: 11, type: 'number'},
 
     midlowlabel: {label: '---- MIDLOW ----', type: 'title'},
     midlowBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -311,7 +310,6 @@ var config = {
     midlowPayout: {label: 'Starting Payout:', value: 2, type: 'number'},
     midlowWait: {label: 'Wait for lower Odds:', value: 4, type: 'number'},
     midlowLossReset: {label: 'Reset After Loss Streak of:', value: 6, type: 'number'},
-    midlowLastPayout: {label: 'Last Payout:', value: 2, type: 'number'},
 
     midlabel: {label: '---- MID ----', type: 'title'},
     midBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -325,9 +323,8 @@ var config = {
     midBetPercent: {label: 'Starting Bet in Percent:', value: 0.15, type: 'number'},
     midBetMultiP: {label: 'Bet Multiplier:', value: 1.25, type: 'number'},
     midPayout: {label: 'Starting Payout:', value: 5, type: 'number'},
-    midWait: {label: 'Wait for lower Odds:', value: 7, type: 'number'},
-    midLossReset: {label: 'Reset After Loss Streak of:', value: 10, type: 'number'},
-    midLastPayout: {label: 'Last Payout:', value: 3.5, type: 'number'},
+    midWait: {label: 'Wait for lower Odds:', value: 8, type: 'number'},
+    midLossReset: {label: 'Reset After Loss Streak of:', value: 15, type: 'number'},
 
     highlabel: {label: '---- HIGH ----', type: 'title'},
     highBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -341,9 +338,8 @@ var config = {
     highBetPercent: {label: 'Starting Bet in Percent:', value: 0.185, type: 'number'},
     highBetMultiP: {label: 'Bet Multiplier:', value: 1.1, type: 'number'},
     highPayout: {label: 'Starting Payout:', value: 10, type: 'number'},
-    highWait: {label: 'Wait for lower Odds:', value: 50, type: 'number'},
-    highLossReset: {label: 'Reset After Loss Streak of:', value: 20, type: 'number'},
-    highLastPayout: {label: 'Last Payout:', value: 8.5, type: 'number'},
+    highWait: {label: 'Wait for lower Odds:', value: 60, type: 'number'},
+    highLossReset: {label: 'Reset After Loss Streak of:', value: 30, type: 'number'},
     
     lowlabel: {label: '---- LOW ----', type: 'title'},
     lowBetPerCentlabel: {label: 'Starting Bet by Percent', type: 'title'},
@@ -357,9 +353,8 @@ var config = {
     lowBetPercent: {label: 'Starting Bet in Percent:', value: 0.125, type: 'number'},
     lowBetMultiP: {label: 'Bet Multiplier:', value: 3, type: 'number'},
     lowPayout: {label: 'Starting Payout:', value: 1.5, type: 'number'},
-    lowWait: {label: 'Wait for lower Odds:', value: 3, type: 'number'},
-    lowLossReset: {label: 'Reset After Loss Streak of:', value: 3, type: 'number'},
-    lowLastPayout: {label: 'Last Payout:', value: 1.5, type: 'number'}
+    lowWait: {label: 'Wait for lower Odds:', value: 4, type: 'number'},
+    lowLossReset: {label: 'Reset After Loss Streak of:', value: 3, type: 'number'}
 }
 
 //function main(){
@@ -373,7 +368,7 @@ var config = {
         },
         modeDef: ["mid", "base", "low", "high"],
         keyDef: ["DoBetPercent", "Bet", "BetPercent", "BetMultiP",
-                  "Payout", "Wait", "LossReset", "LastPayout"],
+                  "Payout", "Wait", "LossReset"],
         types: ["Bet", "Payout"],
         currencyNCS: {
             JB: 4,
@@ -397,12 +392,52 @@ var config = {
         },
         Bet: {},
         Payout: {},
-        GetMaxBase: function(mode){
-            var amount = currency.maxAmount
+        GetMaxBase: function(mode, amount){
+            if(undefined == amount){
+                amount = currency.maxAmount
+            }
+            var sum = amount
+            var amountTemp = amount
+            console.log(amount)
             for(var i=BCC.CfgVal("LossReset", mode) - 1; i > 0; i--){
                 amount /= BCC.CfgVal("BetMultiP", mode)
+                amount = parseFloat(amount.toFixed(BCC.NCS("Bet")))
+                sum += amount
+                sum = parseFloat(sum.toFixed(BCC.NCS("Bet")))
+                console.log(amount)
             }
+            console.log("Sum:" + sum)
+            var sumFromWallet = parseFloat(parseFloat((BCC.wallet / 100).toFixed(BCC.NCS("Bet"))))
+            console.log("Test:" + parseFloat(parseFloat(amount * (sumFromWallet / sum)).toFixed(BCC.NCS("Bet"))))
             return parseFloat(amount.toFixed(BCC.NCS("Bet")))
+        },
+        GetMinBase: function(mode, amount){
+            if(undefined == amount){
+                amount = currency.minAmount
+            }
+            var sum = amount
+            console.log(amount)
+            for(var i=0; i < BCC.CfgVal("LossReset", mode) - 1; i++){
+                amount *= BCC.CfgVal("BetMultiP", mode)
+                amount = parseFloat(amount.toFixed(BCC.NCS("Bet")))
+                sum += amount
+                sum = parseFloat(sum.toFixed(BCC.NCS("Bet")))
+                console.log(amount)
+            }
+            console.log("Sum:" + sum)
+            return parseFloat(amount.toFixed(BCC.NCS("Bet")))
+        },
+        GetMaxBetMode: function(){
+            var maxBet = 0.0
+            var modeOut = ""
+            BCC.modeDef.forEach((mode, index, arr) => { 
+                var test = BCC.GetMinBase(mode)
+                if(test > maxBet){
+                    maxBet = test
+                    modeOut = mode
+                }
+            })
+            return modeOut
         },
         SetBetBase: function(){
             BCC.modeDef.forEach((mode, index, arr) => { 
@@ -515,9 +550,6 @@ var config = {
                     BCC.Bet.current = BCC.wallet
                 }
                 BCC.Bet.current = parseFloat((parseFloat(BCC.Bet.current)).toFixed(BCC.NCS("Bet")))
-            }
-            if(BCC.Counter.loss == BCC.CfgVal("LossReset") - 1){
-                BCC.Payout.current = BCC.CfgVal("LastPayout")
             }
         },
         Calculate: function(odds){
@@ -664,25 +696,25 @@ var config = {
                     currency = {
                         minAmount: 1,
                         maxAmount: 2000,
-                        amount: 300000,
-                        currencyName: "JB"
+                        amount: 300000
                     }
                     break;
                 }
                 case 'BCD':{
                     currency = {
-                        minAmount: 0.000001,
+                        minAmount: 0.00001,
                         maxAmount: 20000,
-                        amount: 0.04,
-                        currencyName: "BCD"
+                        amount: 0.006769
                     }
                     break;
                 }
             }
+            currency.currencyName = "BCD"
+            BCC.Reset()
         }
     }
     BCC.InitVars()
-    BCC.GoThruTemp("temp")
+    //BCC.GoThruTemp("temp")
 //     game.onBet = function () {
 //         if(BCC.dobet && BCC.placebet){
 //          game.bet(BCC.Bet.current, BCC.Payout.current).then(function (payout){

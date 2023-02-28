@@ -7310,9 +7310,10 @@ return {
   RSChannel={}
   },
  minecraft_jj_blaze_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=120000,
+  minCount=100000,
+  RSChannel={1,3, "north"},
+  Reversed=true
   },
  minecraft_jj_blaze_rod={
   maxCount=0,
@@ -8494,7 +8495,7 @@ return {
   minCount=0,
   RSChannel={}
   },
- minecraft_jj_lapis_ore={
+ minecraft_jj_lapis_ore
   maxCount=3000,
   minCount=64,
   RSChannel={1,2, "north"},
@@ -8502,9 +8503,9 @@ return {
   DependsOn={name="minecraft_jj_emerald_ore"}
   },
  minecraft_jj_lava_bucket={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=2000,
+  minCount=1500,
+  RSChannel={1,4, "north"}
   },
  minecraft_jj_lead={
   maxCount=0,
@@ -8657,9 +8658,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_milk_bucket={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=2000,
+  minCount=1500,
+  RSChannel={1,4, "east"}
   },
  minecraft_jj_minecart={
   maxCount=0,
@@ -9079,9 +9080,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_sand={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=3200000,
+  minCount=3000000,
+  RSChannel={1,3, "west"}
   },
  minecraft_jj_sand_jj_1={
   maxCount=0,
@@ -9089,9 +9090,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_sandstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=1200000,
+  minCount=900000,
+  RSChannel={1,3, "south"}
   },
  minecraft_jj_sandstone_jj_1={
   maxCount=0,
@@ -9204,9 +9205,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_snowball={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=1600000,
+  minCount=1200000,
+  RSChannel={1,3, "east"}
   },
  minecraft_jj_soul_sand={
   maxCount=0,
@@ -9679,9 +9680,9 @@ return {
   RSChannel={}
   },
  minecraft_jj_water_bucket={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
+  maxCount=2000,
+  minCount=1500,
+  RSChannel={1,4, "west"}
   },
  minecraft_jj_waterlily={
   maxCount=0,
