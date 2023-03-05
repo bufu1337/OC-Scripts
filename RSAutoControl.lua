@@ -66,10 +66,10 @@ function rsac.MergeItems()
             for index,item in pairs(rsac[typ]) do
                 if rsac.ValidItem(item) then
                     if saved[index] ~= nil then
-                        item.State = saved[index].State
+                        rsac[typ][index].State = saved[index].State
                     end
                     if item.State == nil then
-                        item.State = false
+                        rsac[typ][index].State = false
                     end
                     rsac.GetPrio(item, 1, typ)
                     table.insert(rsac.valid[typ], item)
@@ -102,9 +102,9 @@ function rsac.GetPrio(item, initPrio, typ)
             if rsac.prio < prio then 
                 rsac.prio = prio
             end
-            item.Prio = prio
+            rsac[typ][item.name].Prio = prio
         else
-            item.Prio = 1
+            rsac[typ][item.name].Prio = 1
         end
     end
 end
@@ -153,7 +153,7 @@ function rsac.Check(item, typ)
                 local on = rsac[typEx][dependItem.name].State == rsac.GetStateSwitch(rsac[typEx][dependItem.name]).ON
                 local depending = rsac[typEx][dependItem.name].Status == "Depends"
                 if on or depending then
-                    item.Status = "Depends"
+                    rsac[typ][item.name].Status = "Depends"
                     return
                 end
             end
