@@ -8495,7 +8495,7 @@ return {
   minCount=0,
   RSChannel={}
   },
- minecraft_jj_lapis_ore
+ minecraft_jj_lapis_ore={
   maxCount=3000,
   minCount=64,
   RSChannel={1,2, "north"},
