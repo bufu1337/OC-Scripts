@@ -222,7 +222,7 @@ end
 
 function rsac.GetSysState(typeInt)
     local proxy = rsac.mf.component.proxy(rsac.prox[typeInt][1])
-    local strength = proxy.getOutput(rsac.mf.sides.down)
+    local strength = proxy.getInput(rsac.mf.sides.down)
     if strength == 15 then return true end
     return false
 end
