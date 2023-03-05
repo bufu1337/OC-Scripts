@@ -57,7 +57,7 @@ function rsac.MergeItems()
             end
             ::continue::
         end
-        rsac.storage[typ] = {}
+        -- rsac.storage[typ] = {}
         if rsac.firsttime then
             local saved = require("RSItemsSaved")
             if typ ~= "items" then
@@ -73,6 +73,7 @@ function rsac.MergeItems()
                     end
                     rsac.GetPrio(item, 1, typ)
                     table.insert(rsac.valid[typ], item)
+                    rsac.CheckState(item, typ)
                 end
             end
             saved = nil
@@ -188,8 +189,6 @@ function rsac.CheckState(item, typ)
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local strength = proxy.getOutput(rsac.mf.sides[item.RSChannel[3]])
-    -- local strength = 0
-    -- local switchString = "OFF"
     if (((item.State == false and item.RSreversed ~= nil) or (item.State and item.RSreversed == nil)) and strength ~= 15) or 
        (((item.State and item.RSreversed ~= nil) or (item.State == false and item.RSreversed == nil)) and strength ~= 0) then
         stateTemp = item.State

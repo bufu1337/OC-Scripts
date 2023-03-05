@@ -154,7 +154,7 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["astralsorcery.liquidstarlight"] = {
+  astralsorcery_vv_liquidstarlight = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -224,517 +224,517 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["betterquesting.placeholder"] = {
+  betterquesting_vv_placeholder = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.bacteria"] = {
+  binnie_vv_bacteria = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.bacteria.poly"] = {
+  binnie_vv_bacteria_vv_poly = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.bacteria.vector"] = {
+  binnie_vv_bacteria_vv_vector = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.ale"] = {
+  binnie_vv_beer_vv_ale = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.corn"] = {
+  binnie_vv_beer_vv_corn = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.lager"] = {
+  binnie_vv_beer_vv_lager = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.rye"] = {
+  binnie_vv_beer_vv_rye = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.stout"] = {
+  binnie_vv_beer_vv_stout = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.beer.wheat"] = {
+  binnie_vv_beer_vv_wheat = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.apple"] = {
+  binnie_vv_brandy_vv_apple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.apricot"] = {
+  binnie_vv_brandy_vv_apricot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.cherry"] = {
+  binnie_vv_brandy_vv_cherry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.citrus"] = {
+  binnie_vv_brandy_vv_citrus = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.elderberry"] = {
+  binnie_vv_brandy_vv_elderberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.fruit"] = {
+  binnie_vv_brandy_vv_fruit = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.grape"] = {
+  binnie_vv_brandy_vv_grape = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.pear"] = {
+  binnie_vv_brandy_vv_pear = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.brandy.plum"] = {
+  binnie_vv_brandy_vv_plum = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.cider.apple"] = {
+  binnie_vv_cider_vv_apple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.cider.peach"] = {
+  binnie_vv_cider_vv_peach = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.ciderpear"] = {
+  binnie_vv_ciderpear = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.dna.raw"] = {
+  binnie_vv_dna_vv_raw = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.fermented.potatoes"] = {
+  binnie_vv_fermented_vv_potatoes = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.growth.medium"] = {
+  binnie_vv_growth_vv_medium = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice"] = {
+  binnie_vv_juice = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.apple"] = {
+  binnie_vv_juice_vv_apple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.apricot"] = {
+  binnie_vv_juice_vv_apricot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.banana"] = {
+  binnie_vv_juice_vv_banana = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.carrot"] = {
+  binnie_vv_juice_vv_carrot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.cherry"] = {
+  binnie_vv_juice_vv_cherry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.cranberry"] = {
+  binnie_vv_juice_vv_cranberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.elderberry"] = {
+  binnie_vv_juice_vv_elderberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.grapefruit"] = {
+  binnie_vv_juice_vv_grapefruit = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.lemon"] = {
+  binnie_vv_juice_vv_lemon = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.lime"] = {
+  binnie_vv_juice_vv_lime = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.olive"] = {
+  binnie_vv_juice_vv_olive = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.orange"] = {
+  binnie_vv_juice_vv_orange = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.peach"] = {
+  binnie_vv_juice_vv_peach = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.pear"] = {
+  binnie_vv_juice_vv_pear = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.pineapple"] = {
+  binnie_vv_juice_vv_pineapple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.plum"] = {
+  binnie_vv_juice_vv_plum = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.red.grape"] = {
+  binnie_vv_juice_vv_red_vv_grape = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.tomato"] = {
+  binnie_vv_juice_vv_tomato = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.juice.white.grape"] = {
+  binnie_vv_juice_vv_white_vv_grape = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.latex"] = {
+  binnie_vv_latex = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.almond"] = {
+  binnie_vv_liqueur_vv_almond = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.anise"] = {
+  binnie_vv_liqueur_vv_anise = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.banana"] = {
+  binnie_vv_liqueur_vv_banana = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.blackberry"] = {
+  binnie_vv_liqueur_vv_blackberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.blackcurrant"] = {
+  binnie_vv_liqueur_vv_blackcurrant = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.cherry"] = {
+  binnie_vv_liqueur_vv_cherry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.chocolate"] = {
+  binnie_vv_liqueur_vv_chocolate = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.cinnamon"] = {
+  binnie_vv_liqueur_vv_cinnamon = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.coffee"] = {
+  binnie_vv_liqueur_vv_coffee = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.hazelnut"] = {
+  binnie_vv_liqueur_vv_hazelnut = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.herbal"] = {
+  binnie_vv_liqueur_vv_herbal = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.lemon"] = {
+  binnie_vv_liqueur_vv_lemon = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.melon"] = {
+  binnie_vv_liqueur_vv_melon = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.mint"] = {
+  binnie_vv_liqueur_vv_mint = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.orange"] = {
+  binnie_vv_liqueur_vv_orange = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.peach"] = {
+  binnie_vv_liqueur_vv_peach = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liqueur.raspberry"] = {
+  binnie_vv_liqueur_vv_raspberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.apple"] = {
+  binnie_vv_liquor_vv_apple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.apricot"] = {
+  binnie_vv_liquor_vv_apricot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.cherry"] = {
+  binnie_vv_liquor_vv_cherry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.elderberry"] = {
+  binnie_vv_liquor_vv_elderberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.fruit"] = {
+  binnie_vv_liquor_vv_fruit = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.liquor.pear"] = {
+  binnie_vv_liquor_vv_pear = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.mash.corn"] = {
+  binnie_vv_mash_vv_corn = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.mash.grain"] = {
+  binnie_vv_mash_vv_grain = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.mash.rye"] = {
+  binnie_vv_mash_vv_rye = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.mash.wheat"] = {
+  binnie_vv_mash_vv_wheat = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.resin"] = {
+  binnie_vv_resin = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.rum.dark"] = {
+  binnie_vv_rum_vv_dark = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.rum.white"] = {
+  binnie_vv_rum_vv_white = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.sap"] = {
+  binnie_vv_sap = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.spirit.gin"] = {
+  binnie_vv_spirit_vv_gin = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.spirit.neutral"] = {
+  binnie_vv_spirit_vv_neutral = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.spirit.sugarcane"] = {
+  binnie_vv_spirit_vv_sugarcane = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.tequila"] = {
+  binnie_vv_tequila = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.turpentine"] = {
+  binnie_vv_turpentine = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.vodka"] = {
+  binnie_vv_vodka = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.whiskey"] = {
+  binnie_vv_whiskey = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.whiskey.corn"] = {
+  binnie_vv_whiskey_vv_corn = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.whiskey.rye"] = {
+  binnie_vv_whiskey_vv_rye = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.whiskey.wheat"] = {
+  binnie_vv_whiskey_vv_wheat = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.agave"] = {
+  binnie_vv_wine_vv_agave = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.apricot"] = {
+  binnie_vv_wine_vv_apricot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.banana"] = {
+  binnie_vv_wine_vv_banana = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.carrot"] = {
+  binnie_vv_wine_vv_carrot = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.cherry"] = {
+  binnie_vv_wine_vv_cherry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.citrus"] = {
+  binnie_vv_wine_vv_citrus = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.cranberry"] = {
+  binnie_vv_wine_vv_cranberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.elderberry"] = {
+  binnie_vv_wine_vv_elderberry = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.fortified"] = {
+  binnie_vv_wine_vv_fortified = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.pineapple"] = {
+  binnie_vv_wine_vv_pineapple = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.plum"] = {
+  binnie_vv_wine_vv_plum = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.red"] = {
+  binnie_vv_wine_vv_red = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.sparkling"] = {
+  binnie_vv_wine_vv_sparkling = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.tomato"] = {
+  binnie_vv_wine_vv_tomato = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["binnie.wine.white"] = {
+  binnie_vv_wine_vv_white = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["bio.ethanol"] = {
+  bio_vv_ethanol = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -794,7 +794,7 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["bloodarsenal.molten_blood_infused_iron"] = {
+  bloodarsenal_vv_molten_blood_infused_iron = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -1999,7 +1999,7 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["for.honey"] = {
+  for_vv_honey = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -2699,22 +2699,22 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["if.ore_fluid_fermented"] = {
+  if_vv_ore_fluid_fermented = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["if.ore_fluid_raw"] = {
+  if_vv_ore_fluid_raw = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["if.pink_slime"] = {
+  if_vv_pink_slime = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["if.protein"] = {
+  if_vv_protein = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -2859,17 +2859,17 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["liquid.biogas"] = {
+  liquid_vv_biogas = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["liquid.bitripentium"] = {
+  liquid_vv_bitripentium = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["liquid.neon"] = {
+  liquid_vv_neon = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -3754,7 +3754,7 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["seed.oil"] = {
+  seed_vv_oil = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -3774,7 +3774,7 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["short.mead"] = {
+  short_vv_mead = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
@@ -3954,17 +3954,17 @@ return {
     minCount = 0,
     RSChannel = { }
   },
-  ["tf-liquidxp"] = {
+  tf_qq_liquidxp = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["tf-molten_tesla"] = {
+  tf_qq_molten_tesla = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
   },
-  ["tf-sewage"] = {
+  tf_qq_sewage = {
     maxCount = 0,
     minCount = 0,
     RSChannel = { }
