@@ -23,7 +23,7 @@ function rsac.MergeItems()
         else
             rsac.storage[typ] = rsac.refs.getFluids()
         end
-        for index,item in pairs(rsac.storageitems) do
+        for index,item in pairs(rsac.storage[typ]) do
             if index == "n" then
                 goto continue
             end
@@ -56,8 +56,8 @@ function rsac.MergeItems()
                 zindex = zindex + 1
             end
             ::continue::
-            rsac.storage[typ] = {}
         end
+        rsac.storage[typ] = {}
         if rsac.firsttime then
             local saved = require("RSItemsSaved")
             if typ ~= "items" then
