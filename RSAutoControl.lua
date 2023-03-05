@@ -182,6 +182,22 @@ function rsac.SwitchRS(item, state, typ)
     print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ")")
 end
 
+function rsac.CheckState(item, typ)
+    if item.State == nil then
+        return
+    end
+    local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
+    local strength = proxy.getOutput(rsac.mf.sides[item.RSChannel[3]])
+    -- local strength = 0
+    -- local switchString = "OFF"
+    if (((item.State == false and item.RSreversed ~= nil) or (item.State and item.RSreversed == nil)) and strength ~= 15) or 
+       (((item.State and item.RSreversed ~= nil) or (item.State == false and item.RSreversed == nil)) and strength ~= 0) then
+        stateTemp = item.State
+        rsac[typ][item.Name].State = (not item.State)
+        rsac.SwitchRS(item, stateTemp, typ)
+    end
+end
+
 function rsac.GoThruItems()
     rsac.MergeItems()
     for p=1,rsac.prio,1 do
