@@ -66,10 +66,10 @@ function rsac.MergeItems()
             for index,item in pairs(rsac[typ]) do
                 if rsac.ValidItem(item) then
                     if saved[index] ~= nil then
-                        rsac[typ][index].State = saved[index].State
+                        item.State = saved[index].State
                     end
                     if item.State == nil then
-                        rsac[typ][index].State = false
+                        item.State = false
                     end
                     rsac.GetPrio(item, 1, typ)
                     table.insert(rsac.valid[typ], item)
@@ -84,6 +84,7 @@ end
 
 function rsac.GetPrio(item, initPrio, typ)
     if item.Prio == nil then
+        print("GetPrio: " .. item.Name)
         if item.DependsOn ~= nil then
             local prio = initPrio
             for depI,dependItem in pairs(item.DependsOn) do
@@ -92,19 +93,20 @@ function rsac.GetPrio(item, initPrio, typ)
                 else
                     typEx = typ
                 end
-                if rsac[typEx][dependItem.name] ~= nil then
-                    rsac.GetPrio(rsac[typEx][dependItem.name], 1, typEx)
-                    if rsac[typEx][dependItem.name].Prio >= prio then
-                        prio = rsac[typEx][dependItem.name].Prio + 1
+                itemEx = rsac[typEx][dependItem.Name]
+                if itemEx ~= nil then
+                    rsac.GetPrio(itemEx, 1, typEx)
+                    if itemEx.Prio >= prio then
+                        prio = itemEx.Prio + 1
                     end
                 end
             end
             if rsac.prio < prio then 
                 rsac.prio = prio
             end
-            rsac[typ][item.name].Prio = prio
+            item.Prio = prio
         else
-            rsac[typ][item.name].Prio = 1
+            item.Prio = 1
         end
     end
 end
@@ -149,11 +151,12 @@ function rsac.Check(item, typ)
             else
                 typEx = typ
             end
-            if rsac[typEx][dependItem.name] ~= nil then
-                local on = rsac[typEx][dependItem.name].State == rsac.GetStateSwitch(rsac[typEx][dependItem.name]).ON
-                local depending = rsac[typEx][dependItem.name].Status == "Depends"
+            itemEx = rsac[typEx][dependItem.Name]
+            if itemEx ~= nil then
+                local on = itemEx.State == rsac.GetStateSwitch(itemEx).ON
+                local depending = itemEx.Status == "Depends"
                 if on or depending then
-                    rsac[typ][item.name].Status = "Depends"
+                    item.Status = "Depends"
                     return
                 end
             end
@@ -179,7 +182,7 @@ function rsac.SwitchRS(item, state, typ)
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
-    rsac[typ][item.Name].State = state
+    item.State = state
     print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ")")
 end
 
@@ -192,7 +195,7 @@ function rsac.CheckState(item, typ)
     if (((item.State == false and item.RSreversed ~= nil) or (item.State and item.RSreversed == nil)) and strength ~= 15) or 
        (((item.State and item.RSreversed ~= nil) or (item.State == false and item.RSreversed == nil)) and strength ~= 0) then
         stateTemp = item.State
-        rsac[typ][item.Name].State = (not item.State)
+        item.State = (not item.State)
         rsac.SwitchRS(item, stateTemp, typ)
     end
 end
