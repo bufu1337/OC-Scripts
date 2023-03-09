@@ -18,6 +18,10 @@ rsac.firsttime = true
 
 function rsac.MergeItems()
     for i,typ in pairs({"items", "fluids"}) do
+        local countname = "amount"
+        if typ == "items" then
+            countname = "size"
+        end
         if typ == "items" then
             rsac.storage[typ] = rsac.refs.getItems()
         else
@@ -29,7 +33,7 @@ function rsac.MergeItems()
             end
             local citem = rsac.convert.ItemToOName(item)
             if rsac[typ][citem] ~= nil then
-                rsac[typ][citem].Count = item.size
+                rsac[typ][citem].Count = item[countname]
                 if rsac.firsttime then
                     rsac[typ][citem].Converted = citem
                     rsac[typ][citem].Name = citem
@@ -43,7 +47,7 @@ function rsac.MergeItems()
             while true do
                 local zitem = citem .. "_z" .. zindex
                 if rsac[typ][zitem] ~= nil then
-                    rsac[typ][zitem].Count = item.size
+                    rsac[typ][zitem].Count = item[countname]
                     if rsac.firsttime then
                         rsac[typ][zitem].Converted = citem
                         rsac[typ][zitem].Name = zitem
