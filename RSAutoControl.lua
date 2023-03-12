@@ -185,6 +185,8 @@ function rsac.SwitchRS(item, state)
     if item.minCount > item.maxCount then
         switchString = rsac.GetStateString({}, state)
     end
+    local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
+    local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
     if state then strength = 15 end
     item.State = state
     print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ") (Strength: " .. strength .. ")")
