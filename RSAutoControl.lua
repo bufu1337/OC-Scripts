@@ -77,7 +77,7 @@ function rsac.MergeItems()
                     end
                     rsac.GetPrio(item, 1, typ)
                     table.insert(rsac.valid[typ], item)
-                    rsac.CheckState(item, typ)
+                    rsac.CheckState(item)
                 end
             end
             saved = nil
@@ -105,7 +105,7 @@ function rsac.GetPrio(item, initPrio, typ)
                     end
                 end
             end
-            if rsac.prio < prio then 
+            if rsac.prio < prio then
                 rsac.prio = prio
             end
             item.Prio = prio
@@ -150,12 +150,11 @@ function rsac.Check(item, typ)
     item.Status = ""
     if item.DependsOn ~= nil then
         for depI,dependItem in pairs(item.DependsOn) do
+            local typEx = typ
             if dependItem.typ ~= nil then
                 typEx = dependItem.typ
-            else
-                typEx = typ
             end
-            itemEx = rsac[typEx][dependItem.Name]
+            local itemEx = rsac[typEx][dependItem.Name]
             if itemEx ~= nil then
                 local on = itemEx.State == rsac.GetStateSwitch(itemEx).ON
                 local depending = itemEx.Status == "Depends"
@@ -167,40 +166,41 @@ function rsac.Check(item, typ)
         end
     end
     local stateSwitch = rsac.GetStateSwitch(item)
+    local min = item.minCount
+    local max = item.maxCount
+    if min > max then
+        min = item.maxCount
+        max = item.minCount
+    end
     if item.State == stateSwitch.OFF and item.minCount > item.Count then
-        rsac.SwitchRS(item, stateSwitch.ON, typ)
+        rsac.SwitchRS(item, stateSwitch.ON)
     elseif item.State == stateSwitch.ON and item.maxCount < item.Count then
-        rsac.SwitchRS(item, stateSwitch.OFF, typ)
+        rsac.SwitchRS(item, stateSwitch.OFF)
     end
 end
 
-function rsac.SwitchRS(item, state, typ)
-    if item.State ~= nil and item.State == state then
-        return
-    end
+function rsac.SwitchRS(item, state)
+    if item.State ~= nil and item.State == state then return end
     local strength = 0
-    local switchString = "OFF"
-    if (state == false and item.RSreversed ~= nil) or (state and item.RSreversed == nil) then
-        strength = 15
-        switchString = "ON"
+    local switchString = rsac.GetStateString(item, state)
+    if item.minCount > item.maxCount then
+        switchString = rsac.GetStateString({}, state)
     end
-    local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
-    local b = proxy.setOutput(rsac.mf.sides[item.RSChannel[3]], strength)
+    if state then strength = 15 end
     item.State = state
-    print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ")")
+    print("Turned " .. switchString .. ": " .. item.Label .. " (" .. item.Name .. ") (Strength: " .. strength .. ")")
 end
 
-function rsac.CheckState(item, typ)
+function rsac.CheckState(item)
     if item.State == nil then
         return
     end
     local proxy = rsac.mf.component.proxy(rsac.prox[item.RSChannel[1]][item.RSChannel[2]])
     local strength = proxy.getOutput(rsac.mf.sides[item.RSChannel[3]])
-    if (((item.State == false and item.RSreversed ~= nil) or (item.State and item.RSreversed == nil)) and strength ~= 15) or 
-       (((item.State and item.RSreversed ~= nil) or (item.State == false and item.RSreversed == nil)) and strength ~= 0) then
-        stateTemp = item.State
+    if (item.State and strength ~= 15) or (not item.State and strength ~= 0) then
+        local stateTemp = item.State
         item.State = (not item.State)
-        rsac.SwitchRS(item, stateTemp, typ)
+        rsac.SwitchRS(item, stateTemp)
     end
 end
 
@@ -257,13 +257,19 @@ function rsac.SaveItems()
 end
 
 function rsac.Start()
+    local save = false
+    if rsac.GetLoopState() then
+        save = true
+    end
     while rsac.GetLoopState() do
         if rsac.GetSystemState() then
             rsac.GoThruItems()
         end
         rsac.mf.os.sleep(60)
     end
-    rsac.SaveItems()
+    if save then
+        rsac.SaveItems()
+    end
     print("RSAuto Loop End")
 end
 
