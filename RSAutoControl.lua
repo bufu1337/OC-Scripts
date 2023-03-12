@@ -90,13 +90,15 @@ function rsac.GetPrio(item, initPrio, typ)
     if item.Prio == nil then
         if item.DependsOn ~= nil then
             local prio = initPrio
+            if item.DependsOn.Name then
+                item.DependsOn = {item.DependsOn}
+            end
             for depI,dependItem in pairs(item.DependsOn) do
+                local typEx = typ
                 if dependItem.typ ~= nil then
                     typEx = dependItem.typ
-                else
-                    typEx = typ
                 end
-                itemEx = rsac[typEx][dependItem.Name]
+                local itemEx = rsac[typEx][dependItem.Name]
                 if itemEx ~= nil then
                     rsac.GetPrio(itemEx, 1, typEx)
                     if itemEx.Prio >= prio then
@@ -104,9 +106,7 @@ function rsac.GetPrio(item, initPrio, typ)
                     end
                 end
             end
-            if rsac.prio < prio then
-                rsac.prio = prio
-            end
+            if rsac.prio < prio then rsac.prio = prio end
             item.Prio = prio
         else
             item.Prio = 1
@@ -171,9 +171,9 @@ function rsac.Check(item, typ)
         min = item.maxCount
         max = item.minCount
     end
-    if item.State == stateSwitch.OFF and item.minCount > item.Count then
+    if item.State == stateSwitch.OFF and min > item.Count then
         rsac.SwitchRS(item, stateSwitch.ON)
-    elseif item.State == stateSwitch.ON and item.maxCount < item.Count then
+    elseif item.State == stateSwitch.ON and max < item.Count then
         rsac.SwitchRS(item, stateSwitch.OFF)
     end
 end
