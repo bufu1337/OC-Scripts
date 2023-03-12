@@ -88,7 +88,6 @@ end
 
 function rsac.GetPrio(item, initPrio, typ)
     if item.Prio == nil then
-        print("GetPrio: " .. item.Name)
         if item.DependsOn ~= nil then
             local prio = initPrio
             for depI,dependItem in pairs(item.DependsOn) do
