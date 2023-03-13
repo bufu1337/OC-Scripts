@@ -1,12842 +1,12853 @@
 return {
- actuallyadditions_jj_block_misc_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_canola_seed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_coffee_beans={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_coffee_seed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_fertilizer={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_flax_seed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_food_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_misc_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_misc_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_rice_seed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- actuallyadditions_jj_item_solidified_experience={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- advancedsticks_jj_bough={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_aether_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_aether_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_aether_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_aether_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_crystal_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_crystal_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_holiday_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aether_legacy_jj_holiday_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_24={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_25={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_27={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_29={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_33={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_48={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_51={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_53={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_56={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_80={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- alchemistry_jj_element_jj_82={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_block_mud={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_blue_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_brown_egg={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_charcoal_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_friesian_cheese_wheel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_goat_cheese_wheel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_holstein_cheese_wheel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_jersey_cheese_wheel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_opal_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_peach_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_peacock_egg_blue={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_peacock_egg_white={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_purple_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_chevon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_frog_legs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_horse={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_peacock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_bacon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_beef={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_chevon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_chicken={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_mutton={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_peacock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_pork={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_raw_prime_rabbit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_sheep_cheese_wheel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_taupe_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_white_peacock_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- animania_jj_wool_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_charged_quartz_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_45={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_46={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_material_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_part_jj_140={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_quartz_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- appliedenergistics2_jj_sky_stone_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aquamunda_jj_grindstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- aquamunda_jj_kitchen_knife={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- astralsorcery_jj_blockcustomore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- astralsorcery_jj_blockcustomsandore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- astralsorcery_jj_blockmarble={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- astralsorcery_jj_itemcraftingcomponent={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- astralsorcery_jj_itemcraftingcomponent_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- atlcraft_jj_atlcraft_bayberry_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- atlcraft_jj_atlcraft_wax={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_adamantine_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_antimony_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_antimony_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_aquarium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_bismuth_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_bismuth_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_brass_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_bronze_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_coldiron_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_copper_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_electrum_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_invar_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_lead_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_mercury_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_mercury_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_mithril_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_nickel_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_nickel_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_nickel_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_platinum_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_platinum_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_silver_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_starsteel_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_steel_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_steel_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_steel_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_tin_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_zinc_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_zinc_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- basemetals_jj_zinc_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bedrockminer_jj_bedrock_chunk={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bigreactors_jj_ingotblutonium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bigreactors_jj_ingotcyanite={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bigreactors_jj_ingotyellorium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bigreactors_jj_oreyellorite={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_ash={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_ash_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_bamboo={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_coral={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_coral_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_coral_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_dirt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_flesh={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_gem_ore_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_hard_ice={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_0_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_0_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_0_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_0_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_1_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_1_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_1_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_1_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_2_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_2_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_2_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_2_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_3_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_3_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_3_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_3_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_4_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_4_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_4_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_4_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_5_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_5_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_5_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_5_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_6_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_leaves_6_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_0_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_0_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_0_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_0_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_2_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_2_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_3_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_3_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_3_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_3_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_4_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_log_4_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_mud={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_mud_brick_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_mudball={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_plant_0_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_plant_1_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_ricebowl={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sacred_oak_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_0_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_sapling_2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_shroompowder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_white_sand={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_white_sandstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_white_sandstone_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomesoplenty_jj_willow_vine={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- biomestaff_jj_obsidian_shaft={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- bloodarsenal_jj_base_item={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_biomestonea_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_doubleflower2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_flower_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_grassseeds_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_livingrock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_livingwood={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_manaresource={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_manaresource_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_manaresource_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_manaresource_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- botania_jj_petal_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- buildcraftcore_jj_engine_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- buildcrafttransport_jj_pipe_wood_item={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- car_jj_canola={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- car_jj_canola_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- car_jj_rapecake={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- car_jj_tar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- careerbees_jj_ingredients_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_clay_hard_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_faucet={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ceramics_jj_unfired_clay_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cfm_jj_mail_box={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_basalt2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_block_coal_coke={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_brownstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice1_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_ice_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_icepillar_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_limestone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_limestone2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_marble={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- chisel_jj_marble2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_banana={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_cherry_food={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_citrus_food={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_hops={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_iron_chain={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_iron_trapdoormodel_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_needle={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_onion={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_pear_food={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_plants_lilypad_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- conquest_jj_stone_verticalslab_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cookingforblockheads_jj_fridge={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- coralreef_jj_coral={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- coralreef_jj_coral_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- coralreef_jj_coral_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- coralreef_jj_coral_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- coralreef_jj_coral_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_block_fragile_weak={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_builder_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_heart_food={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_coal_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_emerald_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_gold_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_iron_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_lapis_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_nether_redstone_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- cyclicmagic_jj_tool_harvest_weeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- darkutils_jj_shulker_pearl={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- darkutils_jj_trap_move={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_living_matter_extraterrestrial={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_living_matter_hellish={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_living_matter_overworldian={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_living_matter_twilight={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_polymer_clay={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_blaze={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_creeper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_enderman={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_ghast={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_guardian={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_shulker={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_skeleton={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_slime={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_spider={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_thermal_elemental={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_twilight_darkwood={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_twilight_forest={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_twilight_glacier={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_witch={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_wither={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_wither_skeleton={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_pristine_matter_zombie={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepmoblearning_jj_soot_covered_plate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- deepresonance_jj_resonating_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- defiledlands_jj_blastem_fruit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_awakened_core={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_draconic_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_draconic_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_draconium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_draconium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_draconium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_dragon_heart={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- draconicevolution_jj_infused_obsidian={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_111={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_112={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_113={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_115={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_116={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_119={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_120={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_121={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_122={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_123={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_124={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_127={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_128={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_134={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_141={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_142={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_143={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_144={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_145={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_146={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_147={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_148={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_150={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_151={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_154={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_162={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_164={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_165={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_173={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_175={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_176={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_178={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_179={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_18={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_181={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_182={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_187={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_192={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_193={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_194={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_198={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_199={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_20={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_200={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_201={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_202={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_204={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_21={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_213={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_214={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_215={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_217={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_218={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_23={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_25={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_26={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_27={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_29={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_30={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_32={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_33={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_34={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_35={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_36={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_37={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_38={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_42={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_44={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_45={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_46={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_47={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_48={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_49={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_52={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_57={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_58={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_61={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_62={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_63={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_66={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_69={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_71={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_73={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_75={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_77={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_78={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_80={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_81={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_86={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_88={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_89={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ebwizardry_jj_spell_book_jj_98={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_block_enderman_skull={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_block_fused_quartz={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_endergy_ingot_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_alloy_ingot_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_20={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_51={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_52={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_67={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- enderio_jj_item_material_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_alabaster_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_basalt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentalmaterials_jj_hardened_stone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_aethium_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_erodium_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_ionite_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_kyronite_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_litherite_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_lonsdaleite_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_mica={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- environmentaltech_jj_pladium_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_honey_drop_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_propolis={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_propolis_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_propolis_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabees_jj_propolis_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrabitmanipulation_jj_diamond_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_18={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_20={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_21={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_24={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_25={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_26={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_27={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_29={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_30={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_31={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_32={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_33={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_34={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_35={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_36={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_37={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_38={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_39={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_41={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_42={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_43={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_44={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_45={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_46={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_47={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_48={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_49={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_50={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_51={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_52={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_53={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_54={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_55={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_56={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_57={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_58={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_59={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_food_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_hops={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_0_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_1_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_2_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_3_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_4_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_5_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_leaves_vv_decorative_vv_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_3_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_4_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_5_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_5_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_6_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_6_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_6_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_7_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_7_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_7_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_8_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_8_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_8_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_9_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_9_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_9_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_3_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_4_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_5_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_5_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_6_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_6_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_6_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_7_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_7_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_7_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_8_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_8_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_8_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_9_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_9_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extratrees_jj_logs_vv_fireproof_vv_9_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_endershard={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ingredients={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_ironwood_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_machine={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_magicapple={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_pipe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_sickle_wood={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- extrautils2_jj_suncrystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fairylights_jj_light_jj_223={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- farmory_jj_crossbow={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ffoods_jj_barley={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ffoods_jj_barley_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- floricraft_jj_ore_salt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fmagic_jj_wfragment={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fmagic_jj_wseed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_apatite={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_ash={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_bee_combs_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_beeswax={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_crafting_material_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_crafting_material_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_fertilizer_compound={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_fruits_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_fruits_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_fruits_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_gear_bronze={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_gear_copper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_honey_drop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_honeydew={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_impregnated_casing={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_0_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_1_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_leaves_vv_decorative_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_loam={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_3_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_4_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_5_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_5_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_6_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_6_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_6_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_3_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_4_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_5_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_5_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_6_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_6_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_6_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_fireproof_vv_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_logs_vv_vanilla_vv_fireproof_vv_1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_mulch={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_oak_stick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_phosphor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_pollen={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_pollen_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_propolis={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_propolis_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_refractory_wax={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_resources={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_royal_jelly={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- forestry_jj_sturdy_machine={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_cristall={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_cristall_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_cristall_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_cristall_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_cristall_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_erze={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_erze_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_erze_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_itemerze_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_wood={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fp_jj_wood_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fresource_jj_blazecoal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- fresource_jj_rawterillium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- frsm_jj_tvscreensmall={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gemmary_jj_emerald_part={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_apiary_vv_upgrade_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_18={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_20={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_21={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_23={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_24={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- gendustry_jj_honey_drop_jj_25={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- genetics_jj_misc_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_agaveitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_agaveseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_amaranthitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_amaranthseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_anchovyrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_apple_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_applejellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_arrowrootitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_arrowrootseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_artichokeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_artichokeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_asparagusitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_asparagusseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bakewareitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bambooshootitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bambooshootseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bananaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_barleyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_barleyseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bassrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_batteritem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_beanitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_beanseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_beetitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_beetseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_beetsoupitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bellpepperitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_bellpepperseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_blackberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_blackberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_blueberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_blueberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_broccoliitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_broccoliseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_brusselsproutitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_brusselsproutseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cabbageitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cabbageseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cactusfruititem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cactusfruitseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_candleberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_candleberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cantaloupeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cantaloupeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_carprawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cassavaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cassavaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_catfishrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_caulifloweritem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cauliflowerseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_celeryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_celeryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_charrrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cherryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cherryjellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_chestnutitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_chickpeaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_chickpeaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_chilipepperitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_chilipepperseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cocoapowderitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_coffeebeanitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_coffeeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cornitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cornonthecobitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cornseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cottonitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cottonseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cranberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cranberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cucumberitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_cucumberseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_curryleafitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_curryleafseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_doughitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_duckrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_eelrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_eggplantitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_eggplantseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_elderberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_elderberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_flaxitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_flaxseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_garlicitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_garlicseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_gigapickleitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_gigapickleseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_gingeritem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_gingerseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_gooseberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_grapefruitjellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_grapeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_grapeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_greengrapeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_greengrapeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_greenheartfishitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_grouperrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_grubitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_harvestpumpkinitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_heavycreamitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_herringrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_honeycombitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_huckleberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_huckleberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_jellyfishrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_jicamaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_jicamaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_juniperberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_juniperberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_juteitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_juteseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kaleitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kaleseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kenafitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kenafseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kiwiitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kiwijellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kiwiseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kohlrabiitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_kohlrabiseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_leekitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_leekseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_lemonjellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_lentilitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_lentilseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_lettuceitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_lettuceseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_limejellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_milletitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_milletseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_mudfishrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_mulberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_mulberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_mustardseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_mustardseedsitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_oatsitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_oatsseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_octopusrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_okraitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_okraseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_oliveitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_onionitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_onionseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_orangeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_parsnipitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_parsnipseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_peanutitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_peanutseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_pearitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_peasitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_peasseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_perchrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_persimmonitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_pineappleitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_pineappleseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_plumitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_potitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_quinoaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_quinoaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_radishitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_radishseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_raspberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_raspberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_rawtofuduckitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_rhubarbitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_rhubarbseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_riceitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_riceseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_rutabagaitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_rutabagaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_ryeitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_ryeseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_saltitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sardinerawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_scallionitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_scallionseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_seaweeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_seaweedseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sesameseedsitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sesameseedsseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sisalitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sisalseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_snapperrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_soybeanitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_soybeanseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_soymilkitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_spiceleafitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_spiceleafseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_spinachitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_spinachseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_strawberryitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_strawberryjellyitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_strawberryseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sweetpotatoitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_sweetpotatoseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_taroitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_taroseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tealeafitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_teaseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tilapiarawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tomatilloitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tomatilloseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tomatoitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tomatoseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_troutrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_tunarawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_turkeyrawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_turnipitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_turnipseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_walleyerawitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_waterchestnutitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_waterchestnutseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_waxcombitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_whitemushroomitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_whitemushroomseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_wintersquashitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_wintersquashseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_zucchiniitem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- harvestcraft_jj_zucchiniseeditem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_cable={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_cable_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_cable_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_cable_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_cable_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_23={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_29={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_30={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crafting_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_crushed_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_dust_jj_16={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_dust_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_dust_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_dust_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_ingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_ingot_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_ingot_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_misc_resource_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_misc_resource_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_nuclear_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_resource_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_resource_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_resource_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_resource_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_resource_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_77={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_78={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_79={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_te_jj_80={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- ic2_jj_treetap={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- iceandfire_jj_dragonbone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- iceandfire_jj_dragonscale_red={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immcraft_jj_rock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_material_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_material_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_material_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_metal_jj_39={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_seed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_stone_decoration={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_stone_decoration_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersiveengineering_jj_wirecoil_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivehempcraft_jj_butter={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivehempcraft_jj_crop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivehempcraft_jj_lightmix_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivehempcraft_jj_marijuana={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivepetroleum_jj_material={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- immersivetech_jj_material={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- industrialforegoing_jj_dryrubber={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- industrialforegoing_jj_plastic={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_aluminum_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_aluminum_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_amethyst={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_amethyst_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_copper_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_copper_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_exp_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_khalzit_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_khalzit_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_nether_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_nether_dust_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_ocean_diamond={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_ocean_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_onyx_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_onyx_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_rubbery_ball={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_sphalzite_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_sphalzite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_tin_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_tin_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_uranium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_zeux_bar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- infinitycraft_jj_zeux_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_crystalized_chorus_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_crystalized_chorus_chunk={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_crystalized_menril_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_crystalized_menril_chunk={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_menril_berries={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_menril_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_menril_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_menril_log_filled={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- integrateddynamics_jj_menril_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- libvulpes_jj_productgem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- libvulpes_jj_productingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- lycanitesmobs_jj_poopcharge={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_drop_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_pollen={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_pollen_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_propolis={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_resource_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_wax={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_wax_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- magicbees_jj_wax_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- malisisdoors_jj_trapdoor_acacia={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- malisisdoors_jj_trapdoor_birch={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- malisisdoors_jj_trapdoor_dark_oak={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- malisisdoors_jj_trapdoor_jungle={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- malisisdoors_jj_trapdoor_spruce={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_atomicalloy={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_basicblock_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_basicblock_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_dust_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_dust_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_dust_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_dust_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_enrichedalloy={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_gastank={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_ingot_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_ingot_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_ingot_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_nugget_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_obsidiantnt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_oreblock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_otherdust_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_plasticblock_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_polyethene_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_reinforcedalloy={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mekanism_jj_transmitter={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_acacia_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_acacia_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_acacia_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_acacia_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_acacia_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_activator_rail={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_anvil={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_apple={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_armor_stand={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_arrow={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_baked_potato={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_beacon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bed_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bedrock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_beef={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_beetroot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_beetroot_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_beetroot_soup={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_birch_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_birch_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_birch_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_birch_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_birch_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_black_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_blaze_powder={
-  maxCount=120000,
-  minCount=100000,
-  RSChannel={1,3, "north"},
-  Reversed=true
-  },
- minecraft_jj_blaze_rod={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_blue_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bone_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_book={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bookshelf={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bow={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bowl={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bread={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brewing_stand={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brick_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brick_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brown_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brown_mushroom={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_brown_mushroom_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_bucket={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cactus={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cake={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carpet_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_carrot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cauldron={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_chest={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_chicken={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_chorus_flower={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_chorus_fruit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_chorus_fruit_popped={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_clay={
-  maxCount=2000000,
-  minCount=1000000,
-  RSChannel={1,1, "north"}
-  },
- minecraft_jj_clay_ball={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_clock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_coal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_coal_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_coal_jj_1={
-  maxCount=200000,
-  minCount=160000,
-  RSChannel={1,1, "east"}
-  },
- minecraft_jj_coal_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,2, "east"},
-  Reversed=true,
-  DependsOn={Name="minecraft_jj_lapis_ore"}
-  },
- minecraft_jj_cobblestone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cobblestone_wall={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_comparator={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_compass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_concrete_powder_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_beef={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_chicken={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_fish={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_fish_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_mutton={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_porkchop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cooked_rabbit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cookie={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_crafting_table={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_cyan_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dark_oak_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dark_oak_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dark_oak_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dark_oak_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dark_oak_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_daylight_detector={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_deadbush={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_axe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_boots={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_chestplate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_helmet={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_hoe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_horse_armor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_leggings={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,2, "south"},
-  Reversed=true
-  },
- minecraft_jj_diamond_pickaxe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_shovel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_diamond_sword={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dirt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dirt_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dirt_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dispenser={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_double_plant_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dragon_breath={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dragon_egg={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dropper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_dye_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_egg={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_elytra={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_emerald={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_emerald_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_emerald_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,2, "west"},
-  Reversed=true,
-  DependsOn={Name="minecraft_jj_diamond_ore"}
-  },
- minecraft_jj_enchanted_book={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_enchanting_table={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_end_bricks={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_end_crystal={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_end_portal_frame={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_end_rod={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_end_stone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ender_chest={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ender_eye={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ender_pearl={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_experience_bottle={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fermented_spider_eye={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fire_charge={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_firework_charge={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fireworks={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fish={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fish_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fish_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fish_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_fishing_rod={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_flint={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_flint_and_steel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_flower_pot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_furnace={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_furnace_minecart={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ghast_tear={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_glass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_glass_bottle={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_glass_pane={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_glowstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_glowstone_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gold_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gold_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gold_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gold_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_apple={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_apple_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_axe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_boots={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_carrot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_chestplate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_hoe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_horse_armor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_pickaxe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_rail={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_shovel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_golden_sword={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_grass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gravel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gray_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_green_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_gunpowder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_hardened_clay={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_hay_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_heavy_weighted_pressure_plate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_hopper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ice={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_axe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_bars={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_boots={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_chestplate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_helmet={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_hoe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_horse_armor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_leggings={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_pickaxe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_shovel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_sword={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_iron_trapdoor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_item_frame={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jukebox={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jungle_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jungle_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jungle_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jungle_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_jungle_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_ladder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_lapis_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_lapis_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,2, "north"},
-  Reversed=true,
-  DependsOn={Name="minecraft_jj_emerald_ore"}
-  },
- minecraft_jj_lava_bucket={
-  maxCount=2000,
-  minCount=1500,
-  RSChannel={1,4, "north"}
-  },
- minecraft_jj_lead={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leather_boots={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leather_chestplate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leather_helmet={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leather_leggings={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_leaves_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_lever={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_light_blue_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_light_weighted_pressure_plate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_lime_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_lit_pumpkin={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_log_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_magenta_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_magma={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_magma_cream={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_map={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_melon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_melon_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_melon_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_milk_bucket={
-  maxCount=2000,
-  minCount=1500,
-  RSChannel={1,4, "east"}
-  },
- minecraft_jj_minecart={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_mossy_cobblestone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_mushroom_stew={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_mutton={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_mycelium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_name_tag={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_nether_brick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_nether_brick_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_nether_star={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_nether_wart={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_nether_wart_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_netherbrick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_netherrack={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_noteblock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_oak_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_observer={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_obsidian={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_orange_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_packed_ice={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_painting={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_paper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_pink_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_piston={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_planks_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_poisonous_potato={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_porkchop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_potato={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_potion={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_prismarine={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_prismarine_crystals={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_prismarine_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_prismarine_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_prismarine_shard={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_pumpkin={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_pumpkin_pie={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_pumpkin_seeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_purple_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_purpur_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_purpur_pillar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_purpur_slab={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_purpur_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_quartz={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_quartz_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_quartz_block_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_quartz_block_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_quartz_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,1, "west"},
-  Reversed=true
-  },
- minecraft_jj_rabbit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_rabbit_foot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_rabbit_hide={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_rabbit_stew={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_rail={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_record_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_record_cat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_flower_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_mushroom={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_mushroom_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_nether_brick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_sandstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_sandstone_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_red_sandstone_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_redstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_redstone_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_redstone_lamp={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_redstone_ore={
-  maxCount=64,
-  minCount=3000,
-  RSChannel={1,1, "south"},
-  Reversed=true
-  },
- minecraft_jj_redstone_torch={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_reeds={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_repeater={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_rotten_flesh={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_saddle={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sand={
-  maxCount=3200000,
-  minCount=3000000,
-  RSChannel={1,3, "west"}
-  },
- minecraft_jj_sand_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sandstone={
-  maxCount=1200000,
-  minCount=900000,
-  RSChannel={1,3, "south"}
-  },
- minecraft_jj_sandstone_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sandstone_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sapling_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sea_lantern={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_shears={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_shield={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_shulker_shell={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sign={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_silver_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_skull={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_skull_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_skull_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_skull_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_skull_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_slime={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_slime_ball={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_snow={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_snowball={
-  maxCount=1600000,
-  minCount=1200000,
-  RSChannel={1,3, "east"}
-  },
- minecraft_jj_soul_sand={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_speckled_melon={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spectral_arrow={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spider_eye={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sponge={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sponge_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spruce_boat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spruce_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spruce_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spruce_fence_gate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_spruce_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_glass_pane_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stained_hardened_clay_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sticky_piston={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_axe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_brick_stairs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_button={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_hoe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_pickaxe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_pressure_plate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_shovel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_slab={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_slab_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_slab_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stone_sword={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stonebrick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stonebrick_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stonebrick_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_stonebrick_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_string={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_sugar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_tallgrass_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_tallgrass_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_tnt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_torch={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_totem_of_undying={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_trapdoor={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_trapped_chest={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_tripwire_hook={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_vine={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_water_bucket={
-  maxCount=2000,
-  minCount=1500,
-  RSChannel={1,4, "west"}
-  },
- minecraft_jj_waterlily={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_web={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wheat={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_white_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_axe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_button={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_door={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_hoe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_pickaxe={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_pressure_plate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_shovel={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_slab_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wooden_sword={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_wool_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_writable_book={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_yellow_flower={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minecraft_jj_yellow_glazed_terracotta={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_ana_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_bastion_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_doomfist_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_genji_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_hanzo_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_junkrat_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_lucio_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_mccree_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_mei_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_mercy_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_moira_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_pharah_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_reaper_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_reinhardt_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_roadhog_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_soldier76_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_sombra_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_tracer_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_widowmaker_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_wild_card_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- minewatch_jj_zenyatta_token={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_charcoal_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_coal_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_emerald_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_iron_rod={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_obsidian_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mmdlib_jj_quartz_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- moarfood_jj_saltore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_aluminum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_aluminum_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_aluminum_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_beryllium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_boron_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_boron_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_cadmium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_cadmium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_chromium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_iridium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_iridium_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_magnesium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_magnesium_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_manganese_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_manganese_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_nichrome_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_plutonium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_rutile_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_stainlesssteel_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_tantalum_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_tantalum_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_thorium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_titanium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_titanium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_titanium_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_titanium_powder={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_tungsten_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_tungsten_nugget={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_uranium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- modernmetals_jj_zirconium_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- morebeautifulbuttons_jj_button_press={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_aurine_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_aurine_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_ayzanite_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_ayzanite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_draxate_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_draxate_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_eukavoynt_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_eukavoynt_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_iturite_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_iturite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_aurine_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_ayzanite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_draxate_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_eukavoynt_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_iturite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_nodemite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nether_sivenium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nodemite_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_nodemite_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_sivenium_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mores_jj_sivenium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagradditions_jj_insanium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_certus_quartz_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_crafting_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_creeper_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_dirt_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_end_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_end_inferium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_end_prosperity_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_fire_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_inferium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_nature_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_nether_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_nether_inferium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_nether_prosperity_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_nether_quartz_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_prosperity_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_skeleton_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_soul_glass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_soulstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_wither_skeleton_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_witherproof_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_witherproof_glass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- mysticalagriculture_jj_zombie_essence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nethermetals_jj_nether_mercury_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_alloy_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_block_depleted_thorium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_compound_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_compound_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_compound_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_dust_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_dust_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_gelatin={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_gem_dust_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_gem_dust_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_gem_dust_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_gem_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_glowing_mushroom={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ground_cocoa_nibs={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ingot_oxide_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ore_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ore_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ore_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_ore_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_roasted_cocoa_beans={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- nuclearcraft_jj_uranium_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_cable_jj_11250603={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_card_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_component={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_component_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_component_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_28={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_29={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- opencomputers_jj_material_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_bush_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_cosmetic_3_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_crystal_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_crystal_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_crystal_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_crystal_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_crystal_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_harvest_0_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_leaves_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_leaves_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_leaves_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_leaves_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_log_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_log_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_log_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_log_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_nether_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_sapling_0={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_sapling_0_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_sapling_0_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plants2_jj_sapling_0_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plustic_jj_alumiteingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plustic_jj_osgloglasblock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- plustic_jj_osmiridiumblock={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- pneumaticcraft_jj_ingot_iron_compressed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rafradek_tf2_weapons_jj_australium_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- redstonearsenal_jj_material_jj_32={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- refinedstorage_jj_cable={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- refinedstorage_jj_processor_binding={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- refinedstorage_jj_processor_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- refinedstorage_jj_quartz_enriched_iron={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- refinedstorage_jj_upgrade_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftools_jj_dimensional_shard={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftools_jj_dimensional_shard_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftools_jj_dimensional_shard_ore_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftools_jj_infused_diamond={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftools_jj_machine_frame={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_base={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_control_circuit_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_energy_module={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_energy_module_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_energy_module_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_memory_unit={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_memory_unit_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_memory_unit_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rftoolsdim_jj_dimlet_type_controller_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_aloe_vera={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_chamomile={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_chili_pepper={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_deathstalk_mushroom={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_grapes={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_ironberries={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_mooncap_mushroom={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_olives={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_slate={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_tomato={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- rustic_jj_wildberries={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- steamworld_jj_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_abyssum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_astrium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_aurorium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_basalt_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_dilithium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_dilithium_dust={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_duranite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_dyonite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_eezo_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_fractum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_ignitz_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_imperomite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_iox_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_jauxum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_karmesine_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_lumix_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_nihilite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_niob_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_nucleum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_obsidiorite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_osram_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_ovium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_palladium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_prometheum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_proxii_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_seismum_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_solarium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_terrax_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_tiberium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_triberium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_tritonite_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_uru_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_valyrium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_vibranium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_violium_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- taiga_jj_yrdeen_block={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_brownstone_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_brownstone_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_deco_ground={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_dried_clay_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_13={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_14={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_20={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_21={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_23={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_30={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_31={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_32={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_33={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_34={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_edible_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ingots_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_materials_jj_17={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_materials_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_nuggets_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_ore_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_seared_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_seared_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_seared_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_seared_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_leaves_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_slime_sapling_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_soil={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tconstruct_jj_stone_stick={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_cable={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_diamonddrill={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_15={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_21={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_66={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_dust_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_gem={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_gem_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_gem_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_gem_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ingot_jj_19={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ingot_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_mv_transformer={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_ore_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_plates_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_plates_jj_36={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- techreborn_jj_refined_iron_fence={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_border_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_earth_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_earth_ore_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage1_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage2_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage3_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage4_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_foliage5_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_item_main_jj_201={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_item_main_jj_253={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_sapling_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk1_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk1_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk1_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk1_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk2_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk2_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk2_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_trunk2_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- terraqueous_jj_water_pearl={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_220={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_221={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_225={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_229={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_233={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_237={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_239={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- tfspellpack_jj_twilight_spell_book_jj_247={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_crystal_aqua={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_crystal_ordo={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_crystal_perditio={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_crystal_terra={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_crystal_vitium={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ingot_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ingot_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_nugget_jj_10={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ore_amber={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ore_cinnabar={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_ore_quartz={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_quicksilver={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thaumcraft_jj_scribing_tools={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_betweenstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_generic_stone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_limestone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_hearthgrove_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_hearthgrove_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_hearthgrove_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_hearthgrove_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_nibbletwig={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_nibbletwig_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_sap={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_sap_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_spirit_tree={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_spirit_tree_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_weedwood={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_log_weedwood_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_mud={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_pitstone={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_slimy_dirt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_slimy_grass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_sulfur_ore={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_swamp_dirt={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thebetweenlands_jj_swamp_grass={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalexpansion_jj_frame={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_fertilizer_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_fertilizer_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_100={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_1024={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_1025={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_1026={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_1027={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_103={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_134={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_136={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_161={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_162={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_164={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_165={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_166={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_167={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2048={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2049={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2050={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2051={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2052={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_2053={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_22={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_229={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_23={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_231={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_24={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_25={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_26={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_288={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_68={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_69={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_70={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_71={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_72={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_769={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_770={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_771={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_772={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_800={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_802={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_818={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_832={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_833={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_864={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_865={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_866={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_97={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_material_jj_98={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_fluid={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_fluid_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_fluid_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_fluid_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_fluid_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_ore_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_storage_alloy_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_storage_resource_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- thermalfoundation_jj_tool_vv_hammer_iron={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- toughasnails_jj_ice_cube={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- toughasnails_jj_magma_shard={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- toughasnails_jj_temperature_coil={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- toughasnails_jj_temperature_coil_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_arctic_fur={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_block_and_chain={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_carminite={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_cooked_meef={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_cooked_venison={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_fiery_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_firefly={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_hydra_chop={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_ironwood_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_knightmetal_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_leaves_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_leaves_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_log_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_magic_log_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_meef_stroganoff={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_raven_feather={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_steeleaf_ingot={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves_3_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_leaves_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_log={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_log_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_log_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_log_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_plant_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_8={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- twilightforest_jj_twilight_sapling_jj_9={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- uniquecrops_jj_generic_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- uniquecrops_jj_generic_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- uniquecrops_jj_seedcollis={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- uniquecrops_jj_seedinvisibilia={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- valkyrielib_jj_modifier_speed={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- woot_jj_shard_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- woot_jj_shard_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- woot_jj_shard_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_1={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_11={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_12={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_2={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_3={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_4={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_5={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_6={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  },
- xreliquary_jj_mob_ingredient_jj_7={
-  maxCount=0,
-  minCount=0,
-  RSChannel={}
-  }
- }
+actuallyadditions_jj_block_misc_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_canola_seed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_coffee_beans={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_coffee_seed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_fertilizer={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_flax_seed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_food_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_misc_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_misc_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_rice_seed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+actuallyadditions_jj_item_solidified_experience={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+advancedsticks_jj_bough={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_aether_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_aether_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_aether_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_aether_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_crystal_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_crystal_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_holiday_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aether_legacy_jj_holiday_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_24={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_25={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_27={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_29={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_33={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_48={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_51={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_53={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_56={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_80={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+alchemistry_jj_element_jj_82={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_block_mud={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_blue_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_brown_egg={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_charcoal_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_friesian_cheese_wheel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_goat_cheese_wheel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_holstein_cheese_wheel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_jersey_cheese_wheel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_opal_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_peach_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_peacock_egg_blue={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_peacock_egg_white={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_purple_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_chevon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_frog_legs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_horse={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_peacock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_bacon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_beef={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_chevon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_chicken={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_mutton={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_peacock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_pork={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_raw_prime_rabbit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_sheep_cheese_wheel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_taupe_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_white_peacock_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+animania_jj_wool_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_charged_quartz_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_45={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_46={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_material_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_part_jj_140={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_quartz_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+appliedenergistics2_jj_sky_stone_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aquamunda_jj_grindstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+aquamunda_jj_kitchen_knife={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+astralsorcery_jj_blockcustomore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+astralsorcery_jj_blockcustomsandore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+astralsorcery_jj_blockmarble={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+astralsorcery_jj_itemcraftingcomponent={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+astralsorcery_jj_itemcraftingcomponent_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+atlcraft_jj_atlcraft_bayberry_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+atlcraft_jj_atlcraft_wax={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_adamantine_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_antimony_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_antimony_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_aquarium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_bismuth_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_bismuth_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_brass_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_bronze_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_coldiron_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_copper_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_electrum_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_invar_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_lead_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_mercury_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_mercury_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_mithril_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_nickel_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_nickel_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_nickel_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_platinum_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_platinum_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_silver_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_starsteel_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_steel_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_steel_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_steel_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_tin_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_zinc_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_zinc_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+basemetals_jj_zinc_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bedrockminer_jj_bedrock_chunk={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bigreactors_jj_ingotblutonium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bigreactors_jj_ingotcyanite={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bigreactors_jj_ingotyellorium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bigreactors_jj_oreyellorite={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_ash={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_ash_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_bamboo={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_coral={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_coral_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_coral_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_dirt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_flesh={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_gem_ore_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_hard_ice={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_0_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_0_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_0_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_0_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_1_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_1_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_1_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_1_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_2_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_2_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_2_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_2_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_3_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_3_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_3_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_3_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_4_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_4_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_4_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_4_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_5_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_5_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_5_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_5_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_6_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_leaves_6_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_0_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_0_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_0_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_0_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_2_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_2_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_3_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_3_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_3_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_3_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_4_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_log_4_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_mud={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_mud_brick_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_mudball={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_plant_0_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_plant_1_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_ricebowl={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sacred_oak_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_0_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_sapling_2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_shroompowder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_white_sand={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_white_sandstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_white_sandstone_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomesoplenty_jj_willow_vine={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+biomestaff_jj_obsidian_shaft={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+bloodarsenal_jj_base_item={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_biomestonea_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_doubleflower2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_flower_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_grassseeds_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_livingrock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_livingwood={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_manaresource={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_manaresource_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_manaresource_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_manaresource_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+botania_jj_petal_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+buildcraftcore_jj_engine_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+buildcrafttransport_jj_pipe_wood_item={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+car_jj_canola={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+car_jj_canola_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+car_jj_rapecake={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+car_jj_tar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+careerbees_jj_ingredients_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_clay_hard_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_faucet={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ceramics_jj_unfired_clay_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cfm_jj_mail_box={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_basalt2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_block_coal_coke={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_brownstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice1_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_ice_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_icepillar_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_limestone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_limestone2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_marble={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+chisel_jj_marble2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_banana={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_cherry_food={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_citrus_food={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_hops={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_iron_chain={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_iron_trapdoormodel_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_needle={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_onion={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_pear_food={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_plants_lilypad_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+conquest_jj_stone_verticalslab_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cookingforblockheads_jj_fridge={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+coralreef_jj_coral={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+coralreef_jj_coral_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+coralreef_jj_coral_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+coralreef_jj_coral_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+coralreef_jj_coral_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_block_fragile_weak={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_builder_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_heart_food={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_coal_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_emerald_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_gold_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_iron_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_lapis_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_nether_redstone_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+cyclicmagic_jj_tool_harvest_weeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+darkutils_jj_shulker_pearl={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+darkutils_jj_trap_move={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_living_matter_extraterrestrial={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_living_matter_hellish={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_living_matter_overworldian={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_living_matter_twilight={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_polymer_clay={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_blaze={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_creeper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_enderman={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_ghast={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_guardian={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_shulker={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_skeleton={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_slime={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_spider={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_thermal_elemental={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_twilight_darkwood={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_twilight_forest={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_twilight_glacier={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_witch={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_wither={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_wither_skeleton={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_pristine_matter_zombie={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepmoblearning_jj_soot_covered_plate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+deepresonance_jj_resonating_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+defiledlands_jj_blastem_fruit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_awakened_core={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_draconic_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_draconic_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_draconium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_draconium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_draconium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_dragon_heart={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+draconicevolution_jj_infused_obsidian={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_111={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_112={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_113={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_115={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_116={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_119={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_120={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_121={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_122={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_123={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_124={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_127={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_128={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_134={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_141={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_142={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_143={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_144={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_145={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_146={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_147={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_148={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_150={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_151={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_154={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_162={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_164={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_165={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_173={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_175={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_176={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_178={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_179={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_18={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_181={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_182={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_187={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_192={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_193={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_194={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_198={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_199={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_20={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_200={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_201={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_202={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_204={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_21={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_213={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_214={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_215={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_217={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_218={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_23={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_25={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_26={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_27={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_29={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_30={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_32={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_33={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_34={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_35={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_36={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_37={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_38={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_42={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_44={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_45={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_46={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_47={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_48={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_49={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_52={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_57={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_58={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_61={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_62={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_63={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_66={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_69={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_71={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_73={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_75={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_77={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_78={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_80={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_81={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_86={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_88={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_89={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ebwizardry_jj_spell_book_jj_98={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_block_enderman_skull={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_block_fused_quartz={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_endergy_ingot_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_alloy_ingot_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_20={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_51={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_52={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_67={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+enderio_jj_item_material_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_alabaster_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_basalt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentalmaterials_jj_hardened_stone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_aethium_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_erodium_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_ionite_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_kyronite_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_litherite_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_lonsdaleite_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_mica={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+environmentaltech_jj_pladium_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_honey_drop_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_propolis={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_propolis_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_propolis_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabees_jj_propolis_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrabitmanipulation_jj_diamond_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_18={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_20={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_21={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_24={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_25={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_26={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_27={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_29={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_30={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_31={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_32={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_33={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_34={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_35={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_36={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_37={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_38={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_39={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_41={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_42={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_43={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_44={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_45={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_46={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_47={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_48={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_49={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_50={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_51={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_52={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_53={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_54={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_55={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_56={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_57={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_58={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_59={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_food_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_hops={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_0_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_1_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_2_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_3_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_4_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_5_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_leaves_vv_decorative_vv_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_3_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_4_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_5_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_5_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_6_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_6_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_6_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_7_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_7_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_7_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_8_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_8_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_8_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_9_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_9_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_9_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_3_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_4_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_5_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_5_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_6_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_6_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_6_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_7_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_7_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_7_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_8_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_8_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_8_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_9_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_9_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extratrees_jj_logs_vv_fireproof_vv_9_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_endershard={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ingredients={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_ironwood_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_machine={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_magicapple={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_pipe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_sickle_wood={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+extrautils2_jj_suncrystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fairylights_jj_light_jj_223={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+farmory_jj_crossbow={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ffoods_jj_barley={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ffoods_jj_barley_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+floricraft_jj_ore_salt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fmagic_jj_wfragment={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fmagic_jj_wseed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_apatite={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_ash={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_bee_combs_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_beeswax={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_crafting_material_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_crafting_material_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_fertilizer_compound={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_fruits_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_fruits_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_fruits_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_gear_bronze={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_gear_copper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_honey_drop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_honeydew={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_impregnated_casing={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_0_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_1_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_leaves_vv_decorative_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_loam={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_3_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_4_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_5_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_5_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_6_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_6_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_6_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_3_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_4_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_5_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_5_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_6_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_6_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_6_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_fireproof_vv_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_logs_vv_vanilla_vv_fireproof_vv_1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_mulch={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_oak_stick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_phosphor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_pollen={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_pollen_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_propolis={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_propolis_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_refractory_wax={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_resources={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_royal_jelly={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+forestry_jj_sturdy_machine={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_cristall={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_cristall_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_cristall_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_cristall_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_cristall_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_erze={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_erze_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_erze_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_itemerze_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_wood={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fp_jj_wood_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fresource_jj_blazecoal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+fresource_jj_rawterillium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+frsm_jj_tvscreensmall={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gemmary_jj_emerald_part={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_apiary_vv_upgrade_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_18={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_20={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_21={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_23={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_24={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+gendustry_jj_honey_drop_jj_25={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+genetics_jj_misc_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_agaveitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_agaveseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_amaranthitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_amaranthseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_anchovyrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_apple_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_applejellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_arrowrootitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_arrowrootseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_artichokeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_artichokeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_asparagusitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_asparagusseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bakewareitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bambooshootitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bambooshootseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bananaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_barleyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_barleyseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bassrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_batteritem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_beanitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_beanseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_beetitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_beetseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_beetsoupitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bellpepperitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_bellpepperseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_blackberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_blackberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_blueberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_blueberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_broccoliitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_broccoliseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_brusselsproutitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_brusselsproutseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cabbageitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cabbageseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cactusfruititem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cactusfruitseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_candleberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_candleberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cantaloupeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cantaloupeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_carprawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cassavaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cassavaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_catfishrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_caulifloweritem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cauliflowerseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_celeryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_celeryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_charrrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cherryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cherryjellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_chestnutitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_chickpeaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_chickpeaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_chilipepperitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_chilipepperseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cocoapowderitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_coffeebeanitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_coffeeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cornitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cornonthecobitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cornseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cottonitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cottonseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cranberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cranberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cucumberitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_cucumberseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_curryleafitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_curryleafseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_doughitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_duckrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_eelrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_eggplantitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_eggplantseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_elderberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_elderberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_flaxitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_flaxseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_garlicitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_garlicseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_gigapickleitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_gigapickleseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_gingeritem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_gingerseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_gooseberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_grapefruitjellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_grapeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_grapeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_greengrapeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_greengrapeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_greenheartfishitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_grouperrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_grubitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_harvestpumpkinitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_heavycreamitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_herringrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_honeycombitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_huckleberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_huckleberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_jellyfishrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_jicamaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_jicamaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_juniperberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_juniperberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_juteitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_juteseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kaleitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kaleseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kenafitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kenafseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kiwiitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kiwijellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kiwiseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kohlrabiitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_kohlrabiseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_leekitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_leekseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_lemonjellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_lentilitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_lentilseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_lettuceitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_lettuceseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_limejellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_milletitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_milletseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_mudfishrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_mulberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_mulberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_mustardseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_mustardseedsitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_oatsitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_oatsseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_octopusrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_okraitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_okraseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_oliveitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_onionitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_onionseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_orangeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_parsnipitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_parsnipseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_peanutitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_peanutseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_pearitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_peasitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_peasseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_perchrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_persimmonitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_pineappleitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_pineappleseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_plumitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_potitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_quinoaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_quinoaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_radishitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_radishseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_raspberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_raspberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_rawtofuduckitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_rhubarbitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_rhubarbseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_riceitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_riceseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_rutabagaitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_rutabagaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_ryeitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_ryeseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_saltitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sardinerawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_scallionitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_scallionseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_seaweeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_seaweedseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sesameseedsitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sesameseedsseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sisalitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sisalseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_snapperrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_soybeanitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_soybeanseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_soymilkitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_spiceleafitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_spiceleafseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_spinachitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_spinachseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_strawberryitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_strawberryjellyitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_strawberryseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sweetpotatoitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_sweetpotatoseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_taroitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_taroseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tealeafitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_teaseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tilapiarawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tomatilloitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tomatilloseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tomatoitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tomatoseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_troutrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_tunarawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_turkeyrawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_turnipitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_turnipseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_walleyerawitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_waterchestnutitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_waterchestnutseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_waxcombitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_whitemushroomitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_whitemushroomseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_wintersquashitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_wintersquashseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_zucchiniitem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+harvestcraft_jj_zucchiniseeditem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_cable={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_cable_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_cable_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_cable_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_cable_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_23={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_29={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_30={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crafting_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_crushed_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_dust_jj_16={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_dust_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_dust_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_dust_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_ingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_ingot_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_ingot_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_misc_resource_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_misc_resource_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_nuclear_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_resource_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_resource_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_resource_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_resource_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_resource_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_77={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_78={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_79={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_te_jj_80={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+ic2_jj_treetap={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+iceandfire_jj_dragonbone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+iceandfire_jj_dragonscale_red={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immcraft_jj_rock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_material_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_material_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_material_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_metal_jj_39={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_seed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_stone_decoration={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_stone_decoration_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersiveengineering_jj_wirecoil_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivehempcraft_jj_butter={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivehempcraft_jj_crop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivehempcraft_jj_lightmix_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivehempcraft_jj_marijuana={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivepetroleum_jj_material={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+immersivetech_jj_material={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+industrialforegoing_jj_dryrubber={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+industrialforegoing_jj_plastic={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_aluminum_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_aluminum_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_amethyst={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_amethyst_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_copper_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_copper_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_exp_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_khalzit_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_khalzit_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_nether_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_nether_dust_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_ocean_diamond={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_ocean_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_onyx_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_onyx_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_rubbery_ball={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_sphalzite_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_sphalzite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_tin_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_tin_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_uranium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_zeux_bar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+infinitycraft_jj_zeux_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_crystalized_chorus_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_crystalized_chorus_chunk={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_crystalized_menril_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_crystalized_menril_chunk={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_menril_berries={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_menril_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_menril_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_menril_log_filled={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+integrateddynamics_jj_menril_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+libvulpes_jj_productgem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+libvulpes_jj_productingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+lycanitesmobs_jj_poopcharge={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_drop_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_pollen={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_pollen_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_propolis={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_resource_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_wax={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_wax_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+magicbees_jj_wax_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+malisisdoors_jj_trapdoor_acacia={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+malisisdoors_jj_trapdoor_birch={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+malisisdoors_jj_trapdoor_dark_oak={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+malisisdoors_jj_trapdoor_jungle={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+malisisdoors_jj_trapdoor_spruce={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_atomicalloy={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_basicblock_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_basicblock_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_dust_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_dust_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_dust_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_dust_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_enrichedalloy={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_gastank={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_ingot_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_ingot_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_ingot_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_nugget_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_obsidiantnt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_oreblock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_otherdust_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_plasticblock_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_polyethene_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_reinforcedalloy={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mekanism_jj_transmitter={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_acacia_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_acacia_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_acacia_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_acacia_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_acacia_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_activator_rail={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_anvil={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_apple={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_armor_stand={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_arrow={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_baked_potato={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_beacon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bed_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bedrock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_beef={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_beetroot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_beetroot_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_beetroot_soup={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_birch_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_birch_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_birch_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_birch_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_birch_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_black_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_blaze_powder={
+    maxCount=120000,
+    minCount=100000,
+    RSChannel={1,3, "north"},
+    Reversed=true
+},
+minecraft_jj_blaze_rod={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_blue_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bone_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_book={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bookshelf={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bow={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bowl={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bread={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brewing_stand={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brick_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brick_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brown_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brown_mushroom={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_brown_mushroom_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_bucket={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cactus={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cake={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carpet_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_carrot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cauldron={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_chest={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_chicken={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_chorus_flower={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_chorus_fruit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_chorus_fruit_popped={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_clay={
+    maxCount=2000000,
+    minCount=1000000,
+    RSChannel={1,1, "north"}
+},
+minecraft_jj_clay_ball={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_clock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_coal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_coal_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_coal_jj_1={
+    maxCount=200000,
+    minCount=160000,
+    RSChannel={1,1, "east"}
+},
+minecraft_jj_coal_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,2, "east"},
+    Reversed=true,
+    DependsOn={Name="minecraft_jj_lapis_ore"}
+},
+minecraft_jj_cobblestone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cobblestone_wall={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_comparator={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_compass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_concrete_powder_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_beef={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_chicken={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_fish={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_fish_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_mutton={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_porkchop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cooked_rabbit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cookie={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_crafting_table={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_cyan_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dark_oak_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dark_oak_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dark_oak_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dark_oak_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dark_oak_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_daylight_detector={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_deadbush={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_axe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_boots={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_chestplate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_helmet={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_hoe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_horse_armor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_leggings={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,2, "south"},
+    Reversed=true
+},
+minecraft_jj_diamond_pickaxe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_shovel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_diamond_sword={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dirt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dirt_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dirt_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dispenser={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_double_plant_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dragon_breath={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dragon_egg={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dropper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_dye_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_egg={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_elytra={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_emerald={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_emerald_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_emerald_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,2, "west"},
+    Reversed=true,
+    DependsOn={Name="minecraft_jj_diamond_ore"}
+},
+minecraft_jj_enchanted_book={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_enchanting_table={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_end_bricks={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_end_crystal={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_end_portal_frame={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_end_rod={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_end_stone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ender_chest={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ender_eye={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ender_pearl={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_experience_bottle={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fermented_spider_eye={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fire_charge={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_firework_charge={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fireworks={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fish={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fish_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fish_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fish_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_fishing_rod={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_flint={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_flint_and_steel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_flower_pot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_furnace={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_furnace_minecart={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ghast_tear={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_glass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_glass_bottle={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_glass_pane={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_glowstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_glowstone_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gold_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gold_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gold_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gold_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_apple={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_apple_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_axe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_boots={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_carrot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_chestplate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_hoe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_horse_armor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_pickaxe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_rail={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_shovel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_golden_sword={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_grass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gravel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gray_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_green_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_gunpowder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_hardened_clay={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_hay_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_heavy_weighted_pressure_plate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_hopper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ice={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_axe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_bars={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_boots={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_chestplate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_helmet={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_hoe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_horse_armor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_leggings={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_pickaxe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_shovel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_sword={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_iron_trapdoor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_item_frame={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jukebox={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jungle_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jungle_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jungle_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jungle_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_jungle_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_ladder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_lapis_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_lapis_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,2, "north"},
+    Reversed=true,
+    DependsOn={Name="minecraft_jj_emerald_ore"}
+},
+minecraft_jj_lava_bucket={
+    maxCount=2000,
+    minCount=1500,
+    RSChannel={1,4, "north"}
+},
+minecraft_jj_lead={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leather_boots={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leather_chestplate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leather_helmet={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leather_leggings={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_leaves_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_lever={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_light_blue_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_light_weighted_pressure_plate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_lime_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_lit_pumpkin={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_log_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_magenta_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_magma={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_magma_cream={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_map={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_melon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_melon_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_melon_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_milk_bucket={
+    maxCount=2000,
+    minCount=1500,
+    RSChannel={1,4, "east"}
+},
+minecraft_jj_minecart={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_mossy_cobblestone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_mushroom_stew={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_mutton={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_mycelium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_name_tag={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_nether_brick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_nether_brick_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_nether_star={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_nether_wart={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_nether_wart_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_netherbrick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_netherrack={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_noteblock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_oak_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_observer={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_obsidian={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_orange_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_packed_ice={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_painting={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_paper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_pink_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_piston={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_planks_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_poisonous_potato={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_porkchop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_potato={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_potion={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_prismarine={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_prismarine_crystals={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_prismarine_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_prismarine_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_prismarine_shard={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_pumpkin={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_pumpkin_pie={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_pumpkin_seeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_purple_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_purpur_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_purpur_pillar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_purpur_slab={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_purpur_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_quartz={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_quartz_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_quartz_block_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_quartz_block_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_quartz_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,1, "west"},
+    Reversed=true
+},
+minecraft_jj_rabbit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_rabbit_foot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_rabbit_hide={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_rabbit_stew={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_rail={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_record_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_record_cat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_flower_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_mushroom={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_mushroom_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_nether_brick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_sandstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_sandstone_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_red_sandstone_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_redstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_redstone_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_redstone_lamp={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_redstone_ore={
+    maxCount=64,
+    minCount=3000,
+    RSChannel={1,1, "south"},
+    Reversed=true
+},
+minecraft_jj_redstone_torch={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_reeds={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_repeater={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_rotten_flesh={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_saddle={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sand={
+    maxCount=3200000,
+    minCount=3000000,
+    RSChannel={1,3, "west"}
+},
+minecraft_jj_sand_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sandstone={
+    maxCount=1200000,
+    minCount=900000,
+    RSChannel={1,3, "south"}
+},
+minecraft_jj_sandstone_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sandstone_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sapling_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sea_lantern={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_shears={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_shield={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_shulker_shell={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sign={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_silver_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_skull={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_skull_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_skull_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_skull_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_skull_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_slime={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_slime_ball={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_snow={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_snowball={
+    maxCount=1600000,
+    minCount=1200000,
+    RSChannel={1,3, "east"}
+},
+minecraft_jj_soul_sand={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_speckled_melon={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spectral_arrow={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spider_eye={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sponge={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sponge_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spruce_boat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spruce_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spruce_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spruce_fence_gate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_spruce_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_glass_pane_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stained_hardened_clay_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sticky_piston={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_axe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_brick_stairs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_button={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_hoe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_pickaxe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_pressure_plate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_shovel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_slab={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_slab_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_slab_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stone_sword={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stonebrick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stonebrick_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stonebrick_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_stonebrick_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_string={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_sugar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_tallgrass_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_tallgrass_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_tnt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_torch={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_totem_of_undying={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_trapdoor={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_trapped_chest={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_tripwire_hook={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_vine={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_water_bucket={
+    maxCount=2000,
+    minCount=1500,
+    RSChannel={1,4, "west"}
+},
+minecraft_jj_waterlily={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_web={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wheat={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_white_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_axe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_button={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_door={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_hoe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_pickaxe={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_pressure_plate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_shovel={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_slab_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wooden_sword={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_wool_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_writable_book={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_yellow_flower={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minecraft_jj_yellow_glazed_terracotta={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_ana_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_bastion_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_doomfist_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_genji_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_hanzo_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_junkrat_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_lucio_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_mccree_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_mei_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_mercy_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_moira_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_pharah_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_reaper_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_reinhardt_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_roadhog_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_soldier76_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_sombra_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_tracer_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_widowmaker_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_wild_card_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+minewatch_jj_zenyatta_token={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_charcoal_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_coal_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_emerald_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_iron_rod={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_obsidian_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mmdlib_jj_quartz_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+moarfood_jj_saltore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_aluminum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_aluminum_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_aluminum_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_beryllium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_boron_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_boron_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_cadmium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_cadmium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_chromium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_iridium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_iridium_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_magnesium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_magnesium_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_manganese_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_manganese_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_nichrome_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_plutonium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_rutile_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_stainlesssteel_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_tantalum_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_tantalum_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_thorium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_titanium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_titanium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_titanium_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_titanium_powder={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_tungsten_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_tungsten_nugget={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_uranium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+modernmetals_jj_zirconium_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+morebeautifulbuttons_jj_button_press={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_aurine_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_aurine_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_ayzanite_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_ayzanite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_draxate_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_draxate_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_eukavoynt_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_eukavoynt_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_iturite_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_iturite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_aurine_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_ayzanite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_draxate_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_eukavoynt_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_iturite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_nodemite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nether_sivenium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nodemite_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_nodemite_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_sivenium_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mores_jj_sivenium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagradditions_jj_insanium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_certus_quartz_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_crafting_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_creeper_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_dirt_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,5, "east"},
+    Reversed=true
+},
+mysticalagriculture_jj_end_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,6, "north"},
+    Reversed=true
+},
+mysticalagriculture_jj_end_inferium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_end_prosperity_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_fire_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_inferium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_nature_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,5, "south"},
+    Reversed=true
+},
+mysticalagriculture_jj_nether_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,6, "east"},
+    Reversed=true
+},
+mysticalagriculture_jj_nether_inferium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_nether_prosperity_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_nether_quartz_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,5, "west"},
+    Reversed=true
+},
+mysticalagriculture_jj_prosperity_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_skeleton_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_soul_glass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_soulstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_stone_essence={
+    maxCount=10000,
+    minCount=16000,
+    RSChannel={1,5, "north"},
+    Reversed=true
+},
+mysticalagriculture_jj_wither_skeleton_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_witherproof_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_witherproof_glass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+mysticalagriculture_jj_zombie_essence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nethermetals_jj_nether_mercury_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_alloy_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_block_depleted_thorium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_compound_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_compound_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_compound_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_dust_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_dust_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_gelatin={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_gem_dust_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_gem_dust_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_gem_dust_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_gem_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_glowing_mushroom={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ground_cocoa_nibs={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ingot_oxide_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ore_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ore_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ore_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_ore_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_roasted_cocoa_beans={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+nuclearcraft_jj_uranium_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_cable_jj_11250603={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_card_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_component={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_component_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_component_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_28={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_29={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+opencomputers_jj_material_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_bush_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_cosmetic_3_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_crystal_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_crystal_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_crystal_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_crystal_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_crystal_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_harvest_0_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_leaves_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_leaves_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_leaves_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_leaves_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_log_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_log_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_log_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_log_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_nether_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_sapling_0={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_sapling_0_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_sapling_0_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plants2_jj_sapling_0_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plustic_jj_alumiteingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plustic_jj_osgloglasblock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+plustic_jj_osmiridiumblock={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+pneumaticcraft_jj_ingot_iron_compressed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rafradek_tf2_weapons_jj_australium_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+redstonearsenal_jj_material_jj_32={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+refinedstorage_jj_cable={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+refinedstorage_jj_processor_binding={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+refinedstorage_jj_processor_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+refinedstorage_jj_quartz_enriched_iron={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+refinedstorage_jj_upgrade_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftools_jj_dimensional_shard={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftools_jj_dimensional_shard_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftools_jj_dimensional_shard_ore_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftools_jj_infused_diamond={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftools_jj_machine_frame={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_base={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_control_circuit_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_energy_module={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_energy_module_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_energy_module_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_memory_unit={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_memory_unit_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_memory_unit_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rftoolsdim_jj_dimlet_type_controller_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_aloe_vera={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_chamomile={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_chili_pepper={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_deathstalk_mushroom={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_grapes={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_ironberries={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_mooncap_mushroom={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_olives={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_slate={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_tomato={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+rustic_jj_wildberries={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+steamworld_jj_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_abyssum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_astrium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_aurorium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_basalt_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_dilithium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_dilithium_dust={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_duranite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_dyonite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_eezo_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_fractum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_ignitz_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_imperomite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_iox_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_jauxum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_karmesine_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_lumix_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_nihilite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_niob_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_nucleum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_obsidiorite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_osram_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_ovium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_palladium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_prometheum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_proxii_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_seismum_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_solarium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_terrax_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_tiberium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_triberium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_tritonite_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_uru_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_valyrium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_vibranium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_violium_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+taiga_jj_yrdeen_block={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_brownstone_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_brownstone_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_deco_ground={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_dried_clay_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_13={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_14={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_20={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_21={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_23={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_30={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_31={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_32={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_33={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_34={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_edible_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ingots_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_materials_jj_17={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_materials_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_nuggets_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_ore_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_seared_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_seared_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_seared_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_seared_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_leaves_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_slime_sapling_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_soil={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tconstruct_jj_stone_stick={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_cable={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_diamonddrill={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_15={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_21={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_66={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_dust_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_gem={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_gem_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_gem_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_gem_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ingot_jj_19={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ingot_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_mv_transformer={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_ore_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_plates_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_plates_jj_36={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+techreborn_jj_refined_iron_fence={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_border_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_earth_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_earth_ore_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage1_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage2_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage3_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage4_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_foliage5_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_item_main_jj_201={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_item_main_jj_253={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_sapling_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk1_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk1_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk1_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk1_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk2_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk2_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk2_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_trunk2_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+terraqueous_jj_water_pearl={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_220={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_221={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_225={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_229={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_233={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_237={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_239={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+tfspellpack_jj_twilight_spell_book_jj_247={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_crystal_aqua={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_crystal_ordo={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_crystal_perditio={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_crystal_terra={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_crystal_vitium={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ingot_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ingot_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_nugget_jj_10={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ore_amber={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ore_cinnabar={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_ore_quartz={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_quicksilver={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thaumcraft_jj_scribing_tools={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_betweenstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_generic_stone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_limestone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_hearthgrove_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_hearthgrove_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_hearthgrove_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_hearthgrove_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_nibbletwig={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_nibbletwig_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_sap={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_sap_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_spirit_tree={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_spirit_tree_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_weedwood={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_log_weedwood_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_mud={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_pitstone={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_slimy_dirt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_slimy_grass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_sulfur_ore={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_swamp_dirt={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thebetweenlands_jj_swamp_grass={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalexpansion_jj_frame={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_fertilizer_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_fertilizer_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_100={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_1024={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_1025={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_1026={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_1027={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_103={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_134={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_136={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_161={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_162={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_164={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_165={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_166={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_167={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2048={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2049={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2050={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2051={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2052={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_2053={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_22={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_229={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_23={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_231={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_24={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_25={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_26={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_288={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_68={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_69={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_70={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_71={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_72={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_769={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_770={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_771={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_772={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_800={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_802={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_818={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_832={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_833={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_864={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_865={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_866={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_97={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_material_jj_98={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_fluid={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_fluid_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_fluid_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_fluid_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_fluid_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_ore_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_storage_alloy_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_storage_resource_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+thermalfoundation_jj_tool_vv_hammer_iron={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+toughasnails_jj_ice_cube={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+toughasnails_jj_magma_shard={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+toughasnails_jj_temperature_coil={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+toughasnails_jj_temperature_coil_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_arctic_fur={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_block_and_chain={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_carminite={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_cooked_meef={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_cooked_venison={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_fiery_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_firefly={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_hydra_chop={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_ironwood_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_knightmetal_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_leaves_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_leaves_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_log_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_magic_log_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_meef_stroganoff={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_raven_feather={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_steeleaf_ingot={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves_3_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_leaves_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_log={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_log_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_log_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_log_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_plant_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_8={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+twilightforest_jj_twilight_sapling_jj_9={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+uniquecrops_jj_generic_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+uniquecrops_jj_generic_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+uniquecrops_jj_seedcollis={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+uniquecrops_jj_seedinvisibilia={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+valkyrielib_jj_modifier_speed={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+woot_jj_shard_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+woot_jj_shard_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+woot_jj_shard_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_1={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_11={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_12={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_2={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_3={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_4={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_5={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_6={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+},
+xreliquary_jj_mob_ingredient_jj_7={
+    maxCount=0,
+    minCount=0,
+    RSChannel={}
+}
+}
