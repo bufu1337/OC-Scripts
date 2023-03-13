@@ -10335,14 +10335,14 @@ mysticalagriculture_jj_creeper_essence={
     RSChannel={}
 },
 mysticalagriculture_jj_dirt_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,5, "east"},
     Reversed=true
 },
 mysticalagriculture_jj_end_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,6, "north"},
     Reversed=true
 },
@@ -10367,14 +10367,14 @@ mysticalagriculture_jj_inferium_ore={
     RSChannel={}
 },
 mysticalagriculture_jj_nature_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,5, "south"},
     Reversed=true
 },
 mysticalagriculture_jj_nether_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,6, "east"},
     Reversed=true
 },
@@ -10389,8 +10389,8 @@ mysticalagriculture_jj_nether_prosperity_ore={
     RSChannel={}
 },
 mysticalagriculture_jj_nether_quartz_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,5, "west"},
     Reversed=true
 },
@@ -10415,8 +10415,8 @@ mysticalagriculture_jj_soulstone={
     RSChannel={}
 },
 mysticalagriculture_jj_stone_essence={
-    maxCount=10000,
-    minCount=16000,
+    maxCount=16000,
+    minCount=10000,
     RSChannel={1,5, "north"},
     Reversed=true
 },
