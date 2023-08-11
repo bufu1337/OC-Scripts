@@ -28,7 +28,8 @@ class Constants{
             recipe = "fRecipe";
             addItem = "fAddItem";
             addRecipe = "fAddRecipe";
-            other = "fother"
+            other = "fother";
+            pk = "fpk"
         };
 
         # Info
@@ -94,7 +95,13 @@ class Constants{
             iRRatio = @("iR1R","iR2R","iR3R","iR4R");
             iRCon = @("iR1Con","iR2Con","iR3Con","iR4Con")
         };
-        
+        pk = @{
+            lbl = "pklbl";
+            cb = "pkcb";
+            tb = "pktb";
+            btn = "pkbtn";
+            btnr = "pkbtnr"
+        };
         # Adding Item
         tb_iName = "IName";
         btn_addItem="AddI";
@@ -120,7 +127,7 @@ class Ingredient{
 }
 class Recipe{
     [String] $Name
-    [Float] $Production
+    [Hashtable] $Production = @{}
     [Ingredient] $Output
     [Ingredient] $SecondOutput
     [List[Ingredient]] $Ingredients
@@ -132,19 +139,19 @@ class Recipe{
         $this.Ingredients = $Ingredients
     }
 
-    [void] SetProduction([Float] $Production){
-        $this.Production = $Production
+    [void] SetProduction([String] $Key, [Float] $Production){
+        $this.Production[$Key] = [Float] $Production
     }
 
     [Boolean] IsIngredient([Item] $Item){
         return ($null -ne ($this.Ingredients | Where-Object{ $_.Item -eq $Item }))
     }
 
-    [Float] GetConsumption([Item] $Item){
+    [Float] GetConsumption([String] $Key, [Item] $Item){
         if(!$this.IsIngredient($Item)){
             return 0
         }
-        return $this.Production / $this.Output.ACount * ($this.Ingredients | Where-Object{ $_.Item -eq $Item }).ACount
+        return $this.Production[$Key] / $this.Output.ACount * ($this.Ingredients | Where-Object{ $_.Item -eq $Item }).ACount
     }
 
     [Float] GetRatio([Item] $Item){
@@ -154,11 +161,11 @@ class Recipe{
         return ($this.Ingredients | Where-Object{ $_.Item -eq $Item }).ACount / $this.Output.ACount
     }
 
-    [Float] GetSecondaryProduction(){
+    [Float] GetSecondaryProduction([String] $Key){
         if($null -eq $this.SecondOutput){
             return 0
         }
-        return $this.Production / $this.Output.ACount * $this.SecondOutput.ACount
+        return $this.Production[$Key] / $this.Output.ACount * $this.SecondOutput.ACount
     }
 
     [Hashtable] ConvertToHash(){
@@ -194,26 +201,26 @@ class Item{
         $this.IngredientRecipes = $AllRecipes | Where-Object{ $_.IsIngredient($this) }
     }
 
-    [Float] GetProduction(){
+    [Float] GetProduction([String] $Key){
         $output = 0
         if($null -ne $this.MainRecipes){
-            $output += ($this.MainRecipes.Production | Measure-Object -sum).Sum
+            $output += ($this.MainRecipes.Production.$Key | Measure-Object -sum).Sum
         }
         if($null -ne $this.SecondaryRecipes){
-            $output += ($this.SecondaryRecipes.GetSecondaryProduction() | Measure-Object -sum).Sum
+            $output += ($this.SecondaryRecipes.GetSecondaryProduction($Key) | Measure-Object -sum).Sum
         }
         return $output
     }
 
-    [Float] GetConsumption(){
+    [Float] GetConsumption([String] $Key){
         if($null -ne $this.IngredientRecipes){
-            return ($this.IngredientRecipes.GetConsumption($this) | Measure-Object -sum).Sum
+            return ($this.IngredientRecipes.GetConsumption($Key, $this) | Measure-Object -sum).Sum
         }
         return 0
     }
 
-    [Boolean] IsEnoughProduction(){
-        return $this.GetProduction() -ge $this.GetConsumption()
+    [Boolean] IsEnoughProduction([String] $Key){
+        return $this.GetProduction($Key) -ge $this.GetConsumption([String] $Key)
     }
 }
 class Satisfactory{
@@ -222,12 +229,15 @@ class Satisfactory{
     [Recipe] $SelectedRecipe
     [Boolean] $SelectedRecipeMutex = $false
     [Boolean] $EditRecipe = $false
+    [String] $ProduktionKey = "Main"
+    [ArrayList] $AllProduktionKeys = @("Main")
     $gui
     $log
 
     Satisfactory(){
         $this.gui = [GUICreator]::new()
         $this.gui.PtoP_Visible($PSScriptRoot)
+        $this.gui.log.On = $false
         $this.log = [Logging]::new()
         $this.LoadConfig()
     }
@@ -239,10 +249,19 @@ class Satisfactory{
     [Recipe] GetRecipeByName([String] $Name){
         return $this.Recipes | Where-Object{$_.Name -eq $Name}
     }
-    [void] SetItemRecipes(){
-        foreach($item in $this.Items){
+    [void] SetItemRecipes([Array] $Names){
+        $this.log.WriteStep("Set Item Recipes")
+        $itemsToSet = $this.Items
+        if(($null -ne $Names) -and ($Names.Count -gt 0)){
+            $itemsToSet = [Array] ($this.Items | Where-Object{$Names -contains $_.Name})
+        }
+        foreach($item in $itemsToSet){
+            $this.log.WriteStep("Set Recipes for Item: $($item.Name)")
             $item.GetRecipes($this.Recipes)
         }
+    }
+    [void] SetItemRecipes(){
+        $this.SetItemRecipes($null)
     }
     [Hashtable] AddItem([String] $Name){
         if($null -ne $this.GetItemByName($Name)){
@@ -266,18 +285,30 @@ class Satisfactory{
         if($SetItemRecipes){
             $this.SetItemRecipes()
         }
-        $this.GetRecipeByName($Name).SetProduction($Production)
+        if($Production -ge 0){
+            $addedRecipe = $this.GetRecipeByName($Name)
+            $addedRecipe.SetProduction($this.ProduktionKey, $Production)
+            foreach($otherkey in $this.AllProduktionKeys){
+                if($otherkey -ne $this.ProduktionKey){
+                    $addedRecipe.SetProduction($otherkey, 0)
+                }
+            }
+        }
         $msg = "Recipe added: $Name"
         $this.log.WriteInfo($msg)
         return @{status = $true; msg = $msg}
     }
 
-    [void] AddRecipe([String] $Name, [Float] $Production, [Ingredient] $Output, [Ingredient] $SecondOutput, [List[Ingredient]] $Ingredients){
-        $this.AddRecipe($Name, $Production, $Output, $SecondOutput, $Ingredients, $true)
+    [Hashtable] AddRecipe([String] $Name, [Float] $Production, [Ingredient] $Output, [Ingredient] $SecondOutput, [List[Ingredient]] $Ingredients){
+        return $this.AddRecipe($Name, $Production, $Output, $SecondOutput, $Ingredients, $true)
     }
 
-    [void] AddRecipe([String] $Name, [Ingredient] $Output, [Ingredient] $SecondOutput, [List[Ingredient]] $Ingredients){
-        $this.AddRecipe($Name, 0, $Output, $SecondOutput, $Ingredients)
+    [Hashtable] AddRecipe([String] $Name, [Ingredient] $Output, [Ingredient] $SecondOutput, [List[Ingredient]] $Ingredients){
+        return $this.AddRecipe($Name, -1, $Output, $SecondOutput, $Ingredients)
+    }
+
+    [Hashtable] AddRecipe([String] $Name, [Ingredient] $Output, [Ingredient] $SecondOutput, [List[Ingredient]] $Ingredients, [Boolean] $SetItemRecipes){
+        return $this.AddRecipe($Name, -1, $Output, $SecondOutput, $Ingredients, $SetItemRecipes)
     }
 
     [List[Ingredient]] ConvertArrayOfIngredients([Array] $Ingredients){
@@ -318,7 +349,19 @@ class Satisfactory{
             if($null -ne $recipe.Ingredients){
                 $ingredients = $this.ConvertArrayOfIngredients([Array] ($recipe.Ingredients | Foreach-Object{$this.NewIngredient($_.Name, $_.ACount)}))
             }
-            $this.AddRecipe($recipe.Name, $recipe.Production, $this.NewIngredient($recipe.Output.Name, $recipe.Output.ACount), $secondOutput, $ingredients, $false)
+            $this.AddRecipe($recipe.Name, $this.NewIngredient($recipe.Output.Name, $recipe.Output.ACount), $secondOutput, $ingredients, $false)
+            $addedRecipe = $this.GetRecipeByName($recipe.Name)
+            if($recipe.Production -isnot [Hashtable]){
+                $addedRecipe.SetProduction($this.ProduktionKey, $recipe.Production)
+            }
+            else{
+                foreach($key in [Array] $recipe.Production.keys){
+                    $addedRecipe.SetProduction($key, $recipe.Production[$key])
+                    if($this.AllProduktionKeys -notcontains $key){
+                        [void] $this.AllProduktionKeys.Add($key)
+                    }
+                }
+            }
         }
         $this.SetItemRecipes()
     }
@@ -336,6 +379,7 @@ class Satisfactory{
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.addItem, @{}, [Constants]::def.form)
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.addRecipe, @{}, [Constants]::def.form)
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.other, @{}, [Constants]::def.form)
+        $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.pk, @{}, [Constants]::def.form)
         
         $this.gui.CreateSysObject("Label", [Constants]::def.list.item, @{Text = "Items:"}, [Constants]::def.frames.lists)
         $this.gui.CreateSysObject("ListBox", [Constants]::def.list.item, @{Name = [Constants]::def.list.item}, [Constants]::def.frames.lists)
@@ -351,7 +395,7 @@ class Satisfactory{
                 $global:s.SelectedRecipeMutex = $true
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.secRecipe)].SelectedIndex = -1
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.usedIn)].SelectedIndex = -1
-                $global:s.ShowRecipeInfo([Constants]::def.list.mainRecipe)
+                $global:s.ShowRecipeInfo()
                 $global:s.SelectedRecipeMutex = $False
             }
         })
@@ -363,7 +407,7 @@ class Satisfactory{
                 $global:s.SelectedRecipeMutex = $true
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.mainRecipe)].SelectedIndex = -1
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.usedIn)].SelectedIndex = -1
-                $global:s.ShowRecipeInfo([Constants]::def.list.secRecipe)
+                $global:s.ShowRecipeInfo()
                 $global:s.SelectedRecipeMutex = $False
             }
         })
@@ -375,9 +419,24 @@ class Satisfactory{
                 $global:s.SelectedRecipeMutex = $true
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.mainRecipe)].SelectedIndex = -1
                 $global:s.gui.SysObjects.ListBox[([Constants]::def.list.secRecipe)].SelectedIndex = -1
-                $global:s.ShowRecipeInfo([Constants]::def.list.usedIn)
+                $global:s.ShowRecipeInfo()
                 $global:s.SelectedRecipeMutex = $False
             }
+        })
+
+        $this.gui.CreateSysObject("Label", [Constants]::def.pk.lbl, @{Text = "PKey:"; Font = $global:font2}, [Constants]::def.frames.pk)
+        $this.gui.CreateSysObject("ComboBox", [Constants]::def.pk.cb, @{Font = $global:font1}, [Constants]::def.frames.pk)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].Add_SelectedIndexChanged({
+            $global:s.ChangePK()
+        })
+        $this.gui.CreateSysObject("TextBox", [Constants]::def.pk.tb, @{Text = ""; Font = $global:font1}, [Constants]::def.frames.pk)
+        $this.gui.CreateSysObject("Button", [Constants]::def.pk.btn, @{Text = "Add"; Name = [Constants]::def.pk.btn}, [Constants]::def.frames.pk)
+        $this.gui.SysObjects.Button[([Constants]::def.pk.btn)].Add_Click({
+            $global:s.AddPK()
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.pk.btnr, @{Text = "Remove"; Name = [Constants]::def.pk.btnr}, [Constants]::def.frames.pk)
+        $this.gui.SysObjects.Button[([Constants]::def.pk.btnr)].Add_Click({
+            $global:s.RemovePK()
         })
 
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.IName, @{Text = "Item Name:"}, [Constants]::def.frames.item)
@@ -498,7 +557,12 @@ class Satisfactory{
         $allMainCaptions = ([Array] ([Constants]::def.ItemInfoCaptions.Values) + [Array] ([Constants]::def.RInfoCaptions.Values) + [Array] ([Constants]::def.AddingRecipe.Values))
         $allMainInfos = [Array] ([Constants]::def.ItemInfoValues.Values) + [Array] ([Constants]::def.RInfoMain.Values)
         $allIngInfos = ([Constants]::def.RInfoIng.iRName) + ([Constants]::def.RInfoIng.iRCount) + ([Constants]::def.RInfoIng.iRRatio) + ([Constants]::def.RInfoIng.iRCon)
-        
+        $clickableLabels = ([Constants]::def.RInfoIng.iRName) + [Constants]::def.RInfoMain.iOutName + [Constants]::def.RInfoMain.iSecName
+        foreach($lbl in $clickableLabels){
+            $this.gui.SysObjects.Label[($lbl)].Add_Click({
+                $global:s.LabelClick($this.Text)
+            })
+        }
         foreach($l in $allLists){
             $this.gui.SysObjects.ListBox[$l].Font = $global:font1
             $this.gui.SysObjects.Label[$l].Font = $global:font2
@@ -558,8 +622,10 @@ class Satisfactory{
         $this.ClearLists()
         $this.RefreshItemList()
         $this.ClearRecipeInfo()
+        $this.RefreshPK()
     }
     [void] RefreshItemList(){
+        $this.log.WriteStep("RefreshItemList")
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Items.Clear()
         $list = [ArrayList] (([Array] $this.Items.Name) | Sort-Object)
         $this.gui.ApplyToSysObject("ListBox", ([Constants]::def.list.item), @{List = [Array] $list})
@@ -567,6 +633,7 @@ class Satisfactory{
         $this.RefreshAddRComboBoxes()
     }
     [void] RefreshAddRComboBoxes(){
+        $this.log.WriteStep("RefreshAddRComboBoxes")
         $list = [ArrayList] (([Array] $this.Items.Name) | Sort-Object)
         if($null -eq $list){ $list = [ArrayList] @()}
         $list.Insert(0, "None")
@@ -596,6 +663,37 @@ class Satisfactory{
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.S1)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value = 0
     }
+    [void] RefreshPK(){
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].Items.clear()
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].Items.AddRange([Array] $this.AllProduktionKeys)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedIndex = 0
+    }
+    [void] ChangePK(){
+        $this.ProduktionKey = $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedItem
+        $this.ShowItemInfo()
+        $this.ShowRecipeInfo()
+    }
+    [void] AddPK(){
+        $val = $this.gui.SysObjects.TextBox[([Constants]::def.pk.tb)].Text
+        if([String]::IsNullOrWhiteSpace($val) -or ($this.AllProduktionKeys -contains $val)){
+            return
+        }
+        $this.AllProduktionKeys.Add($val)
+        foreach($recipe in $this.Recipes){
+            $recipe.SetProduction($val, 0)
+        }
+        $this.RefreshPK()
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedItem = $val
+    }
+    [void] RemovePK(){
+        $val = $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedItem 
+        foreach($recipe in $this.Recipes){
+            $recipe.Production.Remove($val)
+        }
+        $this.AllProduktionKeys.Remove($val)
+        $this.RefreshPK()
+        $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedIndex = 0
+    }
     [void] SetRecipeLists(){
         $this.ClearRecipeLists()
         $this.ClearRecipeInfo()
@@ -620,6 +718,9 @@ class Satisfactory{
         $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Enough), @{Text = " "; BackColor = "White"})
     }
     [void] ShowItemInfo(){
+        if($this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedIndex -eq -1){
+            return
+        }
         $this.ClearItemInfo()
         $selectedItem = $this.GetItemByName($this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedItem)
         $recipeName = $selectedItem.Name
@@ -632,11 +733,11 @@ class Satisfactory{
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.Out)].SelectedItem = $selectedItem.Name
         $this.gui.ApplyToSysObject("TextBox", ([Constants]::def.AddingRecipe.RName), @{Text = $recipeName})
         $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.IName), @{Text = $selectedItem.Name})
-        $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Prod), @{Text = $selectedItem.GetProduction().ToString()})
-        $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Cons), @{Text = $selectedItem.GetConsumption().ToString()})
+        $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Prod), @{Text = $selectedItem.GetProduction($this.ProduktionKey).ToString()})
+        $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Cons), @{Text = $selectedItem.GetConsumption($this.ProduktionKey).ToString()})
 
         $enoughProps = @{Text = "NO"; BackColor = "Red"}
-        if ($selectedItem.IsEnoughProduction()) {
+        if ($selectedItem.IsEnoughProduction($this.ProduktionKey)) {
             $enoughProps = @{Text = "YES"; BackColor = "Green"}
         }
         $this.gui.ApplyToSysObject("Label", ([Constants]::def.ItemInfoValues.Enough), $enoughProps)
@@ -653,14 +754,16 @@ class Satisfactory{
         $this.gui.ApplyToSysObject("Button", ([Constants]::def.AddRBTN.addRecipe), @{Text = "Add Recipe"})
         $this.gui.SysObjects.Button[([Constants]::def.AddRBTN.editRecipe)].Enabled = $false
     }
-    [void] ShowRecipeInfo([String] $FromList){
-        $this.ClearRecipeInfo()
-        if($this.gui.SysObjects.ListBox[$FromList].SelectedIndex -lt 0){
+    [void] ShowRecipeInfo(){
+        $key = @("mainRecipe", "secRecipe", "usedIn") | Where-Object{$this.gui.SysObjects.ListBox[([Constants]::def.list[$_])].SelectedIndex -ne -1}
+        if ($null -eq $key) {
             return
         }
+        $fromList = [Constants]::def.list[$key]
+        $this.ClearRecipeInfo()
         $this.gui.SysObjects.Button[([Constants]::def.AddRBTN.editRecipe)].Enabled = $true
         $this.RefreshAddRComboBoxes()
-        $this.SelectedRecipe = $this.GetRecipeByName($this.gui.SysObjects.ListBox[$FromList].SelectedItem)
+        $this.SelectedRecipe = $this.GetRecipeByName($this.gui.SysObjects.ListBox[$fromList].SelectedItem)
         $this.gui.SysObjects.Button[([Constants]::def.SetProd.SetProd)].Enabled = $true
         $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoMain.iName, @{Text = $this.SelectedRecipe.Name})
         $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoMain.iOutName, @{Text = $this.SelectedRecipe.Output.Item.Name})
@@ -669,28 +772,38 @@ class Satisfactory{
             $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoMain.iSecName, @{Text = $this.SelectedRecipe.SecondOutput.Item.Name})
             $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoMain.iSecCount, @{Text = $this.SelectedRecipe.SecondOutput.ACount})
         }
-        $this.gui.SysObjects.NumericUpDown[([Constants]::def.SetProd.iRProd)].Value = $this.SelectedRecipe.Production
+        $this.gui.SysObjects.NumericUpDown[([Constants]::def.SetProd.iRProd)].Value = $this.SelectedRecipe.Production[$this.ProduktionKey]
         foreach($ingredient in $this.SelectedRecipe.Ingredients){
             $index = $this.SelectedRecipe.Ingredients.IndexOf($ingredient)
             $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoIng.iRName[$index], @{Text = $ingredient.Item.Name})
             $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoIng.iRCount[$index], @{Text = $ingredient.ACount.ToString()})
             $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoIng.iRRatio[$index], @{Text = $this.SelectedRecipe.GetRatio($ingredient.Item).ToString()})
-            $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoIng.iRCon[$index], @{Text = $this.SelectedRecipe.GetConsumption($ingredient.Item).ToString()})
+            $this.gui.ApplyToSysObject("Label", [Constants]::def.RInfoIng.iRCon[$index], @{Text = $this.SelectedRecipe.GetConsumption($this.ProduktionKey, $ingredient.Item).ToString()})
         }
     }
+    [void] LabelClick([String] $itemName){
+        $item = $this.GetItemByName($itemName)
+        if($null -ne $item){
+            $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedItem = $item.Name
+        }
+    } 
     [void] SetProductionGUI(){
-        $this.SelectedRecipe.SetProduction($this.gui.SysObjects.NumericUpDown[([Constants]::def.SetProd.iRProd)].Value)
+        $this.SelectedRecipe.SetProduction($this.ProduktionKey, $this.gui.SysObjects.NumericUpDown[([Constants]::def.SetProd.iRProd)].Value)
+        $this.ShowItemInfo()
+        $this.ShowRecipeInfo()
     }
     [void] AddRecipeGUI(){
         $name = $this.gui.SysObjects.TextBox[([Constants]::def.AddingRecipe.RName)].Text
         $production = $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value
         $ingredients = [ArrayList] @()
+        $allItems = [ArrayList] @()
         for($i = 1; $i -le 4; $i++){
             $ing = [Ingredient]::new($this.GetItemByName(
                 $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe["R$i"])].SelectedItem),
                 $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe["R$i"])].Value)
             if(($null -ne $ing.Item) -and ($ing.ACount -gt 0)){
                 [void] $ingredients.Add($ing)
+                [void] $allItems.Add($ing.Item.Name)
             }
         }
         $Output = [Ingredient]::new($this.GetItemByName(
@@ -699,24 +812,31 @@ class Satisfactory{
         $SecOutput = [Ingredient]::new($this.GetItemByName(
             $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.S1)].SelectedItem),
             $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.S1)].Value)
+        [void] $allItems.Add($Output.Item.Name)
         if($null -eq $SecOutput.Item){
             $SecOutput = $null
         }
+        else {
+            [void] $allItems.Add($SecOutput.Item.Name)
+        }
+        $this.log.WriteInfo($allItems, "All Added Items")
         $addROutput = @{status = $true}
         if(!$this.EditRecipe){
-            $addROutput = $this.AddRecipe($name, $production, $Output, $SecOutput, $this.ConvertArrayOfIngredients([Array] $ingredients))
+            $addROutput = $this.AddRecipe($name, $production, $Output, $SecOutput, $this.ConvertArrayOfIngredients([Array] $ingredients), $false)
         }   
         else {
             $this.SelectedRecipe.Name = $name
-            $this.SelectedRecipe.Production = $production
+            $this.SelectedRecipe.SetProduction($this.ProduktionKey, $production)
             $this.SelectedRecipe.Output = $Output
             $this.SelectedRecipe.SecondOutput = $SecOutput
             $this.SelectedRecipe.Ingredients = $this.ConvertArrayOfIngredients([Array] $ingredients)
         }
         if(($this.EditRecipe) -or ($addROutput.status)){
             $selectedItem = $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedItem
+            $this.SetItemRecipes([Array] $allItems)
             $this.RefreshItemList()
             $this.ClearRecipeLists()
+            $this.ClearRecipeInfo()
             $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedItem = $selectedItem
         }
         else{
@@ -737,7 +857,7 @@ class Satisfactory{
             $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe["R$($i + 1)"])].SelectedItem = $this.SelectedRecipe.Ingredients[$i].Item.Name
             $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe["R$($i + 1)"])].Value = $this.SelectedRecipe.Ingredients[$i].ACount
         }
-        $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value = $this.SelectedRecipe.Production
+        $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value = $this.SelectedRecipe.Production[$this.ProduktionKey]
     }
     [void] Quit(){
         $this.gui.SysObjects.Form[[Constants]::def.form].Close()
