@@ -8361,9 +8361,9 @@ minecraft_jj_hopper={
     RSChannel={}
 },
 minecraft_jj_ice={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=2700000,
+    minCount=2600000,
+    RSChannel={1,8, "east"}
 },
 minecraft_jj_iron_axe={
     maxCount=0,
@@ -8593,34 +8593,34 @@ minecraft_jj_lit_pumpkin={
     RSChannel={}
 },
 minecraft_jj_log={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,6, "south"}
 },
 minecraft_jj_log2={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,7, "south"}
 },
 minecraft_jj_log2_jj_1={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,7, "west"}
 },
 minecraft_jj_log_jj_1={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,6, "west"}
 },
 minecraft_jj_log_jj_2={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,7, "north"}
 },
 minecraft_jj_log_jj_3={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,7, "east"}
 },
 minecraft_jj_magenta_glazed_terracotta={
     maxCount=0,
@@ -8753,9 +8753,9 @@ minecraft_jj_orange_glazed_terracotta={
     RSChannel={}
 },
 minecraft_jj_packed_ice={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=5000000,
+    minCount=4900000,
+    RSChannel={1,8, "south"}
 },
 minecraft_jj_painting={
     maxCount=0,
@@ -9200,9 +9200,9 @@ minecraft_jj_slime_ball={
     RSChannel={}
 },
 minecraft_jj_snow={
-    maxCount=0,
-    minCount=0,
-    RSChannel={}
+    maxCount=3000000,
+    minCount=2900000,
+    RSChannel={1,8, "north"}
 },
 minecraft_jj_snowball={
     maxCount=1600000,

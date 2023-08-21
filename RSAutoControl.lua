@@ -32,7 +32,7 @@ function rsac.MergeItems()
                 goto continue
             end
             local citem = rsac.convert.ItemToOName(item)
-            if rsac[typ][citem] ~= nil then
+            if rsac[typ][citem] then
                 rsac[typ][citem].Count = item[countname]
                 if rsac.firsttime then
                     rsac[typ][citem].Converted = citem
@@ -73,7 +73,20 @@ function rsac.MergeItems()
                         item.State = saved[index].State
                     end
                     if item.State == nil then
-                        item.State = false
+                        item.State = rsac.GetStateSwitch(item).OFF
+                    end
+                    if item.Count == nil then
+                        item.Count = 0
+                    end
+                    for index2,prop in pairs({"Count","minCount","maxCount"}) do
+                        if item[prop] == nil then
+                            item[prop] = 0
+                        end
+                    end
+                    for index2,prop in pairs({"Converted","Name","Label","Status"}) do
+                        if item[prop] == nil then
+                            item[prop] = ""
+                        end
                     end
                     rsac.GetPrio(item, 1, typ)
                     table.insert(rsac.valid[typ], item)
@@ -87,40 +100,36 @@ function rsac.MergeItems()
 end
 
 function rsac.GetPrio(item, initPrio, typ)
-    if item.Prio == nil then
-        if item.DependsOn ~= nil then
-            local prio = initPrio
-            if item.DependsOn.Name then
-                item.DependsOn = {item.DependsOn}
-            end
-            for depI,dependItem in pairs(item.DependsOn) do
-                local typEx = typ
-                if dependItem.typ ~= nil then
-                    typEx = dependItem.typ
+    if not item.Prio then
+        item.Prio = 1
+        local prio = initPrio
+        for onI,onType in pairs({"DependsOn","DependsOff","StartsOn"}) do
+            if item[onType] then
+                if item[onType].Name then
+                    item[onType] = {item[onType]}
                 end
-                local itemEx = rsac[typEx][dependItem.Name]
-                if itemEx ~= nil then
-                    rsac.GetPrio(itemEx, 1, typEx)
-                    if itemEx.Prio >= prio then
-                        prio = itemEx.Prio + 1
+                for depI,dependItem in pairs(item[onType]) do
+                    local typEx = typ
+                    if dependItem.typ then
+                        typEx = dependItem.typ
+                    end
+                    local itemEx = rsac[typEx][dependItem.Name]
+                    if itemEx then
+                        rsac.GetPrio(itemEx, 1, typEx)
+                        if itemEx.Prio >= prio then
+                            prio = itemEx.Prio + 1
+                        end
                     end
                 end
+                item.Prio = prio
             end
-            if rsac.prio < prio then rsac.prio = prio end
-            item.Prio = prio
-        else
-            item.Prio = 1
         end
+        if rsac.prio < prio then rsac.prio = prio end
     end
 end
 
 function rsac.ValidItem(item)
     local ok = true
-    for i,j in pairs({"minCount", "maxCount", "Count", "RSChannel", "Label"}) do
-        if item[j] == nil then
-            ok = false
-        end
-    end
     if rsac.mf.getCount(item.RSChannel) ~= 3 then
         ok = false
     elseif rsac.prox[item.RSChannel[1]] == nil then
@@ -135,7 +144,7 @@ end
 
 function rsac.GetStateSwitch(item)
     local stateSwitch = {OFF = false, ON = true}
-    if item.Reversed ~= nil then
+    if item.Reversed then
         stateSwitch = {OFF = true, ON = false}
     end
     return stateSwitch
@@ -145,16 +154,63 @@ function rsac.GetStateString(item, state)
     return rsac.mf.getIndex(rsac.GetStateSwitch(item), state)
 end
 
+function rsac.GetItemMinMax(item)
+    local result = {min = item.minCount, max = item.maxCount}
+    if result.min > result.max then
+        result = {max = item.minCount, min = item.maxCount}
+    end
+    result.diff = result.max - result.min
+    return result
+end
+
 function rsac.Check(item, typ)
     item.Status = ""
-    if item.DependsOn ~= nil then
+    local stateSwitch = rsac.GetStateSwitch(item)
+    if item.StartsOn then
+        for depI,dependItem in pairs(item.StartsOn) do
+            local typEx = typ
+            if dependItem.typ then
+                typEx = dependItem.typ
+            end
+            if rsac[typEx][dependItem.Name].State == rsac.GetStateSwitch(item).ON then
+                rsac.SwitchRS(item, stateSwitch.ON)
+                return
+            end
+        end
+        rsac.SwitchRS(item, stateSwitch.OFF)
+        return
+    end
+    local depOnList = {}
+    if item.DependsOn then
         for depI,dependItem in pairs(item.DependsOn) do
             local typEx = typ
-            if dependItem.typ ~= nil then
+            if dependItem.typ then
                 typEx = dependItem.typ
             end
             local itemEx = rsac[typEx][dependItem.Name]
-            if itemEx ~= nil then
+            if itemEx then
+                local on = itemEx.State == rsac.GetStateSwitch(itemEx).ON
+                local depending = itemEx.Status == "Depends"
+                local minmax = rsac.GetItemMinMax(itemEx)
+                local halfway = (itemEx.Count > (minmax.max - (minmax.diff / 2)))
+                local almostFull = (itemEx.Count > (minmax.max - (minmax.diff / 10)))
+                if (on and not halfway) or depending then
+                    item.Status = "Depends"
+                    return
+                elseif not on and halfway and not almostFull then
+                    table.insert(depOnList, itemEx)
+                end
+            end
+        end
+    end
+    if item.DependsOff then
+        for depI,dependItem in pairs(item.DependsOff) do
+            local typEx = typ
+            if dependItem.typ then
+                typEx = dependItem.typ
+            end
+            local itemEx = rsac[typEx][dependItem.Name]
+            if itemEx then
                 local on = itemEx.State == rsac.GetStateSwitch(itemEx).ON
                 local depending = itemEx.Status == "Depends"
                 if on or depending then
@@ -164,16 +220,13 @@ function rsac.Check(item, typ)
             end
         end
     end
-    local stateSwitch = rsac.GetStateSwitch(item)
-    local min = item.minCount
-    local max = item.maxCount
-    if min > max then
-        min = item.maxCount
-        max = item.minCount
-    end
-    if item.State == stateSwitch.OFF and min > item.Count then
+    local minmax = rsac.GetItemMinMax(item)
+    if item.State == stateSwitch.OFF and minmax.min > item.Count then
         rsac.SwitchRS(item, stateSwitch.ON)
-    elseif item.State == stateSwitch.ON and max < item.Count then
+        for depI,dependItem in pairs(depOnList) do
+            rsac.SwitchRS(dependItem, rsac.GetStateSwitch(dependItem).ON)
+        end
+    elseif item.State == stateSwitch.ON and minmax.max < item.Count then
         rsac.SwitchRS(item, stateSwitch.OFF)
     end
 end

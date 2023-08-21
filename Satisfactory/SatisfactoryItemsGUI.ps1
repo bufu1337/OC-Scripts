@@ -141,6 +141,13 @@ class Recipe{
 
     [void] SetProduction([String] $Key, [Float] $Production){
         $this.Production[$Key] = [Float] $Production
+        $this.Output.Item.Update($Key)
+        if($null -ne $this.SecondOutput){
+            $this.SecondOutput.Item.Update($Key)
+        }
+        foreach($ing in $this.Ingredients){
+            $ing.Item.Update($Key)
+        }
     }
 
     [Boolean] IsIngredient([Item] $Item){
@@ -190,6 +197,9 @@ class Item{
     [List[Recipe]] $MainRecipes
     [List[Recipe]] $SecondaryRecipes
     [List[Recipe]] $IngredientRecipes
+    [Float] $Production
+    [Float] $Consumption
+    [Boolean] $IsEnough
 
     Item([String] $Name){
         $this.Name = $Name
@@ -202,25 +212,33 @@ class Item{
     }
 
     [Float] GetProduction([String] $Key){
-        $output = 0
+        $output = [Float] 0
         if($null -ne $this.MainRecipes){
             $output += ($this.MainRecipes.Production.$Key | Measure-Object -sum).Sum
         }
         if($null -ne $this.SecondaryRecipes){
             $output += ($this.SecondaryRecipes.GetSecondaryProduction($Key) | Measure-Object -sum).Sum
         }
+        $this.Production = [Float] $output
         return $output
     }
 
     [Float] GetConsumption([String] $Key){
+        $output = [Float] 0
         if($null -ne $this.IngredientRecipes){
-            return ($this.IngredientRecipes.GetConsumption($Key, $this) | Measure-Object -sum).Sum
+            $output = ($this.IngredientRecipes.GetConsumption($Key, $this) | Measure-Object -sum).Sum
         }
-        return 0
+        $this.Consumption = [Float] $output
+        return $output
     }
 
     [Boolean] IsEnoughProduction([String] $Key){
-        return $this.GetProduction($Key) -ge $this.GetConsumption([String] $Key)
+        $this.IsEnough = $this.GetProduction($Key) -ge $this.GetConsumption([String] $Key)
+        return $this.IsEnough
+    }
+    
+    [void] Update([String] $Key){
+        [void] $this.IsEnoughProduction($Key)
     }
 }
 class Satisfactory{
@@ -231,13 +249,14 @@ class Satisfactory{
     [Boolean] $EditRecipe = $false
     [String] $ProduktionKey = "Main"
     [ArrayList] $AllProduktionKeys = @("Main")
+    [Hashtable] $ItemIndex = @{}
     $gui
     $log
 
     Satisfactory(){
         $this.gui = [GUICreator]::new()
         $this.gui.PtoP_Visible($PSScriptRoot)
-        $this.gui.log.On = $false
+        $this.gui.log.ON = $false
         $this.log = [Logging]::new()
         $this.LoadConfig()
     }
@@ -263,6 +282,16 @@ class Satisfactory{
     [void] SetItemRecipes(){
         $this.SetItemRecipes($null)
     }
+    [void] UpdateItems([Array] $itemsToUpdate){
+        $itemsForUpdate = $this.Items
+        if($null -ne $itemsToUpdate){
+            $itemsForUpdate = $this.Items | Where-Object{$itemsToUpdate -contains $_.Name}
+        }
+        foreach($item in $itemsForUpdate){
+            $item.Update($this.ProduktionKey)
+        }
+    }
+    [void] UpdateItems(){$this.UpdateItems($null)}
     [Hashtable] AddItem([String] $Name){
         if($null -ne $this.GetItemByName($Name)){
             $msg = "Item arleady existing: $Name"
@@ -382,8 +411,37 @@ class Satisfactory{
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.pk, @{}, [Constants]::def.form)
         
         $this.gui.CreateSysObject("Label", [Constants]::def.list.item, @{Text = "Items:"}, [Constants]::def.frames.lists)
-        $this.gui.CreateSysObject("ListBox", [Constants]::def.list.item, @{Name = [Constants]::def.list.item}, [Constants]::def.frames.lists)
+        $this.gui.CreateSysObject("ListBox", [Constants]::def.list.item, @{Name = [Constants]::def.list.item; DrawMode = "OwnerDrawFixed"; ItemHeight = 21; DisplayMember=""}, [Constants]::def.frames.lists)
+        $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Add_DrawItem({
+            $itemName = $this.Items[$args.Index]
+            $item = $global:s.GetItemByName($itemName)
+            if ($this.Items.Count -eq 0) {return}
+            $brush = $global:brushes.White
+            if(($item.Production -ne 0) -or ($item.Consumption -ne 0)){
+                $prefix = "Light"
+                $suffix = "Red"
+                if($this.SelectedItem -eq $itemName){
+                    $prefix = ""
+                }
+                if($item.IsEnough){
+                    $suffix = "Green"
+                }
+                $brush = $global:brushes["$prefix$suffix"]
+            }
+            elseif($this.SelectedItem -eq $itemName){
+                $brush = $global:brushes.Blue
+            }
+            else{
+                $brush = $global:brushes.White
+            }
+            $args.Graphics.FillRectangle($brush, (new-object System.Drawing.Rectangle(
+                                                                        (new-object System.Drawing.Point($args.Bounds.X[1], $args.Bounds.Y[1])), 
+                                                                        (new-object System.Drawing.Size($this.Width,$this.ItemHeight))
+                                                                )))
+            $args.Graphics.DrawString($itemName, $global:font1, $global:CT, (new-object System.Drawing.PointF($args.Bounds.X[1], $args.Bounds.Y[1])))
+        })
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Add_SelectedIndexChanged({
+            $this.Refresh()
             $global:s.SetRecipeLists()
             $global:s.ShowItemInfo()
         })
@@ -626,6 +684,7 @@ class Satisfactory{
     }
     [void] RefreshItemList(){
         $this.log.WriteStep("RefreshItemList")
+        $this.UpdateItems()
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Items.Clear()
         $list = [ArrayList] (([Array] $this.Items.Name) | Sort-Object)
         $this.gui.ApplyToSysObject("ListBox", ([Constants]::def.list.item), @{List = [Array] $list})
@@ -670,6 +729,7 @@ class Satisfactory{
     }
     [void] ChangePK(){
         $this.ProduktionKey = $this.gui.SysObjects.ComboBox[([Constants]::def.pk.cb)].SelectedItem
+        $this.RefreshItemList()
         $this.ShowItemInfo()
         $this.ShowRecipeInfo()
     }
@@ -866,6 +926,16 @@ class Satisfactory{
 }
 $global:font1 = [Font]::new("Microsoft Sans Serif",12,[FontStyle]::Regular)
 $global:font2 = [Font]::new("Microsoft Sans Serif",12,[FontStyle]::Bold)
+$global:brushes = @{
+    Green = [SolidBrush]::new([Color]::Green);
+    LightGreen = [SolidBrush]::new([Color]::LightGreen);
+    White = [SolidBrush]::new([Color]::White);
+    Blue = [SolidBrush]::new([Color]::LightBlue);
+    LightRed = [SolidBrush]::new([Color]::Red);
+    Red = [SolidBrush]::new([Color]::DarkRed)
+}
+$global:CT=[System.Drawing.SystemBrushes]::ControlText   
+
 
 # using module D:\Y-Downloads\Minecraft\OC-Scripts\SatisfactoryItemsGUI.psm1
 # $s = [Satisfactory]::new()
