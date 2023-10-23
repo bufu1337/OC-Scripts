@@ -44,7 +44,7 @@ class Constants{
             IName = "capIName";
             Prod = "capProd";
             Cons = "capCons";
-            Enough = "capEnough"
+            #Enough = "capEnough"
         };
         ItemInfoValues = @{
             IName = "valIName";
@@ -59,6 +59,7 @@ class Constants{
             R2 = "R2";
             R3 = "R3";
             R4 = "R4";
+            R5 = "R5";
             Out = "Out";
             S1 = "S1";
             RProd = "RProd";
@@ -90,10 +91,10 @@ class Constants{
         };
         iRHead = @("iIName","iRCount","iRRatio","iRCon");
         RInfoIng = @{
-            iRName = @("iR1N","iR2N","iR3N","iR4N");
-            iRCount = @("iR1C","iR2C","iR3C","iR4C");
-            iRRatio = @("iR1R","iR2R","iR3R","iR4R");
-            iRCon = @("iR1Con","iR2Con","iR3Con","iR4Con")
+            iRName = @("iR1N","iR2N","iR3N","iR4N","iR5N");
+            iRCount = @("iR1C","iR2C","iR3C","iR4C","iR5C");
+            iRRatio = @("iR1R","iR2R","iR3R","iR4R","iR5R");
+            iRCon = @("iR1Con","iR2Con","iR3Con","iR4Con","iR5Con")
         };
         pk = @{
             lbl = "pklbl";
@@ -250,6 +251,7 @@ class Satisfactory{
     [String] $ProduktionKey = "Main"
     [ArrayList] $AllProduktionKeys = @("Main")
     [Hashtable] $ItemIndex = @{}
+    [Hashtable] $RecipeIndex = @{}
     $gui
     $log
 
@@ -393,6 +395,16 @@ class Satisfactory{
             }
         }
         $this.SetItemRecipes()
+        $this.SetIndexes()
+    }
+
+    [void] SetIndexes(){
+        foreach($item in $this.Items){
+            $this.ItemIndex[$item.Name] = $this.Items.IndexOf($item)
+        }
+        foreach($recipe in $this.Recipes){
+            $this.RecipeIndex[$recipe.Name] = $this.Recipes.IndexOf($recipe)
+        }
     }
 
     [void] ShowForm(){
@@ -500,7 +512,7 @@ class Satisfactory{
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.IName, @{Text = "Item Name:"}, [Constants]::def.frames.item)
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Prod, @{Text = "Production:"}, [Constants]::def.frames.item)
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Cons, @{Text = "Consumption:"}, [Constants]::def.frames.item)
-        $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Enough, @{Text = "Enough:"}, [Constants]::def.frames.item)
+        #$this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Enough, @{Text = "Enough:"}, [Constants]::def.frames.item)
 
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.IName, @{Text = "Heavy Modular Frame"}, [Constants]::def.frames.item)
         $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.Prod, @{Text = "1000"}, [Constants]::def.frames.item)
@@ -535,21 +547,25 @@ class Satisfactory{
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[1], @{Text = "Plastic"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[2], @{Text = "Adaptive Control Unit"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[3], @{Text = "Heavy Modular Frame"}, [Constants]::def.frames.recipe)
+        $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[4], @{Text = "Heavy Oil"}, [Constants]::def.frames.recipe)
 
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[0], @{Text = "1"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[1], @{Text = "10"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[2], @{Text = "100"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[3], @{Text = "999"}, [Constants]::def.frames.recipe)
+        $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[4], @{Text = "999"}, [Constants]::def.frames.recipe)
 
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[0], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[1], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[2], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[3], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
+        $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[4], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
 
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[0], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[1], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[2], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[3], @{Text = "1000000"}, [Constants]::def.frames.recipe)
+        $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[4], @{Text = "1000000"}, [Constants]::def.frames.recipe)
 
         $this.gui.CreateSysObject("Label", [Constants]::def.tb_iName, @{TextAlign = "MiddleCenter"; Font = $global:font2; Text = "Item Name:"}, [Constants]::def.frames.addItem)
         $this.gui.CreateSysObject("TextBox", [Constants]::def.tb_iName, @{Text = ""}, [Constants]::def.frames.addItem)
@@ -569,6 +585,7 @@ class Satisfactory{
         $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R2, @{Text = "Ingredient 2:"}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R3, @{Text = "Ingredient 3:"}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R4, @{Text = "Ingredient 4:"}, [Constants]::def.frames.addRecipe)
+        $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R5, @{Text = "Ingredient 5:"}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.Out, @{Text = "Output:"}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.S1, @{Text = "Second Output:"}, [Constants]::def.frames.addRecipe)
 
@@ -576,6 +593,7 @@ class Satisfactory{
         $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R2, @{}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R3, @{}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R4, @{}, [Constants]::def.frames.addRecipe)
+        $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R5, @{}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.Out, @{}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.S1, @{}, [Constants]::def.frames.addRecipe)
         
@@ -583,6 +601,7 @@ class Satisfactory{
         $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R2, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R3, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R4, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
+        $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R5, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.Out, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.S1, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
 
@@ -700,24 +719,28 @@ class Satisfactory{
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R2)].Items.clear()
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R3)].Items.clear()
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R4)].Items.clear()
+        $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R5)].Items.clear()
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.Out)].Items.clear()
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.S1)].Items.clear()
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R1)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R2)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R3)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R4)].Items.AddRange([Array] $list)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R5)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.Out)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.S1)].Items.AddRange([Array] $list)
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R1)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R2)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R3)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R4)].SelectedIndex = 0
+        $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.R5)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.Out)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe.S1)].SelectedIndex = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.R1)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.R2)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.R3)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.R4)].Value = 0
+        $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.R5)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.Out)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.S1)].Value = 0
         $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value = 0
@@ -857,7 +880,7 @@ class Satisfactory{
         $production = $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe.RProd)].Value
         $ingredients = [ArrayList] @()
         $allItems = [ArrayList] @()
-        for($i = 1; $i -le 4; $i++){
+        for($i = 1; $i -le 5; $i++){
             $ing = [Ingredient]::new($this.GetItemByName(
                 $this.gui.SysObjects.ComboBox[([Constants]::def.AddingRecipe["R$i"])].SelectedItem),
                 $this.gui.SysObjects.NumericUpDown[([Constants]::def.AddingRecipe["R$i"])].Value)
