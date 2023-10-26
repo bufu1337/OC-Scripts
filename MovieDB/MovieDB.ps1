@@ -33,7 +33,8 @@ class Constants{
         frames = @{
             lists = "fLists";
             details = "fDetails";
-            options = "fOptions"
+            options = "fOptions";
+            add = "fAdd"
         };
 
         # Info
@@ -43,30 +44,48 @@ class Constants{
         };
 
         dd =@{
-            type = "dType"
+            type = "dType";
+            ctype = "changeType";
+            addActor = "addActorCB"
+        };
+
+        tb =@{
+            addActor = "addActor";
+            editTitle = "editTitle";
+            editOrigTitle = "editOrigTitle";
+            editYear = "editYear";
         };
 
         cap =@{
             title = "Title";
-            actor = "Actors"
+            otitle = "OrigTitle";
+            year = "Year"
         };
 
         cb =@{
-            wish = "cbWish";
-            oAct = "cboAct";
-            oItem = "cboItem";
-            oWish = "cboWish";
-            oExist = "cboExist";
-            oRest = "cboRest"
+            wish = "cbWish"; # add to wishlist per click
+            oAct = "cboAct"; # show only actors from item
+            oItem = "cboItem"; # show only items from actor
+            oWish = "cboWish"; # show wishlist items
+            oExist = "cboExist"; # show exsiting items
+            oRest = "cboRest" # show rest items
+            addWish = "cbaddWish" # add to wishlist
         };
 
-        # Other
-        btn_Item="Add Item";
-        btn_Actor="Add Actor";
-        btn_rItem="Remove Item";
-        btn_Refresh="Refresh";
-        btn_save="Save";
-        btn_quit="Quit"
+        btn = @{
+            # Frame Add
+            Actor = "Add Actor";
+
+            # Frame Details
+            ActorI = "Add Actor to Item";
+            rItem = "Remove Item";
+            Apply = "Apply";
+
+            # Frame Options
+            Refresh = "Refresh";
+            save = "Save";
+            quit = "Quit"
+        }
     }
 }
 
@@ -112,8 +131,12 @@ class MovieDB{
     [Hashtable] $ActorsIndex = @{}
     [List[Actor]] $Actors = [List[Actor]]::new()
     [List[Item]] $ItemsShow = [List[Item]]::new()
+    [List[Actor]] $ActorsShow = [List[Actor]]::new()
+    [Boolean] $AddToWish = $false
     # [Item] $SelectedRecipe
-    # [Boolean] $SelectedRecipeMutex = $false
+    [Boolean] $SelectedItemMutex = $false
+    [Boolean] $SelectedActorMutex = $false
+    [Hashtable] $Selected = @{}
     # [Boolean] $EditRecipe = $false
     $gui
     $log
@@ -228,16 +251,20 @@ class MovieDB{
         return @{status = $true; msg = $msg}
     }
     
-    [Hashtable] ConvertToHash(){
-        $rc = @()
-        if($this.Recipes.Count -gt 0){
-            $rc = ([Array] $this.Recipes.ConvertToHash())
+    [Hashtable] ConvertItemsToHash(){
+        $hash = @{}
+        foreach($type in $this.GetTypes()){
+            $hash[$type] = [Arraylist] @()
+            foreach($item in $this.Items[$type]){
+                [void] $hash[$type].Add($item.ConvertToHash())
+            }
         }
-        return @{Items = $this.Items.Name; Recipes = $rc}
+        return $hash
     }
 
     [void] SaveConfig(){
-        [Constants]::SaveConfig($this.ConvertToHash())
+        [Constants]::SaveConfigItems($this.ConvertItemsToHash())
+        [Constants]::SaveConfigActors($this.Actors.Name)
     }
 
     [void] LoadConfig(){
@@ -257,105 +284,170 @@ class MovieDB{
 
     [void] ShowForm(){
         # Add GUI Elements
+        # Form
         $this.gui.CreateSysObject(
                 "Form", [Constants]::def.form, 
                 @{Size = '1600,950'; Text = [Constants]::def.formtext; MaximizeBox = $False; 
                   FormBorderStyle = "FixedDialog"; Topmost = $false; StartPosition = "CenterScreen" })
-          
+        
+        #region Frames
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.lists, @{}, [Constants]::def.form)
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.details, @{}, [Constants]::def.form)
         $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.options, @{}, [Constants]::def.form)
-        
-        #$this.gui.CreateSysObject("Label", [Constants]::def.list.item, @{Text = "Items:"}, [Constants]::def.frames.lists)
-        $this.gui.CreateSysObject("ComboBox", [Constants]::def.dd.type, @{}, [Constants]::def.frames.lists)
+        $this.gui.CreateSysObject("GroupBox", [Constants]::def.frames.add, @{}, [Constants]::def.form)
+        #endregion Frames
+
+        #region ComboBoxes
+        $this.gui.CreateSysObject("ComboBox", [Constants]::def.dd.type, @{}, [Constants]::def.frames.options)
         $this.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].Items.AddRange([Array] $this.GetTypes())
         $this.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].SelectedIndex = 0
         $this.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].Add_SelectedIndexChanged({
             $global:s.RefreshItemList()
-            # $global:s.SetRecipeLists()
-            # $global:s.ShowItemInfo()
         })
-        
+
+        $this.gui.CreateSysObject("ComboBox", [Constants]::def.dd.ctype, @{}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.ctype)].Items.AddRange([Array] $this.GetTypes())
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.ctype)].SelectedIndex = -1
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.ctype)].Add_SelectedIndexChanged({
+            
+        })
+
+        $this.gui.CreateSysObject("ComboBox", [Constants]::def.dd.addActor, @{}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.addActor)].Items.AddRange([Array] $this.Actors.Name)
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.addActor)].SelectedIndex = -1
+        $this.gui.SysObjects.ComboBox[([Constants]::def.dd.addActor)].Add_SelectedIndexChanged({
+            
+        })
+        #endregion ComboBoxes
+
+        #region Checkboxes
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.wish, @{Text = "Add to Wishlist per Click"; Checked = $false}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.wish)].Add_CheckedChanged({
+            
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.oAct, @{Text = "Show only Actors from Item"; Checked = $false}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oAct)].Add_CheckedChanged({
+            $global:s.RefreshItemList()
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.oItem, @{Text = "Show only Items from Actor"; Checked = $false}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oItem)].Add_CheckedChanged({
+            $global:s.RefreshItemList()
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.oWish, @{Text = "Show Wishlist Items"; Checked = $true}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oWish)].Add_CheckedChanged({
+            $global:s.RefreshItemList()
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.oExist, @{Text = "Show exsiting Items"; Checked = $true}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oExist)].Add_CheckedChanged({
+            $global:s.RefreshItemList()
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.oRest, @{Text = "Show rest Items"; Checked = $true}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oRest)].Add_CheckedChanged({
+            $global:s.RefreshItemList()
+        })
+
+        $this.gui.CreateSysObject("CheckBox", [Constants]::def.cb.addWish, @{Text = "Wishlist"; Checked = $false}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oRest)].Add_CheckedChanged({
+            
+        })
+        #endregion Checkboxes
+
+        #region ListBox 
         $this.gui.CreateSysObject("ListBox", [Constants]::def.list.item, @{Name = [Constants]::def.list.item; DrawMode = "OwnerDrawFixed"; ItemHeight = 21; DisplayMember=""}, [Constants]::def.frames.lists)
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Add_DrawItem({
-            $selectedType = $global:s.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].SelectedItem
-            if ($global:s.Items[$selectedType].Count -eq 0) {return}
-            $item = $global:s.Items[$selectedType][$args.Index]
-            #$global:s.log.WriteInfo($item.ConvertToHash(), "Draw")
-            #$item = $global:s.GetItemByName($itemName)
-            $brush = $global:brushes.White
-            # if(($item.Production -ne 0) -or ($item.Consumption -ne 0)){
-            #     $prefix = "Light"
-            #     $suffix = "Red"
-            #     if($this.SelectedItem -eq $itemName){
-            #         $prefix = ""
-            #     }
-            #     if($item.IsEnough){
-            #         $suffix = "Green"
-            #     }
-            #     $brush = $global:brushes["$prefix$suffix"]
-            # }
-            # elseif($this.SelectedItem -eq $itemName){
-            #     $brush = $global:brushes.Blue
-            # }
-            # else{
-            #     $brush = $global:brushes.White
-            # }
-            $args.Graphics.FillRectangle($brush, (new-object System.Drawing.Rectangle(
-                                                                        (new-object System.Drawing.Point($args.Bounds.X[1], $args.Bounds.Y[1])), 
-                                                                        (new-object System.Drawing.Size(($this.Width/2),$this.ItemHeight))
-                                                                )))
-            $args.Graphics.FillRectangle($global:brushes.Blue, (new-object System.Drawing.Rectangle(
-                                                                        (new-object System.Drawing.Point((([Int32] $args.Bounds.X[1])+([Int32] $this.Width / 2)), $args.Bounds.Y[1])), 
-                                                                        (new-object System.Drawing.Size(($this.Width/2),$this.ItemHeight))
-                                                                )))
-            $args.Graphics.DrawString($item.Title, $global:font1, $global:CT, (new-object System.Drawing.PointF($args.Bounds.X[1], $args.Bounds.Y[1])))
+            $global:s.DrawItem($this, $args)
         })
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Add_SelectedIndexChanged({
+            if (!$global:s.SelectedItemMutex -and
+                ($global:s.Selected.itemIndex -eq $global:s.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedIndex)) 
+            {
+                $global:s.SelectedItemMutex = $true
+                $global:s.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedIndex = -1
+                $global:s.SelectedItemMutex = $false
+            }
+            $global:s.GetSelected()
             $this.Refresh()
-            # $global:s.SetRecipeLists()
-            # $global:s.ShowItemInfo()
+            $global:s.gui.SysObjects.ListBox[([Constants]::def.list.actor)].Refresh()
         })
                     
-        #$this.gui.CreateSysObject("Label", [Constants]::def.list.mainRecipe, @{Text = "Main Recipes:"}, [Constants]::def.frames.lists)
         $this.gui.CreateSysObject("ListBox", [Constants]::def.list.actor, @{Name = [Constants]::def.list.actor; DrawMode = "OwnerDrawFixed"; ItemHeight = 21; DisplayMember=""}, [Constants]::def.frames.lists)
         $this.gui.SysObjects.ListBox[([Constants]::def.list.actor)].Add_DrawItem({
-            if ($global:s.Actors.Count -eq 0) {return}
-            $actor = $global:s.Actors[$args.Index]
-            #$item = $global:s.GetItemByName($itemName)
-            $brush = $global:brushes.White
-            # if(($item.Production -ne 0) -or ($item.Consumption -ne 0)){
-            #     $prefix = "Light"
-            #     $suffix = "Red"
-            #     if($this.SelectedItem -eq $itemName){
-            #         $prefix = ""
-            #     }
-            #     if($item.IsEnough){
-            #         $suffix = "Green"
-            #     }
-            #     $brush = $global:brushes["$prefix$suffix"]
-            # }
-            # elseif($this.SelectedItem -eq $itemName){
-            #     $brush = $global:brushes.Blue
-            # }
-            # else{
-            #     $brush = $global:brushes.White
-            # }
-            $args.Graphics.FillRectangle($brush, (new-object System.Drawing.Rectangle(
-                                                                        (new-object System.Drawing.Point($args.Bounds.X[1], $args.Bounds.Y[1])), 
-                                                                        (new-object System.Drawing.Size($this.Width,$this.ItemHeight))
-                                                                )))
-            $args.Graphics.DrawString($actor.Name, $global:font1, $global:CT, (new-object System.Drawing.PointF($args.Bounds.X[1], $args.Bounds.Y[1])))
+            $global:s.DrawActor($this, $args)
         })
         $this.gui.SysObjects.ListBox[([Constants]::def.list.actor)].Add_SelectedIndexChanged({
-            # if(!$global:s.SelectedRecipeMutex){
-            #     $global:s.SelectedRecipeMutex = $true
-            #     $global:s.gui.SysObjects.ListBox[([Constants]::def.list.secRecipe)].SelectedIndex = -1
-            #     $global:s.gui.SysObjects.ListBox[([Constants]::def.list.usedIn)].SelectedIndex = -1
-            #     $global:s.ShowRecipeInfo()
-            #     $global:s.SelectedRecipeMutex = $False
-            # }
+            if (!$global:s.SelectedActorMutex -and
+                ($global:s.Selected.actorIndex -eq $global:s.gui.SysObjects.ListBox[([Constants]::def.list.actor)].SelectedIndex)) 
+            {
+                $global:s.SelectedActorMutex = $true
+                $global:s.gui.SysObjects.ListBox[([Constants]::def.list.actor)].SelectedIndex = -1
+                $global:s.SelectedActorMutex = $false
+            }
+            $global:s.GetSelected()
+            $this.Refresh()
+            $global:s.gui.SysObjects.ListBox[([Constants]::def.list.item)].Refresh()
         })
+        #endregion ListBox 
+
+        #region Label 
+        $this.gui.CreateSysObject("Label", [Constants]::def.cap.title, @{Text = "Title:"}, [Constants]::def.frames.details)
+        $this.gui.CreateSysObject("Label", [Constants]::def.cap.otitle, @{Text = "Orig. Title:"}, [Constants]::def.frames.details)
+        $this.gui.CreateSysObject("Label", [Constants]::def.cap.year, @{Text = "Year:"}, [Constants]::def.frames.details)
+        #endregion Label 
+
+        #region TextBox 
+        $this.gui.CreateSysObject("TextBox", [Constants]::def.tb.addActor, @{Text = ""; Font = $global:font1}, [Constants]::def.frames.add)
+        $this.gui.SysObjects.TextBox[([Constants]::def.tb.addActor)].Add_TextChanged({
+        
+        })
+        $this.gui.CreateSysObject("TextBox", [Constants]::def.tb.editTitle, @{Text = ""; Font = $global:font1}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.TextBox[([Constants]::def.tb.editTitle)].Add_TextChanged({
+        
+        })
+        $this.gui.CreateSysObject("TextBox", [Constants]::def.tb.editOrigTitle, @{Text = ""; Font = $global:font1}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.TextBox[([Constants]::def.tb.editOrigTitle)].Add_TextChanged({
+        
+        })
+        $this.gui.CreateSysObject("TextBox", [Constants]::def.tb.editYear, @{Text = ""; Font = $global:font1}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.TextBox[([Constants]::def.tb.editYear)].Add_TextChanged({
+        
+        })
+        #endregion TextBox 
+
+        #region Button 
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.Actor, @{Text = "Add Actor"}, [Constants]::def.frames.add)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.Actor)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.ActorI, @{Text = "Add Actor to Item"}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.ActorI)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.rItem, @{Text = "Remove Item"}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.rItem)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.Apply, @{Text = "Apply"}, [Constants]::def.frames.details)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.Apply)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.Refresh, @{Text = "Refresh"}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.Refresh)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.save, @{Text = "Save"}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.save)].Add_Click({
+            
+        })
+        $this.gui.CreateSysObject("Button", [Constants]::def.btn.quit, @{Text = "Quit"}, [Constants]::def.frames.options)
+        $this.gui.SysObjects.Button[([Constants]::def.btn.quit)].Add_Click({
+            
+        })
+        #endregion Button 
 
         # $this.gui.CreateSysObject("Label", [Constants]::def.pk.lbl, @{Text = "PKey:"; Font = $global:font2}, [Constants]::def.frames.pk)
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.pk.cb, @{Font = $global:font1}, [Constants]::def.frames.pk)
@@ -371,25 +463,25 @@ class MovieDB{
         # $this.gui.SysObjects.Button[([Constants]::def.pk.btnr)].Add_Click({
         #     $global:s.RemovePK()
         # })
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.IName, @{Text = "Item Name:"}, [Constants]::def.frames.item)
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Prod, @{Text = "Production:"}, [Constants]::def.frames.item)
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Cons, @{Text = "Consumption:"}, [Constants]::def.frames.item)
         # #$this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoCaptions.Enough, @{Text = "Enough:"}, [Constants]::def.frames.item)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.IName, @{Text = "Heavy Modular Frame"}, [Constants]::def.frames.item)
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.Prod, @{Text = "1000"}, [Constants]::def.frames.item)
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.Cons, @{Text = "800"}, [Constants]::def.frames.item)
         # $this.gui.CreateSysObject("Label", [Constants]::def.ItemInfoValues.Enough, @{Text = "YES"}, [Constants]::def.frames.item)
-
-        
+        #
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.Name, @{Text = "Recipe Name:"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.RProd, @{Text = "Production for Recipe:"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.OutName, @{Text = "Main Output Item:"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.OutCount, @{Text = "Main Output Count:"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.SecName, @{Text = "Secondary Output Item:"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoCaptions.SecCount, @{Text = "Secondary Output Count:"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoMain.iName, @{Text = "Iron Ingot"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.SetProd.iRProd, @{Maximum = 10000000; DecimalPlaces = 2}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Button", [Constants]::def.SetProd.setProd, @{Text = "Set Production"; Name = [Constants]::def.SetProd.setProd}, [Constants]::def.frames.recipe)
@@ -400,36 +492,36 @@ class MovieDB{
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoMain.iOutCount, @{Text = "3"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoMain.iSecName, @{Text = "Iron Dust"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoMain.iSecCount, @{Text = "4"}, [Constants]::def.frames.recipe)
-        
+        #        
         # $this.gui.CreateSysObject("Label", [Constants]::def.iRHead[0], @{Text = "Item"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.iRHead[1], @{Text = "Count"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.iRHead[2], @{Text = "Ratio"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.iRHead[3], @{Text = "Consumption"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[0], @{Text = "Rubber"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[1], @{Text = "Plastic"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[2], @{Text = "Adaptive Control Unit"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[3], @{Text = "Heavy Modular Frame"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRName[4], @{Text = "Heavy Oil"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[0], @{Text = "1"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[1], @{Text = "10"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[2], @{Text = "100"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[3], @{Text = "999"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCount[4], @{Text = "999"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[0], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[1], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[2], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[3], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRRatio[4], @{Text = "2.000000"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[0], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[1], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[2], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[3], @{Text = "1000000"}, [Constants]::def.frames.recipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.RInfoIng.iRCon[4], @{Text = "1000000"}, [Constants]::def.frames.recipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.tb_iName, @{TextAlign = "MiddleCenter"; Font = $global:font2; Text = "Item Name:"}, [Constants]::def.frames.addItem)
         # $this.gui.CreateSysObject("TextBox", [Constants]::def.tb_iName, @{Text = ""}, [Constants]::def.frames.addItem)
         # $this.gui.CreateSysObject("Button", [Constants]::def.btn_addItem, @{Text = "Add Item"; Name = [Constants]::def.btn_addItem}, [Constants]::def.frames.addItem)
@@ -443,7 +535,7 @@ class MovieDB{
         #         $global:s.gui.CreateMsgForm("AddItem", "Add Item", $false, $addItemOutput.msg)
         #     }
         # })
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R1, @{Text = "Ingredient 1:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R2, @{Text = "Ingredient 2:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R3, @{Text = "Ingredient 3:"}, [Constants]::def.frames.addRecipe)
@@ -451,7 +543,7 @@ class MovieDB{
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.R5, @{Text = "Ingredient 5:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.Out, @{Text = "Output:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.S1, @{Text = "Second Output:"}, [Constants]::def.frames.addRecipe)
-
+        #
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R1, @{}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R2, @{}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R3, @{}, [Constants]::def.frames.addRecipe)
@@ -459,7 +551,7 @@ class MovieDB{
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.R5, @{}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.Out, @{}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("ComboBox", [Constants]::def.AddingRecipe.S1, @{}, [Constants]::def.frames.addRecipe)
-        
+        #       
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R1, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R2, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R3, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
@@ -467,12 +559,12 @@ class MovieDB{
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.R5, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.Out, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.S1, @{Maximum = 1000; DecimalPlaces = 1}, [Constants]::def.frames.addRecipe)
-
+        #
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.RProd, @{Text = "Production:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("Label", [Constants]::def.AddingRecipe.RName, @{Text = "Recipe Name:"}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("NumericUpDown", [Constants]::def.AddingRecipe.RProd, @{Maximum = 10000000; DecimalPlaces = 2}, [Constants]::def.frames.addRecipe)
         # $this.gui.CreateSysObject("TextBox", [Constants]::def.AddingRecipe.RName, @{}, [Constants]::def.frames.addRecipe)
-
+        #
         # $this.gui.CreateSysObject("Button", [Constants]::def.AddRBTN.addRecipe, @{Text = "Add Recipe"; Name = [Constants]::def.AddRBTN.addRecipe}, [Constants]::def.frames.addRecipe)
         # $this.gui.SysObjects.Button[([Constants]::def.AddRBTN.addRecipe)].Add_Click({
         #     $global:s.AddRecipeGUI()
@@ -481,7 +573,7 @@ class MovieDB{
         # $this.gui.SysObjects.Button[([Constants]::def.AddRBTN.editRecipe)].Add_Click({
         #     $global:s.EditRecipeGUI()
         # })
-
+        #
         # $this.gui.CreateSysObject("Button", [Constants]::def.btn_save, @{Text = "Save"; Name = [Constants]::def.btn_save}, [Constants]::def.frames.other)
         # $this.gui.SysObjects.Button[([Constants]::def.btn_save)].Add_Click({
         #     $global:s.SaveConfig()
@@ -490,9 +582,9 @@ class MovieDB{
         # $this.gui.SysObjects.Button[([Constants]::def.btn_quit)].Add_Click({
         #     $global:s.Quit()
         # })
-
+        #
         # Distribute Settings
-        
+        #        
         # $allLists = ([Array] ([Constants]::def.list.Values))
         # $allMainCaptions = ([Array] ([Constants]::def.ItemInfoCaptions.Values) + [Array] ([Constants]::def.RInfoCaptions.Values) + [Array] ([Constants]::def.AddingRecipe.Values))
         # $allMainInfos = [Array] ([Constants]::def.ItemInfoValues.Values) + [Array] ([Constants]::def.RInfoMain.Values)
@@ -508,11 +600,11 @@ class MovieDB{
         #     $this.gui.SysObjects.Label[$l].Font = $global:font2
         #     $this.gui.SysObjects.Label[$l].TextAlign = "MiddleCenter"
         # }
-        
+        #        
         # foreach($l in ($allMainCaptions + ([Constants]::def.iRHead))){
         #     $this.gui.SysObjects.Label[$l].Font = $global:font2
         # }
-
+        #
         # foreach($l in ($allMainCaptions + $allMainInfos)){
         #     $this.gui.SysObjects.Label[$l].TextAlign = "MiddleLeft"
         # }
@@ -521,34 +613,138 @@ class MovieDB{
         #     $this.gui.SysObjects.Label[$l].BackColor = "White"
         #     $this.gui.SysObjects.Label[$l].BorderStyle = "Fixed3D"
         # }
-
+        #
         # foreach($l in ([Constants]::def.iRHead + $allIngInfos)){
         #         $this.gui.SysObjects.Label[$l].TextAlign = "MiddleCenter"
         # }
-
+        #
         # foreach($l in ([Constants]::def.iRHead)){
         #     $this.gui.SysObjects.Label[$l].BorderStyle = "Fixed3D"
         # }
-
+        #
         # foreach($button in ([Array] $this.gui.SysObjects.Button.keys)){
         #     $this.gui.SysObjects.Button[$button].Font = $global:font1
         # }
-
+        #
         # foreach($tb in ([Array] $this.gui.SysObjects.TextBox.keys)){
         #     $this.gui.SysObjects.TextBox[$tb].Font = $global:font1
         # }
-
+        #
         # foreach($cb in ([Array] $this.gui.SysObjects.ComboBox.keys)){
         #     $this.gui.SysObjects.ComboBox[$cb].Font = $global:font1
         # }
-
-        # foreach($nud in ([Array] $this.gui.SysObjects.NumericUpDown.keys)){
-        #     $this.gui.SysObjects.NumericUpDown[$nud].Font = $global:font1
-        # }
+        #
+        foreach($typ in ("Button", "CheckBox", "TextBox", "ComboBox")){
+            foreach($nud in ([Array] $this.gui.SysObjects[$typ].keys)){
+                $this.gui.SysObjects[$typ][$nud].Font = $global:font1
+            }
+        }
+        foreach($nud in ([Array] $this.gui.SysObjects.Label.keys)){
+            $this.gui.SysObjects.Label[$nud].Font = $global:font2
+        }
         $this.gui.ApplyToSysObject((Join-Path $PSScriptRoot "MovieDB-GUI.json"))
         $this.RefreshGUI()
         $this.gui.SysObjects.Form[([Constants]::def.form)].ShowDialog()
     }
+
+    [void] DrawItem($object, $arguments){
+        $selectedType = $this.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].SelectedItem
+        $selectedIndex = $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedIndex
+        $selectedActor = $this.gui.SysObjects.ListBox[([Constants]::def.list.actor)].SelectedItem
+        if ($this.Items[$selectedType].Count -eq 0) {return}
+        $item = $this.Items[$selectedType][$arguments.Index]
+
+        $arguments.Graphics.FillRectangle($global:brushes.White, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size($object.Width,$object.ItemHeight))
+                                                            )))
+        
+        if ($item.Exist) {
+            $arguments.Graphics.FillRectangle($global:brushes.LightGreen, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size($object.Width,$object.ItemHeight))
+                                                            )))
+        }
+        elseif ($item.Wish) {
+            $arguments.Graphics.FillRectangle($global:brushes.Gold, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point((([int] $object.Width) - 100), $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size(100,$object.ItemHeight))
+                                                            )))
+        }
+
+
+        if (![String]::IsNullOrWhiteSpace($selectedActor) -and $item.Actors.Name.Contains($selectedActor)) {
+            $arguments.Graphics.FillRectangle($global:brushes.Lightblue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point((([int] $object.Width) - 50), $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size(50,$object.ItemHeight))
+                                                            )))
+        }
+        if ($selectedIndex -eq $arguments.Index) {
+            $arguments.Graphics.FillRectangle($global:brushes.Blue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size($object.Width,2))
+                                                            )))
+            $arguments.Graphics.FillRectangle($global:brushes.Blue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], (([int] $arguments.Bounds.Y[1]) + ([int] $object.ItemHeight) - 2))), 
+                                                                    (new-object System.Drawing.Size($object.Width,2))
+                                                            )))
+        }
+
+        $arguments.Graphics.DrawString($item.Title, $global:font1, $global:CT, (new-object System.Drawing.PointF($arguments.Bounds.X[1], $arguments.Bounds.Y[1])))
+    }
+
+    [void] DrawActor($object, $arguments){
+        $actor = $this.Actors[$arguments.Index]
+        $arguments.Graphics.FillRectangle($global:brushes.White, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size($object.Width,$object.ItemHeight))
+                                                            )))
+        if(($null -ne $this.Selected.item.Actors.Name) -and $this.Selected.item.Actors.Name.Contains($actor.Name)){
+            $arguments.Graphics.FillRectangle($global:brushes.Lightblue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point((([int] $object.Width) - 50), $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size(50,$object.ItemHeight))
+                                                            )))
+        }
+        if ($this.Selected.actorIndex -eq $arguments.Index) {
+            $arguments.Graphics.FillRectangle($global:brushes.Blue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], $arguments.Bounds.Y[1])), 
+                                                                    (new-object System.Drawing.Size($object.Width,2))
+                                                            )))
+            $arguments.Graphics.FillRectangle($global:brushes.Blue, (new-object System.Drawing.Rectangle(
+                                                                    (new-object System.Drawing.Point($arguments.Bounds.X[1], (([int] $arguments.Bounds.Y[1]) + ([int] $object.ItemHeight) - 2))), 
+                                                                    (new-object System.Drawing.Size($object.Width,2))
+                                                            )))
+        }
+        $arguments.Graphics.DrawString($actor.Name, $global:font1, $global:CT, (new-object System.Drawing.PointF($arguments.Bounds.X[1], $arguments.Bounds.Y[1])))
+    }
+
+    [void] GetSelected(){
+        $this.Selected = @{
+            type = $this.gui.SysObjects.ComboBox[([Constants]::def.dd.type)].SelectedItem;
+            ctype = $this.gui.SysObjects.ComboBox[([Constants]::def.dd.ctype)].SelectedItem;
+            addItemActor = $this.gui.SysObjects.ComboBox[([Constants]::def.dd.addActor)].SelectedItem;
+            itemIndex = $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].SelectedIndex;
+            actorIndex = $this.gui.SysObjects.ListBox[([Constants]::def.list.actor)].SelectedIndex;
+            wish = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.wish)].Checked;
+            oAct = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oAct)].Checked;
+            oItem = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oItem)].Checked;
+            oWish = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oWish)].Checked;
+            oExist = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oExist)].Checked;
+            oRest = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.oRest)].Checked;
+            addWish = $this.gui.SysObjects.CheckBox[([Constants]::def.cb.addWish)].Checked;
+            addActor = $this.gui.SysObjects.TextBox[([Constants]::def.tb.addActor)].Text;
+            editTitle = $this.gui.SysObjects.TextBox[([Constants]::def.tb.editTitle)].Text;
+            editOrigTitle = $this.gui.SysObjects.TextBox[([Constants]::def.tb.editOrigTitle)].Text;
+            editYear = $this.gui.SysObjects.TextBox[([Constants]::def.tb.editYear)].Text
+        }
+        if ($this.Selected.itemIndex -ge 0) {
+            $this.Selected.item = $this.Items[$this.Selected.type][$this.Selected.itemIndex]
+        }
+        if ($this.Selected.actorIndex -ge 0) {
+            $this.Selected.actor = $this.Actors[$this.Selected.actorIndex]
+        }
+    }
+
     [void] ClearLists(){
         $this.gui.SysObjects.ListBox[([Constants]::def.list.item)].Items.Clear()
         $this.gui.SysObjects.ListBox[([Constants]::def.list.actor)].Items.Clear()
@@ -561,8 +757,10 @@ class MovieDB{
     # }
     [void] RefreshGUI(){
         $this.ClearLists()
+        $this.GetSelected()
         $this.RefreshItemList()
         $this.RefreshActorList()
+        $this.GetSelected()
         # $this.ClearRecipeInfo()
         # $this.RefreshPK()
     }
@@ -825,8 +1023,10 @@ $global:font2 = [Font]::new("Microsoft Sans Serif",12,[FontStyle]::Bold)
 $global:brushes = @{
     Green = [SolidBrush]::new([Color]::Green);
     LightGreen = [SolidBrush]::new([Color]::LightGreen);
+    Gold = [SolidBrush]::new([Color]::Gold);
     White = [SolidBrush]::new([Color]::White);
-    Blue = [SolidBrush]::new([Color]::LightBlue);
+    Blue = [SolidBrush]::new([Color]::Blue);
+    LightBlue = [SolidBrush]::new([Color]::LightBlue);
     LightRed = [SolidBrush]::new([Color]::Red);
     Red = [SolidBrush]::new([Color]::DarkRed)
 }
